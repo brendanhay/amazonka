@@ -2,8 +2,7 @@
 
 set -euo pipefail
 
-docs=( documentation )
-core=( amazonka-core amazonka )
+core=( amazonka-gen amazonka-core amazonka )
 test=( amazonka-test )
 examples=( amazonka-examples )
 
@@ -18,7 +17,8 @@ entry() {
     local lib="$2"
 
 cat <<-ENTRY
-    - env: GHCVER=${ver} LIBRARY=${lib}
+    - env: GHCVER=${ver} LIBRARY=${lib} CACHE_NAME=${lib}-${ver}
+      compiler: "GHC-${ver}"
       addons: { apt: { packages: [ghc-${ver}], sources: [hvr-ghc] } }
 ENTRY
 }
@@ -51,7 +51,6 @@ echo "Updating ${travis}"
 sed -i -e '/# GENERATED/,/# END GENERATED/d' "${travis}"
 
 echo "# GENERATED"                       >> "${travis}"
-matrix "Documentation" ghc_82[@] docs[@] >> "${travis}"
 matrix "Core" ghc_all[@] core[@]         >> "${travis}"
 matrix "Test" ghc_82[@] test[@]          >> "${travis}"
 matrix "Priority" ghc_all[@] priority[@] >> "${travis}"

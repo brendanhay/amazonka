@@ -6,7 +6,7 @@ bug-reports:           https://github.com/brendanhay/amazonka/issues
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 copyright:             Copyright (c) 2013-2017 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple

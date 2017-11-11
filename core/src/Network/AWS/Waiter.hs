@@ -7,7 +7,7 @@
 -- Module      : Network.AWS.Waiter
 -- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --

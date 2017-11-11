@@ -16,17 +16,19 @@
 
 module Gen.AST.Data.Instance where
 
-import           Control.Applicative
-import           Control.Error
-import           Control.Lens
-import           Control.Monad.Except
-import           Data.Aeson
-import           Data.List            (find, partition)
-import           Data.Monoid
-import           Data.Text            (Text)
-import           Gen.AST.Data.Field
-import           Gen.Formatting
-import           Gen.Types
+import Control.Applicative
+import Control.Error
+import Control.Lens
+import Control.Monad.Except
+
+import Data.Aeson
+import Data.List   (find, partition)
+import Data.Monoid
+import Data.Text   (Text)
+
+import Gen.AST.Data.Field
+import Gen.Formatting
+import Gen.Types
 
 data Inst
     = FromXML   [Field]
@@ -204,9 +206,9 @@ requestInsts m oname h r fs = do
 
     protocolQuery :: [(Text, Maybe Text)]
     protocolQuery = case p of
-        Query    -> [a, v]
-        EC2      -> [a, v]
-        _        -> []
+        Query -> [a, v]
+        EC2   -> [a, v]
+        _     -> []
       where
         a = ("Action",  Just action)
         v = ("Version", Just version)

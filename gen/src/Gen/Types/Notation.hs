@@ -15,14 +15,17 @@
 
 module Gen.Types.Notation where
 
-import           Control.Applicative
-import           Data.Aeson
+import Control.Applicative
+
+import Data.Aeson
+import Data.Bifunctor
+import Data.List.NonEmpty (NonEmpty (..))
+import Data.Text          (Text)
+
+import Gen.Types.Id
+
 import qualified Data.Attoparsec.Text as A
-import           Data.Bifunctor
-import           Data.List.NonEmpty   (NonEmpty (..))
-import           Data.Text            (Text)
 import qualified Data.Text            as Text
-import           Gen.Types.Id
 
 data Key a
     = Key  { fromKey :: a }

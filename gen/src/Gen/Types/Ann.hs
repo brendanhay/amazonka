@@ -17,19 +17,23 @@
 
 module Gen.Types.Ann where
 
-import           Control.Comonad
-import           Control.Comonad.Cofree
-import           Control.Lens           hiding ((:<))
-import           Data.Aeson
-import           Data.Function          (on)
-import           Data.Hashable
-import qualified Data.HashSet           as Set
-import           Data.Monoid
-import           Data.Text              (Text)
-import qualified Data.Text              as Text
-import           Gen.TH
-import           Gen.Types.Id
-import           GHC.Generics           (Generic)
+import Control.Comonad
+import Control.Comonad.Cofree
+import Control.Lens           hiding ((:<))
+
+import Data.Aeson
+import Data.Function (on)
+import Data.Hashable
+import Data.Monoid
+import Data.Text     (Text)
+
+import Gen.TH
+import Gen.Types.Id
+
+import GHC.Generics (Generic)
+
+import qualified Data.HashSet as Set
+import qualified Data.Text    as Text
 
 type Set = Set.HashSet
 

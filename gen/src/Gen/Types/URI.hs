@@ -19,17 +19,17 @@
 
 module Gen.Types.URI where
 
-import           Control.Applicative
-import           Control.Lens
+import Control.Applicative
+import Control.Lens
 
-import           Data.Aeson
-import           Data.Attoparsec.Text (Parser)
-import           Data.Text            (Text)
+import Data.Aeson
+import Data.Attoparsec.Text (Parser)
+import Data.Text            (Text)
 
-import           Gen.TH
-import           Gen.Types.Id
+import Gen.TH
+import Gen.Types.Id
 
-import           GHC.Generics         (Generic)
+import GHC.Generics (Generic)
 
 import qualified Data.Attoparsec.Text as Parse
 import qualified Data.Text            as Text
@@ -70,9 +70,9 @@ uriParser = URI'
     var = mkId . Text.filter rep <$>
         (Parse.char '{' *> Parse.takeWhile1 (end '}') <* Parse.char '}')
 
-    end x y | x == y = False
-    end _ '?'        = False
-    end _  _         = True
+    end x y   | x == y = False
+    end _ '?' = False
+    end _  _  = True
 
     rep '+' = False
     rep  _  = True

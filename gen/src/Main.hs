@@ -17,23 +17,28 @@
 
 module Main (main) where
 
-import           Control.Error
-import           Control.Lens
-import           Control.Monad
-import           Control.Monad.Except
-import           Control.Monad.State
-import           Data.Monoid
-import           Data.String
-import qualified Data.Text                 as Text
-import qualified Filesystem                as FS
-import           Filesystem.Path.CurrentOS
-import qualified Gen.AST                   as AST
+import Control.Error
+import Control.Lens
+import Control.Monad
+import Control.Monad.Except
+import Control.Monad.State
+
+import Data.Monoid
+import Data.String
+
+import Filesystem.Path.CurrentOS
+
 import           Gen.Formatting
 import           Gen.IO
-import qualified Gen.JSON                  as JS
-import qualified Gen.Tree                  as Tree
-import           Gen.Types                 hiding (info)
-import           Options.Applicative
+import qualified Gen.JSON       as JS
+import           Gen.Types      hiding (info)
+
+import Options.Applicative
+
+import qualified Data.Text  as Text
+import qualified Filesystem as FS
+import qualified Gen.AST    as AST
+import qualified Gen.Tree   as Tree
 
 data Opt = Opt
     { _optOutput    :: Path

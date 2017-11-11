@@ -18,23 +18,23 @@
 
 module Gen.AST.Data.Field where
 
-import           Control.Applicative
-import           Control.Comonad.Cofree
-import           Control.Lens
+import Control.Applicative
+import Control.Comonad.Cofree
+import Control.Lens
 
-import           Data.Function                (on)
-import           Data.List                    (elemIndex, sortBy)
-import           Data.Maybe
-import           Data.Monoid
-import           Data.Text                    (Text)
-import           Data.Text.Manipulate
+import Data.Function        (on)
+import Data.List            (elemIndex, sortBy)
+import Data.Maybe
+import Data.Monoid
+import Data.Text            (Text)
+import Data.Text.Manipulate
 
-import           Gen.Types
+import Gen.Types
 
-import           Language.Haskell.Exts.Syntax (Name (..))
+import Language.Haskell.Exts.Syntax (Name (..))
 
-import qualified Data.HashMap.Strict          as Map
-import qualified Data.Text                    as Text
+import qualified Data.HashMap.Strict as Map
+import qualified Data.Text           as Text
 
 -- | Convenience type to package up some information from the struct with the
 -- related field, namely the memberId and the (Set.member required).

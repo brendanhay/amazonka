@@ -10,11 +10,13 @@
 
 module Gen.Types.Map where
 
-import           Control.Lens
-import           Data.Hashable
+import Control.Lens
+
+import Data.Hashable
+import Data.Maybe
+import Data.Tuple
+
 import qualified Data.HashMap.Strict as Map
-import           Data.Maybe
-import           Data.Tuple
 
 type Map = Map.HashMap
 

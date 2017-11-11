@@ -13,22 +13,25 @@
 
 module Gen.Text where
 
-import           Control.Error
-import           Control.Monad
-import           Data.Bifunctor
-import           Data.Char
+import Control.Error
+import Control.Monad
+
+import Data.Bifunctor
+import Data.Char
+import Data.Monoid
+import Data.String
+import Data.Text             (Text)
+import Data.Text.ICU         (Regex)
+import Data.Text.ICU.Replace (Replace)
+import Data.Text.Manipulate
+
+import Text.Parsec.Language (haskellDef)
+import Text.Parsec.Token    (reservedNames)
+
 import qualified Data.Foldable         as Fold
 import qualified Data.HashSet          as Set
-import           Data.Monoid
-import           Data.String
-import           Data.Text             (Text)
 import qualified Data.Text             as Text
-import           Data.Text.ICU         (Regex)
-import           Data.Text.ICU.Replace (Replace)
 import qualified Data.Text.ICU.Replace as RE
-import           Data.Text.Manipulate
-import           Text.Parsec.Language  (haskellDef)
-import           Text.Parsec.Token     (reservedNames)
 
 asText :: (Text -> Text) -> String -> String
 asText f = Text.unpack . f . Text.pack

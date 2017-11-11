@@ -30,32 +30,32 @@
 
 module Gen.Types.Service where
 
-import           Control.Comonad
-import           Control.Comonad.Cofree
-import           Control.Lens           hiding ((:<), List, (.=))
+import Control.Comonad
+import Control.Comonad.Cofree
+import Control.Lens           hiding ((:<), List, (.=))
 
-import           Data.Aeson             hiding (Bool)
-import           Data.Bifunctor
-import           Data.List              (nub)
-import           Data.Maybe
-import           Data.Text              (Text)
+import Data.Aeson     hiding (Bool)
+import Data.Bifunctor
+import Data.List      (nub)
+import Data.Maybe
+import Data.Text      (Text)
 
-import           Gen.Text
-import           Gen.TH
-import           Gen.Types.Ann
-import           Gen.Types.Help
-import           Gen.Types.Id
-import           Gen.Types.Map
-import           Gen.Types.NS
-import           Gen.Types.Pager
-import           Gen.Types.Retry
-import           Gen.Types.URI
-import           Gen.Types.Waiter
+import Gen.Text
+import Gen.TH
+import Gen.Types.Ann
+import Gen.Types.Help
+import Gen.Types.Id
+import Gen.Types.Map
+import Gen.Types.NS
+import Gen.Types.Pager
+import Gen.Types.Retry
+import Gen.Types.URI
+import Gen.Types.Waiter
 
-import           GHC.Generics           (Generic)
+import GHC.Generics (Generic)
 
-import qualified Data.HashMap.Strict    as Map
-import qualified Data.Text              as Text
+import qualified Data.HashMap.Strict as Map
+import qualified Data.Text           as Text
 
 makePrisms ''Identity
 

@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.Formatting
 -- Copyright   : (c) 2013-2016 Brendan Hay
@@ -17,18 +16,22 @@ module Gen.Formatting
     , module Formatting.Time
     ) where
 
-import           Gen.Types
-import           Control.Monad.Except
+import Control.Monad.Except
+
+import Data.CaseInsensitive (CI)
+import Data.Text            (Text)
+
+import Gen.Types
+
+import Formatting          hiding (left, right)
+import Formatting.Internal (runFormat)
+import Formatting.Time     hiding (fmt)
+
 import qualified Data.CaseInsensitive   as CI
-import           Data.CaseInsensitive   (CI)
 import qualified Data.HashMap.Strict    as Map
-import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import qualified Data.Text.Lazy         as LText
 import qualified Data.Text.Lazy.Builder as Build
-import           Formatting             hiding (left, right)
-import           Formatting.Internal    (runFormat)
-import           Formatting.Time        hiding (fmt)
 
 scomma :: Format a ([Text] -> a)
 scomma = later (Build.fromText . Text.intercalate ",")
@@ -48,8 +51,9 @@ path = later (Build.fromText . toTextIgnore)
 partial :: Show b => Format a ((Id, Map.HashMap Id b) -> a)
 partial = later (Build.fromString . show . Map.toList . prefix)
   where
-    prefix (memberId -> Text.take 3 -> p, m) =
-        Map.filterWithKey (const . Text.isPrefixOf p . memberId) m
+    prefix (p, m) =
+        let p' = memberId (Text.take 3 p)
+         in Map.filterWithKey (const . Text.isPrefixOf p' . memberId) m
 
 failure :: MonadError e m => Format LText.Text (a -> e) -> a -> m b
 failure m = throwError . format m

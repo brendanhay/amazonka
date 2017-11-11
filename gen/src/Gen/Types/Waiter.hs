@@ -16,13 +16,16 @@
 
 module Gen.Types.Waiter where
 
-import           Control.Lens
-import           Data.Aeson
-import           Data.Text          (Text)
-import           Gen.TH
-import           Gen.Types.Id
-import           Gen.Types.Notation
-import           GHC.Generics
+import Control.Lens
+
+import Data.Aeson
+import Data.Text  (Text)
+
+import Gen.TH
+import Gen.Types.Id
+import Gen.Types.Notation
+
+import GHC.Generics
 
 data Match
     = Path

@@ -17,12 +17,12 @@ module Gen.Types.Help
     ( Help (..)
     ) where
 
-import           Data.Aeson
-import           Data.Monoid          ((<>))
-import           Data.String
-import           Data.Text            (Text)
+import Data.Aeson
+import Data.Monoid ((<>))
+import Data.String
+import Data.Text   (Text)
 
-import           Text.XML             (Node (..))
+import Text.XML (Node (..))
 
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.Char            as Char

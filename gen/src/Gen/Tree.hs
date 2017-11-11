@@ -24,31 +24,31 @@ module Gen.Tree
     , populate
     ) where
 
-import           Control.Lens              (each, (^.), (^..))
-import           Control.Monad
-import           Control.Monad.Except
+import Control.Lens         (each, (^.), (^..))
+import Control.Monad
+import Control.Monad.Except
 
-import           Data.Aeson                hiding (json)
-import           Data.Bifunctor
-import           Data.Functor.Identity
-import           Data.Monoid
-import           Data.Text                 (Text)
+import Data.Aeson            hiding (json)
+import Data.Bifunctor
+import Data.Functor.Identity
+import Data.Monoid
+import Data.Text             (Text)
 
-import           Filesystem.Path.CurrentOS hiding (FilePath, root)
+import Filesystem.Path.CurrentOS hiding (FilePath, root)
 
-import           Gen.Formatting            (failure, shown)
-import           Gen.Import
-import           Gen.Types
+import Gen.Formatting (failure, shown)
+import Gen.Import
+import Gen.Types
 
-import           Prelude                   hiding (mod)
+import Prelude hiding (mod)
 
-import           System.Directory.Tree     hiding (file)
+import System.Directory.Tree hiding (file)
 
-import           Text.EDE                  hiding (failure, render)
+import Text.EDE hiding (failure, render)
 
-import qualified Data.Text                 as Text
-import qualified Data.Text.Lazy            as LText
-import qualified Gen.JSON                  as JS
+import qualified Data.Text      as Text
+import qualified Data.Text.Lazy as LText
+import qualified Gen.JSON       as JS
 
 root :: AnchoredDirTree a -> Path
 root (p :/ d) = decodeString p </> decodeString (name d)

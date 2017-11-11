@@ -12,10 +12,10 @@
 
 module Gen.Types.NS where
 
-import           Data.Aeson
-import           Data.Monoid
-import           Data.String
-import           Data.Text                 (Text)
+import Data.Aeson
+import Data.Monoid
+import Data.String
+import Data.Text   (Text)
 
 import qualified Data.Text                 as Text
 import qualified Filesystem.Path.CurrentOS as Path

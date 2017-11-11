@@ -28,14 +28,18 @@ module Gen.TH
     , camel
     ) where
 
-import           Control.Lens
-import           Data.Aeson.TH
-import           Data.Aeson.Types
-import           Data.Text            (Text)
+import Control.Lens
+
+import Data.Aeson.TH
+import Data.Aeson.Types
+import Data.Text        (Text)
+
+import Gen.Text
+
+import GHC.Generics
+
 import qualified Data.Text            as Text
 import qualified Data.Text.Manipulate as Text
-import           Gen.Text
-import           GHC.Generics
 
 data TH = TH
     { _ctor   :: Text -> Text

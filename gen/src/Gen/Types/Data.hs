@@ -16,21 +16,21 @@
 
 module Gen.Types.Data where
 
-import           Control.Lens     hiding ((.=))
+import Control.Lens hiding ((.=))
 
-import           Data.Aeson
-import           Data.Aeson.Types
-import           Data.Function    (on)
-import           Data.Text        (Text)
+import Data.Aeson
+import Data.Aeson.Types
+import Data.Function    (on)
+import Data.Text        (Text)
 
-import           Gen.Types.Ann
-import           Gen.Types.Help
-import           Gen.Types.Id
-import           Gen.Types.Map
-import           Gen.Types.TypeOf
+import Gen.Types.Ann
+import Gen.Types.Help
+import Gen.Types.Id
+import Gen.Types.Map
+import Gen.Types.TypeOf
 
-import qualified Data.Text        as Text
-import qualified Data.Text.Lazy   as LText
+import qualified Data.Text      as Text
+import qualified Data.Text.Lazy as LText
 
 type Rendered = LText.Text
 

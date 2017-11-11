@@ -29,32 +29,32 @@
 
 module Gen.Types.Config where
 
-import           Control.Error
-import           Control.Lens              hiding ((.=))
+import Control.Error
+import Control.Lens  hiding ((.=))
 
-import           Data.Aeson
-import           Data.List                 (sort, sortOn, (\\))
-import           Data.Monoid               hiding (Product, Sum)
-import           Data.Ord
-import           Data.Text                 (Text)
-import           Data.Time
+import Data.Aeson
+import Data.List   (sort, sortOn, (\\))
+import Data.Monoid hiding (Product, Sum)
+import Data.Ord
+import Data.Text   (Text)
+import Data.Time
 
-import           Formatting
+import Formatting
 
-import           Gen.Text
-import           Gen.TH
-import           Gen.Types.Ann
-import           Gen.Types.Data
-import           Gen.Types.Id
-import           Gen.Types.Map
-import           Gen.Types.NS
-import           Gen.Types.Service
-import           Gen.Types.TypeOf
+import Gen.Text
+import Gen.TH
+import Gen.Types.Ann
+import Gen.Types.Data
+import Gen.Types.Id
+import Gen.Types.Map
+import Gen.Types.NS
+import Gen.Types.Service
+import Gen.Types.TypeOf
 
-import           GHC.Generics              (Generic)
-import           GHC.TypeLits
+import GHC.Generics (Generic)
+import GHC.TypeLits
 
-import           Text.EDE                  (Template)
+import Text.EDE (Template)
 
 import qualified Data.Text.Lazy            as LText
 import qualified Data.Text.Lazy.Builder    as Build

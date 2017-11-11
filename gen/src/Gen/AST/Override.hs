@@ -19,17 +19,20 @@ module Gen.AST.Override
     ( override
     ) where
 
-import           Control.Comonad
-import           Control.Comonad.Cofree
-import           Control.Error
-import           Control.Lens           hiding ((:<))
-import           Control.Monad.State
-import           Data.Bifunctor
-import qualified Data.HashMap.Strict    as Map
-import           Data.List              ((\\))
-import           Data.Monoid
-import           Gen.Types.TypeOf
-import           Gen.Types
+import Control.Comonad
+import Control.Comonad.Cofree
+import Control.Error
+import Control.Lens           hiding ((:<))
+import Control.Monad.State
+
+import Data.Bifunctor
+import Data.List      ((\\))
+import Data.Monoid
+
+import Gen.Types
+import Gen.Types.TypeOf
+
+import qualified Data.HashMap.Strict as Map
 
 data Env = Env
     { _renamed  :: Map Id Id

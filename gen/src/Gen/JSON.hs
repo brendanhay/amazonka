@@ -13,19 +13,22 @@
 
 module Gen.JSON where
 
-import           Control.Error
-import           Control.Monad.Except
-import           Data.Aeson           hiding (decode)
-import           Data.Aeson.Types
-import           Data.Bifunctor
-import           Data.ByteString      (ByteString)
+import Control.Error
+import Control.Monad.Except
+
+import Data.Aeson       hiding (decode)
+import Data.Aeson.Types
+import Data.Bifunctor
+import Data.ByteString  (ByteString)
+import Data.List
+
+import Gen.Formatting
+import Gen.IO
+import Gen.Types
+
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.HashMap.Strict  as Map
-import           Data.List
 import qualified Data.Text.Lazy       as LText
-import           Gen.Formatting
-import           Gen.IO
-import           Gen.Types
 import qualified Text.EDE             as EDE
 
 required :: MonadIO m => Path -> ExceptT Error m Object

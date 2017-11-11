@@ -19,13 +19,15 @@ module Gen.Protocol
     , suffix
     ) where
 
-import           Control.Applicative
-import           Control.Comonad.Cofree
-import           Control.Lens           hiding (List)
-import           Data.Maybe
-import           Data.Text              (Text)
-import           Data.Text.Manipulate
-import           Gen.Types
+import Control.Applicative
+import Control.Comonad.Cofree
+import Control.Lens           hiding (List)
+
+import Data.Maybe
+import Data.Text            (Text)
+import Data.Text.Manipulate
+
+import Gen.Types
 
 data Level = Flat | Nest
 

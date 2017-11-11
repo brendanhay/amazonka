@@ -16,17 +16,17 @@
 
 module Gen.AST.Cofree where
 
-import           Control.Comonad
-import           Control.Comonad.Cofree
-import           Control.Error
-import           Control.Lens           hiding ((:<))
-import           Control.Monad.Except
-import           Control.Monad.State
+import Control.Comonad
+import Control.Comonad.Cofree
+import Control.Error
+import Control.Lens           hiding ((:<))
+import Control.Monad.Except
+import Control.Monad.State
 
-import           Gen.Formatting
-import           Gen.Types
+import Gen.Formatting
+import Gen.Types
 
-import qualified Data.HashMap.Strict    as Map
+import qualified Data.HashMap.Strict as Map
 
 newtype Fix f = Fix (f (Fix f))
 

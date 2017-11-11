@@ -18,17 +18,21 @@
 
 module Gen.Types.Retry where
 
-import           Control.Applicative
-import           Control.Lens
-import           Data.Aeson
-import           Data.Aeson.Types
-import           Data.Maybe
-import           Data.Monoid
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           Data.Text.Manipulate
-import           Gen.Types.Map
-import           GHC.Generics
+import Control.Applicative
+import Control.Lens
+
+import Data.Aeson
+import Data.Aeson.Types
+import Data.Maybe
+import Data.Monoid
+import Data.Text            (Text)
+import Data.Text.Manipulate
+
+import Gen.Types.Map
+
+import GHC.Generics
+
+import qualified Data.Text as Text
 
 defKey :: Text
 defKey = "__default__"

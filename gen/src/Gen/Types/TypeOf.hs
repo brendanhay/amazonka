@@ -26,16 +26,16 @@ module Gen.Types.TypeOf
     , typeDefault
     ) where
 
-import           Control.Comonad.Cofree
-import           Control.Lens           hiding ((:<), List, enum, mapping, (??))
+import Control.Comonad.Cofree
+import Control.Lens           hiding ((:<), List, enum, mapping, (??))
 
-import           Data.Foldable          (foldr')
-import           Data.List              (delete, intersect, nub, sort)
-import           Data.Monoid
+import Data.Foldable (foldr')
+import Data.List     (delete, intersect, nub, sort)
+import Data.Monoid
 
-import           Gen.Types.Ann
-import           Gen.Types.Id
-import           Gen.Types.Service
+import Gen.Types.Ann
+import Gen.Types.Id
+import Gen.Types.Service
 
 class TypeOf a where
     typeOf :: a -> TType

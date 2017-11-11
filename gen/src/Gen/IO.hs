@@ -14,23 +14,29 @@
 
 module Gen.IO where
 
-import           Control.Error
-import           Control.Monad.Except
-import           Control.Monad.State
-import           Data.Bifunctor
-import           Data.ByteString           (ByteString)
-import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
-import qualified Data.Text.Lazy            as LText
-import           Data.Text.Lazy.Builder    (toLazyText)
-import qualified Data.Text.Lazy.IO         as LText
-import qualified Filesystem                as FS
-import           Filesystem.Path.CurrentOS
-import           Gen.Formatting
-import           Gen.Types
-import           System.IO
-import qualified Text.EDE                  as EDE
-import           UnexceptionalIO           (fromIO, runUIO)
+import Control.Error
+import Control.Monad.Except
+import Control.Monad.State
+
+import Data.Bifunctor
+import Data.ByteString        (ByteString)
+import Data.Text              (Text)
+import Data.Text.Lazy.Builder (toLazyText)
+
+import Filesystem.Path.CurrentOS
+
+import Gen.Formatting
+import Gen.Types
+
+import System.IO
+
+import UnexceptionalIO (fromIO, runUIO)
+
+import qualified Data.Text         as Text
+import qualified Data.Text.Lazy    as LText
+import qualified Data.Text.Lazy.IO as LText
+import qualified Filesystem        as FS
+import qualified Text.EDE          as EDE
 
 run :: ExceptT Error IO a -> IO a
 run = runScript . fmapLT LText.toStrict

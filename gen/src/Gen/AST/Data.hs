@@ -22,28 +22,27 @@ module Gen.AST.Data
     , waiterData
     ) where
 
-import           Control.Comonad.Cofree
-import           Control.Error
-import           Control.Lens                 hiding ((:<), List, enum, mapping,
-                                               (??))
-import           Control.Monad
-import           Control.Monad.Except
-import           Control.Monad.Trans.State
+import Control.Comonad.Cofree
+import Control.Error
+import Control.Lens              hiding ((:<), List, enum, mapping, (??))
+import Control.Monad
+import Control.Monad.Except
+import Control.Monad.Trans.State
 
-import           Data.Bifunctor
-import           Data.Char                    (isSpace)
-import           Data.List                    (find, sort)
-import           Data.Monoid                  ((<>))
-import           Data.String
-import           Data.Text                    (Text)
+import Data.Bifunctor
+import Data.Char      (isSpace)
+import Data.List      (find, sort)
+import Data.Monoid    ((<>))
+import Data.String
+import Data.Text      (Text)
 
-import           Gen.AST.Data.Field
-import           Gen.AST.Data.Instance
-import           Gen.AST.Data.Syntax
-import           Gen.Formatting
-import           Gen.Types
+import Gen.AST.Data.Field
+import Gen.AST.Data.Instance
+import Gen.AST.Data.Syntax
+import Gen.Formatting
+import Gen.Types
 
-import           Language.Haskell.Exts.Pretty (Pretty)
+import Language.Haskell.Exts.Pretty (Pretty)
 
 import qualified Data.ByteString.Builder      as Build
 import qualified Data.ByteString.Char8        as BS8

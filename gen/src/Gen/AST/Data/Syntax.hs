@@ -20,20 +20,20 @@
 
 module Gen.AST.Data.Syntax where
 
-import           Control.Comonad
-import           Control.Error
-import           Control.Lens                 hiding (iso, mapping, op, strict)
+import Control.Comonad
+import Control.Error
+import Control.Lens    hiding (iso, mapping, op, strict)
 
-import           Data.Foldable                (foldl', foldr')
-import           Data.List.NonEmpty           (NonEmpty (..))
-import           Data.Monoid                  ((<>))
-import           Data.String
-import           Data.Text                    (Text)
+import Data.Foldable      (foldl', foldr')
+import Data.List.NonEmpty (NonEmpty (..))
+import Data.Monoid        ((<>))
+import Data.String
+import Data.Text          (Text)
 
-import           Gen.AST.Data.Field
-import           Gen.AST.Data.Instance
-import           Gen.Protocol                 (Names (..))
-import           Gen.Types
+import Gen.AST.Data.Field
+import Gen.AST.Data.Instance
+import Gen.Protocol          (Names (..))
+import Gen.Types
 
 import qualified Data.Foldable         as Fold
 import qualified Data.HashMap.Strict   as Map
@@ -358,21 +358,21 @@ responseE p r fs = Exts.app (responseF p r fs) bdy
     parseField :: Field -> Exp
     parseField x =
         case fieldLocation x of
-            Just Headers        -> parseHeadersE p x
-            Just Header         -> parseHeadersE p x
-            Just StatusCode     -> parseStatusE    x
-            Just Body    | body -> Exts.app pureE (var "x")
-            Nothing      | body -> Exts.app pureE (var "x")
-            _                   -> parseProto x
+            Just Headers    -> parseHeadersE p x
+            Just Header     -> parseHeadersE p x
+            Just StatusCode -> parseStatusE    x
+            Just Body       | body -> Exts.app pureE (var "x")
+            Nothing         | body -> Exts.app pureE (var "x")
+            _               -> parseProto x
 
     parseProto :: Field -> Exp
     parseProto f =
         case p of
-            _ | f ^. fieldPayload -> parseOne   f
-            JSON                  -> parseJSONE p pJE pJEMay pJEDef f
-            RestJSON              -> parseJSONE p pJE pJEMay pJEDef f
-            APIGateway            -> parseJSONE p pJE pJEMay pJEDef f
-            _                     -> parseXMLE  p f
+            _          | f ^. fieldPayload -> parseOne   f
+            JSON       -> parseJSONE p pJE pJEMay pJEDef f
+            RestJSON   -> parseJSONE p pJE pJEMay pJEDef f
+            APIGateway -> parseJSONE p pJE pJEMay pJEDef f
+            _          -> parseXMLE  p f
 
     parseOne :: Field -> Exp
     parseOne f
@@ -821,7 +821,7 @@ directed i m d (typeOf -> t) = case t of
 
     may x@(TMap  {}) | not i = go x
     may x@(TList {}) | not i = go x
-    may x                    = tyapp (tycon "Maybe") (go x)
+    may x            = tyapp (tycon "Maybe") (go x)
 
     list1
         | i         = tyapp (tycon "List1")

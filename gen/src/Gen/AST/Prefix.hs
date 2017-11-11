@@ -20,26 +20,29 @@ module Gen.AST.Prefix
     ( prefixes
     ) where
 
-import           Control.Applicative
-import           Control.Comonad.Cofree
-import           Control.Lens           hiding ((:<))
-import           Control.Monad.Except
-import           Control.Monad.State
-import           Data.CaseInsensitive   (CI)
-import qualified Data.CaseInsensitive   as CI
-import           Data.Char              (isLower)
-import           Data.Hashable
-import qualified Data.HashMap.Strict    as Map
-import qualified Data.HashSet           as Set
-import           Data.Maybe
-import           Data.Monoid
-import           Data.Text              (Text)
-import qualified Data.Text              as Text
-import           Data.Text.Manipulate
-import           Gen.AST.Cofree
-import           Gen.Formatting
-import           Gen.Text
-import           Gen.Types
+import Control.Applicative
+import Control.Comonad.Cofree
+import Control.Lens           hiding ((:<))
+import Control.Monad.Except
+import Control.Monad.State
+
+import Data.CaseInsensitive (CI)
+import Data.Char            (isLower)
+import Data.Hashable
+import Data.Maybe
+import Data.Monoid
+import Data.Text            (Text)
+import Data.Text.Manipulate
+
+import Gen.AST.Cofree
+import Gen.Formatting
+import Gen.Text
+import Gen.Types
+
+import qualified Data.CaseInsensitive as CI
+import qualified Data.HashMap.Strict  as Map
+import qualified Data.HashSet         as Set
+import qualified Data.Text            as Text
 
 type Seen = Map (CI Text) (Set (CI Text))
 

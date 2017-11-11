@@ -16,24 +16,24 @@
 
 module Gen.AST where
 
-import           Control.Arrow
-import           Control.Error
-import           Control.Lens
-import           Control.Monad.Except (throwError)
-import           Control.Monad.State
+import Control.Arrow
+import Control.Error
+import Control.Lens
+import Control.Monad.Except (throwError)
+import Control.Monad.State
 
-import           Data.Monoid
+import Data.Monoid
 
-import           Gen.AST.Cofree
-import           Gen.AST.Data
-import           Gen.AST.Override
-import           Gen.AST.Prefix
-import           Gen.AST.Subst
-import           Gen.Formatting
-import           Gen.Types
+import Gen.AST.Cofree
+import Gen.AST.Data
+import Gen.AST.Override
+import Gen.AST.Prefix
+import Gen.AST.Subst
+import Gen.Formatting
+import Gen.Types
 
-import qualified Data.HashMap.Strict  as Map
-import qualified Data.HashSet         as Set
+import qualified Data.HashMap.Strict as Map
+import qualified Data.HashSet        as Set
 
 -- FIXME: Relations need to be updated by the solving step.
 

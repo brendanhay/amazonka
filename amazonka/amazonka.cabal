@@ -31,14 +31,21 @@ description:
     GHC 7.8.4 and higher is officially supported.
 
 source-repository head
-    type:     git
-    location: git://github.com/brendanhay/amazonka.git
+    type:              git
+    location:          git://github.com/brendanhay/amazonka.git
+    subdir:            amazonka
 
 library
     default-language:  Haskell2010
     hs-source-dirs:    src
 
-    ghc-options:       -Wall
+    ghc-options:
+        -Wall
+        -Wincomplete-uni-patterns
+        -Wincomplete-record-updates
+        -Wcompat
+        -Wnoncanonical-monad-instances
+        -Wnoncanonical-monadfail-instances
 
     exposed-modules:
           Control.Monad.Trans.AWS

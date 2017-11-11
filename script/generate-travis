@@ -19,7 +19,7 @@ entry() {
 
 cat <<-ENTRY
     - env: LIBRARY=${lib} GHCVER=${ver} STACK_YAML=stack-${ver}.yaml CACHE_NAME=${lib}-${ver}
-      compiler: "GHC-${ver}"
+      compiler: ": #stack ${ver}"
       addons: {apt: {packages: [ghc-${ver}], sources: [hvr-ghc]}}
 ENTRY
 }

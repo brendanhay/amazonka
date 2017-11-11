@@ -41,6 +41,7 @@ library
         -Wcompat
         -Wnoncanonical-monad-instances
         -Wnoncanonical-monadfail-instances
+        -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.Compat.Locale

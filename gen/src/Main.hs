@@ -5,6 +5,8 @@
 {-# LANGUAGE RecordWildCards       #-}
 {-# LANGUAGE TemplateHaskell       #-}
 
+{-# OPTIONS_GHC -fno-warn-unused-top-binds #-}
+
 -- Module      : Main
 -- Copyright   : (c) 2013-2017 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of

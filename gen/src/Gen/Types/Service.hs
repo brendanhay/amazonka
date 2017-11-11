@@ -34,11 +34,12 @@ import Control.Comonad
 import Control.Comonad.Cofree
 import Control.Lens           hiding ((:<), List, (.=))
 
-import Data.Aeson     hiding (Bool)
+import Data.Aeson      hiding (Bool)
 import Data.Bifunctor
-import Data.List      (nub)
+import Data.List       (nub)
 import Data.Maybe
-import Data.Text      (Text)
+import Data.Scientific (Scientific)
+import Data.Text       (Text)
 
 import Gen.Text
 import Gen.TH
@@ -211,8 +212,8 @@ instance FromJSON ErrorInfo where
 
 data Info = Info
     { _infoDocumentation :: Maybe Help
-    , _infoMin           :: Maybe Int
-    , _infoMax           :: Maybe Int
+    , _infoMin           :: Maybe Scientific
+    , _infoMax           :: Maybe Scientific
     , _infoFlattened     :: !Bool
     , _infoSensitive     :: !Bool
     , _infoStreaming     :: !Bool

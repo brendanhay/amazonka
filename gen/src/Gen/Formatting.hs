@@ -52,8 +52,8 @@ partial :: Show b => Format a ((Id, Map.HashMap Id b) -> a)
 partial = later (Build.fromString . show . Map.toList . prefix)
   where
     prefix (p, m) =
-        let p' = memberId (Text.take 3 p)
-         in Map.filterWithKey (const . Text.isPrefixOf p' . memberId) m
+        let txt = Text.take 3 (memberId p)
+         in Map.filterWithKey (const . Text.isPrefixOf txt . memberId) m
 
 failure :: MonadError e m => Format LText.Text (a -> e) -> a -> m b
 failure m = throwError . format m

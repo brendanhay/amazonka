@@ -163,7 +163,7 @@ errorD m n s c =
     rhs = Exts.appFun (var "_MatchServiceError") [var (m ^. serviceConfig), str c]
 
 dataD :: Id -> [QualConDecl] -> [Derive] -> Decl
-dataD n fs cs = Exts.DataDecl () arity Nothing head' [] (Just derives)
+dataD n fs cs = Exts.DataDecl () arity Nothing head' fs (Just derives)
   where
     arity =
         case fs of
@@ -882,7 +882,7 @@ literal i ts = \case
                       (tycon "Value")
 
 strict :: Type -> Type
-strict = Exts.TyBang () (Exts.BangedTy ()) (Exts.Unpack ()) . \case
+strict = Exts.TyBang () (Exts.BangedTy ()) (Exts.NoUnpack ()) . \case
     t@Exts.TyApp{} -> Exts.TyParen () t
     t              -> t
 

@@ -46,6 +46,7 @@ library
         -Wcompat
         -Wnoncanonical-monad-instances
         -Wnoncanonical-monadfail-instances
+        -funbox-strict-fields
 
     exposed-modules:
           Control.Monad.Trans.AWS

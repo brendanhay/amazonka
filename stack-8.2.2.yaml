@@ -1,6 +1,8 @@
 compiler: ghc-8.2.1
 resolver: nightly-2017-11-01
 
+local-bin-path: bin
+
 flags: {}
 
 extra-deps:

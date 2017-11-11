@@ -30,7 +30,6 @@ import Data.List      ((\\))
 import Data.Monoid
 
 import Gen.Types
-import Gen.Types.TypeOf
 
 import qualified Data.HashMap.Strict as Map
 

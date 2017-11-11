@@ -2,7 +2,8 @@
 
 set -euo pipefail
 
-core=( amazonka-gen amazonka-core amazonka )
+gen=( amazonka-gen )
+core=( amazonka-core amazonka )
 test=( amazonka-test )
 examples=( amazonka-examples )
 
@@ -51,6 +52,7 @@ echo "Updating ${travis}"
 sed -i -e '/# GENERATED/,/# END GENERATED/d' "${travis}"
 
 echo "# GENERATED"                       >> "${travis}"
+matrix "Generator" ghc_82[@] gen[@]      >> "${travis}"
 matrix "Core" ghc_all[@] core[@]         >> "${travis}"
 matrix "Test" ghc_82[@] test[@]          >> "${travis}"
 matrix "Priority" ghc_all[@] priority[@] >> "${travis}"

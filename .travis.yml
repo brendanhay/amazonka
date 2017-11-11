@@ -23,16 +23,12 @@ matrix:
   include:
 # GENERATED
 
-    # Core
+    # Generator
     - env: GHCVER=8.2 LIBRARY=amazonka-gen CACHE_NAME=amazonka-gen-8.2
       compiler: "GHC-8.2"
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
-    - env: GHCVER=8.0.2 LIBRARY=amazonka-gen CACHE_NAME=amazonka-gen-8.0.2
-      compiler: "GHC-8.0.2"
-      addons: { apt: { packages: [ghc-8.0.2], sources: [hvr-ghc] } }
-    - env: GHCVER=7.10.3 LIBRARY=amazonka-gen CACHE_NAME=amazonka-gen-7.10.3
-      compiler: "GHC-7.10.3"
-      addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
+
+    # Core
     - env: GHCVER=8.2 LIBRARY=amazonka-core CACHE_NAME=amazonka-core-8.2
       compiler: "GHC-8.2"
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }

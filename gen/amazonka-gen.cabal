@@ -59,9 +59,9 @@ executable amazonka-gen
     ghc-options:       -Wall -threaded
 
     build-depends:
-          aeson
+          aeson                >= 1.2
         , attoparsec
-        , base                 == 4.8.*
+        , base                 >= 4.9
         , bytestring
         , case-insensitive
         , comonad
@@ -73,7 +73,7 @@ executable amazonka-gen
         , formatting
         , free
         , hashable
-        , haskell-src-exts     == 1.17.1
+        , haskell-src-exts     == 1.19.*
         , hindent
         , html-conduit
         , lens

@@ -99,15 +99,6 @@ matrix:
     - env: GHCVER=7.10.3 LIBRARY=amazonka-iam CACHE_NAME=amazonka-iam-7.10.3
       compiler: "GHC-7.10.3"
       addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
-    - env: GHCVER=8.2 LIBRARY=amazonka-ec2 CACHE_NAME=amazonka-ec2-8.2
-      compiler: "GHC-8.2"
-      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
-    - env: GHCVER=8.0.2 LIBRARY=amazonka-ec2 CACHE_NAME=amazonka-ec2-8.0.2
-      compiler: "GHC-8.0.2"
-      addons: { apt: { packages: [ghc-8.0.2], sources: [hvr-ghc] } }
-    - env: GHCVER=7.10.3 LIBRARY=amazonka-ec2 CACHE_NAME=amazonka-ec2-7.10.3
-      compiler: "GHC-7.10.3"
-      addons: { apt: { packages: [ghc-7.10.3], sources: [hvr-ghc] } }
 
     # Remainder
     - env: GHCVER=8.2 LIBRARY=amazonka-apigateway CACHE_NAME=amazonka-apigateway-8.2
@@ -219,6 +210,9 @@ matrix:
       compiler: "GHC-8.2"
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-dynamodb-streams CACHE_NAME=amazonka-dynamodb-streams-8.2
+      compiler: "GHC-8.2"
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-ec2 CACHE_NAME=amazonka-ec2-8.2
       compiler: "GHC-8.2"
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-ecr CACHE_NAME=amazonka-ecr-8.2

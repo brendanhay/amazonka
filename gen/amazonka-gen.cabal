@@ -62,8 +62,8 @@ executable amazonka-gen
     ghc-options:
         -threaded
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updates
 
     build-depends:
           aeson                >= 1.2

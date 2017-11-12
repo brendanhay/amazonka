@@ -24,9 +24,6 @@ library
         -Wall
         -Wincomplete-uni-patterns
         -Wincomplete-record-updates
-        -Wcompat
-        -Wnoncanonical-monad-instances
-        -Wnoncanonical-monadfail-instances
 
     exposed-modules:
           Example.APIGateway

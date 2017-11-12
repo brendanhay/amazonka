@@ -64,9 +64,6 @@ executable amazonka-gen
         -Wall
         -Wincomplete-uni-patterns
         -Wincomplete-record-updates
-        -Wcompat
-        -Wnoncanonical-monad-instances
-        -Wnoncanonical-monadfail-instances
 
     build-depends:
           aeson                >= 1.2

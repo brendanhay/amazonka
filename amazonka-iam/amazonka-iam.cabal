@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -82,6 +82,7 @@ library
         , Network.AWS.IAM.DeleteSAMLProvider
         , Network.AWS.IAM.DeleteSSHPublicKey
         , Network.AWS.IAM.DeleteServerCertificate
+        , Network.AWS.IAM.DeleteServiceLinkedRole
         , Network.AWS.IAM.DeleteServiceSpecificCredential
         , Network.AWS.IAM.DeleteSigningCertificate
         , Network.AWS.IAM.DeleteUser
@@ -111,6 +112,7 @@ library
         , Network.AWS.IAM.GetSAMLProvider
         , Network.AWS.IAM.GetSSHPublicKey
         , Network.AWS.IAM.GetServerCertificate
+        , Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
         , Network.AWS.IAM.GetUser
         , Network.AWS.IAM.GetUserPolicy
         , Network.AWS.IAM.ListAccessKeys

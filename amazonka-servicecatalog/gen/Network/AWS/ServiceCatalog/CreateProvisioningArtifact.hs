@@ -21,8 +21,6 @@
 -- Create a new provisioning artifact for the specified product. This operation does not work with a product that has been shared with you.
 --
 --
--- See the bottom of this topic for an example JSON request.
---
 module Network.AWS.ServiceCatalog.CreateProvisioningArtifact
     (
     -- * Creating a Request
@@ -64,13 +62,13 @@ data CreateProvisioningArtifact = CreateProvisioningArtifact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpaAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'cpaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'cpaProductId' - The product identifier.
 --
 -- * 'cpaParameters' - The parameters to use when creating the new provisioning artifact.
 --
--- * 'cpaIdempotencyToken' - A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- * 'cpaIdempotencyToken' - A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 createProvisioningArtifact
     :: Text -- ^ 'cpaProductId'
     -> ProvisioningArtifactProperties -- ^ 'cpaParameters'
@@ -85,7 +83,7 @@ createProvisioningArtifact pProductId_ pParameters_ pIdempotencyToken_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 cpaAcceptLanguage :: Lens' CreateProvisioningArtifact (Maybe Text)
 cpaAcceptLanguage = lens _cpaAcceptLanguage (\ s a -> s{_cpaAcceptLanguage = a});
 
@@ -97,7 +95,7 @@ cpaProductId = lens _cpaProductId (\ s a -> s{_cpaProductId = a});
 cpaParameters :: Lens' CreateProvisioningArtifact ProvisioningArtifactProperties
 cpaParameters = lens _cpaParameters (\ s a -> s{_cpaParameters = a});
 
--- | A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- | A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 cpaIdempotencyToken :: Lens' CreateProvisioningArtifact Text
 cpaIdempotencyToken = lens _cpaIdempotencyToken (\ s a -> s{_cpaIdempotencyToken = a});
 

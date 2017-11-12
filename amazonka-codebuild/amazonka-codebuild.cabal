@@ -39,16 +39,19 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.CodeBuild
+        , Network.AWS.CodeBuild.BatchDeleteBuilds
         , Network.AWS.CodeBuild.BatchGetBuilds
         , Network.AWS.CodeBuild.BatchGetProjects
         , Network.AWS.CodeBuild.CreateProject
+        , Network.AWS.CodeBuild.CreateWebhook
         , Network.AWS.CodeBuild.DeleteProject
+        , Network.AWS.CodeBuild.DeleteWebhook
         , Network.AWS.CodeBuild.ListBuilds
         , Network.AWS.CodeBuild.ListBuildsForProject
         , Network.AWS.CodeBuild.ListCuratedEnvironmentImages

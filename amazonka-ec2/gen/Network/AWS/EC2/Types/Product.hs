@@ -519,7 +519,7 @@ data BlockDeviceMapping = BlockDeviceMapping'
 --
 -- * 'bdmEBS' - Parameters used to automatically set up EBS volumes when the instance is launched.
 --
--- * 'bdmDeviceName' - The device name exposed to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+-- * 'bdmDeviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
 blockDeviceMapping
     :: Text -- ^ 'bdmDeviceName'
     -> BlockDeviceMapping
@@ -544,7 +544,7 @@ bdmNoDevice = lens _bdmNoDevice (\ s a -> s{_bdmNoDevice = a});
 bdmEBS :: Lens' BlockDeviceMapping (Maybe EBSBlockDevice)
 bdmEBS = lens _bdmEBS (\ s a -> s{_bdmEBS = a});
 
--- | The device name exposed to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+-- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
 bdmDeviceName :: Lens' BlockDeviceMapping Text
 bdmDeviceName = lens _bdmDeviceName (\ s a -> s{_bdmDeviceName = a});
 
@@ -903,6 +903,37 @@ instance Hashable CancelledSpotInstanceRequest where
 
 instance NFData CancelledSpotInstanceRequest where
 
+-- | Describes an IPv4 CIDR block.
+--
+--
+--
+-- /See:/ 'cidrBlock' smart constructor.
+newtype CidrBlock = CidrBlock'
+  { _cbCidrBlock :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CidrBlock' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cbCidrBlock' - The IPv4 CIDR block.
+cidrBlock
+    :: CidrBlock
+cidrBlock = CidrBlock' {_cbCidrBlock = Nothing}
+
+
+-- | The IPv4 CIDR block.
+cbCidrBlock :: Lens' CidrBlock (Maybe Text)
+cbCidrBlock = lens _cbCidrBlock (\ s a -> s{_cbCidrBlock = a});
+
+instance FromXML CidrBlock where
+        parseXML x = CidrBlock' <$> (x .@? "cidrBlock")
+
+instance Hashable CidrBlock where
+
+instance NFData CidrBlock where
+
 -- | Describes the ClassicLink DNS support status of a VPC.
 --
 --
@@ -1010,6 +1041,85 @@ instance FromXML ClassicLinkInstance where
 instance Hashable ClassicLinkInstance where
 
 instance NFData ClassicLinkInstance where
+
+-- | Describes a Classic Load Balancer.
+--
+--
+--
+-- /See:/ 'classicLoadBalancer' smart constructor.
+newtype ClassicLoadBalancer = ClassicLoadBalancer'
+  { _clbName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClassicLoadBalancer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clbName' - The name of the load balancer.
+classicLoadBalancer
+    :: Text -- ^ 'clbName'
+    -> ClassicLoadBalancer
+classicLoadBalancer pName_ = ClassicLoadBalancer' {_clbName = pName_}
+
+
+-- | The name of the load balancer.
+clbName :: Lens' ClassicLoadBalancer Text
+clbName = lens _clbName (\ s a -> s{_clbName = a});
+
+instance FromXML ClassicLoadBalancer where
+        parseXML x = ClassicLoadBalancer' <$> (x .@ "name")
+
+instance Hashable ClassicLoadBalancer where
+
+instance NFData ClassicLoadBalancer where
+
+instance ToQuery ClassicLoadBalancer where
+        toQuery ClassicLoadBalancer'{..}
+          = mconcat ["Name" =: _clbName]
+
+-- | Describes the Classic Load Balancers to attach to a Spot fleet. Spot fleet registers the running Spot instances with these Classic Load Balancers.
+--
+--
+--
+-- /See:/ 'classicLoadBalancersConfig' smart constructor.
+newtype ClassicLoadBalancersConfig = ClassicLoadBalancersConfig'
+  { _clbcClassicLoadBalancers :: List1 ClassicLoadBalancer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClassicLoadBalancersConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clbcClassicLoadBalancers' - One or more Classic Load Balancers.
+classicLoadBalancersConfig
+    :: NonEmpty ClassicLoadBalancer -- ^ 'clbcClassicLoadBalancers'
+    -> ClassicLoadBalancersConfig
+classicLoadBalancersConfig pClassicLoadBalancers_ =
+  ClassicLoadBalancersConfig'
+  {_clbcClassicLoadBalancers = _List1 # pClassicLoadBalancers_}
+
+
+-- | One or more Classic Load Balancers.
+clbcClassicLoadBalancers :: Lens' ClassicLoadBalancersConfig (NonEmpty ClassicLoadBalancer)
+clbcClassicLoadBalancers = lens _clbcClassicLoadBalancers (\ s a -> s{_clbcClassicLoadBalancers = a}) . _List1;
+
+instance FromXML ClassicLoadBalancersConfig where
+        parseXML x
+          = ClassicLoadBalancersConfig' <$>
+              (x .@? "classicLoadBalancers" .!@ mempty >>=
+                 parseXMLList1 "item")
+
+instance Hashable ClassicLoadBalancersConfig where
+
+instance NFData ClassicLoadBalancersConfig where
+
+instance ToQuery ClassicLoadBalancersConfig where
+        toQuery ClassicLoadBalancersConfig'{..}
+          = mconcat
+              [toQueryList "ClassicLoadBalancers"
+                 _clbcClassicLoadBalancers]
 
 -- | Describes the client-specific data.
 --
@@ -1444,6 +1554,46 @@ instance Hashable DHCPOptions where
 
 instance NFData DHCPOptions where
 
+-- | Describes a DNS entry.
+--
+--
+--
+-- /See:/ 'dnsEntry' smart constructor.
+data DNSEntry = DNSEntry'
+  { _deHostedZoneId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deDNSName      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DNSEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'deHostedZoneId' - The ID of the private hosted zone.
+--
+-- * 'deDNSName' - The DNS name.
+dnsEntry
+    :: DNSEntry
+dnsEntry = DNSEntry' {_deHostedZoneId = Nothing, _deDNSName = Nothing}
+
+
+-- | The ID of the private hosted zone.
+deHostedZoneId :: Lens' DNSEntry (Maybe Text)
+deHostedZoneId = lens _deHostedZoneId (\ s a -> s{_deHostedZoneId = a});
+
+-- | The DNS name.
+deDNSName :: Lens' DNSEntry (Maybe Text)
+deDNSName = lens _deDNSName (\ s a -> s{_deDNSName = a});
+
+instance FromXML DNSEntry where
+        parseXML x
+          = DNSEntry' <$>
+              (x .@? "hostedZoneId") <*> (x .@? "dnsName")
+
+instance Hashable DNSEntry where
+
+instance NFData DNSEntry where
+
 -- | Describes a disk image.
 --
 --
@@ -1681,7 +1831,7 @@ data EBSBlockDevice = EBSBlockDevice'
 --
 -- * 'ebdIOPS' - The number of I/O operations per second (IOPS) that the volume supports. For @io1@ , this represents the number of IOPS that are provisioned for the volume. For @gp2@ , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraint: Range is 100-20000 IOPS for @io1@ volumes and 100-10000 IOPS for @gp2@ volumes. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
 --
--- * 'ebdEncrypted' - Indicates whether the EBS volume is encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption.
+-- * 'ebdEncrypted' - Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value. This is because only blank volumes can be encrypted on creation.
 --
 -- * 'ebdVolumeType' - The volume type: @gp2@ , @io1@ , @st1@ , @sc1@ , or @standard@ . Default: @standard@
 --
@@ -1711,7 +1861,7 @@ ebdVolumeSize = lens _ebdVolumeSize (\ s a -> s{_ebdVolumeSize = a});
 ebdIOPS :: Lens' EBSBlockDevice (Maybe Int)
 ebdIOPS = lens _ebdIOPS (\ s a -> s{_ebdIOPS = a});
 
--- | Indicates whether the EBS volume is encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption.
+-- | Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value. This is because only blank volumes can be encrypted on creation.
 ebdEncrypted :: Lens' EBSBlockDevice (Maybe Bool)
 ebdEncrypted = lens _ebdEncrypted (\ s a -> s{_ebdEncrypted = a});
 
@@ -2125,7 +2275,7 @@ data EventInformation = EventInformation'
 --
 -- * 'eiEventDescription' - The description of the event.
 --
--- * 'eiEventSubType' - The event. The following are the @error@ events.     * @iamFleetRoleInvalid@ - The Spot fleet did not have the required permissions either to launch or terminate an instance.     * @launchSpecTemporarilyBlacklisted@ - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event.     * @spotFleetRequestConfigurationInvalid@ - The configuration is not valid. For more information, see the description of the event.     * @spotInstanceCountLimitExceeded@ - You've reached the limit on the number of Spot instances that you can launch. The following are the @fleetRequestChange@ events.     * @active@ - The Spot fleet has been validated and Amazon EC2 is attempting to maintain the target number of running Spot instances.     * @cancelled@ - The Spot fleet is canceled and has no running Spot instances. The Spot fleet will be deleted two days after its instances were terminated.     * @cancelled_running@ - The Spot fleet is canceled and will not launch additional Spot instances, but its existing Spot instances continue to run until they are interrupted or terminated.     * @cancelled_terminating@ - The Spot fleet is canceled and its Spot instances are terminating.     * @expired@ - The Spot fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with @TerminateInstancesWithExpiration@ set.     * @modify_in_progress@ - A request to modify the Spot fleet request was accepted and is in progress.     * @modify_successful@ - The Spot fleet request was modified.     * @price_update@ - The bid price for a launch configuration was adjusted because it was too high. This change is permanent.     * @submitted@ - The Spot fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot instances. The following are the @instanceChange@ events.     * @launched@ - A bid was fulfilled and a new instance was launched.     * @terminated@ - An instance was terminated by the user.
+-- * 'eiEventSubType' - The event. The following are the @error@ events:     * @iamFleetRoleInvalid@ - The Spot fleet did not have the required permissions either to launch or terminate an instance.     * @launchSpecTemporarilyBlacklisted@ - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event.     * @spotFleetRequestConfigurationInvalid@ - The configuration is not valid. For more information, see the description of the event.     * @spotInstanceCountLimitExceeded@ - You've reached the limit on the number of Spot instances that you can launch. The following are the @fleetRequestChange@ events:     * @active@ - The Spot fleet has been validated and Amazon EC2 is attempting to maintain the target number of running Spot instances.     * @cancelled@ - The Spot fleet is canceled and has no running Spot instances. The Spot fleet will be deleted two days after its instances were terminated.     * @cancelled_running@ - The Spot fleet is canceled and will not launch additional Spot instances, but its existing Spot instances continue to run until they are interrupted or terminated.     * @cancelled_terminating@ - The Spot fleet is canceled and its Spot instances are terminating.     * @expired@ - The Spot fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with @TerminateInstancesWithExpiration@ set.     * @modify_in_progress@ - A request to modify the Spot fleet request was accepted and is in progress.     * @modify_successful@ - The Spot fleet request was modified.     * @price_update@ - The bid price for a launch configuration was adjusted because it was too high. This change is permanent.     * @submitted@ - The Spot fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot instances. The following are the @instanceChange@ events:     * @launched@ - A bid was fulfilled and a new instance was launched.     * @terminated@ - An instance was terminated by the user. The following are the @Information@ events:     * @launchSpecUnusable@ - The bid price of a launch specification is not valid because it is below the market price or the market price is above the On-Demand price.     * @fleetProgressHalted@ - The bid price of every launch specification is not valid. A launch specification might become valid if the market price changes.
 eventInformation
     :: EventInformation
 eventInformation =
@@ -2144,7 +2294,7 @@ eiInstanceId = lens _eiInstanceId (\ s a -> s{_eiInstanceId = a});
 eiEventDescription :: Lens' EventInformation (Maybe Text)
 eiEventDescription = lens _eiEventDescription (\ s a -> s{_eiEventDescription = a});
 
--- | The event. The following are the @error@ events.     * @iamFleetRoleInvalid@ - The Spot fleet did not have the required permissions either to launch or terminate an instance.     * @launchSpecTemporarilyBlacklisted@ - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event.     * @spotFleetRequestConfigurationInvalid@ - The configuration is not valid. For more information, see the description of the event.     * @spotInstanceCountLimitExceeded@ - You've reached the limit on the number of Spot instances that you can launch. The following are the @fleetRequestChange@ events.     * @active@ - The Spot fleet has been validated and Amazon EC2 is attempting to maintain the target number of running Spot instances.     * @cancelled@ - The Spot fleet is canceled and has no running Spot instances. The Spot fleet will be deleted two days after its instances were terminated.     * @cancelled_running@ - The Spot fleet is canceled and will not launch additional Spot instances, but its existing Spot instances continue to run until they are interrupted or terminated.     * @cancelled_terminating@ - The Spot fleet is canceled and its Spot instances are terminating.     * @expired@ - The Spot fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with @TerminateInstancesWithExpiration@ set.     * @modify_in_progress@ - A request to modify the Spot fleet request was accepted and is in progress.     * @modify_successful@ - The Spot fleet request was modified.     * @price_update@ - The bid price for a launch configuration was adjusted because it was too high. This change is permanent.     * @submitted@ - The Spot fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot instances. The following are the @instanceChange@ events.     * @launched@ - A bid was fulfilled and a new instance was launched.     * @terminated@ - An instance was terminated by the user.
+-- | The event. The following are the @error@ events:     * @iamFleetRoleInvalid@ - The Spot fleet did not have the required permissions either to launch or terminate an instance.     * @launchSpecTemporarilyBlacklisted@ - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event.     * @spotFleetRequestConfigurationInvalid@ - The configuration is not valid. For more information, see the description of the event.     * @spotInstanceCountLimitExceeded@ - You've reached the limit on the number of Spot instances that you can launch. The following are the @fleetRequestChange@ events:     * @active@ - The Spot fleet has been validated and Amazon EC2 is attempting to maintain the target number of running Spot instances.     * @cancelled@ - The Spot fleet is canceled and has no running Spot instances. The Spot fleet will be deleted two days after its instances were terminated.     * @cancelled_running@ - The Spot fleet is canceled and will not launch additional Spot instances, but its existing Spot instances continue to run until they are interrupted or terminated.     * @cancelled_terminating@ - The Spot fleet is canceled and its Spot instances are terminating.     * @expired@ - The Spot fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with @TerminateInstancesWithExpiration@ set.     * @modify_in_progress@ - A request to modify the Spot fleet request was accepted and is in progress.     * @modify_successful@ - The Spot fleet request was modified.     * @price_update@ - The bid price for a launch configuration was adjusted because it was too high. This change is permanent.     * @submitted@ - The Spot fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot instances. The following are the @instanceChange@ events:     * @launched@ - A bid was fulfilled and a new instance was launched.     * @terminated@ - An instance was terminated by the user. The following are the @Information@ events:     * @launchSpecUnusable@ - The bid price of a launch specification is not valid because it is below the market price or the market price is above the On-Demand price.     * @fleetProgressHalted@ - The bid price of every launch specification is not valid. A launch specification might become valid if the market price changes.
 eiEventSubType :: Lens' EventInformation (Maybe Text)
 eiEventSubType = lens _eiEventSubType (\ s a -> s{_eiEventSubType = a});
 
@@ -2536,6 +2686,7 @@ data FpgaImage = FpgaImage'
   , _fiDescription       :: {-# NOUNPACK #-}!(Maybe Text)
   , _fiCreateTime        :: {-# NOUNPACK #-}!(Maybe ISO8601)
   , _fiTags              :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _fiPublic            :: {-# NOUNPACK #-}!(Maybe Bool)
   , _fiFpgaImageGlobalId :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -2568,6 +2719,8 @@ data FpgaImage = FpgaImage'
 --
 -- * 'fiTags' - Any tags assigned to the AFI.
 --
+-- * 'fiPublic' - Indicates whether the AFI is public.
+--
 -- * 'fiFpgaImageGlobalId' - The global FPGA image identifier (AGFI ID).
 fpgaImage
     :: FpgaImage
@@ -2585,6 +2738,7 @@ fpgaImage =
   , _fiDescription = Nothing
   , _fiCreateTime = Nothing
   , _fiTags = Nothing
+  , _fiPublic = Nothing
   , _fiFpgaImageGlobalId = Nothing
   }
 
@@ -2637,6 +2791,10 @@ fiCreateTime = lens _fiCreateTime (\ s a -> s{_fiCreateTime = a}) . mapping _Tim
 fiTags :: Lens' FpgaImage [Tag]
 fiTags = lens _fiTags (\ s a -> s{_fiTags = a}) . _Default . _Coerce;
 
+-- | Indicates whether the AFI is public.
+fiPublic :: Lens' FpgaImage (Maybe Bool)
+fiPublic = lens _fiPublic (\ s a -> s{_fiPublic = a});
+
 -- | The global FPGA image identifier (AGFI ID).
 fiFpgaImageGlobalId :: Lens' FpgaImage (Maybe Text)
 fiFpgaImageGlobalId = lens _fiFpgaImageGlobalId (\ s a -> s{_fiFpgaImageGlobalId = a});
@@ -2659,11 +2817,86 @@ instance FromXML FpgaImage where
                 <*>
                 (x .@? "tags" .!@ mempty >>=
                    may (parseXMLList "item"))
+                <*> (x .@? "public")
                 <*> (x .@? "fpgaImageGlobalId")
 
 instance Hashable FpgaImage where
 
 instance NFData FpgaImage where
+
+-- | Describes an Amazon FPGA image (AFI) attribute.
+--
+--
+--
+-- /See:/ 'fpgaImageAttribute' smart constructor.
+data FpgaImageAttribute = FpgaImageAttribute'
+  { _fiaFpgaImageId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fiaName            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fiaProductCodes    :: {-# NOUNPACK #-}!(Maybe [ProductCode])
+  , _fiaDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _fiaLoadPermissions :: {-# NOUNPACK #-}!(Maybe [LoadPermission])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'FpgaImageAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fiaFpgaImageId' - The ID of the AFI.
+--
+-- * 'fiaName' - The name of the AFI.
+--
+-- * 'fiaProductCodes' - One or more product codes.
+--
+-- * 'fiaDescription' - The description of the AFI.
+--
+-- * 'fiaLoadPermissions' - One or more load permissions.
+fpgaImageAttribute
+    :: FpgaImageAttribute
+fpgaImageAttribute =
+  FpgaImageAttribute'
+  { _fiaFpgaImageId = Nothing
+  , _fiaName = Nothing
+  , _fiaProductCodes = Nothing
+  , _fiaDescription = Nothing
+  , _fiaLoadPermissions = Nothing
+  }
+
+
+-- | The ID of the AFI.
+fiaFpgaImageId :: Lens' FpgaImageAttribute (Maybe Text)
+fiaFpgaImageId = lens _fiaFpgaImageId (\ s a -> s{_fiaFpgaImageId = a});
+
+-- | The name of the AFI.
+fiaName :: Lens' FpgaImageAttribute (Maybe Text)
+fiaName = lens _fiaName (\ s a -> s{_fiaName = a});
+
+-- | One or more product codes.
+fiaProductCodes :: Lens' FpgaImageAttribute [ProductCode]
+fiaProductCodes = lens _fiaProductCodes (\ s a -> s{_fiaProductCodes = a}) . _Default . _Coerce;
+
+-- | The description of the AFI.
+fiaDescription :: Lens' FpgaImageAttribute (Maybe Text)
+fiaDescription = lens _fiaDescription (\ s a -> s{_fiaDescription = a});
+
+-- | One or more load permissions.
+fiaLoadPermissions :: Lens' FpgaImageAttribute [LoadPermission]
+fiaLoadPermissions = lens _fiaLoadPermissions (\ s a -> s{_fiaLoadPermissions = a}) . _Default . _Coerce;
+
+instance FromXML FpgaImageAttribute where
+        parseXML x
+          = FpgaImageAttribute' <$>
+              (x .@? "fpgaImageId") <*> (x .@? "name") <*>
+                (x .@? "productCodes" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "description")
+                <*>
+                (x .@? "loadPermissions" .!@ mempty >>=
+                   may (parseXMLList "item"))
+
+instance Hashable FpgaImageAttribute where
+
+instance NFData FpgaImageAttribute where
 
 -- | Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).
 --
@@ -2770,7 +3003,7 @@ data HistoryRecord = HistoryRecord'
 --
 -- * 'hrEventInformation' - Information about the event.
 --
--- * 'hrEventType' - The event type.     * @error@ - Indicates an error with the Spot fleet request.     * @fleetRequestChange@ - Indicates a change in the status or configuration of the Spot fleet request.     * @instanceChange@ - Indicates that an instance was launched or terminated.
+-- * 'hrEventType' - The event type.     * @error@ - An error with the Spot fleet request.     * @fleetRequestChange@ - A change in the status or configuration of the Spot fleet request.     * @instanceChange@ - An instance was launched or terminated.     * @Information@ - An informational event.
 --
 -- * 'hrTimestamp' - The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 historyRecord
@@ -2790,7 +3023,7 @@ historyRecord pEventInformation_ pEventType_ pTimestamp_ =
 hrEventInformation :: Lens' HistoryRecord EventInformation
 hrEventInformation = lens _hrEventInformation (\ s a -> s{_hrEventInformation = a});
 
--- | The event type.     * @error@ - Indicates an error with the Spot fleet request.     * @fleetRequestChange@ - Indicates a change in the status or configuration of the Spot fleet request.     * @instanceChange@ - Indicates that an instance was launched or terminated.
+-- | The event type.     * @error@ - An error with the Spot fleet request.     * @fleetRequestChange@ - A change in the status or configuration of the Spot fleet request.     * @instanceChange@ - An instance was launched or terminated.     * @Information@ - An informational event.
 hrEventType :: Lens' HistoryRecord EventType
 hrEventType = lens _hrEventType (\ s a -> s{_hrEventType = a});
 
@@ -3456,7 +3689,7 @@ instance ToQuery ICMPTypeCode where
         toQuery ICMPTypeCode'{..}
           = mconcat ["Code" =: _itcCode, "Type" =: _itcType]
 
--- | Describes a security group rule.
+-- | Describes a set of permissions for a security group rule.
 --
 --
 --
@@ -3476,13 +3709,13 @@ data IPPermission = IPPermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ipFromPort' - The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of @-1@ indicates all ICMP/ICMPv6 types.
+-- * 'ipFromPort' - The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of @-1@ indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 --
 -- * 'ipUserIdGroupPairs' - One or more security group and AWS account ID pairs.
 --
 -- * 'ipPrefixListIds' - (Valid for 'AuthorizeSecurityGroupEgress' , 'RevokeSecurityGroupEgress' and 'DescribeSecurityGroups' only) One or more prefix list IDs for an AWS service. In an 'AuthorizeSecurityGroupEgress' request, this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
 --
--- * 'ipToPort' - The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes for the specified ICMP type.
+-- * 'ipToPort' - The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 --
 -- * 'ipIPv6Ranges' - [EC2-VPC only] One or more IPv6 ranges.
 --
@@ -3504,7 +3737,7 @@ ipPermission pIPProtocol_ =
   }
 
 
--- | The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of @-1@ indicates all ICMP/ICMPv6 types.
+-- | The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of @-1@ indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 ipFromPort :: Lens' IPPermission (Maybe Int)
 ipFromPort = lens _ipFromPort (\ s a -> s{_ipFromPort = a});
 
@@ -3516,7 +3749,7 @@ ipUserIdGroupPairs = lens _ipUserIdGroupPairs (\ s a -> s{_ipUserIdGroupPairs = 
 ipPrefixListIds :: Lens' IPPermission [PrefixListId]
 ipPrefixListIds = lens _ipPrefixListIds (\ s a -> s{_ipPrefixListIds = a}) . _Default . _Coerce;
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes for the specified ICMP type.
+-- | The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 ipToPort :: Lens' IPPermission (Maybe Int)
 ipToPort = lens _ipToPort (\ s a -> s{_ipToPort = a});
 
@@ -3572,8 +3805,9 @@ instance ToQuery IPPermission where
 --
 --
 -- /See:/ 'ipRange' smart constructor.
-newtype IPRange = IPRange'
-  { _irCidrIP :: Text
+data IPRange = IPRange'
+  { _iprDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iprCidrIP      :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3581,19 +3815,27 @@ newtype IPRange = IPRange'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irCidrIP' - The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix.
+-- * 'iprDescription' - A description for the security group rule that references this IPv4 address range. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+--
+-- * 'iprCidrIP' - The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length.
 ipRange
-    :: Text -- ^ 'irCidrIP'
+    :: Text -- ^ 'iprCidrIP'
     -> IPRange
-ipRange pCidrIP_ = IPRange' {_irCidrIP = pCidrIP_}
+ipRange pCidrIP_ = IPRange' {_iprDescription = Nothing, _iprCidrIP = pCidrIP_}
 
 
--- | The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix.
-irCidrIP :: Lens' IPRange Text
-irCidrIP = lens _irCidrIP (\ s a -> s{_irCidrIP = a});
+-- | A description for the security group rule that references this IPv4 address range. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+iprDescription :: Lens' IPRange (Maybe Text)
+iprDescription = lens _iprDescription (\ s a -> s{_iprDescription = a});
+
+-- | The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix length.
+iprCidrIP :: Lens' IPRange Text
+iprCidrIP = lens _iprCidrIP (\ s a -> s{_iprCidrIP = a});
 
 instance FromXML IPRange where
-        parseXML x = IPRange' <$> (x .@ "cidrIp")
+        parseXML x
+          = IPRange' <$>
+              (x .@? "description") <*> (x .@ "cidrIp")
 
 instance Hashable IPRange where
 
@@ -3601,7 +3843,9 @@ instance NFData IPRange where
 
 instance ToQuery IPRange where
         toQuery IPRange'{..}
-          = mconcat ["CidrIp" =: _irCidrIP]
+          = mconcat
+              ["Description" =: _iprDescription,
+               "CidrIp" =: _iprCidrIP]
 
 -- | Describes an IPv6 CIDR block.
 --
@@ -3640,8 +3884,9 @@ instance NFData IPv6CidrBlock where
 --
 --
 -- /See:/ 'ipv6Range' smart constructor.
-newtype IPv6Range = IPv6Range'
-  { _irCidrIPv6 :: Maybe Text
+data IPv6Range = IPv6Range'
+  { _irCidrIPv6    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _irDescription :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3649,18 +3894,26 @@ newtype IPv6Range = IPv6Range'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irCidrIPv6' - The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix.
+-- * 'irCidrIPv6' - The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length.
+--
+-- * 'irDescription' - A description for the security group rule that references this IPv6 address range. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 ipv6Range
     :: IPv6Range
-ipv6Range = IPv6Range' {_irCidrIPv6 = Nothing}
+ipv6Range = IPv6Range' {_irCidrIPv6 = Nothing, _irDescription = Nothing}
 
 
--- | The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix.
+-- | The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length.
 irCidrIPv6 :: Lens' IPv6Range (Maybe Text)
 irCidrIPv6 = lens _irCidrIPv6 (\ s a -> s{_irCidrIPv6 = a});
 
+-- | A description for the security group rule that references this IPv6 address range. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+irDescription :: Lens' IPv6Range (Maybe Text)
+irDescription = lens _irDescription (\ s a -> s{_irDescription = a});
+
 instance FromXML IPv6Range where
-        parseXML x = IPv6Range' <$> (x .@? "cidrIpv6")
+        parseXML x
+          = IPv6Range' <$>
+              (x .@? "cidrIpv6") <*> (x .@? "description")
 
 instance Hashable IPv6Range where
 
@@ -3668,7 +3921,9 @@ instance NFData IPv6Range where
 
 instance ToQuery IPv6Range where
         toQuery IPv6Range'{..}
-          = mconcat ["CidrIpv6" =: _irCidrIPv6]
+          = mconcat
+              ["CidrIpv6" =: _irCidrIPv6,
+               "Description" =: _irDescription]
 
 -- | Describes the ID format for a resource.
 --
@@ -3767,7 +4022,7 @@ data Image = Image'
 --
 -- * 'iKernelId' - The kernel associated with the image, if any. Only applicable for machine images.
 --
--- * 'iRootDeviceName' - The device name of the root device (for example, @/dev/sda1@ or @/dev/xvda@ ).
+-- * 'iRootDeviceName' - The device name of the root device volume (for example, @/dev/sda1@ ).
 --
 -- * 'iSRIOVNetSupport' - Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 --
@@ -3865,7 +4120,7 @@ iRAMDiskId = lens _iRAMDiskId (\ s a -> s{_iRAMDiskId = a});
 iKernelId :: Lens' Image (Maybe Text)
 iKernelId = lens _iKernelId (\ s a -> s{_iKernelId = a});
 
--- | The device name of the root device (for example, @/dev/sda1@ or @/dev/xvda@ ).
+-- | The device name of the root device volume (for example, @/dev/sda1@ ).
 iRootDeviceName :: Lens' Image (Maybe Text)
 iRootDeviceName = lens _iRootDeviceName (\ s a -> s{_iRootDeviceName = a});
 
@@ -4665,7 +4920,7 @@ data Instance = Instance'
 --
 -- * 'insEnaSupport' - Specifies whether enhanced networking with ENA is enabled.
 --
--- * 'insSourceDestCheck' - Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means checking is enabled, and @false@ means checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+-- * 'insSourceDestCheck' - Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 -- * 'insElasticGpuAssociations' - The Elastic GPU associated with the instance.
 --
@@ -4681,15 +4936,15 @@ data Instance = Instance'
 --
 -- * 'insKernelId' - The kernel associated with this instance, if applicable.
 --
--- * 'insRootDeviceName' - The root device name (for example, @/dev/sda1@ or @/dev/xvda@ ).
+-- * 'insRootDeviceName' - The device name of the root device volume (for example, @/dev/sda1@ ).
 --
 -- * 'insSRIOVNetSupport' - Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 --
--- * 'insEBSOptimized' - Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+-- * 'insEBSOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 --
 -- * 'insStateTransitionReason' - The reason for the most recent state transition. This might be an empty string.
 --
--- * 'insInstanceLifecycle' - Indicates whether this is a Spot instance or a Scheduled Instance.
+-- * 'insInstanceLifecycle' - Indicates whether this is a Spot Instance or a Scheduled Instance.
 --
 -- * 'insIAMInstanceProfile' - The IAM instance profile associated with the instance, if applicable.
 --
@@ -4697,9 +4952,9 @@ data Instance = Instance'
 --
 -- * 'insProductCodes' - The product codes attached to this instance, if applicable.
 --
--- * 'insSpotInstanceRequestId' - If the request is a Spot instance request, the ID of the request.
+-- * 'insSpotInstanceRequestId' - If the request is a Spot Instance request, the ID of the request.
 --
--- * 'insPrivateDNSName' - (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state.  [EC2-VPC] The Amazon-provided DNS server will resolve Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
+-- * 'insPrivateDNSName' - (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state.  [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
 --
 -- * 'insStateReason' - The reason for the most recent state transition.
 --
@@ -4810,7 +5065,7 @@ insClientToken = lens _insClientToken (\ s a -> s{_insClientToken = a});
 insEnaSupport :: Lens' Instance (Maybe Bool)
 insEnaSupport = lens _insEnaSupport (\ s a -> s{_insEnaSupport = a});
 
--- | Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means checking is enabled, and @false@ means checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+-- | Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
 insSourceDestCheck :: Lens' Instance (Maybe Bool)
 insSourceDestCheck = lens _insSourceDestCheck (\ s a -> s{_insSourceDestCheck = a});
 
@@ -4842,7 +5097,7 @@ insSubnetId = lens _insSubnetId (\ s a -> s{_insSubnetId = a});
 insKernelId :: Lens' Instance (Maybe Text)
 insKernelId = lens _insKernelId (\ s a -> s{_insKernelId = a});
 
--- | The root device name (for example, @/dev/sda1@ or @/dev/xvda@ ).
+-- | The device name of the root device volume (for example, @/dev/sda1@ ).
 insRootDeviceName :: Lens' Instance (Maybe Text)
 insRootDeviceName = lens _insRootDeviceName (\ s a -> s{_insRootDeviceName = a});
 
@@ -4850,7 +5105,7 @@ insRootDeviceName = lens _insRootDeviceName (\ s a -> s{_insRootDeviceName = a})
 insSRIOVNetSupport :: Lens' Instance (Maybe Text)
 insSRIOVNetSupport = lens _insSRIOVNetSupport (\ s a -> s{_insSRIOVNetSupport = a});
 
--- | Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+-- | Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 insEBSOptimized :: Lens' Instance (Maybe Bool)
 insEBSOptimized = lens _insEBSOptimized (\ s a -> s{_insEBSOptimized = a});
 
@@ -4858,7 +5113,7 @@ insEBSOptimized = lens _insEBSOptimized (\ s a -> s{_insEBSOptimized = a});
 insStateTransitionReason :: Lens' Instance (Maybe Text)
 insStateTransitionReason = lens _insStateTransitionReason (\ s a -> s{_insStateTransitionReason = a});
 
--- | Indicates whether this is a Spot instance or a Scheduled Instance.
+-- | Indicates whether this is a Spot Instance or a Scheduled Instance.
 insInstanceLifecycle :: Lens' Instance (Maybe InstanceLifecycleType)
 insInstanceLifecycle = lens _insInstanceLifecycle (\ s a -> s{_insInstanceLifecycle = a});
 
@@ -4874,11 +5129,11 @@ insPrivateIPAddress = lens _insPrivateIPAddress (\ s a -> s{_insPrivateIPAddress
 insProductCodes :: Lens' Instance [ProductCode]
 insProductCodes = lens _insProductCodes (\ s a -> s{_insProductCodes = a}) . _Default . _Coerce;
 
--- | If the request is a Spot instance request, the ID of the request.
+-- | If the request is a Spot Instance request, the ID of the request.
 insSpotInstanceRequestId :: Lens' Instance (Maybe Text)
 insSpotInstanceRequestId = lens _insSpotInstanceRequestId (\ s a -> s{_insSpotInstanceRequestId = a});
 
--- | (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state.  [EC2-VPC] The Amazon-provided DNS server will resolve Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
+-- | (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state.  [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
 insPrivateDNSName :: Lens' Instance (Maybe Text)
 insPrivateDNSName = lens _insPrivateDNSName (\ s a -> s{_insPrivateDNSName = a});
 
@@ -5020,7 +5275,7 @@ data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping'
 --
 -- * 'ibdmEBS' - Parameters used to automatically set up EBS volumes when the instance is launched.
 --
--- * 'ibdmDeviceName' - The device name exposed to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+-- * 'ibdmDeviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
 instanceBlockDeviceMapping
     :: InstanceBlockDeviceMapping
 instanceBlockDeviceMapping =
@@ -5031,7 +5286,7 @@ instanceBlockDeviceMapping =
 ibdmEBS :: Lens' InstanceBlockDeviceMapping (Maybe EBSInstanceBlockDevice)
 ibdmEBS = lens _ibdmEBS (\ s a -> s{_ibdmEBS = a});
 
--- | The device name exposed to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+-- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
 ibdmDeviceName :: Lens' InstanceBlockDeviceMapping (Maybe Text)
 ibdmDeviceName = lens _ibdmDeviceName (\ s a -> s{_ibdmDeviceName = a});
 
@@ -5067,7 +5322,7 @@ data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecifi
 --
 -- * 'ibdmsEBS' - Parameters used to automatically set up EBS volumes when the instance is launched.
 --
--- * 'ibdmsDeviceName' - The device name exposed to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+-- * 'ibdmsDeviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
 instanceBlockDeviceMappingSpecification
     :: InstanceBlockDeviceMappingSpecification
 instanceBlockDeviceMappingSpecification =
@@ -5091,7 +5346,7 @@ ibdmsNoDevice = lens _ibdmsNoDevice (\ s a -> s{_ibdmsNoDevice = a});
 ibdmsEBS :: Lens' InstanceBlockDeviceMappingSpecification (Maybe EBSInstanceBlockDeviceSpecification)
 ibdmsEBS = lens _ibdmsEBS (\ s a -> s{_ibdmsEBS = a});
 
--- | The device name exposed to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+-- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
 ibdmsDeviceName :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
 ibdmsDeviceName = lens _ibdmsDeviceName (\ s a -> s{_ibdmsDeviceName = a});
 
@@ -6332,8 +6587,8 @@ instance NFData KeyPairInfo where
 --
 -- /See:/ 'launchPermission' smart constructor.
 data LaunchPermission = LaunchPermission'
-  { _lpGroup  :: {-# NOUNPACK #-}!(Maybe PermissionGroup)
-  , _lpUserId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lGroup  :: {-# NOUNPACK #-}!(Maybe PermissionGroup)
+  , _lUserId :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6341,21 +6596,21 @@ data LaunchPermission = LaunchPermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpGroup' - The name of the group.
+-- * 'lGroup' - The name of the group.
 --
--- * 'lpUserId' - The AWS account ID.
+-- * 'lUserId' - The AWS account ID.
 launchPermission
     :: LaunchPermission
-launchPermission = LaunchPermission' {_lpGroup = Nothing, _lpUserId = Nothing}
+launchPermission = LaunchPermission' {_lGroup = Nothing, _lUserId = Nothing}
 
 
 -- | The name of the group.
-lpGroup :: Lens' LaunchPermission (Maybe PermissionGroup)
-lpGroup = lens _lpGroup (\ s a -> s{_lpGroup = a});
+lGroup :: Lens' LaunchPermission (Maybe PermissionGroup)
+lGroup = lens _lGroup (\ s a -> s{_lGroup = a});
 
 -- | The AWS account ID.
-lpUserId :: Lens' LaunchPermission (Maybe Text)
-lpUserId = lens _lpUserId (\ s a -> s{_lpUserId = a});
+lUserId :: Lens' LaunchPermission (Maybe Text)
+lUserId = lens _lUserId (\ s a -> s{_lUserId = a});
 
 instance FromXML LaunchPermission where
         parseXML x
@@ -6368,8 +6623,7 @@ instance NFData LaunchPermission where
 
 instance ToQuery LaunchPermission where
         toQuery LaunchPermission'{..}
-          = mconcat
-              ["Group" =: _lpGroup, "UserId" =: _lpUserId]
+          = mconcat ["Group" =: _lGroup, "UserId" =: _lUserId]
 
 -- | Describes a launch permission modification.
 --
@@ -6377,8 +6631,8 @@ instance ToQuery LaunchPermission where
 --
 -- /See:/ 'launchPermissionModifications' smart constructor.
 data LaunchPermissionModifications = LaunchPermissionModifications'
-  { _lpmRemove :: {-# NOUNPACK #-}!(Maybe [LaunchPermission])
-  , _lpmAdd    :: {-# NOUNPACK #-}!(Maybe [LaunchPermission])
+  { _lRemove :: {-# NOUNPACK #-}!(Maybe [LaunchPermission])
+  , _lAdd    :: {-# NOUNPACK #-}!(Maybe [LaunchPermission])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6386,22 +6640,22 @@ data LaunchPermissionModifications = LaunchPermissionModifications'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpmRemove' - The AWS account ID to remove from the list of launch permissions for the AMI.
+-- * 'lRemove' - The AWS account ID to remove from the list of launch permissions for the AMI.
 --
--- * 'lpmAdd' - The AWS account ID to add to the list of launch permissions for the AMI.
+-- * 'lAdd' - The AWS account ID to add to the list of launch permissions for the AMI.
 launchPermissionModifications
     :: LaunchPermissionModifications
 launchPermissionModifications =
-  LaunchPermissionModifications' {_lpmRemove = Nothing, _lpmAdd = Nothing}
+  LaunchPermissionModifications' {_lRemove = Nothing, _lAdd = Nothing}
 
 
 -- | The AWS account ID to remove from the list of launch permissions for the AMI.
-lpmRemove :: Lens' LaunchPermissionModifications [LaunchPermission]
-lpmRemove = lens _lpmRemove (\ s a -> s{_lpmRemove = a}) . _Default . _Coerce;
+lRemove :: Lens' LaunchPermissionModifications [LaunchPermission]
+lRemove = lens _lRemove (\ s a -> s{_lRemove = a}) . _Default . _Coerce;
 
 -- | The AWS account ID to add to the list of launch permissions for the AMI.
-lpmAdd :: Lens' LaunchPermissionModifications [LaunchPermission]
-lpmAdd = lens _lpmAdd (\ s a -> s{_lpmAdd = a}) . _Default . _Coerce;
+lAdd :: Lens' LaunchPermissionModifications [LaunchPermission]
+lAdd = lens _lAdd (\ s a -> s{_lAdd = a}) . _Default . _Coerce;
 
 instance Hashable LaunchPermissionModifications where
 
@@ -6410,8 +6664,8 @@ instance NFData LaunchPermissionModifications where
 instance ToQuery LaunchPermissionModifications where
         toQuery LaunchPermissionModifications'{..}
           = mconcat
-              [toQuery (toQueryList "Remove" <$> _lpmRemove),
-               toQuery (toQueryList "Add" <$> _lpmAdd)]
+              [toQuery (toQueryList "Remove" <$> _lRemove),
+               toQuery (toQueryList "Add" <$> _lAdd)]
 
 -- | Describes the launch specification for an instance.
 --
@@ -6467,7 +6721,7 @@ data LaunchSpecification = LaunchSpecification'
 --
 -- * 'lsAddressingType' - Deprecated.
 --
--- * 'lsBlockDeviceMappings' - One or more block device mapping entries. Although you can specify encrypted EBS volumes in this block device mapping for your Spot Instances, these volumes are not encrypted.
+-- * 'lsBlockDeviceMappings' - One or more block device mapping entries.
 --
 -- * 'lsPlacement' - The placement information for the instance.
 launchSpecification
@@ -6544,7 +6798,7 @@ lsImageId = lens _lsImageId (\ s a -> s{_lsImageId = a});
 lsAddressingType :: Lens' LaunchSpecification (Maybe Text)
 lsAddressingType = lens _lsAddressingType (\ s a -> s{_lsAddressingType = a});
 
--- | One or more block device mapping entries. Although you can specify encrypted EBS volumes in this block device mapping for your Spot Instances, these volumes are not encrypted.
+-- | One or more block device mapping entries.
 lsBlockDeviceMappings :: Lens' LaunchSpecification [BlockDeviceMapping]
 lsBlockDeviceMappings = lens _lsBlockDeviceMappings (\ s a -> s{_lsBlockDeviceMappings = a}) . _Default . _Coerce;
 
@@ -6579,6 +6833,179 @@ instance FromXML LaunchSpecification where
 instance Hashable LaunchSpecification where
 
 instance NFData LaunchSpecification where
+
+-- | Describes the Classic Load Balancers and target groups to attach to a Spot fleet request.
+--
+--
+--
+-- /See:/ 'loadBalancersConfig' smart constructor.
+data LoadBalancersConfig = LoadBalancersConfig'
+  { _lbcClassicLoadBalancersConfig :: {-# NOUNPACK #-}!(Maybe ClassicLoadBalancersConfig)
+  , _lbcTargetGroupsConfig :: {-# NOUNPACK #-}!(Maybe TargetGroupsConfig)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LoadBalancersConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbcClassicLoadBalancersConfig' - The Classic Load Balancers.
+--
+-- * 'lbcTargetGroupsConfig' - The target groups.
+loadBalancersConfig
+    :: LoadBalancersConfig
+loadBalancersConfig =
+  LoadBalancersConfig'
+  {_lbcClassicLoadBalancersConfig = Nothing, _lbcTargetGroupsConfig = Nothing}
+
+
+-- | The Classic Load Balancers.
+lbcClassicLoadBalancersConfig :: Lens' LoadBalancersConfig (Maybe ClassicLoadBalancersConfig)
+lbcClassicLoadBalancersConfig = lens _lbcClassicLoadBalancersConfig (\ s a -> s{_lbcClassicLoadBalancersConfig = a});
+
+-- | The target groups.
+lbcTargetGroupsConfig :: Lens' LoadBalancersConfig (Maybe TargetGroupsConfig)
+lbcTargetGroupsConfig = lens _lbcTargetGroupsConfig (\ s a -> s{_lbcTargetGroupsConfig = a});
+
+instance FromXML LoadBalancersConfig where
+        parseXML x
+          = LoadBalancersConfig' <$>
+              (x .@? "classicLoadBalancersConfig") <*>
+                (x .@? "targetGroupsConfig")
+
+instance Hashable LoadBalancersConfig where
+
+instance NFData LoadBalancersConfig where
+
+instance ToQuery LoadBalancersConfig where
+        toQuery LoadBalancersConfig'{..}
+          = mconcat
+              ["ClassicLoadBalancersConfig" =:
+                 _lbcClassicLoadBalancersConfig,
+               "TargetGroupsConfig" =: _lbcTargetGroupsConfig]
+
+-- | Describes a load permission.
+--
+--
+--
+-- /See:/ 'loadPermission' smart constructor.
+data LoadPermission = LoadPermission'
+  { _lpGroup  :: {-# NOUNPACK #-}!(Maybe PermissionGroup)
+  , _lpUserId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LoadPermission' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpGroup' - The name of the group.
+--
+-- * 'lpUserId' - The AWS account ID.
+loadPermission
+    :: LoadPermission
+loadPermission = LoadPermission' {_lpGroup = Nothing, _lpUserId = Nothing}
+
+
+-- | The name of the group.
+lpGroup :: Lens' LoadPermission (Maybe PermissionGroup)
+lpGroup = lens _lpGroup (\ s a -> s{_lpGroup = a});
+
+-- | The AWS account ID.
+lpUserId :: Lens' LoadPermission (Maybe Text)
+lpUserId = lens _lpUserId (\ s a -> s{_lpUserId = a});
+
+instance FromXML LoadPermission where
+        parseXML x
+          = LoadPermission' <$>
+              (x .@? "group") <*> (x .@? "userId")
+
+instance Hashable LoadPermission where
+
+instance NFData LoadPermission where
+
+-- | Describes modifications to the load permissions of an Amazon FPGA image (AFI).
+--
+--
+--
+-- /See:/ 'loadPermissionModifications' smart constructor.
+data LoadPermissionModifications = LoadPermissionModifications'
+  { _lpmRemove :: {-# NOUNPACK #-}!(Maybe [LoadPermissionRequest])
+  , _lpmAdd    :: {-# NOUNPACK #-}!(Maybe [LoadPermissionRequest])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LoadPermissionModifications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpmRemove' - The load permissions to remove.
+--
+-- * 'lpmAdd' - The load permissions to add.
+loadPermissionModifications
+    :: LoadPermissionModifications
+loadPermissionModifications =
+  LoadPermissionModifications' {_lpmRemove = Nothing, _lpmAdd = Nothing}
+
+
+-- | The load permissions to remove.
+lpmRemove :: Lens' LoadPermissionModifications [LoadPermissionRequest]
+lpmRemove = lens _lpmRemove (\ s a -> s{_lpmRemove = a}) . _Default . _Coerce;
+
+-- | The load permissions to add.
+lpmAdd :: Lens' LoadPermissionModifications [LoadPermissionRequest]
+lpmAdd = lens _lpmAdd (\ s a -> s{_lpmAdd = a}) . _Default . _Coerce;
+
+instance Hashable LoadPermissionModifications where
+
+instance NFData LoadPermissionModifications where
+
+instance ToQuery LoadPermissionModifications where
+        toQuery LoadPermissionModifications'{..}
+          = mconcat
+              [toQuery (toQueryList "Remove" <$> _lpmRemove),
+               toQuery (toQueryList "Add" <$> _lpmAdd)]
+
+-- | Describes a load permission.
+--
+--
+--
+-- /See:/ 'loadPermissionRequest' smart constructor.
+data LoadPermissionRequest = LoadPermissionRequest'
+  { _lprGroup  :: {-# NOUNPACK #-}!(Maybe PermissionGroup)
+  , _lprUserId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LoadPermissionRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lprGroup' - The name of the group.
+--
+-- * 'lprUserId' - The AWS account ID.
+loadPermissionRequest
+    :: LoadPermissionRequest
+loadPermissionRequest =
+  LoadPermissionRequest' {_lprGroup = Nothing, _lprUserId = Nothing}
+
+
+-- | The name of the group.
+lprGroup :: Lens' LoadPermissionRequest (Maybe PermissionGroup)
+lprGroup = lens _lprGroup (\ s a -> s{_lprGroup = a});
+
+-- | The AWS account ID.
+lprUserId :: Lens' LoadPermissionRequest (Maybe Text)
+lprUserId = lens _lprUserId (\ s a -> s{_lprUserId = a});
+
+instance Hashable LoadPermissionRequest where
+
+instance NFData LoadPermissionRequest where
+
+instance ToQuery LoadPermissionRequest where
+        toQuery LoadPermissionRequest'{..}
+          = mconcat
+              ["Group" =: _lprGroup, "UserId" =: _lprUserId]
 
 -- | Describes the monitoring of an instance.
 --
@@ -6668,6 +7095,7 @@ data NatGateway = NatGateway'
   , _ngProvisionedBandwidth :: {-# NOUNPACK #-}!(Maybe ProvisionedBandwidth)
   , _ngNatGatewayAddresses  :: {-# NOUNPACK #-}!(Maybe [NatGatewayAddress])
   , _ngCreateTime           :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _ngTags                 :: {-# NOUNPACK #-}!(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6694,6 +7122,8 @@ data NatGateway = NatGateway'
 -- * 'ngNatGatewayAddresses' - Information about the IP addresses and network interface associated with the NAT gateway.
 --
 -- * 'ngCreateTime' - The date and time the NAT gateway was created.
+--
+-- * 'ngTags' - The tags for the NAT gateway.
 natGateway
     :: NatGateway
 natGateway =
@@ -6708,6 +7138,7 @@ natGateway =
   , _ngProvisionedBandwidth = Nothing
   , _ngNatGatewayAddresses = Nothing
   , _ngCreateTime = Nothing
+  , _ngTags = Nothing
   }
 
 
@@ -6751,6 +7182,10 @@ ngNatGatewayAddresses = lens _ngNatGatewayAddresses (\ s a -> s{_ngNatGatewayAdd
 ngCreateTime :: Lens' NatGateway (Maybe UTCTime)
 ngCreateTime = lens _ngCreateTime (\ s a -> s{_ngCreateTime = a}) . mapping _Time;
 
+-- | The tags for the NAT gateway.
+ngTags :: Lens' NatGateway [Tag]
+ngTags = lens _ngTags (\ s a -> s{_ngTags = a}) . _Default . _Coerce;
+
 instance FromXML NatGateway where
         parseXML x
           = NatGateway' <$>
@@ -6765,6 +7200,9 @@ instance FromXML NatGateway where
                 (x .@? "natGatewayAddressSet" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "createTime")
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 instance Hashable NatGateway where
 
@@ -8165,8 +8603,9 @@ instance NFData PrefixList where
 --
 --
 -- /See:/ 'prefixListId' smart constructor.
-newtype PrefixListId = PrefixListId'
-  { _pliPrefixListId :: Maybe Text
+data PrefixListId = PrefixListId'
+  { _pliPrefixListId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pliDescription  :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -8175,17 +8614,26 @@ newtype PrefixListId = PrefixListId'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pliPrefixListId' - The ID of the prefix.
+--
+-- * 'pliDescription' - A description for the security group rule that references this prefix list ID. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
 prefixListId
     :: PrefixListId
-prefixListId = PrefixListId' {_pliPrefixListId = Nothing}
+prefixListId =
+  PrefixListId' {_pliPrefixListId = Nothing, _pliDescription = Nothing}
 
 
 -- | The ID of the prefix.
 pliPrefixListId :: Lens' PrefixListId (Maybe Text)
 pliPrefixListId = lens _pliPrefixListId (\ s a -> s{_pliPrefixListId = a});
 
+-- | A description for the security group rule that references this prefix list ID. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+pliDescription :: Lens' PrefixListId (Maybe Text)
+pliDescription = lens _pliDescription (\ s a -> s{_pliDescription = a});
+
 instance FromXML PrefixListId where
-        parseXML x = PrefixListId' <$> (x .@? "prefixListId")
+        parseXML x
+          = PrefixListId' <$>
+              (x .@? "prefixListId") <*> (x .@? "description")
 
 instance Hashable PrefixListId where
 
@@ -8193,7 +8641,9 @@ instance NFData PrefixListId where
 
 instance ToQuery PrefixListId where
         toQuery PrefixListId'{..}
-          = mconcat ["PrefixListId" =: _pliPrefixListId]
+          = mconcat
+              ["PrefixListId" =: _pliPrefixListId,
+               "Description" =: _pliDescription]
 
 -- | Describes the price for a Reserved Instance.
 --
@@ -8821,7 +9271,7 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
 --
 -- * 'rslsAddressingType' - Deprecated.
 --
--- * 'rslsBlockDeviceMappings' - One or more block device mapping entries. Although you can specify encrypted EBS volumes in this block device mapping for your Spot Instances, these volumes are not encrypted.
+-- * 'rslsBlockDeviceMappings' - One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
 --
 -- * 'rslsPlacement' - The placement information for the instance.
 requestSpotLaunchSpecification
@@ -8903,7 +9353,7 @@ rslsImageId = lens _rslsImageId (\ s a -> s{_rslsImageId = a});
 rslsAddressingType :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsAddressingType = lens _rslsAddressingType (\ s a -> s{_rslsAddressingType = a});
 
--- | One or more block device mapping entries. Although you can specify encrypted EBS volumes in this block device mapping for your Spot Instances, these volumes are not encrypted.
+-- | One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
 rslsBlockDeviceMappings :: Lens' RequestSpotLaunchSpecification [BlockDeviceMapping]
 rslsBlockDeviceMappings = lens _rslsBlockDeviceMappings (\ s a -> s{_rslsBlockDeviceMappings = a}) . _Default . _Coerce;
 
@@ -10792,13 +11242,13 @@ data ScheduledInstancesBlockDeviceMapping = ScheduledInstancesBlockDeviceMapping
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sibdmVirtualName' - The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ .The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+-- * 'sibdmVirtualName' - The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
 --
 -- * 'sibdmNoDevice' - Suppresses the specified device included in the block device mapping of the AMI.
 --
 -- * 'sibdmEBS' - Parameters used to set up EBS volumes automatically when the instance is launched.
 --
--- * 'sibdmDeviceName' - The device name exposed to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+-- * 'sibdmDeviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
 scheduledInstancesBlockDeviceMapping
     :: ScheduledInstancesBlockDeviceMapping
 scheduledInstancesBlockDeviceMapping =
@@ -10810,7 +11260,7 @@ scheduledInstancesBlockDeviceMapping =
   }
 
 
--- | The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ .The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+-- | The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with two available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
 sibdmVirtualName :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
 sibdmVirtualName = lens _sibdmVirtualName (\ s a -> s{_sibdmVirtualName = a});
 
@@ -10822,7 +11272,7 @@ sibdmNoDevice = lens _sibdmNoDevice (\ s a -> s{_sibdmNoDevice = a});
 sibdmEBS :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe ScheduledInstancesEBS)
 sibdmEBS = lens _sibdmEBS (\ s a -> s{_sibdmEBS = a});
 
--- | The device name exposed to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+-- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
 sibdmDeviceName :: Lens' ScheduledInstancesBlockDeviceMapping (Maybe Text)
 sibdmDeviceName = lens _sibdmDeviceName (\ s a -> s{_sibdmDeviceName = a});
 
@@ -11542,6 +11992,47 @@ instance Hashable SecurityGroup where
 
 instance NFData SecurityGroup where
 
+-- | Describes a security group.
+--
+--
+--
+-- /See:/ 'securityGroupIdentifier' smart constructor.
+data SecurityGroupIdentifier = SecurityGroupIdentifier'
+  { _sgiGroupId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sgiGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SecurityGroupIdentifier' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sgiGroupId' - The ID of the security group.
+--
+-- * 'sgiGroupName' - The name of the security group.
+securityGroupIdentifier
+    :: SecurityGroupIdentifier
+securityGroupIdentifier =
+  SecurityGroupIdentifier' {_sgiGroupId = Nothing, _sgiGroupName = Nothing}
+
+
+-- | The ID of the security group.
+sgiGroupId :: Lens' SecurityGroupIdentifier (Maybe Text)
+sgiGroupId = lens _sgiGroupId (\ s a -> s{_sgiGroupId = a});
+
+-- | The name of the security group.
+sgiGroupName :: Lens' SecurityGroupIdentifier (Maybe Text)
+sgiGroupName = lens _sgiGroupName (\ s a -> s{_sgiGroupName = a});
+
+instance FromXML SecurityGroupIdentifier where
+        parseXML x
+          = SecurityGroupIdentifier' <$>
+              (x .@? "groupId") <*> (x .@? "groupName")
+
+instance Hashable SecurityGroupIdentifier where
+
+instance NFData SecurityGroupIdentifier where
+
 -- | Describes a VPC with a security group that references your security group.
 --
 --
@@ -11596,6 +12087,142 @@ instance FromXML SecurityGroupReference where
 instance Hashable SecurityGroupReference where
 
 instance NFData SecurityGroupReference where
+
+-- | Describes a service.
+--
+--
+--
+-- /See:/ 'serviceDetail' smart constructor.
+data ServiceDetail = ServiceDetail'
+  { _sdVPCEndpointPolicySupported :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sdBaseEndpointDNSNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sdOwner :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _sdServiceName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sdServiceType :: {-# NOUNPACK #-}!(Maybe [ServiceTypeDetail])
+  , _sdAcceptanceRequired :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sdPrivateDNSName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ServiceDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdVPCEndpointPolicySupported' - Indicates whether the service supports endpoint policies.
+--
+-- * 'sdBaseEndpointDNSNames' - The DNS names for the service.
+--
+-- * 'sdOwner' - The AWS account ID of the service owner.
+--
+-- * 'sdAvailabilityZones' - The Availability Zones in which the service is available.
+--
+-- * 'sdServiceName' - The Amazon Resource Name (ARN) of the service.
+--
+-- * 'sdServiceType' - The type of service.
+--
+-- * 'sdAcceptanceRequired' - Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
+--
+-- * 'sdPrivateDNSName' - The private DNS name for the service.
+serviceDetail
+    :: ServiceDetail
+serviceDetail =
+  ServiceDetail'
+  { _sdVPCEndpointPolicySupported = Nothing
+  , _sdBaseEndpointDNSNames = Nothing
+  , _sdOwner = Nothing
+  , _sdAvailabilityZones = Nothing
+  , _sdServiceName = Nothing
+  , _sdServiceType = Nothing
+  , _sdAcceptanceRequired = Nothing
+  , _sdPrivateDNSName = Nothing
+  }
+
+
+-- | Indicates whether the service supports endpoint policies.
+sdVPCEndpointPolicySupported :: Lens' ServiceDetail (Maybe Bool)
+sdVPCEndpointPolicySupported = lens _sdVPCEndpointPolicySupported (\ s a -> s{_sdVPCEndpointPolicySupported = a});
+
+-- | The DNS names for the service.
+sdBaseEndpointDNSNames :: Lens' ServiceDetail [Text]
+sdBaseEndpointDNSNames = lens _sdBaseEndpointDNSNames (\ s a -> s{_sdBaseEndpointDNSNames = a}) . _Default . _Coerce;
+
+-- | The AWS account ID of the service owner.
+sdOwner :: Lens' ServiceDetail (Maybe Text)
+sdOwner = lens _sdOwner (\ s a -> s{_sdOwner = a});
+
+-- | The Availability Zones in which the service is available.
+sdAvailabilityZones :: Lens' ServiceDetail [Text]
+sdAvailabilityZones = lens _sdAvailabilityZones (\ s a -> s{_sdAvailabilityZones = a}) . _Default . _Coerce;
+
+-- | The Amazon Resource Name (ARN) of the service.
+sdServiceName :: Lens' ServiceDetail (Maybe Text)
+sdServiceName = lens _sdServiceName (\ s a -> s{_sdServiceName = a});
+
+-- | The type of service.
+sdServiceType :: Lens' ServiceDetail [ServiceTypeDetail]
+sdServiceType = lens _sdServiceType (\ s a -> s{_sdServiceType = a}) . _Default . _Coerce;
+
+-- | Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
+sdAcceptanceRequired :: Lens' ServiceDetail (Maybe Bool)
+sdAcceptanceRequired = lens _sdAcceptanceRequired (\ s a -> s{_sdAcceptanceRequired = a});
+
+-- | The private DNS name for the service.
+sdPrivateDNSName :: Lens' ServiceDetail (Maybe Text)
+sdPrivateDNSName = lens _sdPrivateDNSName (\ s a -> s{_sdPrivateDNSName = a});
+
+instance FromXML ServiceDetail where
+        parseXML x
+          = ServiceDetail' <$>
+              (x .@? "vpcEndpointPolicySupported") <*>
+                (x .@? "baseEndpointDnsNameSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "owner")
+                <*>
+                (x .@? "availabilityZoneSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "serviceName")
+                <*>
+                (x .@? "serviceType" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "acceptanceRequired")
+                <*> (x .@? "privateDnsName")
+
+instance Hashable ServiceDetail where
+
+instance NFData ServiceDetail where
+
+-- | Describes the type of service for a VPC endpoint.
+--
+--
+--
+-- /See:/ 'serviceTypeDetail' smart constructor.
+newtype ServiceTypeDetail = ServiceTypeDetail'
+  { _stdServiceType :: Maybe ServiceType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ServiceTypeDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stdServiceType' - The type of service.
+serviceTypeDetail
+    :: ServiceTypeDetail
+serviceTypeDetail = ServiceTypeDetail' {_stdServiceType = Nothing}
+
+
+-- | The type of service.
+stdServiceType :: Lens' ServiceTypeDetail (Maybe ServiceType)
+stdServiceType = lens _stdServiceType (\ s a -> s{_stdServiceType = a});
+
+instance FromXML ServiceTypeDetail where
+        parseXML x
+          = ServiceTypeDetail' <$> (x .@? "serviceType")
+
+instance Hashable ServiceTypeDetail where
+
+instance NFData ServiceTypeDetail where
 
 -- | Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.
 --
@@ -12269,7 +12896,7 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 --
 -- * 'sflsAddressingType' - Deprecated.
 --
--- * 'sflsBlockDeviceMappings' - One or more block device mapping entries.
+-- * 'sflsBlockDeviceMappings' - One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
 --
 -- * 'sflsPlacement' - The placement information.
 spotFleetLaunchSpecification
@@ -12361,7 +12988,7 @@ sflsImageId = lens _sflsImageId (\ s a -> s{_sflsImageId = a});
 sflsAddressingType :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsAddressingType = lens _sflsAddressingType (\ s a -> s{_sflsAddressingType = a});
 
--- | One or more block device mapping entries.
+-- | One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
 sflsBlockDeviceMappings :: Lens' SpotFleetLaunchSpecification [BlockDeviceMapping]
 sflsBlockDeviceMappings = lens _sflsBlockDeviceMappings (\ s a -> s{_sflsBlockDeviceMappings = a}) . _Default . _Coerce;
 
@@ -12549,6 +13176,8 @@ instance NFData SpotFleetRequestConfig where
 -- /See:/ 'spotFleetRequestConfigData' smart constructor.
 data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
   { _sfrcdClientToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sfrcdInstanceInterruptionBehavior :: {-# NOUNPACK #-}!(Maybe InstanceInterruptionBehavior)
+  , _sfrcdLoadBalancersConfig :: {-# NOUNPACK #-}!(Maybe LoadBalancersConfig)
   , _sfrcdExcessCapacityTerminationPolicy :: {-# NOUNPACK #-}!(Maybe ExcessCapacityTerminationPolicy)
   , _sfrcdValidUntil :: {-# NOUNPACK #-}!(Maybe ISO8601)
   , _sfrcdTerminateInstancesWithExpiration :: {-# NOUNPACK #-}!(Maybe Bool)
@@ -12569,6 +13198,10 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sfrcdClientToken' - A unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+--
+-- * 'sfrcdInstanceInterruptionBehavior' - Indicates whether a Spot instance stops or terminates when it is interrupted.
+--
+-- * 'sfrcdLoadBalancersConfig' - One or more Classic Load Balancers and target groups to attach to the Spot fleet request. Spot fleet registers the running Spot instances with the specified Classic Load Balancers and target groups. With Network Load Balancers, Spot fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
 --
 -- * 'sfrcdExcessCapacityTerminationPolicy' - Indicates whether running Spot instances should be terminated if the target capacity of the Spot fleet request is decreased below the current size of the Spot fleet.
 --
@@ -12602,6 +13235,8 @@ spotFleetRequestConfigData
 spotFleetRequestConfigData pIAMFleetRole_ pLaunchSpecifications_ pSpotPrice_ pTargetCapacity_ =
   SpotFleetRequestConfigData'
   { _sfrcdClientToken = Nothing
+  , _sfrcdInstanceInterruptionBehavior = Nothing
+  , _sfrcdLoadBalancersConfig = Nothing
   , _sfrcdExcessCapacityTerminationPolicy = Nothing
   , _sfrcdValidUntil = Nothing
   , _sfrcdTerminateInstancesWithExpiration = Nothing
@@ -12620,6 +13255,14 @@ spotFleetRequestConfigData pIAMFleetRole_ pLaunchSpecifications_ pSpotPrice_ pTa
 -- | A unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 sfrcdClientToken :: Lens' SpotFleetRequestConfigData (Maybe Text)
 sfrcdClientToken = lens _sfrcdClientToken (\ s a -> s{_sfrcdClientToken = a});
+
+-- | Indicates whether a Spot instance stops or terminates when it is interrupted.
+sfrcdInstanceInterruptionBehavior :: Lens' SpotFleetRequestConfigData (Maybe InstanceInterruptionBehavior)
+sfrcdInstanceInterruptionBehavior = lens _sfrcdInstanceInterruptionBehavior (\ s a -> s{_sfrcdInstanceInterruptionBehavior = a});
+
+-- | One or more Classic Load Balancers and target groups to attach to the Spot fleet request. Spot fleet registers the running Spot instances with the specified Classic Load Balancers and target groups. With Network Load Balancers, Spot fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
+sfrcdLoadBalancersConfig :: Lens' SpotFleetRequestConfigData (Maybe LoadBalancersConfig)
+sfrcdLoadBalancersConfig = lens _sfrcdLoadBalancersConfig (\ s a -> s{_sfrcdLoadBalancersConfig = a});
 
 -- | Indicates whether running Spot instances should be terminated if the target capacity of the Spot fleet request is decreased below the current size of the Spot fleet.
 sfrcdExcessCapacityTerminationPolicy :: Lens' SpotFleetRequestConfigData (Maybe ExcessCapacityTerminationPolicy)
@@ -12673,7 +13316,9 @@ instance FromXML SpotFleetRequestConfigData where
         parseXML x
           = SpotFleetRequestConfigData' <$>
               (x .@? "clientToken") <*>
-                (x .@? "excessCapacityTerminationPolicy")
+                (x .@? "instanceInterruptionBehavior")
+                <*> (x .@? "loadBalancersConfig")
+                <*> (x .@? "excessCapacityTerminationPolicy")
                 <*> (x .@? "validUntil")
                 <*> (x .@? "terminateInstancesWithExpiration")
                 <*> (x .@? "fulfilledCapacity")
@@ -12696,6 +13341,9 @@ instance ToQuery SpotFleetRequestConfigData where
         toQuery SpotFleetRequestConfigData'{..}
           = mconcat
               ["ClientToken" =: _sfrcdClientToken,
+               "InstanceInterruptionBehavior" =:
+                 _sfrcdInstanceInterruptionBehavior,
+               "LoadBalancersConfig" =: _sfrcdLoadBalancersConfig,
                "ExcessCapacityTerminationPolicy" =:
                  _sfrcdExcessCapacityTerminationPolicy,
                "ValidUntil" =: _sfrcdValidUntil,
@@ -12772,6 +13420,7 @@ data SpotInstanceRequest = SpotInstanceRequest'
   , _sirState :: {-# NOUNPACK #-}!(Maybe SpotInstanceState)
   , _sirActualBlockHourlyPrice :: {-# NOUNPACK #-}!(Maybe Text)
   , _sirBlockDurationMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  , _sirInstanceInterruptionBehavior :: {-# NOUNPACK #-}!(Maybe InstanceInterruptionBehavior)
   , _sirProductDescription :: {-# NOUNPACK #-}!(Maybe RIProductDescription)
   , _sirSpotPrice :: {-# NOUNPACK #-}!(Maybe Text)
   , _sirLaunchSpecification :: {-# NOUNPACK #-}!(Maybe LaunchSpecification)
@@ -12801,6 +13450,8 @@ data SpotInstanceRequest = SpotInstanceRequest'
 -- * 'sirActualBlockHourlyPrice' - If you specified a duration and your Spot instance request was fulfilled, this is the fixed hourly price in effect for the Spot instance while it runs.
 --
 -- * 'sirBlockDurationMinutes' - The duration for the Spot instance, in minutes.
+--
+-- * 'sirInstanceInterruptionBehavior' - Indicates whether a Spot instance stops or terminates when it is interrupted.
 --
 -- * 'sirProductDescription' - The product description associated with the Spot instance.
 --
@@ -12836,6 +13487,7 @@ spotInstanceRequest =
   , _sirState = Nothing
   , _sirActualBlockHourlyPrice = Nothing
   , _sirBlockDurationMinutes = Nothing
+  , _sirInstanceInterruptionBehavior = Nothing
   , _sirProductDescription = Nothing
   , _sirSpotPrice = Nothing
   , _sirLaunchSpecification = Nothing
@@ -12871,6 +13523,10 @@ sirActualBlockHourlyPrice = lens _sirActualBlockHourlyPrice (\ s a -> s{_sirActu
 -- | The duration for the Spot instance, in minutes.
 sirBlockDurationMinutes :: Lens' SpotInstanceRequest (Maybe Int)
 sirBlockDurationMinutes = lens _sirBlockDurationMinutes (\ s a -> s{_sirBlockDurationMinutes = a});
+
+-- | Indicates whether a Spot instance stops or terminates when it is interrupted.
+sirInstanceInterruptionBehavior :: Lens' SpotInstanceRequest (Maybe InstanceInterruptionBehavior)
+sirInstanceInterruptionBehavior = lens _sirInstanceInterruptionBehavior (\ s a -> s{_sirInstanceInterruptionBehavior = a});
 
 -- | The product description associated with the Spot instance.
 sirProductDescription :: Lens' SpotInstanceRequest (Maybe RIProductDescription)
@@ -12931,6 +13587,7 @@ instance FromXML SpotInstanceRequest where
                 (x .@? "state")
                 <*> (x .@? "actualBlockHourlyPrice")
                 <*> (x .@? "blockDurationMinutes")
+                <*> (x .@? "instanceInterruptionBehavior")
                 <*> (x .@? "productDescription")
                 <*> (x .@? "spotPrice")
                 <*> (x .@? "launchSpecification")
@@ -13356,7 +14013,7 @@ data StateReason = StateReason'
 --
 -- * 'srCode' - The reason code for the state change.
 --
--- * 'srMessage' - The message for the state change.     * @Server.InsufficientInstanceCapacity@ : There was insufficient instance capacity to satisfy the launch request.     * @Server.InternalError@ : An internal error occurred during instance launch, resulting in termination.     * @Server.ScheduledStop@ : The instance was stopped due to a scheduled retirement.     * @Server.SpotInstanceTermination@ : A Spot instance was terminated due to an increase in the market price.     * @Client.InternalError@ : A client error caused the instance to terminate on launch.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your limits.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.
+-- * 'srMessage' - The message for the state change.     * @Server.InsufficientInstanceCapacity@ : There was insufficient instance capacity to satisfy the launch request.     * @Server.InternalError@ : An internal error occurred during instance launch, resulting in termination.     * @Server.ScheduledStop@ : The instance was stopped due to a scheduled retirement.     * @Server.SpotInstanceTermination@ : A Spot Instance was terminated due to an increase in the market price.     * @Client.InternalError@ : A client error caused the instance to terminate on launch.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.InstanceTerminated@ : The instance was terminated or rebooted during AMI creation.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your limits.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.
 stateReason
     :: StateReason
 stateReason = StateReason' {_srCode = Nothing, _srMessage = Nothing}
@@ -13366,7 +14023,7 @@ stateReason = StateReason' {_srCode = Nothing, _srMessage = Nothing}
 srCode :: Lens' StateReason (Maybe Text)
 srCode = lens _srCode (\ s a -> s{_srCode = a});
 
--- | The message for the state change.     * @Server.InsufficientInstanceCapacity@ : There was insufficient instance capacity to satisfy the launch request.     * @Server.InternalError@ : An internal error occurred during instance launch, resulting in termination.     * @Server.ScheduledStop@ : The instance was stopped due to a scheduled retirement.     * @Server.SpotInstanceTermination@ : A Spot instance was terminated due to an increase in the market price.     * @Client.InternalError@ : A client error caused the instance to terminate on launch.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your limits.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.
+-- | The message for the state change.     * @Server.InsufficientInstanceCapacity@ : There was insufficient instance capacity to satisfy the launch request.     * @Server.InternalError@ : An internal error occurred during instance launch, resulting in termination.     * @Server.ScheduledStop@ : The instance was stopped due to a scheduled retirement.     * @Server.SpotInstanceTermination@ : A Spot Instance was terminated due to an increase in the market price.     * @Client.InternalError@ : A client error caused the instance to terminate on launch.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.InstanceTerminated@ : The instance was terminated or rebooted during AMI creation.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your limits.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.
 srMessage :: Lens' StateReason (Maybe Text)
 srMessage = lens _srMessage (\ s a -> s{_srMessage = a});
 
@@ -13919,6 +14576,82 @@ instance ToQuery TargetConfigurationRequest where
               ["InstanceCount" =: _tcrInstanceCount,
                "OfferingId" =: _tcrOfferingId]
 
+-- | Describes a load balancer target group.
+--
+--
+--
+-- /See:/ 'targetGroup' smart constructor.
+newtype TargetGroup = TargetGroup'
+  { _tgARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TargetGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgARN' - The Amazon Resource Name (ARN) of the target group.
+targetGroup
+    :: Text -- ^ 'tgARN'
+    -> TargetGroup
+targetGroup pARN_ = TargetGroup' {_tgARN = pARN_}
+
+
+-- | The Amazon Resource Name (ARN) of the target group.
+tgARN :: Lens' TargetGroup Text
+tgARN = lens _tgARN (\ s a -> s{_tgARN = a});
+
+instance FromXML TargetGroup where
+        parseXML x = TargetGroup' <$> (x .@ "arn")
+
+instance Hashable TargetGroup where
+
+instance NFData TargetGroup where
+
+instance ToQuery TargetGroup where
+        toQuery TargetGroup'{..} = mconcat ["Arn" =: _tgARN]
+
+-- | Describes the target groups to attach to a Spot fleet. Spot fleet registers the running Spot instances with these target groups.
+--
+--
+--
+-- /See:/ 'targetGroupsConfig' smart constructor.
+newtype TargetGroupsConfig = TargetGroupsConfig'
+  { _tgcTargetGroups :: List1 TargetGroup
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TargetGroupsConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgcTargetGroups' - One or more target groups.
+targetGroupsConfig
+    :: NonEmpty TargetGroup -- ^ 'tgcTargetGroups'
+    -> TargetGroupsConfig
+targetGroupsConfig pTargetGroups_ =
+  TargetGroupsConfig' {_tgcTargetGroups = _List1 # pTargetGroups_}
+
+
+-- | One or more target groups.
+tgcTargetGroups :: Lens' TargetGroupsConfig (NonEmpty TargetGroup)
+tgcTargetGroups = lens _tgcTargetGroups (\ s a -> s{_tgcTargetGroups = a}) . _List1;
+
+instance FromXML TargetGroupsConfig where
+        parseXML x
+          = TargetGroupsConfig' <$>
+              (x .@? "targetGroups" .!@ mempty >>=
+                 parseXMLList1 "item")
+
+instance Hashable TargetGroupsConfig where
+
+instance NFData TargetGroupsConfig where
+
+instance ToQuery TargetGroupsConfig where
+        toQuery TargetGroupsConfig'{..}
+          = mconcat
+              [toQueryList "TargetGroups" _tgcTargetGroups]
+
 -- | The total value of the new Convertible Reserved Instances.
 --
 --
@@ -14170,6 +14903,7 @@ data UserIdGroupPair = UserIdGroupPair'
   , _uigpUserId                 :: {-# NOUNPACK #-}!(Maybe Text)
   , _uigpGroupId                :: {-# NOUNPACK #-}!(Maybe Text)
   , _uigpGroupName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uigpDescription            :: {-# NOUNPACK #-}!(Maybe Text)
   , _uigpPeeringStatus          :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -14188,6 +14922,8 @@ data UserIdGroupPair = UserIdGroupPair'
 --
 -- * 'uigpGroupName' - The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID.
 --
+-- * 'uigpDescription' - A description for the security group rule that references this user ID group pair. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+--
 -- * 'uigpPeeringStatus' - The status of a VPC peering connection, if applicable.
 userIdGroupPair
     :: UserIdGroupPair
@@ -14198,6 +14934,7 @@ userIdGroupPair =
   , _uigpUserId = Nothing
   , _uigpGroupId = Nothing
   , _uigpGroupName = Nothing
+  , _uigpDescription = Nothing
   , _uigpPeeringStatus = Nothing
   }
 
@@ -14222,6 +14959,10 @@ uigpGroupId = lens _uigpGroupId (\ s a -> s{_uigpGroupId = a});
 uigpGroupName :: Lens' UserIdGroupPair (Maybe Text)
 uigpGroupName = lens _uigpGroupName (\ s a -> s{_uigpGroupName = a});
 
+-- | A description for the security group rule that references this user ID group pair. Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+uigpDescription :: Lens' UserIdGroupPair (Maybe Text)
+uigpDescription = lens _uigpDescription (\ s a -> s{_uigpDescription = a});
+
 -- | The status of a VPC peering connection, if applicable.
 uigpPeeringStatus :: Lens' UserIdGroupPair (Maybe Text)
 uigpPeeringStatus = lens _uigpPeeringStatus (\ s a -> s{_uigpPeeringStatus = a});
@@ -14233,6 +14974,7 @@ instance FromXML UserIdGroupPair where
                 <*> (x .@? "userId")
                 <*> (x .@? "groupId")
                 <*> (x .@? "groupName")
+                <*> (x .@? "description")
                 <*> (x .@? "peeringStatus")
 
 instance Hashable UserIdGroupPair where
@@ -14247,6 +14989,7 @@ instance ToQuery UserIdGroupPair where
                "VpcId" =: _uigpVPCId, "UserId" =: _uigpUserId,
                "GroupId" =: _uigpGroupId,
                "GroupName" =: _uigpGroupName,
+               "Description" =: _uigpDescription,
                "PeeringStatus" =: _uigpPeeringStatus]
 
 -- | Describes telemetry for a VPN tunnel.
@@ -14327,6 +15070,7 @@ instance NFData VGWTelemetry where
 -- /See:/ 'vpc' smart constructor.
 data VPC = VPC'
   { _vpcIPv6CidrBlockAssociationSet :: {-# NOUNPACK #-}!(Maybe [VPCIPv6CidrBlockAssociation])
+  , _vpcCidrBlockAssociationSet :: {-# NOUNPACK #-}!(Maybe [VPCCidrBlockAssociation])
   , _vpcTags :: {-# NOUNPACK #-}!(Maybe [Tag])
   , _vpcIsDefault :: {-# NOUNPACK #-}!(Maybe Bool)
   , _vpcCidrBlock :: {-# NOUNPACK #-}!Text
@@ -14343,11 +15087,13 @@ data VPC = VPC'
 --
 -- * 'vpcIPv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the VPC.
 --
+-- * 'vpcCidrBlockAssociationSet' - Information about the IPv4 CIDR blocks associated with the VPC.
+--
 -- * 'vpcTags' - Any tags assigned to the VPC.
 --
 -- * 'vpcIsDefault' - Indicates whether the VPC is the default VPC.
 --
--- * 'vpcCidrBlock' - The IPv4 CIDR block for the VPC.
+-- * 'vpcCidrBlock' - The primary IPv4 CIDR block for the VPC.
 --
 -- * 'vpcDHCPOptionsId' - The ID of the set of DHCP options you've associated with the VPC (or @default@ if the default options are associated with the VPC).
 --
@@ -14366,6 +15112,7 @@ vpc
 vpc pCidrBlock_ pDHCPOptionsId_ pInstanceTenancy_ pState_ pVPCId_ =
   VPC'
   { _vpcIPv6CidrBlockAssociationSet = Nothing
+  , _vpcCidrBlockAssociationSet = Nothing
   , _vpcTags = Nothing
   , _vpcIsDefault = Nothing
   , _vpcCidrBlock = pCidrBlock_
@@ -14380,6 +15127,10 @@ vpc pCidrBlock_ pDHCPOptionsId_ pInstanceTenancy_ pState_ pVPCId_ =
 vpcIPv6CidrBlockAssociationSet :: Lens' VPC [VPCIPv6CidrBlockAssociation]
 vpcIPv6CidrBlockAssociationSet = lens _vpcIPv6CidrBlockAssociationSet (\ s a -> s{_vpcIPv6CidrBlockAssociationSet = a}) . _Default . _Coerce;
 
+-- | Information about the IPv4 CIDR blocks associated with the VPC.
+vpcCidrBlockAssociationSet :: Lens' VPC [VPCCidrBlockAssociation]
+vpcCidrBlockAssociationSet = lens _vpcCidrBlockAssociationSet (\ s a -> s{_vpcCidrBlockAssociationSet = a}) . _Default . _Coerce;
+
 -- | Any tags assigned to the VPC.
 vpcTags :: Lens' VPC [Tag]
 vpcTags = lens _vpcTags (\ s a -> s{_vpcTags = a}) . _Default . _Coerce;
@@ -14388,7 +15139,7 @@ vpcTags = lens _vpcTags (\ s a -> s{_vpcTags = a}) . _Default . _Coerce;
 vpcIsDefault :: Lens' VPC (Maybe Bool)
 vpcIsDefault = lens _vpcIsDefault (\ s a -> s{_vpcIsDefault = a});
 
--- | The IPv4 CIDR block for the VPC.
+-- | The primary IPv4 CIDR block for the VPC.
 vpcCidrBlock :: Lens' VPC Text
 vpcCidrBlock = lens _vpcCidrBlock (\ s a -> s{_vpcCidrBlock = a});
 
@@ -14413,6 +15164,9 @@ instance FromXML VPC where
           = VPC' <$>
               (x .@? "ipv6CidrBlockAssociationSet" .!@ mempty >>=
                  may (parseXMLList "item"))
+                <*>
+                (x .@? "cidrBlockAssociationSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -14466,6 +15220,59 @@ instance FromXML VPCAttachment where
 instance Hashable VPCAttachment where
 
 instance NFData VPCAttachment where
+
+-- | Describes an IPv4 CIDR block associated with a VPC.
+--
+--
+--
+-- /See:/ 'vpcCidrBlockAssociation' smart constructor.
+data VPCCidrBlockAssociation = VPCCidrBlockAssociation'
+  { _vcbaAssociationId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vcbaCidrBlockState :: {-# NOUNPACK #-}!(Maybe VPCCidrBlockState)
+  , _vcbaCidrBlock      :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'VPCCidrBlockAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vcbaAssociationId' - The association ID for the IPv4 CIDR block.
+--
+-- * 'vcbaCidrBlockState' - Information about the state of the CIDR block.
+--
+-- * 'vcbaCidrBlock' - The IPv4 CIDR block.
+vpcCidrBlockAssociation
+    :: VPCCidrBlockAssociation
+vpcCidrBlockAssociation =
+  VPCCidrBlockAssociation'
+  { _vcbaAssociationId = Nothing
+  , _vcbaCidrBlockState = Nothing
+  , _vcbaCidrBlock = Nothing
+  }
+
+
+-- | The association ID for the IPv4 CIDR block.
+vcbaAssociationId :: Lens' VPCCidrBlockAssociation (Maybe Text)
+vcbaAssociationId = lens _vcbaAssociationId (\ s a -> s{_vcbaAssociationId = a});
+
+-- | Information about the state of the CIDR block.
+vcbaCidrBlockState :: Lens' VPCCidrBlockAssociation (Maybe VPCCidrBlockState)
+vcbaCidrBlockState = lens _vcbaCidrBlockState (\ s a -> s{_vcbaCidrBlockState = a});
+
+-- | The IPv4 CIDR block.
+vcbaCidrBlock :: Lens' VPCCidrBlockAssociation (Maybe Text)
+vcbaCidrBlock = lens _vcbaCidrBlock (\ s a -> s{_vcbaCidrBlock = a});
+
+instance FromXML VPCCidrBlockAssociation where
+        parseXML x
+          = VPCCidrBlockAssociation' <$>
+              (x .@? "associationId") <*> (x .@? "cidrBlockState")
+                <*> (x .@? "cidrBlock")
+
+instance Hashable VPCCidrBlockAssociation where
+
+instance NFData VPCCidrBlockAssociation where
 
 -- | Describes the state of a CIDR block.
 --
@@ -14566,13 +15373,19 @@ instance NFData VPCClassicLink where
 --
 -- /See:/ 'vpcEndpoint' smart constructor.
 data VPCEndpoint = VPCEndpoint'
-  { _veState             :: {-# NOUNPACK #-}!(Maybe State)
-  , _vePolicyDocument    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _veVPCId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _veCreationTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _veServiceName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _veVPCEndpointId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _veRouteTableIds     :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _veGroups              :: {-# NOUNPACK #-}!(Maybe [SecurityGroupIdentifier])
+  , _veState               :: {-# NOUNPACK #-}!(Maybe State)
+  , _vePolicyDocument      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _veSubnetIds           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _veNetworkInterfaceIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _veVPCId               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _veDNSEntries          :: {-# NOUNPACK #-}!(Maybe [DNSEntry])
+  , _veVPCEndpointType     :: {-# NOUNPACK #-}!(Maybe VPCEndpointType)
+  , _vePrivateDNSEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _veCreationTimestamp   :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _veServiceName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _veVPCEndpointId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _veRouteTableIds       :: {-# NOUNPACK #-}!(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -14580,11 +15393,23 @@ data VPCEndpoint = VPCEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'veGroups' - (Interface endpoint) Information about the security groups associated with the network interface.
+--
 -- * 'veState' - The state of the VPC endpoint.
 --
--- * 'vePolicyDocument' - The policy document associated with the endpoint.
+-- * 'vePolicyDocument' - The policy document associated with the endpoint, if applicable.
+--
+-- * 'veSubnetIds' - (Interface endpoint) One or more subnets in which the endpoint is located.
+--
+-- * 'veNetworkInterfaceIds' - (Interface endpoint) One or more network interfaces for the endpoint.
 --
 -- * 'veVPCId' - The ID of the VPC to which the endpoint is associated.
+--
+-- * 'veDNSEntries' - (Interface endpoint) The DNS entries for the endpoint.
+--
+-- * 'veVPCEndpointType' - The type of endpoint.
+--
+-- * 'vePrivateDNSEnabled' - (Interface endpoint) Indicates whether the VPC is associated with a private hosted zone.
 --
 -- * 'veCreationTimestamp' - The date and time the VPC endpoint was created.
 --
@@ -14592,14 +15417,20 @@ data VPCEndpoint = VPCEndpoint'
 --
 -- * 'veVPCEndpointId' - The ID of the VPC endpoint.
 --
--- * 'veRouteTableIds' - One or more route tables associated with the endpoint.
+-- * 'veRouteTableIds' - (Gateway endpoint) One or more route tables associated with the endpoint.
 vpcEndpoint
     :: VPCEndpoint
 vpcEndpoint =
   VPCEndpoint'
-  { _veState = Nothing
+  { _veGroups = Nothing
+  , _veState = Nothing
   , _vePolicyDocument = Nothing
+  , _veSubnetIds = Nothing
+  , _veNetworkInterfaceIds = Nothing
   , _veVPCId = Nothing
+  , _veDNSEntries = Nothing
+  , _veVPCEndpointType = Nothing
+  , _vePrivateDNSEnabled = Nothing
   , _veCreationTimestamp = Nothing
   , _veServiceName = Nothing
   , _veVPCEndpointId = Nothing
@@ -14607,17 +15438,41 @@ vpcEndpoint =
   }
 
 
+-- | (Interface endpoint) Information about the security groups associated with the network interface.
+veGroups :: Lens' VPCEndpoint [SecurityGroupIdentifier]
+veGroups = lens _veGroups (\ s a -> s{_veGroups = a}) . _Default . _Coerce;
+
 -- | The state of the VPC endpoint.
 veState :: Lens' VPCEndpoint (Maybe State)
 veState = lens _veState (\ s a -> s{_veState = a});
 
--- | The policy document associated with the endpoint.
+-- | The policy document associated with the endpoint, if applicable.
 vePolicyDocument :: Lens' VPCEndpoint (Maybe Text)
 vePolicyDocument = lens _vePolicyDocument (\ s a -> s{_vePolicyDocument = a});
+
+-- | (Interface endpoint) One or more subnets in which the endpoint is located.
+veSubnetIds :: Lens' VPCEndpoint [Text]
+veSubnetIds = lens _veSubnetIds (\ s a -> s{_veSubnetIds = a}) . _Default . _Coerce;
+
+-- | (Interface endpoint) One or more network interfaces for the endpoint.
+veNetworkInterfaceIds :: Lens' VPCEndpoint [Text]
+veNetworkInterfaceIds = lens _veNetworkInterfaceIds (\ s a -> s{_veNetworkInterfaceIds = a}) . _Default . _Coerce;
 
 -- | The ID of the VPC to which the endpoint is associated.
 veVPCId :: Lens' VPCEndpoint (Maybe Text)
 veVPCId = lens _veVPCId (\ s a -> s{_veVPCId = a});
+
+-- | (Interface endpoint) The DNS entries for the endpoint.
+veDNSEntries :: Lens' VPCEndpoint [DNSEntry]
+veDNSEntries = lens _veDNSEntries (\ s a -> s{_veDNSEntries = a}) . _Default . _Coerce;
+
+-- | The type of endpoint.
+veVPCEndpointType :: Lens' VPCEndpoint (Maybe VPCEndpointType)
+veVPCEndpointType = lens _veVPCEndpointType (\ s a -> s{_veVPCEndpointType = a});
+
+-- | (Interface endpoint) Indicates whether the VPC is associated with a private hosted zone.
+vePrivateDNSEnabled :: Lens' VPCEndpoint (Maybe Bool)
+vePrivateDNSEnabled = lens _vePrivateDNSEnabled (\ s a -> s{_vePrivateDNSEnabled = a});
 
 -- | The date and time the VPC endpoint was created.
 veCreationTimestamp :: Lens' VPCEndpoint (Maybe UTCTime)
@@ -14631,15 +15486,29 @@ veServiceName = lens _veServiceName (\ s a -> s{_veServiceName = a});
 veVPCEndpointId :: Lens' VPCEndpoint (Maybe Text)
 veVPCEndpointId = lens _veVPCEndpointId (\ s a -> s{_veVPCEndpointId = a});
 
--- | One or more route tables associated with the endpoint.
+-- | (Gateway endpoint) One or more route tables associated with the endpoint.
 veRouteTableIds :: Lens' VPCEndpoint [Text]
 veRouteTableIds = lens _veRouteTableIds (\ s a -> s{_veRouteTableIds = a}) . _Default . _Coerce;
 
 instance FromXML VPCEndpoint where
         parseXML x
           = VPCEndpoint' <$>
-              (x .@? "state") <*> (x .@? "policyDocument") <*>
-                (x .@? "vpcId")
+              (x .@? "groupSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "state")
+                <*> (x .@? "policyDocument")
+                <*>
+                (x .@? "subnetIdSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*>
+                (x .@? "networkInterfaceIdSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "vpcId")
+                <*>
+                (x .@? "dnsEntrySet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "vpcEndpointType")
+                <*> (x .@? "privateDnsEnabled")
                 <*> (x .@? "creationTimestamp")
                 <*> (x .@? "serviceName")
                 <*> (x .@? "vpcEndpointId")
@@ -14897,7 +15766,8 @@ instance NFData VPCPeeringConnectionStateReason where
 --
 -- /See:/ 'vpcPeeringConnectionVPCInfo' smart constructor.
 data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
-  { _vpcviVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vpcviCidrBlockSet :: {-# NOUNPACK #-}!(Maybe [CidrBlock])
+  , _vpcviVPCId :: {-# NOUNPACK #-}!(Maybe Text)
   , _vpcviOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
   , _vpcviPeeringOptions :: {-# NOUNPACK #-}!(Maybe VPCPeeringConnectionOptionsDescription)
   , _vpcviCidrBlock :: {-# NOUNPACK #-}!(Maybe Text)
@@ -14908,6 +15778,8 @@ data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
 -- | Creates a value of 'VPCPeeringConnectionVPCInfo' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vpcviCidrBlockSet' - Information about the IPv4 CIDR blocks for the VPC.
 --
 -- * 'vpcviVPCId' - The ID of the VPC.
 --
@@ -14922,13 +15794,18 @@ vpcPeeringConnectionVPCInfo
     :: VPCPeeringConnectionVPCInfo
 vpcPeeringConnectionVPCInfo =
   VPCPeeringConnectionVPCInfo'
-  { _vpcviVPCId = Nothing
+  { _vpcviCidrBlockSet = Nothing
+  , _vpcviVPCId = Nothing
   , _vpcviOwnerId = Nothing
   , _vpcviPeeringOptions = Nothing
   , _vpcviCidrBlock = Nothing
   , _vpcviIPv6CidrBlockSet = Nothing
   }
 
+
+-- | Information about the IPv4 CIDR blocks for the VPC.
+vpcviCidrBlockSet :: Lens' VPCPeeringConnectionVPCInfo [CidrBlock]
+vpcviCidrBlockSet = lens _vpcviCidrBlockSet (\ s a -> s{_vpcviCidrBlockSet = a}) . _Default . _Coerce;
 
 -- | The ID of the VPC.
 vpcviVPCId :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
@@ -14953,8 +15830,11 @@ vpcviIPv6CidrBlockSet = lens _vpcviIPv6CidrBlockSet (\ s a -> s{_vpcviIPv6CidrBl
 instance FromXML VPCPeeringConnectionVPCInfo where
         parseXML x
           = VPCPeeringConnectionVPCInfo' <$>
-              (x .@? "vpcId") <*> (x .@? "ownerId") <*>
-                (x .@? "peeringOptions")
+              (x .@? "cidrBlockSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "vpcId")
+                <*> (x .@? "ownerId")
+                <*> (x .@? "peeringOptions")
                 <*> (x .@? "cidrBlock")
                 <*>
                 (x .@? "ipv6CidrBlockSet" .!@ mempty >>=
@@ -14973,6 +15853,7 @@ data VPNConnection = VPNConnection'
   { _vcCustomerGatewayConfiguration :: {-# NOUNPACK #-}!(Maybe Text)
   , _vcRoutes :: {-# NOUNPACK #-}!(Maybe [VPNStaticRoute])
   , _vcVPNGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vcCategory :: {-# NOUNPACK #-}!(Maybe Text)
   , _vcOptions :: {-# NOUNPACK #-}!(Maybe VPNConnectionOptions)
   , _vcTags :: {-# NOUNPACK #-}!(Maybe [Tag])
   , _vcVGWTelemetry :: {-# NOUNPACK #-}!(Maybe [VGWTelemetry])
@@ -14992,6 +15873,8 @@ data VPNConnection = VPNConnection'
 -- * 'vcRoutes' - The static routes associated with the VPN connection.
 --
 -- * 'vcVPNGatewayId' - The ID of the virtual private gateway at the AWS side of the VPN connection.
+--
+-- * 'vcCategory' - The category of the VPN connection. A value of @VPN@ indicates an AWS VPN connection. A value of @VPN-Classic@ indicates an AWS Classic VPN connection. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html#vpn-categories AWS Managed VPN Categories> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 -- * 'vcOptions' - The VPN connection options.
 --
@@ -15017,6 +15900,7 @@ vpnConnection pVPNConnectionId_ pCustomerGatewayId_ pState_ pType_ =
   { _vcCustomerGatewayConfiguration = Nothing
   , _vcRoutes = Nothing
   , _vcVPNGatewayId = Nothing
+  , _vcCategory = Nothing
   , _vcOptions = Nothing
   , _vcTags = Nothing
   , _vcVGWTelemetry = Nothing
@@ -15038,6 +15922,10 @@ vcRoutes = lens _vcRoutes (\ s a -> s{_vcRoutes = a}) . _Default . _Coerce;
 -- | The ID of the virtual private gateway at the AWS side of the VPN connection.
 vcVPNGatewayId :: Lens' VPNConnection (Maybe Text)
 vcVPNGatewayId = lens _vcVPNGatewayId (\ s a -> s{_vcVPNGatewayId = a});
+
+-- | The category of the VPN connection. A value of @VPN@ indicates an AWS VPN connection. A value of @VPN-Classic@ indicates an AWS Classic VPN connection. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html#vpn-categories AWS Managed VPN Categories> in the /Amazon Virtual Private Cloud User Guide/ .
+vcCategory :: Lens' VPNConnection (Maybe Text)
+vcCategory = lens _vcCategory (\ s a -> s{_vcCategory = a});
 
 -- | The VPN connection options.
 vcOptions :: Lens' VPNConnection (Maybe VPNConnectionOptions)
@@ -15074,6 +15962,7 @@ instance FromXML VPNConnection where
                 (x .@? "routes" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "vpnGatewayId")
+                <*> (x .@? "category")
                 <*> (x .@? "options")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
@@ -15128,8 +16017,9 @@ instance NFData VPNConnectionOptions where
 --
 --
 -- /See:/ 'vpnConnectionOptionsSpecification' smart constructor.
-newtype VPNConnectionOptionsSpecification = VPNConnectionOptionsSpecification'
-  { _vcosStaticRoutesOnly :: Maybe Bool
+data VPNConnectionOptionsSpecification = VPNConnectionOptionsSpecification'
+  { _vcosTunnelOptions :: {-# NOUNPACK #-}!(Maybe [VPNTunnelOptionsSpecification])
+  , _vcosStaticRoutesOnly :: {-# NOUNPACK #-}!(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -15137,14 +16027,21 @@ newtype VPNConnectionOptionsSpecification = VPNConnectionOptionsSpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vcosStaticRoutesOnly' - Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+-- * 'vcosTunnelOptions' - The tunnel options for the VPN connection.
+--
+-- * 'vcosStaticRoutesOnly' - Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Default: @false@
 vpnConnectionOptionsSpecification
     :: VPNConnectionOptionsSpecification
 vpnConnectionOptionsSpecification =
-  VPNConnectionOptionsSpecification' {_vcosStaticRoutesOnly = Nothing}
+  VPNConnectionOptionsSpecification'
+  {_vcosTunnelOptions = Nothing, _vcosStaticRoutesOnly = Nothing}
 
 
--- | Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
+-- | The tunnel options for the VPN connection.
+vcosTunnelOptions :: Lens' VPNConnectionOptionsSpecification [VPNTunnelOptionsSpecification]
+vcosTunnelOptions = lens _vcosTunnelOptions (\ s a -> s{_vcosTunnelOptions = a}) . _Default . _Coerce;
+
+-- | Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Default: @false@
 vcosStaticRoutesOnly :: Lens' VPNConnectionOptionsSpecification (Maybe Bool)
 vcosStaticRoutesOnly = lens _vcosStaticRoutesOnly (\ s a -> s{_vcosStaticRoutesOnly = a});
 
@@ -15158,7 +16055,9 @@ instance ToQuery VPNConnectionOptionsSpecification
          where
         toQuery VPNConnectionOptionsSpecification'{..}
           = mconcat
-              ["StaticRoutesOnly" =: _vcosStaticRoutesOnly]
+              [toQuery
+                 (toQueryList "TunnelOptions" <$> _vcosTunnelOptions),
+               "StaticRoutesOnly" =: _vcosStaticRoutesOnly]
 
 -- | Describes a virtual private gateway.
 --
@@ -15169,6 +16068,7 @@ data VPNGateway = VPNGateway'
   { _vgState            :: {-# NOUNPACK #-}!(Maybe VPNState)
   , _vgVPCAttachments   :: {-# NOUNPACK #-}!(Maybe [VPCAttachment])
   , _vgVPNGatewayId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vgAmazonSideASN    :: {-# NOUNPACK #-}!(Maybe Integer)
   , _vgAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
   , _vgType             :: {-# NOUNPACK #-}!(Maybe GatewayType)
   , _vgTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
@@ -15185,6 +16085,8 @@ data VPNGateway = VPNGateway'
 --
 -- * 'vgVPNGatewayId' - The ID of the virtual private gateway.
 --
+-- * 'vgAmazonSideASN' - The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+--
 -- * 'vgAvailabilityZone' - The Availability Zone where the virtual private gateway was created, if applicable. This field may be empty or not returned.
 --
 -- * 'vgType' - The type of VPN connection the virtual private gateway supports.
@@ -15197,6 +16099,7 @@ vpnGateway =
   { _vgState = Nothing
   , _vgVPCAttachments = Nothing
   , _vgVPNGatewayId = Nothing
+  , _vgAmazonSideASN = Nothing
   , _vgAvailabilityZone = Nothing
   , _vgType = Nothing
   , _vgTags = Nothing
@@ -15214,6 +16117,10 @@ vgVPCAttachments = lens _vgVPCAttachments (\ s a -> s{_vgVPCAttachments = a}) . 
 -- | The ID of the virtual private gateway.
 vgVPNGatewayId :: Lens' VPNGateway (Maybe Text)
 vgVPNGatewayId = lens _vgVPNGatewayId (\ s a -> s{_vgVPNGatewayId = a});
+
+-- | The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+vgAmazonSideASN :: Lens' VPNGateway (Maybe Integer)
+vgAmazonSideASN = lens _vgAmazonSideASN (\ s a -> s{_vgAmazonSideASN = a});
 
 -- | The Availability Zone where the virtual private gateway was created, if applicable. This field may be empty or not returned.
 vgAvailabilityZone :: Lens' VPNGateway (Maybe Text)
@@ -15234,6 +16141,7 @@ instance FromXML VPNGateway where
                 (x .@? "attachments" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "vpnGatewayId")
+                <*> (x .@? "amazonSideAsn")
                 <*> (x .@? "availabilityZone")
                 <*> (x .@? "type")
                 <*>
@@ -15296,6 +16204,49 @@ instance FromXML VPNStaticRoute where
 instance Hashable VPNStaticRoute where
 
 instance NFData VPNStaticRoute where
+
+-- | The tunnel options for a VPN connection.
+--
+--
+--
+-- /See:/ 'vpnTunnelOptionsSpecification' smart constructor.
+data VPNTunnelOptionsSpecification = VPNTunnelOptionsSpecification'
+  { _vtosTunnelInsideCidr :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vtosPreSharedKey     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'VPNTunnelOptionsSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vtosTunnelInsideCidr' - The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.  Constraints: A size /30 CIDR block from the @169.254.0.0/16@ range. The following CIDR blocks are reserved and cannot be used:     * @169.254.0.0/30@      * @169.254.1.0/30@      * @169.254.2.0/30@      * @169.254.3.0/30@      * @169.254.4.0/30@      * @169.254.5.0/30@      * @169.254.169.252/30@
+--
+-- * 'vtosPreSharedKey' - The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway. Constraints: Allowed characters are alphanumeric characters and ._. Must be between 8 and 64 characters in length and cannot start with zero (0).
+vpnTunnelOptionsSpecification
+    :: VPNTunnelOptionsSpecification
+vpnTunnelOptionsSpecification =
+  VPNTunnelOptionsSpecification'
+  {_vtosTunnelInsideCidr = Nothing, _vtosPreSharedKey = Nothing}
+
+
+-- | The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.  Constraints: A size /30 CIDR block from the @169.254.0.0/16@ range. The following CIDR blocks are reserved and cannot be used:     * @169.254.0.0/30@      * @169.254.1.0/30@      * @169.254.2.0/30@      * @169.254.3.0/30@      * @169.254.4.0/30@      * @169.254.5.0/30@      * @169.254.169.252/30@
+vtosTunnelInsideCidr :: Lens' VPNTunnelOptionsSpecification (Maybe Text)
+vtosTunnelInsideCidr = lens _vtosTunnelInsideCidr (\ s a -> s{_vtosTunnelInsideCidr = a});
+
+-- | The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway. Constraints: Allowed characters are alphanumeric characters and ._. Must be between 8 and 64 characters in length and cannot start with zero (0).
+vtosPreSharedKey :: Lens' VPNTunnelOptionsSpecification (Maybe Text)
+vtosPreSharedKey = lens _vtosPreSharedKey (\ s a -> s{_vtosPreSharedKey = a});
+
+instance Hashable VPNTunnelOptionsSpecification where
+
+instance NFData VPNTunnelOptionsSpecification where
+
+instance ToQuery VPNTunnelOptionsSpecification where
+        toQuery VPNTunnelOptionsSpecification'{..}
+          = mconcat
+              ["TunnelInsideCidr" =: _vtosTunnelInsideCidr,
+               "PreSharedKey" =: _vtosPreSharedKey]
 
 -- | Describes a volume.
 --

@@ -149,7 +149,7 @@ data GetBotChannelAssociationsResponse = GetBotChannelAssociationsResponse'
   { _gbcasrsBotChannelAssociations :: {-# NOUNPACK #-}!(Maybe [BotChannelAssociation])
   , _gbcasrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
   , _gbcasrsResponseStatus :: {-# NOUNPACK #-}!Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'GetBotChannelAssociationsResponse' with the minimum fields required to make a request.

@@ -14,11 +14,11 @@
 module Test.AWS.Gen.SWF where
 
 import Data.Proxy
+import Network.AWS.SWF
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.SWF
 import Test.AWS.SWF.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

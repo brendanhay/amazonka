@@ -40,6 +40,7 @@ module Network.AWS.APIGateway.UpdateRestAPI
     , raName
     , raVersion
     , raId
+    , raEndpointConfiguration
     , raDescription
     ) where
 

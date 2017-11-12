@@ -282,6 +282,259 @@ instance Hashable Connections where
 
 instance NFData Connections where
 
+-- | A direct connect gateway is an intermediate object that enables you to connect virtual interfaces and virtual private gateways.
+--
+--
+--
+-- /See:/ 'directConnectGateway' smart constructor.
+data DirectConnectGateway = DirectConnectGateway'
+  { _dcgDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcgStateChangeError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcgAmazonSideASN :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _dcgDirectConnectGatewayName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcgDirectConnectGatewayState :: {-# NOUNPACK #-}!(Maybe DirectConnectGatewayState)
+  , _dcgOwnerAccount :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DirectConnectGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcgDirectConnectGatewayId' - Undocumented member.
+--
+-- * 'dcgStateChangeError' - Undocumented member.
+--
+-- * 'dcgAmazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
+--
+-- * 'dcgDirectConnectGatewayName' - Undocumented member.
+--
+-- * 'dcgDirectConnectGatewayState' - Undocumented member.
+--
+-- * 'dcgOwnerAccount' - The AWS account ID of the owner of the direct connect gateway.
+directConnectGateway
+    :: DirectConnectGateway
+directConnectGateway =
+  DirectConnectGateway'
+  { _dcgDirectConnectGatewayId = Nothing
+  , _dcgStateChangeError = Nothing
+  , _dcgAmazonSideASN = Nothing
+  , _dcgDirectConnectGatewayName = Nothing
+  , _dcgDirectConnectGatewayState = Nothing
+  , _dcgOwnerAccount = Nothing
+  }
+
+
+-- | Undocumented member.
+dcgDirectConnectGatewayId :: Lens' DirectConnectGateway (Maybe Text)
+dcgDirectConnectGatewayId = lens _dcgDirectConnectGatewayId (\ s a -> s{_dcgDirectConnectGatewayId = a});
+
+-- | Undocumented member.
+dcgStateChangeError :: Lens' DirectConnectGateway (Maybe Text)
+dcgStateChangeError = lens _dcgStateChangeError (\ s a -> s{_dcgStateChangeError = a});
+
+-- | The autonomous system number (ASN) for the Amazon side of the connection.
+dcgAmazonSideASN :: Lens' DirectConnectGateway (Maybe Integer)
+dcgAmazonSideASN = lens _dcgAmazonSideASN (\ s a -> s{_dcgAmazonSideASN = a});
+
+-- | Undocumented member.
+dcgDirectConnectGatewayName :: Lens' DirectConnectGateway (Maybe Text)
+dcgDirectConnectGatewayName = lens _dcgDirectConnectGatewayName (\ s a -> s{_dcgDirectConnectGatewayName = a});
+
+-- | Undocumented member.
+dcgDirectConnectGatewayState :: Lens' DirectConnectGateway (Maybe DirectConnectGatewayState)
+dcgDirectConnectGatewayState = lens _dcgDirectConnectGatewayState (\ s a -> s{_dcgDirectConnectGatewayState = a});
+
+-- | The AWS account ID of the owner of the direct connect gateway.
+dcgOwnerAccount :: Lens' DirectConnectGateway (Maybe Text)
+dcgOwnerAccount = lens _dcgOwnerAccount (\ s a -> s{_dcgOwnerAccount = a});
+
+instance FromJSON DirectConnectGateway where
+        parseJSON
+          = withObject "DirectConnectGateway"
+              (\ x ->
+                 DirectConnectGateway' <$>
+                   (x .:? "directConnectGatewayId") <*>
+                     (x .:? "stateChangeError")
+                     <*> (x .:? "amazonSideAsn")
+                     <*> (x .:? "directConnectGatewayName")
+                     <*> (x .:? "directConnectGatewayState")
+                     <*> (x .:? "ownerAccount"))
+
+instance Hashable DirectConnectGateway where
+
+instance NFData DirectConnectGateway where
+
+-- | The association between a direct connect gateway and virtual private gateway.
+--
+--
+--
+-- /See:/ 'directConnectGatewayAssociation' smart constructor.
+data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
+  { _dcgaVirtualGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcgaDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcgaVirtualGatewayOwnerAccount :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcgaStateChangeError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcgaVirtualGatewayRegion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dcgaAssociationState :: {-# NOUNPACK #-}!(Maybe DirectConnectGatewayAssociationState)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DirectConnectGatewayAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcgaVirtualGatewayId' - Undocumented member.
+--
+-- * 'dcgaDirectConnectGatewayId' - Undocumented member.
+--
+-- * 'dcgaVirtualGatewayOwnerAccount' - The AWS account ID of the owner of the virtual private gateway.
+--
+-- * 'dcgaStateChangeError' - Undocumented member.
+--
+-- * 'dcgaVirtualGatewayRegion' - Undocumented member.
+--
+-- * 'dcgaAssociationState' - Undocumented member.
+directConnectGatewayAssociation
+    :: DirectConnectGatewayAssociation
+directConnectGatewayAssociation =
+  DirectConnectGatewayAssociation'
+  { _dcgaVirtualGatewayId = Nothing
+  , _dcgaDirectConnectGatewayId = Nothing
+  , _dcgaVirtualGatewayOwnerAccount = Nothing
+  , _dcgaStateChangeError = Nothing
+  , _dcgaVirtualGatewayRegion = Nothing
+  , _dcgaAssociationState = Nothing
+  }
+
+
+-- | Undocumented member.
+dcgaVirtualGatewayId :: Lens' DirectConnectGatewayAssociation (Maybe Text)
+dcgaVirtualGatewayId = lens _dcgaVirtualGatewayId (\ s a -> s{_dcgaVirtualGatewayId = a});
+
+-- | Undocumented member.
+dcgaDirectConnectGatewayId :: Lens' DirectConnectGatewayAssociation (Maybe Text)
+dcgaDirectConnectGatewayId = lens _dcgaDirectConnectGatewayId (\ s a -> s{_dcgaDirectConnectGatewayId = a});
+
+-- | The AWS account ID of the owner of the virtual private gateway.
+dcgaVirtualGatewayOwnerAccount :: Lens' DirectConnectGatewayAssociation (Maybe Text)
+dcgaVirtualGatewayOwnerAccount = lens _dcgaVirtualGatewayOwnerAccount (\ s a -> s{_dcgaVirtualGatewayOwnerAccount = a});
+
+-- | Undocumented member.
+dcgaStateChangeError :: Lens' DirectConnectGatewayAssociation (Maybe Text)
+dcgaStateChangeError = lens _dcgaStateChangeError (\ s a -> s{_dcgaStateChangeError = a});
+
+-- | Undocumented member.
+dcgaVirtualGatewayRegion :: Lens' DirectConnectGatewayAssociation (Maybe Text)
+dcgaVirtualGatewayRegion = lens _dcgaVirtualGatewayRegion (\ s a -> s{_dcgaVirtualGatewayRegion = a});
+
+-- | Undocumented member.
+dcgaAssociationState :: Lens' DirectConnectGatewayAssociation (Maybe DirectConnectGatewayAssociationState)
+dcgaAssociationState = lens _dcgaAssociationState (\ s a -> s{_dcgaAssociationState = a});
+
+instance FromJSON DirectConnectGatewayAssociation
+         where
+        parseJSON
+          = withObject "DirectConnectGatewayAssociation"
+              (\ x ->
+                 DirectConnectGatewayAssociation' <$>
+                   (x .:? "virtualGatewayId") <*>
+                     (x .:? "directConnectGatewayId")
+                     <*> (x .:? "virtualGatewayOwnerAccount")
+                     <*> (x .:? "stateChangeError")
+                     <*> (x .:? "virtualGatewayRegion")
+                     <*> (x .:? "associationState"))
+
+instance Hashable DirectConnectGatewayAssociation
+         where
+
+instance NFData DirectConnectGatewayAssociation where
+
+-- | The association between a direct connect gateway and virtual interface.
+--
+--
+--
+-- /See:/ 'directConnectGatewayAttachment' smart constructor.
+data DirectConnectGatewayAttachment = DirectConnectGatewayAttachment'
+  { _dDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dAttachmentState :: {-# NOUNPACK #-}!(Maybe DirectConnectGatewayAttachmentState)
+  , _dStateChangeError :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dVirtualInterfaceRegion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dVirtualInterfaceOwnerAccount :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dVirtualInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DirectConnectGatewayAttachment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dDirectConnectGatewayId' - Undocumented member.
+--
+-- * 'dAttachmentState' - Undocumented member.
+--
+-- * 'dStateChangeError' - Undocumented member.
+--
+-- * 'dVirtualInterfaceRegion' - Undocumented member.
+--
+-- * 'dVirtualInterfaceOwnerAccount' - The AWS account ID of the owner of the virtual interface.
+--
+-- * 'dVirtualInterfaceId' - Undocumented member.
+directConnectGatewayAttachment
+    :: DirectConnectGatewayAttachment
+directConnectGatewayAttachment =
+  DirectConnectGatewayAttachment'
+  { _dDirectConnectGatewayId = Nothing
+  , _dAttachmentState = Nothing
+  , _dStateChangeError = Nothing
+  , _dVirtualInterfaceRegion = Nothing
+  , _dVirtualInterfaceOwnerAccount = Nothing
+  , _dVirtualInterfaceId = Nothing
+  }
+
+
+-- | Undocumented member.
+dDirectConnectGatewayId :: Lens' DirectConnectGatewayAttachment (Maybe Text)
+dDirectConnectGatewayId = lens _dDirectConnectGatewayId (\ s a -> s{_dDirectConnectGatewayId = a});
+
+-- | Undocumented member.
+dAttachmentState :: Lens' DirectConnectGatewayAttachment (Maybe DirectConnectGatewayAttachmentState)
+dAttachmentState = lens _dAttachmentState (\ s a -> s{_dAttachmentState = a});
+
+-- | Undocumented member.
+dStateChangeError :: Lens' DirectConnectGatewayAttachment (Maybe Text)
+dStateChangeError = lens _dStateChangeError (\ s a -> s{_dStateChangeError = a});
+
+-- | Undocumented member.
+dVirtualInterfaceRegion :: Lens' DirectConnectGatewayAttachment (Maybe Text)
+dVirtualInterfaceRegion = lens _dVirtualInterfaceRegion (\ s a -> s{_dVirtualInterfaceRegion = a});
+
+-- | The AWS account ID of the owner of the virtual interface.
+dVirtualInterfaceOwnerAccount :: Lens' DirectConnectGatewayAttachment (Maybe Text)
+dVirtualInterfaceOwnerAccount = lens _dVirtualInterfaceOwnerAccount (\ s a -> s{_dVirtualInterfaceOwnerAccount = a});
+
+-- | Undocumented member.
+dVirtualInterfaceId :: Lens' DirectConnectGatewayAttachment (Maybe Text)
+dVirtualInterfaceId = lens _dVirtualInterfaceId (\ s a -> s{_dVirtualInterfaceId = a});
+
+instance FromJSON DirectConnectGatewayAttachment
+         where
+        parseJSON
+          = withObject "DirectConnectGatewayAttachment"
+              (\ x ->
+                 DirectConnectGatewayAttachment' <$>
+                   (x .:? "directConnectGatewayId") <*>
+                     (x .:? "attachmentState")
+                     <*> (x .:? "stateChangeError")
+                     <*> (x .:? "virtualInterfaceRegion")
+                     <*> (x .:? "virtualInterfaceOwnerAccount")
+                     <*> (x .:? "virtualInterfaceId"))
+
+instance Hashable DirectConnectGatewayAttachment
+         where
+
+instance NFData DirectConnectGatewayAttachment where
+
 -- | An interconnect is a connection that can host other connections.
 --
 --
@@ -652,14 +905,15 @@ instance ToJSON NewBGPPeer where
 --
 -- /See:/ 'newPrivateVirtualInterface' smart constructor.
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
-  { _nCustomerAddress      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nAmazonAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nAddressFamily        :: {-# NOUNPACK #-}!(Maybe AddressFamily)
-  , _nAuthKey              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nVirtualInterfaceName :: {-# NOUNPACK #-}!Text
-  , _nVlan                 :: {-# NOUNPACK #-}!Int
-  , _nAsn                  :: {-# NOUNPACK #-}!Int
-  , _nVirtualGatewayId     :: {-# NOUNPACK #-}!Text
+  { _nVirtualGatewayId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nCustomerAddress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nAmazonAddress          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nAddressFamily          :: {-# NOUNPACK #-}!(Maybe AddressFamily)
+  , _nDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nAuthKey                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _nVirtualInterfaceName   :: {-# NOUNPACK #-}!Text
+  , _nVlan                   :: {-# NOUNPACK #-}!Int
+  , _nAsn                    :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -667,11 +921,15 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'nVirtualGatewayId' - Undocumented member.
+--
 -- * 'nCustomerAddress' - Undocumented member.
 --
 -- * 'nAmazonAddress' - Undocumented member.
 --
 -- * 'nAddressFamily' - Undocumented member.
+--
+-- * 'nDirectConnectGatewayId' - Undocumented member.
 --
 -- * 'nAuthKey' - Undocumented member.
 --
@@ -680,26 +938,28 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
 -- * 'nVlan' - Undocumented member.
 --
 -- * 'nAsn' - Undocumented member.
---
--- * 'nVirtualGatewayId' - Undocumented member.
 newPrivateVirtualInterface
     :: Text -- ^ 'nVirtualInterfaceName'
     -> Int -- ^ 'nVlan'
     -> Int -- ^ 'nAsn'
-    -> Text -- ^ 'nVirtualGatewayId'
     -> NewPrivateVirtualInterface
-newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pVirtualGatewayId_ =
+newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ =
   NewPrivateVirtualInterface'
-  { _nCustomerAddress = Nothing
+  { _nVirtualGatewayId = Nothing
+  , _nCustomerAddress = Nothing
   , _nAmazonAddress = Nothing
   , _nAddressFamily = Nothing
+  , _nDirectConnectGatewayId = Nothing
   , _nAuthKey = Nothing
   , _nVirtualInterfaceName = pVirtualInterfaceName_
   , _nVlan = pVlan_
   , _nAsn = pAsn_
-  , _nVirtualGatewayId = pVirtualGatewayId_
   }
 
+
+-- | Undocumented member.
+nVirtualGatewayId :: Lens' NewPrivateVirtualInterface (Maybe Text)
+nVirtualGatewayId = lens _nVirtualGatewayId (\ s a -> s{_nVirtualGatewayId = a});
 
 -- | Undocumented member.
 nCustomerAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
@@ -712,6 +972,10 @@ nAmazonAddress = lens _nAmazonAddress (\ s a -> s{_nAmazonAddress = a});
 -- | Undocumented member.
 nAddressFamily :: Lens' NewPrivateVirtualInterface (Maybe AddressFamily)
 nAddressFamily = lens _nAddressFamily (\ s a -> s{_nAddressFamily = a});
+
+-- | Undocumented member.
+nDirectConnectGatewayId :: Lens' NewPrivateVirtualInterface (Maybe Text)
+nDirectConnectGatewayId = lens _nDirectConnectGatewayId (\ s a -> s{_nDirectConnectGatewayId = a});
 
 -- | Undocumented member.
 nAuthKey :: Lens' NewPrivateVirtualInterface (Maybe Text)
@@ -729,10 +993,6 @@ nVlan = lens _nVlan (\ s a -> s{_nVlan = a});
 nAsn :: Lens' NewPrivateVirtualInterface Int
 nAsn = lens _nAsn (\ s a -> s{_nAsn = a});
 
--- | Undocumented member.
-nVirtualGatewayId :: Lens' NewPrivateVirtualInterface Text
-nVirtualGatewayId = lens _nVirtualGatewayId (\ s a -> s{_nVirtualGatewayId = a});
-
 instance Hashable NewPrivateVirtualInterface where
 
 instance NFData NewPrivateVirtualInterface where
@@ -741,14 +1001,16 @@ instance ToJSON NewPrivateVirtualInterface where
         toJSON NewPrivateVirtualInterface'{..}
           = object
               (catMaybes
-                 [("customerAddress" .=) <$> _nCustomerAddress,
+                 [("virtualGatewayId" .=) <$> _nVirtualGatewayId,
+                  ("customerAddress" .=) <$> _nCustomerAddress,
                   ("amazonAddress" .=) <$> _nAmazonAddress,
                   ("addressFamily" .=) <$> _nAddressFamily,
+                  ("directConnectGatewayId" .=) <$>
+                    _nDirectConnectGatewayId,
                   ("authKey" .=) <$> _nAuthKey,
                   Just
                     ("virtualInterfaceName" .= _nVirtualInterfaceName),
-                  Just ("vlan" .= _nVlan), Just ("asn" .= _nAsn),
-                  Just ("virtualGatewayId" .= _nVirtualGatewayId)])
+                  Just ("vlan" .= _nVlan), Just ("asn" .= _nAsn)])
 
 -- | A structure containing information about a private virtual interface that will be provisioned on a connection.
 --
@@ -1243,23 +1505,25 @@ instance NFData VirtualGateway where
 --
 -- /See:/ 'virtualInterface' smart constructor.
 data VirtualInterface = VirtualInterface'
-  { _viBgpPeers              :: {-# NOUNPACK #-}!(Maybe [BGPPeer])
-  , _viVirtualGatewayId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viRouteFilterPrefixes   :: {-# NOUNPACK #-}!(Maybe [RouteFilterPrefix])
-  , _viCustomerAddress       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viVlan                  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _viLocation              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viAmazonAddress         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viAddressFamily         :: {-# NOUNPACK #-}!(Maybe AddressFamily)
-  , _viVirtualInterfaceState :: {-# NOUNPACK #-}!(Maybe VirtualInterfaceState)
-  , _viConnectionId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viVirtualInterfaceType  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viAsn                   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _viAuthKey               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viCustomerRouterConfig  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viOwnerAccount          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viVirtualInterfaceName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viVirtualInterfaceId    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _viBgpPeers               :: {-# NOUNPACK #-}!(Maybe [BGPPeer])
+  , _viVirtualGatewayId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viRouteFilterPrefixes    :: {-# NOUNPACK #-}!(Maybe [RouteFilterPrefix])
+  , _viCustomerAddress        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viVlan                   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _viLocation               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viAmazonAddress          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viAddressFamily          :: {-# NOUNPACK #-}!(Maybe AddressFamily)
+  , _viVirtualInterfaceState  :: {-# NOUNPACK #-}!(Maybe VirtualInterfaceState)
+  , _viConnectionId           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viAmazonSideASN          :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _viVirtualInterfaceType   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viAsn                    :: {-# NOUNPACK #-}!(Maybe Int)
+  , _viAuthKey                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viCustomerRouterConfig   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viOwnerAccount           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viVirtualInterfaceName   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _viVirtualInterfaceId     :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1286,6 +1550,10 @@ data VirtualInterface = VirtualInterface'
 -- * 'viVirtualInterfaceState' - Undocumented member.
 --
 -- * 'viConnectionId' - Undocumented member.
+--
+-- * 'viDirectConnectGatewayId' - Undocumented member.
+--
+-- * 'viAmazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
 --
 -- * 'viVirtualInterfaceType' - Undocumented member.
 --
@@ -1314,6 +1582,8 @@ virtualInterface =
   , _viAddressFamily = Nothing
   , _viVirtualInterfaceState = Nothing
   , _viConnectionId = Nothing
+  , _viDirectConnectGatewayId = Nothing
+  , _viAmazonSideASN = Nothing
   , _viVirtualInterfaceType = Nothing
   , _viAsn = Nothing
   , _viAuthKey = Nothing
@@ -1365,6 +1635,14 @@ viConnectionId :: Lens' VirtualInterface (Maybe Text)
 viConnectionId = lens _viConnectionId (\ s a -> s{_viConnectionId = a});
 
 -- | Undocumented member.
+viDirectConnectGatewayId :: Lens' VirtualInterface (Maybe Text)
+viDirectConnectGatewayId = lens _viDirectConnectGatewayId (\ s a -> s{_viDirectConnectGatewayId = a});
+
+-- | The autonomous system number (ASN) for the Amazon side of the connection.
+viAmazonSideASN :: Lens' VirtualInterface (Maybe Integer)
+viAmazonSideASN = lens _viAmazonSideASN (\ s a -> s{_viAmazonSideASN = a});
+
+-- | Undocumented member.
 viVirtualInterfaceType :: Lens' VirtualInterface (Maybe Text)
 viVirtualInterfaceType = lens _viVirtualInterfaceType (\ s a -> s{_viVirtualInterfaceType = a});
 
@@ -1407,6 +1685,8 @@ instance FromJSON VirtualInterface where
                      <*> (x .:? "addressFamily")
                      <*> (x .:? "virtualInterfaceState")
                      <*> (x .:? "connectionId")
+                     <*> (x .:? "directConnectGatewayId")
+                     <*> (x .:? "amazonSideAsn")
                      <*> (x .:? "virtualInterfaceType")
                      <*> (x .:? "asn")
                      <*> (x .:? "authKey")

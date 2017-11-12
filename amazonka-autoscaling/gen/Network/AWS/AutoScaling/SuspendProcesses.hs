@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for SuspendProcesses and ResumeProcesses.
---
---
---
--- /See:/ 'suspendProcesses' smart constructor.
+-- | /See:/ 'suspendProcesses' smart constructor.
 data SuspendProcesses = SuspendProcesses'
   { _spScalingProcesses     :: {-# NOUNPACK #-}!(Maybe [Text])
   , _spAutoScalingGroupName :: {-# NOUNPACK #-}!Text

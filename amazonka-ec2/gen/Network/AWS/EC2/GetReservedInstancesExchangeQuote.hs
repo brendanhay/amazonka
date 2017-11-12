@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns details about the values and term of your specified Convertible Reserved Instances. When a target configuration is specified, it returns information about whether the exchange is valid and can be performed.
+-- Returns a quote and exchange information for exchanging one or more specified Convertible Reserved Instances for a new Convertible Reserved Instance. If the exchange cannot be performed, the reason is returned in the response. Use 'AcceptReservedInstancesExchangeQuote' to perform the exchange.
 --
 --
 module Network.AWS.EC2.GetReservedInstancesExchangeQuote
@@ -70,7 +70,7 @@ data GetReservedInstancesExchangeQuote = GetReservedInstancesExchangeQuote'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grieqTargetConfigurations' - The configuration requirements of the Convertible Reserved Instances to exchange for your current Convertible Reserved Instances.
+-- * 'grieqTargetConfigurations' - The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
 --
 -- * 'grieqDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
@@ -85,7 +85,7 @@ getReservedInstancesExchangeQuote =
   }
 
 
--- | The configuration requirements of the Convertible Reserved Instances to exchange for your current Convertible Reserved Instances.
+-- | The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
 grieqTargetConfigurations :: Lens' GetReservedInstancesExchangeQuote [TargetConfigurationRequest]
 grieqTargetConfigurations = lens _grieqTargetConfigurations (\ s a -> s{_grieqTargetConfigurations = a}) . _Default . _Coerce;
 

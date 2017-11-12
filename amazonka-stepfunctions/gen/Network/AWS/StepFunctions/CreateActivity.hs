@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an activity.
+-- Creates an activity. An Activity is a task which you write, in any language and hosted on any machine which has access to AWS Step Functions. Activities must poll Step Functions using the @GetActivityTask@ and respond using @SendTask*@ API calls. This function lets Step Functions know the existence of your activity and returns an identifier for use in a state machine and when polling from the activity.
 --
 --
 module Network.AWS.StepFunctions.CreateActivity
@@ -55,14 +55,14 @@ newtype CreateActivity = CreateActivity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caName' - The name of the activity to create. This name must be unique for your AWS account and region.
+-- * 'caName' - The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, see <http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 createActivity
     :: Text -- ^ 'caName'
     -> CreateActivity
 createActivity pName_ = CreateActivity' {_caName = pName_}
 
 
--- | The name of the activity to create. This name must be unique for your AWS account and region.
+-- | The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, see <http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 caName :: Lens' CreateActivity Text
 caName = lens _caName (\ s a -> s{_caName = a});
 

@@ -29,6 +29,7 @@ module Network.AWS.OpsWorksCM.StartMaintenance
       startMaintenance
     , StartMaintenance
     -- * Request Lenses
+    , smEngineAttributes
     , smServerName
 
     -- * Destructuring the Response
@@ -47,21 +48,30 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'startMaintenance' smart constructor.
-newtype StartMaintenance = StartMaintenance'
-  { _smServerName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+data StartMaintenance = StartMaintenance'
+  { _smEngineAttributes :: {-# NOUNPACK #-}!(Maybe [EngineAttribute])
+  , _smServerName       :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'StartMaintenance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'smEngineAttributes' - Engine attributes that are specific to the server on which you want to run maintenance.
+--
 -- * 'smServerName' - The name of the server on which to run maintenance.
 startMaintenance
     :: Text -- ^ 'smServerName'
     -> StartMaintenance
-startMaintenance pServerName_ = StartMaintenance' {_smServerName = pServerName_}
+startMaintenance pServerName_ =
+  StartMaintenance'
+  {_smEngineAttributes = Nothing, _smServerName = pServerName_}
 
+
+-- | Engine attributes that are specific to the server on which you want to run maintenance.
+smEngineAttributes :: Lens' StartMaintenance [EngineAttribute]
+smEngineAttributes = lens _smEngineAttributes (\ s a -> s{_smEngineAttributes = a}) . _Default . _Coerce;
 
 -- | The name of the server on which to run maintenance.
 smServerName :: Lens' StartMaintenance Text
@@ -93,7 +103,9 @@ instance ToHeaders StartMaintenance where
 instance ToJSON StartMaintenance where
         toJSON StartMaintenance'{..}
           = object
-              (catMaybes [Just ("ServerName" .= _smServerName)])
+              (catMaybes
+                 [("EngineAttributes" .=) <$> _smEngineAttributes,
+                  Just ("ServerName" .= _smServerName)])
 
 instance ToPath StartMaintenance where
         toPath = const "/"

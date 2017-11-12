@@ -39,12 +39,13 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.ELBv2
+        , Network.AWS.ELBv2.AddListenerCertificates
         , Network.AWS.ELBv2.AddTags
         , Network.AWS.ELBv2.CreateListener
         , Network.AWS.ELBv2.CreateLoadBalancer
@@ -56,6 +57,7 @@ library
         , Network.AWS.ELBv2.DeleteTargetGroup
         , Network.AWS.ELBv2.DeregisterTargets
         , Network.AWS.ELBv2.DescribeAccountLimits
+        , Network.AWS.ELBv2.DescribeListenerCertificates
         , Network.AWS.ELBv2.DescribeListeners
         , Network.AWS.ELBv2.DescribeLoadBalancerAttributes
         , Network.AWS.ELBv2.DescribeLoadBalancers
@@ -71,6 +73,7 @@ library
         , Network.AWS.ELBv2.ModifyTargetGroup
         , Network.AWS.ELBv2.ModifyTargetGroupAttributes
         , Network.AWS.ELBv2.RegisterTargets
+        , Network.AWS.ELBv2.RemoveListenerCertificates
         , Network.AWS.ELBv2.RemoveTags
         , Network.AWS.ELBv2.SetIPAddressType
         , Network.AWS.ELBv2.SetRulePriorities

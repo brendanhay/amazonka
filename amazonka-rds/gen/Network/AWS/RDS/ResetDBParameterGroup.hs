@@ -65,7 +65,7 @@ data ResetDBParameterGroup = ResetDBParameterGroup'
 --
 -- * 'rdpgParameters' - To reset the entire DB parameter group, specify the @DBParameterGroup@ name and @ResetAllParameters@ parameters. To reset specific parameters, provide a list of the following: @ParameterName@ and @ApplyMethod@ . A maximum of 20 parameters can be modified in a single request. __MySQL__  Valid Values (for Apply method): @immediate@ | @pending-reboot@  You can use the immediate value with dynamic parameters only. You can use the @pending-reboot@ value for both dynamic and static parameters, and changes are applied when DB instance reboots. __MariaDB__  Valid Values (for Apply method): @immediate@ | @pending-reboot@  You can use the immediate value with dynamic parameters only. You can use the @pending-reboot@ value for both dynamic and static parameters, and changes are applied when DB instance reboots. __Oracle__  Valid Values (for Apply method): @pending-reboot@
 --
--- * 'rdpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'rdpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * Must match the name of an existing DBParameterGroup.
 resetDBParameterGroup
     :: Text -- ^ 'rdpgDBParameterGroupName'
     -> ResetDBParameterGroup
@@ -85,7 +85,7 @@ rdpgResetAllParameters = lens _rdpgResetAllParameters (\ s a -> s{_rdpgResetAllP
 rdpgParameters :: Lens' ResetDBParameterGroup [Parameter]
 rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a}) . _Default . _Coerce;
 
--- | The name of the DB parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The name of the DB parameter group. Constraints:     * Must match the name of an existing DBParameterGroup.
 rdpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
 rdpgDBParameterGroupName = lens _rdpgDBParameterGroupName (\ s a -> s{_rdpgDBParameterGroupName = a});
 

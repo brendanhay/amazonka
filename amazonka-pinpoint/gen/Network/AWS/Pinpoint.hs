@@ -64,6 +64,9 @@ module Network.AWS.Pinpoint
     -- ** GetImportJob
     , module Network.AWS.Pinpoint.GetImportJob
 
+    -- ** GetAPNSVoipSandboxChannel
+    , module Network.AWS.Pinpoint.GetAPNSVoipSandboxChannel
+
     -- ** GetSegmentVersions
     , module Network.AWS.Pinpoint.GetSegmentVersions
 
@@ -78,6 +81,12 @@ module Network.AWS.Pinpoint
 
     -- ** CreateSegment
     , module Network.AWS.Pinpoint.CreateSegment
+
+    -- ** UpdateADMChannel
+    , module Network.AWS.Pinpoint.UpdateADMChannel
+
+    -- ** DeleteADMChannel
+    , module Network.AWS.Pinpoint.DeleteADMChannel
 
     -- ** UpdateEndpoint
     , module Network.AWS.Pinpoint.UpdateEndpoint
@@ -94,11 +103,20 @@ module Network.AWS.Pinpoint
     -- ** UpdateEndpointsBatch
     , module Network.AWS.Pinpoint.UpdateEndpointsBatch
 
+    -- ** GetADMChannel
+    , module Network.AWS.Pinpoint.GetADMChannel
+
     -- ** GetCampaign
     , module Network.AWS.Pinpoint.GetCampaign
 
     -- ** DeleteApp
     , module Network.AWS.Pinpoint.DeleteApp
+
+    -- ** UpdateAPNSVoipSandboxChannel
+    , module Network.AWS.Pinpoint.UpdateAPNSVoipSandboxChannel
+
+    -- ** DeleteAPNSVoipSandboxChannel
+    , module Network.AWS.Pinpoint.DeleteAPNSVoipSandboxChannel
 
     -- ** UpdateGCMChannel
     , module Network.AWS.Pinpoint.UpdateGCMChannel
@@ -117,6 +135,9 @@ module Network.AWS.Pinpoint
 
     -- ** UpdateEmailChannel
     , module Network.AWS.Pinpoint.UpdateEmailChannel
+
+    -- ** GetBaiduChannel
+    , module Network.AWS.Pinpoint.GetBaiduChannel
 
     -- ** DeleteAPNSChannel
     , module Network.AWS.Pinpoint.DeleteAPNSChannel
@@ -187,8 +208,26 @@ module Network.AWS.Pinpoint
     -- ** CreateImportJob
     , module Network.AWS.Pinpoint.CreateImportJob
 
+    -- ** DeleteAPNSVoipChannel
+    , module Network.AWS.Pinpoint.DeleteAPNSVoipChannel
+
+    -- ** UpdateAPNSVoipChannel
+    , module Network.AWS.Pinpoint.UpdateAPNSVoipChannel
+
+    -- ** SendUsersMessages
+    , module Network.AWS.Pinpoint.SendUsersMessages
+
     -- ** GetApplicationSettings
     , module Network.AWS.Pinpoint.GetApplicationSettings
+
+    -- ** DeleteBaiduChannel
+    , module Network.AWS.Pinpoint.DeleteBaiduChannel
+
+    -- ** UpdateBaiduChannel
+    , module Network.AWS.Pinpoint.UpdateBaiduChannel
+
+    -- ** GetAPNSVoipChannel
+    , module Network.AWS.Pinpoint.GetAPNSVoipChannel
 
     -- ** GetEmailChannel
     , module Network.AWS.Pinpoint.GetEmailChannel
@@ -234,12 +273,58 @@ module Network.AWS.Pinpoint
     -- ** SegmentType
     , SegmentType (..)
 
+    -- ** ADMChannelRequest
+    , ADMChannelRequest
+    , aDMChannelRequest
+    , admcrClientId
+    , admcrClientSecret
+    , admcrEnabled
+
+    -- ** ADMChannelResponse
+    , ADMChannelResponse
+    , aDMChannelResponse
+    , admcPlatform
+    , admcLastModifiedDate
+    , admcEnabled
+    , admcIsArchived
+    , admcApplicationId
+    , admcVersion
+    , admcId
+    , admcCreationDate
+    , admcLastModifiedBy
+    , admcHasCredential
+
+    -- ** ADMMessage
+    , ADMMessage
+    , aDMMessage
+    , admmSubstitutions
+    , admmExpiresAfter
+    , admmMD5
+    , admmSilentPush
+    , admmImageIconURL
+    , admmRawContent
+    , admmData
+    , admmSmallImageIconURL
+    , admmBody
+    , admmURL
+    , admmSound
+    , admmAction
+    , admmImageURL
+    , admmConsolidationKey
+    , admmTitle
+    , admmIconReference
+
     -- ** APNSChannelRequest
     , APNSChannelRequest
     , apnsChannelRequest
+    , acrTokenKey
     , acrPrivateKey
     , acrEnabled
+    , acrTeamId
+    , acrBundleId
+    , acrDefaultAuthenticationMethod
     , acrCertificate
+    , acrTokenKeyId
 
     -- ** APNSChannelResponse
     , APNSChannelResponse
@@ -247,36 +332,48 @@ module Network.AWS.Pinpoint
     , acPlatform
     , acLastModifiedDate
     , acEnabled
+    , acHasTokenKey
+    , acDefaultAuthenticationMethod
     , acIsArchived
     , acApplicationId
     , acVersion
     , acId
     , acCreationDate
     , acLastModifiedBy
+    , acHasCredential
 
     -- ** APNSMessage
     , APNSMessage
     , apnsMessage
     , amSubstitutions
     , amSilentPush
+    , amPriority
     , amRawContent
     , amData
     , amBody
     , amCategory
+    , amTimeToLive
     , amURL
     , amSound
     , amAction
     , amMediaURL
+    , amPreferredAuthenticationMethod
     , amBadge
     , amTitle
     , amThreadId
+    , amCollapseId
 
     -- ** APNSSandboxChannelRequest
     , APNSSandboxChannelRequest
     , apnsSandboxChannelRequest
+    , ascrTokenKey
     , ascrPrivateKey
     , ascrEnabled
+    , ascrTeamId
+    , ascrBundleId
+    , ascrDefaultAuthenticationMethod
     , ascrCertificate
+    , ascrTokenKeyId
 
     -- ** APNSSandboxChannelResponse
     , APNSSandboxChannelResponse
@@ -284,12 +381,71 @@ module Network.AWS.Pinpoint
     , ascPlatform
     , ascLastModifiedDate
     , ascEnabled
+    , ascHasTokenKey
+    , ascDefaultAuthenticationMethod
     , ascIsArchived
     , ascApplicationId
     , ascVersion
     , ascId
     , ascCreationDate
     , ascLastModifiedBy
+    , ascHasCredential
+
+    -- ** APNSVoipChannelRequest
+    , APNSVoipChannelRequest
+    , apnsVoipChannelRequest
+    , avcrTokenKey
+    , avcrPrivateKey
+    , avcrEnabled
+    , avcrTeamId
+    , avcrBundleId
+    , avcrDefaultAuthenticationMethod
+    , avcrCertificate
+    , avcrTokenKeyId
+
+    -- ** APNSVoipChannelResponse
+    , APNSVoipChannelResponse
+    , apnsVoipChannelResponse
+    , avcPlatform
+    , avcLastModifiedDate
+    , avcEnabled
+    , avcHasTokenKey
+    , avcDefaultAuthenticationMethod
+    , avcIsArchived
+    , avcApplicationId
+    , avcVersion
+    , avcId
+    , avcCreationDate
+    , avcLastModifiedBy
+    , avcHasCredential
+
+    -- ** APNSVoipSandboxChannelRequest
+    , APNSVoipSandboxChannelRequest
+    , apnsVoipSandboxChannelRequest
+    , avscrTokenKey
+    , avscrPrivateKey
+    , avscrEnabled
+    , avscrTeamId
+    , avscrBundleId
+    , avscrDefaultAuthenticationMethod
+    , avscrCertificate
+    , avscrTokenKeyId
+
+    -- ** APNSVoipSandboxChannelResponse
+    , APNSVoipSandboxChannelResponse
+    , apnsVoipSandboxChannelResponse
+    , avscPlatform
+    , avscLastModifiedDate
+    , avscEnabled
+    , avscHasTokenKey
+    , avscDefaultAuthenticationMethod
+    , avscIsArchived
+    , avscApplicationId
+    , avscVersion
+    , avscId
+    , avscCreationDate
+    , avscLastModifiedBy
+    , avscHasCredential
 
     -- ** ActivitiesResponse
     , ActivitiesResponse
@@ -349,6 +505,45 @@ module Network.AWS.Pinpoint
     , adValues
     , adAttributeType
 
+    -- ** BaiduChannelRequest
+    , BaiduChannelRequest
+    , baiduChannelRequest
+    , bcrAPIKey
+    , bcrEnabled
+    , bcrSecretKey
+
+    -- ** BaiduChannelResponse
+    , BaiduChannelResponse
+    , baiduChannelResponse
+    , bcPlatform
+    , bcLastModifiedDate
+    , bcEnabled
+    , bcCredential
+    , bcIsArchived
+    , bcApplicationId
+    , bcVersion
+    , bcId
+    , bcCreationDate
+    , bcLastModifiedBy
+    , bcHasCredential
+
+    -- ** BaiduMessage
+    , BaiduMessage
+    , baiduMessage
+    , bmSubstitutions
+    , bmSilentPush
+    , bmImageIconURL
+    , bmRawContent
+    , bmData
+    , bmSmallImageIconURL
+    , bmBody
+    , bmURL
+    , bmSound
+    , bmAction
+    , bmImageURL
+    , bmTitle
+    , bmIconReference
+
     -- ** CampaignEmailMessage
     , CampaignEmailMessage
     , campaignEmailMessage
@@ -360,8 +555,10 @@ module Network.AWS.Pinpoint
     -- ** CampaignLimits
     , CampaignLimits
     , campaignLimits
+    , clMessagesPerSecond
     , clDaily
     , clTotal
+    , clMaximumDuration
 
     -- ** CampaignResponse
     , CampaignResponse
@@ -432,7 +629,9 @@ module Network.AWS.Pinpoint
     , dmcAPNSMessage
     , dmcGCMMessage
     , dmcDefaultMessage
+    , dmcADMMessage
     , dmcSMSMessage
+    , dmcBaiduMessage
     , dmcDefaultPushNotificationMessage
 
     -- ** EmailChannelRequest
@@ -457,6 +656,7 @@ module Network.AWS.Pinpoint
     , ecCreationDate
     , ecLastModifiedBy
     , ecIdentity
+    , ecHasCredential
     , ecRoleARN
 
     -- ** EndpointBatchItem
@@ -502,6 +702,15 @@ module Network.AWS.Pinpoint
     , elRegion
     , elLongitude
 
+    -- ** EndpointMessageResult
+    , EndpointMessageResult
+    , endpointMessageResult
+    , emrDeliveryStatus
+    , emrAddress
+    , emrStatusMessage
+    , emrUpdatedToken
+    , emrStatusCode
+
     -- ** EndpointRequest
     , EndpointRequest
     , endpointRequest
@@ -535,7 +744,15 @@ module Network.AWS.Pinpoint
     , eId
     , eCreationDate
     , eChannelType
-    , eShardId
+
+    -- ** EndpointSendConfiguration
+    , EndpointSendConfiguration
+    , endpointSendConfiguration
+    , escSubstitutions
+    , escTitleOverride
+    , escContext
+    , escRawContent
+    , escBodyOverride
 
     -- ** EndpointUser
     , EndpointUser
@@ -572,6 +789,7 @@ module Network.AWS.Pinpoint
     , gcId
     , gcCreationDate
     , gcLastModifiedBy
+    , gcHasCredential
 
     -- ** GCMMessage
     , GCMMessage
@@ -579,11 +797,13 @@ module Network.AWS.Pinpoint
     , gmSubstitutions
     , gmSilentPush
     , gmImageIconURL
+    , gmPriority
     , gmRawContent
     , gmData
     , gmRestrictedPackageName
     , gmSmallImageIconURL
     , gmBody
+    , gmTimeToLive
     , gmURL
     , gmSound
     , gmAction
@@ -666,14 +886,17 @@ module Network.AWS.Pinpoint
     , mcAPNSMessage
     , mcGCMMessage
     , mcDefaultMessage
+    , mcADMMessage
     , mcSMSMessage
     , mcEmailMessage
+    , mcBaiduMessage
 
     -- ** MessageRequest
     , MessageRequest
     , messageRequest
     , mrContext
     , mrAddresses
+    , mrEndpoints
     , mrMessageConfiguration
 
     -- ** MessageResponse
@@ -682,6 +905,7 @@ module Network.AWS.Pinpoint
     , mRequestId
     , mResult
     , mApplicationId
+    , mEndpointResult
 
     -- ** MessageResult
     , MessageResult
@@ -706,6 +930,7 @@ module Network.AWS.Pinpoint
     -- ** SMSChannelRequest
     , SMSChannelRequest
     , sMSChannelRequest
+    , smscrShortCode
     , smscrEnabled
     , smscrSenderId
 
@@ -723,6 +948,7 @@ module Network.AWS.Pinpoint
     , smscId
     , smscCreationDate
     , smscLastModifiedBy
+    , smscHasCredential
 
     -- ** SMSMessage
     , SMSMessage
@@ -800,6 +1026,20 @@ module Network.AWS.Pinpoint
     , sNextToken
     , sItem
 
+    -- ** SendUsersMessageRequest
+    , SendUsersMessageRequest
+    , sendUsersMessageRequest
+    , sumrContext
+    , sumrUsers
+    , sumrMessageConfiguration
+
+    -- ** SendUsersMessageResponse
+    , SendUsersMessageResponse
+    , sendUsersMessageResponse
+    , sumRequestId
+    , sumResult
+    , sumApplicationId
+
     -- ** SetDimension
     , SetDimension
     , setDimension
@@ -843,7 +1083,6 @@ module Network.AWS.Pinpoint
     , WriteEventStream
     , writeEventStream
     , wesDestinationStreamARN
-    , wesExternalId
     , wesRoleARN
 
     -- ** WriteSegmentRequest
@@ -866,20 +1105,28 @@ import Network.AWS.Pinpoint.CreateApp
 import Network.AWS.Pinpoint.CreateCampaign
 import Network.AWS.Pinpoint.CreateImportJob
 import Network.AWS.Pinpoint.CreateSegment
+import Network.AWS.Pinpoint.DeleteADMChannel
 import Network.AWS.Pinpoint.DeleteAPNSChannel
 import Network.AWS.Pinpoint.DeleteAPNSSandboxChannel
+import Network.AWS.Pinpoint.DeleteAPNSVoipChannel
+import Network.AWS.Pinpoint.DeleteAPNSVoipSandboxChannel
 import Network.AWS.Pinpoint.DeleteApp
+import Network.AWS.Pinpoint.DeleteBaiduChannel
 import Network.AWS.Pinpoint.DeleteCampaign
 import Network.AWS.Pinpoint.DeleteEmailChannel
 import Network.AWS.Pinpoint.DeleteEventStream
 import Network.AWS.Pinpoint.DeleteGCMChannel
 import Network.AWS.Pinpoint.DeleteSegment
 import Network.AWS.Pinpoint.DeleteSmsChannel
+import Network.AWS.Pinpoint.GetADMChannel
 import Network.AWS.Pinpoint.GetAPNSChannel
 import Network.AWS.Pinpoint.GetAPNSSandboxChannel
+import Network.AWS.Pinpoint.GetAPNSVoipChannel
+import Network.AWS.Pinpoint.GetAPNSVoipSandboxChannel
 import Network.AWS.Pinpoint.GetApp
 import Network.AWS.Pinpoint.GetApplicationSettings
 import Network.AWS.Pinpoint.GetApps
+import Network.AWS.Pinpoint.GetBaiduChannel
 import Network.AWS.Pinpoint.GetCampaign
 import Network.AWS.Pinpoint.GetCampaignActivities
 import Network.AWS.Pinpoint.GetCampaigns
@@ -899,10 +1146,15 @@ import Network.AWS.Pinpoint.GetSegmentVersions
 import Network.AWS.Pinpoint.GetSmsChannel
 import Network.AWS.Pinpoint.PutEventStream
 import Network.AWS.Pinpoint.SendMessages
+import Network.AWS.Pinpoint.SendUsersMessages
 import Network.AWS.Pinpoint.Types
+import Network.AWS.Pinpoint.UpdateADMChannel
 import Network.AWS.Pinpoint.UpdateAPNSChannel
 import Network.AWS.Pinpoint.UpdateAPNSSandboxChannel
+import Network.AWS.Pinpoint.UpdateAPNSVoipChannel
+import Network.AWS.Pinpoint.UpdateAPNSVoipSandboxChannel
 import Network.AWS.Pinpoint.UpdateApplicationSettings
+import Network.AWS.Pinpoint.UpdateBaiduChannel
 import Network.AWS.Pinpoint.UpdateCampaign
 import Network.AWS.Pinpoint.UpdateEmailChannel
 import Network.AWS.Pinpoint.UpdateEndpoint

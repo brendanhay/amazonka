@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Terminates jobs in a job queue. Jobs that are in the @STARTING@ or @RUNNING@ state are terminated, which causes them to transition to @FAILED@ . Jobs that have not progressed to the @STARTING@ state are cancelled.
+-- Terminates a job in a job queue. Jobs that are in the @STARTING@ or @RUNNING@ state are terminated, which causes them to transition to @FAILED@ . Jobs that have not progressed to the @STARTING@ state are cancelled.
 --
 --
 module Network.AWS.Batch.TerminateJob
@@ -55,7 +55,7 @@ data TerminateJob = TerminateJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tjJobId' - Job IDs to be terminated. Up to 100 jobs can be specified.
+-- * 'tjJobId' - The AWS Batch job ID of the job to terminate.
 --
 -- * 'tjReason' - A message to attach to the job that explains the reason for cancelling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
 terminateJob
@@ -66,7 +66,7 @@ terminateJob pJobId_ pReason_ =
   TerminateJob' {_tjJobId = pJobId_, _tjReason = pReason_}
 
 
--- | Job IDs to be terminated. Up to 100 jobs can be specified.
+-- | The AWS Batch job ID of the job to terminate.
 tjJobId :: Lens' TerminateJob Text
 tjJobId = lens _tjJobId (\ s a -> s{_tjJobId = a});
 

@@ -116,6 +116,9 @@ module Network.AWS.CloudFront
     -- ** TooManyStreamingDistributionCNAMEs
     , _TooManyStreamingDistributionCNAMEs
 
+    -- ** ResourceInUse
+    , _ResourceInUse
+
     -- ** InvalidRequiredProtocol
     , _InvalidRequiredProtocol
 
@@ -232,6 +235,9 @@ module Network.AWS.CloudFront
 
     -- ** CreateStreamingDistributionWithTags
     , module Network.AWS.CloudFront.CreateStreamingDistributionWithTags
+
+    -- ** DeleteServiceLinkedRole
+    , module Network.AWS.CloudFront.DeleteServiceLinkedRole
 
     -- ** GetDistribution
     , module Network.AWS.CloudFront.GetDistribution
@@ -780,6 +786,7 @@ import Network.AWS.CloudFront.CreateStreamingDistribution
 import Network.AWS.CloudFront.CreateStreamingDistributionWithTags
 import Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 import Network.AWS.CloudFront.DeleteDistribution
+import Network.AWS.CloudFront.DeleteServiceLinkedRole
 import Network.AWS.CloudFront.DeleteStreamingDistribution
 import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
 import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig

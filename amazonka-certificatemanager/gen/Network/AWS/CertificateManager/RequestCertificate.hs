@@ -18,8 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate, you must specify the fully qualified domain name (FQDN) for your site. You can also specify additional FQDNs if users can reach your site by using other names. For each domain name you specify, email is sent to the domain owner to request approval to issue the certificate. After receiving approval from the domain owner, the ACM Certificate is issued. For more information, see the <http://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide> .
+-- Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate, you must specify the fully qualified domain name (FQDN) for your site in the @DomainName@ parameter. You can also specify additional FQDNs in the @SubjectAlternativeNames@ parameter if users can reach your site by using other names.
 --
+--
+-- For each domain name you specify, email is sent to the domain owner to request approval to issue the certificate. Email is sent to three registered contact addresses in the WHOIS database and to five common system administration addresses formed from the @DomainName@ you enter or the optional @ValidationDomain@ parameter. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate.html Validate Domain Ownership> .
+--
+-- After receiving approval from the domain owner, the ACM Certificate is issued. For more information, see the <http://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide> .
 --
 module Network.AWS.CertificateManager.RequestCertificate
     (

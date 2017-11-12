@@ -57,7 +57,7 @@ data DisassociatePrincipalFromPortfolio = DisassociatePrincipalFromPortfolio'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'disAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'disAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'disPortfolioId' - The portfolio identifier.
 --
@@ -74,7 +74,7 @@ disassociatePrincipalFromPortfolio pPortfolioId_ pPrincipalARN_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 disAcceptLanguage :: Lens' DisassociatePrincipalFromPortfolio (Maybe Text)
 disAcceptLanguage = lens _disAcceptLanguage (\ s a -> s{_disAcceptLanguage = a});
 

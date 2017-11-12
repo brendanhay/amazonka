@@ -61,7 +61,7 @@ data ListResources = ListResources'
 --
 -- * 'lrNextToken' - The continuation token for the next set of results, if the results cannot be returned in one response.
 --
--- * 'lrMaxResults' - he maximum amount of data that can be contained in a single set of results.
+-- * 'lrMaxResults' - The maximum amount of data that can be contained in a single set of results.
 --
 -- * 'lrProjectId' - The ID of the project.
 listResources
@@ -76,7 +76,7 @@ listResources pProjectId_ =
 lrNextToken :: Lens' ListResources (Maybe Text)
 lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
 
--- | he maximum amount of data that can be contained in a single set of results.
+-- | The maximum amount of data that can be contained in a single set of results.
 lrMaxResults :: Lens' ListResources (Maybe Natural)
 lrMaxResults = lens _lrMaxResults (\ s a -> s{_lrMaxResults = a}) . mapping _Nat;
 

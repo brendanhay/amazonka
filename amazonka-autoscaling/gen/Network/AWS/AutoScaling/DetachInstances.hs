@@ -21,7 +21,7 @@
 -- Removes one or more instances from the specified Auto Scaling group.
 --
 --
--- After the instances are detached, you can manage them independently from the rest of the Auto Scaling group.
+-- After the instances are detached, you can manage them independent of the Auto Scaling group.
 --
 -- If you do not specify the option to decrement the desired capacity, Auto Scaling launches instances to replace the ones that are detached.
 --
@@ -54,11 +54,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DetachInstances.
---
---
---
--- /See:/ 'detachInstances' smart constructor.
+-- | /See:/ 'detachInstances' smart constructor.
 data DetachInstances = DetachInstances'
   { _diInstanceIds                    :: {-# NOUNPACK #-}!(Maybe [Text])
   , _diAutoScalingGroupName           :: {-# NOUNPACK #-}!Text
@@ -131,11 +127,7 @@ instance ToQuery DetachInstances where
                "ShouldDecrementDesiredCapacity" =:
                  _diShouldDecrementDesiredCapacity]
 
--- | Contains the output of DetachInstances.
---
---
---
--- /See:/ 'detachInstancesResponse' smart constructor.
+-- | /See:/ 'detachInstancesResponse' smart constructor.
 data DetachInstancesResponse = DetachInstancesResponse'
   { _dirsActivities     :: {-# NOUNPACK #-}!(Maybe [Activity])
   , _dirsResponseStatus :: {-# NOUNPACK #-}!Int

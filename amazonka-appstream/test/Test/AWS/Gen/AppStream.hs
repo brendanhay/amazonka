@@ -14,11 +14,11 @@
 module Test.AWS.Gen.AppStream where
 
 import Data.Proxy
+import Network.AWS.AppStream
+import Test.AWS.AppStream.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.AppStream
-import Test.AWS.AppStream.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -52,11 +52,20 @@ import Test.AWS.AppStream.Internal
 --         , requestUpdateFleet $
 --             updateFleet
 --
+--         , requestDeleteImageBuilder $
+--             deleteImageBuilder
+--
 --         , requestAssociateFleet $
 --             associateFleet
 --
+--         , requestCreateImageBuilder $
+--             createImageBuilder
+--
 --         , requestDescribeDirectoryConfigs $
 --             describeDirectoryConfigs
+--
+--         , requestCreateImageBuilderStreamingURL $
+--             createImageBuilderStreamingURL
 --
 --         , requestDescribeSessions $
 --             describeSessions
@@ -67,8 +76,14 @@ import Test.AWS.AppStream.Internal
 --         , requestDescribeFleets $
 --             describeFleets
 --
+--         , requestDescribeImageBuilders $
+--             describeImageBuilders
+--
 --         , requestStopFleet $
 --             stopFleet
+--
+--         , requestStartImageBuilder $
+--             startImageBuilder
 --
 --         , requestDeleteDirectoryConfig $
 --             deleteDirectoryConfig
@@ -90,6 +105,12 @@ import Test.AWS.AppStream.Internal
 --
 --         , requestStartFleet $
 --             startFleet
+--
+--         , requestStopImageBuilder $
+--             stopImageBuilder
+--
+--         , requestDeleteImage $
+--             deleteImage
 --
 --         , requestDescribeImages $
 --             describeImages
@@ -121,11 +142,20 @@ import Test.AWS.AppStream.Internal
 --         , responseUpdateFleet $
 --             updateFleetResponse
 --
+--         , responseDeleteImageBuilder $
+--             deleteImageBuilderResponse
+--
 --         , responseAssociateFleet $
 --             associateFleetResponse
 --
+--         , responseCreateImageBuilder $
+--             createImageBuilderResponse
+--
 --         , responseDescribeDirectoryConfigs $
 --             describeDirectoryConfigsResponse
+--
+--         , responseCreateImageBuilderStreamingURL $
+--             createImageBuilderStreamingURLResponse
 --
 --         , responseDescribeSessions $
 --             describeSessionsResponse
@@ -136,8 +166,14 @@ import Test.AWS.AppStream.Internal
 --         , responseDescribeFleets $
 --             describeFleetsResponse
 --
+--         , responseDescribeImageBuilders $
+--             describeImageBuildersResponse
+--
 --         , responseStopFleet $
 --             stopFleetResponse
+--
+--         , responseStartImageBuilder $
+--             startImageBuilderResponse
 --
 --         , responseDeleteDirectoryConfig $
 --             deleteDirectoryConfigResponse
@@ -159,6 +195,12 @@ import Test.AWS.AppStream.Internal
 --
 --         , responseStartFleet $
 --             startFleetResponse
+--
+--         , responseStopImageBuilder $
+--             stopImageBuilderResponse
+--
+--         , responseDeleteImage $
+--             deleteImageResponse
 --
 --         , responseDescribeImages $
 --             describeImagesResponse
@@ -208,15 +250,30 @@ requestUpdateFleet = req
     "UpdateFleet"
     "fixture/UpdateFleet.yaml"
 
+requestDeleteImageBuilder :: DeleteImageBuilder -> TestTree
+requestDeleteImageBuilder = req
+    "DeleteImageBuilder"
+    "fixture/DeleteImageBuilder.yaml"
+
 requestAssociateFleet :: AssociateFleet -> TestTree
 requestAssociateFleet = req
     "AssociateFleet"
     "fixture/AssociateFleet.yaml"
 
+requestCreateImageBuilder :: CreateImageBuilder -> TestTree
+requestCreateImageBuilder = req
+    "CreateImageBuilder"
+    "fixture/CreateImageBuilder.yaml"
+
 requestDescribeDirectoryConfigs :: DescribeDirectoryConfigs -> TestTree
 requestDescribeDirectoryConfigs = req
     "DescribeDirectoryConfigs"
     "fixture/DescribeDirectoryConfigs.yaml"
+
+requestCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURL -> TestTree
+requestCreateImageBuilderStreamingURL = req
+    "CreateImageBuilderStreamingURL"
+    "fixture/CreateImageBuilderStreamingURL.yaml"
 
 requestDescribeSessions :: DescribeSessions -> TestTree
 requestDescribeSessions = req
@@ -233,10 +290,20 @@ requestDescribeFleets = req
     "DescribeFleets"
     "fixture/DescribeFleets.yaml"
 
+requestDescribeImageBuilders :: DescribeImageBuilders -> TestTree
+requestDescribeImageBuilders = req
+    "DescribeImageBuilders"
+    "fixture/DescribeImageBuilders.yaml"
+
 requestStopFleet :: StopFleet -> TestTree
 requestStopFleet = req
     "StopFleet"
     "fixture/StopFleet.yaml"
+
+requestStartImageBuilder :: StartImageBuilder -> TestTree
+requestStartImageBuilder = req
+    "StartImageBuilder"
+    "fixture/StartImageBuilder.yaml"
 
 requestDeleteDirectoryConfig :: DeleteDirectoryConfig -> TestTree
 requestDeleteDirectoryConfig = req
@@ -272,6 +339,16 @@ requestStartFleet :: StartFleet -> TestTree
 requestStartFleet = req
     "StartFleet"
     "fixture/StartFleet.yaml"
+
+requestStopImageBuilder :: StopImageBuilder -> TestTree
+requestStopImageBuilder = req
+    "StopImageBuilder"
+    "fixture/StopImageBuilder.yaml"
+
+requestDeleteImage :: DeleteImage -> TestTree
+requestDeleteImage = req
+    "DeleteImage"
+    "fixture/DeleteImage.yaml"
 
 requestDescribeImages :: DescribeImages -> TestTree
 requestDescribeImages = req
@@ -336,6 +413,13 @@ responseUpdateFleet = res
     appStream
     (Proxy :: Proxy UpdateFleet)
 
+responseDeleteImageBuilder :: DeleteImageBuilderResponse -> TestTree
+responseDeleteImageBuilder = res
+    "DeleteImageBuilderResponse"
+    "fixture/DeleteImageBuilderResponse.proto"
+    appStream
+    (Proxy :: Proxy DeleteImageBuilder)
+
 responseAssociateFleet :: AssociateFleetResponse -> TestTree
 responseAssociateFleet = res
     "AssociateFleetResponse"
@@ -343,12 +427,26 @@ responseAssociateFleet = res
     appStream
     (Proxy :: Proxy AssociateFleet)
 
+responseCreateImageBuilder :: CreateImageBuilderResponse -> TestTree
+responseCreateImageBuilder = res
+    "CreateImageBuilderResponse"
+    "fixture/CreateImageBuilderResponse.proto"
+    appStream
+    (Proxy :: Proxy CreateImageBuilder)
+
 responseDescribeDirectoryConfigs :: DescribeDirectoryConfigsResponse -> TestTree
 responseDescribeDirectoryConfigs = res
     "DescribeDirectoryConfigsResponse"
     "fixture/DescribeDirectoryConfigsResponse.proto"
     appStream
     (Proxy :: Proxy DescribeDirectoryConfigs)
+
+responseCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURLResponse -> TestTree
+responseCreateImageBuilderStreamingURL = res
+    "CreateImageBuilderStreamingURLResponse"
+    "fixture/CreateImageBuilderStreamingURLResponse.proto"
+    appStream
+    (Proxy :: Proxy CreateImageBuilderStreamingURL)
 
 responseDescribeSessions :: DescribeSessionsResponse -> TestTree
 responseDescribeSessions = res
@@ -371,12 +469,26 @@ responseDescribeFleets = res
     appStream
     (Proxy :: Proxy DescribeFleets)
 
+responseDescribeImageBuilders :: DescribeImageBuildersResponse -> TestTree
+responseDescribeImageBuilders = res
+    "DescribeImageBuildersResponse"
+    "fixture/DescribeImageBuildersResponse.proto"
+    appStream
+    (Proxy :: Proxy DescribeImageBuilders)
+
 responseStopFleet :: StopFleetResponse -> TestTree
 responseStopFleet = res
     "StopFleetResponse"
     "fixture/StopFleetResponse.proto"
     appStream
     (Proxy :: Proxy StopFleet)
+
+responseStartImageBuilder :: StartImageBuilderResponse -> TestTree
+responseStartImageBuilder = res
+    "StartImageBuilderResponse"
+    "fixture/StartImageBuilderResponse.proto"
+    appStream
+    (Proxy :: Proxy StartImageBuilder)
 
 responseDeleteDirectoryConfig :: DeleteDirectoryConfigResponse -> TestTree
 responseDeleteDirectoryConfig = res
@@ -426,6 +538,20 @@ responseStartFleet = res
     "fixture/StartFleetResponse.proto"
     appStream
     (Proxy :: Proxy StartFleet)
+
+responseStopImageBuilder :: StopImageBuilderResponse -> TestTree
+responseStopImageBuilder = res
+    "StopImageBuilderResponse"
+    "fixture/StopImageBuilderResponse.proto"
+    appStream
+    (Proxy :: Proxy StopImageBuilder)
+
+responseDeleteImage :: DeleteImageResponse -> TestTree
+responseDeleteImage = res
+    "DeleteImageResponse"
+    "fixture/DeleteImageResponse.proto"
+    appStream
+    (Proxy :: Proxy DeleteImage)
 
 responseDescribeImages :: DescribeImagesResponse -> TestTree
 responseDescribeImages = res

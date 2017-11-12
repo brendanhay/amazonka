@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used by workers to retrieve a task (with the specified activity ARN) scheduled for execution by a running state machine. This initiates a long poll, where the service holds the HTTP connection open and responds as soon as a task becomes available (i.e. an execution of a task of this type is needed.) The maximum time the service holds on to the request before responding is 60 seconds. If no task is available within 60 seconds, the poll will return an empty result, that is, the @taskToken@ returned is an empty string.
+-- Used by workers to retrieve a task (with the specified activity ARN) which has been scheduled for execution by a running state machine. This initiates a long poll, where the service holds the HTTP connection open and responds as soon as a task becomes available (i.e. an execution of a task of this type is needed.) The maximum time the service holds on to the request before responding is 60 seconds. If no task is available within 60 seconds, the poll will return a @taskToken@ with a null string.
 --
 --
 -- /Important:/ Workers should set their client side socket timeout to at least 65 seconds (5 seconds higher than the maximum time the service may hold the poll request).
@@ -59,9 +59,9 @@ data GetActivityTask = GetActivityTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gatWorkerName' - An arbitrary name may be provided in order to identify the worker that the task is assigned to. This name will be used when it is logged in the execution history.
+-- * 'gatWorkerName' - You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name will be used when it is logged in the execution history.
 --
--- * 'gatActivityARN' - The Amazon Resource Name (ARN) of the activity to retrieve tasks from.
+-- * 'gatActivityARN' - The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task using 'CreateActivity' .)
 getActivityTask
     :: Text -- ^ 'gatActivityARN'
     -> GetActivityTask
@@ -69,11 +69,11 @@ getActivityTask pActivityARN_ =
   GetActivityTask' {_gatWorkerName = Nothing, _gatActivityARN = pActivityARN_}
 
 
--- | An arbitrary name may be provided in order to identify the worker that the task is assigned to. This name will be used when it is logged in the execution history.
+-- | You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name will be used when it is logged in the execution history.
 gatWorkerName :: Lens' GetActivityTask (Maybe Text)
 gatWorkerName = lens _gatWorkerName (\ s a -> s{_gatWorkerName = a});
 
--- | The Amazon Resource Name (ARN) of the activity to retrieve tasks from.
+-- | The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task using 'CreateActivity' .)
 gatActivityARN :: Lens' GetActivityTask Text
 gatActivityARN = lens _gatActivityARN (\ s a -> s{_gatActivityARN = a});
 
@@ -125,7 +125,7 @@ data GetActivityTaskResponse = GetActivityTaskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gatrsInput' - The JSON input data for the task.
+-- * 'gatrsInput' - The string that contains the JSON input data for the task.
 --
 -- * 'gatrsTaskToken' - A token that identifies the scheduled task. This token must be copied and included in subsequent calls to 'SendTaskHeartbeat' , 'SendTaskSuccess' or 'SendTaskFailure' in order to report the progress or completion of the task.
 --
@@ -141,7 +141,7 @@ getActivityTaskResponse pResponseStatus_ =
   }
 
 
--- | The JSON input data for the task.
+-- | The string that contains the JSON input data for the task.
 gatrsInput :: Lens' GetActivityTaskResponse (Maybe Text)
 gatrsInput = lens _gatrsInput (\ s a -> s{_gatrsInput = a});
 

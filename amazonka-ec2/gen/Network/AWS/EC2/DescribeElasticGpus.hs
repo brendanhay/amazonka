@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the Elastic GPUs associated with your instances. For more information about Elastic GPUs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-gpus.html Amazon EC2 Elastic GPUs> .
+-- Describes the Elastic GPUs associated with your instances. For more information about Elastic GPUs, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html Amazon EC2 Elastic GPUs> .
 --
 --
 module Network.AWS.EC2.DescribeElasticGpus
@@ -114,7 +114,7 @@ instance AWSRequest DescribeElasticGpus where
               (\ s h x ->
                  DescribeElasticGpusResponse' <$>
                    (x .@? "elasticGpuSet" .!@ mempty >>=
-                      may (parseXMLList "member"))
+                      may (parseXMLList "item"))
                      <*> (x .@? "nextToken")
                      <*> (x .@? "maxResults")
                      <*> (pure (fromEnum s)))

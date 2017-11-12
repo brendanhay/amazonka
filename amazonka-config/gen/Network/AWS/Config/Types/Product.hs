@@ -312,7 +312,7 @@ instance Hashable ComplianceSummaryByResourceType
 
 instance NFData ComplianceSummaryByResourceType where
 
--- | A list that contains the status of the delivery of either the snapshot or the configuration history to the specified Amazon S3 bucket.
+-- | Provides status of the delivery of the snapshot or the configuration history to the specified Amazon S3 bucket. Also provides the status of notifications about the Amazon S3 delivery to the specified Amazon SNS topic.
 --
 --
 --
@@ -1835,7 +1835,7 @@ data Scope = Scope'
 --
 -- * 'sTagValue' - The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for @TagValue@ , you must also specify a value for @TagKey@ .
 --
--- * 'sTagKey' - The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
+-- * 'sTagKey' - The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
 scope
     :: Scope
 scope =
@@ -1859,7 +1859,7 @@ sComplianceResourceId = lens _sComplianceResourceId (\ s a -> s{_sComplianceReso
 sTagValue :: Lens' Scope (Maybe Text)
 sTagValue = lens _sTagValue (\ s a -> s{_sTagValue = a});
 
--- | The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
+-- | The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
 sTagKey :: Lens' Scope (Maybe Text)
 sTagKey = lens _sTagKey (\ s a -> s{_sTagKey = a});
 

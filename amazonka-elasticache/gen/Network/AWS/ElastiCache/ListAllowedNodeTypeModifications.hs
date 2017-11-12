@@ -62,7 +62,7 @@ data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lantmCacheClusterId' - The name of the cache cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to. /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
+-- * 'lantmCacheClusterId' - The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to. /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
 --
 -- * 'lantmReplicationGroupId' - The name of the replication group want to scale up to a larger node type. ElastiCache uses the replication group id to identify the current node type being used by this replication group, and from that to create a list of node types you can scale up to. /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
 listAllowedNodeTypeModifications
@@ -72,7 +72,7 @@ listAllowedNodeTypeModifications =
   {_lantmCacheClusterId = Nothing, _lantmReplicationGroupId = Nothing}
 
 
--- | The name of the cache cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to. /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
+-- | The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to. /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
 lantmCacheClusterId :: Lens' ListAllowedNodeTypeModifications (Maybe Text)
 lantmCacheClusterId = lens _lantmCacheClusterId (\ s a -> s{_lantmCacheClusterId = a});
 
@@ -118,7 +118,7 @@ instance ToQuery ListAllowedNodeTypeModifications
                "CacheClusterId" =: _lantmCacheClusterId,
                "ReplicationGroupId" =: _lantmReplicationGroupId]
 
--- | Represents the allowed node types you can use to modify your cache cluster or replication group.
+-- | Represents the allowed node types you can use to modify your cluster or replication group.
 --
 --
 --
@@ -133,7 +133,7 @@ data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModifications
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lantmrsScaleUpModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cache cluster or replication group. When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
+-- * 'lantmrsScaleUpModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
 --
 -- * 'lantmrsResponseStatus' - -- | The response status code.
 listAllowedNodeTypeModificationsResponse
@@ -146,7 +146,7 @@ listAllowedNodeTypeModificationsResponse pResponseStatus_ =
   }
 
 
--- | A string list, each element of which specifies a cache node type which you can use to scale your cache cluster or replication group. When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
+-- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
 lantmrsScaleUpModifications :: Lens' ListAllowedNodeTypeModificationsResponse [Text]
 lantmrsScaleUpModifications = lens _lantmrsScaleUpModifications (\ s a -> s{_lantmrsScaleUpModifications = a}) . _Default . _Coerce;
 

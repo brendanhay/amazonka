@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -50,6 +50,7 @@ library
         , Network.AWS.Route53.ChangeTagsForResource
         , Network.AWS.Route53.CreateHealthCheck
         , Network.AWS.Route53.CreateHostedZone
+        , Network.AWS.Route53.CreateQueryLoggingConfig
         , Network.AWS.Route53.CreateReusableDelegationSet
         , Network.AWS.Route53.CreateTrafficPolicy
         , Network.AWS.Route53.CreateTrafficPolicyInstance
@@ -57,6 +58,7 @@ library
         , Network.AWS.Route53.CreateVPCAssociationAuthorization
         , Network.AWS.Route53.DeleteHealthCheck
         , Network.AWS.Route53.DeleteHostedZone
+        , Network.AWS.Route53.DeleteQueryLoggingConfig
         , Network.AWS.Route53.DeleteReusableDelegationSet
         , Network.AWS.Route53.DeleteTrafficPolicy
         , Network.AWS.Route53.DeleteTrafficPolicyInstance
@@ -71,6 +73,7 @@ library
         , Network.AWS.Route53.GetHealthCheckStatus
         , Network.AWS.Route53.GetHostedZone
         , Network.AWS.Route53.GetHostedZoneCount
+        , Network.AWS.Route53.GetQueryLoggingConfig
         , Network.AWS.Route53.GetReusableDelegationSet
         , Network.AWS.Route53.GetTrafficPolicy
         , Network.AWS.Route53.GetTrafficPolicyInstance
@@ -79,6 +82,7 @@ library
         , Network.AWS.Route53.ListHealthChecks
         , Network.AWS.Route53.ListHostedZones
         , Network.AWS.Route53.ListHostedZonesByName
+        , Network.AWS.Route53.ListQueryLoggingConfigs
         , Network.AWS.Route53.ListResourceRecordSets
         , Network.AWS.Route53.ListReusableDelegationSets
         , Network.AWS.Route53.ListTagsForResource

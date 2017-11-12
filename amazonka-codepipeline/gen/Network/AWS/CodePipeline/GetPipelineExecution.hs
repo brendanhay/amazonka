@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a get pipeline execution action.
+-- | Represents the input of a GetPipelineExecution action.
 --
 --
 --
@@ -120,7 +120,7 @@ instance ToPath GetPipelineExecution where
 instance ToQuery GetPipelineExecution where
         toQuery = const mempty
 
--- | Represents the output of a get pipeline execution action.
+-- | Represents the output of a GetPipelineExecution action.
 --
 --
 --

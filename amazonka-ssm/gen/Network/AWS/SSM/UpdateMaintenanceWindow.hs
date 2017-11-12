@@ -77,7 +77,7 @@ data UpdateMaintenanceWindow = UpdateMaintenanceWindow'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umwReplace' - If you specify True, then all fields that are required by the CreateMaintenanceWindow API are also required for this API request. Optional fields that are not specified will be set to null.
+-- * 'umwReplace' - If True, then all fields that are required by the CreateMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
 --
 -- * 'umwEnabled' - Whether the Maintenance Window is enabled.
 --
@@ -111,7 +111,7 @@ updateMaintenanceWindow pWindowId_ =
   }
 
 
--- | If you specify True, then all fields that are required by the CreateMaintenanceWindow API are also required for this API request. Optional fields that are not specified will be set to null.
+-- | If True, then all fields that are required by the CreateMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
 umwReplace :: Lens' UpdateMaintenanceWindow (Maybe Bool)
 umwReplace = lens _umwReplace (\ s a -> s{_umwReplace = a});
 

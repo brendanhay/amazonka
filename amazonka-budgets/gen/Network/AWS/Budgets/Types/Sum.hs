@@ -149,6 +149,37 @@ instance ToJSON SubscriptionType where
 instance FromJSON SubscriptionType where
     parseJSON = parseJSONText "SubscriptionType"
 
+-- | The type of threshold for a notification. It can be PERCENTAGE or ABSOLUTE_VALUE.
+data ThresholdType
+  = AbsoluteValue
+  | Percentage
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ThresholdType where
+    parser = takeLowerText >>= \case
+        "absolute_value" -> pure AbsoluteValue
+        "percentage" -> pure Percentage
+        e -> fromTextError $ "Failure parsing ThresholdType from value: '" <> e
+           <> "'. Accepted values: absolute_value, percentage"
+
+instance ToText ThresholdType where
+    toText = \case
+        AbsoluteValue -> "ABSOLUTE_VALUE"
+        Percentage -> "PERCENTAGE"
+
+instance Hashable     ThresholdType
+instance NFData       ThresholdType
+instance ToByteString ThresholdType
+instance ToQuery      ThresholdType
+instance ToHeader     ThresholdType
+
+instance ToJSON ThresholdType where
+    toJSON = toJSONText
+
+instance FromJSON ThresholdType where
+    parseJSON = parseJSONText "ThresholdType"
+
 -- | The time unit of the budget. e.g. MONTHLY, QUARTERLY, etc.
 data TimeUnit
   = Annually

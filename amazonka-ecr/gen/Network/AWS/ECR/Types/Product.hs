@@ -477,6 +477,183 @@ instance Hashable LayerFailure where
 
 instance NFData LayerFailure where
 
+-- | The filter for the lifecycle policy preview.
+--
+--
+--
+-- /See:/ 'lifecyclePolicyPreviewFilter' smart constructor.
+newtype LifecyclePolicyPreviewFilter = LifecyclePolicyPreviewFilter'
+  { _lppfTagStatus :: Maybe TagStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LifecyclePolicyPreviewFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lppfTagStatus' - The tag status of the image.
+lifecyclePolicyPreviewFilter
+    :: LifecyclePolicyPreviewFilter
+lifecyclePolicyPreviewFilter =
+  LifecyclePolicyPreviewFilter' {_lppfTagStatus = Nothing}
+
+
+-- | The tag status of the image.
+lppfTagStatus :: Lens' LifecyclePolicyPreviewFilter (Maybe TagStatus)
+lppfTagStatus = lens _lppfTagStatus (\ s a -> s{_lppfTagStatus = a});
+
+instance Hashable LifecyclePolicyPreviewFilter where
+
+instance NFData LifecyclePolicyPreviewFilter where
+
+instance ToJSON LifecyclePolicyPreviewFilter where
+        toJSON LifecyclePolicyPreviewFilter'{..}
+          = object
+              (catMaybes [("tagStatus" .=) <$> _lppfTagStatus])
+
+-- | The result of the lifecycle policy preview.
+--
+--
+--
+-- /See:/ 'lifecyclePolicyPreviewResult' smart constructor.
+data LifecyclePolicyPreviewResult = LifecyclePolicyPreviewResult'
+  { _lpprImageTags :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _lpprAction :: {-# NOUNPACK #-}!(Maybe LifecyclePolicyRuleAction)
+  , _lpprImageDigest :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lpprImagePushedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _lpprAppliedRulePriority :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LifecyclePolicyPreviewResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpprImageTags' - The list of tags associated with this image.
+--
+-- * 'lpprAction' - The type of action to be taken.
+--
+-- * 'lpprImageDigest' - The @sha256@ digest of the image manifest.
+--
+-- * 'lpprImagePushedAt' - The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
+--
+-- * 'lpprAppliedRulePriority' - The priority of the applied rule.
+lifecyclePolicyPreviewResult
+    :: LifecyclePolicyPreviewResult
+lifecyclePolicyPreviewResult =
+  LifecyclePolicyPreviewResult'
+  { _lpprImageTags = Nothing
+  , _lpprAction = Nothing
+  , _lpprImageDigest = Nothing
+  , _lpprImagePushedAt = Nothing
+  , _lpprAppliedRulePriority = Nothing
+  }
+
+
+-- | The list of tags associated with this image.
+lpprImageTags :: Lens' LifecyclePolicyPreviewResult [Text]
+lpprImageTags = lens _lpprImageTags (\ s a -> s{_lpprImageTags = a}) . _Default . _Coerce;
+
+-- | The type of action to be taken.
+lpprAction :: Lens' LifecyclePolicyPreviewResult (Maybe LifecyclePolicyRuleAction)
+lpprAction = lens _lpprAction (\ s a -> s{_lpprAction = a});
+
+-- | The @sha256@ digest of the image manifest.
+lpprImageDigest :: Lens' LifecyclePolicyPreviewResult (Maybe Text)
+lpprImageDigest = lens _lpprImageDigest (\ s a -> s{_lpprImageDigest = a});
+
+-- | The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
+lpprImagePushedAt :: Lens' LifecyclePolicyPreviewResult (Maybe UTCTime)
+lpprImagePushedAt = lens _lpprImagePushedAt (\ s a -> s{_lpprImagePushedAt = a}) . mapping _Time;
+
+-- | The priority of the applied rule.
+lpprAppliedRulePriority :: Lens' LifecyclePolicyPreviewResult (Maybe Natural)
+lpprAppliedRulePriority = lens _lpprAppliedRulePriority (\ s a -> s{_lpprAppliedRulePriority = a}) . mapping _Nat;
+
+instance FromJSON LifecyclePolicyPreviewResult where
+        parseJSON
+          = withObject "LifecyclePolicyPreviewResult"
+              (\ x ->
+                 LifecyclePolicyPreviewResult' <$>
+                   (x .:? "imageTags" .!= mempty) <*> (x .:? "action")
+                     <*> (x .:? "imageDigest")
+                     <*> (x .:? "imagePushedAt")
+                     <*> (x .:? "appliedRulePriority"))
+
+instance Hashable LifecyclePolicyPreviewResult where
+
+instance NFData LifecyclePolicyPreviewResult where
+
+-- | The summary of the lifecycle policy preview request.
+--
+--
+--
+-- /See:/ 'lifecyclePolicyPreviewSummary' smart constructor.
+newtype LifecyclePolicyPreviewSummary = LifecyclePolicyPreviewSummary'
+  { _lppsExpiringImageTotalCount :: Maybe Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LifecyclePolicyPreviewSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lppsExpiringImageTotalCount' - The number of expiring images.
+lifecyclePolicyPreviewSummary
+    :: LifecyclePolicyPreviewSummary
+lifecyclePolicyPreviewSummary =
+  LifecyclePolicyPreviewSummary' {_lppsExpiringImageTotalCount = Nothing}
+
+
+-- | The number of expiring images.
+lppsExpiringImageTotalCount :: Lens' LifecyclePolicyPreviewSummary (Maybe Natural)
+lppsExpiringImageTotalCount = lens _lppsExpiringImageTotalCount (\ s a -> s{_lppsExpiringImageTotalCount = a}) . mapping _Nat;
+
+instance FromJSON LifecyclePolicyPreviewSummary where
+        parseJSON
+          = withObject "LifecyclePolicyPreviewSummary"
+              (\ x ->
+                 LifecyclePolicyPreviewSummary' <$>
+                   (x .:? "expiringImageTotalCount"))
+
+instance Hashable LifecyclePolicyPreviewSummary where
+
+instance NFData LifecyclePolicyPreviewSummary where
+
+-- | The type of action to be taken.
+--
+--
+--
+-- /See:/ 'lifecyclePolicyRuleAction' smart constructor.
+newtype LifecyclePolicyRuleAction = LifecyclePolicyRuleAction'
+  { _lpraType :: Maybe ImageActionType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LifecyclePolicyRuleAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpraType' - The type of action to be taken.
+lifecyclePolicyRuleAction
+    :: LifecyclePolicyRuleAction
+lifecyclePolicyRuleAction = LifecyclePolicyRuleAction' {_lpraType = Nothing}
+
+
+-- | The type of action to be taken.
+lpraType :: Lens' LifecyclePolicyRuleAction (Maybe ImageActionType)
+lpraType = lens _lpraType (\ s a -> s{_lpraType = a});
+
+instance FromJSON LifecyclePolicyRuleAction where
+        parseJSON
+          = withObject "LifecyclePolicyRuleAction"
+              (\ x ->
+                 LifecyclePolicyRuleAction' <$> (x .:? "type"))
+
+instance Hashable LifecyclePolicyRuleAction where
+
+instance NFData LifecyclePolicyRuleAction where
+
 -- | An object representing a filter on a 'ListImages' operation.
 --
 --
@@ -528,13 +705,13 @@ data Repository = Repository'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rRepositoryARN' - The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, the AWS account ID of the repository owner, the repository namespace, and then the repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
+-- * 'rRepositoryARN' - The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
 --
--- * 'rCreatedAt' - The date and time, in JavaScript date/time format, when the repository was created.
+-- * 'rCreatedAt' - The date and time, in JavaScript date format, when the repository was created.
 --
 -- * 'rRegistryId' - The AWS account ID associated with the registry that contains the repository.
 --
--- * 'rRepositoryURI' - The URI for the repository. You can use this URI for Docker @push@ and @pull@ operations.
+-- * 'rRepositoryURI' - The URI for the repository. You can use this URI for Docker @push@ or @pull@ operations.
 --
 -- * 'rRepositoryName' - The name of the repository.
 repository
@@ -549,11 +726,11 @@ repository =
   }
 
 
--- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, the AWS account ID of the repository owner, the repository namespace, and then the repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
+-- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
 rRepositoryARN :: Lens' Repository (Maybe Text)
 rRepositoryARN = lens _rRepositoryARN (\ s a -> s{_rRepositoryARN = a});
 
--- | The date and time, in JavaScript date/time format, when the repository was created.
+-- | The date and time, in JavaScript date format, when the repository was created.
 rCreatedAt :: Lens' Repository (Maybe UTCTime)
 rCreatedAt = lens _rCreatedAt (\ s a -> s{_rCreatedAt = a}) . mapping _Time;
 
@@ -561,7 +738,7 @@ rCreatedAt = lens _rCreatedAt (\ s a -> s{_rCreatedAt = a}) . mapping _Time;
 rRegistryId :: Lens' Repository (Maybe Text)
 rRegistryId = lens _rRegistryId (\ s a -> s{_rRegistryId = a});
 
--- | The URI for the repository. You can use this URI for Docker @push@ and @pull@ operations.
+-- | The URI for the repository. You can use this URI for Docker @push@ or @pull@ operations.
 rRepositoryURI :: Lens' Repository (Maybe Text)
 rRepositoryURI = lens _rRepositoryURI (\ s a -> s{_rRepositoryURI = a});
 

@@ -21,9 +21,9 @@
 -- Returns the items you need in order to import key material into AWS KMS from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ .
 --
 --
--- You must specify the key ID of the customer master key (CMK) into which you will import key material. This CMK's @Origin@ must be @EXTERNAL@ . You must also specify the wrapping algorithm and type of wrapping key (public key) that you will use to encrypt the key material.
+-- You must specify the key ID of the customer master key (CMK) into which you will import key material. This CMK's @Origin@ must be @EXTERNAL@ . You must also specify the wrapping algorithm and type of wrapping key (public key) that you will use to encrypt the key material. You cannot perform this operation on a CMK in a different AWS account.
 --
--- This operation returns a public key and an import token. Use the public key to encrypt the key material. Store the import token to send with a subsequent 'ImportKeyMaterial' request. The public key and import token from the same response must be used together. These items are valid for 24 hours, after which they cannot be used for a subsequent 'ImportKeyMaterial' request. To retrieve new ones, send another @GetParametersForImport@ request.
+-- This operation returns a public key and an import token. Use the public key to encrypt the key material. Store the import token to send with a subsequent 'ImportKeyMaterial' request. The public key and import token from the same response must be used together. These items are valid for 24 hours. When they expire, they cannot be used for a subsequent 'ImportKeyMaterial' request. To get new ones, send another @GetParametersForImport@ request.
 --
 module Network.AWS.KMS.GetParametersForImport
     (
@@ -65,7 +65,7 @@ data GetParametersForImport = GetParametersForImport'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpfiKeyId' - The identifier of the CMK into which you will import key material. The CMK's @Origin@ must be @EXTERNAL@ . A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+-- * 'gpfiKeyId' - The identifier of the CMK into which you will import key material. The CMK's @Origin@ must be @EXTERNAL@ . Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- * 'gpfiWrappingAlgorithm' - The algorithm you will use to encrypt the key material before importing it with 'ImportKeyMaterial' . For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html Encrypt the Key Material> in the /AWS Key Management Service Developer Guide/ .
 --
@@ -83,7 +83,7 @@ getParametersForImport pKeyId_ pWrappingAlgorithm_ pWrappingKeySpec_ =
   }
 
 
--- | The identifier of the CMK into which you will import key material. The CMK's @Origin@ must be @EXTERNAL@ . A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+-- | The identifier of the CMK into which you will import key material. The CMK's @Origin@ must be @EXTERNAL@ . Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 gpfiKeyId :: Lens' GetParametersForImport Text
 gpfiKeyId = lens _gpfiKeyId (\ s a -> s{_gpfiKeyId = a});
 
@@ -154,7 +154,7 @@ data GetParametersForImportResponse = GetParametersForImportResponse'
 --
 -- * 'gpfirsPublicKey' - The public key to use to encrypt the key material before importing it with 'ImportKeyMaterial' .-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'gpfirsParametersValidTo' - The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an 'ImportKeyMaterial' request and you must send another @GetParametersForImport@ request to retrieve new ones.
+-- * 'gpfirsParametersValidTo' - The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an 'ImportKeyMaterial' request and you must send another @GetParametersForImport@ request to get new ones.
 --
 -- * 'gpfirsImportToken' - The import token to send in a subsequent 'ImportKeyMaterial' request.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
@@ -180,7 +180,7 @@ gpfirsKeyId = lens _gpfirsKeyId (\ s a -> s{_gpfirsKeyId = a});
 gpfirsPublicKey :: Lens' GetParametersForImportResponse (Maybe ByteString)
 gpfirsPublicKey = lens _gpfirsPublicKey (\ s a -> s{_gpfirsPublicKey = a}) . mapping (_Sensitive . _Base64);
 
--- | The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an 'ImportKeyMaterial' request and you must send another @GetParametersForImport@ request to retrieve new ones.
+-- | The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an 'ImportKeyMaterial' request and you must send another @GetParametersForImport@ request to get new ones.
 gpfirsParametersValidTo :: Lens' GetParametersForImportResponse (Maybe UTCTime)
 gpfirsParametersValidTo = lens _gpfirsParametersValidTo (\ s a -> s{_gpfirsParametersValidTo = a}) . mapping _Time;
 

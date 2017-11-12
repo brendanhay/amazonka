@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the specified attributes of the specified Application Load Balancer.
+-- Modifies the specified attributes of the specified Application Load Balancer or Network Load Balancer.
 --
 --
 -- If any of the specified attributes can't be modified as requested, the call fails. Any existing attributes that you do not modify retain their current values.

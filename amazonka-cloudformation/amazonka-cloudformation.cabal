@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -84,6 +84,7 @@ library
         , Network.AWS.CloudFormation.Types
         , Network.AWS.CloudFormation.UpdateStack
         , Network.AWS.CloudFormation.UpdateStackSet
+        , Network.AWS.CloudFormation.UpdateTerminationProtection
         , Network.AWS.CloudFormation.ValidateTemplate
         , Network.AWS.CloudFormation.Waiters
 

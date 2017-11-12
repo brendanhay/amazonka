@@ -50,11 +50,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeLaunchConfigurations.
---
---
---
--- /See:/ 'describeLaunchConfigurations' smart constructor.
+-- | /See:/ 'describeLaunchConfigurations' smart constructor.
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
   { _dlcLaunchConfigurationNames :: {-# NOUNPACK #-}!(Maybe [Text])
   , _dlcNextToken                :: {-# NOUNPACK #-}!(Maybe Text)
@@ -137,11 +133,7 @@ instance ToQuery DescribeLaunchConfigurations where
                "NextToken" =: _dlcNextToken,
                "MaxRecords" =: _dlcMaxRecords]
 
--- | Contains the output of DescribeLaunchConfigurations.
---
---
---
--- /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
+-- | /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
   { _dlcrsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
   , _dlcrsResponseStatus       :: {-# NOUNPACK #-}!Int

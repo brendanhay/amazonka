@@ -14,11 +14,11 @@
 module Test.AWS.Gen.DMS where
 
 import Data.Proxy
+import Network.AWS.DMS
+import Test.AWS.DMS.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.DMS
-import Test.AWS.DMS.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

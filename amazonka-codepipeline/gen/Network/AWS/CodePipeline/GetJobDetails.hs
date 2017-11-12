@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a get job details action.
+-- | Represents the input of a GetJobDetails action.
 --
 --
 --
@@ -104,7 +104,7 @@ instance ToPath GetJobDetails where
 instance ToQuery GetJobDetails where
         toQuery = const mempty
 
--- | Represents the output of a get job details action.
+-- | Represents the output of a GetJobDetails action.
 --
 --
 --

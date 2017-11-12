@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the type of IP addresses used by the subnets of the specified Application Load Balancer.
+-- Sets the type of IP addresses used by the subnets of the specified Application Load Balancer or Network Load Balancer.
 --
+--
+-- Note that Network Load Balancers must use @ipv4@ .
 --
 module Network.AWS.ELBv2.SetIPAddressType
     (

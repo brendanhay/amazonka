@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used to create an app.
+-- Creates or updates an app.
 module Network.AWS.Pinpoint.CreateApp
     (
     -- * Creating a Request

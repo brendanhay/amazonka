@@ -20,22 +20,28 @@ module Network.AWS.Greengrass.Types.Sum where
 import Network.AWS.Prelude
 
 data DeploymentType
-  = NewDeployment
+  = ForceResetDeployment
+  | NewDeployment
   | Redeployment
+  | ResetDeployment
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText DeploymentType where
     parser = takeLowerText >>= \case
+        "forceresetdeployment" -> pure ForceResetDeployment
         "newdeployment" -> pure NewDeployment
         "redeployment" -> pure Redeployment
+        "resetdeployment" -> pure ResetDeployment
         e -> fromTextError $ "Failure parsing DeploymentType from value: '" <> e
-           <> "'. Accepted values: newdeployment, redeployment"
+           <> "'. Accepted values: forceresetdeployment, newdeployment, redeployment, resetdeployment"
 
 instance ToText DeploymentType where
     toText = \case
+        ForceResetDeployment -> "ForceResetDeployment"
         NewDeployment -> "NewDeployment"
         Redeployment -> "Redeployment"
+        ResetDeployment -> "ResetDeployment"
 
 instance Hashable     DeploymentType
 instance NFData       DeploymentType
@@ -45,6 +51,9 @@ instance ToHeader     DeploymentType
 
 instance ToJSON DeploymentType where
     toJSON = toJSONText
+
+instance FromJSON DeploymentType where
+    parseJSON = parseJSONText "DeploymentType"
 
 data LoggerComponent
   = GreengrassSystem

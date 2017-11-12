@@ -65,7 +65,7 @@ data DescribeProvisioningParameters = DescribeProvisioningParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dppsAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dppsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'dppsPathId' - The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
 --
@@ -85,7 +85,7 @@ describeProvisioningParameters pProductId_ pProvisioningArtifactId_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dppsAcceptLanguage :: Lens' DescribeProvisioningParameters (Maybe Text)
 dppsAcceptLanguage = lens _dppsAcceptLanguage (\ s a -> s{_dppsAcceptLanguage = a});
 

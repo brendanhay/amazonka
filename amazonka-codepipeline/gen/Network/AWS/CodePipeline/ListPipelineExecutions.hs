@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a list pipeline executions action.
+-- | Represents the input of a ListPipelineExecutions action.
 --
 --
 --
@@ -63,7 +63,7 @@ data ListPipelineExecutions = ListPipelineExecutions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpeNextToken' - The token that was returned from the previous list pipeline executions call, which can be used to return the next set of pipeline executions in the list.
+-- * 'lpeNextToken' - The token that was returned from the previous ListPipelineExecutions call, which can be used to return the next set of pipeline executions in the list.
 --
 -- * 'lpeMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. The available pipeline execution history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.
 --
@@ -79,7 +79,7 @@ listPipelineExecutions pPipelineName_ =
   }
 
 
--- | The token that was returned from the previous list pipeline executions call, which can be used to return the next set of pipeline executions in the list.
+-- | The token that was returned from the previous ListPipelineExecutions call, which can be used to return the next set of pipeline executions in the list.
 lpeNextToken :: Lens' ListPipelineExecutions (Maybe Text)
 lpeNextToken = lens _lpeNextToken (\ s a -> s{_lpeNextToken = a});
 
@@ -131,7 +131,7 @@ instance ToPath ListPipelineExecutions where
 instance ToQuery ListPipelineExecutions where
         toQuery = const mempty
 
--- | Represents the output of a list pipeline executions action.
+-- | Represents the output of a ListPipelineExecutions action.
 --
 --
 --
@@ -147,7 +147,7 @@ data ListPipelineExecutionsResponse = ListPipelineExecutionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpersNextToken' - A token that can be used in the next list pipeline executions call to return the next set of pipeline executions. To view all items in the list, continue to call this operation with each subsequent token until no more nextToken values are returned.
+-- * 'lpersNextToken' - A token that can be used in the next ListPipelineExecutions call. To view all items in the list, continue to call this operation with each subsequent token until no more nextToken values are returned.
 --
 -- * 'lpersPipelineExecutionSummaries' - A list of executions in the history of a pipeline.
 --
@@ -163,7 +163,7 @@ listPipelineExecutionsResponse pResponseStatus_ =
   }
 
 
--- | A token that can be used in the next list pipeline executions call to return the next set of pipeline executions. To view all items in the list, continue to call this operation with each subsequent token until no more nextToken values are returned.
+-- | A token that can be used in the next ListPipelineExecutions call. To view all items in the list, continue to call this operation with each subsequent token until no more nextToken values are returned.
 lpersNextToken :: Lens' ListPipelineExecutionsResponse (Maybe Text)
 lpersNextToken = lens _lpersNextToken (\ s a -> s{_lpersNextToken = a});
 

@@ -23,7 +23,7 @@
 --
 -- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide> .
 --
--- This action is throttled at one request per second.
+-- You can execute this operation no more than once per second.
 --
 module Network.AWS.SES.UpdateReceiptRule
     (
@@ -63,7 +63,7 @@ data UpdateReceiptRule = UpdateReceiptRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urrRuleSetName' - The name of the receipt rule set to which the receipt rule belongs.
+-- * 'urrRuleSetName' - The name of the receipt rule set that the receipt rule belongs to.
 --
 -- * 'urrRule' - A data structure that contains the updated receipt rule information.
 updateReceiptRule
@@ -74,7 +74,7 @@ updateReceiptRule pRuleSetName_ pRule_ =
   UpdateReceiptRule' {_urrRuleSetName = pRuleSetName_, _urrRule = pRule_}
 
 
--- | The name of the receipt rule set to which the receipt rule belongs.
+-- | The name of the receipt rule set that the receipt rule belongs to.
 urrRuleSetName :: Lens' UpdateReceiptRule Text
 urrRuleSetName = lens _urrRuleSetName (\ s a -> s{_urrRuleSetName = a});
 

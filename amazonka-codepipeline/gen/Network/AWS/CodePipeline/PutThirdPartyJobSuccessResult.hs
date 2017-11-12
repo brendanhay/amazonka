@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a put third party job success result action.
+-- | Represents the input of a PutThirdPartyJobSuccessResult action.
 --
 --
 --

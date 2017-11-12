@@ -44,11 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for SuspendProcesses and ResumeProcesses.
---
---
---
--- /See:/ 'resumeProcesses' smart constructor.
+-- | /See:/ 'resumeProcesses' smart constructor.
 data ResumeProcesses = ResumeProcesses'
   { _rpScalingProcesses     :: {-# NOUNPACK #-}!(Maybe [Text])
   , _rpAutoScalingGroupName :: {-# NOUNPACK #-}!Text

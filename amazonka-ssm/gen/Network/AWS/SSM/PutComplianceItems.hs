@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a compliance type and other compliance details on a designated resource. This API lets you register custom compliance details with a resource. This call overwrites existing compliance information on the resource, so you must provide a full list of compliance items each time you send the request.
+-- Registers a compliance type and other compliance details on a designated resource. This action lets you register custom compliance details with a resource. This call overwrites existing compliance information on the resource, so you must provide a full list of compliance items each time that you send the request.
 --
 --
 module Network.AWS.SSM.PutComplianceItems
@@ -63,7 +63,7 @@ data PutComplianceItems = PutComplianceItems'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pciItemContentHash' - MD5 or Sha256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, ,the request to put compliance information is ignored.
+-- * 'pciItemContentHash' - MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
 --
 -- * 'pciResourceId' - Specify an ID for this resource. For a managed instance, this is the instance ID.
 --
@@ -91,7 +91,7 @@ putComplianceItems pResourceId_ pResourceType_ pComplianceType_ pExecutionSummar
   }
 
 
--- | MD5 or Sha256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, ,the request to put compliance information is ignored.
+-- | MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
 pciItemContentHash :: Lens' PutComplianceItems (Maybe Text)
 pciItemContentHash = lens _pciItemContentHash (\ s a -> s{_pciItemContentHash = a});
 

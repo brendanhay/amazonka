@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a put job failure result action.
+-- | Represents the input of a PutJobFailureResult action.
 --
 --
 --

@@ -77,7 +77,7 @@ data DescribeDBClusterParameters = DescribeDBClusterParameters'
 --
 -- * 'ddcpSource' - A value that indicates to return only parameters for a specific source. Parameter sources can be @engine@ , @service@ , or @customer@ .
 --
--- * 'ddcpDBClusterParameterGroupName' - The name of a specific DB cluster parameter group to return parameter details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'ddcpDBClusterParameterGroupName' - The name of a specific DB cluster parameter group to return parameter details for. Constraints:     * If supplied, must match the name of an existing DBClusterParameterGroup.
 describeDBClusterParameters
     :: Text -- ^ 'ddcpDBClusterParameterGroupName'
     -> DescribeDBClusterParameters
@@ -107,7 +107,7 @@ ddcpMaxRecords = lens _ddcpMaxRecords (\ s a -> s{_ddcpMaxRecords = a});
 ddcpSource :: Lens' DescribeDBClusterParameters (Maybe Text)
 ddcpSource = lens _ddcpSource (\ s a -> s{_ddcpSource = a});
 
--- | The name of a specific DB cluster parameter group to return parameter details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The name of a specific DB cluster parameter group to return parameter details for. Constraints:     * If supplied, must match the name of an existing DBClusterParameterGroup.
 ddcpDBClusterParameterGroupName :: Lens' DescribeDBClusterParameters Text
 ddcpDBClusterParameterGroupName = lens _ddcpDBClusterParameterGroupName (\ s a -> s{_ddcpDBClusterParameterGroupName = a});
 

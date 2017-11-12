@@ -21,7 +21,7 @@ import Network.AWS.ElastiCache.Types.Sum
 import Network.AWS.Lens
 import Network.AWS.Prelude
 
--- | Describes an Availability Zone in which the cache cluster is launched.
+-- | Describes an Availability Zone in which the cluster is launched.
 --
 --
 --
@@ -52,7 +52,7 @@ instance Hashable AvailabilityZone where
 
 instance NFData AvailabilityZone where
 
--- | Contains all of the attributes of a specific cache cluster.
+-- | Contains all of the attributes of a specific cluster.
 --
 --
 --
@@ -62,14 +62,17 @@ data CacheCluster = CacheCluster'
   , _ccCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
   , _ccCacheNodes :: {-# NOUNPACK #-}!(Maybe [CacheNode])
   , _ccCacheClusterCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _ccAtRestEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
   , _ccAutoMinorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
   , _ccSecurityGroups :: {-# NOUNPACK #-}!(Maybe [SecurityGroupMembership])
   , _ccNotificationConfiguration :: {-# NOUNPACK #-}!(Maybe NotificationConfiguration)
+  , _ccTransitEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
   , _ccSnapshotWindow :: {-# NOUNPACK #-}!(Maybe Text)
   , _ccCacheClusterId :: {-# NOUNPACK #-}!(Maybe Text)
   , _ccConfigurationEndpoint :: {-# NOUNPACK #-}!(Maybe Endpoint)
   , _ccEngine :: {-# NOUNPACK #-}!(Maybe Text)
   , _ccCacheSecurityGroups :: {-# NOUNPACK #-}!(Maybe [CacheSecurityGroupMembership])
+  , _ccAuthTokenEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
   , _ccClientDownloadLandingPage :: {-# NOUNPACK #-}!(Maybe Text)
   , _ccPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
   , _ccCacheSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
@@ -87,49 +90,55 @@ data CacheCluster = CacheCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccEngineVersion' - The version of the cache engine that is used in this cache cluster.
+-- * 'ccEngineVersion' - The version of the cache engine that is used in this cluster.
 --
--- * 'ccCacheNodeType' - The name of the compute and memory capacity node type for the cache cluster. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
+-- * 'ccCacheNodeType' - The name of the compute and memory capacity node type for the cluster. The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.     * General purpose:     * Current generation:  __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@  __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@  __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: (not recommended) __T1 node types:__ @cache.t1.micro@  __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized:     * Previous generation: (not recommended) __C1 node types:__ @cache.c1.xlarge@      * Memory optimized:     * Current generation:  __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: (not recommended) __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2 instances.      * Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 --
--- * 'ccCacheNodes' - A list of cache nodes that are members of the cache cluster.
+-- * 'ccCacheNodes' - A list of cache nodes that are members of the cluster.
 --
--- * 'ccCacheClusterCreateTime' - The date and time when the cache cluster was created.
+-- * 'ccCacheClusterCreateTime' - The date and time when the cluster was created.
+--
+-- * 'ccAtRestEncryptionEnabled' - A flag that enables encryption at-rest when set to @true@ . You cannot modify the value of @AtRestEncryptionEnabled@ after the cluster is created. To enable at-rest encryption on a cluster you must set @AtRestEncryptionEnabled@ to @true@ when you create a cluster. Default: @false@
 --
 -- * 'ccAutoMinorVersionUpgrade' - This parameter is currently disabled.
 --
--- * 'ccSecurityGroups' - A list of VPC Security Groups associated with the cache cluster.
+-- * 'ccSecurityGroups' - A list of VPC Security Groups associated with the cluster.
 --
--- * 'ccNotificationConfiguration' - Undocumented member.
+-- * 'ccNotificationConfiguration' - Describes a notification topic and its status. Notification topics are used for publishing ElastiCache events to subscribers using Amazon Simple Notification Service (SNS).
 --
--- * 'ccSnapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your cache cluster. Example: @05:00-09:00@
+-- * 'ccTransitEncryptionEnabled' - A flag that enables in-transit encryption when set to @true@ . You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to @true@ when you create a cluster. Default: @false@
 --
--- * 'ccCacheClusterId' - The user-supplied identifier of the cache cluster. This identifier is a unique key that identifies a cache cluster.
+-- * 'ccSnapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your cluster. Example: @05:00-09:00@
+--
+-- * 'ccCacheClusterId' - The user-supplied identifier of the cluster. This identifier is a unique key that identifies a cluster.
 --
 -- * 'ccConfigurationEndpoint' - Represents a Memcached cluster endpoint which, if Automatic Discovery is enabled on the cluster, can be used by an application to connect to any node in the cluster. The configuration endpoint will always have @.cfg@ in it. Example: @mem-3.9dvc4r/.cfg/ .usw2.cache.amazonaws.com:11211@
 --
--- * 'ccEngine' - The name of the cache engine (@memcached@ or @redis@ ) to be used for this cache cluster.
+-- * 'ccEngine' - The name of the cache engine (@memcached@ or @redis@ ) to be used for this cluster.
 --
 -- * 'ccCacheSecurityGroups' - A list of cache security group elements, composed of name and status sub-elements.
+--
+-- * 'ccAuthTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis commands. Default: @false@
 --
 -- * 'ccClientDownloadLandingPage' - The URL of the web page where you can download the latest ElastiCache client library.
 --
 -- * 'ccPreferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for @ddd@ are:     * @sun@      * @mon@      * @tue@      * @wed@      * @thu@      * @fri@      * @sat@  Example: @sun:23:00-mon:01:30@
 --
--- * 'ccCacheSubnetGroupName' - The name of the cache subnet group associated with the cache cluster.
+-- * 'ccCacheSubnetGroupName' - The name of the cache subnet group associated with the cluster.
 --
--- * 'ccPreferredAvailabilityZone' - The name of the Availability Zone in which the cache cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
+-- * 'ccPreferredAvailabilityZone' - The name of the Availability Zone in which the cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
 --
--- * 'ccCacheParameterGroup' - Undocumented member.
+-- * 'ccCacheParameterGroup' - Status of the cache parameter group.
 --
--- * 'ccCacheClusterStatus' - The current state of this cache cluster, one of the following values: @available@ , @creating@ , @deleted@ , @deleting@ , @incompatible-network@ , @modifying@ , @rebooting cache cluster nodes@ , @restore-failed@ , or @snapshotting@ .
+-- * 'ccCacheClusterStatus' - The current state of this cluster, one of the following values: @available@ , @creating@ , @deleted@ , @deleting@ , @incompatible-network@ , @modifying@ , @rebooting cluster nodes@ , @restore-failed@ , or @snapshotting@ .
 --
--- * 'ccSnapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted. /Important:/ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
+-- * 'ccSnapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted. /Important:/ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 --
--- * 'ccReplicationGroupId' - The replication group to which this cache cluster belongs. If this field is empty, the cache cluster is not associated with any replication group.
+-- * 'ccReplicationGroupId' - The replication group to which this cluster belongs. If this field is empty, the cluster is not associated with any replication group.
 --
 -- * 'ccPendingModifiedValues' - Undocumented member.
 --
--- * 'ccNumCacheNodes' - The number of cache nodes in the cache cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
+-- * 'ccNumCacheNodes' - The number of cache nodes in the cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
 cacheCluster
     :: CacheCluster
 cacheCluster =
@@ -138,14 +147,17 @@ cacheCluster =
   , _ccCacheNodeType = Nothing
   , _ccCacheNodes = Nothing
   , _ccCacheClusterCreateTime = Nothing
+  , _ccAtRestEncryptionEnabled = Nothing
   , _ccAutoMinorVersionUpgrade = Nothing
   , _ccSecurityGroups = Nothing
   , _ccNotificationConfiguration = Nothing
+  , _ccTransitEncryptionEnabled = Nothing
   , _ccSnapshotWindow = Nothing
   , _ccCacheClusterId = Nothing
   , _ccConfigurationEndpoint = Nothing
   , _ccEngine = Nothing
   , _ccCacheSecurityGroups = Nothing
+  , _ccAuthTokenEnabled = Nothing
   , _ccClientDownloadLandingPage = Nothing
   , _ccPreferredMaintenanceWindow = Nothing
   , _ccCacheSubnetGroupName = Nothing
@@ -159,39 +171,47 @@ cacheCluster =
   }
 
 
--- | The version of the cache engine that is used in this cache cluster.
+-- | The version of the cache engine that is used in this cluster.
 ccEngineVersion :: Lens' CacheCluster (Maybe Text)
 ccEngineVersion = lens _ccEngineVersion (\ s a -> s{_ccEngineVersion = a});
 
--- | The name of the compute and memory capacity node type for the cache cluster. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
+-- | The name of the compute and memory capacity node type for the cluster. The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.     * General purpose:     * Current generation:  __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@  __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@  __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: (not recommended) __T1 node types:__ @cache.t1.micro@  __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized:     * Previous generation: (not recommended) __C1 node types:__ @cache.c1.xlarge@      * Memory optimized:     * Current generation:  __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: (not recommended) __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2 instances.      * Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 ccCacheNodeType :: Lens' CacheCluster (Maybe Text)
 ccCacheNodeType = lens _ccCacheNodeType (\ s a -> s{_ccCacheNodeType = a});
 
--- | A list of cache nodes that are members of the cache cluster.
+-- | A list of cache nodes that are members of the cluster.
 ccCacheNodes :: Lens' CacheCluster [CacheNode]
 ccCacheNodes = lens _ccCacheNodes (\ s a -> s{_ccCacheNodes = a}) . _Default . _Coerce;
 
--- | The date and time when the cache cluster was created.
+-- | The date and time when the cluster was created.
 ccCacheClusterCreateTime :: Lens' CacheCluster (Maybe UTCTime)
 ccCacheClusterCreateTime = lens _ccCacheClusterCreateTime (\ s a -> s{_ccCacheClusterCreateTime = a}) . mapping _Time;
+
+-- | A flag that enables encryption at-rest when set to @true@ . You cannot modify the value of @AtRestEncryptionEnabled@ after the cluster is created. To enable at-rest encryption on a cluster you must set @AtRestEncryptionEnabled@ to @true@ when you create a cluster. Default: @false@
+ccAtRestEncryptionEnabled :: Lens' CacheCluster (Maybe Bool)
+ccAtRestEncryptionEnabled = lens _ccAtRestEncryptionEnabled (\ s a -> s{_ccAtRestEncryptionEnabled = a});
 
 -- | This parameter is currently disabled.
 ccAutoMinorVersionUpgrade :: Lens' CacheCluster (Maybe Bool)
 ccAutoMinorVersionUpgrade = lens _ccAutoMinorVersionUpgrade (\ s a -> s{_ccAutoMinorVersionUpgrade = a});
 
--- | A list of VPC Security Groups associated with the cache cluster.
+-- | A list of VPC Security Groups associated with the cluster.
 ccSecurityGroups :: Lens' CacheCluster [SecurityGroupMembership]
 ccSecurityGroups = lens _ccSecurityGroups (\ s a -> s{_ccSecurityGroups = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Describes a notification topic and its status. Notification topics are used for publishing ElastiCache events to subscribers using Amazon Simple Notification Service (SNS).
 ccNotificationConfiguration :: Lens' CacheCluster (Maybe NotificationConfiguration)
 ccNotificationConfiguration = lens _ccNotificationConfiguration (\ s a -> s{_ccNotificationConfiguration = a});
 
--- | The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your cache cluster. Example: @05:00-09:00@
+-- | A flag that enables in-transit encryption when set to @true@ . You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to @true@ when you create a cluster. Default: @false@
+ccTransitEncryptionEnabled :: Lens' CacheCluster (Maybe Bool)
+ccTransitEncryptionEnabled = lens _ccTransitEncryptionEnabled (\ s a -> s{_ccTransitEncryptionEnabled = a});
+
+-- | The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your cluster. Example: @05:00-09:00@
 ccSnapshotWindow :: Lens' CacheCluster (Maybe Text)
 ccSnapshotWindow = lens _ccSnapshotWindow (\ s a -> s{_ccSnapshotWindow = a});
 
--- | The user-supplied identifier of the cache cluster. This identifier is a unique key that identifies a cache cluster.
+-- | The user-supplied identifier of the cluster. This identifier is a unique key that identifies a cluster.
 ccCacheClusterId :: Lens' CacheCluster (Maybe Text)
 ccCacheClusterId = lens _ccCacheClusterId (\ s a -> s{_ccCacheClusterId = a});
 
@@ -199,13 +219,17 @@ ccCacheClusterId = lens _ccCacheClusterId (\ s a -> s{_ccCacheClusterId = a});
 ccConfigurationEndpoint :: Lens' CacheCluster (Maybe Endpoint)
 ccConfigurationEndpoint = lens _ccConfigurationEndpoint (\ s a -> s{_ccConfigurationEndpoint = a});
 
--- | The name of the cache engine (@memcached@ or @redis@ ) to be used for this cache cluster.
+-- | The name of the cache engine (@memcached@ or @redis@ ) to be used for this cluster.
 ccEngine :: Lens' CacheCluster (Maybe Text)
 ccEngine = lens _ccEngine (\ s a -> s{_ccEngine = a});
 
 -- | A list of cache security group elements, composed of name and status sub-elements.
 ccCacheSecurityGroups :: Lens' CacheCluster [CacheSecurityGroupMembership]
 ccCacheSecurityGroups = lens _ccCacheSecurityGroups (\ s a -> s{_ccCacheSecurityGroups = a}) . _Default . _Coerce;
+
+-- | A flag that enables using an @AuthToken@ (password) when issuing Redis commands. Default: @false@
+ccAuthTokenEnabled :: Lens' CacheCluster (Maybe Bool)
+ccAuthTokenEnabled = lens _ccAuthTokenEnabled (\ s a -> s{_ccAuthTokenEnabled = a});
 
 -- | The URL of the web page where you can download the latest ElastiCache client library.
 ccClientDownloadLandingPage :: Lens' CacheCluster (Maybe Text)
@@ -215,27 +239,27 @@ ccClientDownloadLandingPage = lens _ccClientDownloadLandingPage (\ s a -> s{_ccC
 ccPreferredMaintenanceWindow :: Lens' CacheCluster (Maybe Text)
 ccPreferredMaintenanceWindow = lens _ccPreferredMaintenanceWindow (\ s a -> s{_ccPreferredMaintenanceWindow = a});
 
--- | The name of the cache subnet group associated with the cache cluster.
+-- | The name of the cache subnet group associated with the cluster.
 ccCacheSubnetGroupName :: Lens' CacheCluster (Maybe Text)
 ccCacheSubnetGroupName = lens _ccCacheSubnetGroupName (\ s a -> s{_ccCacheSubnetGroupName = a});
 
--- | The name of the Availability Zone in which the cache cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
+-- | The name of the Availability Zone in which the cluster is located or "Multiple" if the cache nodes are located in different Availability Zones.
 ccPreferredAvailabilityZone :: Lens' CacheCluster (Maybe Text)
 ccPreferredAvailabilityZone = lens _ccPreferredAvailabilityZone (\ s a -> s{_ccPreferredAvailabilityZone = a});
 
--- | Undocumented member.
+-- | Status of the cache parameter group.
 ccCacheParameterGroup :: Lens' CacheCluster (Maybe CacheParameterGroupStatus)
 ccCacheParameterGroup = lens _ccCacheParameterGroup (\ s a -> s{_ccCacheParameterGroup = a});
 
--- | The current state of this cache cluster, one of the following values: @available@ , @creating@ , @deleted@ , @deleting@ , @incompatible-network@ , @modifying@ , @rebooting cache cluster nodes@ , @restore-failed@ , or @snapshotting@ .
+-- | The current state of this cluster, one of the following values: @available@ , @creating@ , @deleted@ , @deleting@ , @incompatible-network@ , @modifying@ , @rebooting cluster nodes@ , @restore-failed@ , or @snapshotting@ .
 ccCacheClusterStatus :: Lens' CacheCluster (Maybe Text)
 ccCacheClusterStatus = lens _ccCacheClusterStatus (\ s a -> s{_ccCacheClusterStatus = a});
 
--- | The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted. /Important:/ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
+-- | The number of days for which ElastiCache retains automatic cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted. /Important:/ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 ccSnapshotRetentionLimit :: Lens' CacheCluster (Maybe Int)
 ccSnapshotRetentionLimit = lens _ccSnapshotRetentionLimit (\ s a -> s{_ccSnapshotRetentionLimit = a});
 
--- | The replication group to which this cache cluster belongs. If this field is empty, the cache cluster is not associated with any replication group.
+-- | The replication group to which this cluster belongs. If this field is empty, the cluster is not associated with any replication group.
 ccReplicationGroupId :: Lens' CacheCluster (Maybe Text)
 ccReplicationGroupId = lens _ccReplicationGroupId (\ s a -> s{_ccReplicationGroupId = a});
 
@@ -243,7 +267,7 @@ ccReplicationGroupId = lens _ccReplicationGroupId (\ s a -> s{_ccReplicationGrou
 ccPendingModifiedValues :: Lens' CacheCluster (Maybe PendingModifiedValues)
 ccPendingModifiedValues = lens _ccPendingModifiedValues (\ s a -> s{_ccPendingModifiedValues = a});
 
--- | The number of cache nodes in the cache cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
+-- | The number of cache nodes in the cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
 ccNumCacheNodes :: Lens' CacheCluster (Maybe Int)
 ccNumCacheNodes = lens _ccNumCacheNodes (\ s a -> s{_ccNumCacheNodes = a});
 
@@ -255,11 +279,13 @@ instance FromXML CacheCluster where
                 (x .@? "CacheNodes" .!@ mempty >>=
                    may (parseXMLList "CacheNode"))
                 <*> (x .@? "CacheClusterCreateTime")
+                <*> (x .@? "AtRestEncryptionEnabled")
                 <*> (x .@? "AutoMinorVersionUpgrade")
                 <*>
                 (x .@? "SecurityGroups" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@? "NotificationConfiguration")
+                <*> (x .@? "TransitEncryptionEnabled")
                 <*> (x .@? "SnapshotWindow")
                 <*> (x .@? "CacheClusterId")
                 <*> (x .@? "ConfigurationEndpoint")
@@ -267,6 +293,7 @@ instance FromXML CacheCluster where
                 <*>
                 (x .@? "CacheSecurityGroups" .!@ mempty >>=
                    may (parseXMLList "CacheSecurityGroup"))
+                <*> (x .@? "AuthTokenEnabled")
                 <*> (x .@? "ClientDownloadLandingPage")
                 <*> (x .@? "PreferredMaintenanceWindow")
                 <*> (x .@? "CacheSubnetGroupName")
@@ -354,26 +381,46 @@ instance Hashable CacheEngineVersion where
 
 instance NFData CacheEngineVersion where
 
--- | Represents an individual cache node within a cache cluster. Each cache node runs its own instance of the cluster's protocol-compliant caching software - either Memcached or Redis.
+-- | Represents an individual cache node within a cluster. Each cache node runs its own instance of the cluster's protocol-compliant caching software - either Memcached or Redis.
 --
 --
--- Valid node types are as follows:
+-- The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
 --
 --     * General purpose:
 --
---     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@
+--     * Current generation:
 --
---     * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@
+-- __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@
+--
+-- __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@
+--
+-- __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@
+--
+--     * Previous generation: (not recommended)
+--
+-- __T1 node types:__ @cache.t1.micro@
+--
+-- __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@
 --
 --
 --
---     * Compute optimized: @cache.c1.xlarge@
+--     * Compute optimized:
+--
+--     * Previous generation: (not recommended)
+--
+-- __C1 node types:__ @cache.c1.xlarge@
+--
+--
 --
 --     * Memory optimized:
 --
---     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@
+--     * Current generation:
 --
---     * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@
+-- __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@
+--
+--     * Previous generation: (not recommended)
+--
+-- __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@
 --
 --
 --
@@ -383,7 +430,9 @@ instance NFData CacheEngineVersion where
 --
 --     * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).
 --
---     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.
+--     * Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2 instances.
+--
+--     * Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.
 --
 --     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances.
 --
@@ -408,7 +457,7 @@ data CacheNode = CacheNode'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cnSourceCacheNodeId' - The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cache cluster.
+-- * 'cnSourceCacheNodeId' - The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cluster.
 --
 -- * 'cnParameterGroupStatus' - The status of the parameter group applied to this cache node.
 --
@@ -435,7 +484,7 @@ cacheNode =
   }
 
 
--- | The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cache cluster.
+-- | The ID of the primary node to which this read replica node is synchronized. If this field is empty, this node is not associated with a primary cluster.
 cnSourceCacheNodeId :: Lens' CacheNode (Maybe Text)
 cnSourceCacheNodeId = lens _cnSourceCacheNodeId (\ s a -> s{_cnSourceCacheNodeId = a});
 
@@ -478,7 +527,7 @@ instance Hashable CacheNode where
 
 instance NFData CacheNode where
 
--- | A parameter that has a different value for each cache node type it is applied to. For example, in a Redis cache cluster, a @cache.m1.large@ cache node type would have a larger @maxmemory@ value than a @cache.m1.small@ type.
+-- | A parameter that has a different value for each cache node type it is applied to. For example, in a Redis cluster, a @cache.m1.large@ cache node type would have a larger @maxmemory@ value than a @cache.m1.small@ type.
 --
 --
 --
@@ -853,7 +902,7 @@ instance Hashable CacheSecurityGroup where
 
 instance NFData CacheSecurityGroup where
 
--- | Represents a cache cluster's status within a particular cache security group.
+-- | Represents a cluster's status within a particular cache security group.
 --
 --
 --
@@ -868,7 +917,7 @@ data CacheSecurityGroupMembership = CacheSecurityGroupMembership'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csgmStatus' - The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cache cluster are modified.
+-- * 'csgmStatus' - The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
 --
 -- * 'csgmCacheSecurityGroupName' - The name of the cache security group.
 cacheSecurityGroupMembership
@@ -878,7 +927,7 @@ cacheSecurityGroupMembership =
   {_csgmStatus = Nothing, _csgmCacheSecurityGroupName = Nothing}
 
 
--- | The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cache cluster are modified.
+-- | The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
 csgmStatus :: Lens' CacheSecurityGroupMembership (Maybe Text)
 csgmStatus = lens _csgmStatus (\ s a -> s{_csgmStatus = a});
 
@@ -1125,7 +1174,7 @@ instance Hashable EngineDefaults where
 
 instance NFData EngineDefaults where
 
--- | Represents a single occurrence of something interesting within the system. Some examples of events are creating a cache cluster, adding or removing a cache node, or rebooting a node.
+-- | Represents a single occurrence of something interesting within the system. Some examples of events are creating a cluster, adding or removing a cache node, or rebooting a node.
 --
 --
 --
@@ -1142,9 +1191,9 @@ data Event = Event'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eSourceType' - Specifies the origin of this event - a cache cluster, a parameter group, a security group, etc.
+-- * 'eSourceType' - Specifies the origin of this event - a cluster, a parameter group, a security group, etc.
 --
--- * 'eSourceIdentifier' - The identifier for the source of the event. For example, if the event occurred at the cache cluster level, the identifier would be the name of the cache cluster.
+-- * 'eSourceIdentifier' - The identifier for the source of the event. For example, if the event occurred at the cluster level, the identifier would be the name of the cluster.
 --
 -- * 'eDate' - The date and time when the event occurred.
 --
@@ -1160,11 +1209,11 @@ event =
   }
 
 
--- | Specifies the origin of this event - a cache cluster, a parameter group, a security group, etc.
+-- | Specifies the origin of this event - a cluster, a parameter group, a security group, etc.
 eSourceType :: Lens' Event (Maybe SourceType)
 eSourceType = lens _eSourceType (\ s a -> s{_eSourceType = a});
 
--- | The identifier for the source of the event. For example, if the event occurred at the cache cluster level, the identifier would be the name of the cache cluster.
+-- | The identifier for the source of the event. For example, if the event occurred at the cluster level, the identifier would be the name of the cluster.
 eSourceIdentifier :: Lens' Event (Maybe Text)
 eSourceIdentifier = lens _eSourceIdentifier (\ s a -> s{_eSourceIdentifier = a});
 
@@ -1260,7 +1309,7 @@ instance Hashable NodeGroup where
 
 instance NFData NodeGroup where
 
--- | node group (shard) configuration options. Each node group (shard) configuration has the following: @Slots@ , @PrimaryAvailabilityZone@ , @ReplicaAvailabilityZones@ , @ReplicaCount@ .
+-- | Node group (shard) configuration options. Each node group (shard) configuration has the following: @Slots@ , @PrimaryAvailabilityZone@ , @ReplicaAvailabilityZones@ , @ReplicaCount@ .
 --
 --
 --
@@ -1354,9 +1403,9 @@ data NodeGroupMember = NodeGroupMember'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ngmCacheClusterId' - The ID of the cache cluster to which the node belongs.
+-- * 'ngmCacheClusterId' - The ID of the cluster to which the node belongs.
 --
--- * 'ngmCacheNodeId' - The ID of the node within its cache cluster. A node ID is a numeric identifier (0001, 0002, etc.).
+-- * 'ngmCacheNodeId' - The ID of the node within its cluster. A node ID is a numeric identifier (0001, 0002, etc.).
 --
 -- * 'ngmPreferredAvailabilityZone' - The name of the Availability Zone in which the node is located.
 --
@@ -1375,11 +1424,11 @@ nodeGroupMember =
   }
 
 
--- | The ID of the cache cluster to which the node belongs.
+-- | The ID of the cluster to which the node belongs.
 ngmCacheClusterId :: Lens' NodeGroupMember (Maybe Text)
 ngmCacheClusterId = lens _ngmCacheClusterId (\ s a -> s{_ngmCacheClusterId = a});
 
--- | The ID of the node within its cache cluster. A node ID is a numeric identifier (0001, 0002, etc.).
+-- | The ID of the node within its cluster. A node ID is a numeric identifier (0001, 0002, etc.).
 ngmCacheNodeId :: Lens' NodeGroupMember (Maybe Text)
 ngmCacheNodeId = lens _ngmCacheNodeId (\ s a -> s{_ngmCacheNodeId = a});
 
@@ -1407,7 +1456,7 @@ instance Hashable NodeGroupMember where
 
 instance NFData NodeGroupMember where
 
--- | Represents an individual cache node in a snapshot of a cache cluster.
+-- | Represents an individual cache node in a snapshot of a cluster.
 --
 --
 --
@@ -1429,11 +1478,11 @@ data NodeSnapshot = NodeSnapshot'
 --
 -- * 'nsNodeGroupConfiguration' - The configuration for the source node group (shard).
 --
--- * 'nsCacheNodeCreateTime' - The date and time when the cache node was created in the source cache cluster.
+-- * 'nsCacheNodeCreateTime' - The date and time when the cache node was created in the source cluster.
 --
--- * 'nsCacheClusterId' - A unique identifier for the source cache cluster.
+-- * 'nsCacheClusterId' - A unique identifier for the source cluster.
 --
--- * 'nsCacheNodeId' - The cache node identifier for the node in the source cache cluster.
+-- * 'nsCacheNodeId' - The cache node identifier for the node in the source cluster.
 --
 -- * 'nsNodeGroupId' - A unique identifier for the source node group (shard).
 --
@@ -1458,15 +1507,15 @@ nodeSnapshot =
 nsNodeGroupConfiguration :: Lens' NodeSnapshot (Maybe NodeGroupConfiguration)
 nsNodeGroupConfiguration = lens _nsNodeGroupConfiguration (\ s a -> s{_nsNodeGroupConfiguration = a});
 
--- | The date and time when the cache node was created in the source cache cluster.
+-- | The date and time when the cache node was created in the source cluster.
 nsCacheNodeCreateTime :: Lens' NodeSnapshot (Maybe UTCTime)
 nsCacheNodeCreateTime = lens _nsCacheNodeCreateTime (\ s a -> s{_nsCacheNodeCreateTime = a}) . mapping _Time;
 
--- | A unique identifier for the source cache cluster.
+-- | A unique identifier for the source cluster.
 nsCacheClusterId :: Lens' NodeSnapshot (Maybe Text)
 nsCacheClusterId = lens _nsCacheClusterId (\ s a -> s{_nsCacheClusterId = a});
 
--- | The cache node identifier for the node in the source cache cluster.
+-- | The cache node identifier for the node in the source cluster.
 nsCacheNodeId :: Lens' NodeSnapshot (Maybe Text)
 nsCacheNodeId = lens _nsCacheNodeId (\ s a -> s{_nsCacheNodeId = a});
 
@@ -1689,7 +1738,7 @@ instance ToQuery ParameterNameValue where
               ["ParameterValue" =: _pnvParameterValue,
                "ParameterName" =: _pnvParameterName]
 
--- | A group of settings that are applied to the cache cluster in the future, or that are currently being applied.
+-- | A group of settings that are applied to the cluster in the future, or that are currently being applied.
 --
 --
 --
@@ -1706,13 +1755,13 @@ data PendingModifiedValues = PendingModifiedValues'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pmvEngineVersion' - The new cache engine version that the cache cluster runs.
+-- * 'pmvEngineVersion' - The new cache engine version that the cluster runs.
 --
--- * 'pmvCacheNodeType' - The cache node type that this cache cluster or replication group is scaled to.
+-- * 'pmvCacheNodeType' - The cache node type that this cluster or replication group is scaled to.
 --
--- * 'pmvCacheNodeIdsToRemove' - A list of cache node IDs that are being removed (or will be removed) from the cache cluster. A node ID is a numeric identifier (0001, 0002, etc.).
+-- * 'pmvCacheNodeIdsToRemove' - A list of cache node IDs that are being removed (or will be removed) from the cluster. A node ID is a numeric identifier (0001, 0002, etc.).
 --
--- * 'pmvNumCacheNodes' - The new number of cache nodes for the cache cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
+-- * 'pmvNumCacheNodes' - The new number of cache nodes for the cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
 pendingModifiedValues
     :: PendingModifiedValues
 pendingModifiedValues =
@@ -1724,19 +1773,19 @@ pendingModifiedValues =
   }
 
 
--- | The new cache engine version that the cache cluster runs.
+-- | The new cache engine version that the cluster runs.
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
 pmvEngineVersion = lens _pmvEngineVersion (\ s a -> s{_pmvEngineVersion = a});
 
--- | The cache node type that this cache cluster or replication group is scaled to.
+-- | The cache node type that this cluster or replication group is scaled to.
 pmvCacheNodeType :: Lens' PendingModifiedValues (Maybe Text)
 pmvCacheNodeType = lens _pmvCacheNodeType (\ s a -> s{_pmvCacheNodeType = a});
 
--- | A list of cache node IDs that are being removed (or will be removed) from the cache cluster. A node ID is a numeric identifier (0001, 0002, etc.).
+-- | A list of cache node IDs that are being removed (or will be removed) from the cluster. A node ID is a numeric identifier (0001, 0002, etc.).
 pmvCacheNodeIdsToRemove :: Lens' PendingModifiedValues [Text]
 pmvCacheNodeIdsToRemove = lens _pmvCacheNodeIdsToRemove (\ s a -> s{_pmvCacheNodeIdsToRemove = a}) . _Default . _Coerce;
 
--- | The new number of cache nodes for the cache cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
+-- | The new number of cache nodes for the cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
 pmvNumCacheNodes :: Lens' PendingModifiedValues (Maybe Int)
 pmvNumCacheNodes = lens _pmvNumCacheNodes (\ s a -> s{_pmvNumCacheNodes = a});
 
@@ -1807,8 +1856,11 @@ data ReplicationGroup = ReplicationGroup'
   , _rgNodeGroups :: {-# NOUNPACK #-}!(Maybe [NodeGroup])
   , _rgSnapshottingClusterId :: {-# NOUNPACK #-}!(Maybe Text)
   , _rgClusterEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rgAtRestEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _rgTransitEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
   , _rgSnapshotWindow :: {-# NOUNPACK #-}!(Maybe Text)
   , _rgConfigurationEndpoint :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  , _rgAuthTokenEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
   , _rgMemberClusters :: {-# NOUNPACK #-}!(Maybe [Text])
   , _rgSnapshotRetentionLimit :: {-# NOUNPACK #-}!(Maybe Int)
   , _rgDescription :: {-# NOUNPACK #-}!(Maybe Text)
@@ -1826,27 +1878,33 @@ data ReplicationGroup = ReplicationGroup'
 --
 -- * 'rgCacheNodeType' - The name of the compute and memory capacity node type for each node in the replication group.
 --
--- * 'rgNodeGroups' - A single element list with information about the nodes in the replication group.
+-- * 'rgNodeGroups' - A list of node groups in this replication group. For Redis (cluster mode disabled) replication groups, this is a single-element list. For Redis (cluster mode enabled) replication groups, the list contains an entry for each node group (shard).
 --
--- * 'rgSnapshottingClusterId' - The cache cluster ID that is used as the daily snapshot source for the replication group.
+-- * 'rgSnapshottingClusterId' - The cluster ID that is used as the daily snapshot source for the replication group.
 --
 -- * 'rgClusterEnabled' - A flag indicating whether or not this replication group is cluster enabled; i.e., whether its data can be partitioned across multiple shards (API/CLI: node groups). Valid values: @true@ | @false@
 --
--- * 'rgSnapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard). Example: @05:00-09:00@  If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range. __Note:__ This parameter is only valid if the @Engine@ parameter is @redis@ .
+-- * 'rgAtRestEncryptionEnabled' - A flag that enables encryption at-rest when set to @true@ . You cannot modify the value of @AtRestEncryptionEnabled@ after the cluster is created. To enable encryption at-rest on a cluster you must set @AtRestEncryptionEnabled@ to @true@ when you create a cluster. Default: @false@
 --
--- * 'rgConfigurationEndpoint' - The configuration endpoint for this replicaiton group. Use the configuration endpoint to connect to this replication group.
+-- * 'rgTransitEncryptionEnabled' - A flag that enables in-transit encryption when set to @true@ . You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to @true@ when you create a cluster. Default: @false@
 --
--- * 'rgMemberClusters' - The names of all the cache clusters that are part of this replication group.
+-- * 'rgSnapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard). Example: @05:00-09:00@  If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
 --
--- * 'rgSnapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted. /Important:/ If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are turned off.
+-- * 'rgConfigurationEndpoint' - The configuration endpoint for this replication group. Use the configuration endpoint to connect to this replication group.
 --
--- * 'rgDescription' - The description of the replication group.
+-- * 'rgAuthTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis commands. Default: @false@
+--
+-- * 'rgMemberClusters' - The identifiers of all the nodes that are part of this replication group.
+--
+-- * 'rgSnapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted. /Important:/ If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are turned off.
+--
+-- * 'rgDescription' - The user supplied description of the replication group.
 --
 -- * 'rgReplicationGroupId' - The identifier for the replication group.
 --
 -- * 'rgPendingModifiedValues' - A group of settings to be applied to the replication group, either immediately or during the next maintenance window.
 --
--- * 'rgAutomaticFailover' - Indicates the status of Multi-AZ for this replication group.
+-- * 'rgAutomaticFailover' - Indicates the status of Multi-AZ with automatic failover for this Redis replication group. Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:     * Redis versions earlier than 2.8.6.     * Redis (cluster mode disabled): T1 and T2 cache node types.     * Redis (cluster mode enabled): T1 node types.
 replicationGroup
     :: ReplicationGroup
 replicationGroup =
@@ -1856,8 +1914,11 @@ replicationGroup =
   , _rgNodeGroups = Nothing
   , _rgSnapshottingClusterId = Nothing
   , _rgClusterEnabled = Nothing
+  , _rgAtRestEncryptionEnabled = Nothing
+  , _rgTransitEncryptionEnabled = Nothing
   , _rgSnapshotWindow = Nothing
   , _rgConfigurationEndpoint = Nothing
+  , _rgAuthTokenEnabled = Nothing
   , _rgMemberClusters = Nothing
   , _rgSnapshotRetentionLimit = Nothing
   , _rgDescription = Nothing
@@ -1875,11 +1936,11 @@ rgStatus = lens _rgStatus (\ s a -> s{_rgStatus = a});
 rgCacheNodeType :: Lens' ReplicationGroup (Maybe Text)
 rgCacheNodeType = lens _rgCacheNodeType (\ s a -> s{_rgCacheNodeType = a});
 
--- | A single element list with information about the nodes in the replication group.
+-- | A list of node groups in this replication group. For Redis (cluster mode disabled) replication groups, this is a single-element list. For Redis (cluster mode enabled) replication groups, the list contains an entry for each node group (shard).
 rgNodeGroups :: Lens' ReplicationGroup [NodeGroup]
 rgNodeGroups = lens _rgNodeGroups (\ s a -> s{_rgNodeGroups = a}) . _Default . _Coerce;
 
--- | The cache cluster ID that is used as the daily snapshot source for the replication group.
+-- | The cluster ID that is used as the daily snapshot source for the replication group.
 rgSnapshottingClusterId :: Lens' ReplicationGroup (Maybe Text)
 rgSnapshottingClusterId = lens _rgSnapshottingClusterId (\ s a -> s{_rgSnapshottingClusterId = a});
 
@@ -1887,23 +1948,35 @@ rgSnapshottingClusterId = lens _rgSnapshottingClusterId (\ s a -> s{_rgSnapshott
 rgClusterEnabled :: Lens' ReplicationGroup (Maybe Bool)
 rgClusterEnabled = lens _rgClusterEnabled (\ s a -> s{_rgClusterEnabled = a});
 
--- | The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard). Example: @05:00-09:00@  If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range. __Note:__ This parameter is only valid if the @Engine@ parameter is @redis@ .
+-- | A flag that enables encryption at-rest when set to @true@ . You cannot modify the value of @AtRestEncryptionEnabled@ after the cluster is created. To enable encryption at-rest on a cluster you must set @AtRestEncryptionEnabled@ to @true@ when you create a cluster. Default: @false@
+rgAtRestEncryptionEnabled :: Lens' ReplicationGroup (Maybe Bool)
+rgAtRestEncryptionEnabled = lens _rgAtRestEncryptionEnabled (\ s a -> s{_rgAtRestEncryptionEnabled = a});
+
+-- | A flag that enables in-transit encryption when set to @true@ . You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to @true@ when you create a cluster. Default: @false@
+rgTransitEncryptionEnabled :: Lens' ReplicationGroup (Maybe Bool)
+rgTransitEncryptionEnabled = lens _rgTransitEncryptionEnabled (\ s a -> s{_rgTransitEncryptionEnabled = a});
+
+-- | The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard). Example: @05:00-09:00@  If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
 rgSnapshotWindow :: Lens' ReplicationGroup (Maybe Text)
 rgSnapshotWindow = lens _rgSnapshotWindow (\ s a -> s{_rgSnapshotWindow = a});
 
--- | The configuration endpoint for this replicaiton group. Use the configuration endpoint to connect to this replication group.
+-- | The configuration endpoint for this replication group. Use the configuration endpoint to connect to this replication group.
 rgConfigurationEndpoint :: Lens' ReplicationGroup (Maybe Endpoint)
 rgConfigurationEndpoint = lens _rgConfigurationEndpoint (\ s a -> s{_rgConfigurationEndpoint = a});
 
--- | The names of all the cache clusters that are part of this replication group.
+-- | A flag that enables using an @AuthToken@ (password) when issuing Redis commands. Default: @false@
+rgAuthTokenEnabled :: Lens' ReplicationGroup (Maybe Bool)
+rgAuthTokenEnabled = lens _rgAuthTokenEnabled (\ s a -> s{_rgAuthTokenEnabled = a});
+
+-- | The identifiers of all the nodes that are part of this replication group.
 rgMemberClusters :: Lens' ReplicationGroup [Text]
 rgMemberClusters = lens _rgMemberClusters (\ s a -> s{_rgMemberClusters = a}) . _Default . _Coerce;
 
--- | The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted. /Important:/ If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are turned off.
+-- | The number of days for which ElastiCache retains automatic cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted. /Important:/ If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are turned off.
 rgSnapshotRetentionLimit :: Lens' ReplicationGroup (Maybe Int)
 rgSnapshotRetentionLimit = lens _rgSnapshotRetentionLimit (\ s a -> s{_rgSnapshotRetentionLimit = a});
 
--- | The description of the replication group.
+-- | The user supplied description of the replication group.
 rgDescription :: Lens' ReplicationGroup (Maybe Text)
 rgDescription = lens _rgDescription (\ s a -> s{_rgDescription = a});
 
@@ -1915,7 +1988,7 @@ rgReplicationGroupId = lens _rgReplicationGroupId (\ s a -> s{_rgReplicationGrou
 rgPendingModifiedValues :: Lens' ReplicationGroup (Maybe ReplicationGroupPendingModifiedValues)
 rgPendingModifiedValues = lens _rgPendingModifiedValues (\ s a -> s{_rgPendingModifiedValues = a});
 
--- | Indicates the status of Multi-AZ for this replication group.
+-- | Indicates the status of Multi-AZ with automatic failover for this Redis replication group. Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:     * Redis versions earlier than 2.8.6.     * Redis (cluster mode disabled): T1 and T2 cache node types.     * Redis (cluster mode enabled): T1 node types.
 rgAutomaticFailover :: Lens' ReplicationGroup (Maybe AutomaticFailoverStatus)
 rgAutomaticFailover = lens _rgAutomaticFailover (\ s a -> s{_rgAutomaticFailover = a});
 
@@ -1927,8 +2000,11 @@ instance FromXML ReplicationGroup where
                    may (parseXMLList "NodeGroup"))
                 <*> (x .@? "SnapshottingClusterId")
                 <*> (x .@? "ClusterEnabled")
+                <*> (x .@? "AtRestEncryptionEnabled")
+                <*> (x .@? "TransitEncryptionEnabled")
                 <*> (x .@? "SnapshotWindow")
                 <*> (x .@? "ConfigurationEndpoint")
+                <*> (x .@? "AuthTokenEnabled")
                 <*>
                 (x .@? "MemberClusters" .!@ mempty >>=
                    may (parseXMLList "ClusterId"))
@@ -1948,7 +2024,8 @@ instance NFData ReplicationGroup where
 --
 -- /See:/ 'replicationGroupPendingModifiedValues' smart constructor.
 data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues'
-  { _rgpmvPrimaryClusterId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rgpmvResharding :: {-# NOUNPACK #-}!(Maybe ReshardingStatus)
+  , _rgpmvPrimaryClusterId :: {-# NOUNPACK #-}!(Maybe Text)
   , _rgpmvAutomaticFailoverStatus :: {-# NOUNPACK #-}!(Maybe PendingAutomaticFailoverStatus)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -1957,21 +2034,30 @@ data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValu
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'rgpmvResharding' - The status of an online resharding operation.
+--
 -- * 'rgpmvPrimaryClusterId' - The primary cluster ID that is applied immediately (if @--apply-immediately@ was specified), or during the next maintenance window.
 --
--- * 'rgpmvAutomaticFailoverStatus' - Indicates the status of Multi-AZ for this Redis replication group.
+-- * 'rgpmvAutomaticFailoverStatus' - Indicates the status of Multi-AZ with automatic failover for this Redis replication group. Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:     * Redis versions earlier than 2.8.6.     * Redis (cluster mode disabled): T1 and T2 cache node types.     * Redis (cluster mode enabled): T1 node types.
 replicationGroupPendingModifiedValues
     :: ReplicationGroupPendingModifiedValues
 replicationGroupPendingModifiedValues =
   ReplicationGroupPendingModifiedValues'
-  {_rgpmvPrimaryClusterId = Nothing, _rgpmvAutomaticFailoverStatus = Nothing}
+  { _rgpmvResharding = Nothing
+  , _rgpmvPrimaryClusterId = Nothing
+  , _rgpmvAutomaticFailoverStatus = Nothing
+  }
 
+
+-- | The status of an online resharding operation.
+rgpmvResharding :: Lens' ReplicationGroupPendingModifiedValues (Maybe ReshardingStatus)
+rgpmvResharding = lens _rgpmvResharding (\ s a -> s{_rgpmvResharding = a});
 
 -- | The primary cluster ID that is applied immediately (if @--apply-immediately@ was specified), or during the next maintenance window.
 rgpmvPrimaryClusterId :: Lens' ReplicationGroupPendingModifiedValues (Maybe Text)
 rgpmvPrimaryClusterId = lens _rgpmvPrimaryClusterId (\ s a -> s{_rgpmvPrimaryClusterId = a});
 
--- | Indicates the status of Multi-AZ for this Redis replication group.
+-- | Indicates the status of Multi-AZ with automatic failover for this Redis replication group. Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:     * Redis versions earlier than 2.8.6.     * Redis (cluster mode disabled): T1 and T2 cache node types.     * Redis (cluster mode enabled): T1 node types.
 rgpmvAutomaticFailoverStatus :: Lens' ReplicationGroupPendingModifiedValues (Maybe PendingAutomaticFailoverStatus)
 rgpmvAutomaticFailoverStatus = lens _rgpmvAutomaticFailoverStatus (\ s a -> s{_rgpmvAutomaticFailoverStatus = a});
 
@@ -1980,8 +2066,8 @@ instance FromXML
          where
         parseXML x
           = ReplicationGroupPendingModifiedValues' <$>
-              (x .@? "PrimaryClusterId") <*>
-                (x .@? "AutomaticFailoverStatus")
+              (x .@? "Resharding") <*> (x .@? "PrimaryClusterId")
+                <*> (x .@? "AutomaticFailoverStatus")
 
 instance Hashable
            ReplicationGroupPendingModifiedValues
@@ -2015,7 +2101,7 @@ data ReservedCacheNode = ReservedCacheNode'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcnCacheNodeType' - The cache node type for the reserved cache nodes. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
+-- * 'rcnCacheNodeType' - The cache node type for the reserved cache nodes. The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.     * General purpose:     * Current generation:  __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@  __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@  __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: (not recommended) __T1 node types:__ @cache.t1.micro@  __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized:     * Previous generation: (not recommended) __C1 node types:__ @cache.c1.xlarge@      * Memory optimized:     * Current generation:  __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: (not recommended) __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2 instances.      * Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 --
 -- * 'rcnState' - The state of the reserved cache node.
 --
@@ -2057,7 +2143,7 @@ reservedCacheNode =
   }
 
 
--- | The cache node type for the reserved cache nodes. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
+-- | The cache node type for the reserved cache nodes. The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.     * General purpose:     * Current generation:  __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@  __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@  __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: (not recommended) __T1 node types:__ @cache.t1.micro@  __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized:     * Previous generation: (not recommended) __C1 node types:__ @cache.c1.xlarge@      * Memory optimized:     * Current generation:  __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: (not recommended) __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2 instances.      * Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 rcnCacheNodeType :: Lens' ReservedCacheNode (Maybe Text)
 rcnCacheNodeType = lens _rcnCacheNodeType (\ s a -> s{_rcnCacheNodeType = a});
 
@@ -2147,7 +2233,7 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcnoCacheNodeType' - The cache node type for the reserved cache node. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
+-- * 'rcnoCacheNodeType' - The cache node type for the reserved cache node. The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.     * General purpose:     * Current generation:  __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@  __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@  __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: (not recommended) __T1 node types:__ @cache.t1.micro@  __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized:     * Previous generation: (not recommended) __C1 node types:__ @cache.c1.xlarge@      * Memory optimized:     * Current generation:  __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: (not recommended) __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2 instances.      * Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 --
 -- * 'rcnoProductDescription' - The cache engine used by the offering.
 --
@@ -2177,7 +2263,7 @@ reservedCacheNodesOffering =
   }
 
 
--- | The cache node type for the reserved cache node. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
+-- | The cache node type for the reserved cache node. The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.     * General purpose:     * Current generation:  __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@  __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@  __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: (not recommended) __T1 node types:__ @cache.t1.micro@  __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized:     * Previous generation: (not recommended) __C1 node types:__ @cache.c1.xlarge@      * Memory optimized:     * Current generation:  __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: (not recommended) __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2 instances.      * Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 rcnoCacheNodeType :: Lens' ReservedCacheNodesOffering (Maybe Text)
 rcnoCacheNodeType = lens _rcnoCacheNodeType (\ s a -> s{_rcnoCacheNodeType = a});
 
@@ -2227,6 +2313,75 @@ instance Hashable ReservedCacheNodesOffering where
 
 instance NFData ReservedCacheNodesOffering where
 
+-- | A list of @PreferredAvailabilityZones@ objects that specifies the configuration of a node group in the resharded cluster.
+--
+--
+--
+-- /See:/ 'reshardingConfiguration' smart constructor.
+newtype ReshardingConfiguration = ReshardingConfiguration'
+  { _rcPreferredAvailabilityZones :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ReshardingConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcPreferredAvailabilityZones' - A list of preferred availability zones for the nodes in this cluster.
+reshardingConfiguration
+    :: ReshardingConfiguration
+reshardingConfiguration =
+  ReshardingConfiguration' {_rcPreferredAvailabilityZones = Nothing}
+
+
+-- | A list of preferred availability zones for the nodes in this cluster.
+rcPreferredAvailabilityZones :: Lens' ReshardingConfiguration [Text]
+rcPreferredAvailabilityZones = lens _rcPreferredAvailabilityZones (\ s a -> s{_rcPreferredAvailabilityZones = a}) . _Default . _Coerce;
+
+instance Hashable ReshardingConfiguration where
+
+instance NFData ReshardingConfiguration where
+
+instance ToQuery ReshardingConfiguration where
+        toQuery ReshardingConfiguration'{..}
+          = mconcat
+              ["PreferredAvailabilityZones" =:
+                 toQuery
+                   (toQueryList "AvailabilityZone" <$>
+                      _rcPreferredAvailabilityZones)]
+
+-- | The status of an online resharding operation.
+--
+--
+--
+-- /See:/ 'reshardingStatus' smart constructor.
+newtype ReshardingStatus = ReshardingStatus'
+  { _rsSlotMigration :: Maybe SlotMigration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ReshardingStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsSlotMigration' - Represents the progress of an online resharding operation.
+reshardingStatus
+    :: ReshardingStatus
+reshardingStatus = ReshardingStatus' {_rsSlotMigration = Nothing}
+
+
+-- | Represents the progress of an online resharding operation.
+rsSlotMigration :: Lens' ReshardingStatus (Maybe SlotMigration)
+rsSlotMigration = lens _rsSlotMigration (\ s a -> s{_rsSlotMigration = a});
+
+instance FromXML ReshardingStatus where
+        parseXML x
+          = ReshardingStatus' <$> (x .@? "SlotMigration")
+
+instance Hashable ReshardingStatus where
+
+instance NFData ReshardingStatus where
+
 -- | Represents a single cache security group and its status.
 --
 --
@@ -2242,7 +2397,7 @@ data SecurityGroupMembership = SecurityGroupMembership'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sgmStatus' - The status of the cache security group membership. The status changes whenever a cache security group is modified, or when the cache security groups assigned to a cache cluster are modified.
+-- * 'sgmStatus' - The status of the cache security group membership. The status changes whenever a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
 --
 -- * 'sgmSecurityGroupId' - The identifier of the cache security group.
 securityGroupMembership
@@ -2251,7 +2406,7 @@ securityGroupMembership =
   SecurityGroupMembership' {_sgmStatus = Nothing, _sgmSecurityGroupId = Nothing}
 
 
--- | The status of the cache security group membership. The status changes whenever a cache security group is modified, or when the cache security groups assigned to a cache cluster are modified.
+-- | The status of the cache security group membership. The status changes whenever a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
 sgmStatus :: Lens' SecurityGroupMembership (Maybe Text)
 sgmStatus = lens _sgmStatus (\ s a -> s{_sgmStatus = a});
 
@@ -2268,7 +2423,39 @@ instance Hashable SecurityGroupMembership where
 
 instance NFData SecurityGroupMembership where
 
--- | Represents a copy of an entire Redis cache cluster as of the time when the snapshot was taken.
+-- | Represents the progress of an online resharding operation.
+--
+--
+--
+-- /See:/ 'slotMigration' smart constructor.
+newtype SlotMigration = SlotMigration'
+  { _smProgressPercentage :: Maybe Double
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SlotMigration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'smProgressPercentage' - The percentage of the slot migration that is complete.
+slotMigration
+    :: SlotMigration
+slotMigration = SlotMigration' {_smProgressPercentage = Nothing}
+
+
+-- | The percentage of the slot migration that is complete.
+smProgressPercentage :: Lens' SlotMigration (Maybe Double)
+smProgressPercentage = lens _smProgressPercentage (\ s a -> s{_smProgressPercentage = a});
+
+instance FromXML SlotMigration where
+        parseXML x
+          = SlotMigration' <$> (x .@? "ProgressPercentage")
+
+instance Hashable SlotMigration where
+
+instance NFData SlotMigration where
+
+-- | Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.
 --
 --
 --
@@ -2305,51 +2492,51 @@ data Snapshot = Snapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sEngineVersion' - The version of the cache engine version that is used by the source cache cluster.
+-- * 'sEngineVersion' - The version of the cache engine version that is used by the source cluster.
 --
--- * 'sCacheNodeType' - The name of the compute and memory capacity node type for the source cache cluster. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
+-- * 'sCacheNodeType' - The name of the compute and memory capacity node type for the source cluster. The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.     * General purpose:     * Current generation:  __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@  __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@  __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: (not recommended) __T1 node types:__ @cache.t1.micro@  __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized:     * Previous generation: (not recommended) __C1 node types:__ @cache.c1.xlarge@      * Memory optimized:     * Current generation:  __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: (not recommended) __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2 instances.      * Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 --
--- * 'sCacheClusterCreateTime' - The date and time when the source cache cluster was created.
+-- * 'sCacheClusterCreateTime' - The date and time when the source cluster was created.
 --
 -- * 'sAutoMinorVersionUpgrade' - This parameter is currently disabled.
 --
--- * 'sCacheParameterGroupName' - The cache parameter group that is associated with the source cache cluster.
+-- * 'sCacheParameterGroupName' - The cache parameter group that is associated with the source cluster.
 --
 -- * 'sReplicationGroupDescription' - A description of the source replication group.
 --
--- * 'sVPCId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group for the source cache cluster.
+-- * 'sVPCId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group for the source cluster.
 --
 -- * 'sSnapshotStatus' - The status of the snapshot. Valid values: @creating@ | @available@ | @restoring@ | @copying@ | @deleting@ .
 --
--- * 'sSnapshotWindow' - The daily time range during which ElastiCache takes daily snapshots of the source cache cluster.
+-- * 'sSnapshotWindow' - The daily time range during which ElastiCache takes daily snapshots of the source cluster.
 --
--- * 'sCacheClusterId' - The user-supplied identifier of the source cache cluster.
+-- * 'sCacheClusterId' - The user-supplied identifier of the source cluster.
 --
--- * 'sEngine' - The name of the cache engine (@memcached@ or @redis@ ) used by the source cache cluster.
+-- * 'sEngine' - The name of the cache engine (@memcached@ or @redis@ ) used by the source cluster.
 --
 -- * 'sPreferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for @ddd@ are:     * @sun@      * @mon@      * @tue@      * @wed@      * @thu@      * @fri@      * @sat@  Example: @sun:23:00-mon:01:30@
 --
--- * 'sTopicARN' - The Amazon Resource Name (ARN) for the topic used by the source cache cluster for publishing notifications.
+-- * 'sTopicARN' - The Amazon Resource Name (ARN) for the topic used by the source cluster for publishing notifications.
 --
--- * 'sNodeSnapshots' - A list of the cache nodes in the source cache cluster.
+-- * 'sNodeSnapshots' - A list of the cache nodes in the source cluster.
 --
--- * 'sCacheSubnetGroupName' - The name of the cache subnet group associated with the source cache cluster.
+-- * 'sCacheSubnetGroupName' - The name of the cache subnet group associated with the source cluster.
 --
--- * 'sPreferredAvailabilityZone' - The name of the Availability Zone in which the source cache cluster is located.
+-- * 'sPreferredAvailabilityZone' - The name of the Availability Zone in which the source cluster is located.
 --
 -- * 'sNumNodeGroups' - The number of node groups (shards) in this snapshot. When restoring from a snapshot, the number of node groups (shards) in the snapshot and in the restored replication group must be the same.
 --
--- * 'sSnapshotRetentionLimit' - For an automatic snapshot, the number of days for which ElastiCache retains the snapshot before deleting it. For manual snapshots, this field reflects the @SnapshotRetentionLimit@ for the source cache cluster when the snapshot was created. This field is otherwise ignored: Manual snapshots do not expire, and can only be deleted using the @DeleteSnapshot@ operation.  __Important__ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
+-- * 'sSnapshotRetentionLimit' - For an automatic snapshot, the number of days for which ElastiCache retains the snapshot before deleting it. For manual snapshots, this field reflects the @SnapshotRetentionLimit@ for the source cluster when the snapshot was created. This field is otherwise ignored: Manual snapshots do not expire, and can only be deleted using the @DeleteSnapshot@ operation.  __Important__ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 --
 -- * 'sSnapshotName' - The name of a snapshot. For an automatic snapshot, the name is system-generated. For a manual snapshot, this is the user-provided name.
 --
 -- * 'sReplicationGroupId' - The unique identifier of the source replication group.
 --
--- * 'sNumCacheNodes' - The number of cache nodes in the source cache cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
+-- * 'sNumCacheNodes' - The number of cache nodes in the source cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
 --
--- * 'sPort' - The port number used by each cache nodes in the source cache cluster.
+-- * 'sPort' - The port number used by each cache nodes in the source cluster.
 --
--- * 'sAutomaticFailover' - Indicates the status of Multi-AZ for the source replication group.
+-- * 'sAutomaticFailover' - Indicates the status of Multi-AZ with automatic failover for the source Redis replication group. Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:     * Redis versions earlier than 2.8.6.     * Redis (cluster mode disabled): T1 and T2 cache node types.     * Redis (cluster mode enabled): T1 node types.
 --
 -- * 'sSnapshotSource' - Indicates whether the snapshot is from an automatic backup (@automated@ ) or was created manually (@manual@ ).
 snapshot
@@ -2383,15 +2570,15 @@ snapshot =
   }
 
 
--- | The version of the cache engine version that is used by the source cache cluster.
+-- | The version of the cache engine version that is used by the source cluster.
 sEngineVersion :: Lens' Snapshot (Maybe Text)
 sEngineVersion = lens _sEngineVersion (\ s a -> s{_sEngineVersion = a});
 
--- | The name of the compute and memory capacity node type for the source cache cluster. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
+-- | The name of the compute and memory capacity node type for the source cluster. The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.     * General purpose:     * Current generation:  __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@  __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@  __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: (not recommended) __T1 node types:__ @cache.t1.micro@  __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized:     * Previous generation: (not recommended) __C1 node types:__ @cache.c1.xlarge@      * Memory optimized:     * Current generation:  __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: (not recommended) __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2 instances.      * Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 sCacheNodeType :: Lens' Snapshot (Maybe Text)
 sCacheNodeType = lens _sCacheNodeType (\ s a -> s{_sCacheNodeType = a});
 
--- | The date and time when the source cache cluster was created.
+-- | The date and time when the source cluster was created.
 sCacheClusterCreateTime :: Lens' Snapshot (Maybe UTCTime)
 sCacheClusterCreateTime = lens _sCacheClusterCreateTime (\ s a -> s{_sCacheClusterCreateTime = a}) . mapping _Time;
 
@@ -2399,7 +2586,7 @@ sCacheClusterCreateTime = lens _sCacheClusterCreateTime (\ s a -> s{_sCacheClust
 sAutoMinorVersionUpgrade :: Lens' Snapshot (Maybe Bool)
 sAutoMinorVersionUpgrade = lens _sAutoMinorVersionUpgrade (\ s a -> s{_sAutoMinorVersionUpgrade = a});
 
--- | The cache parameter group that is associated with the source cache cluster.
+-- | The cache parameter group that is associated with the source cluster.
 sCacheParameterGroupName :: Lens' Snapshot (Maybe Text)
 sCacheParameterGroupName = lens _sCacheParameterGroupName (\ s a -> s{_sCacheParameterGroupName = a});
 
@@ -2407,7 +2594,7 @@ sCacheParameterGroupName = lens _sCacheParameterGroupName (\ s a -> s{_sCachePar
 sReplicationGroupDescription :: Lens' Snapshot (Maybe Text)
 sReplicationGroupDescription = lens _sReplicationGroupDescription (\ s a -> s{_sReplicationGroupDescription = a});
 
--- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group for the source cache cluster.
+-- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group for the source cluster.
 sVPCId :: Lens' Snapshot (Maybe Text)
 sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a});
 
@@ -2415,15 +2602,15 @@ sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a});
 sSnapshotStatus :: Lens' Snapshot (Maybe Text)
 sSnapshotStatus = lens _sSnapshotStatus (\ s a -> s{_sSnapshotStatus = a});
 
--- | The daily time range during which ElastiCache takes daily snapshots of the source cache cluster.
+-- | The daily time range during which ElastiCache takes daily snapshots of the source cluster.
 sSnapshotWindow :: Lens' Snapshot (Maybe Text)
 sSnapshotWindow = lens _sSnapshotWindow (\ s a -> s{_sSnapshotWindow = a});
 
--- | The user-supplied identifier of the source cache cluster.
+-- | The user-supplied identifier of the source cluster.
 sCacheClusterId :: Lens' Snapshot (Maybe Text)
 sCacheClusterId = lens _sCacheClusterId (\ s a -> s{_sCacheClusterId = a});
 
--- | The name of the cache engine (@memcached@ or @redis@ ) used by the source cache cluster.
+-- | The name of the cache engine (@memcached@ or @redis@ ) used by the source cluster.
 sEngine :: Lens' Snapshot (Maybe Text)
 sEngine = lens _sEngine (\ s a -> s{_sEngine = a});
 
@@ -2431,19 +2618,19 @@ sEngine = lens _sEngine (\ s a -> s{_sEngine = a});
 sPreferredMaintenanceWindow :: Lens' Snapshot (Maybe Text)
 sPreferredMaintenanceWindow = lens _sPreferredMaintenanceWindow (\ s a -> s{_sPreferredMaintenanceWindow = a});
 
--- | The Amazon Resource Name (ARN) for the topic used by the source cache cluster for publishing notifications.
+-- | The Amazon Resource Name (ARN) for the topic used by the source cluster for publishing notifications.
 sTopicARN :: Lens' Snapshot (Maybe Text)
 sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a});
 
--- | A list of the cache nodes in the source cache cluster.
+-- | A list of the cache nodes in the source cluster.
 sNodeSnapshots :: Lens' Snapshot [NodeSnapshot]
 sNodeSnapshots = lens _sNodeSnapshots (\ s a -> s{_sNodeSnapshots = a}) . _Default . _Coerce;
 
--- | The name of the cache subnet group associated with the source cache cluster.
+-- | The name of the cache subnet group associated with the source cluster.
 sCacheSubnetGroupName :: Lens' Snapshot (Maybe Text)
 sCacheSubnetGroupName = lens _sCacheSubnetGroupName (\ s a -> s{_sCacheSubnetGroupName = a});
 
--- | The name of the Availability Zone in which the source cache cluster is located.
+-- | The name of the Availability Zone in which the source cluster is located.
 sPreferredAvailabilityZone :: Lens' Snapshot (Maybe Text)
 sPreferredAvailabilityZone = lens _sPreferredAvailabilityZone (\ s a -> s{_sPreferredAvailabilityZone = a});
 
@@ -2451,7 +2638,7 @@ sPreferredAvailabilityZone = lens _sPreferredAvailabilityZone (\ s a -> s{_sPref
 sNumNodeGroups :: Lens' Snapshot (Maybe Int)
 sNumNodeGroups = lens _sNumNodeGroups (\ s a -> s{_sNumNodeGroups = a});
 
--- | For an automatic snapshot, the number of days for which ElastiCache retains the snapshot before deleting it. For manual snapshots, this field reflects the @SnapshotRetentionLimit@ for the source cache cluster when the snapshot was created. This field is otherwise ignored: Manual snapshots do not expire, and can only be deleted using the @DeleteSnapshot@ operation.  __Important__ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
+-- | For an automatic snapshot, the number of days for which ElastiCache retains the snapshot before deleting it. For manual snapshots, this field reflects the @SnapshotRetentionLimit@ for the source cluster when the snapshot was created. This field is otherwise ignored: Manual snapshots do not expire, and can only be deleted using the @DeleteSnapshot@ operation.  __Important__ If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.
 sSnapshotRetentionLimit :: Lens' Snapshot (Maybe Int)
 sSnapshotRetentionLimit = lens _sSnapshotRetentionLimit (\ s a -> s{_sSnapshotRetentionLimit = a});
 
@@ -2463,15 +2650,15 @@ sSnapshotName = lens _sSnapshotName (\ s a -> s{_sSnapshotName = a});
 sReplicationGroupId :: Lens' Snapshot (Maybe Text)
 sReplicationGroupId = lens _sReplicationGroupId (\ s a -> s{_sReplicationGroupId = a});
 
--- | The number of cache nodes in the source cache cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
+-- | The number of cache nodes in the source cluster. For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
 sNumCacheNodes :: Lens' Snapshot (Maybe Int)
 sNumCacheNodes = lens _sNumCacheNodes (\ s a -> s{_sNumCacheNodes = a});
 
--- | The port number used by each cache nodes in the source cache cluster.
+-- | The port number used by each cache nodes in the source cluster.
 sPort :: Lens' Snapshot (Maybe Int)
 sPort = lens _sPort (\ s a -> s{_sPort = a});
 
--- | Indicates the status of Multi-AZ for the source replication group.
+-- | Indicates the status of Multi-AZ with automatic failover for the source Redis replication group. Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:     * Redis versions earlier than 2.8.6.     * Redis (cluster mode disabled): T1 and T2 cache node types.     * Redis (cluster mode enabled): T1 node types.
 sAutomaticFailover :: Lens' Snapshot (Maybe AutomaticFailoverStatus)
 sAutomaticFailover = lens _sAutomaticFailover (\ s a -> s{_sAutomaticFailover = a});
 
@@ -2512,7 +2699,7 @@ instance Hashable Snapshot where
 
 instance NFData Snapshot where
 
--- | Represents the subnet associated with a cache cluster. This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with ElastiCache.
+-- | Represents the subnet associated with a cluster. This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with ElastiCache.
 --
 --
 --

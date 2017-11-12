@@ -58,7 +58,7 @@ data DescribeConstraint = DescribeConstraint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'dId' - The identifier of the constraint.
 describeConstraint
@@ -68,7 +68,7 @@ describeConstraint pId_ =
   DescribeConstraint' {_dAcceptLanguage = Nothing, _dId = pId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dAcceptLanguage :: Lens' DescribeConstraint (Maybe Text)
 dAcceptLanguage = lens _dAcceptLanguage (\ s a -> s{_dAcceptLanguage = a});
 

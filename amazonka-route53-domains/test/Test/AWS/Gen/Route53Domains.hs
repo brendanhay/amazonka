@@ -14,11 +14,11 @@
 module Test.AWS.Gen.Route53Domains where
 
 import Data.Proxy
+import Network.AWS.Route53Domains
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.Route53Domains
 import Test.AWS.Route53Domains.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -33,6 +33,9 @@ import Test.AWS.Route53Domains.Internal
 --
 --         , requestGetDomainDetail $
 --             getDomainDetail
+--
+--         , requestCheckDomainTransferability $
+--             checkDomainTransferability
 --
 --         , requestUpdateDomainContactPrivacy $
 --             updateDomainContactPrivacy
@@ -105,6 +108,9 @@ import Test.AWS.Route53Domains.Internal
 --
 --         , responseGetDomainDetail $
 --             getDomainDetailResponse
+--
+--         , responseCheckDomainTransferability $
+--             checkDomainTransferabilityResponse
 --
 --         , responseUpdateDomainContactPrivacy $
 --             updateDomainContactPrivacyResponse
@@ -183,6 +189,11 @@ requestGetDomainDetail :: GetDomainDetail -> TestTree
 requestGetDomainDetail = req
     "GetDomainDetail"
     "fixture/GetDomainDetail.yaml"
+
+requestCheckDomainTransferability :: CheckDomainTransferability -> TestTree
+requestCheckDomainTransferability = req
+    "CheckDomainTransferability"
+    "fixture/CheckDomainTransferability.yaml"
 
 requestUpdateDomainContactPrivacy :: UpdateDomainContactPrivacy -> TestTree
 requestUpdateDomainContactPrivacy = req
@@ -304,6 +315,13 @@ responseGetDomainDetail = res
     "fixture/GetDomainDetailResponse.proto"
     route53Domains
     (Proxy :: Proxy GetDomainDetail)
+
+responseCheckDomainTransferability :: CheckDomainTransferabilityResponse -> TestTree
+responseCheckDomainTransferability = res
+    "CheckDomainTransferabilityResponse"
+    "fixture/CheckDomainTransferabilityResponse.proto"
+    route53Domains
+    (Proxy :: Proxy CheckDomainTransferability)
 
 responseUpdateDomainContactPrivacy :: UpdateDomainContactPrivacyResponse -> TestTree
 responseUpdateDomainContactPrivacy = res

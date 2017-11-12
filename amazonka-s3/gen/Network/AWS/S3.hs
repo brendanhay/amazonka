@@ -185,6 +185,9 @@ module Network.AWS.S3
     -- ** DeleteBucketPolicy
     , module Network.AWS.S3.DeleteBucketPolicy
 
+    -- ** GetBucketEncryption
+    , module Network.AWS.S3.GetBucketEncryption
+
     -- ** AbortMultipartUpload
     , module Network.AWS.S3.AbortMultipartUpload
 
@@ -238,6 +241,12 @@ module Network.AWS.S3
 
     -- ** GetBucketPolicy
     , module Network.AWS.S3.GetBucketPolicy
+
+    -- ** PutBucketEncryption
+    , module Network.AWS.S3.PutBucketEncryption
+
+    -- ** DeleteBucketEncryption
+    , module Network.AWS.S3.DeleteBucketEncryption
 
     -- ** GetBucketLogging
     , module Network.AWS.S3.GetBucketLogging
@@ -331,6 +340,9 @@ module Network.AWS.S3
     -- ** ObjectVersionStorageClass
     , ObjectVersionStorageClass (..)
 
+    -- ** OwnerOverride
+    , OwnerOverride (..)
+
     -- ** Payer
     , Payer (..)
 
@@ -354,6 +366,9 @@ module Network.AWS.S3
 
     -- ** ServerSideEncryption
     , ServerSideEncryption (..)
+
+    -- ** SseKMSEncryptedObjectsStatus
+    , SseKMSEncryptedObjectsStatus (..)
 
     -- ** StorageClass
     , StorageClass (..)
@@ -388,6 +403,11 @@ module Network.AWS.S3
     , accessControlPolicy
     , acpGrants
     , acpOwner
+
+    -- ** AccessControlTranslation
+    , AccessControlTranslation
+    , accessControlTranslation
+    , actOwner
 
     -- ** AnalyticsAndOperator
     , AnalyticsAndOperator
@@ -517,8 +537,16 @@ module Network.AWS.S3
     -- ** Destination
     , Destination
     , destination
+    , dAccessControlTranslation
+    , dAccount
     , dStorageClass
+    , dEncryptionConfiguration
     , dBucket
+
+    -- ** EncryptionConfiguration
+    , EncryptionConfiguration
+    , encryptionConfiguration
+    , ecReplicaKMSKeyId
 
     -- ** ErrorDocument
     , ErrorDocument
@@ -578,6 +606,12 @@ module Network.AWS.S3
     , inventoryDestination
     , idS3BucketDestination
 
+    -- ** InventoryEncryption
+    , InventoryEncryption
+    , inventoryEncryption
+    , ieSSES3
+    , ieSSEKMS
+
     -- ** InventoryFilter
     , InventoryFilter
     , inventoryFilter
@@ -588,6 +622,7 @@ module Network.AWS.S3
     , inventoryS3BucketDestination
     , isbdPrefix
     , isbdAccountId
+    , isbdEncryption
     , isbdBucket
     , isbdFormat
 
@@ -771,6 +806,7 @@ module Network.AWS.S3
     , ReplicationRule
     , replicationRule
     , rrId
+    , rrSourceSelectionCriteria
     , rrPrefix
     , rrStatus
     , rrDestination
@@ -804,6 +840,41 @@ module Network.AWS.S3
     , sseKey
     , sseCode
     , sseMessage
+
+    -- ** SSEKMS
+    , SSEKMS
+    , sSEKMS
+    , ssekKeyId
+
+    -- ** SSES3
+    , SSES3
+    , sSES3
+
+    -- ** ServerSideEncryptionByDefault
+    , ServerSideEncryptionByDefault
+    , serverSideEncryptionByDefault
+    , ssebdKMSMasterKeyId
+    , ssebdSSEAlgorithm
+
+    -- ** ServerSideEncryptionConfiguration
+    , ServerSideEncryptionConfiguration
+    , serverSideEncryptionConfiguration
+    , ssecRules
+
+    -- ** ServerSideEncryptionRule
+    , ServerSideEncryptionRule
+    , serverSideEncryptionRule
+    , sserApplyServerSideEncryptionByDefault
+
+    -- ** SourceSelectionCriteria
+    , SourceSelectionCriteria
+    , sourceSelectionCriteria
+    , sscSseKMSEncryptedObjects
+
+    -- ** SseKMSEncryptedObjects
+    , SseKMSEncryptedObjects
+    , sseKMSEncryptedObjects
+    , skeoStatus
 
     -- ** StorageClassAnalysis
     , StorageClassAnalysis
@@ -871,6 +942,7 @@ import Network.AWS.S3.CreateMultipartUpload
 import Network.AWS.S3.DeleteBucket
 import Network.AWS.S3.DeleteBucketAnalyticsConfiguration
 import Network.AWS.S3.DeleteBucketCORS
+import Network.AWS.S3.DeleteBucketEncryption
 import Network.AWS.S3.DeleteBucketInventoryConfiguration
 import Network.AWS.S3.DeleteBucketLifecycle
 import Network.AWS.S3.DeleteBucketMetricsConfiguration
@@ -885,6 +957,7 @@ import Network.AWS.S3.GetBucketAccelerateConfiguration
 import Network.AWS.S3.GetBucketACL
 import Network.AWS.S3.GetBucketAnalyticsConfiguration
 import Network.AWS.S3.GetBucketCORS
+import Network.AWS.S3.GetBucketEncryption
 import Network.AWS.S3.GetBucketInventoryConfiguration
 import Network.AWS.S3.GetBucketLifecycleConfiguration
 import Network.AWS.S3.GetBucketLocation
@@ -917,6 +990,7 @@ import Network.AWS.S3.PutBucketAccelerateConfiguration
 import Network.AWS.S3.PutBucketACL
 import Network.AWS.S3.PutBucketAnalyticsConfiguration
 import Network.AWS.S3.PutBucketCORS
+import Network.AWS.S3.PutBucketEncryption
 import Network.AWS.S3.PutBucketInventoryConfiguration
 import Network.AWS.S3.PutBucketLifecycleConfiguration
 import Network.AWS.S3.PutBucketLogging

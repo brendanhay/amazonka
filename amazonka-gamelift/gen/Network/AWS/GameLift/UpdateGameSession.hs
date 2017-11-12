@@ -98,7 +98,7 @@ data UpdateGameSession = UpdateGameSession'
 --
 -- * 'ugsName' - Descriptive label that is associated with a game session. Session names do not need to be unique.
 --
--- * 'ugsProtectionPolicy' - Game session protection policy to apply to this game session only.     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+-- * 'ugsProtectionPolicy' - Game session protection policy to apply to this game session only.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 --
 -- * 'ugsGameSessionId' - Unique identifier for the game session to update.
 updateGameSession
@@ -126,7 +126,7 @@ ugsPlayerSessionCreationPolicy = lens _ugsPlayerSessionCreationPolicy (\ s a -> 
 ugsName :: Lens' UpdateGameSession (Maybe Text)
 ugsName = lens _ugsName (\ s a -> s{_ugsName = a});
 
--- | Game session protection policy to apply to this game session only.     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+-- | Game session protection policy to apply to this game session only.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 ugsProtectionPolicy :: Lens' UpdateGameSession (Maybe ProtectionPolicy)
 ugsProtectionPolicy = lens _ugsProtectionPolicy (\ s a -> s{_ugsProtectionPolicy = a});
 

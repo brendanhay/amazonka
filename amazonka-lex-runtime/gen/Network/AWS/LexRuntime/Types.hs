@@ -108,7 +108,15 @@ _NotAcceptableException =
   _MatchServiceError lexRuntime "NotAcceptableException" . hasStatus 406
 
 
--- | One of the downstream dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example, if Amazon Lex does not have sufficient permissions to call a Lambda function, it results in Lambda throwing an exception.
+-- | One of the dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example,
+--
+--
+--     * If Amazon Lex does not have sufficient permissions to call a Lambda function.
+--
+--     * If a Lambda function takes longer than 30 seconds to execute.
+--
+--     * If a fulfillment Lambda function returns a @Delegate@ dialog action without removing any slot values.
+--
 --
 --
 _DependencyFailedException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -148,7 +156,7 @@ _RequestTimeoutException =
   _MatchServiceError lexRuntime "RequestTimeoutException" . hasStatus 408
 
 
--- | Lambda fulfilment function returned @DelegateDialogAction@ to Amazon Lex without changing any slot values.
+-- | This exception is not used.
 --
 --
 _LoopDetectedException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -172,7 +180,7 @@ _BadGatewayException =
   _MatchServiceError lexRuntime "BadGatewayException" . hasStatus 502
 
 
--- | Request validation failed, there is no usable message in the context, or the bot build failed.
+-- | Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes.
 --
 --
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError

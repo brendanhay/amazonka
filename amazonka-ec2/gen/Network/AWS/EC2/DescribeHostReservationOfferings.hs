@@ -125,7 +125,7 @@ instance AWSRequest DescribeHostReservationOfferings
               (\ s h x ->
                  DescribeHostReservationOfferingsResponse' <$>
                    (x .@? "offeringSet" .!@ mempty >>=
-                      may (parseXMLList "member"))
+                      may (parseXMLList "item"))
                      <*> (x .@? "nextToken")
                      <*> (pure (fromEnum s)))
 

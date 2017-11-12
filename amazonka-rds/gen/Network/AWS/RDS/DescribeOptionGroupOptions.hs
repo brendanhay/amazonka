@@ -78,7 +78,7 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
 --
 -- * 'dogoMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'dogoEngineName' - A required parameter. Options available for the given engine name will be described.
+-- * 'dogoEngineName' - A required parameter. Options available for the given engine name are described.
 describeOptionGroupOptions
     :: Text -- ^ 'dogoEngineName'
     -> DescribeOptionGroupOptions
@@ -108,7 +108,7 @@ dogoMarker = lens _dogoMarker (\ s a -> s{_dogoMarker = a});
 dogoMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Int)
 dogoMaxRecords = lens _dogoMaxRecords (\ s a -> s{_dogoMaxRecords = a});
 
--- | A required parameter. Options available for the given engine name will be described.
+-- | A required parameter. Options available for the given engine name are described.
 dogoEngineName :: Lens' DescribeOptionGroupOptions Text
 dogoEngineName = lens _dogoEngineName (\ s a -> s{_dogoEngineName = a});
 

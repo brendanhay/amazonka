@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -74,6 +74,7 @@ library
         , Network.AWS.ElasticBeanstalk.DescribePlatformVersion
         , Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
         , Network.AWS.ElasticBeanstalk.ListPlatformVersions
+        , Network.AWS.ElasticBeanstalk.ListTagsForResource
         , Network.AWS.ElasticBeanstalk.RebuildEnvironment
         , Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
         , Network.AWS.ElasticBeanstalk.RestartAppServer
@@ -86,6 +87,7 @@ library
         , Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
         , Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
         , Network.AWS.ElasticBeanstalk.UpdateEnvironment
+        , Network.AWS.ElasticBeanstalk.UpdateTagsForResource
         , Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
         , Network.AWS.ElasticBeanstalk.Waiters
 

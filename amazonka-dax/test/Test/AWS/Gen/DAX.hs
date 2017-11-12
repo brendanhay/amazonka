@@ -14,11 +14,11 @@
 module Test.AWS.Gen.DAX where
 
 import Data.Proxy
+import Network.AWS.DAX
+import Test.AWS.DAX.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.DAX
-import Test.AWS.DAX.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

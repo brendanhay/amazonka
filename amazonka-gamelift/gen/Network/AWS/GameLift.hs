@@ -17,9 +17,9 @@
 --
 -- The Amazon GameLift service API includes two important function sets:
 --
---     * __Manage game sessions and player access__ – Retrieve information on available game sessions; create new game sessions; send player requests to join a game session.
+--     * __Manage game sessions and player access__ -- Retrieve information on available game sessions; create new game sessions; send player requests to join a game session.
 --
---     * __Configure and manage game server resources__ – Manage builds, fleets, queues, and aliases; set autoscaling policies; retrieve logs and metrics.
+--     * __Configure and manage game server resources__ -- Manage builds, fleets, queues, and aliases; set autoscaling policies; retrieve logs and metrics.
 --
 --
 --
@@ -37,15 +37,15 @@
 --
 -- __MORE RESOURCES__
 --
---     * <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Amazon GameLift Developer Guide> – Learn more about Amazon GameLift features and how to use them.
+--     * <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Amazon GameLift Developer Guide> -- Learn more about Amazon GameLift features and how to use them.
 --
---     * <https://gamedev.amazon.com/forums/tutorials Lumberyard and Amazon GameLift Tutorials> – Get started fast with walkthroughs and sample projects.
+--     * <https://gamedev.amazon.com/forums/tutorials Lumberyard and Amazon GameLift Tutorials> -- Get started fast with walkthroughs and sample projects.
 --
---     * <http://aws.amazon.com/blogs/gamedev/ GameDev Blog> – Stay up to date with new features and techniques.
+--     * <http://aws.amazon.com/blogs/gamedev/ GameDev Blog> -- Stay up to date with new features and techniques.
 --
---     * <https://gamedev.amazon.com/forums/spaces/123/gamelift-discussion.html GameDev Forums> – Connect with the GameDev community.
+--     * <https://gamedev.amazon.com/forums/spaces/123/gamelift-discussion.html GameDev Forums> -- Connect with the GameDev community.
 --
---     * <http://docs.aws.amazon.com/gamelift/latest/developerguide/doc-history.html Amazon GameLift Document History> – See changes to the Amazon GameLift service, SDKs, and documentation, as well as links to release notes.
+--     * <http://docs.aws.amazon.com/gamelift/latest/developerguide/doc-history.html Amazon GameLift Document History> -- See changes to the Amazon GameLift service, SDKs, and documentation, as well as links to release notes.
 --
 --
 --
@@ -59,7 +59,7 @@
 --
 --     * __Discover existing game sessions__
 --
---     * 'SearchGameSessions' – Retrieve all available game sessions or search for game sessions that match a set of criteria.
+--     * 'SearchGameSessions' -- Retrieve all available game sessions or search for game sessions that match a set of criteria.
 --
 --
 --
@@ -67,49 +67,49 @@
 --
 --     * Start new games with Queues to find the best available hosting resources across multiple regions, minimize player latency, and balance game session activity for efficiency and cost effectiveness.
 --
---     * 'StartGameSessionPlacement' – Request a new game session placement and add one or more players to it.
+--     * 'StartGameSessionPlacement' -- Request a new game session placement and add one or more players to it.
 --
---     * 'DescribeGameSessionPlacement' – Get details on a placement request, including status.
+--     * 'DescribeGameSessionPlacement' -- Get details on a placement request, including status.
 --
---     * 'StopGameSessionPlacement' – Cancel a placement request.
+--     * 'StopGameSessionPlacement' -- Cancel a placement request.
 --
 --
 --
---     * 'CreateGameSession' – Start a new game session on a specific fleet. /Available in Amazon GameLift Local./
+--     * 'CreateGameSession' -- Start a new game session on a specific fleet. /Available in Amazon GameLift Local./
 --
 --
 --
 --     * __Start new game sessions with FlexMatch matchmaking__
 --
---     * 'StartMatchmaking' – Request matchmaking for one players or a group who want to play together.
+--     * 'StartMatchmaking' -- Request matchmaking for one players or a group who want to play together.
 --
---     * 'DescribeMatchmaking' – Get details on a matchmaking request, including status.
+--     * 'DescribeMatchmaking' -- Get details on a matchmaking request, including status.
 --
---     * 'AcceptMatch' – Register that a player accepts a proposed match, for matches that require player acceptance.
+--     * 'AcceptMatch' -- Register that a player accepts a proposed match, for matches that require player acceptance.
 --
---     * 'StopMatchmaking' – Cancel a matchmaking request.
+--     * 'StopMatchmaking' -- Cancel a matchmaking request.
 --
 --
 --
 --     * __Manage game session data__
 --
---     * 'DescribeGameSessions' – Retrieve metadata for one or more game sessions, including length of time active and current player count. /Available in Amazon GameLift Local./
+--     * 'DescribeGameSessions' -- Retrieve metadata for one or more game sessions, including length of time active and current player count. /Available in Amazon GameLift Local./
 --
---     * 'DescribeGameSessionDetails' – Retrieve metadata and the game session protection setting for one or more game sessions.
+--     * 'DescribeGameSessionDetails' -- Retrieve metadata and the game session protection setting for one or more game sessions.
 --
---     * 'UpdateGameSession' – Change game session settings, such as maximum player count and join policy.
+--     * 'UpdateGameSession' -- Change game session settings, such as maximum player count and join policy.
 --
---     * 'GetGameSessionLogUrl' – Get the location of saved logs for a game session.
+--     * 'GetGameSessionLogUrl' -- Get the location of saved logs for a game session.
 --
 --
 --
 --     * __Manage player sessions__
 --
---     * 'CreatePlayerSession' – Send a request for a player to join a game session. /Available in Amazon GameLift Local./
+--     * 'CreatePlayerSession' -- Send a request for a player to join a game session. /Available in Amazon GameLift Local./
 --
---     * 'CreatePlayerSessions' – Send a request for multiple players to join a game session. /Available in Amazon GameLift Local./
+--     * 'CreatePlayerSessions' -- Send a request for multiple players to join a game session. /Available in Amazon GameLift Local./
 --
---     * 'DescribePlayerSessions' – Get details on player activity, including status, playing time, and player data. /Available in Amazon GameLift Local./
+--     * 'DescribePlayerSessions' -- Get details on player activity, including status, playing time, and player data. /Available in Amazon GameLift Local./
 --
 --
 --
@@ -121,33 +121,33 @@
 --
 --     * __Manage game builds__
 --
---     * 'CreateBuild' – Create a new build using files stored in an Amazon S3 bucket. (Update uploading permissions with 'RequestUploadCredentials' .) To create a build and upload files from a local path, use the AWS CLI command @upload-build@ .
+--     * 'CreateBuild' -- Create a new build using files stored in an Amazon S3 bucket. (Update uploading permissions with 'RequestUploadCredentials' .) To create a build and upload files from a local path, use the AWS CLI command @upload-build@ .
 --
---     * 'ListBuilds' – Get a list of all builds uploaded to a Amazon GameLift region.
+--     * 'ListBuilds' -- Get a list of all builds uploaded to a Amazon GameLift region.
 --
---     * 'DescribeBuild' – Retrieve information associated with a build.
+--     * 'DescribeBuild' -- Retrieve information associated with a build.
 --
---     * 'UpdateBuild' – Change build metadata, including build name and version.
+--     * 'UpdateBuild' -- Change build metadata, including build name and version.
 --
---     * 'DeleteBuild' – Remove a build from Amazon GameLift.
+--     * 'DeleteBuild' -- Remove a build from Amazon GameLift.
 --
 --
 --
 --     * __Manage fleets__
 --
---     * 'CreateFleet' – Configure and activate a new fleet to run a build's game servers.
+--     * 'CreateFleet' -- Configure and activate a new fleet to run a build's game servers.
 --
---     * 'ListFleets' – Get a list of all fleet IDs in a Amazon GameLift region (all statuses).
+--     * 'ListFleets' -- Get a list of all fleet IDs in a Amazon GameLift region (all statuses).
 --
---     * 'DeleteFleet' – Terminate a fleet that is no longer running game servers or hosting players.
+--     * 'DeleteFleet' -- Terminate a fleet that is no longer running game servers or hosting players.
 --
 --     * View / update fleet configurations.
 --
---     * 'DescribeFleetAttributes' / 'UpdateFleetAttributes' – View or change a fleet's metadata and settings for game session protection and resource creation limits.
+--     * 'DescribeFleetAttributes' / 'UpdateFleetAttributes' -- View or change a fleet's metadata and settings for game session protection and resource creation limits.
 --
---     * 'DescribeFleetPortSettings' / 'UpdateFleetPortSettings' – View or change the inbound permissions (IP address and port setting ranges) allowed for a fleet.
+--     * 'DescribeFleetPortSettings' / 'UpdateFleetPortSettings' -- View or change the inbound permissions (IP address and port setting ranges) allowed for a fleet.
 --
---     * 'DescribeRuntimeConfiguration' / 'UpdateRuntimeConfiguration' – View or change what server processes (and how many) to run on each instance in a fleet.
+--     * 'DescribeRuntimeConfiguration' / 'UpdateRuntimeConfiguration' -- View or change what server processes (and how many) to run on each instance in a fleet.
 --
 --
 --
@@ -155,83 +155,99 @@
 --
 --     * __Control fleet capacity__
 --
---     * 'DescribeEC2InstanceLimits' – Retrieve maximum number of instances allowed for the current AWS account and the current usage level.
+--     * 'DescribeEC2InstanceLimits' -- Retrieve maximum number of instances allowed for the current AWS account and the current usage level.
 --
---     * 'DescribeFleetCapacity' / 'UpdateFleetCapacity' – Retrieve the capacity settings and the current number of instances in a fleet; adjust fleet capacity settings to scale up or down.
+--     * 'DescribeFleetCapacity' / 'UpdateFleetCapacity' -- Retrieve the capacity settings and the current number of instances in a fleet; adjust fleet capacity settings to scale up or down.
 --
---     * Autoscale – Manage autoscaling rules and apply them to a fleet.
+--     * Autoscale -- Manage autoscaling rules and apply them to a fleet.
 --
---     * 'PutScalingPolicy' – Create a new autoscaling policy, or update an existing one.
+--     * 'PutScalingPolicy' -- Create a new autoscaling policy, or update an existing one.
 --
---     * 'DescribeScalingPolicies' – Retrieve an existing autoscaling policy.
+--     * 'DescribeScalingPolicies' -- Retrieve an existing autoscaling policy.
 --
---     * 'DeleteScalingPolicy' – Delete an autoscaling policy and stop it from affecting a fleet's capacity.
+--     * 'DeleteScalingPolicy' -- Delete an autoscaling policy and stop it from affecting a fleet's capacity.
 --
 --
+--
+--
+--
+--     * __Manage VPC peering connections for fleets__
+--
+--     * 'CreateVpcPeeringAuthorization' -- Authorize a peering connection to one of your VPCs.
+--
+--     * 'DescribeVpcPeeringAuthorizations' -- Retrieve valid peering connection authorizations.
+--
+--     * 'DeleteVpcPeeringAuthorization' -- Delete a peering connection authorization.
+--
+--     * 'CreateVpcPeeringConnection' -- Establish a peering connection between the VPC for a Amazon GameLift fleet and one of your VPCs.
+--
+--     * 'DescribeVpcPeeringConnections' -- Retrieve information on active or pending VPC peering connections with a Amazon GameLift fleet.
+--
+--     * 'DeleteVpcPeeringConnection' -- Delete a VPC peering connection with a Amazon GameLift fleet.
 --
 --
 --
 --     * __Access fleet activity statistics__
 --
---     * 'DescribeFleetUtilization' – Get current data on the number of server processes, game sessions, and players currently active on a fleet.
+--     * 'DescribeFleetUtilization' -- Get current data on the number of server processes, game sessions, and players currently active on a fleet.
 --
---     * 'DescribeFleetEvents' – Get a fleet's logged events for a specified time span.
+--     * 'DescribeFleetEvents' -- Get a fleet's logged events for a specified time span.
 --
---     * 'DescribeGameSessions' – Retrieve metadata associated with one or more game sessions, including length of time active and current player count.
+--     * 'DescribeGameSessions' -- Retrieve metadata associated with one or more game sessions, including length of time active and current player count.
 --
 --
 --
 --     * __Remotely access an instance__
 --
---     * 'DescribeInstances' – Get information on each instance in a fleet, including instance ID, IP address, and status.
+--     * 'DescribeInstances' -- Get information on each instance in a fleet, including instance ID, IP address, and status.
 --
---     * 'GetInstanceAccess' – Request access credentials needed to remotely connect to a specified instance in a fleet.
+--     * 'GetInstanceAccess' -- Request access credentials needed to remotely connect to a specified instance in a fleet.
 --
 --
 --
 --     * __Manage fleet aliases__
 --
---     * 'CreateAlias' – Define a new alias and optionally assign it to a fleet.
+--     * 'CreateAlias' -- Define a new alias and optionally assign it to a fleet.
 --
---     * 'ListAliases' – Get all fleet aliases defined in a Amazon GameLift region.
+--     * 'ListAliases' -- Get all fleet aliases defined in a Amazon GameLift region.
 --
---     * 'DescribeAlias' – Retrieve information on an existing alias.
+--     * 'DescribeAlias' -- Retrieve information on an existing alias.
 --
---     * 'UpdateAlias' – Change settings for a alias, such as redirecting it from one fleet to another.
+--     * 'UpdateAlias' -- Change settings for a alias, such as redirecting it from one fleet to another.
 --
---     * 'DeleteAlias' – Remove an alias from the region.
+--     * 'DeleteAlias' -- Remove an alias from the region.
 --
---     * 'ResolveAlias' – Get the fleet ID that a specified alias points to.
+--     * 'ResolveAlias' -- Get the fleet ID that a specified alias points to.
 --
 --
 --
 --     * __Manage game session queues__
 --
---     * 'CreateGameSessionQueue' – Create a queue for processing requests for new game sessions.
+--     * 'CreateGameSessionQueue' -- Create a queue for processing requests for new game sessions.
 --
---     * 'DescribeGameSessionQueues' – Retrieve game session queues defined in a Amazon GameLift region.
+--     * 'DescribeGameSessionQueues' -- Retrieve game session queues defined in a Amazon GameLift region.
 --
---     * 'UpdateGameSessionQueue' – Change the configuration of a game session queue.
+--     * 'UpdateGameSessionQueue' -- Change the configuration of a game session queue.
 --
---     * 'DeleteGameSessionQueue' – Remove a game session queue from the region.
+--     * 'DeleteGameSessionQueue' -- Remove a game session queue from the region.
 --
 --
 --
 --     * __Manage FlexMatch resources__
 --
---     * 'CreateMatchmakingConfiguration' – Create a matchmaking configuration with instructions for building a player group and placing in a new game session.
+--     * 'CreateMatchmakingConfiguration' -- Create a matchmaking configuration with instructions for building a player group and placing in a new game session.
 --
---     * 'DescribeMatchmakingConfigurations' – Retrieve matchmaking configurations defined a Amazon GameLift region.
+--     * 'DescribeMatchmakingConfigurations' -- Retrieve matchmaking configurations defined a Amazon GameLift region.
 --
---     * 'UpdateMatchmakingConfiguration' – Change settings for matchmaking configuration. queue.
+--     * 'UpdateMatchmakingConfiguration' -- Change settings for matchmaking configuration. queue.
 --
---     * 'DeleteMatchmakingConfiguration' – Remove a matchmaking configuration from the region.
+--     * 'DeleteMatchmakingConfiguration' -- Remove a matchmaking configuration from the region.
 --
---     * 'CreateMatchmakingRuleSet' – Create a set of rules to use when searching for player matches.
+--     * 'CreateMatchmakingRuleSet' -- Create a set of rules to use when searching for player matches.
 --
---     * 'DescribeMatchmakingRuleSets' – Retrieve matchmaking rule sets defined in a Amazon GameLift region.
+--     * 'DescribeMatchmakingRuleSets' -- Retrieve matchmaking rule sets defined in a Amazon GameLift region.
 --
---     * 'ValidateMatchmakingRuleSet' – Verify syntax for a set of matchmaking rules.
+--     * 'ValidateMatchmakingRuleSet' -- Verify syntax for a set of matchmaking rules.
 --
 --
 --
@@ -326,17 +342,26 @@ module Network.AWS.GameLift
     -- ** UpdateRuntimeConfiguration
     , module Network.AWS.GameLift.UpdateRuntimeConfiguration
 
+    -- ** CreateVPCPeeringConnection
+    , module Network.AWS.GameLift.CreateVPCPeeringConnection
+
     -- ** CreateGameSessionQueue
     , module Network.AWS.GameLift.CreateGameSessionQueue
 
     -- ** SearchGameSessions
     , module Network.AWS.GameLift.SearchGameSessions
 
+    -- ** CreateVPCPeeringAuthorization
+    , module Network.AWS.GameLift.CreateVPCPeeringAuthorization
+
     -- ** UpdateGameSessionQueue
     , module Network.AWS.GameLift.UpdateGameSessionQueue
 
     -- ** DeleteGameSessionQueue
     , module Network.AWS.GameLift.DeleteGameSessionQueue
+
+    -- ** DeleteVPCPeeringConnection
+    , module Network.AWS.GameLift.DeleteVPCPeeringConnection
 
     -- ** GetInstanceAccess
     , module Network.AWS.GameLift.GetInstanceAccess
@@ -407,11 +432,17 @@ module Network.AWS.GameLift
     -- ** DescribeGameSessionQueues
     , module Network.AWS.GameLift.DescribeGameSessionQueues
 
+    -- ** DescribeVPCPeeringConnections
+    , module Network.AWS.GameLift.DescribeVPCPeeringConnections
+
     -- ** CreatePlayerSessions
     , module Network.AWS.GameLift.CreatePlayerSessions
 
     -- ** DescribeMatchmakingConfigurations
     , module Network.AWS.GameLift.DescribeMatchmakingConfigurations
+
+    -- ** DescribeVPCPeeringAuthorizations
+    , module Network.AWS.GameLift.DescribeVPCPeeringAuthorizations
 
     -- ** CreateFleet
     , module Network.AWS.GameLift.CreateFleet
@@ -421,6 +452,9 @@ module Network.AWS.GameLift
 
     -- ** UpdateMatchmakingConfiguration
     , module Network.AWS.GameLift.UpdateMatchmakingConfiguration
+
+    -- ** DeleteVPCPeeringAuthorization
+    , module Network.AWS.GameLift.DeleteVPCPeeringAuthorization
 
     -- ** UpdateFleetAttributes
     , module Network.AWS.GameLift.UpdateFleetAttributes
@@ -773,7 +807,9 @@ module Network.AWS.GameLift
     , mtStartTime
     , mtGameSessionConnectionInfo
     , mtTicketId
+    , mtEstimatedWaitTime
     , mtStatusMessage
+    , mtEndTime
     , mtStatusReason
     , mtPlayers
 
@@ -864,6 +900,31 @@ module Network.AWS.GameLift
     , spParameters
     , spLaunchPath
     , spConcurrentExecutions
+
+    -- ** VPCPeeringAuthorization
+    , VPCPeeringAuthorization
+    , vpcPeeringAuthorization
+    , vpaCreationTime
+    , vpaPeerVPCId
+    , vpaPeerVPCAWSAccountId
+    , vpaGameLiftAWSAccountId
+    , vpaExpirationTime
+
+    -- ** VPCPeeringConnection
+    , VPCPeeringConnection
+    , vpcPeeringConnection
+    , vpcVPCPeeringConnectionId
+    , vpcStatus
+    , vpcPeerVPCId
+    , vpcIPV4CidrBlock
+    , vpcGameLiftVPCId
+    , vpcFleetId
+
+    -- ** VPCPeeringConnectionStatus
+    , VPCPeeringConnectionStatus
+    , vpcPeeringConnectionStatus
+    , vpcsCode
+    , vpcsMessage
     ) where
 
 import Network.AWS.GameLift.AcceptMatch
@@ -876,12 +937,16 @@ import Network.AWS.GameLift.CreateMatchmakingConfiguration
 import Network.AWS.GameLift.CreateMatchmakingRuleSet
 import Network.AWS.GameLift.CreatePlayerSession
 import Network.AWS.GameLift.CreatePlayerSessions
+import Network.AWS.GameLift.CreateVPCPeeringAuthorization
+import Network.AWS.GameLift.CreateVPCPeeringConnection
 import Network.AWS.GameLift.DeleteAlias
 import Network.AWS.GameLift.DeleteBuild
 import Network.AWS.GameLift.DeleteFleet
 import Network.AWS.GameLift.DeleteGameSessionQueue
 import Network.AWS.GameLift.DeleteMatchmakingConfiguration
 import Network.AWS.GameLift.DeleteScalingPolicy
+import Network.AWS.GameLift.DeleteVPCPeeringAuthorization
+import Network.AWS.GameLift.DeleteVPCPeeringConnection
 import Network.AWS.GameLift.DescribeAlias
 import Network.AWS.GameLift.DescribeBuild
 import Network.AWS.GameLift.DescribeEC2InstanceLimits
@@ -901,6 +966,8 @@ import Network.AWS.GameLift.DescribeMatchmakingRuleSets
 import Network.AWS.GameLift.DescribePlayerSessions
 import Network.AWS.GameLift.DescribeRuntimeConfiguration
 import Network.AWS.GameLift.DescribeScalingPolicies
+import Network.AWS.GameLift.DescribeVPCPeeringAuthorizations
+import Network.AWS.GameLift.DescribeVPCPeeringConnections
 import Network.AWS.GameLift.GetGameSessionLogURL
 import Network.AWS.GameLift.GetInstanceAccess
 import Network.AWS.GameLift.ListAliases

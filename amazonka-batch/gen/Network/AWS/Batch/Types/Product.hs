@@ -39,13 +39,13 @@ data AttemptContainerDetail = AttemptContainerDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acdTaskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt.
+-- * 'acdTaskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
 --
 -- * 'acdContainerInstanceARN' - The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
 --
 -- * 'acdReason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
 --
--- * 'acdLogStreamName' - Undocumented member.
+-- * 'acdLogStreamName' - The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
 --
 -- * 'acdExitCode' - The exit code for the job attempt. A non-zero exit code is considered a failure.
 attemptContainerDetail
@@ -60,7 +60,7 @@ attemptContainerDetail =
   }
 
 
--- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt.
+-- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
 acdTaskARN :: Lens' AttemptContainerDetail (Maybe Text)
 acdTaskARN = lens _acdTaskARN (\ s a -> s{_acdTaskARN = a});
 
@@ -72,7 +72,7 @@ acdContainerInstanceARN = lens _acdContainerInstanceARN (\ s a -> s{_acdContaine
 acdReason :: Lens' AttemptContainerDetail (Maybe Text)
 acdReason = lens _acdReason (\ s a -> s{_acdReason = a});
 
--- | Undocumented member.
+-- | The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
 acdLogStreamName :: Lens' AttemptContainerDetail (Maybe Text)
 acdLogStreamName = lens _acdLogStreamName (\ s a -> s{_acdLogStreamName = a});
 
@@ -368,13 +368,13 @@ data ComputeResource = ComputeResource'
 --
 -- * 'crMaxvCPUs' - The maximum number of EC2 vCPUs that an environment can reach.
 --
--- * 'crInstanceTypes' - The instances types that may launched.
+-- * 'crInstanceTypes' - The instances types that may be launched. You can specify instance families to launch any instance type within those families (for example, @c4@ or @p3@ ), or you can specify specific sizes within a family (such as @c4.8xlarge@ ). You can also choose @optimal@ to pick instance types (from the latest C, M, and R instance families) on the fly that match the demand of your job queues.
 --
 -- * 'crSubnets' - The VPC subnets into which the compute resources are launched.
 --
 -- * 'crSecurityGroupIds' - The EC2 security group that is associated with instances launched in the compute environment.
 --
--- * 'crInstanceRole' - The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
+-- * 'crInstanceRole' - The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. You can specify the short name or full Amazon Resource Name (ARN) of an instance profile. For example, @ecsInstanceRole@ or @arn:aws:iam::<aws_account_id>:instance-profile/ecsInstanceRole@ . For more information, see <http://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS Instance Role> in the /AWS Batch User Guide/ .
 computeResource
     :: CRType -- ^ 'crType'
     -> Int -- ^ 'crMinvCPUs'
@@ -435,7 +435,7 @@ crMinvCPUs = lens _crMinvCPUs (\ s a -> s{_crMinvCPUs = a});
 crMaxvCPUs :: Lens' ComputeResource Int
 crMaxvCPUs = lens _crMaxvCPUs (\ s a -> s{_crMaxvCPUs = a});
 
--- | The instances types that may launched.
+-- | The instances types that may be launched. You can specify instance families to launch any instance type within those families (for example, @c4@ or @p3@ ), or you can specify specific sizes within a family (such as @c4.8xlarge@ ). You can also choose @optimal@ to pick instance types (from the latest C, M, and R instance families) on the fly that match the demand of your job queues.
 crInstanceTypes :: Lens' ComputeResource [Text]
 crInstanceTypes = lens _crInstanceTypes (\ s a -> s{_crInstanceTypes = a}) . _Coerce;
 
@@ -447,7 +447,7 @@ crSubnets = lens _crSubnets (\ s a -> s{_crSubnets = a}) . _Coerce;
 crSecurityGroupIds :: Lens' ComputeResource [Text]
 crSecurityGroupIds = lens _crSecurityGroupIds (\ s a -> s{_crSecurityGroupIds = a}) . _Coerce;
 
--- | The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment.
+-- | The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. You can specify the short name or full Amazon Resource Name (ARN) of an instance profile. For example, @ecsInstanceRole@ or @arn:aws:iam::<aws_account_id>:instance-profile/ecsInstanceRole@ . For more information, see <http://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS Instance Role> in the /AWS Batch User Guide/ .
 crInstanceRole :: Lens' ComputeResource Text
 crInstanceRole = lens _crInstanceRole (\ s a -> s{_crInstanceRole = a});
 
@@ -578,7 +578,7 @@ data ContainerDetail = ContainerDetail'
 --
 -- * 'cdEnvironment' - The environment variables to pass to a container.
 --
--- * 'cdTaskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job.
+-- * 'cdTaskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job. Each container attempt receives a task ARN when they reach the @STARTING@ status.
 --
 -- * 'cdUlimits' - A list of @ulimit@ values to set in the container.
 --
@@ -594,7 +594,7 @@ data ContainerDetail = ContainerDetail'
 --
 -- * 'cdReason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
 --
--- * 'cdLogStreamName' - Undocumented member.
+-- * 'cdLogStreamName' - The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
 --
 -- * 'cdMountPoints' - The mount points for data volumes in your container.
 --
@@ -641,7 +641,7 @@ cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a}) . _Default . _Coerce;
 cdEnvironment :: Lens' ContainerDetail [KeyValuePair]
 cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a}) . _Default . _Coerce;
 
--- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job.
+-- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job. Each container attempt receives a task ARN when they reach the @STARTING@ status.
 cdTaskARN :: Lens' ContainerDetail (Maybe Text)
 cdTaskARN = lens _cdTaskARN (\ s a -> s{_cdTaskARN = a});
 
@@ -673,7 +673,7 @@ cdUser = lens _cdUser (\ s a -> s{_cdUser = a});
 cdReason :: Lens' ContainerDetail (Maybe Text)
 cdReason = lens _cdReason (\ s a -> s{_cdReason = a});
 
--- | Undocumented member.
+-- | The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
 cdLogStreamName :: Lens' ContainerDetail (Maybe Text)
 cdLogStreamName = lens _cdLogStreamName (\ s a -> s{_cdLogStreamName = a});
 
@@ -832,9 +832,9 @@ data ContainerProperties = ContainerProperties'
 --
 -- * 'cpImage' - The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with @/repository-url/ //image/ :/tag/ @ . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to @Image@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @IMAGE@ parameter of <https://docs.docker.com/engine/reference/run/ docker run> .     * Images in Amazon ECR repositories use the full registry and repository URI (for example, @012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@ ).      * Images in official repositories on Docker Hub use a single name (for example, @ubuntu@ or @mongo@ ).     * Images in other repositories on Docker Hub are qualified with an organization name (for example, @amazon/amazon-ecs-agent@ ).     * Images in other online repositories are qualified further by a domain name (for example, @quay.io/assemblyline/ubuntu@ ).
 --
--- * 'cpVcpus' - The number of vCPUs reserved for the container. This parameter maps to @CpuShares@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @--cpu-shares@ option to <https://docs.docker.com/engine/reference/run/ docker run> . Each vCPU is equivalent to 1,024 CPU shares.
+-- * 'cpVcpus' - The number of vCPUs reserved for the container. This parameter maps to @CpuShares@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @--cpu-shares@ option to <https://docs.docker.com/engine/reference/run/ docker run> . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least 1 vCPU.
 --
--- * 'cpMemory' - The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to @Memory@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @--memory@ option to <https://docs.docker.com/engine/reference/run/ docker run> .
+-- * 'cpMemory' - The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to @Memory@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @--memory@ option to <https://docs.docker.com/engine/reference/run/ docker run> . You must specify at least 4 MiB of memory for a job.
 containerProperties
     :: Text -- ^ 'cpImage'
     -> Int -- ^ 'cpVcpus'
@@ -897,11 +897,11 @@ cpVolumes = lens _cpVolumes (\ s a -> s{_cpVolumes = a}) . _Default . _Coerce;
 cpImage :: Lens' ContainerProperties Text
 cpImage = lens _cpImage (\ s a -> s{_cpImage = a});
 
--- | The number of vCPUs reserved for the container. This parameter maps to @CpuShares@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @--cpu-shares@ option to <https://docs.docker.com/engine/reference/run/ docker run> . Each vCPU is equivalent to 1,024 CPU shares.
+-- | The number of vCPUs reserved for the container. This parameter maps to @CpuShares@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @--cpu-shares@ option to <https://docs.docker.com/engine/reference/run/ docker run> . Each vCPU is equivalent to 1,024 CPU shares. You must specify at least 1 vCPU.
 cpVcpus :: Lens' ContainerProperties Int
 cpVcpus = lens _cpVcpus (\ s a -> s{_cpVcpus = a});
 
--- | The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to @Memory@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @--memory@ option to <https://docs.docker.com/engine/reference/run/ docker run> .
+-- | The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to @Memory@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @--memory@ option to <https://docs.docker.com/engine/reference/run/ docker run> . You must specify at least 4 MiB of memory for a job.
 cpMemory :: Lens' ContainerProperties Int
 cpMemory = lens _cpMemory (\ s a -> s{_cpMemory = a});
 

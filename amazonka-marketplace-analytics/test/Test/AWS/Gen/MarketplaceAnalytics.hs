@@ -14,11 +14,11 @@
 module Test.AWS.Gen.MarketplaceAnalytics where
 
 import Data.Proxy
+import Network.AWS.MarketplaceAnalytics
 import Test.AWS.Fixture
+import Test.AWS.MarketplaceAnalytics.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.MarketplaceAnalytics
-import Test.AWS.MarketplaceAnalytics.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

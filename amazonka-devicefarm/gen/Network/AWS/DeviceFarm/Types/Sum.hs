@@ -61,6 +61,8 @@ data ArtifactType
   | CalabashJavaXMLOutput
   | CalabashPrettyOutput
   | CalabashStandardOutput
+  | CustomerArtifact
+  | CustomerArtifactLog
   | DeviceLog
   | ExerciserMonkeyOutput
   | ExplorerEventLog
@@ -91,6 +93,8 @@ instance FromText ArtifactType where
         "calabash_java_xml_output" -> pure CalabashJavaXMLOutput
         "calabash_pretty_output" -> pure CalabashPrettyOutput
         "calabash_standard_output" -> pure CalabashStandardOutput
+        "customer_artifact" -> pure CustomerArtifact
+        "customer_artifact_log" -> pure CustomerArtifactLog
         "device_log" -> pure DeviceLog
         "exerciser_monkey_output" -> pure ExerciserMonkeyOutput
         "explorer_event_log" -> pure ExplorerEventLog
@@ -106,7 +110,7 @@ instance FromText ArtifactType where
         "webkit_log" -> pure WebkitLog
         "xctest_log" -> pure XctestLog
         e -> fromTextError $ "Failure parsing ArtifactType from value: '" <> e
-           <> "'. Accepted values: appium_java_output, appium_java_xml_output, appium_python_output, appium_python_xml_output, appium_server_output, application_crash_report, automation_output, calabash_json_output, calabash_java_xml_output, calabash_pretty_output, calabash_standard_output, device_log, exerciser_monkey_output, explorer_event_log, explorer_summary_log, instrumentation_output, message_log, result_log, screenshot, service_log, unknown, video, video_log, webkit_log, xctest_log"
+           <> "'. Accepted values: appium_java_output, appium_java_xml_output, appium_python_output, appium_python_xml_output, appium_server_output, application_crash_report, automation_output, calabash_json_output, calabash_java_xml_output, calabash_pretty_output, calabash_standard_output, customer_artifact, customer_artifact_log, device_log, exerciser_monkey_output, explorer_event_log, explorer_summary_log, instrumentation_output, message_log, result_log, screenshot, service_log, unknown, video, video_log, webkit_log, xctest_log"
 
 instance ToText ArtifactType where
     toText = \case
@@ -121,6 +125,8 @@ instance ToText ArtifactType where
         CalabashJavaXMLOutput -> "CALABASH_JAVA_XML_OUTPUT"
         CalabashPrettyOutput -> "CALABASH_PRETTY_OUTPUT"
         CalabashStandardOutput -> "CALABASH_STANDARD_OUTPUT"
+        CustomerArtifact -> "CUSTOMER_ARTIFACT"
+        CustomerArtifactLog -> "CUSTOMER_ARTIFACT_LOG"
         DeviceLog -> "DEVICE_LOG"
         ExerciserMonkeyOutput -> "EXERCISER_MONKEY_OUTPUT"
         ExplorerEventLog -> "EXPLORER_EVENT_LOG"
@@ -206,6 +212,7 @@ data DeviceAttribute
   | Manufacturer
   | Platform
   | RemoteAccessEnabled
+  | RemoteDebugEnabled
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -217,8 +224,9 @@ instance FromText DeviceAttribute where
         "manufacturer" -> pure Manufacturer
         "platform" -> pure Platform
         "remote_access_enabled" -> pure RemoteAccessEnabled
+        "remote_debug_enabled" -> pure RemoteDebugEnabled
         e -> fromTextError $ "Failure parsing DeviceAttribute from value: '" <> e
-           <> "'. Accepted values: arn, appium_version, form_factor, manufacturer, platform, remote_access_enabled"
+           <> "'. Accepted values: arn, appium_version, form_factor, manufacturer, platform, remote_access_enabled, remote_debug_enabled"
 
 instance ToText DeviceAttribute where
     toText = \case
@@ -228,6 +236,7 @@ instance ToText DeviceAttribute where
         Manufacturer -> "MANUFACTURER"
         Platform -> "PLATFORM"
         RemoteAccessEnabled -> "REMOTE_ACCESS_ENABLED"
+        RemoteDebugEnabled -> "REMOTE_DEBUG_ENABLED"
 
 instance Hashable     DeviceAttribute
 instance NFData       DeviceAttribute
@@ -366,6 +375,30 @@ instance ToHeader     ExecutionResult
 
 instance FromJSON ExecutionResult where
     parseJSON = parseJSONText "ExecutionResult"
+
+data ExecutionResultCode =
+  ParsingFailed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ExecutionResultCode where
+    parser = takeLowerText >>= \case
+        "parsing_failed" -> pure ParsingFailed
+        e -> fromTextError $ "Failure parsing ExecutionResultCode from value: '" <> e
+           <> "'. Accepted values: parsing_failed"
+
+instance ToText ExecutionResultCode where
+    toText = \case
+        ParsingFailed -> "PARSING_FAILED"
+
+instance Hashable     ExecutionResultCode
+instance NFData       ExecutionResultCode
+instance ToByteString ExecutionResultCode
+instance ToQuery      ExecutionResultCode
+instance ToHeader     ExecutionResultCode
+
+instance FromJSON ExecutionResultCode where
+    parseJSON = parseJSONText "ExecutionResultCode"
 
 data ExecutionStatus
   = Completed

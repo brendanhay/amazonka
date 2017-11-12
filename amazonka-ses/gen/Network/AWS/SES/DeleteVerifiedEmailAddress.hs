@@ -18,12 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified email address from the list of verified addresses.
+-- Deprecated. Use the @DeleteIdentity@ operation to delete email addresses and domains.
 --
---
--- /Important:/ The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.
---
--- This action is throttled at one request per second.
 --
 module Network.AWS.SES.DeleteVerifiedEmailAddress
     (

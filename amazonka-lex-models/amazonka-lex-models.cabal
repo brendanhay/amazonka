@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -67,6 +67,7 @@ library
         , Network.AWS.LexModels.GetBuiltinIntent
         , Network.AWS.LexModels.GetBuiltinIntents
         , Network.AWS.LexModels.GetBuiltinSlotTypes
+        , Network.AWS.LexModels.GetExport
         , Network.AWS.LexModels.GetIntent
         , Network.AWS.LexModels.GetIntentVersions
         , Network.AWS.LexModels.GetIntents

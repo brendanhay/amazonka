@@ -90,7 +90,7 @@ data ModifyEndpoint = ModifyEndpoint'
 --
 -- * 'meCertificateARN' - The Amazon Resource Name (ARN) of the certificate used for SSL connection.
 --
--- * 'meExtraConnectionAttributes' - Additional attributes associated with the connection.
+-- * 'meExtraConnectionAttributes' - Additional attributes associated with the connection. To reset this parameter, pass the empty string ("") as an argument.
 --
 -- * 'meEndpointType' - The type of endpoint.
 --
@@ -146,7 +146,7 @@ meServerName = lens _meServerName (\ s a -> s{_meServerName = a});
 meCertificateARN :: Lens' ModifyEndpoint (Maybe Text)
 meCertificateARN = lens _meCertificateARN (\ s a -> s{_meCertificateARN = a});
 
--- | Additional attributes associated with the connection.
+-- | Additional attributes associated with the connection. To reset this parameter, pass the empty string ("") as an argument.
 meExtraConnectionAttributes :: Lens' ModifyEndpoint (Maybe Text)
 meExtraConnectionAttributes = lens _meExtraConnectionAttributes (\ s a -> s{_meExtraConnectionAttributes = a});
 

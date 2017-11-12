@@ -14,11 +14,11 @@
 module Test.AWS.Gen.OpsWorks where
 
 import Data.Proxy
+import Network.AWS.OpsWorks
 import Test.AWS.Fixture
+import Test.AWS.OpsWorks.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.OpsWorks
-import Test.AWS.OpsWorks.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

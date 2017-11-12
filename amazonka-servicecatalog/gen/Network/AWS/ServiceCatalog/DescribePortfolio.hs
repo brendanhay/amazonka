@@ -58,7 +58,7 @@ data DescribePortfolio = DescribePortfolio'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'desAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'desId' - The identifier of the portfolio for which to retrieve information.
 describePortfolio
@@ -68,7 +68,7 @@ describePortfolio pId_ =
   DescribePortfolio' {_desAcceptLanguage = Nothing, _desId = pId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 desAcceptLanguage :: Lens' DescribePortfolio (Maybe Text)
 desAcceptLanguage = lens _desAcceptLanguage (\ s a -> s{_desAcceptLanguage = a});
 

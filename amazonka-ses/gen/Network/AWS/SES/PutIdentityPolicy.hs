@@ -23,7 +23,7 @@
 --
 -- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
--- This action is throttled at one request per second.
+-- You can execute this operation no more than once per second.
 --
 module Network.AWS.SES.PutIdentityPolicy
     (
@@ -65,7 +65,7 @@ data PutIdentityPolicy = PutIdentityPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pipIdentity' - The identity to which the policy will apply. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
+-- * 'pipIdentity' - The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
 --
 -- * 'pipPolicyName' - The name of the policy. The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
 --
@@ -83,7 +83,7 @@ putIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
   }
 
 
--- | The identity to which the policy will apply. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
+-- | The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
 pipIdentity :: Lens' PutIdentityPolicy Text
 pipIdentity = lens _pipIdentity (\ s a -> s{_pipIdentity = a});
 

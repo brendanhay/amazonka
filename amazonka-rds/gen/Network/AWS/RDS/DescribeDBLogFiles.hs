@@ -86,7 +86,7 @@ data DescribeDBLogFiles = DescribeDBLogFiles'
 --
 -- * 'ddlfMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
--- * 'ddlfDBInstanceIdentifier' - The customer-assigned name of the DB instance that contains the log files you want to list. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'ddlfDBInstanceIdentifier' - The customer-assigned name of the DB instance that contains the log files you want to list. Constraints:     * Must match the identifier of an existing DBInstance.
 describeDBLogFiles
     :: Text -- ^ 'ddlfDBInstanceIdentifier'
     -> DescribeDBLogFiles
@@ -126,7 +126,7 @@ ddlfMarker = lens _ddlfMarker (\ s a -> s{_ddlfMarker = a});
 ddlfMaxRecords :: Lens' DescribeDBLogFiles (Maybe Int)
 ddlfMaxRecords = lens _ddlfMaxRecords (\ s a -> s{_ddlfMaxRecords = a});
 
--- | The customer-assigned name of the DB instance that contains the log files you want to list. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The customer-assigned name of the DB instance that contains the log files you want to list. Constraints:     * Must match the identifier of an existing DBInstance.
 ddlfDBInstanceIdentifier :: Lens' DescribeDBLogFiles Text
 ddlfDBInstanceIdentifier = lens _ddlfDBInstanceIdentifier (\ s a -> s{_ddlfDBInstanceIdentifier = a});
 

@@ -120,7 +120,7 @@ data DescribeActivityResponse = DescribeActivityResponse'
 --
 -- * 'desrsActivityARN' - The Amazon Resource Name (ARN) that identifies the activity.
 --
--- * 'desrsName' - The name of the activity.
+-- * 'desrsName' - The name of the activity. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 --
 -- * 'desrsCreationDate' - The date the activity was created.
 describeActivityResponse
@@ -146,7 +146,7 @@ desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus
 desrsActivityARN :: Lens' DescribeActivityResponse Text
 desrsActivityARN = lens _desrsActivityARN (\ s a -> s{_desrsActivityARN = a});
 
--- | The name of the activity.
+-- | The name of the activity. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 desrsName :: Lens' DescribeActivityResponse Text
 desrsName = lens _desrsName (\ s a -> s{_desrsName = a});
 

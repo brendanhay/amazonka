@@ -139,7 +139,7 @@ data ListResourceComplianceSummariesResponse = ListResourceComplianceSummariesRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrcsrsResourceComplianceSummaryItems' - A summary count for specified or targeted managed instances. Summary count includes information about compliant and non-compliant State Manager associations, patch statuses, or custom items according to the filter criteria you specify.
+-- * 'lrcsrsResourceComplianceSummaryItems' - A summary count for specified or targeted managed instances. Summary count includes information about compliant and non-compliant State Manager associations, patch status, or custom items according to the filter criteria that you specify.
 --
 -- * 'lrcsrsNextToken' - The token for the next set of items to return. Use this token to get the next set of results.
 --
@@ -155,7 +155,7 @@ listResourceComplianceSummariesResponse pResponseStatus_ =
   }
 
 
--- | A summary count for specified or targeted managed instances. Summary count includes information about compliant and non-compliant State Manager associations, patch statuses, or custom items according to the filter criteria you specify.
+-- | A summary count for specified or targeted managed instances. Summary count includes information about compliant and non-compliant State Manager associations, patch status, or custom items according to the filter criteria that you specify.
 lrcsrsResourceComplianceSummaryItems :: Lens' ListResourceComplianceSummariesResponse [ResourceComplianceSummaryItem]
 lrcsrsResourceComplianceSummaryItems = lens _lrcsrsResourceComplianceSummaryItems (\ s a -> s{_lrcsrsResourceComplianceSummaryItems = a}) . _Default . _Coerce;
 

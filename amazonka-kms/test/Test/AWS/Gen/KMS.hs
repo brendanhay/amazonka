@@ -14,11 +14,11 @@
 module Test.AWS.Gen.KMS where
 
 import Data.Proxy
+import Network.AWS.KMS
 import Test.AWS.Fixture
+import Test.AWS.KMS.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.KMS
-import Test.AWS.KMS.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

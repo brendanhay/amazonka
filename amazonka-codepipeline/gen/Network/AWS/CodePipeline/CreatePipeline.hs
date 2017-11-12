@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a create pipeline action.
+-- | Represents the input of a CreatePipeline action.
 --
 --
 --
@@ -103,7 +103,7 @@ instance ToPath CreatePipeline where
 instance ToQuery CreatePipeline where
         toQuery = const mempty
 
--- | Represents the output of a create pipeline action.
+-- | Represents the output of a CreatePipeline action.
 --
 --
 --

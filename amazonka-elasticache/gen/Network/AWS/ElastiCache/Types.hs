@@ -90,14 +90,17 @@ module Network.AWS.ElastiCache.Types
     , ccCacheNodeType
     , ccCacheNodes
     , ccCacheClusterCreateTime
+    , ccAtRestEncryptionEnabled
     , ccAutoMinorVersionUpgrade
     , ccSecurityGroups
     , ccNotificationConfiguration
+    , ccTransitEncryptionEnabled
     , ccSnapshotWindow
     , ccCacheClusterId
     , ccConfigurationEndpoint
     , ccEngine
     , ccCacheSecurityGroups
+    , ccAuthTokenEnabled
     , ccClientDownloadLandingPage
     , ccPreferredMaintenanceWindow
     , ccCacheSubnetGroupName
@@ -302,8 +305,11 @@ module Network.AWS.ElastiCache.Types
     , rgNodeGroups
     , rgSnapshottingClusterId
     , rgClusterEnabled
+    , rgAtRestEncryptionEnabled
+    , rgTransitEncryptionEnabled
     , rgSnapshotWindow
     , rgConfigurationEndpoint
+    , rgAuthTokenEnabled
     , rgMemberClusters
     , rgSnapshotRetentionLimit
     , rgDescription
@@ -314,6 +320,7 @@ module Network.AWS.ElastiCache.Types
     -- * ReplicationGroupPendingModifiedValues
     , ReplicationGroupPendingModifiedValues
     , replicationGroupPendingModifiedValues
+    , rgpmvResharding
     , rgpmvPrimaryClusterId
     , rgpmvAutomaticFailoverStatus
 
@@ -345,11 +352,26 @@ module Network.AWS.ElastiCache.Types
     , rcnoDuration
     , rcnoReservedCacheNodesOfferingId
 
+    -- * ReshardingConfiguration
+    , ReshardingConfiguration
+    , reshardingConfiguration
+    , rcPreferredAvailabilityZones
+
+    -- * ReshardingStatus
+    , ReshardingStatus
+    , reshardingStatus
+    , rsSlotMigration
+
     -- * SecurityGroupMembership
     , SecurityGroupMembership
     , securityGroupMembership
     , sgmStatus
     , sgmSecurityGroupId
+
+    -- * SlotMigration
+    , SlotMigration
+    , slotMigration
+    , smProgressPercentage
 
     -- * Snapshot
     , Snapshot
@@ -473,7 +495,7 @@ _CacheSubnetGroupAlreadyExistsFault =
   _MatchServiceError elastiCache "CacheSubnetGroupAlreadyExists" . hasStatus 400
 
 
--- | The request cannot be processed because it would exceed the maximum of 15 node groups (shards) in a single replication group.
+-- | The request cannot be processed because it would exceed the maximum allowed number of node groups (shards) in a single replication group. The default maximum is 15
 --
 --
 _NodeGroupsPerReplicationGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -587,7 +609,7 @@ _SnapshotQuotaExceededFault =
   _MatchServiceError elastiCache "SnapshotQuotaExceededFault" . hasStatus 400
 
 
--- | The request cannot be processed because it would exceed the allowed number of cache nodes in a single cache cluster.
+-- | The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.
 --
 --
 _NodeQuotaForClusterExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -640,9 +662,9 @@ _CacheSubnetGroupNotFoundFault =
 -- | You attempted one of the following operations:
 --
 --
---     * Creating a snapshot of a Redis cache cluster running on a @cache.t1.micro@ cache node.
+--     * Creating a snapshot of a Redis cluster running on a @cache.t1.micro@ cache node.
 --
---     * Creating a snapshot of a cache cluster that is running Memcached rather than Redis.
+--     * Creating a snapshot of a cluster that is running Memcached rather than Redis.
 --
 --
 --
@@ -699,7 +721,7 @@ _SubnetInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _SubnetInUse = _MatchServiceError elastiCache "SubnetInUse" . hasStatus 400
 
 
--- | The requested cache cluster ID does not refer to an existing cache cluster.
+-- | The requested cluster ID does not refer to an existing cluster.
 --
 --
 _CacheClusterNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -707,7 +729,7 @@ _CacheClusterNotFoundFault =
   _MatchServiceError elastiCache "CacheClusterNotFound" . hasStatus 404
 
 
--- | The request cannot be processed because it would exceed the allowed number of cache clusters per customer.
+-- | The request cannot be processed because it would exceed the allowed number of clusters per customer.
 --
 --
 _ClusterQuotaForCustomerExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -724,7 +746,7 @@ _AuthorizationNotFoundFault =
   _MatchServiceError elastiCache "AuthorizationNotFound" . hasStatus 404
 
 
--- | The requested cache cluster is not in the @available@ state.
+-- | The requested cluster is not in the @available@ state.
 --
 --
 _InvalidCacheClusterStateFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -741,7 +763,7 @@ _CacheSecurityGroupQuotaExceededFault =
   hasStatus 400
 
 
--- | You already have a cache cluster with the given identifier.
+-- | You already have a cluster with the given identifier.
 --
 --
 _CacheClusterAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError

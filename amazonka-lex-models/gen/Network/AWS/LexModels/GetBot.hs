@@ -21,7 +21,7 @@
 -- Returns metadata information for a specific bot. You must provide the bot name and the bot version or alias.
 --
 --
--- The GetBot operation requires permissions for the @lex:GetBot@ action.
+-- This operation requires permissions for the @lex:GetBot@ action.
 --
 module Network.AWS.LexModels.GetBot
     (
@@ -100,7 +100,7 @@ instance AWSRequest GetBot where
                  GetBotResponse' <$>
                    (x .?> "failureReason") <*> (x .?> "status") <*>
                      (x .?> "abortStatement")
-                     <*> (x .?> "intents")
+                     <*> (x .?> "intents" .!@ mempty)
                      <*> (x .?> "checksum")
                      <*> (x .?> "locale")
                      <*> (x .?> "createdDate")
@@ -139,7 +139,7 @@ data GetBotResponse = GetBotResponse'
   { _gbrsFailureReason           :: {-# NOUNPACK #-}!(Maybe Text)
   , _gbrsStatus                  :: {-# NOUNPACK #-}!(Maybe LexStatus)
   , _gbrsAbortStatement          :: {-# NOUNPACK #-}!(Maybe Statement)
-  , _gbrsIntents                 :: {-# NOUNPACK #-}!(Maybe (List1 Intent))
+  , _gbrsIntents                 :: {-# NOUNPACK #-}!(Maybe [Intent])
   , _gbrsChecksum                :: {-# NOUNPACK #-}!(Maybe Text)
   , _gbrsLocale                  :: {-# NOUNPACK #-}!(Maybe Locale)
   , _gbrsCreatedDate             :: {-# NOUNPACK #-}!(Maybe POSIX)
@@ -227,8 +227,8 @@ gbrsAbortStatement :: Lens' GetBotResponse (Maybe Statement)
 gbrsAbortStatement = lens _gbrsAbortStatement (\ s a -> s{_gbrsAbortStatement = a});
 
 -- | An array of @intent@ objects. For more information, see 'PutBot' .
-gbrsIntents :: Lens' GetBotResponse (Maybe (NonEmpty Intent))
-gbrsIntents = lens _gbrsIntents (\ s a -> s{_gbrsIntents = a}) . mapping _List1;
+gbrsIntents :: Lens' GetBotResponse [Intent]
+gbrsIntents = lens _gbrsIntents (\ s a -> s{_gbrsIntents = a}) . _Default . _Coerce;
 
 -- | Checksum of the bot used to identify a specific revision of the bot's @> LATEST@ version.
 gbrsChecksum :: Lens' GetBotResponse (Maybe Text)

@@ -64,7 +64,7 @@ data CreateTrigger = CreateTrigger'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctSchedule' - A cron schedule expression for the new trigger.
+-- * 'ctSchedule' - A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 --
 -- * 'ctPredicate' - A predicate to specify when the new trigger should fire.
 --
@@ -90,7 +90,7 @@ createTrigger pName_ pType_ =
   }
 
 
--- | A cron schedule expression for the new trigger.
+-- | A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 ctSchedule :: Lens' CreateTrigger (Maybe Text)
 ctSchedule = lens _ctSchedule (\ s a -> s{_ctSchedule = a});
 

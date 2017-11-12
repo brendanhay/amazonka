@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a URL to start an AppStream 2.0 streaming session for a user. By default, the URL is valid only for 1 minute from the time that it is generated.
+-- Creates a URL to start a streaming session for the specified user.
 --
+--
+-- By default, the URL is valid only for one minute from the time that it is generated.
 --
 module Network.AWS.AppStream.CreateStreamingURL
     (
@@ -65,17 +67,17 @@ data CreateStreamingURL = CreateStreamingURL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csuSessionContext' - The sessionContext of the streaming URL.
+-- * 'csuSessionContext' - The session context of the streaming URL.
 --
 -- * 'csuApplicationId' - The ID of the application that must be launched after the session starts.
 --
--- * 'csuValidity' - The duration up to which the URL returned by this action is valid. The input can be any numeric value in seconds between 1 and 604800 seconds.
+-- * 'csuValidity' - The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds.
 --
--- * 'csuStackName' - The stack for which the URL is generated.
+-- * 'csuStackName' - The name of the stack.
 --
--- * 'csuFleetName' - The fleet for which the URL is generated.
+-- * 'csuFleetName' - The name of the fleet.
 --
--- * 'csuUserId' - A unique user ID for whom the URL is generated.
+-- * 'csuUserId' - The ID of the user.
 createStreamingURL
     :: Text -- ^ 'csuStackName'
     -> Text -- ^ 'csuFleetName'
@@ -92,7 +94,7 @@ createStreamingURL pStackName_ pFleetName_ pUserId_ =
   }
 
 
--- | The sessionContext of the streaming URL.
+-- | The session context of the streaming URL.
 csuSessionContext :: Lens' CreateStreamingURL (Maybe Text)
 csuSessionContext = lens _csuSessionContext (\ s a -> s{_csuSessionContext = a});
 
@@ -100,19 +102,19 @@ csuSessionContext = lens _csuSessionContext (\ s a -> s{_csuSessionContext = a})
 csuApplicationId :: Lens' CreateStreamingURL (Maybe Text)
 csuApplicationId = lens _csuApplicationId (\ s a -> s{_csuApplicationId = a});
 
--- | The duration up to which the URL returned by this action is valid. The input can be any numeric value in seconds between 1 and 604800 seconds.
+-- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds.
 csuValidity :: Lens' CreateStreamingURL (Maybe Integer)
 csuValidity = lens _csuValidity (\ s a -> s{_csuValidity = a});
 
--- | The stack for which the URL is generated.
+-- | The name of the stack.
 csuStackName :: Lens' CreateStreamingURL Text
 csuStackName = lens _csuStackName (\ s a -> s{_csuStackName = a});
 
--- | The fleet for which the URL is generated.
+-- | The name of the fleet.
 csuFleetName :: Lens' CreateStreamingURL Text
 csuFleetName = lens _csuFleetName (\ s a -> s{_csuFleetName = a});
 
--- | A unique user ID for whom the URL is generated.
+-- | The ID of the user.
 csuUserId :: Lens' CreateStreamingURL Text
 csuUserId = lens _csuUserId (\ s a -> s{_csuUserId = a});
 
@@ -172,7 +174,7 @@ data CreateStreamingURLResponse = CreateStreamingURLResponse'
 --
 -- * 'csursStreamingURL' - The URL to start the AppStream 2.0 streaming session.
 --
--- * 'csursExpires' - Elapsed seconds after the Unix epoch, when this URL expires.
+-- * 'csursExpires' - The elapsed time, in seconds after the Unix epoch, when this URL expires.
 --
 -- * 'csursResponseStatus' - -- | The response status code.
 createStreamingURLResponse
@@ -190,7 +192,7 @@ createStreamingURLResponse pResponseStatus_ =
 csursStreamingURL :: Lens' CreateStreamingURLResponse (Maybe Text)
 csursStreamingURL = lens _csursStreamingURL (\ s a -> s{_csursStreamingURL = a});
 
--- | Elapsed seconds after the Unix epoch, when this URL expires.
+-- | The elapsed time, in seconds after the Unix epoch, when this URL expires.
 csursExpires :: Lens' CreateStreamingURLResponse (Maybe UTCTime)
 csursExpires = lens _csursExpires (\ s a -> s{_csursExpires = a}) . mapping _Time;
 

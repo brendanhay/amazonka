@@ -30,6 +30,7 @@ module Network.AWS.APIGateway.CreateRestAPI
     , craBinaryMediaTypes
     , craVersion
     , craCloneFrom
+    , craEndpointConfiguration
     , craDescription
     , craName
 
@@ -43,6 +44,7 @@ module Network.AWS.APIGateway.CreateRestAPI
     , raName
     , raVersion
     , raId
+    , raEndpointConfiguration
     , raDescription
     ) where
 
@@ -59,11 +61,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'createRestAPI' smart constructor.
 data CreateRestAPI = CreateRestAPI'
-  { _craBinaryMediaTypes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _craVersion          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _craCloneFrom        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _craDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _craName             :: {-# NOUNPACK #-}!Text
+  { _craBinaryMediaTypes      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _craVersion               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _craCloneFrom             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _craEndpointConfiguration :: {-# NOUNPACK #-}!(Maybe EndpointConfiguration)
+  , _craDescription           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _craName                  :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -77,6 +80,8 @@ data CreateRestAPI = CreateRestAPI'
 --
 -- * 'craCloneFrom' - The ID of the 'RestApi' that you want to clone from.
 --
+-- * 'craEndpointConfiguration' - The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
+--
 -- * 'craDescription' - The description of the 'RestApi' .
 --
 -- * 'craName' - The name of the 'RestApi' .
@@ -88,6 +93,7 @@ createRestAPI pName_ =
   { _craBinaryMediaTypes = Nothing
   , _craVersion = Nothing
   , _craCloneFrom = Nothing
+  , _craEndpointConfiguration = Nothing
   , _craDescription = Nothing
   , _craName = pName_
   }
@@ -104,6 +110,10 @@ craVersion = lens _craVersion (\ s a -> s{_craVersion = a});
 -- | The ID of the 'RestApi' that you want to clone from.
 craCloneFrom :: Lens' CreateRestAPI (Maybe Text)
 craCloneFrom = lens _craCloneFrom (\ s a -> s{_craCloneFrom = a});
+
+-- | The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
+craEndpointConfiguration :: Lens' CreateRestAPI (Maybe EndpointConfiguration)
+craEndpointConfiguration = lens _craEndpointConfiguration (\ s a -> s{_craEndpointConfiguration = a});
 
 -- | The description of the 'RestApi' .
 craDescription :: Lens' CreateRestAPI (Maybe Text)
@@ -135,6 +145,8 @@ instance ToJSON CreateRestAPI where
                  [("binaryMediaTypes" .=) <$> _craBinaryMediaTypes,
                   ("version" .=) <$> _craVersion,
                   ("cloneFrom" .=) <$> _craCloneFrom,
+                  ("endpointConfiguration" .=) <$>
+                    _craEndpointConfiguration,
                   ("description" .=) <$> _craDescription,
                   Just ("name" .= _craName)])
 

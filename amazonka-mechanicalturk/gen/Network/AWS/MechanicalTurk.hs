@@ -240,8 +240,8 @@ module Network.AWS.MechanicalTurk
     -- ** HITLayoutParameter
     , HITLayoutParameter
     , hITLayoutParameter
-    , hitlpValue
     , hitlpName
+    , hitlpValue
 
     -- ** Locale
     , Locale
@@ -252,10 +252,10 @@ module Network.AWS.MechanicalTurk
     -- ** NotificationSpecification
     , NotificationSpecification
     , notificationSpecification
-    , nsEventTypes
-    , nsVersion
     , nsDestination
     , nsTransport
+    , nsVersion
+    , nsEventTypes
 
     -- ** NotifyWorkersFailureStatus
     , NotifyWorkersFailureStatus
@@ -338,8 +338,8 @@ module Network.AWS.MechanicalTurk
     -- ** ReviewPolicy
     , ReviewPolicy
     , reviewPolicy
-    , rpPolicyName
     , rpParameters
+    , rpPolicyName
 
     -- ** ReviewReport
     , ReviewReport

@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified set of tags from the specified set of resources. This call is designed to follow a @DescribeTags@ request.
+-- Deletes the specified set of tags from the specified set of resources.
 --
 --
--- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- To list the current tags, use 'DescribeTags' . For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.DeleteTags
     (
@@ -63,9 +63,9 @@ data DeleteTags = DeleteTags'
 --
 -- * 'dtsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dtsTags' - One or more tags to delete. If you omit the @value@ parameter, we delete the tag regardless of its value. If you specify this parameter with an empty string as the value, we delete the key only if its value is an empty string.
+-- * 'dtsTags' - One or more tags to delete. If you omit this parameter, we delete all tags for the specified resources. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
 --
--- * 'dtsResources' - The ID of the resource. For example, ami-1a2b3c4d. You can specify more than one resource ID.
+-- * 'dtsResources' - The IDs of one or more resources.
 deleteTags
     :: DeleteTags
 deleteTags =
@@ -76,11 +76,11 @@ deleteTags =
 dtsDryRun :: Lens' DeleteTags (Maybe Bool)
 dtsDryRun = lens _dtsDryRun (\ s a -> s{_dtsDryRun = a});
 
--- | One or more tags to delete. If you omit the @value@ parameter, we delete the tag regardless of its value. If you specify this parameter with an empty string as the value, we delete the key only if its value is an empty string.
+-- | One or more tags to delete. If you omit this parameter, we delete all tags for the specified resources. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.
 dtsTags :: Lens' DeleteTags [Tag]
 dtsTags = lens _dtsTags (\ s a -> s{_dtsTags = a}) . _Default . _Coerce;
 
--- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more than one resource ID.
+-- | The IDs of one or more resources.
 dtsResources :: Lens' DeleteTags [Text]
 dtsResources = lens _dtsResources (\ s a -> s{_dtsResources = a}) . _Coerce;
 

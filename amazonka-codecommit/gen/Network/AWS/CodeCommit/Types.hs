@@ -36,6 +36,7 @@ module Network.AWS.CodeCommit.Types
     , _InvalidBlobIdException
     , _InvalidOrderException
     , _BranchDoesNotExistException
+    , _DefaultBranchCannotBeDeletedException
     , _InvalidPathException
     , _RepositoryTriggerNameRequiredException
     , _RepositoryDoesNotExistException
@@ -91,6 +92,7 @@ module Network.AWS.CodeCommit.Types
     -- * Commit
     , Commit
     , commit
+    , cCommitId
     , cCommitter
     , cTreeId
     , cAdditionalData
@@ -349,6 +351,14 @@ _InvalidOrderException = _MatchServiceError codeCommit "InvalidOrderException"
 _BranchDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _BranchDoesNotExistException =
   _MatchServiceError codeCommit "BranchDoesNotExistException"
+
+
+-- | The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.
+--
+--
+_DefaultBranchCannotBeDeletedException :: AsError a => Getting (First ServiceError) a ServiceError
+_DefaultBranchCannotBeDeletedException =
+  _MatchServiceError codeCommit "DefaultBranchCannotBeDeletedException"
 
 
 -- | The specified path is not valid.

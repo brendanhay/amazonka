@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels jobs in an AWS Batch job queue. Jobs that are in the @SUBMITTED@ , @PENDING@ , or @RUNNABLE@ state are cancelled. Jobs that have progressed to @STARTING@ or @RUNNING@ are not cancelled (but the API operation still succeeds, even if no jobs are cancelled); these jobs must be terminated with the 'TerminateJob' operation.
+-- Cancels a job in an AWS Batch job queue. Jobs that are in the @SUBMITTED@ , @PENDING@ , or @RUNNABLE@ state are cancelled. Jobs that have progressed to @STARTING@ or @RUNNING@ are not cancelled (but the API operation still succeeds, even if no job is cancelled); these jobs must be terminated with the 'TerminateJob' operation.
 --
 --
 module Network.AWS.Batch.CancelJob
@@ -55,7 +55,7 @@ data CancelJob = CancelJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cjJobId' - A list of up to 100 job IDs to cancel.
+-- * 'cjJobId' - The AWS Batch job ID of the job to cancel.
 --
 -- * 'cjReason' - A message to attach to the job that explains the reason for cancelling it. This message is returned by future 'DescribeJobs' operations on the job. This message is also recorded in the AWS Batch activity logs.
 cancelJob
@@ -66,7 +66,7 @@ cancelJob pJobId_ pReason_ =
   CancelJob' {_cjJobId = pJobId_, _cjReason = pReason_}
 
 
--- | A list of up to 100 job IDs to cancel.
+-- | The AWS Batch job ID of the job to cancel.
 cjJobId :: Lens' CancelJob Text
 cjJobId = lens _cjJobId (\ s a -> s{_cjJobId = a});
 

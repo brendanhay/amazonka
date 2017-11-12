@@ -70,11 +70,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for PutLifecycleHook.
---
---
---
--- /See:/ 'putLifecycleHook' smart constructor.
+-- | /See:/ 'putLifecycleHook' smart constructor.
 data PutLifecycleHook = PutLifecycleHook'
   { _plhDefaultResult         :: {-# NOUNPACK #-}!(Maybe Text)
   , _plhHeartbeatTimeout      :: {-# NOUNPACK #-}!(Maybe Int)
@@ -93,7 +89,7 @@ data PutLifecycleHook = PutLifecycleHook'
 --
 -- * 'plhDefaultResult' - Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. This parameter can be either @CONTINUE@ or @ABANDON@ . The default value is @ABANDON@ .
 --
--- * 'plhHeartbeatTimeout' - The amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the default action. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' . The default is 3600 seconds (1 hour).
+-- * 'plhHeartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from 30 to 7200 seconds. The default is 3600 seconds (1 hour). If the lifecycle hook times out, Auto Scaling performs the default action. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
 --
 -- * 'plhNotificationMetadata' - Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
 --
@@ -127,7 +123,7 @@ putLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
 plhDefaultResult :: Lens' PutLifecycleHook (Maybe Text)
 plhDefaultResult = lens _plhDefaultResult (\ s a -> s{_plhDefaultResult = a});
 
--- | The amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the default action. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' . The default is 3600 seconds (1 hour).
+-- | The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from 30 to 7200 seconds. The default is 3600 seconds (1 hour). If the lifecycle hook times out, Auto Scaling performs the default action. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
 plhHeartbeatTimeout :: Lens' PutLifecycleHook (Maybe Int)
 plhHeartbeatTimeout = lens _plhHeartbeatTimeout (\ s a -> s{_plhHeartbeatTimeout = a});
 
@@ -187,11 +183,7 @@ instance ToQuery PutLifecycleHook where
                "LifecycleHookName" =: _plhLifecycleHookName,
                "AutoScalingGroupName" =: _plhAutoScalingGroupName]
 
--- | Contains the output of PutLifecycleHook.
---
---
---
--- /See:/ 'putLifecycleHookResponse' smart constructor.
+-- | /See:/ 'putLifecycleHookResponse' smart constructor.
 newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
   { _plhrsResponseStatus :: Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)

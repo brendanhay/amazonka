@@ -69,6 +69,9 @@ module Network.AWS.ServiceCatalog
     -- ** CreateProduct
     , module Network.AWS.ServiceCatalog.CreateProduct
 
+    -- ** DescribeCopyProductStatus
+    , module Network.AWS.ServiceCatalog.DescribeCopyProductStatus
+
     -- ** TerminateProvisionedProduct
     , module Network.AWS.ServiceCatalog.TerminateProvisionedProduct
 
@@ -195,6 +198,9 @@ module Network.AWS.ServiceCatalog
     -- ** DescribeProvisionedProduct
     , module Network.AWS.ServiceCatalog.DescribeProvisionedProduct
 
+    -- ** CopyProduct
+    , module Network.AWS.ServiceCatalog.CopyProduct
+
     -- ** UpdateProvisioningArtifact
     , module Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
 
@@ -218,6 +224,12 @@ module Network.AWS.ServiceCatalog
     -- ** AccessLevelFilterKey
     , AccessLevelFilterKey (..)
 
+    -- ** CopyOption
+    , CopyOption (..)
+
+    -- ** CopyProductStatus
+    , CopyProductStatus (..)
+
     -- ** PrincipalType
     , PrincipalType (..)
 
@@ -235,6 +247,9 @@ module Network.AWS.ServiceCatalog
 
     -- ** ProvisionedProductStatus
     , ProvisionedProductStatus (..)
+
+    -- ** ProvisioningArtifactPropertyName
+    , ProvisioningArtifactPropertyName (..)
 
     -- ** ProvisioningArtifactType
     , ProvisioningArtifactType (..)
@@ -485,6 +500,7 @@ import Network.AWS.ServiceCatalog.AcceptPortfolioShare
 import Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
 import Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
 import Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
+import Network.AWS.ServiceCatalog.CopyProduct
 import Network.AWS.ServiceCatalog.CreateConstraint
 import Network.AWS.ServiceCatalog.CreatePortfolio
 import Network.AWS.ServiceCatalog.CreatePortfolioShare
@@ -497,6 +513,7 @@ import Network.AWS.ServiceCatalog.DeletePortfolioShare
 import Network.AWS.ServiceCatalog.DeleteProduct
 import Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
 import Network.AWS.ServiceCatalog.DescribeConstraint
+import Network.AWS.ServiceCatalog.DescribeCopyProductStatus
 import Network.AWS.ServiceCatalog.DescribePortfolio
 import Network.AWS.ServiceCatalog.DescribeProduct
 import Network.AWS.ServiceCatalog.DescribeProductAsAdmin

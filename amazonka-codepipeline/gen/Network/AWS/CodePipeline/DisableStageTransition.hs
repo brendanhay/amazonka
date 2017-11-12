@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a disable stage transition input action.
+-- | Represents the input of a DisableStageTransition action.
 --
 --
 --

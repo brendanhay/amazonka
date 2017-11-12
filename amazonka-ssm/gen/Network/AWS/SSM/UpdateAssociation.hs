@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an association. You can only update the document version, schedule, parameters, and Amazon S3 output of an association.
+-- Updates an association. You can update the association name and version, the document version, schedule, parameters, and Amazon S3 output.
 --
 --
 module Network.AWS.SSM.UpdateAssociation
@@ -33,6 +33,8 @@ module Network.AWS.SSM.UpdateAssociation
     , uaTargets
     , uaParameters
     , uaDocumentVersion
+    , uaAssociationVersion
+    , uaAssociationName
     , uaAssociationId
 
     -- * Destructuring the Response
@@ -58,6 +60,8 @@ data UpdateAssociation = UpdateAssociation'
   , _uaTargets :: {-# NOUNPACK #-}!(Maybe [Target])
   , _uaParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
   , _uaDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uaAssociationVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uaAssociationName :: {-# NOUNPACK #-}!(Maybe Text)
   , _uaAssociationId :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -78,6 +82,10 @@ data UpdateAssociation = UpdateAssociation'
 --
 -- * 'uaDocumentVersion' - The document version you want update for the association.
 --
+-- * 'uaAssociationVersion' - This parameter is provided for concurrency control purposes. You must specify the latest association version in the service. If you want to ensure that this request succeeds, either specify @> LATEST@ , or omit this parameter.
+--
+-- * 'uaAssociationName' - The name of the association that you want to update.
+--
 -- * 'uaAssociationId' - The ID of the association you want to update.
 updateAssociation
     :: Text -- ^ 'uaAssociationId'
@@ -90,6 +98,8 @@ updateAssociation pAssociationId_ =
   , _uaTargets = Nothing
   , _uaParameters = Nothing
   , _uaDocumentVersion = Nothing
+  , _uaAssociationVersion = Nothing
+  , _uaAssociationName = Nothing
   , _uaAssociationId = pAssociationId_
   }
 
@@ -117,6 +127,14 @@ uaParameters = lens _uaParameters (\ s a -> s{_uaParameters = a}) . _Default . _
 -- | The document version you want update for the association.
 uaDocumentVersion :: Lens' UpdateAssociation (Maybe Text)
 uaDocumentVersion = lens _uaDocumentVersion (\ s a -> s{_uaDocumentVersion = a});
+
+-- | This parameter is provided for concurrency control purposes. You must specify the latest association version in the service. If you want to ensure that this request succeeds, either specify @> LATEST@ , or omit this parameter.
+uaAssociationVersion :: Lens' UpdateAssociation (Maybe Text)
+uaAssociationVersion = lens _uaAssociationVersion (\ s a -> s{_uaAssociationVersion = a});
+
+-- | The name of the association that you want to update.
+uaAssociationName :: Lens' UpdateAssociation (Maybe Text)
+uaAssociationName = lens _uaAssociationName (\ s a -> s{_uaAssociationName = a});
 
 -- | The ID of the association you want to update.
 uaAssociationId :: Lens' UpdateAssociation Text
@@ -155,6 +173,8 @@ instance ToJSON UpdateAssociation where
                   ("Targets" .=) <$> _uaTargets,
                   ("Parameters" .=) <$> _uaParameters,
                   ("DocumentVersion" .=) <$> _uaDocumentVersion,
+                  ("AssociationVersion" .=) <$> _uaAssociationVersion,
+                  ("AssociationName" .=) <$> _uaAssociationName,
                   Just ("AssociationId" .= _uaAssociationId)])
 
 instance ToPath UpdateAssociation where

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list describing the specified directory configurations.
+-- Describes the specified directory configurations.
 --
 --
 module Network.AWS.AppStream.DescribeDirectoryConfigs
@@ -59,11 +59,11 @@ data DescribeDirectoryConfigs = DescribeDirectoryConfigs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcNextToken' - The DescribeDirectoryConfigsResult.NextToken from a previous call to DescribeDirectoryConfigs. If this is the first call, pass null.
+-- * 'ddcNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 --
--- * 'ddcDirectoryNames' - A specific list of directory names.
+-- * 'ddcDirectoryNames' - The directory names.
 --
--- * 'ddcMaxResults' - The size of each page of results.
+-- * 'ddcMaxResults' - The maximum size of each page of results.
 describeDirectoryConfigs
     :: DescribeDirectoryConfigs
 describeDirectoryConfigs =
@@ -74,15 +74,15 @@ describeDirectoryConfigs =
   }
 
 
--- | The DescribeDirectoryConfigsResult.NextToken from a previous call to DescribeDirectoryConfigs. If this is the first call, pass null.
+-- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 ddcNextToken :: Lens' DescribeDirectoryConfigs (Maybe Text)
 ddcNextToken = lens _ddcNextToken (\ s a -> s{_ddcNextToken = a});
 
--- | A specific list of directory names.
+-- | The directory names.
 ddcDirectoryNames :: Lens' DescribeDirectoryConfigs [Text]
 ddcDirectoryNames = lens _ddcDirectoryNames (\ s a -> s{_ddcDirectoryNames = a}) . _Default . _Coerce;
 
--- | The size of each page of results.
+-- | The maximum size of each page of results.
 ddcMaxResults :: Lens' DescribeDirectoryConfigs (Maybe Int)
 ddcMaxResults = lens _ddcMaxResults (\ s a -> s{_ddcMaxResults = a});
 
@@ -138,9 +138,9 @@ data DescribeDirectoryConfigsResponse = DescribeDirectoryConfigsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcrsNextToken' - If not null, more results are available. To retrieve the next set of items, pass this value for the NextToken parameter in a subsequent call to DescribeDirectoryConfigs.
+-- * 'ddcrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
--- * 'ddcrsDirectoryConfigs' - The list of directory configurations.
+-- * 'ddcrsDirectoryConfigs' - Information about the directory configurations.
 --
 -- * 'ddcrsResponseStatus' - -- | The response status code.
 describeDirectoryConfigsResponse
@@ -154,11 +154,11 @@ describeDirectoryConfigsResponse pResponseStatus_ =
   }
 
 
--- | If not null, more results are available. To retrieve the next set of items, pass this value for the NextToken parameter in a subsequent call to DescribeDirectoryConfigs.
+-- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 ddcrsNextToken :: Lens' DescribeDirectoryConfigsResponse (Maybe Text)
 ddcrsNextToken = lens _ddcrsNextToken (\ s a -> s{_ddcrsNextToken = a});
 
--- | The list of directory configurations.
+-- | Information about the directory configurations.
 ddcrsDirectoryConfigs :: Lens' DescribeDirectoryConfigsResponse [DirectoryConfig]
 ddcrsDirectoryConfigs = lens _ddcrsDirectoryConfigs (\ s a -> s{_ddcrsDirectoryConfigs = a}) . _Default . _Coerce;
 

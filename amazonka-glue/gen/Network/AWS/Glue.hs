@@ -11,7 +11,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Defines service operations used by the GlueFrontendService
+-- __AWS Glue__
+--
+-- Defines the public endpoint for the AWS Glue service.
+--
 module Network.AWS.Glue
     (
     -- * Service Configuration
@@ -221,6 +224,9 @@ module Network.AWS.Glue
     -- ** GetCrawler
     , module Network.AWS.Glue.GetCrawler
 
+    -- ** BatchStopJobRun
+    , module Network.AWS.Glue.BatchStopJobRun
+
     -- ** GetDevEndpoint
     , module Network.AWS.Glue.GetDevEndpoint
 
@@ -354,6 +360,19 @@ module Network.AWS.Glue
     , action
     , aArguments
     , aJobName
+
+    -- ** BatchStopJobRunError
+    , BatchStopJobRunError
+    , batchStopJobRunError
+    , bsjreJobName
+    , bsjreJobRunId
+    , bsjreErrorDetail
+
+    -- ** BatchStopJobRunSuccessfulSubmission
+    , BatchStopJobRunSuccessfulSubmission
+    , batchStopJobRunSuccessfulSubmission
+    , bsjrssJobName
+    , bsjrssJobRunId
 
     -- ** CatalogEntry
     , CatalogEntry
@@ -515,6 +534,7 @@ module Network.AWS.Glue
     , deNumberOfNodes
     , dePublicAddress
     , deAvailabilityZone
+    , deZeppelinRemoteSparkInterpreterPort
     , deExtraJARsS3Path
     , deCreatedTimestamp
     , deYarnEndpointAddress
@@ -867,6 +887,7 @@ import Network.AWS.Glue.BatchDeleteConnection
 import Network.AWS.Glue.BatchDeletePartition
 import Network.AWS.Glue.BatchDeleteTable
 import Network.AWS.Glue.BatchGetPartition
+import Network.AWS.Glue.BatchStopJobRun
 import Network.AWS.Glue.CreateClassifier
 import Network.AWS.Glue.CreateConnection
 import Network.AWS.Glue.CreateCrawler

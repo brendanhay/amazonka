@@ -62,7 +62,7 @@ data ModifyRule = ModifyRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mrActions' - The actions.
+-- * 'mrActions' - The actions. The target group must use the HTTP or HTTPS protocol.
 --
 -- * 'mrConditions' - The conditions.
 --
@@ -75,7 +75,7 @@ modifyRule pRuleARN_ =
   {_mrActions = Nothing, _mrConditions = Nothing, _mrRuleARN = pRuleARN_}
 
 
--- | The actions.
+-- | The actions. The target group must use the HTTP or HTTPS protocol.
 mrActions :: Lens' ModifyRule [Action]
 mrActions = lens _mrActions (\ s a -> s{_mrActions = a}) . _Default . _Coerce;
 

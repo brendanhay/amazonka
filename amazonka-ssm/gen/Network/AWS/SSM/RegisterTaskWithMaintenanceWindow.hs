@@ -86,7 +86,7 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 --
 -- * 'rtwmwClientToken' - User-provided idempotency token.
 --
--- * 'rtwmwTaskInvocationParameters' - Parameters the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
+-- * 'rtwmwTaskInvocationParameters' - The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
 --
 -- * 'rtwmwName' - An optional name for the task.
 --
@@ -146,7 +146,7 @@ rtwmwPriority = lens _rtwmwPriority (\ s a -> s{_rtwmwPriority = a}) . mapping _
 rtwmwClientToken :: Lens' RegisterTaskWithMaintenanceWindow (Maybe Text)
 rtwmwClientToken = lens _rtwmwClientToken (\ s a -> s{_rtwmwClientToken = a});
 
--- | Parameters the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
+-- | The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
 rtwmwTaskInvocationParameters :: Lens' RegisterTaskWithMaintenanceWindow (Maybe MaintenanceWindowTaskInvocationParameters)
 rtwmwTaskInvocationParameters = lens _rtwmwTaskInvocationParameters (\ s a -> s{_rtwmwTaskInvocationParameters = a});
 

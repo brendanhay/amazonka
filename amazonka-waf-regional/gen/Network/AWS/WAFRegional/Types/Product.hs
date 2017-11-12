@@ -378,6 +378,206 @@ instance ToJSON FieldToMatch where
                  [("Data" .=) <$> _ftmData,
                   Just ("Type" .= _ftmType)])
 
+-- | The country from which web requests originate that you want AWS WAF to search for.
+--
+--
+--
+-- /See:/ 'geoMatchConstraint' smart constructor.
+data GeoMatchConstraint = GeoMatchConstraint'
+  { _gmcType  :: {-# NOUNPACK #-}!GeoMatchConstraintType
+  , _gmcValue :: {-# NOUNPACK #-}!GeoMatchConstraintValue
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'GeoMatchConstraint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gmcType' - The type of geographical area you want AWS WAF to search for. Currently @Country@ is the only valid value.
+--
+-- * 'gmcValue' - The country that you want AWS WAF to search for.
+geoMatchConstraint
+    :: GeoMatchConstraintType -- ^ 'gmcType'
+    -> GeoMatchConstraintValue -- ^ 'gmcValue'
+    -> GeoMatchConstraint
+geoMatchConstraint pType_ pValue_ =
+  GeoMatchConstraint' {_gmcType = pType_, _gmcValue = pValue_}
+
+
+-- | The type of geographical area you want AWS WAF to search for. Currently @Country@ is the only valid value.
+gmcType :: Lens' GeoMatchConstraint GeoMatchConstraintType
+gmcType = lens _gmcType (\ s a -> s{_gmcType = a});
+
+-- | The country that you want AWS WAF to search for.
+gmcValue :: Lens' GeoMatchConstraint GeoMatchConstraintValue
+gmcValue = lens _gmcValue (\ s a -> s{_gmcValue = a});
+
+instance FromJSON GeoMatchConstraint where
+        parseJSON
+          = withObject "GeoMatchConstraint"
+              (\ x ->
+                 GeoMatchConstraint' <$>
+                   (x .: "Type") <*> (x .: "Value"))
+
+instance Hashable GeoMatchConstraint where
+
+instance NFData GeoMatchConstraint where
+
+instance ToJSON GeoMatchConstraint where
+        toJSON GeoMatchConstraint'{..}
+          = object
+              (catMaybes
+                 [Just ("Type" .= _gmcType),
+                  Just ("Value" .= _gmcValue)])
+
+-- | Contains one or more countries that AWS WAF will search for.
+--
+--
+--
+-- /See:/ 'geoMatchSet' smart constructor.
+data GeoMatchSet = GeoMatchSet'
+  { _gmsName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gmsGeoMatchSetId       :: {-# NOUNPACK #-}!Text
+  , _gmsGeoMatchConstraints :: {-# NOUNPACK #-}![GeoMatchConstraint]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'GeoMatchSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gmsName' - A friendly name or description of the 'GeoMatchSet' . You can't change the name of an @GeoMatchSet@ after you create it.
+--
+-- * 'gmsGeoMatchSetId' - The @GeoMatchSetId@ for an @GeoMatchSet@ . You use @GeoMatchSetId@ to get information about a @GeoMatchSet@ (see 'GeoMatchSet' ), update a @GeoMatchSet@ (see 'UpdateGeoMatchSet' ), insert a @GeoMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @GeoMatchSet@ from AWS WAF (see 'DeleteGeoMatchSet' ). @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
+--
+-- * 'gmsGeoMatchConstraints' - An array of 'GeoMatchConstraint' objects, which contain the country that you want AWS WAF to search for.
+geoMatchSet
+    :: Text -- ^ 'gmsGeoMatchSetId'
+    -> GeoMatchSet
+geoMatchSet pGeoMatchSetId_ =
+  GeoMatchSet'
+  { _gmsName = Nothing
+  , _gmsGeoMatchSetId = pGeoMatchSetId_
+  , _gmsGeoMatchConstraints = mempty
+  }
+
+
+-- | A friendly name or description of the 'GeoMatchSet' . You can't change the name of an @GeoMatchSet@ after you create it.
+gmsName :: Lens' GeoMatchSet (Maybe Text)
+gmsName = lens _gmsName (\ s a -> s{_gmsName = a});
+
+-- | The @GeoMatchSetId@ for an @GeoMatchSet@ . You use @GeoMatchSetId@ to get information about a @GeoMatchSet@ (see 'GeoMatchSet' ), update a @GeoMatchSet@ (see 'UpdateGeoMatchSet' ), insert a @GeoMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @GeoMatchSet@ from AWS WAF (see 'DeleteGeoMatchSet' ). @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
+gmsGeoMatchSetId :: Lens' GeoMatchSet Text
+gmsGeoMatchSetId = lens _gmsGeoMatchSetId (\ s a -> s{_gmsGeoMatchSetId = a});
+
+-- | An array of 'GeoMatchConstraint' objects, which contain the country that you want AWS WAF to search for.
+gmsGeoMatchConstraints :: Lens' GeoMatchSet [GeoMatchConstraint]
+gmsGeoMatchConstraints = lens _gmsGeoMatchConstraints (\ s a -> s{_gmsGeoMatchConstraints = a}) . _Coerce;
+
+instance FromJSON GeoMatchSet where
+        parseJSON
+          = withObject "GeoMatchSet"
+              (\ x ->
+                 GeoMatchSet' <$>
+                   (x .:? "Name") <*> (x .: "GeoMatchSetId") <*>
+                     (x .:? "GeoMatchConstraints" .!= mempty))
+
+instance Hashable GeoMatchSet where
+
+instance NFData GeoMatchSet where
+
+-- | Contains the identifier and the name of the @GeoMatchSet@ .
+--
+--
+--
+-- /See:/ 'geoMatchSetSummary' smart constructor.
+data GeoMatchSetSummary = GeoMatchSetSummary'
+  { _gmssGeoMatchSetId :: {-# NOUNPACK #-}!Text
+  , _gmssName          :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'GeoMatchSetSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gmssGeoMatchSetId' - The @GeoMatchSetId@ for an 'GeoMatchSet' . You can use @GeoMatchSetId@ in a 'GetGeoMatchSet' request to get detailed information about an 'GeoMatchSet' .
+--
+-- * 'gmssName' - A friendly name or description of the 'GeoMatchSet' . You can't change the name of an @GeoMatchSet@ after you create it.
+geoMatchSetSummary
+    :: Text -- ^ 'gmssGeoMatchSetId'
+    -> Text -- ^ 'gmssName'
+    -> GeoMatchSetSummary
+geoMatchSetSummary pGeoMatchSetId_ pName_ =
+  GeoMatchSetSummary' {_gmssGeoMatchSetId = pGeoMatchSetId_, _gmssName = pName_}
+
+
+-- | The @GeoMatchSetId@ for an 'GeoMatchSet' . You can use @GeoMatchSetId@ in a 'GetGeoMatchSet' request to get detailed information about an 'GeoMatchSet' .
+gmssGeoMatchSetId :: Lens' GeoMatchSetSummary Text
+gmssGeoMatchSetId = lens _gmssGeoMatchSetId (\ s a -> s{_gmssGeoMatchSetId = a});
+
+-- | A friendly name or description of the 'GeoMatchSet' . You can't change the name of an @GeoMatchSet@ after you create it.
+gmssName :: Lens' GeoMatchSetSummary Text
+gmssName = lens _gmssName (\ s a -> s{_gmssName = a});
+
+instance FromJSON GeoMatchSetSummary where
+        parseJSON
+          = withObject "GeoMatchSetSummary"
+              (\ x ->
+                 GeoMatchSetSummary' <$>
+                   (x .: "GeoMatchSetId") <*> (x .: "Name"))
+
+instance Hashable GeoMatchSetSummary where
+
+instance NFData GeoMatchSetSummary where
+
+-- | Specifies the type of update to perform to an 'GeoMatchSet' with 'UpdateGeoMatchSet' .
+--
+--
+--
+-- /See:/ 'geoMatchSetUpdate' smart constructor.
+data GeoMatchSetUpdate = GeoMatchSetUpdate'
+  { _gmsuAction             :: {-# NOUNPACK #-}!ChangeAction
+  , _gmsuGeoMatchConstraint :: {-# NOUNPACK #-}!GeoMatchConstraint
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'GeoMatchSetUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gmsuAction' - Specifies whether to insert or delete a country with 'UpdateGeoMatchSet' .
+--
+-- * 'gmsuGeoMatchConstraint' - The country from which web requests originate that you want AWS WAF to search for.
+geoMatchSetUpdate
+    :: ChangeAction -- ^ 'gmsuAction'
+    -> GeoMatchConstraint -- ^ 'gmsuGeoMatchConstraint'
+    -> GeoMatchSetUpdate
+geoMatchSetUpdate pAction_ pGeoMatchConstraint_ =
+  GeoMatchSetUpdate'
+  {_gmsuAction = pAction_, _gmsuGeoMatchConstraint = pGeoMatchConstraint_}
+
+
+-- | Specifies whether to insert or delete a country with 'UpdateGeoMatchSet' .
+gmsuAction :: Lens' GeoMatchSetUpdate ChangeAction
+gmsuAction = lens _gmsuAction (\ s a -> s{_gmsuAction = a});
+
+-- | The country from which web requests originate that you want AWS WAF to search for.
+gmsuGeoMatchConstraint :: Lens' GeoMatchSetUpdate GeoMatchConstraint
+gmsuGeoMatchConstraint = lens _gmsuGeoMatchConstraint (\ s a -> s{_gmsuGeoMatchConstraint = a});
+
+instance Hashable GeoMatchSetUpdate where
+
+instance NFData GeoMatchSetUpdate where
+
+instance ToJSON GeoMatchSetUpdate where
+        toJSON GeoMatchSetUpdate'{..}
+          = object
+              (catMaybes
+                 [Just ("Action" .= _gmsuAction),
+                  Just
+                    ("GeoMatchConstraint" .= _gmsuGeoMatchConstraint)])
+
 -- | The response from a 'GetSampledRequests' request includes an @HTTPHeader@ complex type that appears as @Headers@ in the response syntax. @HTTPHeader@ contains the names and values of all of the headers that appear in one of the web requests that were returned by @GetSampledRequests@ .
 --
 --
@@ -697,7 +897,7 @@ instance ToJSON IPSetUpdate where
                  [Just ("Action" .= _isuAction),
                   Just ("IPSetDescriptor" .= _isuIPSetDescriptor)])
 
--- | Specifies the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , and 'SizeConstraintSet' objects that you want to add to a @Rule@ and, for each object, indicates whether you want to negate the settings, for example, requests that do NOT originate from the IP address 192.0.2.44.
+-- | Specifies the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , and 'SizeConstraintSet' objects that you want to add to a @Rule@ and, for each object, indicates whether you want to negate the settings, for example, requests that do NOT originate from the IP address 192.0.2.44.
 --
 --
 --
@@ -713,7 +913,7 @@ data Predicate = Predicate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pNegated' - Set @Negated@ to @False@ if you want AWS WAF to allow, block, or count requests based on the settings in the specified 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow or block requests based on that IP address. Set @Negated@ to @True@ if you want AWS WAF to allow or block a request based on the negation of the settings in the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow, block, or count requests based on all IP addresses /except/ @192.0.2.44@ .
+-- * 'pNegated' - Set @Negated@ to @False@ if you want AWS WAF to allow, block, or count requests based on the settings in the specified 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow or block requests based on that IP address. Set @Negated@ to @True@ if you want AWS WAF to allow or block a request based on the negation of the settings in the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow, block, or count requests based on all IP addresses /except/ @192.0.2.44@ .
 --
 -- * 'pType' - The type of predicate in a @Rule@ , such as @ByteMatchSet@ or @IPSet@ .
 --
@@ -727,7 +927,7 @@ predicate pNegated_ pType_ pDataId_ =
   Predicate' {_pNegated = pNegated_, _pType = pType_, _pDataId = pDataId_}
 
 
--- | Set @Negated@ to @False@ if you want AWS WAF to allow, block, or count requests based on the settings in the specified 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow or block requests based on that IP address. Set @Negated@ to @True@ if you want AWS WAF to allow or block a request based on the negation of the settings in the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow, block, or count requests based on all IP addresses /except/ @192.0.2.44@ .
+-- | Set @Negated@ to @False@ if you want AWS WAF to allow, block, or count requests based on the settings in the specified 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow or block requests based on that IP address. Set @Negated@ to @True@ if you want AWS WAF to allow or block a request based on the negation of the settings in the 'ByteMatchSet' , 'IPSet' , 'SqlInjectionMatchSet' , 'XssMatchSet' , 'RegexMatchSet' , 'GeoMatchSet' , or 'SizeConstraintSet' . For example, if an @IPSet@ includes the IP address @192.0.2.44@ , AWS WAF will allow, block, or count requests based on all IP addresses /except/ @192.0.2.44@ .
 pNegated :: Lens' Predicate Bool
 pNegated = lens _pNegated (\ s a -> s{_pNegated = a});
 
@@ -853,6 +1053,380 @@ instance FromJSON RateBasedRule where
 instance Hashable RateBasedRule where
 
 instance NFData RateBasedRule where
+
+-- | In a 'GetRegexMatchSet' request, @RegexMatchSet@ is a complex type that contains the @RegexMatchSetId@ and @Name@ of a @RegexMatchSet@ , and the values that you specified when you updated the @RegexMatchSet@ .
+--
+--
+-- The values are contained in a @RegexMatchTuple@ object, which specify the parts of web requests that you want AWS WAF to inspect and the values that you want AWS WAF to search for. If a @RegexMatchSet@ contains more than one @RegexMatchTuple@ object, a request needs to match the settings in only one @ByteMatchTuple@ to be considered a match.
+--
+--
+-- /See:/ 'regexMatchSet' smart constructor.
+data RegexMatchSet = RegexMatchSet'
+  { _rmsName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rmsRegexMatchTuples :: {-# NOUNPACK #-}!(Maybe [RegexMatchTuple])
+  , _rmsRegexMatchSetId  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RegexMatchSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rmsName' - A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
+--
+-- * 'rmsRegexMatchTuples' - Contains an array of 'RegexMatchTuple' objects. Each @RegexMatchTuple@ object contains:      * The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the @User-Agent@ header.      * The identifier of the pattern (a regular expression) that you want AWS WAF to look for. For more information, see 'RegexPatternSet' .     * Whether to perform any conversions on the request, such as converting it to lowercase, before inspecting it for the specified string.
+--
+-- * 'rmsRegexMatchSetId' - The @RegexMatchSetId@ for a @RegexMatchSet@ . You use @RegexMatchSetId@ to get information about a @RegexMatchSet@ (see 'GetRegexMatchSet' ), update a @RegexMatchSet@ (see 'UpdateRegexMatchSet' ), insert a @RegexMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @RegexMatchSet@ from AWS WAF (see 'DeleteRegexMatchSet' ). @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+regexMatchSet
+    :: RegexMatchSet
+regexMatchSet =
+  RegexMatchSet'
+  { _rmsName = Nothing
+  , _rmsRegexMatchTuples = Nothing
+  , _rmsRegexMatchSetId = Nothing
+  }
+
+
+-- | A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
+rmsName :: Lens' RegexMatchSet (Maybe Text)
+rmsName = lens _rmsName (\ s a -> s{_rmsName = a});
+
+-- | Contains an array of 'RegexMatchTuple' objects. Each @RegexMatchTuple@ object contains:      * The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the @User-Agent@ header.      * The identifier of the pattern (a regular expression) that you want AWS WAF to look for. For more information, see 'RegexPatternSet' .     * Whether to perform any conversions on the request, such as converting it to lowercase, before inspecting it for the specified string.
+rmsRegexMatchTuples :: Lens' RegexMatchSet [RegexMatchTuple]
+rmsRegexMatchTuples = lens _rmsRegexMatchTuples (\ s a -> s{_rmsRegexMatchTuples = a}) . _Default . _Coerce;
+
+-- | The @RegexMatchSetId@ for a @RegexMatchSet@ . You use @RegexMatchSetId@ to get information about a @RegexMatchSet@ (see 'GetRegexMatchSet' ), update a @RegexMatchSet@ (see 'UpdateRegexMatchSet' ), insert a @RegexMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @RegexMatchSet@ from AWS WAF (see 'DeleteRegexMatchSet' ). @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+rmsRegexMatchSetId :: Lens' RegexMatchSet (Maybe Text)
+rmsRegexMatchSetId = lens _rmsRegexMatchSetId (\ s a -> s{_rmsRegexMatchSetId = a});
+
+instance FromJSON RegexMatchSet where
+        parseJSON
+          = withObject "RegexMatchSet"
+              (\ x ->
+                 RegexMatchSet' <$>
+                   (x .:? "Name") <*>
+                     (x .:? "RegexMatchTuples" .!= mempty)
+                     <*> (x .:? "RegexMatchSetId"))
+
+instance Hashable RegexMatchSet where
+
+instance NFData RegexMatchSet where
+
+-- | Returned by 'ListRegexMatchSets' . Each @RegexMatchSetSummary@ object includes the @Name@ and @RegexMatchSetId@ for one 'RegexMatchSet' .
+--
+--
+--
+-- /See:/ 'regexMatchSetSummary' smart constructor.
+data RegexMatchSetSummary = RegexMatchSetSummary'
+  { _rmssRegexMatchSetId :: {-# NOUNPACK #-}!Text
+  , _rmssName            :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RegexMatchSetSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rmssRegexMatchSetId' - The @RegexMatchSetId@ for a @RegexMatchSet@ . You use @RegexMatchSetId@ to get information about a @RegexMatchSet@ , update a @RegexMatchSet@ , remove a @RegexMatchSet@ from a @Rule@ , and delete a @RegexMatchSet@ from AWS WAF. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+--
+-- * 'rmssName' - A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
+regexMatchSetSummary
+    :: Text -- ^ 'rmssRegexMatchSetId'
+    -> Text -- ^ 'rmssName'
+    -> RegexMatchSetSummary
+regexMatchSetSummary pRegexMatchSetId_ pName_ =
+  RegexMatchSetSummary'
+  {_rmssRegexMatchSetId = pRegexMatchSetId_, _rmssName = pName_}
+
+
+-- | The @RegexMatchSetId@ for a @RegexMatchSet@ . You use @RegexMatchSetId@ to get information about a @RegexMatchSet@ , update a @RegexMatchSet@ , remove a @RegexMatchSet@ from a @Rule@ , and delete a @RegexMatchSet@ from AWS WAF. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+rmssRegexMatchSetId :: Lens' RegexMatchSetSummary Text
+rmssRegexMatchSetId = lens _rmssRegexMatchSetId (\ s a -> s{_rmssRegexMatchSetId = a});
+
+-- | A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
+rmssName :: Lens' RegexMatchSetSummary Text
+rmssName = lens _rmssName (\ s a -> s{_rmssName = a});
+
+instance FromJSON RegexMatchSetSummary where
+        parseJSON
+          = withObject "RegexMatchSetSummary"
+              (\ x ->
+                 RegexMatchSetSummary' <$>
+                   (x .: "RegexMatchSetId") <*> (x .: "Name"))
+
+instance Hashable RegexMatchSetSummary where
+
+instance NFData RegexMatchSetSummary where
+
+-- | In an 'UpdateRegexMatchSet' request, @RegexMatchSetUpdate@ specifies whether to insert or delete a 'RegexMatchTuple' and includes the settings for the @RegexMatchTuple@ .
+--
+--
+--
+-- /See:/ 'regexMatchSetUpdate' smart constructor.
+data RegexMatchSetUpdate = RegexMatchSetUpdate'
+  { _rmsuAction          :: {-# NOUNPACK #-}!ChangeAction
+  , _rmsuRegexMatchTuple :: {-# NOUNPACK #-}!RegexMatchTuple
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RegexMatchSetUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rmsuAction' - Specifies whether to insert or delete a 'RegexMatchTuple' .
+--
+-- * 'rmsuRegexMatchTuple' - Information about the part of a web request that you want AWS WAF to inspect and the identifier of the regular expression (regex) pattern that you want AWS WAF to search for. If you specify @DELETE@ for the value of @Action@ , the @RegexMatchTuple@ values must exactly match the values in the @RegexMatchTuple@ that you want to delete from the @RegexMatchSet@ .
+regexMatchSetUpdate
+    :: ChangeAction -- ^ 'rmsuAction'
+    -> RegexMatchTuple -- ^ 'rmsuRegexMatchTuple'
+    -> RegexMatchSetUpdate
+regexMatchSetUpdate pAction_ pRegexMatchTuple_ =
+  RegexMatchSetUpdate'
+  {_rmsuAction = pAction_, _rmsuRegexMatchTuple = pRegexMatchTuple_}
+
+
+-- | Specifies whether to insert or delete a 'RegexMatchTuple' .
+rmsuAction :: Lens' RegexMatchSetUpdate ChangeAction
+rmsuAction = lens _rmsuAction (\ s a -> s{_rmsuAction = a});
+
+-- | Information about the part of a web request that you want AWS WAF to inspect and the identifier of the regular expression (regex) pattern that you want AWS WAF to search for. If you specify @DELETE@ for the value of @Action@ , the @RegexMatchTuple@ values must exactly match the values in the @RegexMatchTuple@ that you want to delete from the @RegexMatchSet@ .
+rmsuRegexMatchTuple :: Lens' RegexMatchSetUpdate RegexMatchTuple
+rmsuRegexMatchTuple = lens _rmsuRegexMatchTuple (\ s a -> s{_rmsuRegexMatchTuple = a});
+
+instance Hashable RegexMatchSetUpdate where
+
+instance NFData RegexMatchSetUpdate where
+
+instance ToJSON RegexMatchSetUpdate where
+        toJSON RegexMatchSetUpdate'{..}
+          = object
+              (catMaybes
+                 [Just ("Action" .= _rmsuAction),
+                  Just ("RegexMatchTuple" .= _rmsuRegexMatchTuple)])
+
+-- | The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. Each @RegexMatchTuple@ object contains:
+--
+--
+--     * The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the @User-Agent@ header.
+--
+--     * The identifier of the pattern (a regular expression) that you want AWS WAF to look for. For more information, see 'RegexPatternSet' .
+--
+--     * Whether to perform any conversions on the request, such as converting it to lowercase, before inspecting it for the specified string.
+--
+--
+--
+--
+-- /See:/ 'regexMatchTuple' smart constructor.
+data RegexMatchTuple = RegexMatchTuple'
+  { _rmtFieldToMatch       :: {-# NOUNPACK #-}!FieldToMatch
+  , _rmtTextTransformation :: {-# NOUNPACK #-}!TextTransformation
+  , _rmtRegexPatternSetId  :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RegexMatchTuple' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rmtFieldToMatch' - Specifies where in a web request to look for the @RegexPatternSet@ .
+--
+-- * 'rmtTextTransformation' - Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on @RegexPatternSet@ before inspecting a request for a match. __CMD_LINE__  When you're concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:     * Delete the following characters: \ " ' ^     * Delete spaces before the following characters: / (     * Replace the following characters with a space: , ;     * Replace multiple spaces with one space     * Convert uppercase letters (A-Z) to lowercase (a-z) __COMPRESS_WHITE_SPACE__  Use this option to replace the following characters with a space character (decimal 32):     * \f, formfeed, decimal 12     * \t, tab, decimal 9     * \n, newline, decimal 10     * \r, carriage return, decimal 13     * \v, vertical tab, decimal 11     * non-breaking space, decimal 160 @COMPRESS_WHITE_SPACE@ also replaces multiple spaces with one space. __HTML_ENTITY_DECODE__  Use this option to replace HTML-encoded characters with unencoded characters. @HTML_ENTITY_DECODE@ performs the following operations:     * Replaces @(ampersand)quot;@ with @"@      * Replaces @(ampersand)nbsp;@ with a non-breaking space, decimal 160     * Replaces @(ampersand)lt;@ with a "less than" symbol     * Replaces @(ampersand)gt;@ with @>@      * Replaces characters that are represented in hexadecimal format, @(ampersand)#xhhhh;@ , with the corresponding characters     * Replaces characters that are represented in decimal format, @(ampersand)#nnnn;@ , with the corresponding characters __LOWERCASE__  Use this option to convert uppercase letters (A-Z) to lowercase (a-z). __URL_DECODE__  Use this option to decode a URL-encoded value. __NONE__  Specify @NONE@ if you don't want to perform any text transformations.
+--
+-- * 'rmtRegexPatternSetId' - The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ (see 'GetRegexPatternSet' ), update a @RegexPatternSet@ (see 'UpdateRegexPatternSet' ), insert a @RegexPatternSet@ into a @RegexMatchSet@ or delete one from a @RegexMatchSet@ (see 'UpdateRegexMatchSet' ), and delete an @RegexPatternSet@ from AWS WAF (see 'DeleteRegexPatternSet' ). @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+regexMatchTuple
+    :: FieldToMatch -- ^ 'rmtFieldToMatch'
+    -> TextTransformation -- ^ 'rmtTextTransformation'
+    -> Text -- ^ 'rmtRegexPatternSetId'
+    -> RegexMatchTuple
+regexMatchTuple pFieldToMatch_ pTextTransformation_ pRegexPatternSetId_ =
+  RegexMatchTuple'
+  { _rmtFieldToMatch = pFieldToMatch_
+  , _rmtTextTransformation = pTextTransformation_
+  , _rmtRegexPatternSetId = pRegexPatternSetId_
+  }
+
+
+-- | Specifies where in a web request to look for the @RegexPatternSet@ .
+rmtFieldToMatch :: Lens' RegexMatchTuple FieldToMatch
+rmtFieldToMatch = lens _rmtFieldToMatch (\ s a -> s{_rmtFieldToMatch = a});
+
+-- | Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on @RegexPatternSet@ before inspecting a request for a match. __CMD_LINE__  When you're concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:     * Delete the following characters: \ " ' ^     * Delete spaces before the following characters: / (     * Replace the following characters with a space: , ;     * Replace multiple spaces with one space     * Convert uppercase letters (A-Z) to lowercase (a-z) __COMPRESS_WHITE_SPACE__  Use this option to replace the following characters with a space character (decimal 32):     * \f, formfeed, decimal 12     * \t, tab, decimal 9     * \n, newline, decimal 10     * \r, carriage return, decimal 13     * \v, vertical tab, decimal 11     * non-breaking space, decimal 160 @COMPRESS_WHITE_SPACE@ also replaces multiple spaces with one space. __HTML_ENTITY_DECODE__  Use this option to replace HTML-encoded characters with unencoded characters. @HTML_ENTITY_DECODE@ performs the following operations:     * Replaces @(ampersand)quot;@ with @"@      * Replaces @(ampersand)nbsp;@ with a non-breaking space, decimal 160     * Replaces @(ampersand)lt;@ with a "less than" symbol     * Replaces @(ampersand)gt;@ with @>@      * Replaces characters that are represented in hexadecimal format, @(ampersand)#xhhhh;@ , with the corresponding characters     * Replaces characters that are represented in decimal format, @(ampersand)#nnnn;@ , with the corresponding characters __LOWERCASE__  Use this option to convert uppercase letters (A-Z) to lowercase (a-z). __URL_DECODE__  Use this option to decode a URL-encoded value. __NONE__  Specify @NONE@ if you don't want to perform any text transformations.
+rmtTextTransformation :: Lens' RegexMatchTuple TextTransformation
+rmtTextTransformation = lens _rmtTextTransformation (\ s a -> s{_rmtTextTransformation = a});
+
+-- | The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ (see 'GetRegexPatternSet' ), update a @RegexPatternSet@ (see 'UpdateRegexPatternSet' ), insert a @RegexPatternSet@ into a @RegexMatchSet@ or delete one from a @RegexMatchSet@ (see 'UpdateRegexMatchSet' ), and delete an @RegexPatternSet@ from AWS WAF (see 'DeleteRegexPatternSet' ). @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+rmtRegexPatternSetId :: Lens' RegexMatchTuple Text
+rmtRegexPatternSetId = lens _rmtRegexPatternSetId (\ s a -> s{_rmtRegexPatternSetId = a});
+
+instance FromJSON RegexMatchTuple where
+        parseJSON
+          = withObject "RegexMatchTuple"
+              (\ x ->
+                 RegexMatchTuple' <$>
+                   (x .: "FieldToMatch") <*> (x .: "TextTransformation")
+                     <*> (x .: "RegexPatternSetId"))
+
+instance Hashable RegexMatchTuple where
+
+instance NFData RegexMatchTuple where
+
+instance ToJSON RegexMatchTuple where
+        toJSON RegexMatchTuple'{..}
+          = object
+              (catMaybes
+                 [Just ("FieldToMatch" .= _rmtFieldToMatch),
+                  Just
+                    ("TextTransformation" .= _rmtTextTransformation),
+                  Just ("RegexPatternSetId" .= _rmtRegexPatternSetId)])
+
+-- | The @RegexPatternSet@ specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as @B[a@]dB[o0]t@ . You can then configure AWS WAF to reject those requests.
+--
+--
+--
+-- /See:/ 'regexPatternSet' smart constructor.
+data RegexPatternSet = RegexPatternSet'
+  { _rpsName                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rpsRegexPatternSetId   :: {-# NOUNPACK #-}!Text
+  , _rpsRegexPatternStrings :: {-# NOUNPACK #-}![Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RegexPatternSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpsName' - A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
+--
+-- * 'rpsRegexPatternSetId' - The identifier for the @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ , update a @RegexPatternSet@ , remove a @RegexPatternSet@ from a @RegexMatchSet@ , and delete a @RegexPatternSet@ from AWS WAF. @RegexMatchSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+--
+-- * 'rpsRegexPatternStrings' - Specifies the regular expression (regex) patterns that you want AWS WAF to search for, such as @B[a@]dB[o0]t@ .
+regexPatternSet
+    :: Text -- ^ 'rpsRegexPatternSetId'
+    -> RegexPatternSet
+regexPatternSet pRegexPatternSetId_ =
+  RegexPatternSet'
+  { _rpsName = Nothing
+  , _rpsRegexPatternSetId = pRegexPatternSetId_
+  , _rpsRegexPatternStrings = mempty
+  }
+
+
+-- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
+rpsName :: Lens' RegexPatternSet (Maybe Text)
+rpsName = lens _rpsName (\ s a -> s{_rpsName = a});
+
+-- | The identifier for the @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ , update a @RegexPatternSet@ , remove a @RegexPatternSet@ from a @RegexMatchSet@ , and delete a @RegexPatternSet@ from AWS WAF. @RegexMatchSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+rpsRegexPatternSetId :: Lens' RegexPatternSet Text
+rpsRegexPatternSetId = lens _rpsRegexPatternSetId (\ s a -> s{_rpsRegexPatternSetId = a});
+
+-- | Specifies the regular expression (regex) patterns that you want AWS WAF to search for, such as @B[a@]dB[o0]t@ .
+rpsRegexPatternStrings :: Lens' RegexPatternSet [Text]
+rpsRegexPatternStrings = lens _rpsRegexPatternStrings (\ s a -> s{_rpsRegexPatternStrings = a}) . _Coerce;
+
+instance FromJSON RegexPatternSet where
+        parseJSON
+          = withObject "RegexPatternSet"
+              (\ x ->
+                 RegexPatternSet' <$>
+                   (x .:? "Name") <*> (x .: "RegexPatternSetId") <*>
+                     (x .:? "RegexPatternStrings" .!= mempty))
+
+instance Hashable RegexPatternSet where
+
+instance NFData RegexPatternSet where
+
+-- | Returned by 'ListRegexPatternSets' . Each @RegexPatternSetSummary@ object includes the @Name@ and @RegexPatternSetId@ for one 'RegexPatternSet' .
+--
+--
+--
+-- /See:/ 'regexPatternSetSummary' smart constructor.
+data RegexPatternSetSummary = RegexPatternSetSummary'
+  { _rpssRegexPatternSetId :: {-# NOUNPACK #-}!Text
+  , _rpssName              :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RegexPatternSetSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpssRegexPatternSetId' - The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ , update a @RegexPatternSet@ , remove a @RegexPatternSet@ from a @RegexMatchSet@ , and delete a @RegexPatternSet@ from AWS WAF. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+--
+-- * 'rpssName' - A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
+regexPatternSetSummary
+    :: Text -- ^ 'rpssRegexPatternSetId'
+    -> Text -- ^ 'rpssName'
+    -> RegexPatternSetSummary
+regexPatternSetSummary pRegexPatternSetId_ pName_ =
+  RegexPatternSetSummary'
+  {_rpssRegexPatternSetId = pRegexPatternSetId_, _rpssName = pName_}
+
+
+-- | The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ , update a @RegexPatternSet@ , remove a @RegexPatternSet@ from a @RegexMatchSet@ , and delete a @RegexPatternSet@ from AWS WAF. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+rpssRegexPatternSetId :: Lens' RegexPatternSetSummary Text
+rpssRegexPatternSetId = lens _rpssRegexPatternSetId (\ s a -> s{_rpssRegexPatternSetId = a});
+
+-- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
+rpssName :: Lens' RegexPatternSetSummary Text
+rpssName = lens _rpssName (\ s a -> s{_rpssName = a});
+
+instance FromJSON RegexPatternSetSummary where
+        parseJSON
+          = withObject "RegexPatternSetSummary"
+              (\ x ->
+                 RegexPatternSetSummary' <$>
+                   (x .: "RegexPatternSetId") <*> (x .: "Name"))
+
+instance Hashable RegexPatternSetSummary where
+
+instance NFData RegexPatternSetSummary where
+
+-- | In an 'UpdateRegexPatternSet' request, @RegexPatternSetUpdate@ specifies whether to insert or delete a @RegexPatternString@ and includes the settings for the @RegexPatternString@ .
+--
+--
+--
+-- /See:/ 'regexPatternSetUpdate' smart constructor.
+data RegexPatternSetUpdate = RegexPatternSetUpdate'
+  { _rpsuAction             :: {-# NOUNPACK #-}!ChangeAction
+  , _rpsuRegexPatternString :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RegexPatternSetUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpsuAction' - Specifies whether to insert or delete a @RegexPatternString@ .
+--
+-- * 'rpsuRegexPatternString' - Specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as @B[a@]dB[o0]t@ .
+regexPatternSetUpdate
+    :: ChangeAction -- ^ 'rpsuAction'
+    -> Text -- ^ 'rpsuRegexPatternString'
+    -> RegexPatternSetUpdate
+regexPatternSetUpdate pAction_ pRegexPatternString_ =
+  RegexPatternSetUpdate'
+  {_rpsuAction = pAction_, _rpsuRegexPatternString = pRegexPatternString_}
+
+
+-- | Specifies whether to insert or delete a @RegexPatternString@ .
+rpsuAction :: Lens' RegexPatternSetUpdate ChangeAction
+rpsuAction = lens _rpsuAction (\ s a -> s{_rpsuAction = a});
+
+-- | Specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as @B[a@]dB[o0]t@ .
+rpsuRegexPatternString :: Lens' RegexPatternSetUpdate Text
+rpsuRegexPatternString = lens _rpsuRegexPatternString (\ s a -> s{_rpsuRegexPatternString = a});
+
+instance Hashable RegexPatternSetUpdate where
+
+instance NFData RegexPatternSetUpdate where
+
+instance ToJSON RegexPatternSetUpdate where
+        toJSON RegexPatternSetUpdate'{..}
+          = object
+              (catMaybes
+                 [Just ("Action" .= _rpsuAction),
+                  Just
+                    ("RegexPatternString" .= _rpsuRegexPatternString)])
 
 -- | A combination of 'ByteMatchSet' , 'IPSet' , and/or 'SqlInjectionMatchSet' objects that identify the web requests that you want to allow, block, or count. For example, you might create a @Rule@ that includes the following predicates:
 --

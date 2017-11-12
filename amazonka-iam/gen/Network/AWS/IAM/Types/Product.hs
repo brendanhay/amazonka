@@ -323,6 +323,52 @@ instance ToQuery ContextEntry where
                "ContextKeyName" =: _ceContextKeyName,
                "ContextKeyType" =: _ceContextKeyType]
 
+-- | The reason that the service-linked role deletion failed.
+--
+--
+-- This data type is used as a response element in the 'GetServiceLinkedRoleDeletionStatus' operation.
+--
+--
+-- /See:/ 'deletionTaskFailureReasonType' smart constructor.
+data DeletionTaskFailureReasonType = DeletionTaskFailureReasonType'
+  { _dtfrtRoleUsageList :: {-# NOUNPACK #-}!(Maybe [RoleUsageType])
+  , _dtfrtReason        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DeletionTaskFailureReasonType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtfrtRoleUsageList' - A list of objects that contains details about the service-linked role deletion failure. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the region in which the resources are being used.
+--
+-- * 'dtfrtReason' - A short description of the reason that the service-linked role deletion failed.
+deletionTaskFailureReasonType
+    :: DeletionTaskFailureReasonType
+deletionTaskFailureReasonType =
+  DeletionTaskFailureReasonType'
+  {_dtfrtRoleUsageList = Nothing, _dtfrtReason = Nothing}
+
+
+-- | A list of objects that contains details about the service-linked role deletion failure. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the region in which the resources are being used.
+dtfrtRoleUsageList :: Lens' DeletionTaskFailureReasonType [RoleUsageType]
+dtfrtRoleUsageList = lens _dtfrtRoleUsageList (\ s a -> s{_dtfrtRoleUsageList = a}) . _Default . _Coerce;
+
+-- | A short description of the reason that the service-linked role deletion failed.
+dtfrtReason :: Lens' DeletionTaskFailureReasonType (Maybe Text)
+dtfrtReason = lens _dtfrtReason (\ s a -> s{_dtfrtReason = a});
+
+instance FromXML DeletionTaskFailureReasonType where
+        parseXML x
+          = DeletionTaskFailureReasonType' <$>
+              (x .@? "RoleUsageList" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "Reason")
+
+instance Hashable DeletionTaskFailureReasonType where
+
+instance NFData DeletionTaskFailureReasonType where
+
 -- | Contains the results of a simulation.
 --
 --
@@ -1875,6 +1921,50 @@ instance Hashable RoleDetail where
 
 instance NFData RoleDetail where
 
+-- | An object that contains details about how a service-linked role is used.
+--
+--
+-- This data type is used as a response element in the 'GetServiceLinkedRoleDeletionStatus' operation.
+--
+--
+-- /See:/ 'roleUsageType' smart constructor.
+data RoleUsageType = RoleUsageType'
+  { _rutResources :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _rutRegion    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RoleUsageType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rutResources' - The name of the resource that is using the service-linked role.
+--
+-- * 'rutRegion' - The name of the region where the service-linked role is being used.
+roleUsageType
+    :: RoleUsageType
+roleUsageType = RoleUsageType' {_rutResources = Nothing, _rutRegion = Nothing}
+
+
+-- | The name of the resource that is using the service-linked role.
+rutResources :: Lens' RoleUsageType [Text]
+rutResources = lens _rutResources (\ s a -> s{_rutResources = a}) . _Default . _Coerce;
+
+-- | The name of the region where the service-linked role is being used.
+rutRegion :: Lens' RoleUsageType (Maybe Text)
+rutRegion = lens _rutRegion (\ s a -> s{_rutRegion = a});
+
+instance FromXML RoleUsageType where
+        parseXML x
+          = RoleUsageType' <$>
+              (x .@? "Resources" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "Region")
+
+instance Hashable RoleUsageType where
+
+instance NFData RoleUsageType where
+
 -- | Contains the list of SAML providers for this account.
 --
 --
@@ -2638,7 +2728,7 @@ data User = User'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uPasswordLastUsed' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. This field is null (not present) when:     * The user does not have a password     * The password exists but has never been used (at least not since IAM started tracking this information on October 20th, 2014     * there is no sign-in data associated with the user This value is returned only in the 'GetUser' and 'ListUsers' actions.
+-- * 'uPasswordLastUsed' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:     * The user never had a password.     * A password exists but has not been used since IAM started tracking this information on October 20th, 2014. A null does not mean that the user /never/ had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used. This value is returned only in the 'GetUser' and 'ListUsers' actions.
 --
 -- * 'uPath' - The path to the user. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
@@ -2667,7 +2757,7 @@ user pPath_ pUserName_ pUserId_ pARN_ pCreateDate_ =
   }
 
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. This field is null (not present) when:     * The user does not have a password     * The password exists but has never been used (at least not since IAM started tracking this information on October 20th, 2014     * there is no sign-in data associated with the user This value is returned only in the 'GetUser' and 'ListUsers' actions.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:     * The user never had a password.     * A password exists but has not been used since IAM started tracking this information on October 20th, 2014. A null does not mean that the user /never/ had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used. This value is returned only in the 'GetUser' and 'ListUsers' actions.
 uPasswordLastUsed :: Lens' User (Maybe UTCTime)
 uPasswordLastUsed = lens _uPasswordLastUsed (\ s a -> s{_uPasswordLastUsed = a}) . mapping _Time;
 

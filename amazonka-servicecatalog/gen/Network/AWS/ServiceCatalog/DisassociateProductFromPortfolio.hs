@@ -57,7 +57,7 @@ data DisassociateProductFromPortfolio = DisassociateProductFromPortfolio'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpfpAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dpfpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'dpfpProductId' - The product identifier.
 --
@@ -74,7 +74,7 @@ disassociateProductFromPortfolio pProductId_ pPortfolioId_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpfpAcceptLanguage :: Lens' DisassociateProductFromPortfolio (Maybe Text)
 dpfpAcceptLanguage = lens _dpfpAcceptLanguage (\ s a -> s{_dpfpAcceptLanguage = a});
 

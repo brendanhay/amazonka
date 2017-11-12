@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for AttachLoadBalancerTargetGroups.
---
---
---
--- /See:/ 'attachLoadBalancerTargetGroups' smart constructor.
+-- | /See:/ 'attachLoadBalancerTargetGroups' smart constructor.
 data AttachLoadBalancerTargetGroups = AttachLoadBalancerTargetGroups'
   { _albtgAutoScalingGroupName :: {-# NOUNPACK #-}!Text
   , _albtgTargetGroupARNs      :: {-# NOUNPACK #-}![Text]

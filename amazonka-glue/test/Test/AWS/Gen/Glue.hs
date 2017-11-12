@@ -14,11 +14,11 @@
 module Test.AWS.Gen.Glue where
 
 import Data.Proxy
+import Network.AWS.Glue
 import Test.AWS.Fixture
+import Test.AWS.Glue.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.Glue
-import Test.AWS.Glue.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -165,6 +165,9 @@ import Test.AWS.Glue.Internal
 --
 --         , requestGetCrawler $
 --             getCrawler
+--
+--         , requestBatchStopJobRun $
+--             batchStopJobRun
 --
 --         , requestGetDevEndpoint $
 --             getDevEndpoint
@@ -390,6 +393,9 @@ import Test.AWS.Glue.Internal
 --
 --         , responseGetCrawler $
 --             getCrawlerResponse
+--
+--         , responseBatchStopJobRun $
+--             batchStopJobRunResponse
 --
 --         , responseGetDevEndpoint $
 --             getDevEndpointResponse
@@ -709,6 +715,11 @@ requestGetCrawler :: GetCrawler -> TestTree
 requestGetCrawler = req
     "GetCrawler"
     "fixture/GetCrawler.yaml"
+
+requestBatchStopJobRun :: BatchStopJobRun -> TestTree
+requestBatchStopJobRun = req
+    "BatchStopJobRun"
+    "fixture/BatchStopJobRun.yaml"
 
 requestGetDevEndpoint :: GetDevEndpoint -> TestTree
 requestGetDevEndpoint = req
@@ -1173,6 +1184,13 @@ responseGetCrawler = res
     "fixture/GetCrawlerResponse.proto"
     glue
     (Proxy :: Proxy GetCrawler)
+
+responseBatchStopJobRun :: BatchStopJobRunResponse -> TestTree
+responseBatchStopJobRun = res
+    "BatchStopJobRunResponse"
+    "fixture/BatchStopJobRunResponse.proto"
+    glue
+    (Proxy :: Proxy BatchStopJobRun)
 
 responseGetDevEndpoint :: GetDevEndpointResponse -> TestTree
 responseGetDevEndpoint = res

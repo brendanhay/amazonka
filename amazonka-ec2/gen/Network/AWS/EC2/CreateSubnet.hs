@@ -21,7 +21,7 @@
 -- Creates a subnet in an existing VPC.
 --
 --
--- When you create each subnet, you provide the VPC ID and the CIDR block you want for the subnet. After you create a subnet, you can't change its CIDR block. The subnet's IPv4 CIDR block can be the same as the VPC's IPv4 CIDR block (assuming you want only a single subnet in the VPC), or a subset of the VPC's IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).
+-- When you create each subnet, you provide the VPC ID and the IPv4 CIDR block you want for the subnet. After you create a subnet, you can't change its CIDR block. The size of the subnet's IPv4 CIDR block can be the same as a VPC's IPv4 CIDR block, or a subset of a VPC's IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).
 --
 -- If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length.
 --
@@ -49,8 +49,8 @@ module Network.AWS.EC2.CreateSubnet
     , createSubnetResponse
     , CreateSubnetResponse
     -- * Response Lenses
-    , crsSubnet
-    , crsResponseStatus
+    , crersSubnet
+    , crersResponseStatus
     ) where
 
 import Network.AWS.EC2.Types
@@ -156,8 +156,8 @@ instance ToQuery CreateSubnet where
 --
 -- /See:/ 'createSubnetResponse' smart constructor.
 data CreateSubnetResponse = CreateSubnetResponse'
-  { _crsSubnet         :: {-# NOUNPACK #-}!(Maybe Subnet)
-  , _crsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crersSubnet         :: {-# NOUNPACK #-}!(Maybe Subnet)
+  , _crersResponseStatus :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -165,23 +165,23 @@ data CreateSubnetResponse = CreateSubnetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsSubnet' - Information about the subnet.
+-- * 'crersSubnet' - Information about the subnet.
 --
--- * 'crsResponseStatus' - -- | The response status code.
+-- * 'crersResponseStatus' - -- | The response status code.
 createSubnetResponse
-    :: Int -- ^ 'crsResponseStatus'
+    :: Int -- ^ 'crersResponseStatus'
     -> CreateSubnetResponse
 createSubnetResponse pResponseStatus_ =
   CreateSubnetResponse'
-  {_crsSubnet = Nothing, _crsResponseStatus = pResponseStatus_}
+  {_crersSubnet = Nothing, _crersResponseStatus = pResponseStatus_}
 
 
 -- | Information about the subnet.
-crsSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
-crsSubnet = lens _crsSubnet (\ s a -> s{_crsSubnet = a});
+crersSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
+crersSubnet = lens _crersSubnet (\ s a -> s{_crersSubnet = a});
 
 -- | -- | The response status code.
-crsResponseStatus :: Lens' CreateSubnetResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
+crersResponseStatus :: Lens' CreateSubnetResponse Int
+crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
 
 instance NFData CreateSubnetResponse where

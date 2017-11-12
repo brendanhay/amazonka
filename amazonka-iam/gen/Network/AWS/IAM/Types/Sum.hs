@@ -100,6 +100,39 @@ instance ToByteString ContextKeyTypeEnum
 instance ToQuery      ContextKeyTypeEnum
 instance ToHeader     ContextKeyTypeEnum
 
+data DeletionTaskStatusType
+  = Failed
+  | InProgress
+  | NotStarted
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeletionTaskStatusType where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "in_progress" -> pure InProgress
+        "not_started" -> pure NotStarted
+        "succeeded" -> pure Succeeded
+        e -> fromTextError $ "Failure parsing DeletionTaskStatusType from value: '" <> e
+           <> "'. Accepted values: failed, in_progress, not_started, succeeded"
+
+instance ToText DeletionTaskStatusType where
+    toText = \case
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+        NotStarted -> "NOT_STARTED"
+        Succeeded -> "SUCCEEDED"
+
+instance Hashable     DeletionTaskStatusType
+instance NFData       DeletionTaskStatusType
+instance ToByteString DeletionTaskStatusType
+instance ToQuery      DeletionTaskStatusType
+instance ToHeader     DeletionTaskStatusType
+
+instance FromXML DeletionTaskStatusType where
+    parseXML = parseXMLText "DeletionTaskStatusType"
+
 data EncodingType
   = Pem
   | SSH
@@ -281,25 +314,25 @@ instance FromXML ReportFormatType where
     parseXML = parseXMLText "ReportFormatType"
 
 data ReportStateType
-  = Complete
-  | Inprogress
-  | Started
+  = RSTComplete
+  | RSTInprogress
+  | RSTStarted
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ReportStateType where
     parser = takeLowerText >>= \case
-        "complete" -> pure Complete
-        "inprogress" -> pure Inprogress
-        "started" -> pure Started
+        "complete" -> pure RSTComplete
+        "inprogress" -> pure RSTInprogress
+        "started" -> pure RSTStarted
         e -> fromTextError $ "Failure parsing ReportStateType from value: '" <> e
            <> "'. Accepted values: complete, inprogress, started"
 
 instance ToText ReportStateType where
     toText = \case
-        Complete -> "COMPLETE"
-        Inprogress -> "INPROGRESS"
-        Started -> "STARTED"
+        RSTComplete -> "COMPLETE"
+        RSTInprogress -> "INPROGRESS"
+        RSTStarted -> "STARTED"
 
 instance Hashable     ReportStateType
 instance NFData       ReportStateType

@@ -21,6 +21,8 @@
 -- Gets a list of build IDs for the specified build project, with each build ID representing a single build.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListBuildsForProject
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CodeBuild.ListBuildsForProject
 import Network.AWS.CodeBuild.Types
 import Network.AWS.CodeBuild.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,13 @@ lbfpNextToken = lens _lbfpNextToken (\ s a -> s{_lbfpNextToken = a});
 -- | The name of the build project.
 lbfpProjectName :: Lens' ListBuildsForProject Text
 lbfpProjectName = lens _lbfpProjectName (\ s a -> s{_lbfpProjectName = a});
+
+instance AWSPager ListBuildsForProject where
+        page rq rs
+          | stop (rs ^. lbfprsNextToken) = Nothing
+          | stop (rs ^. lbfprsIds) = Nothing
+          | otherwise =
+            Just $ rq & lbfpNextToken .~ rs ^. lbfprsNextToken
 
 instance AWSRequest ListBuildsForProject where
         type Rs ListBuildsForProject =

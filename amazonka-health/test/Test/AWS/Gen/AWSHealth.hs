@@ -14,11 +14,11 @@
 module Test.AWS.Gen.AWSHealth where
 
 import Data.Proxy
+import Network.AWS.AWSHealth
+import Test.AWS.AWSHealth.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.AWSHealth
-import Test.AWS.AWSHealth.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

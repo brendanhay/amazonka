@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of an acknowledge third party job action.
+-- | Represents the input of an AcknowledgeThirdPartyJob action.
 --
 --
 --
@@ -127,7 +127,7 @@ instance ToPath AcknowledgeThirdPartyJob where
 instance ToQuery AcknowledgeThirdPartyJob where
         toQuery = const mempty
 
--- | Represents the output of an acknowledge third party job action.
+-- | Represents the output of an AcknowledgeThirdPartyJob action.
 --
 --
 --

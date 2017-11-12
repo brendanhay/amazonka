@@ -23,7 +23,7 @@
 --
 -- Virtual interfaces associated with a hosted connection cannot be associated with a LAG; hosted connections must be migrated along with their virtual interfaces using 'AssociateHostedConnection' .
 --
--- Hosted virtual interfaces (an interface for which the owner of the connection is not the owner of physical connection) can only be reassociated by the owner of the physical connection.
+-- In order to reassociate a virtual interface to a new connection or LAG, the requester must own either the virtual interface itself or the connection to which the virtual interface is currently associated. Additionally, the requester must own the connection or LAG to which the virtual interface will be newly associated.
 --
 module Network.AWS.DirectConnect.AssociateVirtualInterface
     (
@@ -48,6 +48,8 @@ module Network.AWS.DirectConnect.AssociateVirtualInterface
     , viAddressFamily
     , viVirtualInterfaceState
     , viConnectionId
+    , viDirectConnectGatewayId
+    , viAmazonSideASN
     , viVirtualInterfaceType
     , viAsn
     , viAuthKey

@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeLifecycleHooks.
---
---
---
--- /See:/ 'describeLifecycleHooks' smart constructor.
+-- | /See:/ 'describeLifecycleHooks' smart constructor.
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
   { _dlhLifecycleHookNames   :: {-# NOUNPACK #-}!(Maybe [Text])
   , _dlhAutoScalingGroupName :: {-# NOUNPACK #-}!Text
@@ -114,11 +110,7 @@ instance ToQuery DescribeLifecycleHooks where
                    (toQueryList "member" <$> _dlhLifecycleHookNames),
                "AutoScalingGroupName" =: _dlhAutoScalingGroupName]
 
--- | Contains the output of DescribeLifecycleHooks.
---
---
---
--- /See:/ 'describeLifecycleHooksResponse' smart constructor.
+-- | /See:/ 'describeLifecycleHooksResponse' smart constructor.
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
   { _dlhrsLifecycleHooks :: {-# NOUNPACK #-}!(Maybe [LifecycleHook])
   , _dlhrsResponseStatus :: {-# NOUNPACK #-}!Int

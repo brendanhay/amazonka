@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a summary count of compliant and non-compliant resources for a compliance type. For example, this call can return State Manager associations, patches, or custom compliance types according to the filter criteria you specify.
+-- Returns a summary count of compliant and non-compliant resources for a compliance type. For example, this call can return State Manager associations, patches, or custom compliance types according to the filter criteria that you specify.
 --
 --
 module Network.AWS.SSM.ListComplianceSummaries
@@ -136,7 +136,7 @@ data ListComplianceSummariesResponse = ListComplianceSummariesResponse'
 --
 -- * 'lcsrsNextToken' - The token for the next set of items to return. Use this token to get the next set of results.
 --
--- * 'lcsrsComplianceSummaryItems' - A list of compliant and non-compliant summary counts based on compliance types. For example, this call returns State Manager associations, patches, or custom compliance types according to the filter criteria you specified.
+-- * 'lcsrsComplianceSummaryItems' - A list of compliant and non-compliant summary counts based on compliance types. For example, this call returns State Manager associations, patches, or custom compliance types according to the filter criteria that you specified.
 --
 -- * 'lcsrsResponseStatus' - -- | The response status code.
 listComplianceSummariesResponse
@@ -154,7 +154,7 @@ listComplianceSummariesResponse pResponseStatus_ =
 lcsrsNextToken :: Lens' ListComplianceSummariesResponse (Maybe Text)
 lcsrsNextToken = lens _lcsrsNextToken (\ s a -> s{_lcsrsNextToken = a});
 
--- | A list of compliant and non-compliant summary counts based on compliance types. For example, this call returns State Manager associations, patches, or custom compliance types according to the filter criteria you specified.
+-- | A list of compliant and non-compliant summary counts based on compliance types. For example, this call returns State Manager associations, patches, or custom compliance types according to the filter criteria that you specified.
 lcsrsComplianceSummaryItems :: Lens' ListComplianceSummariesResponse [ComplianceSummaryItem]
 lcsrsComplianceSummaryItems = lens _lcsrsComplianceSummaryItems (\ s a -> s{_lcsrsComplianceSummaryItems = a}) . _Default . _Coerce;
 

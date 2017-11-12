@@ -25,6 +25,8 @@
 --
 -- To enable multiple AWS accounts to put events to your default event bus, run @PutPermission@ once for each of these accounts.
 --
+-- The permission policy on the default event bus cannot exceed 10KB in size.
+--
 module Network.AWS.CloudWatchEvents.PutPermission
     (
     -- * Creating a Request

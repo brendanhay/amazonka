@@ -27,6 +27,7 @@ module Network.AWS.SSM.StartAutomationExecution
       startAutomationExecution
     , StartAutomationExecution
     -- * Request Lenses
+    , saeClientToken
     , saeParameters
     , saeDocumentVersion
     , saeDocumentName
@@ -48,7 +49,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'startAutomationExecution' smart constructor.
 data StartAutomationExecution = StartAutomationExecution'
-  { _saeParameters      :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  { _saeClientToken     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _saeParameters      :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
   , _saeDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
   , _saeDocumentName    :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -57,6 +59,8 @@ data StartAutomationExecution = StartAutomationExecution'
 -- | Creates a value of 'StartAutomationExecution' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'saeClientToken' - User-provided idempotency token. The token must be unique, is case insensitive, enforces the UUID format, and can't be reused.
 --
 -- * 'saeParameters' - A key-value map of execution parameters, which match the declared parameters in the Automation document.
 --
@@ -68,11 +72,16 @@ startAutomationExecution
     -> StartAutomationExecution
 startAutomationExecution pDocumentName_ =
   StartAutomationExecution'
-  { _saeParameters = Nothing
+  { _saeClientToken = Nothing
+  , _saeParameters = Nothing
   , _saeDocumentVersion = Nothing
   , _saeDocumentName = pDocumentName_
   }
 
+
+-- | User-provided idempotency token. The token must be unique, is case insensitive, enforces the UUID format, and can't be reused.
+saeClientToken :: Lens' StartAutomationExecution (Maybe Text)
+saeClientToken = lens _saeClientToken (\ s a -> s{_saeClientToken = a});
 
 -- | A key-value map of execution parameters, which match the declared parameters in the Automation document.
 saeParameters :: Lens' StartAutomationExecution (HashMap Text [Text])
@@ -114,7 +123,8 @@ instance ToJSON StartAutomationExecution where
         toJSON StartAutomationExecution'{..}
           = object
               (catMaybes
-                 [("Parameters" .=) <$> _saeParameters,
+                 [("ClientToken" .=) <$> _saeClientToken,
+                  ("Parameters" .=) <$> _saeParameters,
                   ("DocumentVersion" .=) <$> _saeDocumentVersion,
                   Just ("DocumentName" .= _saeDocumentName)])
 

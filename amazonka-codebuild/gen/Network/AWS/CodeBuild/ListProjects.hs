@@ -21,6 +21,8 @@
 -- Gets a list of build project names, with each build project name representing a single build project.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListProjects
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CodeBuild.ListProjects
 import Network.AWS.CodeBuild.Types
 import Network.AWS.CodeBuild.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,6 +85,13 @@ lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
 -- | The criterion to be used to list build project names. Valid values include:     * @CREATED_TIME@ : List the build project names based on when each build project was created.     * @LAST_MODIFIED_TIME@ : List the build project names based on when information about each build project was last changed.     * @NAME@ : List the build project names based on each build project's name. Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
 lpSortBy :: Lens' ListProjects (Maybe ProjectSortByType)
 lpSortBy = lens _lpSortBy (\ s a -> s{_lpSortBy = a});
+
+instance AWSPager ListProjects where
+        page rq rs
+          | stop (rs ^. lprsNextToken) = Nothing
+          | stop (rs ^. lprsProjects) = Nothing
+          | otherwise =
+            Just $ rq & lpNextToken .~ rs ^. lprsNextToken
 
 instance AWSRequest ListProjects where
         type Rs ListProjects = ListProjectsResponse

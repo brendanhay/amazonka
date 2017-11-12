@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -50,6 +50,7 @@ library
         , Network.AWS.Glue.BatchDeletePartition
         , Network.AWS.Glue.BatchDeleteTable
         , Network.AWS.Glue.BatchGetPartition
+        , Network.AWS.Glue.BatchStopJobRun
         , Network.AWS.Glue.CreateClassifier
         , Network.AWS.Glue.CreateConnection
         , Network.AWS.Glue.CreateCrawler

@@ -19,6 +19,30 @@ module Network.AWS.ECR.Types.Sum where
 
 import Network.AWS.Prelude
 
+data ImageActionType =
+  Expire
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ImageActionType where
+    parser = takeLowerText >>= \case
+        "expire" -> pure Expire
+        e -> fromTextError $ "Failure parsing ImageActionType from value: '" <> e
+           <> "'. Accepted values: expire"
+
+instance ToText ImageActionType where
+    toText = \case
+        Expire -> "EXPIRE"
+
+instance Hashable     ImageActionType
+instance NFData       ImageActionType
+instance ToByteString ImageActionType
+instance ToQuery      ImageActionType
+instance ToHeader     ImageActionType
+
+instance FromJSON ImageActionType where
+    parseJSON = parseJSONText "ImageActionType"
+
 data ImageFailureCode
   = ImageNotFound
   | ImageTagDoesNotMatchDigest
@@ -108,6 +132,39 @@ instance ToHeader     LayerFailureCode
 
 instance FromJSON LayerFailureCode where
     parseJSON = parseJSONText "LayerFailureCode"
+
+data LifecyclePolicyPreviewStatus
+  = Complete
+  | Expired
+  | Failed
+  | InProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText LifecyclePolicyPreviewStatus where
+    parser = takeLowerText >>= \case
+        "complete" -> pure Complete
+        "expired" -> pure Expired
+        "failed" -> pure Failed
+        "in_progress" -> pure InProgress
+        e -> fromTextError $ "Failure parsing LifecyclePolicyPreviewStatus from value: '" <> e
+           <> "'. Accepted values: complete, expired, failed, in_progress"
+
+instance ToText LifecyclePolicyPreviewStatus where
+    toText = \case
+        Complete -> "COMPLETE"
+        Expired -> "EXPIRED"
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+
+instance Hashable     LifecyclePolicyPreviewStatus
+instance NFData       LifecyclePolicyPreviewStatus
+instance ToByteString LifecyclePolicyPreviewStatus
+instance ToQuery      LifecyclePolicyPreviewStatus
+instance ToHeader     LifecyclePolicyPreviewStatus
+
+instance FromJSON LifecyclePolicyPreviewStatus where
+    parseJSON = parseJSONText "LifecyclePolicyPreviewStatus"
 
 data TagStatus
   = Tagged

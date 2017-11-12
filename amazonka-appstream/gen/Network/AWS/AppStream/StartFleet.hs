@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a fleet.
+-- Starts the specified fleet.
 --
 --
 module Network.AWS.AppStream.StartFleet
@@ -53,14 +53,14 @@ newtype StartFleet = StartFleet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'staName' - The name of the fleet to start.
+-- * 'staName' - The name of the fleet.
 startFleet
     :: Text -- ^ 'staName'
     -> StartFleet
 startFleet pName_ = StartFleet' {_staName = pName_}
 
 
--- | The name of the fleet to start.
+-- | The name of the fleet.
 staName :: Lens' StartFleet Text
 staName = lens _staName (\ s a -> s{_staName = a});
 

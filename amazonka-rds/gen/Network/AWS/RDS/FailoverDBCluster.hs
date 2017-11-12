@@ -66,7 +66,7 @@ data FailoverDBCluster = FailoverDBCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fdcDBClusterIdentifier' - A DB cluster identifier to force a failover for. This parameter is not case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'fdcDBClusterIdentifier' - A DB cluster identifier to force a failover for. This parameter is not case-sensitive. Constraints:     * Must match the identifier of an existing DBCluster.
 --
 -- * 'fdcTargetDBInstanceIdentifier' - The name of the instance to promote to the primary instance. You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, @mydbcluster-replica1@ .
 failoverDBCluster
@@ -76,7 +76,7 @@ failoverDBCluster =
   {_fdcDBClusterIdentifier = Nothing, _fdcTargetDBInstanceIdentifier = Nothing}
 
 
--- | A DB cluster identifier to force a failover for. This parameter is not case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | A DB cluster identifier to force a failover for. This parameter is not case-sensitive. Constraints:     * Must match the identifier of an existing DBCluster.
 fdcDBClusterIdentifier :: Lens' FailoverDBCluster (Maybe Text)
 fdcDBClusterIdentifier = lens _fdcDBClusterIdentifier (\ s a -> s{_fdcDBClusterIdentifier = a});
 

@@ -50,11 +50,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeAutoScalingGroups.
---
---
---
--- /See:/ 'describeAutoScalingGroups' smart constructor.
+-- | /See:/ 'describeAutoScalingGroups' smart constructor.
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
   { _dasgAutoScalingGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
   , _dasgNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
@@ -135,11 +131,7 @@ instance ToQuery DescribeAutoScalingGroups where
                "NextToken" =: _dasgNextToken,
                "MaxRecords" =: _dasgMaxRecords]
 
--- | Contains the output for DescribeAutoScalingGroups.
---
---
---
--- /See:/ 'describeAutoScalingGroupsResponse' smart constructor.
+-- | /See:/ 'describeAutoScalingGroupsResponse' smart constructor.
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
   { _dasgrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
   , _dasgrsResponseStatus    :: {-# NOUNPACK #-}!Int

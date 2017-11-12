@@ -57,7 +57,7 @@ data ListProvisioningArtifacts = ListProvisioningArtifacts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpaAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'lpaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'lpaProductId' - The product identifier.
 listProvisioningArtifacts
@@ -68,7 +68,7 @@ listProvisioningArtifacts pProductId_ =
   {_lpaAcceptLanguage = Nothing, _lpaProductId = pProductId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lpaAcceptLanguage :: Lens' ListProvisioningArtifacts (Maybe Text)
 lpaAcceptLanguage = lens _lpaAcceptLanguage (\ s a -> s{_lpaAcceptLanguage = a});
 

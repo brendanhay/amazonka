@@ -21,8 +21,6 @@
 -- Deletes the organization. You can delete an organization only by using credentials from the master account. The organization must be empty of member accounts, OUs, and policies.
 --
 --
--- /Important:/ If you create any accounts using Organizations operations or the Organizations console, you can't remove those accounts from the organization, which means that you can't delete the organization.
---
 module Network.AWS.Organizations.DeleteOrganization
     (
     -- * Creating a Request

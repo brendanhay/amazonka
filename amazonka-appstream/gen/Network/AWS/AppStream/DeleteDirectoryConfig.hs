@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the directory configuration with the given parameters.
+-- Deletes the specified directory configuration.
 --
 --
 module Network.AWS.AppStream.DeleteDirectoryConfig
@@ -53,7 +53,7 @@ newtype DeleteDirectoryConfig = DeleteDirectoryConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcDirectoryName' - The name of the directory configuration to be deleted.
+-- * 'ddcDirectoryName' - The name of the directory configuration.
 deleteDirectoryConfig
     :: Text -- ^ 'ddcDirectoryName'
     -> DeleteDirectoryConfig
@@ -61,7 +61,7 @@ deleteDirectoryConfig pDirectoryName_ =
   DeleteDirectoryConfig' {_ddcDirectoryName = pDirectoryName_}
 
 
--- | The name of the directory configuration to be deleted.
+-- | The name of the directory configuration.
 ddcDirectoryName :: Lens' DeleteDirectoryConfig Text
 ddcDirectoryName = lens _ddcDirectoryName (\ s a -> s{_ddcDirectoryName = a});
 

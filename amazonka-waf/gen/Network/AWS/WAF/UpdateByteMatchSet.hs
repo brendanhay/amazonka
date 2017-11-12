@@ -76,7 +76,7 @@ import Network.AWS.WAF.Types.Product
 data UpdateByteMatchSet = UpdateByteMatchSet'
   { _ubmsByteMatchSetId :: {-# NOUNPACK #-}!Text
   , _ubmsChangeToken    :: {-# NOUNPACK #-}!Text
-  , _ubmsUpdates        :: {-# NOUNPACK #-}![ByteMatchSetUpdate]
+  , _ubmsUpdates        :: {-# NOUNPACK #-}!(List1 ByteMatchSetUpdate)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -92,12 +92,13 @@ data UpdateByteMatchSet = UpdateByteMatchSet'
 updateByteMatchSet
     :: Text -- ^ 'ubmsByteMatchSetId'
     -> Text -- ^ 'ubmsChangeToken'
+    -> NonEmpty ByteMatchSetUpdate -- ^ 'ubmsUpdates'
     -> UpdateByteMatchSet
-updateByteMatchSet pByteMatchSetId_ pChangeToken_ =
+updateByteMatchSet pByteMatchSetId_ pChangeToken_ pUpdates_ =
   UpdateByteMatchSet'
   { _ubmsByteMatchSetId = pByteMatchSetId_
   , _ubmsChangeToken = pChangeToken_
-  , _ubmsUpdates = mempty
+  , _ubmsUpdates = _List1 # pUpdates_
   }
 
 
@@ -110,8 +111,8 @@ ubmsChangeToken :: Lens' UpdateByteMatchSet Text
 ubmsChangeToken = lens _ubmsChangeToken (\ s a -> s{_ubmsChangeToken = a});
 
 -- | An array of @ByteMatchSetUpdate@ objects that you want to insert into or delete from a 'ByteMatchSet' . For more information, see the applicable data types:     * 'ByteMatchSetUpdate' : Contains @Action@ and @ByteMatchTuple@      * 'ByteMatchTuple' : Contains @FieldToMatch@ , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
-ubmsUpdates :: Lens' UpdateByteMatchSet [ByteMatchSetUpdate]
-ubmsUpdates = lens _ubmsUpdates (\ s a -> s{_ubmsUpdates = a}) . _Coerce;
+ubmsUpdates :: Lens' UpdateByteMatchSet (NonEmpty ByteMatchSetUpdate)
+ubmsUpdates = lens _ubmsUpdates (\ s a -> s{_ubmsUpdates = a}) . _List1;
 
 instance AWSRequest UpdateByteMatchSet where
         type Rs UpdateByteMatchSet =

@@ -57,7 +57,7 @@ data DeletePortfolioShare = DeletePortfolioShare'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpsAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dpsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'dpsPortfolioId' - The portfolio identifier.
 --
@@ -74,7 +74,7 @@ deletePortfolioShare pPortfolioId_ pAccountId_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpsAcceptLanguage :: Lens' DeletePortfolioShare (Maybe Text)
 dpsAcceptLanguage = lens _dpsAcceptLanguage (\ s a -> s{_dpsAcceptLanguage = a});
 

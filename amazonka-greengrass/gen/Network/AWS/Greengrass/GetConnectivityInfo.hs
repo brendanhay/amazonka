@@ -111,7 +111,7 @@ data GetConnectivityInfoResponse = GetConnectivityInfoResponse'
 --
 -- * 'gcirsMessage' - Response Text
 --
--- * 'gcirsConnectivityInfo' - Connectivity info array
+-- * 'gcirsConnectivityInfo' - Connectivity info list
 --
 -- * 'gcirsResponseStatus' - -- | The response status code.
 getConnectivityInfoResponse
@@ -129,7 +129,7 @@ getConnectivityInfoResponse pResponseStatus_ =
 gcirsMessage :: Lens' GetConnectivityInfoResponse (Maybe Text)
 gcirsMessage = lens _gcirsMessage (\ s a -> s{_gcirsMessage = a});
 
--- | Connectivity info array
+-- | Connectivity info list
 gcirsConnectivityInfo :: Lens' GetConnectivityInfoResponse [ConnectivityInfo]
 gcirsConnectivityInfo = lens _gcirsConnectivityInfo (\ s a -> s{_gcirsConnectivityInfo = a}) . _Default . _Coerce;
 

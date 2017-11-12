@@ -14,11 +14,11 @@
 module Test.AWS.Gen.DeviceFarm where
 
 import Data.Proxy
+import Network.AWS.DeviceFarm
+import Test.AWS.DeviceFarm.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.DeviceFarm
-import Test.AWS.DeviceFarm.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

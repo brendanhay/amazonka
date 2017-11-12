@@ -37,6 +37,7 @@ module Network.AWS.SSM.CreateAssociation
     , caTargets
     , caParameters
     , caDocumentVersion
+    , caAssociationName
     , caName
 
     -- * Destructuring the Response
@@ -62,6 +63,7 @@ data CreateAssociation = CreateAssociation'
   , _caTargets :: {-# NOUNPACK #-}!(Maybe [Target])
   , _caParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
   , _caDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caAssociationName :: {-# NOUNPACK #-}!(Maybe Text)
   , _caName :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -82,6 +84,8 @@ data CreateAssociation = CreateAssociation'
 --
 -- * 'caDocumentVersion' - The document version you want to associate with the target(s). Can be a specific version or the default version.
 --
+-- * 'caAssociationName' - Specify a descriptive name for the association.
+--
 -- * 'caName' - The name of the Systems Manager document.
 createAssociation
     :: Text -- ^ 'caName'
@@ -94,6 +98,7 @@ createAssociation pName_ =
   , _caTargets = Nothing
   , _caParameters = Nothing
   , _caDocumentVersion = Nothing
+  , _caAssociationName = Nothing
   , _caName = pName_
   }
 
@@ -121,6 +126,10 @@ caParameters = lens _caParameters (\ s a -> s{_caParameters = a}) . _Default . _
 -- | The document version you want to associate with the target(s). Can be a specific version or the default version.
 caDocumentVersion :: Lens' CreateAssociation (Maybe Text)
 caDocumentVersion = lens _caDocumentVersion (\ s a -> s{_caDocumentVersion = a});
+
+-- | Specify a descriptive name for the association.
+caAssociationName :: Lens' CreateAssociation (Maybe Text)
+caAssociationName = lens _caAssociationName (\ s a -> s{_caAssociationName = a});
 
 -- | The name of the Systems Manager document.
 caName :: Lens' CreateAssociation Text
@@ -159,6 +168,7 @@ instance ToJSON CreateAssociation where
                   ("Targets" .=) <$> _caTargets,
                   ("Parameters" .=) <$> _caParameters,
                   ("DocumentVersion" .=) <$> _caDocumentVersion,
+                  ("AssociationName" .=) <$> _caAssociationName,
                   Just ("Name" .= _caName)])
 
 instance ToPath CreateAssociation where

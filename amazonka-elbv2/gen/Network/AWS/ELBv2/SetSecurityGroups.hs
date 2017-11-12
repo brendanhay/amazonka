@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates the specified security groups with the specified load balancer. The specified security groups override the previously associated security groups.
+-- Associates the specified security groups with the specified Application Load Balancer. The specified security groups override the previously associated security groups.
 --
+--
+-- Note that you can't specify a security group for a Network Load Balancer.
 --
 module Network.AWS.ELBv2.SetSecurityGroups
     (

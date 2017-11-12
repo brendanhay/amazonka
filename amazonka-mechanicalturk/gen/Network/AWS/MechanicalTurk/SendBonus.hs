@@ -28,10 +28,10 @@ module Network.AWS.MechanicalTurk.SendBonus
     , SendBonus
     -- * Request Lenses
     , sbUniqueRequestToken
-    , sbReason
     , sbWorkerId
     , sbBonusAmount
     , sbAssignmentId
+    , sbReason
 
     -- * Destructuring the Response
     , sendBonusResponse
@@ -50,10 +50,10 @@ import Network.AWS.Response
 -- | /See:/ 'sendBonus' smart constructor.
 data SendBonus = SendBonus'
   { _sbUniqueRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbReason             :: {-# NOUNPACK #-}!(Maybe Text)
   , _sbWorkerId           :: {-# NOUNPACK #-}!Text
   , _sbBonusAmount        :: {-# NOUNPACK #-}!Text
   , _sbAssignmentId       :: {-# NOUNPACK #-}!Text
+  , _sbReason             :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -63,35 +63,32 @@ data SendBonus = SendBonus'
 --
 -- * 'sbUniqueRequestToken' - A unique identifier for this request, which allows you to retry the call on error without granting multiple bonuses. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the bonus already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return an error with a message containing the request ID.
 --
--- * 'sbReason' - A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message.
---
 -- * 'sbWorkerId' - The ID of the Worker being paid the bonus.
 --
 -- * 'sbBonusAmount' - The Bonus amount is a US Dollar amount specified using a string (for example, "5" represents $5.00 USD and "101.42" represents $101.42 USD). Do not include currency symbols or currency codes.
 --
 -- * 'sbAssignmentId' - The ID of the assignment for which this bonus is paid.
+--
+-- * 'sbReason' - A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message.
 sendBonus
     :: Text -- ^ 'sbWorkerId'
     -> Text -- ^ 'sbBonusAmount'
     -> Text -- ^ 'sbAssignmentId'
+    -> Text -- ^ 'sbReason'
     -> SendBonus
-sendBonus pWorkerId_ pBonusAmount_ pAssignmentId_ =
+sendBonus pWorkerId_ pBonusAmount_ pAssignmentId_ pReason_ =
   SendBonus'
   { _sbUniqueRequestToken = Nothing
-  , _sbReason = Nothing
   , _sbWorkerId = pWorkerId_
   , _sbBonusAmount = pBonusAmount_
   , _sbAssignmentId = pAssignmentId_
+  , _sbReason = pReason_
   }
 
 
 -- | A unique identifier for this request, which allows you to retry the call on error without granting multiple bonuses. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the bonus already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return an error with a message containing the request ID.
 sbUniqueRequestToken :: Lens' SendBonus (Maybe Text)
 sbUniqueRequestToken = lens _sbUniqueRequestToken (\ s a -> s{_sbUniqueRequestToken = a});
-
--- | A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message.
-sbReason :: Lens' SendBonus (Maybe Text)
-sbReason = lens _sbReason (\ s a -> s{_sbReason = a});
 
 -- | The ID of the Worker being paid the bonus.
 sbWorkerId :: Lens' SendBonus Text
@@ -104,6 +101,10 @@ sbBonusAmount = lens _sbBonusAmount (\ s a -> s{_sbBonusAmount = a});
 -- | The ID of the assignment for which this bonus is paid.
 sbAssignmentId :: Lens' SendBonus Text
 sbAssignmentId = lens _sbAssignmentId (\ s a -> s{_sbAssignmentId = a});
+
+-- | A message that explains the reason for the bonus payment. The Worker receiving the bonus can see this message.
+sbReason :: Lens' SendBonus Text
+sbReason = lens _sbReason (\ s a -> s{_sbReason = a});
 
 instance AWSRequest SendBonus where
         type Rs SendBonus = SendBonusResponse
@@ -132,10 +133,10 @@ instance ToJSON SendBonus where
           = object
               (catMaybes
                  [("UniqueRequestToken" .=) <$> _sbUniqueRequestToken,
-                  ("Reason" .=) <$> _sbReason,
                   Just ("WorkerId" .= _sbWorkerId),
                   Just ("BonusAmount" .= _sbBonusAmount),
-                  Just ("AssignmentId" .= _sbAssignmentId)])
+                  Just ("AssignmentId" .= _sbAssignmentId),
+                  Just ("Reason" .= _sbReason)])
 
 instance ToPath SendBonus where
         toPath = const "/"

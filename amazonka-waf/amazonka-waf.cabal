@@ -39,23 +39,29 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.WAF
         , Network.AWS.WAF.CreateByteMatchSet
+        , Network.AWS.WAF.CreateGeoMatchSet
         , Network.AWS.WAF.CreateIPSet
         , Network.AWS.WAF.CreateRateBasedRule
+        , Network.AWS.WAF.CreateRegexMatchSet
+        , Network.AWS.WAF.CreateRegexPatternSet
         , Network.AWS.WAF.CreateRule
         , Network.AWS.WAF.CreateSizeConstraintSet
         , Network.AWS.WAF.CreateSqlInjectionMatchSet
         , Network.AWS.WAF.CreateWebACL
         , Network.AWS.WAF.CreateXSSMatchSet
         , Network.AWS.WAF.DeleteByteMatchSet
+        , Network.AWS.WAF.DeleteGeoMatchSet
         , Network.AWS.WAF.DeleteIPSet
         , Network.AWS.WAF.DeleteRateBasedRule
+        , Network.AWS.WAF.DeleteRegexMatchSet
+        , Network.AWS.WAF.DeleteRegexPatternSet
         , Network.AWS.WAF.DeleteRule
         , Network.AWS.WAF.DeleteSizeConstraintSet
         , Network.AWS.WAF.DeleteSqlInjectionMatchSet
@@ -64,9 +70,12 @@ library
         , Network.AWS.WAF.GetByteMatchSet
         , Network.AWS.WAF.GetChangeToken
         , Network.AWS.WAF.GetChangeTokenStatus
+        , Network.AWS.WAF.GetGeoMatchSet
         , Network.AWS.WAF.GetIPSet
         , Network.AWS.WAF.GetRateBasedRule
         , Network.AWS.WAF.GetRateBasedRuleManagedKeys
+        , Network.AWS.WAF.GetRegexMatchSet
+        , Network.AWS.WAF.GetRegexPatternSet
         , Network.AWS.WAF.GetRule
         , Network.AWS.WAF.GetSampledRequests
         , Network.AWS.WAF.GetSizeConstraintSet
@@ -74,8 +83,11 @@ library
         , Network.AWS.WAF.GetWebACL
         , Network.AWS.WAF.GetXSSMatchSet
         , Network.AWS.WAF.ListByteMatchSets
+        , Network.AWS.WAF.ListGeoMatchSets
         , Network.AWS.WAF.ListIPSets
         , Network.AWS.WAF.ListRateBasedRules
+        , Network.AWS.WAF.ListRegexMatchSets
+        , Network.AWS.WAF.ListRegexPatternSets
         , Network.AWS.WAF.ListRules
         , Network.AWS.WAF.ListSizeConstraintSets
         , Network.AWS.WAF.ListSqlInjectionMatchSets
@@ -83,8 +95,11 @@ library
         , Network.AWS.WAF.ListXSSMatchSets
         , Network.AWS.WAF.Types
         , Network.AWS.WAF.UpdateByteMatchSet
+        , Network.AWS.WAF.UpdateGeoMatchSet
         , Network.AWS.WAF.UpdateIPSet
         , Network.AWS.WAF.UpdateRateBasedRule
+        , Network.AWS.WAF.UpdateRegexMatchSet
+        , Network.AWS.WAF.UpdateRegexPatternSet
         , Network.AWS.WAF.UpdateRule
         , Network.AWS.WAF.UpdateSizeConstraintSet
         , Network.AWS.WAF.UpdateSqlInjectionMatchSet

@@ -93,7 +93,7 @@ instance AWSRequest GetHostReservationPurchasePreview
                      <*> (x .@? "totalUpfrontPrice")
                      <*>
                      (x .@? "purchase" .!@ mempty >>=
-                        may (parseXMLList "member"))
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetHostReservationPurchasePreview

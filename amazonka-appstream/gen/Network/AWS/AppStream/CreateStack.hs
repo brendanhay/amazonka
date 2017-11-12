@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new stack.
+-- Creates a stack.
 --
 --
 module Network.AWS.AppStream.CreateStack
@@ -60,13 +60,13 @@ data CreateStack = CreateStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csStorageConnectors' - The storage connectors to be enabled for the stack.
+-- * 'csStorageConnectors' - The storage connectors to enable.
 --
--- * 'csDisplayName' - The name displayed to end users on the AppStream 2.0 portal.
+-- * 'csDisplayName' - The stack name displayed to end users.
 --
--- * 'csDescription' - The description displayed to end users on the AppStream 2.0 portal.
+-- * 'csDescription' - The description displayed to end users.
 --
--- * 'csName' - The unique identifier for this stack.
+-- * 'csName' - The name of the stack.
 createStack
     :: Text -- ^ 'csName'
     -> CreateStack
@@ -79,19 +79,19 @@ createStack pName_ =
   }
 
 
--- | The storage connectors to be enabled for the stack.
+-- | The storage connectors to enable.
 csStorageConnectors :: Lens' CreateStack [StorageConnector]
 csStorageConnectors = lens _csStorageConnectors (\ s a -> s{_csStorageConnectors = a}) . _Default . _Coerce;
 
--- | The name displayed to end users on the AppStream 2.0 portal.
+-- | The stack name displayed to end users.
 csDisplayName :: Lens' CreateStack (Maybe Text)
 csDisplayName = lens _csDisplayName (\ s a -> s{_csDisplayName = a});
 
--- | The description displayed to end users on the AppStream 2.0 portal.
+-- | The description displayed to end users.
 csDescription :: Lens' CreateStack (Maybe Text)
 csDescription = lens _csDescription (\ s a -> s{_csDescription = a});
 
--- | The unique identifier for this stack.
+-- | The name of the stack.
 csName :: Lens' CreateStack Text
 csName = lens _csName (\ s a -> s{_csName = a});
 
@@ -144,7 +144,7 @@ data CreateStackResponse = CreateStackResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csrsStack' - The details for the created stack.
+-- * 'csrsStack' - Information about the stack.
 --
 -- * 'csrsResponseStatus' - -- | The response status code.
 createStackResponse
@@ -155,7 +155,7 @@ createStackResponse pResponseStatus_ =
   {_csrsStack = Nothing, _csrsResponseStatus = pResponseStatus_}
 
 
--- | The details for the created stack.
+-- | Information about the stack.
 csrsStack :: Lens' CreateStackResponse (Maybe Stack)
 csrsStack = lens _csrsStack (\ s a -> s{_csrsStack = a});
 

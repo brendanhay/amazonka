@@ -39,13 +39,14 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.Route53Domains
         , Network.AWS.Route53Domains.CheckDomainAvailability
+        , Network.AWS.Route53Domains.CheckDomainTransferability
         , Network.AWS.Route53Domains.DeleteTagsForDomain
         , Network.AWS.Route53Domains.DisableDomainAutoRenew
         , Network.AWS.Route53Domains.DisableDomainTransferLock

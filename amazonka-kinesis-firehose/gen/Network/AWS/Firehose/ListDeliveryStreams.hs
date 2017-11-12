@@ -30,6 +30,7 @@ module Network.AWS.Firehose.ListDeliveryStreams
     , ListDeliveryStreams
     -- * Request Lenses
     , ldsLimit
+    , ldsDeliveryStreamType
     , ldsExclusiveStartDeliveryStreamName
 
     -- * Destructuring the Response
@@ -50,7 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listDeliveryStreams' smart constructor.
 data ListDeliveryStreams = ListDeliveryStreams'
-  { _ldsLimit                            :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _ldsLimit :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _ldsDeliveryStreamType :: {-# NOUNPACK #-}!(Maybe DeliveryStreamType)
   , _ldsExclusiveStartDeliveryStreamName :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -61,17 +63,26 @@ data ListDeliveryStreams = ListDeliveryStreams'
 --
 -- * 'ldsLimit' - The maximum number of delivery streams to list.
 --
+-- * 'ldsDeliveryStreamType' - The delivery stream type. This can be one of the following values:     * @DirectPut@ : Provider applications access the delivery stream directly.     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis stream as a source. This parameter is optional. If this parameter is omitted, delivery streams of all types are returned.
+--
 -- * 'ldsExclusiveStartDeliveryStreamName' - The name of the delivery stream to start the list with.
 listDeliveryStreams
     :: ListDeliveryStreams
 listDeliveryStreams =
   ListDeliveryStreams'
-  {_ldsLimit = Nothing, _ldsExclusiveStartDeliveryStreamName = Nothing}
+  { _ldsLimit = Nothing
+  , _ldsDeliveryStreamType = Nothing
+  , _ldsExclusiveStartDeliveryStreamName = Nothing
+  }
 
 
 -- | The maximum number of delivery streams to list.
 ldsLimit :: Lens' ListDeliveryStreams (Maybe Natural)
 ldsLimit = lens _ldsLimit (\ s a -> s{_ldsLimit = a}) . mapping _Nat;
+
+-- | The delivery stream type. This can be one of the following values:     * @DirectPut@ : Provider applications access the delivery stream directly.     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis stream as a source. This parameter is optional. If this parameter is omitted, delivery streams of all types are returned.
+ldsDeliveryStreamType :: Lens' ListDeliveryStreams (Maybe DeliveryStreamType)
+ldsDeliveryStreamType = lens _ldsDeliveryStreamType (\ s a -> s{_ldsDeliveryStreamType = a});
 
 -- | The name of the delivery stream to start the list with.
 ldsExclusiveStartDeliveryStreamName :: Lens' ListDeliveryStreams (Maybe Text)
@@ -108,6 +119,7 @@ instance ToJSON ListDeliveryStreams where
           = object
               (catMaybes
                  [("Limit" .=) <$> _ldsLimit,
+                  ("DeliveryStreamType" .=) <$> _ldsDeliveryStreamType,
                   ("ExclusiveStartDeliveryStreamName" .=) <$>
                     _ldsExclusiveStartDeliveryStreamName])
 

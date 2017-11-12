@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about cache cluster or replication group snapshots. By default, @DescribeSnapshots@ lists all of your snapshots; it can optionally describe a single snapshot, or just the snapshots associated with a particular cache cluster.
+-- Returns information about cluster or replication group snapshots. By default, @DescribeSnapshots@ lists all of your snapshots; it can optionally describe a single snapshot, or just the snapshots associated with a particular cache cluster.
 --
 --
 --
@@ -74,7 +74,7 @@ data DescribeSnapshots = DescribeSnapshots'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsCacheClusterId' - A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cache cluster are described.
+-- * 'dsCacheClusterId' - A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cluster are described.
 --
 -- * 'dsMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
@@ -101,7 +101,7 @@ describeSnapshots =
   }
 
 
--- | A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cache cluster are described.
+-- | A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cluster are described.
 dsCacheClusterId :: Lens' DescribeSnapshots (Maybe Text)
 dsCacheClusterId = lens _dsCacheClusterId (\ s a -> s{_dsCacheClusterId = a});
 

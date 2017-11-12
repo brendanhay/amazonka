@@ -74,7 +74,7 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
 --
 -- * 'cdcpgTags' - Undocumented member.
 --
--- * 'cdcpgDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'cdcpgDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must match the name of an existing DBClusterParameterGroup.
 --
 -- * 'cdcpgDBParameterGroupFamily' - The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
 --
@@ -97,7 +97,7 @@ createDBClusterParameterGroup pDBClusterParameterGroupName_ pDBParameterGroupFam
 cdcpgTags :: Lens' CreateDBClusterParameterGroup [Tag]
 cdcpgTags = lens _cdcpgTags (\ s a -> s{_cdcpgTags = a}) . _Default . _Coerce;
 
--- | The name of the DB cluster parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The name of the DB cluster parameter group. Constraints:     * Must match the name of an existing DBClusterParameterGroup.
 cdcpgDBClusterParameterGroupName :: Lens' CreateDBClusterParameterGroup Text
 cdcpgDBClusterParameterGroupName = lens _cdcpgDBClusterParameterGroupName (\ s a -> s{_cdcpgDBClusterParameterGroupName = a});
 

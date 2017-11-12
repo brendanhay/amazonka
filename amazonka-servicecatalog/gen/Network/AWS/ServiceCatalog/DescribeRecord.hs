@@ -62,7 +62,7 @@ data DescribeRecord = DescribeRecord'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'drAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'drPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
@@ -81,7 +81,7 @@ describeRecord pId_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 drAcceptLanguage :: Lens' DescribeRecord (Maybe Text)
 drAcceptLanguage = lens _drAcceptLanguage (\ s a -> s{_drAcceptLanguage = a});
 

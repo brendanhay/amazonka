@@ -44,6 +44,9 @@ module Network.AWS.Route53Domains.Types
     -- * ReachabilityStatus
     , ReachabilityStatus (..)
 
+    -- * Transferable
+    , Transferable (..)
+
     -- * BillingRecord
     , BillingRecord
     , billingRecord
@@ -84,6 +87,11 @@ module Network.AWS.Route53Domains.Types
     , dsTransferLock
     , dsAutoRenew
     , dsDomainName
+
+    -- * DomainTransferability
+    , DomainTransferability
+    , domainTransferability
+    , dtTransferable
 
     -- * ExtraParam
     , ExtraParam
@@ -155,7 +163,7 @@ route53Domains =
       | otherwise = Nothing
 
 
--- | The requested item is not acceptable. For example, for an OperationId it may refer to the ID of an operation that is already completed. For a domain name, it may not be a valid domain name or belong to the requester account.
+-- | The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation that is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.
 --
 --
 _InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
@@ -177,7 +185,7 @@ _DomainLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DomainLimitExceeded = _MatchServiceError route53Domains "DomainLimitExceeded"
 
 
--- | Amazon Route 53 does not support this top-level domain.
+-- | Amazon Route 53 does not support this top-level domain (TLD).
 --
 --
 _UnsupportedTLD :: AsError a => Getting (First ServiceError) a ServiceError

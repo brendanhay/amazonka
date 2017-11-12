@@ -406,6 +406,9 @@ module Network.AWS.APIGateway
     -- ** DocumentationPartType
     , DocumentationPartType (..)
 
+    -- ** EndpointType
+    , EndpointType (..)
+
     -- ** GatewayResponseType
     , GatewayResponseType (..)
 
@@ -516,10 +519,19 @@ module Network.AWS.APIGateway
     , DomainName
     , domainName
     , dnCertificateName
+    , dnRegionalCertificateARN
     , dnCertificateARN
     , dnDomainName
+    , dnRegionalCertificateName
+    , dnRegionalDomainName
     , dnCertificateUploadDate
     , dnDistributionDomainName
+    , dnEndpointConfiguration
+
+    -- ** EndpointConfiguration
+    , EndpointConfiguration
+    , endpointConfiguration
+    , ecTypes
 
     -- ** GatewayResponse
     , GatewayResponse
@@ -645,6 +657,7 @@ module Network.AWS.APIGateway
     , raName
     , raVersion
     , raId
+    , raEndpointConfiguration
     , raDescription
 
     -- ** SDKConfigurationProperty

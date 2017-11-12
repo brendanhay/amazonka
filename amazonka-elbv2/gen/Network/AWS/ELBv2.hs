@@ -15,13 +15,17 @@
 --
 -- A load balancer distributes incoming traffic across targets, such as your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered targets and ensures that it routes traffic only to healthy targets. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer. You configure a target group with a protocol and port number for connections from the load balancer to the targets, and with health check settings to be used when checking the health status of the targets.
 --
--- Elastic Load Balancing supports two types of load balancers: Classic Load Balancers and Application Load Balancers. A Classic Load Balancer makes routing and load balancing decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. An Application Load Balancer makes routing and load balancing decisions at the application layer (HTTP/HTTPS), supports path-based routing, and can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC). For more information, see the <http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/ Elastic Load Balancing User Guide> .
+-- Elastic Load Balancing supports the following types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers.
 --
--- This reference covers the 2015-12-01 API, which supports Application Load Balancers. The 2012-06-01 API supports Classic Load Balancers.
+-- An Application Load Balancer makes routing and load balancing decisions at the application layer (HTTP/HTTPS). A Network Load Balancer makes routing and load balancing decisions at the transport layer (TCP). Both Application Load Balancers and Network Load Balancers can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC).
+--
+-- A Classic Load Balancer makes routing and load balancing decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. For more information, see the <http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/ Elastic Load Balancing User Guide> .
+--
+-- This reference covers the 2015-12-01 API, which supports Application Load Balancers and Network Load Balancers. The 2012-06-01 API supports Classic Load Balancers.
 --
 -- To get started, complete the following tasks:
 --
---     * Create an Application Load Balancer using 'CreateLoadBalancer' .
+--     * Create a load balancer using 'CreateLoadBalancer' .
 --
 --     * Create a target group using 'CreateTargetGroup' .
 --
@@ -29,11 +33,9 @@
 --
 --     * Create one or more listeners for your load balancer using 'CreateListener' .
 --
---     * (Optional) Create one or more rules for content routing based on URL using 'CreateRule' .
 --
 --
---
--- To delete an Application Load Balancer and its related resources, complete the following tasks:
+-- To delete a load balancer and its related resources, complete the following tasks:
 --
 --     * Delete the load balancer using 'DeleteLoadBalancer' .
 --
@@ -96,6 +98,9 @@ module Network.AWS.ELBv2
     -- ** HealthUnavailableException
     , _HealthUnavailableException
 
+    -- ** AllocationIdNotFoundException
+    , _AllocationIdNotFoundException
+
     -- ** PriorityInUseException
     , _PriorityInUseException
 
@@ -135,6 +140,9 @@ module Network.AWS.ELBv2
     -- ** InvalidSchemeException
     , _InvalidSchemeException
 
+    -- ** AvailabilityZoneNotSupportedException
+    , _AvailabilityZoneNotSupportedException
+
     -- ** LoadBalancerNotFoundException
     , _LoadBalancerNotFoundException
 
@@ -170,6 +178,9 @@ module Network.AWS.ELBv2
 
     -- ** CreateRule
     , module Network.AWS.ELBv2.CreateRule
+
+    -- ** DescribeListenerCertificates
+    , module Network.AWS.ELBv2.DescribeListenerCertificates
 
     -- ** SetSecurityGroups
     , module Network.AWS.ELBv2.SetSecurityGroups
@@ -240,8 +251,14 @@ module Network.AWS.ELBv2
     -- ** CreateLoadBalancer
     , module Network.AWS.ELBv2.CreateLoadBalancer
 
+    -- ** RemoveListenerCertificates
+    , module Network.AWS.ELBv2.RemoveListenerCertificates
+
     -- ** ModifyRule
     , module Network.AWS.ELBv2.ModifyRule
+
+    -- ** AddListenerCertificates
+    , module Network.AWS.ELBv2.AddListenerCertificates
 
     -- * Types
 
@@ -269,6 +286,9 @@ module Network.AWS.ELBv2
     -- ** TargetHealthStateEnum
     , TargetHealthStateEnum (..)
 
+    -- ** TargetTypeEnum
+    , TargetTypeEnum (..)
+
     -- ** Action
     , Action
     , action
@@ -280,11 +300,13 @@ module Network.AWS.ELBv2
     , availabilityZone
     , azSubnetId
     , azZoneName
+    , azLoadBalancerAddresses
 
     -- ** Certificate
     , Certificate
     , certificate
     , cCertificateARN
+    , cIsDefault
 
     -- ** Cipher
     , Cipher
@@ -324,6 +346,12 @@ module Network.AWS.ELBv2
     , lbScheme
     , lbType
     , lbDNSName
+
+    -- ** LoadBalancerAddress
+    , LoadBalancerAddress
+    , loadBalancerAddress
+    , lbaIPAddress
+    , lbaAllocationId
 
     -- ** LoadBalancerAttribute
     , LoadBalancerAttribute
@@ -370,6 +398,12 @@ module Network.AWS.ELBv2
     , spName
     , spSSLProtocols
 
+    -- ** SubnetMapping
+    , SubnetMapping
+    , subnetMapping
+    , smAllocationId
+    , smSubnetId
+
     -- ** Tag
     , Tag
     , tag
@@ -385,6 +419,7 @@ module Network.AWS.ELBv2
     -- ** TargetDescription
     , TargetDescription
     , targetDescription
+    , tdAvailabilityZone
     , tdPort
     , tdId
 
@@ -398,6 +433,7 @@ module Network.AWS.ELBv2
     , tgTargetGroupARN
     , tgProtocol
     , tgHealthCheckIntervalSeconds
+    , tgTargetType
     , tgHealthyThresholdCount
     , tgHealthCheckProtocol
     , tgLoadBalancerARNs
@@ -427,6 +463,7 @@ module Network.AWS.ELBv2
     , thdTarget
     ) where
 
+import Network.AWS.ELBv2.AddListenerCertificates
 import Network.AWS.ELBv2.AddTags
 import Network.AWS.ELBv2.CreateListener
 import Network.AWS.ELBv2.CreateLoadBalancer
@@ -438,6 +475,7 @@ import Network.AWS.ELBv2.DeleteRule
 import Network.AWS.ELBv2.DeleteTargetGroup
 import Network.AWS.ELBv2.DeregisterTargets
 import Network.AWS.ELBv2.DescribeAccountLimits
+import Network.AWS.ELBv2.DescribeListenerCertificates
 import Network.AWS.ELBv2.DescribeListeners
 import Network.AWS.ELBv2.DescribeLoadBalancerAttributes
 import Network.AWS.ELBv2.DescribeLoadBalancers
@@ -453,6 +491,7 @@ import Network.AWS.ELBv2.ModifyRule
 import Network.AWS.ELBv2.ModifyTargetGroup
 import Network.AWS.ELBv2.ModifyTargetGroupAttributes
 import Network.AWS.ELBv2.RegisterTargets
+import Network.AWS.ELBv2.RemoveListenerCertificates
 import Network.AWS.ELBv2.RemoveTags
 import Network.AWS.ELBv2.SetIPAddressType
 import Network.AWS.ELBv2.SetRulePriorities

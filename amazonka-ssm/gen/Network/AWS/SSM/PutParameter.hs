@@ -39,6 +39,7 @@ module Network.AWS.SSM.PutParameter
     , putParameterResponse
     , PutParameterResponse
     -- * Response Lenses
+    , pprsVersion
     , pprsResponseStatus
     ) where
 
@@ -127,9 +128,10 @@ instance AWSRequest PutParameter where
         type Rs PutParameter = PutParameterResponse
         request = postJSON ssm
         response
-          = receiveEmpty
+          = receiveJSON
               (\ s h x ->
-                 PutParameterResponse' <$> (pure (fromEnum s)))
+                 PutParameterResponse' <$>
+                   (x .?> "Version") <*> (pure (fromEnum s)))
 
 instance Hashable PutParameter where
 
@@ -162,8 +164,9 @@ instance ToQuery PutParameter where
         toQuery = const mempty
 
 -- | /See:/ 'putParameterResponse' smart constructor.
-newtype PutParameterResponse = PutParameterResponse'
-  { _pprsResponseStatus :: Int
+data PutParameterResponse = PutParameterResponse'
+  { _pprsVersion        :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _pprsResponseStatus :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -171,13 +174,20 @@ newtype PutParameterResponse = PutParameterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'pprsVersion' - The new version number of a parameter. If you edit a parameter value, Parameter Store automatically creates a new version and assigns this new version a unique ID. You can reference a parameter version ID in API actions or in Systems Manager documents (SSM documents). By default, if you don't specify a specific version, the system returns the latest parameter value when a parameter is called.
+--
 -- * 'pprsResponseStatus' - -- | The response status code.
 putParameterResponse
     :: Int -- ^ 'pprsResponseStatus'
     -> PutParameterResponse
 putParameterResponse pResponseStatus_ =
-  PutParameterResponse' {_pprsResponseStatus = pResponseStatus_}
+  PutParameterResponse'
+  {_pprsVersion = Nothing, _pprsResponseStatus = pResponseStatus_}
 
+
+-- | The new version number of a parameter. If you edit a parameter value, Parameter Store automatically creates a new version and assigns this new version a unique ID. You can reference a parameter version ID in API actions or in Systems Manager documents (SSM documents). By default, if you don't specify a specific version, the system returns the latest parameter value when a parameter is called.
+pprsVersion :: Lens' PutParameterResponse (Maybe Integer)
+pprsVersion = lens _pprsVersion (\ s a -> s{_pprsVersion = a});
 
 -- | -- | The response status code.
 pprsResponseStatus :: Lens' PutParameterResponse Int

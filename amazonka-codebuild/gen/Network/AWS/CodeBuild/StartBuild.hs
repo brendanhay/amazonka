@@ -68,7 +68,7 @@ data StartBuild = StartBuild'
 --
 -- * 'sbTimeoutInMinutesOverride' - The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.
 --
--- * 'sbSourceVersion' - A version of the build input to be built, for this build only. If not specified, the latest version will be used. If specified, must be one of:     * For AWS CodeCommit or GitHub: the commit ID to use.     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use.
+-- * 'sbSourceVersion' - A version of the build input to be built, for this build only. If not specified, the latest version will be used. If specified, must be one of:     * For AWS CodeCommit: the commit ID to use.     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use.
 --
 -- * 'sbBuildspecOverride' - A build spec declaration that overrides, for this build only, the latest one already defined in the build project.
 --
@@ -97,7 +97,7 @@ sbEnvironmentVariablesOverride = lens _sbEnvironmentVariablesOverride (\ s a -> 
 sbTimeoutInMinutesOverride :: Lens' StartBuild (Maybe Natural)
 sbTimeoutInMinutesOverride = lens _sbTimeoutInMinutesOverride (\ s a -> s{_sbTimeoutInMinutesOverride = a}) . mapping _Nat;
 
--- | A version of the build input to be built, for this build only. If not specified, the latest version will be used. If specified, must be one of:     * For AWS CodeCommit or GitHub: the commit ID to use.     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use.
+-- | A version of the build input to be built, for this build only. If not specified, the latest version will be used. If specified, must be one of:     * For AWS CodeCommit: the commit ID to use.     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID will be used.     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use.
 sbSourceVersion :: Lens' StartBuild (Maybe Text)
 sbSourceVersion = lens _sbSourceVersion (\ s a -> s{_sbSourceVersion = a});
 

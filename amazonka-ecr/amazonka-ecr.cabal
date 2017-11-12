@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -50,17 +50,22 @@ library
         , Network.AWS.ECR.BatchGetImage
         , Network.AWS.ECR.CompleteLayerUpload
         , Network.AWS.ECR.CreateRepository
+        , Network.AWS.ECR.DeleteLifecyclePolicy
         , Network.AWS.ECR.DeleteRepository
         , Network.AWS.ECR.DeleteRepositoryPolicy
         , Network.AWS.ECR.DescribeImages
         , Network.AWS.ECR.DescribeRepositories
         , Network.AWS.ECR.GetAuthorizationToken
         , Network.AWS.ECR.GetDownloadURLForLayer
+        , Network.AWS.ECR.GetLifecyclePolicy
+        , Network.AWS.ECR.GetLifecyclePolicyPreview
         , Network.AWS.ECR.GetRepositoryPolicy
         , Network.AWS.ECR.InitiateLayerUpload
         , Network.AWS.ECR.ListImages
         , Network.AWS.ECR.PutImage
+        , Network.AWS.ECR.PutLifecyclePolicy
         , Network.AWS.ECR.SetRepositoryPolicy
+        , Network.AWS.ECR.StartLifecyclePolicyPreview
         , Network.AWS.ECR.Types
         , Network.AWS.ECR.UploadLayerPart
         , Network.AWS.ECR.Waiters

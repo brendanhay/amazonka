@@ -34,10 +34,14 @@ module Network.AWS.APIGateway.GetDomainName
     , DomainName
     -- * Response Lenses
     , dnCertificateName
+    , dnRegionalCertificateARN
     , dnCertificateARN
     , dnDomainName
+    , dnRegionalCertificateName
+    , dnRegionalDomainName
     , dnCertificateUploadDate
     , dnDistributionDomainName
+    , dnEndpointConfiguration
     ) where
 
 import Network.AWS.APIGateway.Types

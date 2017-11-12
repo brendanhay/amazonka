@@ -33,12 +33,17 @@
 --
 --
 --
+-- If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.
+--
+-- If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an @InvalidParameterException@ error.
+--
 module Network.AWS.CloudWatchLogs.CreateLogGroup
     (
     -- * Creating a Request
       createLogGroup
     , CreateLogGroup
     -- * Request Lenses
+    , clgKmsKeyId
     , clgTags
     , clgLogGroupName
 
@@ -56,7 +61,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createLogGroup' smart constructor.
 data CreateLogGroup = CreateLogGroup'
-  { _clgTags         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  { _clgKmsKeyId     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _clgTags         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
   , _clgLogGroupName :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -65,6 +71,8 @@ data CreateLogGroup = CreateLogGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'clgKmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)> .
+--
 -- * 'clgTags' - The key-value pairs to use for the tags.
 --
 -- * 'clgLogGroupName' - The name of the log group.
@@ -72,8 +80,16 @@ createLogGroup
     :: Text -- ^ 'clgLogGroupName'
     -> CreateLogGroup
 createLogGroup pLogGroupName_ =
-  CreateLogGroup' {_clgTags = Nothing, _clgLogGroupName = pLogGroupName_}
+  CreateLogGroup'
+  { _clgKmsKeyId = Nothing
+  , _clgTags = Nothing
+  , _clgLogGroupName = pLogGroupName_
+  }
 
+
+-- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)> .
+clgKmsKeyId :: Lens' CreateLogGroup (Maybe Text)
+clgKmsKeyId = lens _clgKmsKeyId (\ s a -> s{_clgKmsKeyId = a});
 
 -- | The key-value pairs to use for the tags.
 clgTags :: Lens' CreateLogGroup (HashMap Text Text)
@@ -105,7 +121,8 @@ instance ToJSON CreateLogGroup where
         toJSON CreateLogGroup'{..}
           = object
               (catMaybes
-                 [("tags" .=) <$> _clgTags,
+                 [("kmsKeyId" .=) <$> _clgKmsKeyId,
+                  ("tags" .=) <$> _clgTags,
                   Just ("logGroupName" .= _clgLogGroupName)])
 
 instance ToPath CreateLogGroup where

@@ -29,8 +29,10 @@ module Network.AWS.ElasticSearch.CreateElasticsearchDomain
     -- * Request Lenses
     , cedEBSOptions
     , cedAccessPolicies
+    , cedLogPublishingOptions
     , cedElasticsearchClusterConfig
     , cedSnapshotOptions
+    , cedVPCOptions
     , cedAdvancedOptions
     , cedElasticsearchVersion
     , cedDomainName
@@ -54,8 +56,10 @@ import Network.AWS.Response
 data CreateElasticsearchDomain = CreateElasticsearchDomain'
   { _cedEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptions)
   , _cedAccessPolicies :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cedLogPublishingOptions :: {-# NOUNPACK #-}!(Maybe (Map LogType LogPublishingOption))
   , _cedElasticsearchClusterConfig :: {-# NOUNPACK #-}!(Maybe ElasticsearchClusterConfig)
   , _cedSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptions)
+  , _cedVPCOptions :: {-# NOUNPACK #-}!(Maybe VPCOptions)
   , _cedAdvancedOptions :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
   , _cedElasticsearchVersion :: {-# NOUNPACK #-}!(Maybe Text)
   , _cedDomainName :: {-# NOUNPACK #-}!Text
@@ -70,9 +74,13 @@ data CreateElasticsearchDomain = CreateElasticsearchDomain'
 --
 -- * 'cedAccessPolicies' - IAM access policy as a JSON-formatted string.
 --
+-- * 'cedLogPublishingOptions' - Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
+--
 -- * 'cedElasticsearchClusterConfig' - Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster.
 --
 -- * 'cedSnapshotOptions' - Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours.
+--
+-- * 'cedVPCOptions' - Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
 --
 -- * 'cedAdvancedOptions' - Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
 --
@@ -86,8 +94,10 @@ createElasticsearchDomain pDomainName_ =
   CreateElasticsearchDomain'
   { _cedEBSOptions = Nothing
   , _cedAccessPolicies = Nothing
+  , _cedLogPublishingOptions = Nothing
   , _cedElasticsearchClusterConfig = Nothing
   , _cedSnapshotOptions = Nothing
+  , _cedVPCOptions = Nothing
   , _cedAdvancedOptions = Nothing
   , _cedElasticsearchVersion = Nothing
   , _cedDomainName = pDomainName_
@@ -102,6 +112,10 @@ cedEBSOptions = lens _cedEBSOptions (\ s a -> s{_cedEBSOptions = a});
 cedAccessPolicies :: Lens' CreateElasticsearchDomain (Maybe Text)
 cedAccessPolicies = lens _cedAccessPolicies (\ s a -> s{_cedAccessPolicies = a});
 
+-- | Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
+cedLogPublishingOptions :: Lens' CreateElasticsearchDomain (HashMap LogType LogPublishingOption)
+cedLogPublishingOptions = lens _cedLogPublishingOptions (\ s a -> s{_cedLogPublishingOptions = a}) . _Default . _Map;
+
 -- | Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster.
 cedElasticsearchClusterConfig :: Lens' CreateElasticsearchDomain (Maybe ElasticsearchClusterConfig)
 cedElasticsearchClusterConfig = lens _cedElasticsearchClusterConfig (\ s a -> s{_cedElasticsearchClusterConfig = a});
@@ -109,6 +123,10 @@ cedElasticsearchClusterConfig = lens _cedElasticsearchClusterConfig (\ s a -> s{
 -- | Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours.
 cedSnapshotOptions :: Lens' CreateElasticsearchDomain (Maybe SnapshotOptions)
 cedSnapshotOptions = lens _cedSnapshotOptions (\ s a -> s{_cedSnapshotOptions = a});
+
+-- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
+cedVPCOptions :: Lens' CreateElasticsearchDomain (Maybe VPCOptions)
+cedVPCOptions = lens _cedVPCOptions (\ s a -> s{_cedVPCOptions = a});
 
 -- | Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
 cedAdvancedOptions :: Lens' CreateElasticsearchDomain (HashMap Text Text)
@@ -145,9 +163,12 @@ instance ToJSON CreateElasticsearchDomain where
               (catMaybes
                  [("EBSOptions" .=) <$> _cedEBSOptions,
                   ("AccessPolicies" .=) <$> _cedAccessPolicies,
+                  ("LogPublishingOptions" .=) <$>
+                    _cedLogPublishingOptions,
                   ("ElasticsearchClusterConfig" .=) <$>
                     _cedElasticsearchClusterConfig,
                   ("SnapshotOptions" .=) <$> _cedSnapshotOptions,
+                  ("VPCOptions" .=) <$> _cedVPCOptions,
                   ("AdvancedOptions" .=) <$> _cedAdvancedOptions,
                   ("ElasticsearchVersion" .=) <$>
                     _cedElasticsearchVersion,

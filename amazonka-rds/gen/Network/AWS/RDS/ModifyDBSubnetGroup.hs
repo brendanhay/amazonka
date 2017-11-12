@@ -64,7 +64,7 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
 --
 -- * 'mdsgDBSubnetGroupDescription' - The description for the DB subnet group.
 --
--- * 'mdsgDBSubnetGroupName' - The name for the DB subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
+-- * 'mdsgDBSubnetGroupName' - The name for the DB subnet group. This value is stored as a lowercase string. You can't modify the default subnet group.  Constraints: Must match the name of an existing DBSubnetGroup. Must not be default. Example: @mySubnetgroup@
 --
 -- * 'mdsgSubnetIds' - The EC2 subnet IDs for the DB subnet group.
 modifyDBSubnetGroup
@@ -82,7 +82,7 @@ modifyDBSubnetGroup pDBSubnetGroupName_ =
 mdsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
 mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_mdsgDBSubnetGroupDescription = a});
 
--- | The name for the DB subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
+-- | The name for the DB subnet group. This value is stored as a lowercase string. You can't modify the default subnet group.  Constraints: Must match the name of an existing DBSubnetGroup. Must not be default. Example: @mySubnetgroup@
 mdsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
 mdsgDBSubnetGroupName = lens _mdsgDBSubnetGroupName (\ s a -> s{_mdsgDBSubnetGroupName = a});
 

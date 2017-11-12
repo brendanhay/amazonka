@@ -42,6 +42,9 @@ module Network.AWS.APIGateway.Types
     -- * DocumentationPartType
     , DocumentationPartType (..)
 
+    -- * EndpointType
+    , EndpointType (..)
+
     -- * GatewayResponseType
     , GatewayResponseType (..)
 
@@ -152,10 +155,19 @@ module Network.AWS.APIGateway.Types
     , DomainName
     , domainName
     , dnCertificateName
+    , dnRegionalCertificateARN
     , dnCertificateARN
     , dnDomainName
+    , dnRegionalCertificateName
+    , dnRegionalDomainName
     , dnCertificateUploadDate
     , dnDistributionDomainName
+    , dnEndpointConfiguration
+
+    -- * EndpointConfiguration
+    , EndpointConfiguration
+    , endpointConfiguration
+    , ecTypes
 
     -- * GatewayResponse
     , GatewayResponse
@@ -281,6 +293,7 @@ module Network.AWS.APIGateway.Types
     , raName
     , raVersion
     , raId
+    , raEndpointConfiguration
     , raDescription
 
     -- * SDKConfigurationProperty
@@ -400,43 +413,57 @@ apiGateway =
       | otherwise = Nothing
 
 
--- | Prism for ConflictException' errors.
+-- | The request configuration has conflicts. For details, see the accompanying error message.
+--
+--
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictException =
   _MatchServiceError apiGateway "ConflictException" . hasStatus 409
 
 
--- | Prism for NotFoundException' errors.
+-- | The requested resource is not found. Make sure that the request URI is correct.
+--
+--
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException =
   _MatchServiceError apiGateway "NotFoundException" . hasStatus 404
 
 
--- | Prism for TooManyRequestsException' errors.
+-- | The request has reached its throttling limit. Retry after the specified time period.
+--
+--
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
   _MatchServiceError apiGateway "TooManyRequestsException" . hasStatus 429
 
 
--- | Prism for ServiceUnavailableException' errors.
+-- | The requested service is not available. For details see the accompanying error message. Retry after the specified time period.
+--
+--
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
   _MatchServiceError apiGateway "ServiceUnavailableException" . hasStatus 503
 
 
--- | Prism for UnauthorizedException' errors.
+-- | The request is denied because the caller has insufficient permissions.
+--
+--
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedException =
   _MatchServiceError apiGateway "UnauthorizedException" . hasStatus 401
 
 
--- | Prism for BadRequestException' errors.
+-- | The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.
+--
+--
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _BadRequestException =
   _MatchServiceError apiGateway "BadRequestException" . hasStatus 400
 
 
--- | Prism for LimitExceededException' errors.
+-- | The request exceeded the rate limit. Retry after the specified time period.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
   _MatchServiceError apiGateway "LimitExceededException" . hasStatus 429

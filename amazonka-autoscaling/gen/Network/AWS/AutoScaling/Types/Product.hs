@@ -974,7 +974,7 @@ instance Hashable Instance where
 
 instance NFData Instance where
 
--- | Describes whether instance monitoring is enabled.
+-- | Describes whether detailed monitoring is enabled for the Auto Scaling instances.
 --
 --
 --
@@ -988,13 +988,13 @@ newtype InstanceMonitoring = InstanceMonitoring'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'imEnabled' - If @True@ , instance monitoring is enabled.
+-- * 'imEnabled' - If @true@ , detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
 instanceMonitoring
     :: InstanceMonitoring
 instanceMonitoring = InstanceMonitoring' {_imEnabled = Nothing}
 
 
--- | If @True@ , instance monitoring is enabled.
+-- | If @true@ , detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
 imEnabled :: Lens' InstanceMonitoring (Maybe Bool)
 imEnabled = lens _imEnabled (\ s a -> s{_imEnabled = a});
 
@@ -1217,16 +1217,10 @@ instance Hashable LaunchConfiguration where
 
 instance NFData LaunchConfiguration where
 
--- | Describes a lifecycle hook, which tells Auto Scaling that you want to perform an action when an instance launches or terminates. When you have a lifecycle hook in place, the Auto Scaling group will either:
+-- | Describes a lifecycle hook, which tells Auto Scaling that you want to perform an action whenever it launches instances or whenever it terminates instances.
 --
 --
---     * Pause the instance after it launches, but before it is put into service
---
---     * Pause the instance as it terminates, but before it is fully terminated
---
---
---
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html Auto Scaling Lifecycle Hooks> in the /Auto Scaling User Guide/ .
 --
 --
 -- /See:/ 'lifecycleHook' smart constructor.
@@ -1251,7 +1245,7 @@ data LifecycleHook = LifecycleHook'
 --
 -- * 'lhLifecycleHookName' - The name of the lifecycle hook.
 --
--- * 'lhHeartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook times out. The default is 3600 seconds (1 hour). When the lifecycle hook times out, Auto Scaling performs the default action. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
+-- * 'lhHeartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook times out. If the lifecycle hook times out, Auto Scaling performs the default action. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
 --
 -- * 'lhAutoScalingGroupName' - The name of the Auto Scaling group for the lifecycle hook.
 --
@@ -1259,7 +1253,7 @@ data LifecycleHook = LifecycleHook'
 --
 -- * 'lhGlobalTimeout' - The maximum time, in seconds, that an instance can remain in a @Pending:Wait@ or @Terminating:Wait@ state. The maximum is 172800 seconds (48 hours) or 100 times @HeartbeatTimeout@ , whichever is smaller.
 --
--- * 'lhNotificationTargetARN' - The ARN of the notification target that Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic. The notification message sent to the target includes the following:     * Lifecycle action token     * User account ID     * Name of the Auto Scaling group     * Lifecycle hook name     * EC2 instance ID     * Lifecycle transition     * Notification metadata
+-- * 'lhNotificationTargetARN' - The ARN of the target that Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
 --
 -- * 'lhLifecycleTransition' - The state of the EC2 instance to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see 'DescribeLifecycleHookTypes' .
 --
@@ -1288,7 +1282,7 @@ lhDefaultResult = lens _lhDefaultResult (\ s a -> s{_lhDefaultResult = a});
 lhLifecycleHookName :: Lens' LifecycleHook (Maybe Text)
 lhLifecycleHookName = lens _lhLifecycleHookName (\ s a -> s{_lhLifecycleHookName = a});
 
--- | The maximum time, in seconds, that can elapse before the lifecycle hook times out. The default is 3600 seconds (1 hour). When the lifecycle hook times out, Auto Scaling performs the default action. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
+-- | The maximum time, in seconds, that can elapse before the lifecycle hook times out. If the lifecycle hook times out, Auto Scaling performs the default action. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
 lhHeartbeatTimeout :: Lens' LifecycleHook (Maybe Int)
 lhHeartbeatTimeout = lens _lhHeartbeatTimeout (\ s a -> s{_lhHeartbeatTimeout = a});
 
@@ -1304,7 +1298,7 @@ lhNotificationMetadata = lens _lhNotificationMetadata (\ s a -> s{_lhNotificatio
 lhGlobalTimeout :: Lens' LifecycleHook (Maybe Int)
 lhGlobalTimeout = lens _lhGlobalTimeout (\ s a -> s{_lhGlobalTimeout = a});
 
--- | The ARN of the notification target that Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic. The notification message sent to the target includes the following:     * Lifecycle action token     * User account ID     * Name of the Auto Scaling group     * Lifecycle hook name     * EC2 instance ID     * Lifecycle transition     * Notification metadata
+-- | The ARN of the target that Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
 lhNotificationTargetARN :: Lens' LifecycleHook (Maybe Text)
 lhNotificationTargetARN = lens _lhNotificationTargetARN (\ s a -> s{_lhNotificationTargetARN = a});
 
@@ -1332,6 +1326,99 @@ instance FromXML LifecycleHook where
 instance Hashable LifecycleHook where
 
 instance NFData LifecycleHook where
+
+-- | Describes a lifecycle hook, which tells Auto Scaling that you want to perform an action whenever it launches instances or whenever it terminates instances.
+--
+--
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html Auto Scaling Lifecycle Hooks> in the /Auto Scaling User Guide/ .
+--
+--
+-- /See:/ 'lifecycleHookSpecification' smart constructor.
+data LifecycleHookSpecification = LifecycleHookSpecification'
+  { _lhsDefaultResult         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhsHeartbeatTimeout      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lhsNotificationMetadata  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhsNotificationTargetARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhsLifecycleTransition   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhsRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lhsLifecycleHookName     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LifecycleHookSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lhsDefaultResult' - Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are @CONTINUE@ and @ABANDON@ . The default value is @CONTINUE@ .
+--
+-- * 'lhsHeartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook times out. If the lifecycle hook times out, Auto Scaling performs the default action. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
+--
+-- * 'lhsNotificationMetadata' - Additional information that you want to include any time Auto Scaling sends a message to the notification target.
+--
+-- * 'lhsNotificationTargetARN' - The ARN of the target that Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
+--
+-- * 'lhsLifecycleTransition' - The state of the EC2 instance to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see 'DescribeLifecycleHookTypes' .
+--
+-- * 'lhsRoleARN' - The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+--
+-- * 'lhsLifecycleHookName' - The name of the lifecycle hook.
+lifecycleHookSpecification
+    :: Text -- ^ 'lhsLifecycleHookName'
+    -> LifecycleHookSpecification
+lifecycleHookSpecification pLifecycleHookName_ =
+  LifecycleHookSpecification'
+  { _lhsDefaultResult = Nothing
+  , _lhsHeartbeatTimeout = Nothing
+  , _lhsNotificationMetadata = Nothing
+  , _lhsNotificationTargetARN = Nothing
+  , _lhsLifecycleTransition = Nothing
+  , _lhsRoleARN = Nothing
+  , _lhsLifecycleHookName = pLifecycleHookName_
+  }
+
+
+-- | Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are @CONTINUE@ and @ABANDON@ . The default value is @CONTINUE@ .
+lhsDefaultResult :: Lens' LifecycleHookSpecification (Maybe Text)
+lhsDefaultResult = lens _lhsDefaultResult (\ s a -> s{_lhsDefaultResult = a});
+
+-- | The maximum time, in seconds, that can elapse before the lifecycle hook times out. If the lifecycle hook times out, Auto Scaling performs the default action. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
+lhsHeartbeatTimeout :: Lens' LifecycleHookSpecification (Maybe Int)
+lhsHeartbeatTimeout = lens _lhsHeartbeatTimeout (\ s a -> s{_lhsHeartbeatTimeout = a});
+
+-- | Additional information that you want to include any time Auto Scaling sends a message to the notification target.
+lhsNotificationMetadata :: Lens' LifecycleHookSpecification (Maybe Text)
+lhsNotificationMetadata = lens _lhsNotificationMetadata (\ s a -> s{_lhsNotificationMetadata = a});
+
+-- | The ARN of the target that Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
+lhsNotificationTargetARN :: Lens' LifecycleHookSpecification (Maybe Text)
+lhsNotificationTargetARN = lens _lhsNotificationTargetARN (\ s a -> s{_lhsNotificationTargetARN = a});
+
+-- | The state of the EC2 instance to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see 'DescribeLifecycleHookTypes' .
+lhsLifecycleTransition :: Lens' LifecycleHookSpecification (Maybe Text)
+lhsLifecycleTransition = lens _lhsLifecycleTransition (\ s a -> s{_lhsLifecycleTransition = a});
+
+-- | The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+lhsRoleARN :: Lens' LifecycleHookSpecification (Maybe Text)
+lhsRoleARN = lens _lhsRoleARN (\ s a -> s{_lhsRoleARN = a});
+
+-- | The name of the lifecycle hook.
+lhsLifecycleHookName :: Lens' LifecycleHookSpecification Text
+lhsLifecycleHookName = lens _lhsLifecycleHookName (\ s a -> s{_lhsLifecycleHookName = a});
+
+instance Hashable LifecycleHookSpecification where
+
+instance NFData LifecycleHookSpecification where
+
+instance ToQuery LifecycleHookSpecification where
+        toQuery LifecycleHookSpecification'{..}
+          = mconcat
+              ["DefaultResult" =: _lhsDefaultResult,
+               "HeartbeatTimeout" =: _lhsHeartbeatTimeout,
+               "NotificationMetadata" =: _lhsNotificationMetadata,
+               "NotificationTargetARN" =: _lhsNotificationTargetARN,
+               "LifecycleTransition" =: _lhsLifecycleTransition,
+               "RoleARN" =: _lhsRoleARN,
+               "LifecycleHookName" =: _lhsLifecycleHookName]
 
 -- | Describes the state of a Classic Load Balancer.
 --
@@ -1587,17 +1674,7 @@ instance Hashable NotificationConfiguration where
 
 instance NFData NotificationConfiguration where
 
--- | Configures a predefined metric for a target tracking policy. The following predefined metrics are available:
---
---
---     * @ASGAverageCPUUtilization@ - average CPU utilization of the Auto Scaling group
---
---     * @ASGAverageNetworkIn@ - average number of bytes received on all network interfaces by the Auto Scaling group
---
---     * @ASGAverageNetworkOut@ - average number of bytes sent out on all network interfaces by the Auto Scaling group
---
---     * @ALBRequestCountPerTarget@ - number of requests completed per target in an Application Load Balancer target group
---
+-- | Configures a predefined metric for a target tracking policy.
 --
 --
 --
@@ -1612,7 +1689,7 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pmsResourceLabel' - Identifies the resource associated with the metric type. For predefined metric types @ASGAverageCPUUtilization@ , @ASGAverageNetworkIn@ and @ASGAverageNetworkOut@ , the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type @ALBRequestCountPerTarget@ , the parameter must be specified in the format @app//load-balancer-name/ //load-balancer-id/ /targetgroup//target-group-name/ //target-group-id/ @ , where @app//load-balancer-name/ //load-balancer-id/ @ is the final portion of the load balancer ARN, and @targetgroup//target-group-name/ //target-group-id/ @ is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.
+-- * 'pmsResourceLabel' - Identifies the resource associated with the metric type. The following predefined metrics are available:     * @ASGAverageCPUUtilization@ - average CPU utilization of the Auto Scaling group     * @ASGAverageNetworkIn@ - average number of bytes received on all network interfaces by the Auto Scaling group     * @ASGAverageNetworkOut@ - average number of bytes sent out on all network interfaces by the Auto Scaling group     * @ALBRequestCountPerTarget@ - number of requests completed per target in an Application Load Balancer target group For predefined metric types @ASGAverageCPUUtilization@ , @ASGAverageNetworkIn@ and @ASGAverageNetworkOut@ , the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type @ALBRequestCountPerTarget@ , the parameter must be specified in the format: @app//load-balancer-name/ //load-balancer-id/ /targetgroup//target-group-name/ //target-group-id/ @ , where @app//load-balancer-name/ //load-balancer-id/ @ is the final portion of the load balancer ARN, and @targetgroup//target-group-name/ //target-group-id/ @ is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.
 --
 -- * 'pmsPredefinedMetricType' - The metric type.
 predefinedMetricSpecification
@@ -1625,7 +1702,7 @@ predefinedMetricSpecification pPredefinedMetricType_ =
   }
 
 
--- | Identifies the resource associated with the metric type. For predefined metric types @ASGAverageCPUUtilization@ , @ASGAverageNetworkIn@ and @ASGAverageNetworkOut@ , the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type @ALBRequestCountPerTarget@ , the parameter must be specified in the format @app//load-balancer-name/ //load-balancer-id/ /targetgroup//target-group-name/ //target-group-id/ @ , where @app//load-balancer-name/ //load-balancer-id/ @ is the final portion of the load balancer ARN, and @targetgroup//target-group-name/ //target-group-id/ @ is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.
+-- | Identifies the resource associated with the metric type. The following predefined metrics are available:     * @ASGAverageCPUUtilization@ - average CPU utilization of the Auto Scaling group     * @ASGAverageNetworkIn@ - average number of bytes received on all network interfaces by the Auto Scaling group     * @ASGAverageNetworkOut@ - average number of bytes sent out on all network interfaces by the Auto Scaling group     * @ALBRequestCountPerTarget@ - number of requests completed per target in an Application Load Balancer target group For predefined metric types @ASGAverageCPUUtilization@ , @ASGAverageNetworkIn@ and @ASGAverageNetworkOut@ , the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type @ALBRequestCountPerTarget@ , the parameter must be specified in the format: @app//load-balancer-name/ //load-balancer-id/ /targetgroup//target-group-name/ //target-group-id/ @ , where @app//load-balancer-name/ //load-balancer-id/ @ is the final portion of the load balancer ARN, and @targetgroup//target-group-name/ //target-group-id/ @ is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.
 pmsResourceLabel :: Lens' PredefinedMetricSpecification (Maybe Text)
 pmsResourceLabel = lens _pmsResourceLabel (\ s a -> s{_pmsResourceLabel = a});
 
@@ -1728,7 +1805,7 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- * 'sScalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity.
 --
--- * 'sCooldown' - The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start.
+-- * 'sCooldown' - The amount of time, in seconds, after a scaling activity completes before any further dynamic scaling activities can start.
 --
 -- * 'sPolicyARN' - The Amazon Resource Name (ARN) of the policy.
 --
@@ -1794,7 +1871,7 @@ sAutoScalingGroupName = lens _sAutoScalingGroupName (\ s a -> s{_sAutoScalingGro
 sScalingAdjustment :: Lens' ScalingPolicy (Maybe Int)
 sScalingAdjustment = lens _sScalingAdjustment (\ s a -> s{_sScalingAdjustment = a});
 
--- | The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start.
+-- | The amount of time, in seconds, after a scaling activity completes before any further dynamic scaling activities can start.
 sCooldown :: Lens' ScalingPolicy (Maybe Int)
 sCooldown = lens _sCooldown (\ s a -> s{_sCooldown = a});
 
@@ -1840,11 +1917,7 @@ instance Hashable ScalingPolicy where
 
 instance NFData ScalingPolicy where
 
--- | Contains the parameters for SuspendProcesses and ResumeProcesses.
---
---
---
--- /See:/ 'scalingProcessQuery' smart constructor.
+-- | /See:/ 'scalingProcessQuery' smart constructor.
 data ScalingProcessQuery = ScalingProcessQuery'
   { _spqScalingProcesses     :: {-# NOUNPACK #-}!(Maybe [Text])
   , _spqAutoScalingGroupName :: {-# NOUNPACK #-}!Text
@@ -2302,7 +2375,7 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
 --
 -- * 'ttcCustomizedMetricSpecification' - A customized metric.
 --
--- * 'ttcDisableScaleIn' - If the parameter is true, then scale-in will be disabled for the target tracking policy, i.e. the target tracking policy will not scale in the Auto Scaling group. The default value is false.
+-- * 'ttcDisableScaleIn' - Indicates whether scale in by the target tracking policy is disabled. If the value is @true@ , scale in is disabled and the target tracking policy won't remove instances from the Auto Scaling group. Otherwise, scale in is enabled and the target tracking policy can remove instances from the Auto Scaling group. The default value is @false@ .
 --
 -- * 'ttcTargetValue' - The target value for the metric.
 targetTrackingConfiguration
@@ -2325,7 +2398,7 @@ ttcPredefinedMetricSpecification = lens _ttcPredefinedMetricSpecification (\ s a
 ttcCustomizedMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe CustomizedMetricSpecification)
 ttcCustomizedMetricSpecification = lens _ttcCustomizedMetricSpecification (\ s a -> s{_ttcCustomizedMetricSpecification = a});
 
--- | If the parameter is true, then scale-in will be disabled for the target tracking policy, i.e. the target tracking policy will not scale in the Auto Scaling group. The default value is false.
+-- | Indicates whether scale in by the target tracking policy is disabled. If the value is @true@ , scale in is disabled and the target tracking policy won't remove instances from the Auto Scaling group. Otherwise, scale in is enabled and the target tracking policy can remove instances from the Auto Scaling group. The default value is @false@ .
 ttcDisableScaleIn :: Lens' TargetTrackingConfiguration (Maybe Bool)
 ttcDisableScaleIn = lens _ttcDisableScaleIn (\ s a -> s{_ttcDisableScaleIn = a});
 

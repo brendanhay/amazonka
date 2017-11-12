@@ -19,39 +19,47 @@
 --
 -- Projects and their resources, by calling the following:
 --
---     * 'DeleteProject' , which deletes a project in AWS CodeStar.
+--     * @DeleteProject@ , which deletes a project.
 --
---     * 'DescribeProject' , which lists the attributes of a project.
+--     * @DescribeProject@ , which lists the attributes of a project.
 --
---     * 'ListProjects' , which lists all AWS CodeStar projects associated with your AWS account.
+--     * @ListProjects@ , which lists all projects associated with your AWS account.
 --
---     * 'ListResources' , which lists the resources associated with an AWS CodeStar project.
+--     * @ListResources@ , which lists the resources associated with a project.
 --
---     * 'UpdateProject' , which updates the attributes of an AWS CodeStar project.
+--     * @ListTagsForProject@ , which lists the tags associated with a project.
+--
+--     * @TagProject@ , which adds tags to a project.
+--
+--     * @UntagProject@ , which removes tags from a project.
+--
+--     * @UpdateProject@ , which updates the attributes of a project.
 --
 --
 --
 -- Teams and team members, by calling the following:
 --
---     * 'AssociateTeamMember' , which adds an IAM user to the team for an AWS CodeStar project.
+--     * @AssociateTeamMember@ , which adds an IAM user to the team for a project.
 --
---     * 'DisassociateTeamMember' , which removes an IAM user from the team for an AWS CodeStar project.
+--     * @DisassociateTeamMember@ , which removes an IAM user from the team for a project.
 --
---     * 'ListTeamMembers' , which lists all the IAM users in the team for an AWS CodeStar project, including their roles and attributes.
+--     * @ListTeamMembers@ , which lists all the IAM users in the team for a project, including their roles and attributes.
+--
+--     * @UpdateTeamMember@ , which updates a team member's attributes in a project.
 --
 --
 --
 -- Users, by calling the following:
 --
---     * 'CreateUserProfile' , which creates a user profile that contains data associated with the user across all AWS CodeStar projects.
+--     * @CreateUserProfile@ , which creates a user profile that contains data associated with the user across all projects.
 --
---     * 'DeleteUserProfile' , which deletes all user profile information across all AWS CodeStar projects.
+--     * @DeleteUserProfile@ , which deletes all user profile information across all projects.
 --
---     * 'DescribeUserProfile' , which describes the profile of a user.
+--     * @DescribeUserProfile@ , which describes the profile of a user.
 --
---     * 'ListUserProfiles' , which lists all AWS CodeStar user profiles.
+--     * @ListUserProfiles@ , which lists all user profiles.
 --
---     * 'UpdateUserProfile' , which updates the profile for an AWS CodeStar user.
+--     * @UpdateUserProfile@ , which updates the profile for a user.
 --
 --
 --
@@ -123,6 +131,9 @@ module Network.AWS.CodeStar
     -- ** DisassociateTeamMember
     , module Network.AWS.CodeStar.DisassociateTeamMember
 
+    -- ** TagProject
+    , module Network.AWS.CodeStar.TagProject
+
     -- ** DescribeProject
     , module Network.AWS.CodeStar.DescribeProject
 
@@ -135,11 +146,17 @@ module Network.AWS.CodeStar
     -- ** AssociateTeamMember
     , module Network.AWS.CodeStar.AssociateTeamMember
 
+    -- ** UntagProject
+    , module Network.AWS.CodeStar.UntagProject
+
     -- ** UpdateTeamMember
     , module Network.AWS.CodeStar.UpdateTeamMember
 
     -- ** DescribeUserProfile
     , module Network.AWS.CodeStar.DescribeUserProfile
+
+    -- ** ListTagsForProject
+    , module Network.AWS.CodeStar.ListTagsForProject
 
     -- ** DeleteUserProfile
     , module Network.AWS.CodeStar.DeleteUserProfile
@@ -192,9 +209,12 @@ import Network.AWS.CodeStar.DescribeUserProfile
 import Network.AWS.CodeStar.DisassociateTeamMember
 import Network.AWS.CodeStar.ListProjects
 import Network.AWS.CodeStar.ListResources
+import Network.AWS.CodeStar.ListTagsForProject
 import Network.AWS.CodeStar.ListTeamMembers
 import Network.AWS.CodeStar.ListUserProfiles
+import Network.AWS.CodeStar.TagProject
 import Network.AWS.CodeStar.Types
+import Network.AWS.CodeStar.UntagProject
 import Network.AWS.CodeStar.UpdateProject
 import Network.AWS.CodeStar.UpdateTeamMember
 import Network.AWS.CodeStar.UpdateUserProfile

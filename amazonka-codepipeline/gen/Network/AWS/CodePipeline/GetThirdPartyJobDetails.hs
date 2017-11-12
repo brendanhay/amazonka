@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a get third party job details action.
+-- | Represents the input of a GetThirdPartyJobDetails action.
 --
 --
 --
@@ -119,7 +119,7 @@ instance ToPath GetThirdPartyJobDetails where
 instance ToQuery GetThirdPartyJobDetails where
         toQuery = const mempty
 
--- | Represents the output of a get third party job details action.
+-- | Represents the output of a GetThirdPartyJobDetails action.
 --
 --
 --

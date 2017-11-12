@@ -13,15 +13,21 @@
 --
 -- __AWS CodeBuild__
 --
--- AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code, runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the need to provision, manage, and scale your own build servers. It provides prepackaged build environments for the most popular programming languages and build tools, such as Apach Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild to use your own build tools. AWS CodeBuild scales automatically to meet peak build requests, and you pay only for the build time you consume. For more information about AWS CodeBuild, see the /AWS CodeBuild User Guide/ .
+-- AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code, runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the need to provision, manage, and scale your own build servers. It provides prepackaged build environments for the most popular programming languages and build tools, such as Apache Maven, Gradle, and more. You can also fully customize build environments in AWS CodeBuild to use your own build tools. AWS CodeBuild scales automatically to meet peak build requests, and you pay only for the build time you consume. For more information about AWS CodeBuild, see the /AWS CodeBuild User Guide/ .
 --
 -- AWS CodeBuild supports these operations:
+--
+--     * @BatchDeleteBuilds@ : Deletes one or more builds.
 --
 --     * @BatchGetProjects@ : Gets information about one or more build projects. A /build project/ defines how AWS CodeBuild will run a build. This includes information such as where to get the source code to build, the build environment to use, the build commands to run, and where to store the build output. A /build environment/ represents a combination of operating system, programming language runtime, and tools that AWS CodeBuild will use to run a build. Also, you can add tags to build projects to help manage your resources and costs.
 --
 --     * @CreateProject@ : Creates a build project.
 --
+--     * @CreateWebhook@ : For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, enables AWS CodeBuild to begin automatically rebuilding the source code every time a code change is pushed to the repository.
+--
 --     * @DeleteProject@ : Deletes a build project.
+--
+--     * @DeleteWebhook@ : For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, stops AWS CodeBuild from automatically rebuilding the source code every time a code change is pushed to the repository.
 --
 --     * @ListProjects@ : Gets a list of build project names, with each build project name representing a single build project.
 --
@@ -52,6 +58,9 @@ module Network.AWS.CodeBuild
     -- ** ResourceAlreadyExistsException
     , _ResourceAlreadyExistsException
 
+    -- ** OAuthProviderException
+    , _OAuthProviderException
+
     -- ** AccountLimitExceededException
     , _AccountLimitExceededException
 
@@ -67,7 +76,7 @@ module Network.AWS.CodeBuild
     -- * Operations
     -- $operations
 
-    -- ** ListProjects
+    -- ** ListProjects (Paginated)
     , module Network.AWS.CodeBuild.ListProjects
 
     -- ** DeleteProject
@@ -76,13 +85,16 @@ module Network.AWS.CodeBuild
     -- ** UpdateProject
     , module Network.AWS.CodeBuild.UpdateProject
 
-    -- ** ListBuilds
+    -- ** ListBuilds (Paginated)
     , module Network.AWS.CodeBuild.ListBuilds
+
+    -- ** CreateWebhook
+    , module Network.AWS.CodeBuild.CreateWebhook
 
     -- ** StartBuild
     , module Network.AWS.CodeBuild.StartBuild
 
-    -- ** ListBuildsForProject
+    -- ** ListBuildsForProject (Paginated)
     , module Network.AWS.CodeBuild.ListBuildsForProject
 
     -- ** BatchGetProjects
@@ -90,6 +102,12 @@ module Network.AWS.CodeBuild
 
     -- ** BatchGetBuilds
     , module Network.AWS.CodeBuild.BatchGetBuilds
+
+    -- ** DeleteWebhook
+    , module Network.AWS.CodeBuild.DeleteWebhook
+
+    -- ** BatchDeleteBuilds
+    , module Network.AWS.CodeBuild.BatchDeleteBuilds
 
     -- ** ListCuratedEnvironmentImages
     , module Network.AWS.CodeBuild.ListCuratedEnvironmentImages
@@ -119,6 +137,9 @@ module Network.AWS.CodeBuild
 
     -- ** EnvironmentType
     , EnvironmentType (..)
+
+    -- ** EnvironmentVariableType
+    , EnvironmentVariableType (..)
 
     -- ** LanguageType
     , LanguageType (..)
@@ -168,6 +189,12 @@ module Network.AWS.CodeBuild
     , baMd5sum
     , baSha256sum
 
+    -- ** BuildNotDeleted
+    , BuildNotDeleted
+    , buildNotDeleted
+    , bndId
+    , bndStatusCode
+
     -- ** BuildPhase
     , BuildPhase
     , buildPhase
@@ -199,6 +226,7 @@ module Network.AWS.CodeBuild
     -- ** EnvironmentVariable
     , EnvironmentVariable
     , environmentVariable
+    , evType
     , evName
     , evValue
 
@@ -226,6 +254,7 @@ module Network.AWS.CodeBuild
     , pSource
     , pEncryptionKey
     , pLastModified
+    , pWebhook
     , pDescription
     , pServiceRole
     , pTags
@@ -269,12 +298,20 @@ module Network.AWS.CodeBuild
     , tag
     , tagValue
     , tagKey
+
+    -- ** Webhook
+    , Webhook
+    , webhook
+    , wUrl
     ) where
 
+import Network.AWS.CodeBuild.BatchDeleteBuilds
 import Network.AWS.CodeBuild.BatchGetBuilds
 import Network.AWS.CodeBuild.BatchGetProjects
 import Network.AWS.CodeBuild.CreateProject
+import Network.AWS.CodeBuild.CreateWebhook
 import Network.AWS.CodeBuild.DeleteProject
+import Network.AWS.CodeBuild.DeleteWebhook
 import Network.AWS.CodeBuild.ListBuilds
 import Network.AWS.CodeBuild.ListBuildsForProject
 import Network.AWS.CodeBuild.ListCuratedEnvironmentImages

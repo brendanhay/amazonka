@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends user input (text or speech) to Amazon Lex. Clients use this API to send requests to Amazon Lex at runtime. Amazon Lex interprets the user input using the machine learning model that it built for the bot.
+-- Sends user input (text or speech) to Amazon Lex. Clients use this API to send text and audio requests to Amazon Lex at runtime. Amazon Lex interprets the user input using the machine learning model that it built for the bot.
 --
+--
+-- The @PostContent@ operation supports audio input at 8kHz and 16kHz. You can use 8kHz audio to achieve higher speech recognition accuracy in telephone audio applications.
 --
 -- In response, Amazon Lex returns the next message to convey to the user. Consider the following example messages:
 --
@@ -60,6 +62,7 @@ module Network.AWS.LexRuntime.PostContent
     , PostContent
     -- * Request Lenses
     , pcAccept
+    , pcRequestAttributes
     , pcSessionAttributes
     , pcBotName
     , pcBotAlias
@@ -93,7 +96,8 @@ import Network.AWS.Response
 -- | /See:/ 'postContent' smart constructor.
 data PostContent = PostContent'
   { _pcAccept            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pcSessionAttributes :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcRequestAttributes :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _pcSessionAttributes :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
   , _pcBotName           :: {-# NOUNPACK #-}!Text
   , _pcBotAlias          :: {-# NOUNPACK #-}!Text
   , _pcUserId            :: {-# NOUNPACK #-}!Text
@@ -108,17 +112,19 @@ data PostContent = PostContent'
 --
 -- * 'pcAccept' - You pass this value as the @Accept@ HTTP header.  The message Amazon Lex returns in the response can be either text or speech based on the @Accept@ HTTP header value in the request.      * If the value is @text/plain; charset=utf-8@ , Amazon Lex returns text in the response.      * If the value begins with @audio/@ , Amazon Lex returns speech in the response. Amazon Lex uses Amazon Polly to generate the speech (using the configuration you specified in the @Accept@ header). For example, if you specify @audio/mpeg@ as the value, Amazon Lex returns speech in the MPEG format. The following are the accepted values:     * audio/mpeg     * audio/ogg     * audio/pcm     * text/plain; charset=utf-8     * audio/* (defaults to mpeg)
 --
--- * 'pcSessionAttributes' - You pass this value in the @x-amz-lex-session-attributes@ HTTP header. The value must be map (keys and values must be strings) that is JSON serialized and then base64 encoded. A session represents dialog between a user and Amazon Lex. At runtime, a client application can pass contextual information, in the request to Amazon Lex. For example,      * You might use session attributes to track the requestID of user requests.     * In Getting Started Exercise 1, the example bot uses the price session attribute to maintain the price of flowers ordered (for example, "price":25). The code hook (Lambda function) sets this attribute based on the type of flowers ordered. For more information, see <http://docs.aws.amazon.com/lex/latest/dg/gs-bp-details-after-lambda.html Review the Details of Information Flow> .      * In the BookTrip bot exercise, the bot uses the @currentReservation@ session attribute to maintains the slot data during the in-progress conversation to book a hotel or book a car. For more information, see <http://docs.aws.amazon.com/lex/latest/dg/book-trip-detail-flow.html Details of Information Flow> .  Amazon Lex passes these session attributes to the Lambda functions configured for the intent In the your Lambda function, you can use the session attributes for initialization and customization (prompts). Some examples are:      * Initialization - In a pizza ordering bot, if you pass user location (for example, @"Location : 111 Maple Street"@ ), then your Lambda function might use this information to determine the closest pizzeria to place the order (and perhaps set the storeAddress slot value as well).  Personalized prompts - For example, you can configure prompts to refer to the user by name (for example, "Hey [firstName], what toppings would you like?"). You can pass the user's name as a session attribute ("firstName": "Joe") so that Amazon Lex can substitute the placeholder to provide a personalized prompt to the user ("Hey Joe, what toppings would you like?").
+-- * 'pcRequestAttributes' - You pass this value as the @x-amz-lex-request-attributes@ HTTP header. Request-specific information passed between Amazon Lex and a client application. The value must be a JSON serialized and base64 encoded map with string keys and values. The total size of the @requestAttributes@ and @sessionAttributes@ headers is limited to 12 KB. The namespace @x-amz-lex:@ is reserved for special attributes. Don't create any request attributes with the prefix @x-amz-lex:@ . For more information, see <http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs Setting Request Attributes> .
+--
+-- * 'pcSessionAttributes' - You pass this value as the @x-amz-lex-session-attributes@ HTTP header. Application-specific information passed between Amazon Lex and a client application. The value must be a JSON serialized and base64 encoded map with string keys and values. The total size of the @sessionAttributes@ and @requestAttributes@ headers is limited to 12 KB. For more information, see <http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs Setting Session Attributes> .
 --
 -- * 'pcBotName' - Name of the Amazon Lex bot.
 --
 -- * 'pcBotAlias' - Alias of the Amazon Lex bot.
 --
--- * 'pcUserId' - ID of the client application user. Typically, each of your application users should have a unique ID. The application developer decides the user IDs. At runtime, each request must include the user ID. Note the following considerations:     * If you want a user to start conversation on one device and continue the conversation on another device, you might choose a user-specific identifier, such as the user's login, or Amazon Cognito user ID (assuming your application is using Amazon Cognito).      * If you want the same user to be able to have two independent conversations on two different devices, you might choose device-specific identifier, such as device ID, or some globally unique identifier.
+-- * 'pcUserId' - The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot. At runtime, each request must contain the @userID@ field. To decide the user ID to use for your application, consider the following factors.     * The @userID@ field must not contain any personally identifiable information of the user, for example, name, personal identification numbers, or other end user personal information.     * If you want a user to start a conversation on one device and continue on another device, use a user-specific identifier.     * If you want the same user to be able to have two independent conversations on two different devices, choose a device-specific identifier.     * A user can't have two independent conversations with two different versions of the same bot. For example, a user can't have a conversation with the PROD and BETA versions of the same bot. If you anticipate that a user will need to have conversation with two different versions, for example, while testing, include the bot alias in the user ID to separate the two conversations.
 --
--- * 'pcContentType' - You pass this values as the @Content-Type@ HTTP header.  Indicates the audio format or text. The header value must start with one of the following prefixes:      * PCM format     * audio/l16; rate=16000; channels=1     * audio/x-l16; sample-rate=16000; channel-count=1     * Opus format     * audio/x-cbr-opus-with-preamble; preamble-size=0; bit-rate=1; frame-size-milliseconds=1.1     * Text format     * text/plain; charset=utf-8
+-- * 'pcContentType' - You pass this value as the @Content-Type@ HTTP header.  Indicates the audio format or text. The header value must start with one of the following prefixes:      * PCM format, audio data must be in little-endian byte order.     * audio/l16; rate=16000; channels=1     * audio/x-l16; sample-rate=16000; channel-count=1     * audio/lpcm; sample-rate=8000; sample-size-bits=16; channel-count=1; is-big-endian=false      * Opus format     * audio/x-cbr-opus-with-preamble; preamble-size=0; bit-rate=256000; frame-size-milliseconds=4     * Text format     * text/plain; charset=utf-8
 --
--- * 'pcInputStream' - User input in PCM or Opus audio format or text format as described in the @Content-Type@ HTTP header.
+-- * 'pcInputStream' - User input in PCM or Opus audio format or text format as described in the @Content-Type@ HTTP header.  You can stream audio data to Amazon Lex or you can create a local buffer that captures all of the audio data before sending. In general, you get better performance if you stream audio data rather than buffering the data locally.
 postContent
     :: Text -- ^ 'pcBotName'
     -> Text -- ^ 'pcBotAlias'
@@ -129,6 +135,7 @@ postContent
 postContent pBotName_ pBotAlias_ pUserId_ pContentType_ pInputStream_ =
   PostContent'
   { _pcAccept = Nothing
+  , _pcRequestAttributes = Nothing
   , _pcSessionAttributes = Nothing
   , _pcBotName = pBotName_
   , _pcBotAlias = pBotAlias_
@@ -142,9 +149,13 @@ postContent pBotName_ pBotAlias_ pUserId_ pContentType_ pInputStream_ =
 pcAccept :: Lens' PostContent (Maybe Text)
 pcAccept = lens _pcAccept (\ s a -> s{_pcAccept = a});
 
--- | You pass this value in the @x-amz-lex-session-attributes@ HTTP header. The value must be map (keys and values must be strings) that is JSON serialized and then base64 encoded. A session represents dialog between a user and Amazon Lex. At runtime, a client application can pass contextual information, in the request to Amazon Lex. For example,      * You might use session attributes to track the requestID of user requests.     * In Getting Started Exercise 1, the example bot uses the price session attribute to maintain the price of flowers ordered (for example, "price":25). The code hook (Lambda function) sets this attribute based on the type of flowers ordered. For more information, see <http://docs.aws.amazon.com/lex/latest/dg/gs-bp-details-after-lambda.html Review the Details of Information Flow> .      * In the BookTrip bot exercise, the bot uses the @currentReservation@ session attribute to maintains the slot data during the in-progress conversation to book a hotel or book a car. For more information, see <http://docs.aws.amazon.com/lex/latest/dg/book-trip-detail-flow.html Details of Information Flow> .  Amazon Lex passes these session attributes to the Lambda functions configured for the intent In the your Lambda function, you can use the session attributes for initialization and customization (prompts). Some examples are:      * Initialization - In a pizza ordering bot, if you pass user location (for example, @"Location : 111 Maple Street"@ ), then your Lambda function might use this information to determine the closest pizzeria to place the order (and perhaps set the storeAddress slot value as well).  Personalized prompts - For example, you can configure prompts to refer to the user by name (for example, "Hey [firstName], what toppings would you like?"). You can pass the user's name as a session attribute ("firstName": "Joe") so that Amazon Lex can substitute the placeholder to provide a personalized prompt to the user ("Hey Joe, what toppings would you like?").
+-- | You pass this value as the @x-amz-lex-request-attributes@ HTTP header. Request-specific information passed between Amazon Lex and a client application. The value must be a JSON serialized and base64 encoded map with string keys and values. The total size of the @requestAttributes@ and @sessionAttributes@ headers is limited to 12 KB. The namespace @x-amz-lex:@ is reserved for special attributes. Don't create any request attributes with the prefix @x-amz-lex:@ . For more information, see <http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs Setting Request Attributes> .
+pcRequestAttributes :: Lens' PostContent (Maybe Text)
+pcRequestAttributes = lens _pcRequestAttributes (\ s a -> s{_pcRequestAttributes = a}) . mapping _Sensitive;
+
+-- | You pass this value as the @x-amz-lex-session-attributes@ HTTP header. Application-specific information passed between Amazon Lex and a client application. The value must be a JSON serialized and base64 encoded map with string keys and values. The total size of the @sessionAttributes@ and @requestAttributes@ headers is limited to 12 KB. For more information, see <http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs Setting Session Attributes> .
 pcSessionAttributes :: Lens' PostContent (Maybe Text)
-pcSessionAttributes = lens _pcSessionAttributes (\ s a -> s{_pcSessionAttributes = a});
+pcSessionAttributes = lens _pcSessionAttributes (\ s a -> s{_pcSessionAttributes = a}) . mapping _Sensitive;
 
 -- | Name of the Amazon Lex bot.
 pcBotName :: Lens' PostContent Text
@@ -154,15 +165,15 @@ pcBotName = lens _pcBotName (\ s a -> s{_pcBotName = a});
 pcBotAlias :: Lens' PostContent Text
 pcBotAlias = lens _pcBotAlias (\ s a -> s{_pcBotAlias = a});
 
--- | ID of the client application user. Typically, each of your application users should have a unique ID. The application developer decides the user IDs. At runtime, each request must include the user ID. Note the following considerations:     * If you want a user to start conversation on one device and continue the conversation on another device, you might choose a user-specific identifier, such as the user's login, or Amazon Cognito user ID (assuming your application is using Amazon Cognito).      * If you want the same user to be able to have two independent conversations on two different devices, you might choose device-specific identifier, such as device ID, or some globally unique identifier.
+-- | The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot. At runtime, each request must contain the @userID@ field. To decide the user ID to use for your application, consider the following factors.     * The @userID@ field must not contain any personally identifiable information of the user, for example, name, personal identification numbers, or other end user personal information.     * If you want a user to start a conversation on one device and continue on another device, use a user-specific identifier.     * If you want the same user to be able to have two independent conversations on two different devices, choose a device-specific identifier.     * A user can't have two independent conversations with two different versions of the same bot. For example, a user can't have a conversation with the PROD and BETA versions of the same bot. If you anticipate that a user will need to have conversation with two different versions, for example, while testing, include the bot alias in the user ID to separate the two conversations.
 pcUserId :: Lens' PostContent Text
 pcUserId = lens _pcUserId (\ s a -> s{_pcUserId = a});
 
--- | You pass this values as the @Content-Type@ HTTP header.  Indicates the audio format or text. The header value must start with one of the following prefixes:      * PCM format     * audio/l16; rate=16000; channels=1     * audio/x-l16; sample-rate=16000; channel-count=1     * Opus format     * audio/x-cbr-opus-with-preamble; preamble-size=0; bit-rate=1; frame-size-milliseconds=1.1     * Text format     * text/plain; charset=utf-8
+-- | You pass this value as the @Content-Type@ HTTP header.  Indicates the audio format or text. The header value must start with one of the following prefixes:      * PCM format, audio data must be in little-endian byte order.     * audio/l16; rate=16000; channels=1     * audio/x-l16; sample-rate=16000; channel-count=1     * audio/lpcm; sample-rate=8000; sample-size-bits=16; channel-count=1; is-big-endian=false      * Opus format     * audio/x-cbr-opus-with-preamble; preamble-size=0; bit-rate=256000; frame-size-milliseconds=4     * Text format     * text/plain; charset=utf-8
 pcContentType :: Lens' PostContent Text
 pcContentType = lens _pcContentType (\ s a -> s{_pcContentType = a});
 
--- | User input in PCM or Opus audio format or text format as described in the @Content-Type@ HTTP header.
+-- | User input in PCM or Opus audio format or text format as described in the @Content-Type@ HTTP header.  You can stream audio data to Amazon Lex or you can create a local buffer that captures all of the audio data before sending. In general, you get better performance if you stream audio data rather than buffering the data locally.
 pcInputStream :: Lens' PostContent HashedBody
 pcInputStream = lens _pcInputStream (\ s a -> s{_pcInputStream = a});
 
@@ -191,6 +202,8 @@ instance ToHeaders PostContent where
         toHeaders PostContent'{..}
           = mconcat
               ["Accept" =# _pcAccept,
+               "x-amz-lex-request-attributes" =#
+                 _pcRequestAttributes,
                "x-amz-lex-session-attributes" =#
                  _pcSessionAttributes,
                "Content-Type" =# _pcContentType,
@@ -213,7 +226,7 @@ data PostContentResponse = PostContentResponse'
   , _pcrsIntentName        :: {-# NOUNPACK #-}!(Maybe Text)
   , _pcrsDialogState       :: {-# NOUNPACK #-}!(Maybe DialogState)
   , _pcrsInputTranscript   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pcrsMessage           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pcrsMessage           :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
   , _pcrsSlotToElicit      :: {-# NOUNPACK #-}!(Maybe Text)
   , _pcrsContentType       :: {-# NOUNPACK #-}!(Maybe Text)
   , _pcrsSessionAttributes :: {-# NOUNPACK #-}!(Maybe Text)
@@ -226,13 +239,13 @@ data PostContentResponse = PostContentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pcrsSlots' - Map of zero or more intent slots (name/value pairs) Amazon Lex detected from the user input during the conversation.
+-- * 'pcrsSlots' - Map of zero or more intent slots (name/value pairs) Amazon Lex detected from the user input during the conversation. Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the @valueSelectionStrategy@ selected when the slot type was created or updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@ , the value provided by the user is returned, if the user value is similar to the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@ Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a @valueSelectionStrategy@ , the default is @ORIGINAL_VALUE@ .
 --
 -- * 'pcrsIntentName' - Current user intent that Amazon Lex is aware of.
 --
--- * 'pcrsDialogState' - Identifies the current state of the user interaction. Amazon Lex returns one of the following values as @dialogState@ . The client can optionally use this information to customize the user interface.      * @ElicitIntent@ – Amazon Lex wants to elicit the user's intent. Consider the following examples:  For example, a user might utter an intent ("I want to order a pizza"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialog state.      * @ConfirmIntent@ – Amazon Lex is expecting a "yes" or "no" response.  For example, Amazon Lex wants user confirmation before fulfilling an intent. Instead of a simple "yes" or "no" response, a user might respond with additional information. For example, "yes, but make it a thick crust pizza" or "no, I want to order a drink." Amazon Lex can process such additional information (in these examples, update the crust type slot or change the intent from OrderPizza to OrderDrink).      * @ElicitSlot@ – Amazon Lex is expecting the value of a slot for the current intent.  For example, suppose that in the response Amazon Lex sends this message: "What size pizza would you like?". A user might reply with the slot value (e.g., "medium"). The user might also provide additional information in the response (e.g., "medium thick crust pizza"). Amazon Lex can process such additional information appropriately.      * @Fulfilled@ – Conveys that the Lambda function has successfully fulfilled the intent.      * @ReadyForFulfillment@ – Conveys that the client has to fullfill the request.      * @Failed@ – Conveys that the conversation with the user failed.  This can happen for various reasons, including that the user does not provide an appropriate response to prompts from the service (you can configure how many times Amazon Lex can prompt a user for specific information), or if the Lambda function fails to fulfill the intent.
+-- * 'pcrsDialogState' - Identifies the current state of the user interaction. Amazon Lex returns one of the following values as @dialogState@ . The client can optionally use this information to customize the user interface.      * @ElicitIntent@ - Amazon Lex wants to elicit the user's intent. Consider the following examples:  For example, a user might utter an intent ("I want to order a pizza"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialog state.      * @ConfirmIntent@ - Amazon Lex is expecting a "yes" or "no" response.  For example, Amazon Lex wants user confirmation before fulfilling an intent. Instead of a simple "yes" or "no" response, a user might respond with additional information. For example, "yes, but make it a thick crust pizza" or "no, I want to order a drink." Amazon Lex can process such additional information (in these examples, update the crust type slot or change the intent from OrderPizza to OrderDrink).      * @ElicitSlot@ - Amazon Lex is expecting the value of a slot for the current intent.  For example, suppose that in the response Amazon Lex sends this message: "What size pizza would you like?". A user might reply with the slot value (e.g., "medium"). The user might also provide additional information in the response (e.g., "medium thick crust pizza"). Amazon Lex can process such additional information appropriately.      * @Fulfilled@ - Conveys that the Lambda function has successfully fulfilled the intent.      * @ReadyForFulfillment@ - Conveys that the client has to fulfill the request.      * @Failed@ - Conveys that the conversation with the user failed.  This can happen for various reasons, including that the user does not provide an appropriate response to prompts from the service (you can configure how many times Amazon Lex can prompt a user for specific information), or if the Lambda function fails to fulfill the intent.
 --
--- * 'pcrsInputTranscript' - Transcript of the voice input to the operation.
+-- * 'pcrsInputTranscript' - The text used to process the request. If the input was an audio stream, the @inputTranscript@ field contains the text extracted from the audio stream. This is the text that is actually processed to recognize intents and slot values. You can use this information to determine if Amazon Lex is correctly processing the audio that you send.
 --
 -- * 'pcrsMessage' - Message to convey to the user. It can come from the bot's configuration or a code hook (Lambda function). If the current intent is not configured with a code hook or if the code hook returned @Delegate@ as the @dialogAction.type@ in its response, then Amazon Lex decides the next course of action and selects an appropriate message from the bot configuration based on the current user interaction context. For example, if Amazon Lex is not able to understand the user input, it uses a clarification prompt message (For more information, see the Error Handling section in the Amazon Lex console). Another example: if the intent requires confirmation before fulfillment, then Amazon Lex uses the confirmation prompt message in the intent configuration. If the code hook returns a message, Amazon Lex passes it as-is in its response to the client.
 --
@@ -264,7 +277,7 @@ postContentResponse pResponseStatus_ pAudioStream_ =
   }
 
 
--- | Map of zero or more intent slots (name/value pairs) Amazon Lex detected from the user input during the conversation.
+-- | Map of zero or more intent slots (name/value pairs) Amazon Lex detected from the user input during the conversation. Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the @valueSelectionStrategy@ selected when the slot type was created or updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@ , the value provided by the user is returned, if the user value is similar to the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@ Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a @valueSelectionStrategy@ , the default is @ORIGINAL_VALUE@ .
 pcrsSlots :: Lens' PostContentResponse (Maybe Text)
 pcrsSlots = lens _pcrsSlots (\ s a -> s{_pcrsSlots = a});
 
@@ -272,17 +285,17 @@ pcrsSlots = lens _pcrsSlots (\ s a -> s{_pcrsSlots = a});
 pcrsIntentName :: Lens' PostContentResponse (Maybe Text)
 pcrsIntentName = lens _pcrsIntentName (\ s a -> s{_pcrsIntentName = a});
 
--- | Identifies the current state of the user interaction. Amazon Lex returns one of the following values as @dialogState@ . The client can optionally use this information to customize the user interface.      * @ElicitIntent@ – Amazon Lex wants to elicit the user's intent. Consider the following examples:  For example, a user might utter an intent ("I want to order a pizza"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialog state.      * @ConfirmIntent@ – Amazon Lex is expecting a "yes" or "no" response.  For example, Amazon Lex wants user confirmation before fulfilling an intent. Instead of a simple "yes" or "no" response, a user might respond with additional information. For example, "yes, but make it a thick crust pizza" or "no, I want to order a drink." Amazon Lex can process such additional information (in these examples, update the crust type slot or change the intent from OrderPizza to OrderDrink).      * @ElicitSlot@ – Amazon Lex is expecting the value of a slot for the current intent.  For example, suppose that in the response Amazon Lex sends this message: "What size pizza would you like?". A user might reply with the slot value (e.g., "medium"). The user might also provide additional information in the response (e.g., "medium thick crust pizza"). Amazon Lex can process such additional information appropriately.      * @Fulfilled@ – Conveys that the Lambda function has successfully fulfilled the intent.      * @ReadyForFulfillment@ – Conveys that the client has to fullfill the request.      * @Failed@ – Conveys that the conversation with the user failed.  This can happen for various reasons, including that the user does not provide an appropriate response to prompts from the service (you can configure how many times Amazon Lex can prompt a user for specific information), or if the Lambda function fails to fulfill the intent.
+-- | Identifies the current state of the user interaction. Amazon Lex returns one of the following values as @dialogState@ . The client can optionally use this information to customize the user interface.      * @ElicitIntent@ - Amazon Lex wants to elicit the user's intent. Consider the following examples:  For example, a user might utter an intent ("I want to order a pizza"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialog state.      * @ConfirmIntent@ - Amazon Lex is expecting a "yes" or "no" response.  For example, Amazon Lex wants user confirmation before fulfilling an intent. Instead of a simple "yes" or "no" response, a user might respond with additional information. For example, "yes, but make it a thick crust pizza" or "no, I want to order a drink." Amazon Lex can process such additional information (in these examples, update the crust type slot or change the intent from OrderPizza to OrderDrink).      * @ElicitSlot@ - Amazon Lex is expecting the value of a slot for the current intent.  For example, suppose that in the response Amazon Lex sends this message: "What size pizza would you like?". A user might reply with the slot value (e.g., "medium"). The user might also provide additional information in the response (e.g., "medium thick crust pizza"). Amazon Lex can process such additional information appropriately.      * @Fulfilled@ - Conveys that the Lambda function has successfully fulfilled the intent.      * @ReadyForFulfillment@ - Conveys that the client has to fulfill the request.      * @Failed@ - Conveys that the conversation with the user failed.  This can happen for various reasons, including that the user does not provide an appropriate response to prompts from the service (you can configure how many times Amazon Lex can prompt a user for specific information), or if the Lambda function fails to fulfill the intent.
 pcrsDialogState :: Lens' PostContentResponse (Maybe DialogState)
 pcrsDialogState = lens _pcrsDialogState (\ s a -> s{_pcrsDialogState = a});
 
--- | Transcript of the voice input to the operation.
+-- | The text used to process the request. If the input was an audio stream, the @inputTranscript@ field contains the text extracted from the audio stream. This is the text that is actually processed to recognize intents and slot values. You can use this information to determine if Amazon Lex is correctly processing the audio that you send.
 pcrsInputTranscript :: Lens' PostContentResponse (Maybe Text)
 pcrsInputTranscript = lens _pcrsInputTranscript (\ s a -> s{_pcrsInputTranscript = a});
 
 -- | Message to convey to the user. It can come from the bot's configuration or a code hook (Lambda function). If the current intent is not configured with a code hook or if the code hook returned @Delegate@ as the @dialogAction.type@ in its response, then Amazon Lex decides the next course of action and selects an appropriate message from the bot configuration based on the current user interaction context. For example, if Amazon Lex is not able to understand the user input, it uses a clarification prompt message (For more information, see the Error Handling section in the Amazon Lex console). Another example: if the intent requires confirmation before fulfillment, then Amazon Lex uses the confirmation prompt message in the intent configuration. If the code hook returns a message, Amazon Lex passes it as-is in its response to the client.
 pcrsMessage :: Lens' PostContentResponse (Maybe Text)
-pcrsMessage = lens _pcrsMessage (\ s a -> s{_pcrsMessage = a});
+pcrsMessage = lens _pcrsMessage (\ s a -> s{_pcrsMessage = a}) . mapping _Sensitive;
 
 -- | If the @dialogState@ value is @ElicitSlot@ , returns the name of the slot for which Amazon Lex is eliciting a value.
 pcrsSlotToElicit :: Lens' PostContentResponse (Maybe Text)

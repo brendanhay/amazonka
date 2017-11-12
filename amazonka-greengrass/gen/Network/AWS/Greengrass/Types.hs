@@ -69,6 +69,7 @@ module Network.AWS.Greengrass.Types
     , dDeploymentId
     , dDeploymentARN
     , dCreatedAt
+    , dDeploymentType
     , dGroupARN
 
     -- * Device
@@ -83,6 +84,12 @@ module Network.AWS.Greengrass.Types
     , DeviceDefinitionVersion
     , deviceDefinitionVersion
     , ddvDevices
+
+    -- * ErrorDetail
+    , ErrorDetail
+    , errorDetail
+    , edDetailedErrorCode
+    , edDetailedErrorMessage
 
     -- * Function
     , Function

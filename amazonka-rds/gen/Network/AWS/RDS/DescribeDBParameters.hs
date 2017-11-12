@@ -74,7 +74,7 @@ data DescribeDBParameters = DescribeDBParameters'
 --
 -- * 'ddpSource' - The parameter types to return. Default: All parameter types returned Valid Values: @user | system | engine-default@
 --
--- * 'ddpDBParameterGroupName' - The name of a specific DB parameter group to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'ddpDBParameterGroupName' - The name of a specific DB parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBParameterGroup.
 describeDBParameters
     :: Text -- ^ 'ddpDBParameterGroupName'
     -> DescribeDBParameters
@@ -104,7 +104,7 @@ ddpMaxRecords = lens _ddpMaxRecords (\ s a -> s{_ddpMaxRecords = a});
 ddpSource :: Lens' DescribeDBParameters (Maybe Text)
 ddpSource = lens _ddpSource (\ s a -> s{_ddpSource = a});
 
--- | The name of a specific DB parameter group to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The name of a specific DB parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBParameterGroup.
 ddpDBParameterGroupName :: Lens' DescribeDBParameters Text
 ddpDBParameterGroupName = lens _ddpDBParameterGroupName (\ s a -> s{_ddpDBParameterGroupName = a});
 

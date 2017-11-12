@@ -18,19 +18,26 @@ module Network.AWS.SES.Types
     -- * Errors
     , _InvalidConfigurationSetException
     , _InvalidSNSDestinationException
+    , _TemplateDoesNotExistException
     , _CannotDeleteException
     , _RuleDoesNotExistException
     , _MessageRejected
+    , _InvalidRenderingParameterException
+    , _MissingRenderingAttributeException
     , _RuleSetDoesNotExistException
     , _MailFromDomainNotVerifiedException
     , _InvalidFirehoseDestinationException
     , _ConfigurationSetAlreadyExistsException
+    , _InvalidTrackingOptionsException
     , _EventDestinationDoesNotExistException
     , _InvalidCloudWatchDestinationException
     , _InvalidLambdaFunctionException
+    , _TrackingOptionsDoesNotExistException
+    , _InvalidTemplateException
     , _ConfigurationSetDoesNotExistException
     , _InvalidPolicyException
     , _InvalidS3ConfigurationException
+    , _TrackingOptionsAlreadyExistsException
     , _InvalidSNSTopicException
     , _EventDestinationAlreadyExistsException
     , _AlreadyExistsException
@@ -41,6 +48,9 @@ module Network.AWS.SES.Types
 
     -- * BounceType
     , BounceType (..)
+
+    -- * BulkEmailStatus
+    , BulkEmailStatus (..)
 
     -- * ConfigurationSetAttribute
     , ConfigurationSetAttribute (..)
@@ -109,6 +119,20 @@ module Network.AWS.SES.Types
     , briRecipientDsnFields
     , briRecipientARN
     , briRecipient
+
+    -- * BulkEmailDestination
+    , BulkEmailDestination
+    , bulkEmailDestination
+    , bedReplacementTemplateData
+    , bedReplacementTags
+    , bedDestination
+
+    -- * BulkEmailDestinationStatus
+    , BulkEmailDestinationStatus
+    , bulkEmailDestinationStatus
+    , bedsStatus
+    , bedsError
+    , bedsMessageId
 
     -- * CloudWatchDestination
     , CloudWatchDestination
@@ -308,6 +332,25 @@ module Network.AWS.SES.Types
     , sTopicARN
     , sScope
 
+    -- * Template
+    , Template
+    , template
+    , tTextPart
+    , tSubjectPart
+    , tHTMLPart
+    , tTemplateName
+
+    -- * TemplateMetadata
+    , TemplateMetadata
+    , templateMetadata
+    , tmName
+    , tmCreatedTimestamp
+
+    -- * TrackingOptions
+    , TrackingOptions
+    , trackingOptions
+    , toCustomRedirectDomain
+
     -- * WorkmailAction
     , WorkmailAction
     , workmailAction
@@ -374,6 +417,14 @@ _InvalidSNSDestinationException =
   _MatchServiceError ses "InvalidSNSDestination" . hasStatus 400
 
 
+-- | Indicates that the Template object you specified does not exist in your Amazon SES account.
+--
+--
+_TemplateDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_TemplateDoesNotExistException =
+  _MatchServiceError ses "TemplateDoesNotExist" . hasStatus 400
+
+
 -- | Indicates that the delete operation could not be completed.
 --
 --
@@ -394,6 +445,22 @@ _RuleDoesNotExistException =
 --
 _MessageRejected :: AsError a => Getting (First ServiceError) a ServiceError
 _MessageRejected = _MatchServiceError ses "MessageRejected" . hasStatus 400
+
+
+-- | Indicates that one or more of the replacement values you provided is invalid. This error may occur when the TemplateData object contains invalid JSON.
+--
+--
+_InvalidRenderingParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidRenderingParameterException =
+  _MatchServiceError ses "InvalidRenderingParameter" . hasStatus 400
+
+
+-- | Indicates that one or more of the replacement values for the specified template was not specified. Ensure that the TemplateData object contains references to all of the replacement tags in the specified template.
+--
+--
+_MissingRenderingAttributeException :: AsError a => Getting (First ServiceError) a ServiceError
+_MissingRenderingAttributeException =
+  _MatchServiceError ses "MissingRenderingAttribute" . hasStatus 400
 
 
 -- | Indicates that the provided receipt rule set does not exist.
@@ -428,6 +495,20 @@ _ConfigurationSetAlreadyExistsException =
   _MatchServiceError ses "ConfigurationSetAlreadyExists" . hasStatus 400
 
 
+-- | Indicates that the custom domain to be used for open and click tracking redirects is invalid. This error appears most often in the following situations:
+--
+--
+--     * When the tracking domain you specified is not verified in Amazon SES.
+--
+--     * When the tracking domain you specified is not a valid domain or subdomain.
+--
+--
+--
+_InvalidTrackingOptionsException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTrackingOptionsException =
+  _MatchServiceError ses "InvalidTrackingOptions" . hasStatus 400
+
+
 -- | Indicates that the event destination does not exist.
 --
 --
@@ -452,6 +533,22 @@ _InvalidLambdaFunctionException =
   _MatchServiceError ses "InvalidLambdaFunction" . hasStatus 400
 
 
+-- | Indicates that the TrackingOptions object you specified does not exist.
+--
+--
+_TrackingOptionsDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_TrackingOptionsDoesNotExistException =
+  _MatchServiceError ses "TrackingOptionsDoesNotExistException" . hasStatus 400
+
+
+-- | Indicates that a template could not be created because it contained invalid JSON.
+--
+--
+_InvalidTemplateException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTemplateException =
+  _MatchServiceError ses "InvalidTemplate" . hasStatus 400
+
+
 -- | Indicates that the configuration set does not exist.
 --
 --
@@ -473,6 +570,14 @@ _InvalidPolicyException = _MatchServiceError ses "InvalidPolicy" . hasStatus 400
 _InvalidS3ConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidS3ConfigurationException =
   _MatchServiceError ses "InvalidS3Configuration" . hasStatus 400
+
+
+-- | Indicates that the configuration set you specified already contains a TrackingOptions object.
+--
+--
+_TrackingOptionsAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TrackingOptionsAlreadyExistsException =
+  _MatchServiceError ses "TrackingOptionsAlreadyExistsException" . hasStatus 400
 
 
 -- | Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not publish to the topic, possibly due to permissions issues. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> .

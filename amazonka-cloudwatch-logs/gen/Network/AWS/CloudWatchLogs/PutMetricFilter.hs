@@ -65,7 +65,7 @@ data PutMetricFilter = PutMetricFilter'
 --
 -- * 'pmfFilterPattern' - A filter pattern for extracting metric data out of ingested log events.
 --
--- * 'pmfMetricTransformations' - A collection of information needed to define how metric data gets emitted.
+-- * 'pmfMetricTransformations' - A collection of information that defines how metric data gets emitted.
 putMetricFilter
     :: Text -- ^ 'pmfLogGroupName'
     -> Text -- ^ 'pmfFilterName'
@@ -93,7 +93,7 @@ pmfFilterName = lens _pmfFilterName (\ s a -> s{_pmfFilterName = a});
 pmfFilterPattern :: Lens' PutMetricFilter Text
 pmfFilterPattern = lens _pmfFilterPattern (\ s a -> s{_pmfFilterPattern = a});
 
--- | A collection of information needed to define how metric data gets emitted.
+-- | A collection of information that defines how metric data gets emitted.
 pmfMetricTransformations :: Lens' PutMetricFilter (NonEmpty MetricTransformation)
 pmfMetricTransformations = lens _pmfMetricTransformations (\ s a -> s{_pmfMetricTransformations = a}) . _List1;
 

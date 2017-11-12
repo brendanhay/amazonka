@@ -234,6 +234,7 @@ instance FromJSON HITStatus where
 
 data NotificationTransport
   = Email
+  | SNS
   | Sqs
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -241,13 +242,15 @@ data NotificationTransport
 instance FromText NotificationTransport where
     parser = takeLowerText >>= \case
         "email" -> pure Email
+        "sns" -> pure SNS
         "sqs" -> pure Sqs
         e -> fromTextError $ "Failure parsing NotificationTransport from value: '" <> e
-           <> "'. Accepted values: email, sqs"
+           <> "'. Accepted values: email, sns, sqs"
 
 instance ToText NotificationTransport where
     toText = \case
         Email -> "Email"
+        SNS -> "SNS"
         Sqs -> "SQS"
 
 instance Hashable     NotificationTransport

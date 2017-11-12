@@ -335,6 +335,7 @@ instance ToXML InsufficientDataHealthStatus where
 data RecordType
   = A
   | Aaaa
+  | Caa
   | Cname
   | MX
   | NS
@@ -351,6 +352,7 @@ instance FromText RecordType where
     parser = takeLowerText >>= \case
         "a" -> pure A
         "aaaa" -> pure Aaaa
+        "caa" -> pure Caa
         "cname" -> pure Cname
         "mx" -> pure MX
         "ns" -> pure NS
@@ -361,12 +363,13 @@ instance FromText RecordType where
         "srv" -> pure Srv
         "txt" -> pure Txt
         e -> fromTextError $ "Failure parsing RecordType from value: '" <> e
-           <> "'. Accepted values: a, aaaa, cname, mx, ns, naptr, ptr, soa, spf, srv, txt"
+           <> "'. Accepted values: a, aaaa, caa, cname, mx, ns, naptr, ptr, soa, spf, srv, txt"
 
 instance ToText RecordType where
     toText = \case
         A -> "A"
         Aaaa -> "AAAA"
+        Caa -> "CAA"
         Cname -> "CNAME"
         MX -> "MX"
         NS -> "NS"
@@ -387,6 +390,39 @@ instance FromXML RecordType where
     parseXML = parseXMLText "RecordType"
 
 instance ToXML RecordType where
+    toXML = toXMLText
+
+data ResettableElementName
+  = ChildHealthChecks
+  | FullyQualifiedDomainName
+  | Regions
+  | ResourcePath
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ResettableElementName where
+    parser = takeLowerText >>= \case
+        "childhealthchecks" -> pure ChildHealthChecks
+        "fullyqualifieddomainname" -> pure FullyQualifiedDomainName
+        "regions" -> pure Regions
+        "resourcepath" -> pure ResourcePath
+        e -> fromTextError $ "Failure parsing ResettableElementName from value: '" <> e
+           <> "'. Accepted values: childhealthchecks, fullyqualifieddomainname, regions, resourcepath"
+
+instance ToText ResettableElementName where
+    toText = \case
+        ChildHealthChecks -> "ChildHealthChecks"
+        FullyQualifiedDomainName -> "FullyQualifiedDomainName"
+        Regions -> "Regions"
+        ResourcePath -> "ResourcePath"
+
+instance Hashable     ResettableElementName
+instance NFData       ResettableElementName
+instance ToByteString ResettableElementName
+instance ToQuery      ResettableElementName
+instance ToHeader     ResettableElementName
+
+instance ToXML ResettableElementName where
     toXML = toXMLText
 
 data Statistic

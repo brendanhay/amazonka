@@ -31,6 +31,7 @@ module Network.AWS.ELBv2.Types
     , _TooManyTagsException
     , _DuplicateTargetGroupNameException
     , _HealthUnavailableException
+    , _AllocationIdNotFoundException
     , _PriorityInUseException
     , _TooManyLoadBalancersException
     , _UnsupportedProtocolException
@@ -44,6 +45,7 @@ module Network.AWS.ELBv2.Types
     , _OperationNotPermittedException
     , _SSLPolicyNotFoundException
     , _InvalidSchemeException
+    , _AvailabilityZoneNotSupportedException
     , _LoadBalancerNotFoundException
     , _ResourceInUseException
     , _CertificateNotFoundException
@@ -72,6 +74,9 @@ module Network.AWS.ELBv2.Types
     -- * TargetHealthStateEnum
     , TargetHealthStateEnum (..)
 
+    -- * TargetTypeEnum
+    , TargetTypeEnum (..)
+
     -- * Action
     , Action
     , action
@@ -83,11 +88,13 @@ module Network.AWS.ELBv2.Types
     , availabilityZone
     , azSubnetId
     , azZoneName
+    , azLoadBalancerAddresses
 
     -- * Certificate
     , Certificate
     , certificate
     , cCertificateARN
+    , cIsDefault
 
     -- * Cipher
     , Cipher
@@ -127,6 +134,12 @@ module Network.AWS.ELBv2.Types
     , lbScheme
     , lbType
     , lbDNSName
+
+    -- * LoadBalancerAddress
+    , LoadBalancerAddress
+    , loadBalancerAddress
+    , lbaIPAddress
+    , lbaAllocationId
 
     -- * LoadBalancerAttribute
     , LoadBalancerAttribute
@@ -173,6 +186,12 @@ module Network.AWS.ELBv2.Types
     , spName
     , spSSLProtocols
 
+    -- * SubnetMapping
+    , SubnetMapping
+    , subnetMapping
+    , smAllocationId
+    , smSubnetId
+
     -- * Tag
     , Tag
     , tag
@@ -188,6 +207,7 @@ module Network.AWS.ELBv2.Types
     -- * TargetDescription
     , TargetDescription
     , targetDescription
+    , tdAvailabilityZone
     , tdPort
     , tdId
 
@@ -201,6 +221,7 @@ module Network.AWS.ELBv2.Types
     , tgTargetGroupARN
     , tgProtocol
     , tgHealthCheckIntervalSeconds
+    , tgTargetType
     , tgHealthyThresholdCount
     , tgHealthCheckProtocol
     , tgLoadBalancerARNs
@@ -343,7 +364,7 @@ _IncompatibleProtocolsException =
   _MatchServiceError eLBv2 "IncompatibleProtocols" . hasStatus 400
 
 
--- | You've reached the limit on the number of certificates per listener.
+-- | You've reached the limit on the number of certificates per load balancer.
 --
 --
 _TooManyCertificatesException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -390,6 +411,14 @@ _HealthUnavailableException =
   _MatchServiceError eLBv2 "HealthUnavailable" . hasStatus 500
 
 
+-- | The specified allocation ID does not exist.
+--
+--
+_AllocationIdNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_AllocationIdNotFoundException =
+  _MatchServiceError eLBv2 "AllocationIdNotFound" . hasStatus 400
+
+
 -- | The specified priority is in use.
 --
 --
@@ -414,7 +443,7 @@ _UnsupportedProtocolException =
   _MatchServiceError eLBv2 "UnsupportedProtocol" . hasStatus 400
 
 
--- | The specified target does not exist or is not in the same VPC as the target group.
+-- | The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.
 --
 --
 _InvalidTargetException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -492,6 +521,14 @@ _SSLPolicyNotFoundException =
 _InvalidSchemeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSchemeException =
   _MatchServiceError eLBv2 "InvalidScheme" . hasStatus 400
+
+
+-- | The specified Availability Zone is not supported.
+--
+--
+_AvailabilityZoneNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
+_AvailabilityZoneNotSupportedException =
+  _MatchServiceError eLBv2 "AvailabilityZoneNotSupported" . hasStatus 400
 
 
 -- | The specified load balancer does not exist.

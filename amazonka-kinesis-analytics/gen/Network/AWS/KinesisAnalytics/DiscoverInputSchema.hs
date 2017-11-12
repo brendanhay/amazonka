@@ -31,9 +31,11 @@ module Network.AWS.KinesisAnalytics.DiscoverInputSchema
       discoverInputSchema
     , DiscoverInputSchema
     -- * Request Lenses
+    , disInputStartingPositionConfiguration
+    , disInputProcessingConfiguration
+    , disS3Configuration
     , disResourceARN
     , disRoleARN
-    , disInputStartingPositionConfiguration
 
     -- * Destructuring the Response
     , discoverInputSchemaResponse
@@ -41,6 +43,7 @@ module Network.AWS.KinesisAnalytics.DiscoverInputSchema
     -- * Response Lenses
     , disrsRawInputRecords
     , disrsInputSchema
+    , disrsProcessedInputRecords
     , disrsParsedInputRecords
     , disrsResponseStatus
     ) where
@@ -52,15 +55,13 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- |
---
---
---
--- /See:/ 'discoverInputSchema' smart constructor.
+-- | /See:/ 'discoverInputSchema' smart constructor.
 data DiscoverInputSchema = DiscoverInputSchema'
-  { _disResourceARN :: {-# NOUNPACK #-}!Text
-  , _disRoleARN :: {-# NOUNPACK #-}!Text
-  , _disInputStartingPositionConfiguration :: {-# NOUNPACK #-}!InputStartingPositionConfiguration
+  { _disInputStartingPositionConfiguration :: {-# NOUNPACK #-}!(Maybe InputStartingPositionConfiguration)
+  , _disInputProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe InputProcessingConfiguration)
+  , _disS3Configuration :: {-# NOUNPACK #-}!(Maybe S3Configuration)
+  , _disResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _disRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -68,36 +69,46 @@ data DiscoverInputSchema = DiscoverInputSchema'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'disInputStartingPositionConfiguration' - Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.
+--
+-- * 'disInputProcessingConfiguration' - The 'InputProcessingConfiguration' to use to preprocess the records before discovering the schema of the records.
+--
+-- * 'disS3Configuration' - Undocumented member.
+--
 -- * 'disResourceARN' - Amazon Resource Name (ARN) of the streaming source.
 --
 -- * 'disRoleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.
---
--- * 'disInputStartingPositionConfiguration' - Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.
 discoverInputSchema
-    :: Text -- ^ 'disResourceARN'
-    -> Text -- ^ 'disRoleARN'
-    -> InputStartingPositionConfiguration -- ^ 'disInputStartingPositionConfiguration'
-    -> DiscoverInputSchema
-discoverInputSchema pResourceARN_ pRoleARN_ pInputStartingPositionConfiguration_ =
+    :: DiscoverInputSchema
+discoverInputSchema =
   DiscoverInputSchema'
-  { _disResourceARN = pResourceARN_
-  , _disRoleARN = pRoleARN_
-  , _disInputStartingPositionConfiguration =
-      pInputStartingPositionConfiguration_
+  { _disInputStartingPositionConfiguration = Nothing
+  , _disInputProcessingConfiguration = Nothing
+  , _disS3Configuration = Nothing
+  , _disResourceARN = Nothing
+  , _disRoleARN = Nothing
   }
 
 
+-- | Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.
+disInputStartingPositionConfiguration :: Lens' DiscoverInputSchema (Maybe InputStartingPositionConfiguration)
+disInputStartingPositionConfiguration = lens _disInputStartingPositionConfiguration (\ s a -> s{_disInputStartingPositionConfiguration = a});
+
+-- | The 'InputProcessingConfiguration' to use to preprocess the records before discovering the schema of the records.
+disInputProcessingConfiguration :: Lens' DiscoverInputSchema (Maybe InputProcessingConfiguration)
+disInputProcessingConfiguration = lens _disInputProcessingConfiguration (\ s a -> s{_disInputProcessingConfiguration = a});
+
+-- | Undocumented member.
+disS3Configuration :: Lens' DiscoverInputSchema (Maybe S3Configuration)
+disS3Configuration = lens _disS3Configuration (\ s a -> s{_disS3Configuration = a});
+
 -- | Amazon Resource Name (ARN) of the streaming source.
-disResourceARN :: Lens' DiscoverInputSchema Text
+disResourceARN :: Lens' DiscoverInputSchema (Maybe Text)
 disResourceARN = lens _disResourceARN (\ s a -> s{_disResourceARN = a});
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.
-disRoleARN :: Lens' DiscoverInputSchema Text
+disRoleARN :: Lens' DiscoverInputSchema (Maybe Text)
 disRoleARN = lens _disRoleARN (\ s a -> s{_disRoleARN = a});
-
--- | Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.
-disInputStartingPositionConfiguration :: Lens' DiscoverInputSchema InputStartingPositionConfiguration
-disInputStartingPositionConfiguration = lens _disInputStartingPositionConfiguration (\ s a -> s{_disInputStartingPositionConfiguration = a});
 
 instance AWSRequest DiscoverInputSchema where
         type Rs DiscoverInputSchema =
@@ -109,6 +120,7 @@ instance AWSRequest DiscoverInputSchema where
                  DiscoverInputSchemaResponse' <$>
                    (x .?> "RawInputRecords" .!@ mempty) <*>
                      (x .?> "InputSchema")
+                     <*> (x .?> "ProcessedInputRecords" .!@ mempty)
                      <*> (x .?> "ParsedInputRecords" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
@@ -130,11 +142,13 @@ instance ToJSON DiscoverInputSchema where
         toJSON DiscoverInputSchema'{..}
           = object
               (catMaybes
-                 [Just ("ResourceARN" .= _disResourceARN),
-                  Just ("RoleARN" .= _disRoleARN),
-                  Just
-                    ("InputStartingPositionConfiguration" .=
-                       _disInputStartingPositionConfiguration)])
+                 [("InputStartingPositionConfiguration" .=) <$>
+                    _disInputStartingPositionConfiguration,
+                  ("InputProcessingConfiguration" .=) <$>
+                    _disInputProcessingConfiguration,
+                  ("S3Configuration" .=) <$> _disS3Configuration,
+                  ("ResourceARN" .=) <$> _disResourceARN,
+                  ("RoleARN" .=) <$> _disRoleARN])
 
 instance ToPath DiscoverInputSchema where
         toPath = const "/"
@@ -148,10 +162,11 @@ instance ToQuery DiscoverInputSchema where
 --
 -- /See:/ 'discoverInputSchemaResponse' smart constructor.
 data DiscoverInputSchemaResponse = DiscoverInputSchemaResponse'
-  { _disrsRawInputRecords    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _disrsInputSchema        :: {-# NOUNPACK #-}!(Maybe SourceSchema)
-  , _disrsParsedInputRecords :: {-# NOUNPACK #-}!(Maybe [[Text]])
-  , _disrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _disrsRawInputRecords       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _disrsInputSchema           :: {-# NOUNPACK #-}!(Maybe SourceSchema)
+  , _disrsProcessedInputRecords :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _disrsParsedInputRecords    :: {-# NOUNPACK #-}!(Maybe [[Text]])
+  , _disrsResponseStatus        :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -163,6 +178,8 @@ data DiscoverInputSchemaResponse = DiscoverInputSchemaResponse'
 --
 -- * 'disrsInputSchema' - Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.
 --
+-- * 'disrsProcessedInputRecords' - Stream data that was modified by the processor specified in the @InputProcessingConfiguration@ parameter.
+--
 -- * 'disrsParsedInputRecords' - An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).
 --
 -- * 'disrsResponseStatus' - -- | The response status code.
@@ -173,6 +190,7 @@ discoverInputSchemaResponse pResponseStatus_ =
   DiscoverInputSchemaResponse'
   { _disrsRawInputRecords = Nothing
   , _disrsInputSchema = Nothing
+  , _disrsProcessedInputRecords = Nothing
   , _disrsParsedInputRecords = Nothing
   , _disrsResponseStatus = pResponseStatus_
   }
@@ -185,6 +203,10 @@ disrsRawInputRecords = lens _disrsRawInputRecords (\ s a -> s{_disrsRawInputReco
 -- | Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.
 disrsInputSchema :: Lens' DiscoverInputSchemaResponse (Maybe SourceSchema)
 disrsInputSchema = lens _disrsInputSchema (\ s a -> s{_disrsInputSchema = a});
+
+-- | Stream data that was modified by the processor specified in the @InputProcessingConfiguration@ parameter.
+disrsProcessedInputRecords :: Lens' DiscoverInputSchemaResponse [Text]
+disrsProcessedInputRecords = lens _disrsProcessedInputRecords (\ s a -> s{_disrsProcessedInputRecords = a}) . _Default . _Coerce;
 
 -- | An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).
 disrsParsedInputRecords :: Lens' DiscoverInputSchemaResponse [[Text]]

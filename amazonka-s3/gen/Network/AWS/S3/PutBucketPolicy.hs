@@ -25,6 +25,7 @@ module Network.AWS.S3.PutBucketPolicy
       putBucketPolicy
     , PutBucketPolicy
     -- * Request Lenses
+    , pbpConfirmRemoveSelfBucketAccess
     , pbpContentMD5
     , pbpBucket
     , pbpPolicy
@@ -43,15 +44,18 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketPolicy' smart constructor.
 data PutBucketPolicy = PutBucketPolicy'
-  { _pbpContentMD5 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbpBucket     :: {-# NOUNPACK #-}!BucketName
-  , _pbpPolicy     :: {-# NOUNPACK #-}!(HashMap Text Value)
+  { _pbpConfirmRemoveSelfBucketAccess :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _pbpContentMD5                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pbpBucket                        :: {-# NOUNPACK #-}!BucketName
+  , _pbpPolicy                        :: {-# NOUNPACK #-}!(HashMap Text Value)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'PutBucketPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pbpConfirmRemoveSelfBucketAccess' - Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.
 --
 -- * 'pbpContentMD5' - Undocumented member.
 --
@@ -64,8 +68,16 @@ putBucketPolicy
     -> PutBucketPolicy
 putBucketPolicy pBucket_ pPolicy_ =
   PutBucketPolicy'
-  {_pbpContentMD5 = Nothing, _pbpBucket = pBucket_, _pbpPolicy = pPolicy_}
+  { _pbpConfirmRemoveSelfBucketAccess = Nothing
+  , _pbpContentMD5 = Nothing
+  , _pbpBucket = pBucket_
+  , _pbpPolicy = pPolicy_
+  }
 
+
+-- | Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.
+pbpConfirmRemoveSelfBucketAccess :: Lens' PutBucketPolicy (Maybe Bool)
+pbpConfirmRemoveSelfBucketAccess = lens _pbpConfirmRemoveSelfBucketAccess (\ s a -> s{_pbpConfirmRemoveSelfBucketAccess = a});
 
 -- | Undocumented member.
 pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
@@ -93,7 +105,10 @@ instance ToBody PutBucketPolicy where
 
 instance ToHeaders PutBucketPolicy where
         toHeaders PutBucketPolicy'{..}
-          = mconcat ["Content-MD5" =# _pbpContentMD5]
+          = mconcat
+              ["x-amz-confirm-remove-self-bucket-access" =#
+                 _pbpConfirmRemoveSelfBucketAccess,
+               "Content-MD5" =# _pbpContentMD5]
 
 instance ToPath PutBucketPolicy where
         toPath PutBucketPolicy'{..}

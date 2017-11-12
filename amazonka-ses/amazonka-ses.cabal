@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -48,16 +48,20 @@ library
         , Network.AWS.SES.CloneReceiptRuleSet
         , Network.AWS.SES.CreateConfigurationSet
         , Network.AWS.SES.CreateConfigurationSetEventDestination
+        , Network.AWS.SES.CreateConfigurationSetTrackingOptions
         , Network.AWS.SES.CreateReceiptFilter
         , Network.AWS.SES.CreateReceiptRule
         , Network.AWS.SES.CreateReceiptRuleSet
+        , Network.AWS.SES.CreateTemplate
         , Network.AWS.SES.DeleteConfigurationSet
         , Network.AWS.SES.DeleteConfigurationSetEventDestination
+        , Network.AWS.SES.DeleteConfigurationSetTrackingOptions
         , Network.AWS.SES.DeleteIdentity
         , Network.AWS.SES.DeleteIdentityPolicy
         , Network.AWS.SES.DeleteReceiptFilter
         , Network.AWS.SES.DeleteReceiptRule
         , Network.AWS.SES.DeleteReceiptRuleSet
+        , Network.AWS.SES.DeleteTemplate
         , Network.AWS.SES.DeleteVerifiedEmailAddress
         , Network.AWS.SES.DescribeActiveReceiptRuleSet
         , Network.AWS.SES.DescribeConfigurationSet
@@ -70,17 +74,21 @@ library
         , Network.AWS.SES.GetIdentityVerificationAttributes
         , Network.AWS.SES.GetSendQuota
         , Network.AWS.SES.GetSendStatistics
+        , Network.AWS.SES.GetTemplate
         , Network.AWS.SES.ListConfigurationSets
         , Network.AWS.SES.ListIdentities
         , Network.AWS.SES.ListIdentityPolicies
         , Network.AWS.SES.ListReceiptFilters
         , Network.AWS.SES.ListReceiptRuleSets
+        , Network.AWS.SES.ListTemplates
         , Network.AWS.SES.ListVerifiedEmailAddresses
         , Network.AWS.SES.PutIdentityPolicy
         , Network.AWS.SES.ReorderReceiptRuleSet
         , Network.AWS.SES.SendBounce
+        , Network.AWS.SES.SendBulkTemplatedEmail
         , Network.AWS.SES.SendEmail
         , Network.AWS.SES.SendRawEmail
+        , Network.AWS.SES.SendTemplatedEmail
         , Network.AWS.SES.SetActiveReceiptRuleSet
         , Network.AWS.SES.SetIdentityDkimEnabled
         , Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
@@ -88,9 +96,12 @@ library
         , Network.AWS.SES.SetIdentityMailFromDomain
         , Network.AWS.SES.SetIdentityNotificationTopic
         , Network.AWS.SES.SetReceiptRulePosition
+        , Network.AWS.SES.TestRenderTemplate
         , Network.AWS.SES.Types
         , Network.AWS.SES.UpdateConfigurationSetEventDestination
+        , Network.AWS.SES.UpdateConfigurationSetTrackingOptions
         , Network.AWS.SES.UpdateReceiptRule
+        , Network.AWS.SES.UpdateTemplate
         , Network.AWS.SES.VerifyDomainDkim
         , Network.AWS.SES.VerifyDomainIdentity
         , Network.AWS.SES.VerifyEmailAddress

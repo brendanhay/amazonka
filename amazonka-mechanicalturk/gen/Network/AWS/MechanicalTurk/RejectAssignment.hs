@@ -31,8 +31,8 @@ module Network.AWS.MechanicalTurk.RejectAssignment
       rejectAssignment
     , RejectAssignment
     -- * Request Lenses
-    , raRequesterFeedback
     , raAssignmentId
+    , raRequesterFeedback
 
     -- * Destructuring the Response
     , rejectAssignmentResponse
@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'rejectAssignment' smart constructor.
 data RejectAssignment = RejectAssignment'
-  { _raRequesterFeedback :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raAssignmentId      :: {-# NOUNPACK #-}!Text
+  { _raAssignmentId      :: {-# NOUNPACK #-}!Text
+  , _raRequesterFeedback :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -59,24 +59,25 @@ data RejectAssignment = RejectAssignment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'raRequesterFeedback' - A message for the Worker, which the Worker can see in the Status section of the web site.
---
 -- * 'raAssignmentId' - The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
+--
+-- * 'raRequesterFeedback' - A message for the Worker, which the Worker can see in the Status section of the web site.
 rejectAssignment
     :: Text -- ^ 'raAssignmentId'
+    -> Text -- ^ 'raRequesterFeedback'
     -> RejectAssignment
-rejectAssignment pAssignmentId_ =
+rejectAssignment pAssignmentId_ pRequesterFeedback_ =
   RejectAssignment'
-  {_raRequesterFeedback = Nothing, _raAssignmentId = pAssignmentId_}
+  {_raAssignmentId = pAssignmentId_, _raRequesterFeedback = pRequesterFeedback_}
 
-
--- | A message for the Worker, which the Worker can see in the Status section of the web site.
-raRequesterFeedback :: Lens' RejectAssignment (Maybe Text)
-raRequesterFeedback = lens _raRequesterFeedback (\ s a -> s{_raRequesterFeedback = a});
 
 -- | The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
 raAssignmentId :: Lens' RejectAssignment Text
 raAssignmentId = lens _raAssignmentId (\ s a -> s{_raAssignmentId = a});
+
+-- | A message for the Worker, which the Worker can see in the Status section of the web site.
+raRequesterFeedback :: Lens' RejectAssignment Text
+raRequesterFeedback = lens _raRequesterFeedback (\ s a -> s{_raRequesterFeedback = a});
 
 instance AWSRequest RejectAssignment where
         type Rs RejectAssignment = RejectAssignmentResponse
@@ -104,8 +105,8 @@ instance ToJSON RejectAssignment where
         toJSON RejectAssignment'{..}
           = object
               (catMaybes
-                 [("RequesterFeedback" .=) <$> _raRequesterFeedback,
-                  Just ("AssignmentId" .= _raAssignmentId)])
+                 [Just ("AssignmentId" .= _raAssignmentId),
+                  Just ("RequesterFeedback" .= _raRequesterFeedback)])
 
 instance ToPath RejectAssignment where
         toPath = const "/"

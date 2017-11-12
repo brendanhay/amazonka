@@ -58,7 +58,7 @@ data DeleteRepository = DeleteRepository'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dForce' - Force the deletion of the repository if it contains images.
+-- * 'dForce' - If a repository contains images, forces the deletion.
 --
 -- * 'dRegistryId' - The AWS account ID associated with the registry that contains the repository to delete. If you do not specify a registry, the default registry is assumed.
 --
@@ -74,7 +74,7 @@ deleteRepository pRepositoryName_ =
   }
 
 
--- | Force the deletion of the repository if it contains images.
+-- | If a repository contains images, forces the deletion.
 dForce :: Lens' DeleteRepository (Maybe Bool)
 dForce = lens _dForce (\ s a -> s{_dForce = a});
 

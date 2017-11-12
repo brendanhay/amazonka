@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the customer master keys.
+-- Gets a list of all customer master keys (CMKs) in the caller's AWS account and region.
 --
 --
 --
@@ -134,9 +134,9 @@ data ListKeysResponse = ListKeysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lkrsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
+-- * 'lkrsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 --
--- * 'lkrsKeys' - A list of keys.
+-- * 'lkrsKeys' - A list of customer master keys (CMKs).
 --
 -- * 'lkrsNextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 --
@@ -153,11 +153,11 @@ listKeysResponse pResponseStatus_ =
   }
 
 
--- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 lkrsTruncated :: Lens' ListKeysResponse (Maybe Bool)
 lkrsTruncated = lens _lkrsTruncated (\ s a -> s{_lkrsTruncated = a});
 
--- | A list of keys.
+-- | A list of customer master keys (CMKs).
 lkrsKeys :: Lens' ListKeysResponse [KeyListEntry]
 lkrsKeys = lens _lkrsKeys (\ s a -> s{_lkrsKeys = a}) . _Default . _Coerce;
 

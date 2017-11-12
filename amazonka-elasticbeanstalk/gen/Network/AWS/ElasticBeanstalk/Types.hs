@@ -23,8 +23,10 @@ module Network.AWS.ElasticBeanstalk.Types
     , _PlatformVersionStillReferencedException
     , _TooManyApplicationVersionsException
     , _TooManyConfigurationTemplatesException
+    , _ResourceTypeNotSupportedException
     , _InsufficientPrivilegesException
     , _ElasticBeanstalkServiceException
+    , _TooManyTagsException
     , _TooManyApplicationsException
     , _TooManyPlatformsException
     , _ManagedActionInvalidStateException
@@ -32,6 +34,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , _S3LocationNotInServiceRegionException
     , _CodeBuildNotInServiceRegionException
     , _TooManyEnvironmentsException
+    , _ResourceNotFoundException
 
     -- * ActionHistoryStatus
     , ActionHistoryStatus (..)
@@ -640,6 +643,15 @@ _TooManyConfigurationTemplatesException =
   hasStatus 400
 
 
+-- | The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.
+--
+--
+_ResourceTypeNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceTypeNotSupportedException =
+  _MatchServiceError elasticBeanstalk "ResourceTypeNotSupportedException" .
+  hasStatus 400
+
+
 -- | The specified account does not have sufficient privileges for one of more AWS services.
 --
 --
@@ -655,6 +667,16 @@ _InsufficientPrivilegesException =
 _ElasticBeanstalkServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ElasticBeanstalkServiceException =
   _MatchServiceError elasticBeanstalk "ElasticBeanstalkServiceException"
+
+
+-- | The number of tags in the resource would exceed the number of tags that each resource can have.
+--
+--
+-- To calculate this, the operation considers both the number of tags the resource already has and the tags this operation would add if it succeeded.
+--
+_TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyTagsException =
+  _MatchServiceError elasticBeanstalk "TooManyTagsException" . hasStatus 400
 
 
 -- | The specified account has reached its limit of applications.
@@ -725,5 +747,14 @@ _CodeBuildNotInServiceRegionException =
 _TooManyEnvironmentsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyEnvironmentsException =
   _MatchServiceError elasticBeanstalk "TooManyEnvironmentsException" .
+  hasStatus 400
+
+
+-- | A resource doesn't exist for the specified Amazon Resource Name (ARN).
+--
+--
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+  _MatchServiceError elasticBeanstalk "ResourceNotFoundException" .
   hasStatus 400
 

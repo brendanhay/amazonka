@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides descriptive information about the scaling policies in the specified namespace.
+-- Describes the scaling policies for the specified service namespace.
 --
 --
 -- You can filter the results using the @ResourceId@ , @ScalableDimension@ , and @PolicyNames@ parameters.
@@ -185,7 +185,7 @@ data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
 --
 -- * 'drsNextToken' - The token required to get the next set of results. This value is @null@ if there are no more results to return.
 --
--- * 'drsScalingPolicies' - A list of scaling policy objects.
+-- * 'drsScalingPolicies' - Information about the scaling policies.
 --
 -- * 'drsResponseStatus' - -- | The response status code.
 describeScalingPoliciesResponse
@@ -203,7 +203,7 @@ describeScalingPoliciesResponse pResponseStatus_ =
 drsNextToken :: Lens' DescribeScalingPoliciesResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
--- | A list of scaling policy objects.
+-- | Information about the scaling policies.
 drsScalingPolicies :: Lens' DescribeScalingPoliciesResponse [ScalingPolicy]
 drsScalingPolicies = lens _drsScalingPolicies (\ s a -> s{_drsScalingPolicies = a}) . _Default . _Coerce;
 

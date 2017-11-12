@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified Application Load Balancer and its attached listeners.
+-- Deletes the specified Application Load Balancer or Network Load Balancer and its attached listeners.
 --
 --
 -- You can't delete a load balancer if deletion protection is enabled. If the load balancer does not exist or has already been deleted, the call succeeds.

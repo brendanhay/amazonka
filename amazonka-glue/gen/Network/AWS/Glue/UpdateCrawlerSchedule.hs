@@ -55,7 +55,7 @@ data UpdateCrawlerSchedule = UpdateCrawlerSchedule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucsSchedule' - Cron expression of the updated schedule.
+-- * 'ucsSchedule' - The updated @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 --
 -- * 'ucsCrawlerName' - Name of the crawler whose schedule to update.
 updateCrawlerSchedule
@@ -66,7 +66,7 @@ updateCrawlerSchedule pCrawlerName_ =
   {_ucsSchedule = Nothing, _ucsCrawlerName = pCrawlerName_}
 
 
--- | Cron expression of the updated schedule.
+-- | The updated @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 ucsSchedule :: Lens' UpdateCrawlerSchedule (Maybe Text)
 ucsSchedule = lens _ucsSchedule (\ s a -> s{_ucsSchedule = a});
 

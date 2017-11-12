@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -101,6 +101,7 @@ library
         , Network.AWS.Greengrass.ListLoggerDefinitions
         , Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
         , Network.AWS.Greengrass.ListSubscriptionDefinitions
+        , Network.AWS.Greengrass.ResetDeployments
         , Network.AWS.Greengrass.Types
         , Network.AWS.Greengrass.UpdateConnectivityInfo
         , Network.AWS.Greengrass.UpdateCoreDefinition

@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a delete custom action operation. The custom action will be marked as deleted.
+-- | Represents the input of a DeleteCustomActionType operation. The custom action will be marked as deleted.
 --
 --
 --

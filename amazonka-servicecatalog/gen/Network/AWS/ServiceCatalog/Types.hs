@@ -27,6 +27,12 @@ module Network.AWS.ServiceCatalog.Types
     -- * AccessLevelFilterKey
     , AccessLevelFilterKey (..)
 
+    -- * CopyOption
+    , CopyOption (..)
+
+    -- * CopyProductStatus
+    , CopyProductStatus (..)
+
     -- * PrincipalType
     , PrincipalType (..)
 
@@ -44,6 +50,9 @@ module Network.AWS.ServiceCatalog.Types
 
     -- * ProvisionedProductStatus
     , ProvisionedProductStatus (..)
+
+    -- * ProvisioningArtifactPropertyName
+    , ProvisioningArtifactPropertyName (..)
 
     -- * ProvisioningArtifactType
     , ProvisioningArtifactType (..)

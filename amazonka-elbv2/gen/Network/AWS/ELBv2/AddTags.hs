@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds the specified tags to the specified resource. You can tag your Application Load Balancers and your target groups.
+-- Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, and your target groups.
 --
 --
 -- Each tag consists of a key and an optional value. If a resource already has a tag with the same key, @AddTags@ updates its value.

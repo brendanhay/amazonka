@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a retry stage execution action.
+-- | Represents the input of a RetryStageExecution action.
 --
 --
 --
@@ -143,7 +143,7 @@ instance ToPath RetryStageExecution where
 instance ToQuery RetryStageExecution where
         toQuery = const mempty
 
--- | Represents the output of a retry stage execution action.
+-- | Represents the output of a RetryStageExecution action.
 --
 --
 --

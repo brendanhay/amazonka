@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for ExecutePolicy.
---
---
---
--- /See:/ 'executePolicy' smart constructor.
+-- | /See:/ 'executePolicy' smart constructor.
 data ExecutePolicy = ExecutePolicy'
   { _epHonorCooldown        :: {-# NOUNPACK #-}!(Maybe Bool)
   , _epMetricValue          :: {-# NOUNPACK #-}!(Maybe Double)

@@ -48,6 +48,7 @@ module Network.AWS.CloudFront.Types
     , _TooManyHeadersInForwardedValues
     , _NoSuchResource
     , _TooManyStreamingDistributionCNAMEs
+    , _ResourceInUse
     , _InvalidRequiredProtocol
     , _TooManyDistributions
     , _TooManyCertificates
@@ -658,7 +659,7 @@ _NoSuchStreamingDistribution =
   _MatchServiceError cloudFront "NoSuchStreamingDistribution" . hasStatus 404
 
 
--- | The value of @Quantity@ and the size of @Items@ do not match.
+-- | The value of @Quantity@ and the size of @Items@ don't match.
 --
 --
 _InconsistentQuantities :: AsError a => Getting (First ServiceError) a ServiceError
@@ -824,6 +825,11 @@ _TooManyStreamingDistributionCNAMEs =
   hasStatus 400
 
 
+-- | Prism for ResourceInUse' errors.
+_ResourceInUse :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUse = _MatchServiceError cloudFront "ResourceInUse" . hasStatus 409
+
+
 -- | This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the @RequiredProtocols@ element from your distribution configuration.
 --
 --
@@ -862,7 +868,7 @@ _InvalidQueryStringParameters =
   _MatchServiceError cloudFront "InvalidQueryStringParameters" . hasStatus 400
 
 
--- | This operation requires a body. Ensure that the body is present and the Content-Type header is set.
+-- | This operation requires a body. Ensure that the body is present and the @Content-Type@ header is set.
 --
 --
 _MissingBody :: AsError a => Getting (First ServiceError) a ServiceError
@@ -910,7 +916,7 @@ _CNAMEAlreadyExists =
   _MatchServiceError cloudFront "CNAMEAlreadyExists" . hasStatus 409
 
 
--- | One or more of your trusted signers do not exist.
+-- | One or more of your trusted signers don't exist.
 --
 --
 _TrustedSignerDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError

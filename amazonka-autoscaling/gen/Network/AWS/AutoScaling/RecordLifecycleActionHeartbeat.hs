@@ -62,11 +62,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for RecordLifecycleActionHeartbeat.
---
---
---
--- /See:/ 'recordLifecycleActionHeartbeat' smart constructor.
+-- | /See:/ 'recordLifecycleActionHeartbeat' smart constructor.
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
   { _rlahInstanceId           :: {-# NOUNPACK #-}!(Maybe Text)
   , _rlahLifecycleActionToken :: {-# NOUNPACK #-}!(Maybe Text)
@@ -150,11 +146,7 @@ instance ToQuery RecordLifecycleActionHeartbeat where
                "LifecycleHookName" =: _rlahLifecycleHookName,
                "AutoScalingGroupName" =: _rlahAutoScalingGroupName]
 
--- | Contains the output of RecordLifecycleActionHeartBeat.
---
---
---
--- /See:/ 'recordLifecycleActionHeartbeatResponse' smart constructor.
+-- | /See:/ 'recordLifecycleActionHeartbeatResponse' smart constructor.
 newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'
   { _rlahrsResponseStatus :: Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)

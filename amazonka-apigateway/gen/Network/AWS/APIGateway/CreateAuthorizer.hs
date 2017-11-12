@@ -33,11 +33,11 @@ module Network.AWS.APIGateway.CreateAuthorizer
     , caProviderARNs
     , caAuthorizerResultTtlInSeconds
     , caAuthType
+    , caIdentitySource
     , caAuthorizerCredentials
     , caRestAPIId
     , caName
     , caType
-    , caIdentitySource
 
     -- * Destructuring the Response
     , authorizer
@@ -73,11 +73,11 @@ data CreateAuthorizer = CreateAuthorizer'
   , _caProviderARNs                 :: {-# NOUNPACK #-}!(Maybe [Text])
   , _caAuthorizerResultTtlInSeconds :: {-# NOUNPACK #-}!(Maybe Int)
   , _caAuthType                     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _caIdentitySource               :: {-# NOUNPACK #-}!(Maybe Text)
   , _caAuthorizerCredentials        :: {-# NOUNPACK #-}!(Maybe Text)
   , _caRestAPIId                    :: {-# NOUNPACK #-}!Text
   , _caName                         :: {-# NOUNPACK #-}!Text
   , _caType                         :: {-# NOUNPACK #-}!AuthorizerType
-  , _caIdentitySource               :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -85,67 +85,70 @@ data CreateAuthorizer = CreateAuthorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caAuthorizerURI' - [Required] Specifies the authorizer's Uniform Resource Identifier (URI).
+-- * 'caAuthorizerURI' - Specifies the authorizer's Uniform Resource Identifier (URI). For @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda function URI, for example, @arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations@ . In general, the URI has this form @arn:aws:apigateway:{region}:lambda:path/{service_api}@ , where @{region}@ is the same as the region hosting the Lambda function, @path@ indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ . For Lambda functions, this is usually of the form @/2015-03-31/functions/[FunctionARN]/invocations@ .
 --
--- * 'caIdentityValidationExpression' - A validation expression for the incoming identity.
+-- * 'caIdentityValidationExpression' - A validation expression for the incoming identity token. For @TOKEN@ authorizers, this value is a regular expression. Amazon API Gateway will match the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the @REQUEST@ authorizer.
 --
--- * 'caProviderARNs' - A list of the Cognito Your User Pool authorizer's provider ARNs.
+-- * 'caProviderARNs' - A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@ authorizer. Each element is of this format: @arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}@ . For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
 --
--- * 'caAuthorizerResultTtlInSeconds' - The TTL of cached authorizer results.
+-- * 'caAuthorizerResultTtlInSeconds' - The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
 --
--- * 'caAuthType' - Optional customer-defined field, used in Swagger imports/exports. Has no functional impact.
+-- * 'caAuthType' - Optional customer-defined field, used in Swagger imports and exports without functional impact.
 --
--- * 'caAuthorizerCredentials' - Specifies the credentials required for the authorizer, if any.
+-- * 'caIdentitySource' - The identity source for which authorization is requested.     * For a @TOKEN@ authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is @Auth@ , the header mapping expression is @method.request.header.Auth@ .    * For the @REQUEST@ authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an @Auth@ header, a @Name@ query string parameter are defined as identity sources, this value is @method.request.header.Auth, method.request.querystring.Name@ . These parameters will be used to derive the authorization caching key and to perform runtime validation of the @REQUEST@ authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.    * For a @COGNITO_USER_POOLS@ authorizer, this property is not used.
+--
+-- * 'caAuthorizerCredentials' - Specifies the required credentials as an IAM role for Amazon API Gateway to invoke the authorizer. To specify an IAM role for Amazon API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
 --
 -- * 'caRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'caName' - [Required] The name of the authorizer.
 --
--- * 'caType' - [Required] The type of the authorizer.
---
--- * 'caIdentitySource' - [Required] The source of the identity in an incoming request.
+-- * 'caType' - [Required] The authorizer type. Valid values are @TOKEN@ for a Lambda function using a single authorization token submitted in a custom header, @REQUEST@ for a Lambda function using incoming request parameters, and @COGNITO_USER_POOLS@ for using an Amazon Cognito user pool.
 createAuthorizer
     :: Text -- ^ 'caRestAPIId'
     -> Text -- ^ 'caName'
     -> AuthorizerType -- ^ 'caType'
-    -> Text -- ^ 'caIdentitySource'
     -> CreateAuthorizer
-createAuthorizer pRestAPIId_ pName_ pType_ pIdentitySource_ =
+createAuthorizer pRestAPIId_ pName_ pType_ =
   CreateAuthorizer'
   { _caAuthorizerURI = Nothing
   , _caIdentityValidationExpression = Nothing
   , _caProviderARNs = Nothing
   , _caAuthorizerResultTtlInSeconds = Nothing
   , _caAuthType = Nothing
+  , _caIdentitySource = Nothing
   , _caAuthorizerCredentials = Nothing
   , _caRestAPIId = pRestAPIId_
   , _caName = pName_
   , _caType = pType_
-  , _caIdentitySource = pIdentitySource_
   }
 
 
--- | [Required] Specifies the authorizer's Uniform Resource Identifier (URI).
+-- | Specifies the authorizer's Uniform Resource Identifier (URI). For @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda function URI, for example, @arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations@ . In general, the URI has this form @arn:aws:apigateway:{region}:lambda:path/{service_api}@ , where @{region}@ is the same as the region hosting the Lambda function, @path@ indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ . For Lambda functions, this is usually of the form @/2015-03-31/functions/[FunctionARN]/invocations@ .
 caAuthorizerURI :: Lens' CreateAuthorizer (Maybe Text)
 caAuthorizerURI = lens _caAuthorizerURI (\ s a -> s{_caAuthorizerURI = a});
 
--- | A validation expression for the incoming identity.
+-- | A validation expression for the incoming identity token. For @TOKEN@ authorizers, this value is a regular expression. Amazon API Gateway will match the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the @REQUEST@ authorizer.
 caIdentityValidationExpression :: Lens' CreateAuthorizer (Maybe Text)
 caIdentityValidationExpression = lens _caIdentityValidationExpression (\ s a -> s{_caIdentityValidationExpression = a});
 
--- | A list of the Cognito Your User Pool authorizer's provider ARNs.
+-- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@ authorizer. Each element is of this format: @arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}@ . For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
 caProviderARNs :: Lens' CreateAuthorizer [Text]
 caProviderARNs = lens _caProviderARNs (\ s a -> s{_caProviderARNs = a}) . _Default . _Coerce;
 
--- | The TTL of cached authorizer results.
+-- | The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
 caAuthorizerResultTtlInSeconds :: Lens' CreateAuthorizer (Maybe Int)
 caAuthorizerResultTtlInSeconds = lens _caAuthorizerResultTtlInSeconds (\ s a -> s{_caAuthorizerResultTtlInSeconds = a});
 
--- | Optional customer-defined field, used in Swagger imports/exports. Has no functional impact.
+-- | Optional customer-defined field, used in Swagger imports and exports without functional impact.
 caAuthType :: Lens' CreateAuthorizer (Maybe Text)
 caAuthType = lens _caAuthType (\ s a -> s{_caAuthType = a});
 
--- | Specifies the credentials required for the authorizer, if any.
+-- | The identity source for which authorization is requested.     * For a @TOKEN@ authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is @Auth@ , the header mapping expression is @method.request.header.Auth@ .    * For the @REQUEST@ authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an @Auth@ header, a @Name@ query string parameter are defined as identity sources, this value is @method.request.header.Auth, method.request.querystring.Name@ . These parameters will be used to derive the authorization caching key and to perform runtime validation of the @REQUEST@ authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.    * For a @COGNITO_USER_POOLS@ authorizer, this property is not used.
+caIdentitySource :: Lens' CreateAuthorizer (Maybe Text)
+caIdentitySource = lens _caIdentitySource (\ s a -> s{_caIdentitySource = a});
+
+-- | Specifies the required credentials as an IAM role for Amazon API Gateway to invoke the authorizer. To specify an IAM role for Amazon API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
 caAuthorizerCredentials :: Lens' CreateAuthorizer (Maybe Text)
 caAuthorizerCredentials = lens _caAuthorizerCredentials (\ s a -> s{_caAuthorizerCredentials = a});
 
@@ -157,13 +160,9 @@ caRestAPIId = lens _caRestAPIId (\ s a -> s{_caRestAPIId = a});
 caName :: Lens' CreateAuthorizer Text
 caName = lens _caName (\ s a -> s{_caName = a});
 
--- | [Required] The type of the authorizer.
+-- | [Required] The authorizer type. Valid values are @TOKEN@ for a Lambda function using a single authorization token submitted in a custom header, @REQUEST@ for a Lambda function using incoming request parameters, and @COGNITO_USER_POOLS@ for using an Amazon Cognito user pool.
 caType :: Lens' CreateAuthorizer AuthorizerType
 caType = lens _caType (\ s a -> s{_caType = a});
-
--- | [Required] The source of the identity in an incoming request.
-caIdentitySource :: Lens' CreateAuthorizer Text
-caIdentitySource = lens _caIdentitySource (\ s a -> s{_caIdentitySource = a});
 
 instance AWSRequest CreateAuthorizer where
         type Rs CreateAuthorizer = Authorizer
@@ -191,10 +190,10 @@ instance ToJSON CreateAuthorizer where
                   ("authorizerResultTtlInSeconds" .=) <$>
                     _caAuthorizerResultTtlInSeconds,
                   ("authType" .=) <$> _caAuthType,
+                  ("identitySource" .=) <$> _caIdentitySource,
                   ("authorizerCredentials" .=) <$>
                     _caAuthorizerCredentials,
-                  Just ("name" .= _caName), Just ("type" .= _caType),
-                  Just ("identitySource" .= _caIdentitySource)])
+                  Just ("name" .= _caName), Just ("type" .= _caType)])
 
 instance ToPath CreateAuthorizer where
         toPath CreateAuthorizer'{..}

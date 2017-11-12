@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops a fleet.
+-- Stops the specified fleet.
 --
 --
 module Network.AWS.AppStream.StopFleet
@@ -33,7 +33,7 @@ module Network.AWS.AppStream.StopFleet
     , stopFleetResponse
     , StopFleetResponse
     -- * Response Lenses
-    , srsResponseStatus
+    , storsResponseStatus
     ) where
 
 import Network.AWS.AppStream.Types
@@ -53,14 +53,14 @@ newtype StopFleet = StopFleet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sfName' - The name of the fleet to stop.
+-- * 'sfName' - The name of the fleet.
 stopFleet
     :: Text -- ^ 'sfName'
     -> StopFleet
 stopFleet pName_ = StopFleet' {_sfName = pName_}
 
 
--- | The name of the fleet to stop.
+-- | The name of the fleet.
 sfName :: Lens' StopFleet Text
 sfName = lens _sfName (\ s a -> s{_sfName = a});
 
@@ -97,7 +97,7 @@ instance ToQuery StopFleet where
 
 -- | /See:/ 'stopFleetResponse' smart constructor.
 newtype StopFleetResponse = StopFleetResponse'
-  { _srsResponseStatus :: Int
+  { _storsResponseStatus :: Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -105,16 +105,16 @@ newtype StopFleetResponse = StopFleetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsResponseStatus' - -- | The response status code.
+-- * 'storsResponseStatus' - -- | The response status code.
 stopFleetResponse
-    :: Int -- ^ 'srsResponseStatus'
+    :: Int -- ^ 'storsResponseStatus'
     -> StopFleetResponse
 stopFleetResponse pResponseStatus_ =
-  StopFleetResponse' {_srsResponseStatus = pResponseStatus_}
+  StopFleetResponse' {_storsResponseStatus = pResponseStatus_}
 
 
 -- | -- | The response status code.
-srsResponseStatus :: Lens' StopFleetResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+storsResponseStatus :: Lens' StopFleetResponse Int
+storsResponseStatus = lens _storsResponseStatus (\ s a -> s{_storsResponseStatus = a});
 
 instance NFData StopFleetResponse where

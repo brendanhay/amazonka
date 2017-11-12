@@ -42,11 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteNotificationConfiguration.
---
---
---
--- /See:/ 'deleteNotificationConfiguration' smart constructor.
+-- | /See:/ 'deleteNotificationConfiguration' smart constructor.
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
   { _dncAutoScalingGroupName :: {-# NOUNPACK #-}!Text
   , _dncTopicARN             :: {-# NOUNPACK #-}!Text

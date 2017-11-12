@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a start pipeline execution action.
+-- | Represents the input of a StartPipelineExecution action.
 --
 --
 --
@@ -104,7 +104,7 @@ instance ToPath StartPipelineExecution where
 instance ToQuery StartPipelineExecution where
         toQuery = const mempty
 
--- | Represents the output of a start pipeline execution action.
+-- | Represents the output of a StartPipelineExecution action.
 --
 --
 --

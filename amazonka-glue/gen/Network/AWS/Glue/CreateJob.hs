@@ -74,7 +74,7 @@ data CreateJob = CreateJob'
 --
 -- * 'cjConnections' - The connections used for this job.
 --
--- * 'cjLogURI' - Location of the logs for this job.
+-- * 'cjLogURI' - This field is reserved for future use.
 --
 -- * 'cjMaxRetries' - The maximum number of times to retry this job if it fails.
 --
@@ -115,7 +115,7 @@ createJob pName_ pRole_ pCommand_ =
 cjConnections :: Lens' CreateJob (Maybe ConnectionsList)
 cjConnections = lens _cjConnections (\ s a -> s{_cjConnections = a});
 
--- | Location of the logs for this job.
+-- | This field is reserved for future use.
 cjLogURI :: Lens' CreateJob (Maybe Text)
 cjLogURI = lens _cjLogURI (\ s a -> s{_cjLogURI = a});
 

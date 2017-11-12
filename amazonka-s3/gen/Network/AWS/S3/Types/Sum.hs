@@ -402,6 +402,7 @@ instance ToXML InventoryIncludedObjectVersions where
 
 data InventoryOptionalField
   = FieldETag
+  | FieldEncryptionStatus
   | FieldIsMultipartUploaded
   | FieldLastModifiedDate
   | FieldReplicationStatus
@@ -413,17 +414,19 @@ data InventoryOptionalField
 instance FromText InventoryOptionalField where
     parser = takeLowerText >>= \case
         "etag" -> pure FieldETag
+        "encryptionstatus" -> pure FieldEncryptionStatus
         "ismultipartuploaded" -> pure FieldIsMultipartUploaded
         "lastmodifieddate" -> pure FieldLastModifiedDate
         "replicationstatus" -> pure FieldReplicationStatus
         "size" -> pure FieldSize
         "storageclass" -> pure FieldStorageClass
         e -> fromTextError $ "Failure parsing InventoryOptionalField from value: '" <> e
-           <> "'. Accepted values: etag, ismultipartuploaded, lastmodifieddate, replicationstatus, size, storageclass"
+           <> "'. Accepted values: etag, encryptionstatus, ismultipartuploaded, lastmodifieddate, replicationstatus, size, storageclass"
 
 instance ToText InventoryOptionalField where
     toText = \case
         FieldETag -> "ETag"
+        FieldEncryptionStatus -> "EncryptionStatus"
         FieldIsMultipartUploaded -> "IsMultipartUploaded"
         FieldLastModifiedDate -> "LastModifiedDate"
         FieldReplicationStatus -> "ReplicationStatus"
@@ -621,6 +624,33 @@ instance ToHeader     ObjectVersionStorageClass
 
 instance FromXML ObjectVersionStorageClass where
     parseXML = parseXMLText "ObjectVersionStorageClass"
+
+data OwnerOverride =
+  Destination
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText OwnerOverride where
+    parser = takeLowerText >>= \case
+        "destination" -> pure Destination
+        e -> fromTextError $ "Failure parsing OwnerOverride from value: '" <> e
+           <> "'. Accepted values: destination"
+
+instance ToText OwnerOverride where
+    toText = \case
+        Destination -> "Destination"
+
+instance Hashable     OwnerOverride
+instance NFData       OwnerOverride
+instance ToByteString OwnerOverride
+instance ToQuery      OwnerOverride
+instance ToHeader     OwnerOverride
+
+instance FromXML OwnerOverride where
+    parseXML = parseXMLText "OwnerOverride"
+
+instance ToXML OwnerOverride where
+    toXML = toXMLText
 
 data Payer
   = BucketOwner
@@ -862,6 +892,36 @@ instance FromXML ServerSideEncryption where
     parseXML = parseXMLText "ServerSideEncryption"
 
 instance ToXML ServerSideEncryption where
+    toXML = toXMLText
+
+data SseKMSEncryptedObjectsStatus
+  = SKEOSDisabled
+  | SKEOSEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SseKMSEncryptedObjectsStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure SKEOSDisabled
+        "enabled" -> pure SKEOSEnabled
+        e -> fromTextError $ "Failure parsing SseKMSEncryptedObjectsStatus from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText SseKMSEncryptedObjectsStatus where
+    toText = \case
+        SKEOSDisabled -> "Disabled"
+        SKEOSEnabled -> "Enabled"
+
+instance Hashable     SseKMSEncryptedObjectsStatus
+instance NFData       SseKMSEncryptedObjectsStatus
+instance ToByteString SseKMSEncryptedObjectsStatus
+instance ToQuery      SseKMSEncryptedObjectsStatus
+instance ToHeader     SseKMSEncryptedObjectsStatus
+
+instance FromXML SseKMSEncryptedObjectsStatus where
+    parseXML = parseXMLText "SseKMSEncryptedObjectsStatus"
+
+instance ToXML SseKMSEncryptedObjectsStatus where
     toXML = toXMLText
 
 data StorageClass

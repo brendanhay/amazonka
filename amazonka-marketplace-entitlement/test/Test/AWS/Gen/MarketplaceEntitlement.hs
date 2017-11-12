@@ -14,11 +14,11 @@
 module Test.AWS.Gen.MarketplaceEntitlement where
 
 import Data.Proxy
+import Network.AWS.MarketplaceEntitlement
 import Test.AWS.Fixture
+import Test.AWS.MarketplaceEntitlement.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.MarketplaceEntitlement
-import Test.AWS.MarketplaceEntitlement.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

@@ -59,9 +59,9 @@ data StartExecution = StartExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'seInput' - The JSON input data for the execution.
+-- * 'seInput' - The string that contains the JSON input data for the execution, for example: @"input": "{\"first_name\" : \"test\"}"@
 --
--- * 'seName' - The name of the execution. This name must be unique for your AWS account and region.
+-- * 'seName' - The name of the execution. This name must be unique for your AWS account and region for 90 days. For more information, see <http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 --
 -- * 'seStateMachineARN' - The Amazon Resource Name (ARN) of the state machine to execute.
 startExecution
@@ -75,11 +75,11 @@ startExecution pStateMachineARN_ =
   }
 
 
--- | The JSON input data for the execution.
+-- | The string that contains the JSON input data for the execution, for example: @"input": "{\"first_name\" : \"test\"}"@
 seInput :: Lens' StartExecution (Maybe Text)
 seInput = lens _seInput (\ s a -> s{_seInput = a});
 
--- | The name of the execution. This name must be unique for your AWS account and region.
+-- | The name of the execution. This name must be unique for your AWS account and region for 90 days. For more information, see <http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 seName :: Lens' StartExecution (Maybe Text)
 seName = lens _seName (\ s a -> s{_seName = a});
 

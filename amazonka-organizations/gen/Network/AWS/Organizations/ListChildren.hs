@@ -21,6 +21,8 @@
 -- Lists all of the OUs or accounts that are contained in the specified parent OU or root. This operation, along with 'ListParents' enables you to traverse the tree structure that makes up this root.
 --
 --
+-- This operation can be called only from the organization's master account.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.Organizations.ListChildren

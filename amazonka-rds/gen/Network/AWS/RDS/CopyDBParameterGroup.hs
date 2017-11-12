@@ -68,7 +68,7 @@ data CopyDBParameterGroup = CopyDBParameterGroup'
 --
 -- * 'cdpgSourceDBParameterGroupIdentifier' - The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .  Constraints:     * Must specify a valid DB parameter group.     * Must specify a valid DB parameter group identifier, for example @my-db-param-group@ , or a valid ARN.
 --
--- * 'cdpgTargetDBParameterGroupIdentifier' - The identifier for the copied DB parameter group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-db-parameter-group@
+-- * 'cdpgTargetDBParameterGroupIdentifier' - The identifier for the copied DB parameter group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-db-parameter-group@
 --
 -- * 'cdpgTargetDBParameterGroupDescription' - A description for the copied DB parameter group.
 copyDBParameterGroup
@@ -93,7 +93,7 @@ cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a}) . _Default . _Coerce;
 cdpgSourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdpgSourceDBParameterGroupIdentifier = lens _cdpgSourceDBParameterGroupIdentifier (\ s a -> s{_cdpgSourceDBParameterGroupIdentifier = a});
 
--- | The identifier for the copied DB parameter group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-db-parameter-group@
+-- | The identifier for the copied DB parameter group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-db-parameter-group@
 cdpgTargetDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdpgTargetDBParameterGroupIdentifier = lens _cdpgTargetDBParameterGroupIdentifier (\ s a -> s{_cdpgTargetDBParameterGroupIdentifier = a});
 

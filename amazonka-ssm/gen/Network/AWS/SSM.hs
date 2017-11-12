@@ -19,6 +19,8 @@
 --
 -- To get started, verify prerequisites and configure managed instances. For more information, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html Systems Manager Prerequisites> .
 --
+-- For information about other API actions you can perform on Amazon EC2 instances, see the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ Amazon EC2 API Reference> . For information about how to use a Query API, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html Making API Requests> .
+--
 module Network.AWS.SSM
     (
     -- * Service Configuration
@@ -135,6 +137,9 @@ module Network.AWS.SSM
     -- ** ResourceDataSyncNotFoundException
     , _ResourceDataSyncNotFoundException
 
+    -- ** ParameterMaxVersionLimitExceeded
+    , _ParameterMaxVersionLimitExceeded
+
     -- ** ItemSizeLimitExceededException
     , _ItemSizeLimitExceededException
 
@@ -174,6 +179,9 @@ module Network.AWS.SSM
     -- ** AssociationLimitExceeded
     , _AssociationLimitExceeded
 
+    -- ** InvalidAssociationVersion
+    , _InvalidAssociationVersion
+
     -- ** AssociationDoesNotExist
     , _AssociationDoesNotExist
 
@@ -189,6 +197,9 @@ module Network.AWS.SSM
     -- ** UnsupportedInventoryItemContextException
     , _UnsupportedInventoryItemContextException
 
+    -- ** AssociationVersionLimitExceeded
+    , _AssociationVersionLimitExceeded
+
     -- ** InvalidRole
     , _InvalidRole
 
@@ -203,6 +214,9 @@ module Network.AWS.SSM
 
     -- ** MaxDocumentSizeExceeded
     , _MaxDocumentSizeExceeded
+
+    -- ** ParameterVersionNotFound
+    , _ParameterVersionNotFound
 
     -- ** InvalidUpdate
     , _InvalidUpdate
@@ -465,6 +479,9 @@ module Network.AWS.SSM
     -- ** ListResourceComplianceSummaries
     , module Network.AWS.SSM.ListResourceComplianceSummaries
 
+    -- ** ListAssociationVersions
+    , module Network.AWS.SSM.ListAssociationVersions
+
     -- ** DescribeMaintenanceWindowTasks
     , module Network.AWS.SSM.DescribeMaintenanceWindowTasks
 
@@ -722,6 +739,8 @@ module Network.AWS.SSM
     , aName
     , aTargets
     , aDocumentVersion
+    , aAssociationVersion
+    , aAssociationName
 
     -- ** AssociationDescription
     , AssociationDescription
@@ -740,6 +759,8 @@ module Network.AWS.SSM
     , adTargets
     , adParameters
     , adDocumentVersion
+    , adAssociationVersion
+    , adAssociationName
 
     -- ** AssociationFilter
     , AssociationFilter
@@ -761,6 +782,20 @@ module Network.AWS.SSM
     , asDate
     , asName
     , asMessage
+
+    -- ** AssociationVersionInfo
+    , AssociationVersionInfo
+    , associationVersionInfo
+    , aviAssociationId
+    , aviCreatedDate
+    , aviScheduleExpression
+    , aviName
+    , aviOutputLocation
+    , aviTargets
+    , aviParameters
+    , aviDocumentVersion
+    , aviAssociationVersion
+    , aviAssociationName
 
     -- ** AutomationExecution
     , AutomationExecution
@@ -917,6 +952,7 @@ module Network.AWS.SSM
     , cabreTargets
     , cabreParameters
     , cabreDocumentVersion
+    , cabreAssociationName
     , cabreName
 
     -- ** DescribeActivationsFilter
@@ -948,6 +984,7 @@ module Network.AWS.SSM
     , dParameters
     , dDocumentVersion
     , dDescription
+    , dTags
     , dLatestVersion
 
     -- ** DocumentFilter
@@ -965,6 +1002,13 @@ module Network.AWS.SSM
     , diPlatformTypes
     , diName
     , diDocumentVersion
+    , diTags
+
+    -- ** DocumentKeyValuesFilter
+    , DocumentKeyValuesFilter
+    , documentKeyValuesFilter
+    , dkvfValues
+    , dkvfKey
 
     -- ** DocumentParameter
     , DocumentParameter
@@ -1014,6 +1058,7 @@ module Network.AWS.SSM
     , iaAssociationId
     , iaInstanceId
     , iaContent
+    , iaAssociationVersion
 
     -- ** InstanceAssociationOutputLocation
     , InstanceAssociationOutputLocation
@@ -1037,7 +1082,9 @@ module Network.AWS.SSM
     , iasiName
     , iasiErrorCode
     , iasiDocumentVersion
+    , iasiAssociationVersion
     , iasiExecutionDate
+    , iasiAssociationName
 
     -- ** InstanceInformation
     , InstanceInformation
@@ -1295,6 +1342,7 @@ module Network.AWS.SSM
     , parameter
     , pValue
     , pName
+    , pVersion
     , pType
 
     -- ** ParameterHistory
@@ -1304,6 +1352,7 @@ module Network.AWS.SSM
     , phKeyId
     , phValue
     , phName
+    , phVersion
     , phLastModifiedUser
     , phAllowedPattern
     , phType
@@ -1315,6 +1364,7 @@ module Network.AWS.SSM
     , pmLastModifiedDate
     , pmKeyId
     , pmName
+    , pmVersion
     , pmLastModifiedUser
     , pmAllowedPattern
     , pmType
@@ -1437,6 +1487,7 @@ module Network.AWS.SSM
     , ResourceDataSyncS3Destination
     , resourceDataSyncS3Destination
     , rdssdPrefix
+    , rdssdAWSKMSKeyARN
     , rdssdBucketName
     , rdssdSyncFormat
     , rdssdRegion
@@ -1559,6 +1610,7 @@ import Network.AWS.SSM.GetParametersByPath
 import Network.AWS.SSM.GetPatchBaseline
 import Network.AWS.SSM.GetPatchBaselineForPatchGroup
 import Network.AWS.SSM.ListAssociations
+import Network.AWS.SSM.ListAssociationVersions
 import Network.AWS.SSM.ListCommandInvocations
 import Network.AWS.SSM.ListCommands
 import Network.AWS.SSM.ListComplianceItems

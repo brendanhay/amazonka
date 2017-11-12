@@ -47,11 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for TerminateInstanceInAutoScalingGroup.
---
---
---
--- /See:/ 'terminateInstanceInAutoScalingGroup' smart constructor.
+-- | /See:/ 'terminateInstanceInAutoScalingGroup' smart constructor.
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
   { _tiiasgInstanceId                     :: {-# NOUNPACK #-}!Text
   , _tiiasgShouldDecrementDesiredCapacity :: {-# NOUNPACK #-}!Bool
@@ -124,11 +120,7 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
                "ShouldDecrementDesiredCapacity" =:
                  _tiiasgShouldDecrementDesiredCapacity]
 
--- | Contains the output of TerminateInstancesInAutoScalingGroup.
---
---
---
--- /See:/ 'terminateInstanceInAutoScalingGroupResponse' smart constructor.
+-- | /See:/ 'terminateInstanceInAutoScalingGroupResponse' smart constructor.
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
   { _tiiasgrsActivity       :: {-# NOUNPACK #-}!(Maybe Activity)
   , _tiiasgrsResponseStatus :: {-# NOUNPACK #-}!Int

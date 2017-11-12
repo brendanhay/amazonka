@@ -21,7 +21,7 @@
 -- Returns a list containing all of the identities (email addresses and domains) for your AWS account, regardless of verification status.
 --
 --
--- This action is throttled at one request per second.
+-- You can execute this operation no more than once per second.
 --
 --
 -- This operation returns paginated results.

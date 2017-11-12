@@ -67,9 +67,9 @@ data UploadLayerPart = UploadLayerPart'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ulpRegistryId' - The AWS account ID associated with the registry that you are uploading layer parts to. If you do not specify a registry, the default registry is assumed.
+-- * 'ulpRegistryId' - The AWS account ID associated with the registry to which you are uploading layer parts. If you do not specify a registry, the default registry is assumed.
 --
--- * 'ulpRepositoryName' - The name of the repository that you are uploading layer parts to.
+-- * 'ulpRepositoryName' - The name of the repository to which you are uploading layer parts.
 --
 -- * 'ulpUploadId' - The upload ID from a previous 'InitiateLayerUpload' operation to associate with the layer part upload.
 --
@@ -96,11 +96,11 @@ uploadLayerPart pRepositoryName_ pUploadId_ pPartFirstByte_ pPartLastByte_ pLaye
   }
 
 
--- | The AWS account ID associated with the registry that you are uploading layer parts to. If you do not specify a registry, the default registry is assumed.
+-- | The AWS account ID associated with the registry to which you are uploading layer parts. If you do not specify a registry, the default registry is assumed.
 ulpRegistryId :: Lens' UploadLayerPart (Maybe Text)
 ulpRegistryId = lens _ulpRegistryId (\ s a -> s{_ulpRegistryId = a});
 
--- | The name of the repository that you are uploading layer parts to.
+-- | The name of the repository to which you are uploading layer parts.
 ulpRepositoryName :: Lens' UploadLayerPart Text
 ulpRepositoryName = lens _ulpRepositoryName (\ s a -> s{_ulpRepositoryName = a});
 

@@ -66,7 +66,7 @@ data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
 --
 -- * 'upaName' - The updated name of the provisioning artifact.
 --
--- * 'upaAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'upaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'upaDescription' - The updated text description of the provisioning artifact.
 --
@@ -91,7 +91,7 @@ updateProvisioningArtifact pProductId_ pProvisioningArtifactId_ =
 upaName :: Lens' UpdateProvisioningArtifact (Maybe Text)
 upaName = lens _upaName (\ s a -> s{_upaName = a});
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 upaAcceptLanguage :: Lens' UpdateProvisioningArtifact (Maybe Text)
 upaAcceptLanguage = lens _upaAcceptLanguage (\ s a -> s{_upaAcceptLanguage = a});
 

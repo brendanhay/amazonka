@@ -37,6 +37,8 @@
 --
 -- If you use Amazon CloudWatch for metrics, you can add the new fleet to a metric group. This allows you to view aggregated metrics for a set of fleets. Once you specify a metric group, the new fleet's metrics are included in the metric group's data.
 --
+-- You have the option of creating a VPC peering connection with the new fleet. For more information, see <http://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
+--
 -- If the CreateFleet call is successful, Amazon GameLift performs the following tasks:
 --
 --     * Creates a fleet record and sets the status to @NEW@ (followed by other statuses as the fleet is activated).
@@ -111,6 +113,8 @@ module Network.AWS.GameLift.CreateFleet
     -- * Request Lenses
     , cfServerLaunchParameters
     , cfLogPaths
+    , cfPeerVPCId
+    , cfPeerVPCAWSAccountId
     , cfEC2InboundPermissions
     , cfRuntimeConfiguration
     , cfNewGameSessionProtectionPolicy
@@ -145,6 +149,8 @@ import Network.AWS.Response
 data CreateFleet = CreateFleet'
   { _cfServerLaunchParameters :: {-# NOUNPACK #-}!(Maybe Text)
   , _cfLogPaths :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _cfPeerVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cfPeerVPCAWSAccountId :: {-# NOUNPACK #-}!(Maybe Text)
   , _cfEC2InboundPermissions :: {-# NOUNPACK #-}!(Maybe [IPPermission])
   , _cfRuntimeConfiguration :: {-# NOUNPACK #-}!(Maybe RuntimeConfiguration)
   , _cfNewGameSessionProtectionPolicy :: {-# NOUNPACK #-}!(Maybe ProtectionPolicy)
@@ -166,11 +172,15 @@ data CreateFleet = CreateFleet'
 --
 -- * 'cfLogPaths' - This parameter is no longer used. Instead, to specify where Amazon GameLift should store log files once a server process shuts down, use the Amazon GameLift server API @ProcessReady()@ and specify one or more directory paths in @logParameters@ . See more information in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference> .
 --
+-- * 'cfPeerVPCId' - Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
+--
+-- * 'cfPeerVPCAWSAccountId' - Unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your Account ID in the AWS Management Console under account settings.
+--
 -- * 'cfEC2InboundPermissions' - Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. If no inbound permissions are set, including both IP address range and port range, the server processes in the fleet cannot accept connections. You can specify one or more sets of permissions for a fleet.
 --
 -- * 'cfRuntimeConfiguration' - Instructions for launching server processes on each instance in the fleet. The run-time configuration for a fleet has a collection of server process configurations, one for each type of server process to run on an instance. A server process configuration specifies the location of the server executable, launch parameters, and the number of concurrent processes with that configuration to maintain on each instance. A CreateFleet request must include a run-time configuration with at least one server process configuration; otherwise the request fails with an invalid request exception. (This parameter replaces the parameters @ServerLaunchPath@ and @ServerLaunchParameters@ ; requests that contain values for these parameters instead of a run-time configuration will continue to work.)
 --
--- * 'cfNewGameSessionProtectionPolicy' - Game session protection policy to apply to all instances in this fleet. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy using UpdateFleetAttributes, but this change will only affect sessions created after the policy change. You can also set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+-- * 'cfNewGameSessionProtectionPolicy' - Game session protection policy to apply to all instances in this fleet. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy using UpdateFleetAttributes, but this change will only affect sessions created after the policy change. You can also set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 --
 -- * 'cfServerLaunchPath' - This parameter is no longer used. Instead, specify a server launch path using the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a run-time configuration will continue to work.)
 --
@@ -194,6 +204,8 @@ createFleet pName_ pBuildId_ pEC2InstanceType_ =
   CreateFleet'
   { _cfServerLaunchParameters = Nothing
   , _cfLogPaths = Nothing
+  , _cfPeerVPCId = Nothing
+  , _cfPeerVPCAWSAccountId = Nothing
   , _cfEC2InboundPermissions = Nothing
   , _cfRuntimeConfiguration = Nothing
   , _cfNewGameSessionProtectionPolicy = Nothing
@@ -215,6 +227,14 @@ cfServerLaunchParameters = lens _cfServerLaunchParameters (\ s a -> s{_cfServerL
 cfLogPaths :: Lens' CreateFleet [Text]
 cfLogPaths = lens _cfLogPaths (\ s a -> s{_cfLogPaths = a}) . _Default . _Coerce;
 
+-- | Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
+cfPeerVPCId :: Lens' CreateFleet (Maybe Text)
+cfPeerVPCId = lens _cfPeerVPCId (\ s a -> s{_cfPeerVPCId = a});
+
+-- | Unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your Account ID in the AWS Management Console under account settings.
+cfPeerVPCAWSAccountId :: Lens' CreateFleet (Maybe Text)
+cfPeerVPCAWSAccountId = lens _cfPeerVPCAWSAccountId (\ s a -> s{_cfPeerVPCAWSAccountId = a});
+
 -- | Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. If no inbound permissions are set, including both IP address range and port range, the server processes in the fleet cannot accept connections. You can specify one or more sets of permissions for a fleet.
 cfEC2InboundPermissions :: Lens' CreateFleet [IPPermission]
 cfEC2InboundPermissions = lens _cfEC2InboundPermissions (\ s a -> s{_cfEC2InboundPermissions = a}) . _Default . _Coerce;
@@ -223,7 +243,7 @@ cfEC2InboundPermissions = lens _cfEC2InboundPermissions (\ s a -> s{_cfEC2Inboun
 cfRuntimeConfiguration :: Lens' CreateFleet (Maybe RuntimeConfiguration)
 cfRuntimeConfiguration = lens _cfRuntimeConfiguration (\ s a -> s{_cfRuntimeConfiguration = a});
 
--- | Game session protection policy to apply to all instances in this fleet. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy using UpdateFleetAttributes, but this change will only affect sessions created after the policy change. You can also set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+-- | Game session protection policy to apply to all instances in this fleet. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy using UpdateFleetAttributes, but this change will only affect sessions created after the policy change. You can also set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 cfNewGameSessionProtectionPolicy :: Lens' CreateFleet (Maybe ProtectionPolicy)
 cfNewGameSessionProtectionPolicy = lens _cfNewGameSessionProtectionPolicy (\ s a -> s{_cfNewGameSessionProtectionPolicy = a});
 
@@ -284,6 +304,9 @@ instance ToJSON CreateFleet where
                  [("ServerLaunchParameters" .=) <$>
                     _cfServerLaunchParameters,
                   ("LogPaths" .=) <$> _cfLogPaths,
+                  ("PeerVpcId" .=) <$> _cfPeerVPCId,
+                  ("PeerVpcAwsAccountId" .=) <$>
+                    _cfPeerVPCAWSAccountId,
                   ("EC2InboundPermissions" .=) <$>
                     _cfEC2InboundPermissions,
                   ("RuntimeConfiguration" .=) <$>

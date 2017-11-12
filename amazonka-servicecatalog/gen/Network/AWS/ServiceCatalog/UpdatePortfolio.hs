@@ -69,7 +69,7 @@ data UpdatePortfolio = UpdatePortfolio'
 --
 -- * 'uRemoveTags' - Tags to remove from the existing list of tags associated with the portfolio.
 --
--- * 'uAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'uAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'uDisplayName' - The name to use for display purposes.
 --
@@ -99,7 +99,7 @@ updatePortfolio pId_ =
 uRemoveTags :: Lens' UpdatePortfolio [Text]
 uRemoveTags = lens _uRemoveTags (\ s a -> s{_uRemoveTags = a}) . _Default . _Coerce;
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 uAcceptLanguage :: Lens' UpdatePortfolio (Maybe Text)
 uAcceptLanguage = lens _uAcceptLanguage (\ s a -> s{_uAcceptLanguage = a});
 

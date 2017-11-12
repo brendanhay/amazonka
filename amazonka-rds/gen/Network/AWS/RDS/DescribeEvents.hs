@@ -84,7 +84,7 @@ data DescribeEvents = DescribeEvents'
 --
 -- * 'deFilters' - This parameter is not currently supported.
 --
--- * 'deSourceIdentifier' - The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response. Constraints:     * If SourceIdentifier is supplied, SourceType must also be provided.     * If the source type is @DBInstance@ , then a @DBInstanceIdentifier@ must be supplied.     * If the source type is @DBSecurityGroup@ , a @DBSecurityGroupName@ must be supplied.     * If the source type is @DBParameterGroup@ , a @DBParameterGroupName@ must be supplied.     * If the source type is @DBSnapshot@ , a @DBSnapshotIdentifier@ must be supplied.     * Cannot end with a hyphen or contain two consecutive hyphens.
+-- * 'deSourceIdentifier' - The identifier of the event source for which events are returned. If not specified, then all sources are included in the response. Constraints:     * If SourceIdentifier is supplied, SourceType must also be provided.     * If the source type is @DBInstance@ , then a @DBInstanceIdentifier@ must be supplied.     * If the source type is @DBSecurityGroup@ , a @DBSecurityGroupName@ must be supplied.     * If the source type is @DBParameterGroup@ , a @DBParameterGroupName@ must be supplied.     * If the source type is @DBSnapshot@ , a @DBSnapshotIdentifier@ must be supplied.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- * 'deEventCategories' - A list of event categories that trigger notifications for a event notification subscription.
 --
@@ -123,7 +123,7 @@ deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 deFilters :: Lens' DescribeEvents [Filter]
 deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default . _Coerce;
 
--- | The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response. Constraints:     * If SourceIdentifier is supplied, SourceType must also be provided.     * If the source type is @DBInstance@ , then a @DBInstanceIdentifier@ must be supplied.     * If the source type is @DBSecurityGroup@ , a @DBSecurityGroupName@ must be supplied.     * If the source type is @DBParameterGroup@ , a @DBParameterGroupName@ must be supplied.     * If the source type is @DBSnapshot@ , a @DBSnapshotIdentifier@ must be supplied.     * Cannot end with a hyphen or contain two consecutive hyphens.
+-- | The identifier of the event source for which events are returned. If not specified, then all sources are included in the response. Constraints:     * If SourceIdentifier is supplied, SourceType must also be provided.     * If the source type is @DBInstance@ , then a @DBInstanceIdentifier@ must be supplied.     * If the source type is @DBSecurityGroup@ , a @DBSecurityGroupName@ must be supplied.     * If the source type is @DBParameterGroup@ , a @DBParameterGroupName@ must be supplied.     * If the source type is @DBSnapshot@ , a @DBSnapshotIdentifier@ must be supplied.     * Cannot end with a hyphen or contain two consecutive hyphens.
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 

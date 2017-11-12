@@ -18,22 +18,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies a task assigned to a Maintenance Window. You can't change the task type, but you can change the following:
+-- Modifies a task assigned to a Maintenance Window. You can't change the task type, but you can change the following values:
 --
 --
--- The Task Arn. For example, you can change a RUN_COMMAND task from AWS-RunPowerShellScript to AWS-RunShellScript.
+-- Task ARN. For example, you can change a RUN_COMMAND task from AWS-RunPowerShellScript to AWS-RunShellScript.
 --
--- The service role ARN.
+-- Service role ARN.
 --
--- The task parameters.
+-- Task parameters.
 --
--- The task priority.
+-- Task priority.
 --
--- The task MaxConcurrency and MaxErrors.
+-- Task MaxConcurrency and MaxErrors.
 --
--- The log location.
+-- Log location.
 --
--- If a parameter is null, then the corresponding field is not modified. Also, if you set Replace to true, then all fields required by the RegisterTaskWithMaintenanceWindow operation are required for this request. Optional fields that aren't specified are be set to null.
+-- If a parameter is null, then the corresponding field is not modified. Also, if you set Replace to true, then all fields required by the RegisterTaskWithMaintenanceWindow action are required for this request. Optional fields that aren't specified are set to null.
 --
 module Network.AWS.SSM.UpdateMaintenanceWindowTask
     (
@@ -106,33 +106,33 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umwtServiceRoleARN' - The IAM service role ARN that you want to modify. The system assumes this role during task exectuion.
+-- * 'umwtServiceRoleARN' - The IAM service role ARN to modify. The system assumes this role during task execution.
 --
--- * 'umwtReplace' - If you specify True, then all fields that are required by the RegisterTaskWithMaintenanceWndow API are also required for this API request. Optional fields that are not specified will be set to null.
+-- * 'umwtReplace' - If True, then all fields that are required by the RegisterTaskWithMaintenanceWndow action are also required for this API request. Optional fields that are not specified are set to null.
 --
--- * 'umwtTaskParameters' - The parameters that you want to modify. The map has the following format: Key: string, between 1 and 255 characters Value: an array of strings, each string is between 1 and 255 characters
+-- * 'umwtTaskParameters' - The parameters to modify. The map has the following format: Key: string, between 1 and 255 characters Value: an array of strings, each string is between 1 and 255 characters
 --
--- * 'umwtPriority' - The new task priority that you want to specify. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
+-- * 'umwtPriority' - The new task priority to specify. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
 --
--- * 'umwtTaskARN' - The task ARN that you want to modify.
+-- * 'umwtTaskARN' - The task ARN to modify.
 --
--- * 'umwtMaxErrors' - The new @MaxErrors@ value you want to specify. @MaxErrors@ is the maximum number of errors that are allowed before the task stops being scheduled.
+-- * 'umwtMaxErrors' - The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number of errors that are allowed before the task stops being scheduled.
 --
--- * 'umwtTaskInvocationParameters' - Parameters the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
+-- * 'umwtTaskInvocationParameters' - The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
 --
--- * 'umwtName' - The new task name that you want to specify.
+-- * 'umwtName' - The new task name to specify.
 --
--- * 'umwtTargets' - The targets (either instances or tags) that you want to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
+-- * 'umwtTargets' - The targets (either instances or tags) to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
 --
--- * 'umwtLoggingInfo' - The new logging location in Amazon S3 that you want to specify.
+-- * 'umwtLoggingInfo' - The new logging location in Amazon S3 to specify.
 --
--- * 'umwtDescription' - The new task description that you want to specify.
+-- * 'umwtDescription' - The new task description to specify.
 --
 -- * 'umwtMaxConcurrency' - The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is the number of targets that are allowed to run this task in parallel.
 --
--- * 'umwtWindowId' - The Maintenance Window ID that contains the task that you want to modify.
+-- * 'umwtWindowId' - The Maintenance Window ID that contains the task to modify.
 --
--- * 'umwtWindowTaskId' - The task ID that you want to modify.
+-- * 'umwtWindowTaskId' - The task ID to modify.
 updateMaintenanceWindowTask
     :: Text -- ^ 'umwtWindowId'
     -> Text -- ^ 'umwtWindowTaskId'
@@ -156,47 +156,47 @@ updateMaintenanceWindowTask pWindowId_ pWindowTaskId_ =
   }
 
 
--- | The IAM service role ARN that you want to modify. The system assumes this role during task exectuion.
+-- | The IAM service role ARN to modify. The system assumes this role during task execution.
 umwtServiceRoleARN :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
 umwtServiceRoleARN = lens _umwtServiceRoleARN (\ s a -> s{_umwtServiceRoleARN = a});
 
--- | If you specify True, then all fields that are required by the RegisterTaskWithMaintenanceWndow API are also required for this API request. Optional fields that are not specified will be set to null.
+-- | If True, then all fields that are required by the RegisterTaskWithMaintenanceWndow action are also required for this API request. Optional fields that are not specified are set to null.
 umwtReplace :: Lens' UpdateMaintenanceWindowTask (Maybe Bool)
 umwtReplace = lens _umwtReplace (\ s a -> s{_umwtReplace = a});
 
--- | The parameters that you want to modify. The map has the following format: Key: string, between 1 and 255 characters Value: an array of strings, each string is between 1 and 255 characters
+-- | The parameters to modify. The map has the following format: Key: string, between 1 and 255 characters Value: an array of strings, each string is between 1 and 255 characters
 umwtTaskParameters :: Lens' UpdateMaintenanceWindowTask (Maybe (HashMap Text MaintenanceWindowTaskParameterValueExpression))
 umwtTaskParameters = lens _umwtTaskParameters (\ s a -> s{_umwtTaskParameters = a}) . mapping (_Sensitive . _Map);
 
--- | The new task priority that you want to specify. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
+-- | The new task priority to specify. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
 umwtPriority :: Lens' UpdateMaintenanceWindowTask (Maybe Natural)
 umwtPriority = lens _umwtPriority (\ s a -> s{_umwtPriority = a}) . mapping _Nat;
 
--- | The task ARN that you want to modify.
+-- | The task ARN to modify.
 umwtTaskARN :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
 umwtTaskARN = lens _umwtTaskARN (\ s a -> s{_umwtTaskARN = a});
 
--- | The new @MaxErrors@ value you want to specify. @MaxErrors@ is the maximum number of errors that are allowed before the task stops being scheduled.
+-- | The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number of errors that are allowed before the task stops being scheduled.
 umwtMaxErrors :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
 umwtMaxErrors = lens _umwtMaxErrors (\ s a -> s{_umwtMaxErrors = a});
 
--- | Parameters the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
+-- | The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.
 umwtTaskInvocationParameters :: Lens' UpdateMaintenanceWindowTask (Maybe MaintenanceWindowTaskInvocationParameters)
 umwtTaskInvocationParameters = lens _umwtTaskInvocationParameters (\ s a -> s{_umwtTaskInvocationParameters = a});
 
--- | The new task name that you want to specify.
+-- | The new task name to specify.
 umwtName :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
 umwtName = lens _umwtName (\ s a -> s{_umwtName = a});
 
--- | The targets (either instances or tags) that you want to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
+-- | The targets (either instances or tags) to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
 umwtTargets :: Lens' UpdateMaintenanceWindowTask [Target]
 umwtTargets = lens _umwtTargets (\ s a -> s{_umwtTargets = a}) . _Default . _Coerce;
 
--- | The new logging location in Amazon S3 that you want to specify.
+-- | The new logging location in Amazon S3 to specify.
 umwtLoggingInfo :: Lens' UpdateMaintenanceWindowTask (Maybe LoggingInfo)
 umwtLoggingInfo = lens _umwtLoggingInfo (\ s a -> s{_umwtLoggingInfo = a});
 
--- | The new task description that you want to specify.
+-- | The new task description to specify.
 umwtDescription :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
 umwtDescription = lens _umwtDescription (\ s a -> s{_umwtDescription = a}) . mapping _Sensitive;
 
@@ -204,11 +204,11 @@ umwtDescription = lens _umwtDescription (\ s a -> s{_umwtDescription = a}) . map
 umwtMaxConcurrency :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
 umwtMaxConcurrency = lens _umwtMaxConcurrency (\ s a -> s{_umwtMaxConcurrency = a});
 
--- | The Maintenance Window ID that contains the task that you want to modify.
+-- | The Maintenance Window ID that contains the task to modify.
 umwtWindowId :: Lens' UpdateMaintenanceWindowTask Text
 umwtWindowId = lens _umwtWindowId (\ s a -> s{_umwtWindowId = a});
 
--- | The task ID that you want to modify.
+-- | The task ID to modify.
 umwtWindowTaskId :: Lens' UpdateMaintenanceWindowTask Text
 umwtWindowTaskId = lens _umwtWindowTaskId (\ s a -> s{_umwtWindowTaskId = a});
 
@@ -299,7 +299,7 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
 --
 -- * 'umwtrsServiceRoleARN' - The updated service role ARN value.
 --
--- * 'umwtrsWindowTaskId' - The Maintenance Window task ID that was updated.
+-- * 'umwtrsWindowTaskId' - The task ID of the Maintenance Window that was updated.
 --
 -- * 'umwtrsTaskParameters' - The updated parameter values.
 --
@@ -321,7 +321,7 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
 --
 -- * 'umwtrsMaxConcurrency' - The updated MaxConcurrency value.
 --
--- * 'umwtrsWindowId' - The Maintenance Window ID that was updated.
+-- * 'umwtrsWindowId' - The ID of the Maintenance Window that was updated.
 --
 -- * 'umwtrsResponseStatus' - -- | The response status code.
 updateMaintenanceWindowTaskResponse
@@ -350,7 +350,7 @@ updateMaintenanceWindowTaskResponse pResponseStatus_ =
 umwtrsServiceRoleARN :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
 umwtrsServiceRoleARN = lens _umwtrsServiceRoleARN (\ s a -> s{_umwtrsServiceRoleARN = a});
 
--- | The Maintenance Window task ID that was updated.
+-- | The task ID of the Maintenance Window that was updated.
 umwtrsWindowTaskId :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
 umwtrsWindowTaskId = lens _umwtrsWindowTaskId (\ s a -> s{_umwtrsWindowTaskId = a});
 
@@ -394,7 +394,7 @@ umwtrsDescription = lens _umwtrsDescription (\ s a -> s{_umwtrsDescription = a})
 umwtrsMaxConcurrency :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
 umwtrsMaxConcurrency = lens _umwtrsMaxConcurrency (\ s a -> s{_umwtrsMaxConcurrency = a});
 
--- | The Maintenance Window ID that was updated.
+-- | The ID of the Maintenance Window that was updated.
 umwtrsWindowId :: Lens' UpdateMaintenanceWindowTaskResponse (Maybe Text)
 umwtrsWindowId = lens _umwtrsWindowId (\ s a -> s{_umwtrsWindowId = a});
 

@@ -76,6 +76,9 @@ module Network.AWS.IAM
     -- ** InvalidCertificateException
     , _InvalidCertificateException
 
+    -- ** PolicyNotAttachableException
+    , _PolicyNotAttachableException
+
     -- ** ServiceNotSupportedException
     , _ServiceNotSupportedException
 
@@ -268,6 +271,9 @@ module Network.AWS.IAM
     -- ** GetAccountAuthorizationDetails (Paginated)
     , module Network.AWS.IAM.GetAccountAuthorizationDetails
 
+    -- ** GetServiceLinkedRoleDeletionStatus
+    , module Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
+
     -- ** DeleteAccountAlias
     , module Network.AWS.IAM.DeleteAccountAlias
 
@@ -294,6 +300,9 @@ module Network.AWS.IAM
 
     -- ** ListServerCertificates (Paginated)
     , module Network.AWS.IAM.ListServerCertificates
+
+    -- ** DeleteServiceLinkedRole
+    , module Network.AWS.IAM.DeleteServiceLinkedRole
 
     -- ** DeletePolicy
     , module Network.AWS.IAM.DeletePolicy
@@ -495,6 +504,9 @@ module Network.AWS.IAM
     -- ** ContextKeyTypeEnum
     , ContextKeyTypeEnum (..)
 
+    -- ** DeletionTaskStatusType
+    , DeletionTaskStatusType (..)
+
     -- ** EncodingType
     , EncodingType (..)
 
@@ -558,6 +570,12 @@ module Network.AWS.IAM
     , ceContextKeyValues
     , ceContextKeyName
     , ceContextKeyType
+
+    -- ** DeletionTaskFailureReasonType
+    , DeletionTaskFailureReasonType
+    , deletionTaskFailureReasonType
+    , dtfrtRoleUsageList
+    , dtfrtReason
 
     -- ** EvaluationResult
     , EvaluationResult
@@ -744,6 +762,12 @@ module Network.AWS.IAM
     , rdRolePolicyList
     , rdAttachedManagedPolicies
 
+    -- ** RoleUsageType
+    , RoleUsageType
+    , roleUsageType
+    , rutResources
+    , rutRegion
+
     -- ** SAMLProviderListEntry
     , SAMLProviderListEntry
     , sAMLProviderListEntry
@@ -899,6 +923,7 @@ import Network.AWS.IAM.DeleteRole
 import Network.AWS.IAM.DeleteRolePolicy
 import Network.AWS.IAM.DeleteSAMLProvider
 import Network.AWS.IAM.DeleteServerCertificate
+import Network.AWS.IAM.DeleteServiceLinkedRole
 import Network.AWS.IAM.DeleteServiceSpecificCredential
 import Network.AWS.IAM.DeleteSigningCertificate
 import Network.AWS.IAM.DeleteSSHPublicKey
@@ -928,6 +953,7 @@ import Network.AWS.IAM.GetRole
 import Network.AWS.IAM.GetRolePolicy
 import Network.AWS.IAM.GetSAMLProvider
 import Network.AWS.IAM.GetServerCertificate
+import Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
 import Network.AWS.IAM.GetSSHPublicKey
 import Network.AWS.IAM.GetUser
 import Network.AWS.IAM.GetUserPolicy

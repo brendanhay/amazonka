@@ -63,11 +63,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for CompleteLifecycleAction.
---
---
---
--- /See:/ 'completeLifecycleAction' smart constructor.
+-- | /See:/ 'completeLifecycleAction' smart constructor.
 data CompleteLifecycleAction = CompleteLifecycleAction'
   { _claInstanceId            :: {-# NOUNPACK #-}!(Maybe Text)
   , _claLifecycleActionToken  :: {-# NOUNPACK #-}!(Maybe Text)
@@ -157,11 +153,7 @@ instance ToQuery CompleteLifecycleAction where
                "AutoScalingGroupName" =: _claAutoScalingGroupName,
                "LifecycleActionResult" =: _claLifecycleActionResult]
 
--- | Contains the output of CompleteLifecycleAction.
---
---
---
--- /See:/ 'completeLifecycleActionResponse' smart constructor.
+-- | /See:/ 'completeLifecycleActionResponse' smart constructor.
 newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
   { _clarsResponseStatus :: Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)

@@ -40,6 +40,9 @@ module Network.AWS.DirectConnect
     -- * Operations
     -- $operations
 
+    -- ** DescribeDirectConnectGatewayAssociations
+    , module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
+
     -- ** DescribeInterconnects
     , module Network.AWS.DirectConnect.DescribeInterconnects
 
@@ -58,6 +61,9 @@ module Network.AWS.DirectConnect
     -- ** CreateConnection
     , module Network.AWS.DirectConnect.CreateConnection
 
+    -- ** DescribeDirectConnectGateways
+    , module Network.AWS.DirectConnect.DescribeDirectConnectGateways
+
     -- ** AssociateVirtualInterface
     , module Network.AWS.DirectConnect.AssociateVirtualInterface
 
@@ -70,8 +76,14 @@ module Network.AWS.DirectConnect
     -- ** ConfirmPrivateVirtualInterface
     , module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 
+    -- ** DeleteDirectConnectGatewayAssociation
+    , module Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociation
+
     -- ** DescribeLocations
     , module Network.AWS.DirectConnect.DescribeLocations
+
+    -- ** CreateDirectConnectGatewayAssociation
+    , module Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation
 
     -- ** CreatePublicVirtualInterface
     , module Network.AWS.DirectConnect.CreatePublicVirtualInterface
@@ -85,11 +97,20 @@ module Network.AWS.DirectConnect
     -- ** ConfirmConnection
     , module Network.AWS.DirectConnect.ConfirmConnection
 
+    -- ** DescribeDirectConnectGatewayAttachments
+    , module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
+
     -- ** ConfirmPublicVirtualInterface
     , module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
 
     -- ** DescribeVirtualGateways
     , module Network.AWS.DirectConnect.DescribeVirtualGateways
+
+    -- ** CreateDirectConnectGateway
+    , module Network.AWS.DirectConnect.CreateDirectConnectGateway
+
+    -- ** DeleteDirectConnectGateway
+    , module Network.AWS.DirectConnect.DeleteDirectConnectGateway
 
     -- ** DescribeVirtualInterfaces
     , module Network.AWS.DirectConnect.DescribeVirtualInterfaces
@@ -153,6 +174,15 @@ module Network.AWS.DirectConnect
     -- ** ConnectionState
     , ConnectionState (..)
 
+    -- ** DirectConnectGatewayAssociationState
+    , DirectConnectGatewayAssociationState (..)
+
+    -- ** DirectConnectGatewayAttachmentState
+    , DirectConnectGatewayAttachmentState (..)
+
+    -- ** DirectConnectGatewayState
+    , DirectConnectGatewayState (..)
+
     -- ** InterconnectState
     , InterconnectState (..)
 
@@ -196,6 +226,36 @@ module Network.AWS.DirectConnect
     , Connections
     , connections
     , cConnections
+
+    -- ** DirectConnectGateway
+    , DirectConnectGateway
+    , directConnectGateway
+    , dcgDirectConnectGatewayId
+    , dcgStateChangeError
+    , dcgAmazonSideASN
+    , dcgDirectConnectGatewayName
+    , dcgDirectConnectGatewayState
+    , dcgOwnerAccount
+
+    -- ** DirectConnectGatewayAssociation
+    , DirectConnectGatewayAssociation
+    , directConnectGatewayAssociation
+    , dcgaVirtualGatewayId
+    , dcgaDirectConnectGatewayId
+    , dcgaVirtualGatewayOwnerAccount
+    , dcgaStateChangeError
+    , dcgaVirtualGatewayRegion
+    , dcgaAssociationState
+
+    -- ** DirectConnectGatewayAttachment
+    , DirectConnectGatewayAttachment
+    , directConnectGatewayAttachment
+    , dDirectConnectGatewayId
+    , dAttachmentState
+    , dStateChangeError
+    , dVirtualInterfaceRegion
+    , dVirtualInterfaceOwnerAccount
+    , dVirtualInterfaceId
 
     -- ** Interconnect
     , Interconnect
@@ -244,14 +304,15 @@ module Network.AWS.DirectConnect
     -- ** NewPrivateVirtualInterface
     , NewPrivateVirtualInterface
     , newPrivateVirtualInterface
+    , nVirtualGatewayId
     , nCustomerAddress
     , nAmazonAddress
     , nAddressFamily
+    , nDirectConnectGatewayId
     , nAuthKey
     , nVirtualInterfaceName
     , nVlan
     , nAsn
-    , nVirtualGatewayId
 
     -- ** NewPrivateVirtualInterfaceAllocation
     , NewPrivateVirtualInterfaceAllocation
@@ -324,6 +385,8 @@ module Network.AWS.DirectConnect
     , viAddressFamily
     , viVirtualInterfaceState
     , viConnectionId
+    , viDirectConnectGatewayId
+    , viAmazonSideASN
     , viVirtualInterfaceType
     , viAsn
     , viAuthKey
@@ -344,16 +407,23 @@ import Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 import Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
 import Network.AWS.DirectConnect.CreateBGPPeer
 import Network.AWS.DirectConnect.CreateConnection
+import Network.AWS.DirectConnect.CreateDirectConnectGateway
+import Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation
 import Network.AWS.DirectConnect.CreateInterconnect
 import Network.AWS.DirectConnect.CreateLag
 import Network.AWS.DirectConnect.CreatePrivateVirtualInterface
 import Network.AWS.DirectConnect.CreatePublicVirtualInterface
 import Network.AWS.DirectConnect.DeleteBGPPeer
 import Network.AWS.DirectConnect.DeleteConnection
+import Network.AWS.DirectConnect.DeleteDirectConnectGateway
+import Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociation
 import Network.AWS.DirectConnect.DeleteInterconnect
 import Network.AWS.DirectConnect.DeleteLag
 import Network.AWS.DirectConnect.DeleteVirtualInterface
 import Network.AWS.DirectConnect.DescribeConnections
+import Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
+import Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
+import Network.AWS.DirectConnect.DescribeDirectConnectGateways
 import Network.AWS.DirectConnect.DescribeHostedConnections
 import Network.AWS.DirectConnect.DescribeInterconnects
 import Network.AWS.DirectConnect.DescribeLags

@@ -14,11 +14,11 @@
 module Test.AWS.Gen.Pinpoint where
 
 import Data.Proxy
+import Network.AWS.Pinpoint
 import Test.AWS.Fixture
+import Test.AWS.Pinpoint.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.Pinpoint
-import Test.AWS.Pinpoint.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -40,6 +40,9 @@ import Test.AWS.Pinpoint.Internal
 --         , requestGetImportJob $
 --             getImportJob
 --
+--         , requestGetAPNSVoipSandboxChannel $
+--             getAPNSVoipSandboxChannel
+--
 --         , requestGetSegmentVersions $
 --             getSegmentVersions
 --
@@ -54,6 +57,12 @@ import Test.AWS.Pinpoint.Internal
 --
 --         , requestCreateSegment $
 --             createSegment
+--
+--         , requestUpdateADMChannel $
+--             updateADMChannel
+--
+--         , requestDeleteADMChannel $
+--             deleteADMChannel
 --
 --         , requestUpdateEndpoint $
 --             updateEndpoint
@@ -70,11 +79,20 @@ import Test.AWS.Pinpoint.Internal
 --         , requestUpdateEndpointsBatch $
 --             updateEndpointsBatch
 --
+--         , requestGetADMChannel $
+--             getADMChannel
+--
 --         , requestGetCampaign $
 --             getCampaign
 --
 --         , requestDeleteApp $
 --             deleteApp
+--
+--         , requestUpdateAPNSVoipSandboxChannel $
+--             updateAPNSVoipSandboxChannel
+--
+--         , requestDeleteAPNSVoipSandboxChannel $
+--             deleteAPNSVoipSandboxChannel
 --
 --         , requestUpdateGCMChannel $
 --             updateGCMChannel
@@ -93,6 +111,9 @@ import Test.AWS.Pinpoint.Internal
 --
 --         , requestUpdateEmailChannel $
 --             updateEmailChannel
+--
+--         , requestGetBaiduChannel $
+--             getBaiduChannel
 --
 --         , requestDeleteAPNSChannel $
 --             deleteAPNSChannel
@@ -163,8 +184,26 @@ import Test.AWS.Pinpoint.Internal
 --         , requestCreateImportJob $
 --             createImportJob
 --
+--         , requestDeleteAPNSVoipChannel $
+--             deleteAPNSVoipChannel
+--
+--         , requestUpdateAPNSVoipChannel $
+--             updateAPNSVoipChannel
+--
+--         , requestSendUsersMessages $
+--             sendUsersMessages
+--
 --         , requestGetApplicationSettings $
 --             getApplicationSettings
+--
+--         , requestDeleteBaiduChannel $
+--             deleteBaiduChannel
+--
+--         , requestUpdateBaiduChannel $
+--             updateBaiduChannel
+--
+--         , requestGetAPNSVoipChannel $
+--             getAPNSVoipChannel
 --
 --         , requestGetEmailChannel $
 --             getEmailChannel
@@ -184,6 +223,9 @@ import Test.AWS.Pinpoint.Internal
 --         , responseGetImportJob $
 --             getImportJobResponse
 --
+--         , responseGetAPNSVoipSandboxChannel $
+--             getAPNSVoipSandboxChannelResponse
+--
 --         , responseGetSegmentVersions $
 --             getSegmentVersionsResponse
 --
@@ -198,6 +240,12 @@ import Test.AWS.Pinpoint.Internal
 --
 --         , responseCreateSegment $
 --             createSegmentResponse
+--
+--         , responseUpdateADMChannel $
+--             updateADMChannelResponse
+--
+--         , responseDeleteADMChannel $
+--             deleteADMChannelResponse
 --
 --         , responseUpdateEndpoint $
 --             updateEndpointResponse
@@ -214,11 +262,20 @@ import Test.AWS.Pinpoint.Internal
 --         , responseUpdateEndpointsBatch $
 --             updateEndpointsBatchResponse
 --
+--         , responseGetADMChannel $
+--             getADMChannelResponse
+--
 --         , responseGetCampaign $
 --             getCampaignResponse
 --
 --         , responseDeleteApp $
 --             deleteAppResponse
+--
+--         , responseUpdateAPNSVoipSandboxChannel $
+--             updateAPNSVoipSandboxChannelResponse
+--
+--         , responseDeleteAPNSVoipSandboxChannel $
+--             deleteAPNSVoipSandboxChannelResponse
 --
 --         , responseUpdateGCMChannel $
 --             updateGCMChannelResponse
@@ -237,6 +294,9 @@ import Test.AWS.Pinpoint.Internal
 --
 --         , responseUpdateEmailChannel $
 --             updateEmailChannelResponse
+--
+--         , responseGetBaiduChannel $
+--             getBaiduChannelResponse
 --
 --         , responseDeleteAPNSChannel $
 --             deleteAPNSChannelResponse
@@ -307,8 +367,26 @@ import Test.AWS.Pinpoint.Internal
 --         , responseCreateImportJob $
 --             createImportJobResponse
 --
+--         , responseDeleteAPNSVoipChannel $
+--             deleteAPNSVoipChannelResponse
+--
+--         , responseUpdateAPNSVoipChannel $
+--             updateAPNSVoipChannelResponse
+--
+--         , responseSendUsersMessages $
+--             sendUsersMessagesResponse
+--
 --         , responseGetApplicationSettings $
 --             getApplicationSettingsResponse
+--
+--         , responseDeleteBaiduChannel $
+--             deleteBaiduChannelResponse
+--
+--         , responseUpdateBaiduChannel $
+--             updateBaiduChannelResponse
+--
+--         , responseGetAPNSVoipChannel $
+--             getAPNSVoipChannelResponse
 --
 --         , responseGetEmailChannel $
 --             getEmailChannelResponse
@@ -338,6 +416,11 @@ requestGetImportJob = req
     "GetImportJob"
     "fixture/GetImportJob.yaml"
 
+requestGetAPNSVoipSandboxChannel :: GetAPNSVoipSandboxChannel -> TestTree
+requestGetAPNSVoipSandboxChannel = req
+    "GetAPNSVoipSandboxChannel"
+    "fixture/GetAPNSVoipSandboxChannel.yaml"
+
 requestGetSegmentVersions :: GetSegmentVersions -> TestTree
 requestGetSegmentVersions = req
     "GetSegmentVersions"
@@ -362,6 +445,16 @@ requestCreateSegment :: CreateSegment -> TestTree
 requestCreateSegment = req
     "CreateSegment"
     "fixture/CreateSegment.yaml"
+
+requestUpdateADMChannel :: UpdateADMChannel -> TestTree
+requestUpdateADMChannel = req
+    "UpdateADMChannel"
+    "fixture/UpdateADMChannel.yaml"
+
+requestDeleteADMChannel :: DeleteADMChannel -> TestTree
+requestDeleteADMChannel = req
+    "DeleteADMChannel"
+    "fixture/DeleteADMChannel.yaml"
 
 requestUpdateEndpoint :: UpdateEndpoint -> TestTree
 requestUpdateEndpoint = req
@@ -388,6 +481,11 @@ requestUpdateEndpointsBatch = req
     "UpdateEndpointsBatch"
     "fixture/UpdateEndpointsBatch.yaml"
 
+requestGetADMChannel :: GetADMChannel -> TestTree
+requestGetADMChannel = req
+    "GetADMChannel"
+    "fixture/GetADMChannel.yaml"
+
 requestGetCampaign :: GetCampaign -> TestTree
 requestGetCampaign = req
     "GetCampaign"
@@ -397,6 +495,16 @@ requestDeleteApp :: DeleteApp -> TestTree
 requestDeleteApp = req
     "DeleteApp"
     "fixture/DeleteApp.yaml"
+
+requestUpdateAPNSVoipSandboxChannel :: UpdateAPNSVoipSandboxChannel -> TestTree
+requestUpdateAPNSVoipSandboxChannel = req
+    "UpdateAPNSVoipSandboxChannel"
+    "fixture/UpdateAPNSVoipSandboxChannel.yaml"
+
+requestDeleteAPNSVoipSandboxChannel :: DeleteAPNSVoipSandboxChannel -> TestTree
+requestDeleteAPNSVoipSandboxChannel = req
+    "DeleteAPNSVoipSandboxChannel"
+    "fixture/DeleteAPNSVoipSandboxChannel.yaml"
 
 requestUpdateGCMChannel :: UpdateGCMChannel -> TestTree
 requestUpdateGCMChannel = req
@@ -427,6 +535,11 @@ requestUpdateEmailChannel :: UpdateEmailChannel -> TestTree
 requestUpdateEmailChannel = req
     "UpdateEmailChannel"
     "fixture/UpdateEmailChannel.yaml"
+
+requestGetBaiduChannel :: GetBaiduChannel -> TestTree
+requestGetBaiduChannel = req
+    "GetBaiduChannel"
+    "fixture/GetBaiduChannel.yaml"
 
 requestDeleteAPNSChannel :: DeleteAPNSChannel -> TestTree
 requestDeleteAPNSChannel = req
@@ -543,10 +656,40 @@ requestCreateImportJob = req
     "CreateImportJob"
     "fixture/CreateImportJob.yaml"
 
+requestDeleteAPNSVoipChannel :: DeleteAPNSVoipChannel -> TestTree
+requestDeleteAPNSVoipChannel = req
+    "DeleteAPNSVoipChannel"
+    "fixture/DeleteAPNSVoipChannel.yaml"
+
+requestUpdateAPNSVoipChannel :: UpdateAPNSVoipChannel -> TestTree
+requestUpdateAPNSVoipChannel = req
+    "UpdateAPNSVoipChannel"
+    "fixture/UpdateAPNSVoipChannel.yaml"
+
+requestSendUsersMessages :: SendUsersMessages -> TestTree
+requestSendUsersMessages = req
+    "SendUsersMessages"
+    "fixture/SendUsersMessages.yaml"
+
 requestGetApplicationSettings :: GetApplicationSettings -> TestTree
 requestGetApplicationSettings = req
     "GetApplicationSettings"
     "fixture/GetApplicationSettings.yaml"
+
+requestDeleteBaiduChannel :: DeleteBaiduChannel -> TestTree
+requestDeleteBaiduChannel = req
+    "DeleteBaiduChannel"
+    "fixture/DeleteBaiduChannel.yaml"
+
+requestUpdateBaiduChannel :: UpdateBaiduChannel -> TestTree
+requestUpdateBaiduChannel = req
+    "UpdateBaiduChannel"
+    "fixture/UpdateBaiduChannel.yaml"
+
+requestGetAPNSVoipChannel :: GetAPNSVoipChannel -> TestTree
+requestGetAPNSVoipChannel = req
+    "GetAPNSVoipChannel"
+    "fixture/GetAPNSVoipChannel.yaml"
 
 requestGetEmailChannel :: GetEmailChannel -> TestTree
 requestGetEmailChannel = req
@@ -583,6 +726,13 @@ responseGetImportJob = res
     pinpoint
     (Proxy :: Proxy GetImportJob)
 
+responseGetAPNSVoipSandboxChannel :: GetAPNSVoipSandboxChannelResponse -> TestTree
+responseGetAPNSVoipSandboxChannel = res
+    "GetAPNSVoipSandboxChannelResponse"
+    "fixture/GetAPNSVoipSandboxChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetAPNSVoipSandboxChannel)
+
 responseGetSegmentVersions :: GetSegmentVersionsResponse -> TestTree
 responseGetSegmentVersions = res
     "GetSegmentVersionsResponse"
@@ -617,6 +767,20 @@ responseCreateSegment = res
     "fixture/CreateSegmentResponse.proto"
     pinpoint
     (Proxy :: Proxy CreateSegment)
+
+responseUpdateADMChannel :: UpdateADMChannelResponse -> TestTree
+responseUpdateADMChannel = res
+    "UpdateADMChannelResponse"
+    "fixture/UpdateADMChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy UpdateADMChannel)
+
+responseDeleteADMChannel :: DeleteADMChannelResponse -> TestTree
+responseDeleteADMChannel = res
+    "DeleteADMChannelResponse"
+    "fixture/DeleteADMChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteADMChannel)
 
 responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
 responseUpdateEndpoint = res
@@ -653,6 +817,13 @@ responseUpdateEndpointsBatch = res
     pinpoint
     (Proxy :: Proxy UpdateEndpointsBatch)
 
+responseGetADMChannel :: GetADMChannelResponse -> TestTree
+responseGetADMChannel = res
+    "GetADMChannelResponse"
+    "fixture/GetADMChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetADMChannel)
+
 responseGetCampaign :: GetCampaignResponse -> TestTree
 responseGetCampaign = res
     "GetCampaignResponse"
@@ -666,6 +837,20 @@ responseDeleteApp = res
     "fixture/DeleteAppResponse.proto"
     pinpoint
     (Proxy :: Proxy DeleteApp)
+
+responseUpdateAPNSVoipSandboxChannel :: UpdateAPNSVoipSandboxChannelResponse -> TestTree
+responseUpdateAPNSVoipSandboxChannel = res
+    "UpdateAPNSVoipSandboxChannelResponse"
+    "fixture/UpdateAPNSVoipSandboxChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy UpdateAPNSVoipSandboxChannel)
+
+responseDeleteAPNSVoipSandboxChannel :: DeleteAPNSVoipSandboxChannelResponse -> TestTree
+responseDeleteAPNSVoipSandboxChannel = res
+    "DeleteAPNSVoipSandboxChannelResponse"
+    "fixture/DeleteAPNSVoipSandboxChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteAPNSVoipSandboxChannel)
 
 responseUpdateGCMChannel :: UpdateGCMChannelResponse -> TestTree
 responseUpdateGCMChannel = res
@@ -708,6 +893,13 @@ responseUpdateEmailChannel = res
     "fixture/UpdateEmailChannelResponse.proto"
     pinpoint
     (Proxy :: Proxy UpdateEmailChannel)
+
+responseGetBaiduChannel :: GetBaiduChannelResponse -> TestTree
+responseGetBaiduChannel = res
+    "GetBaiduChannelResponse"
+    "fixture/GetBaiduChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetBaiduChannel)
 
 responseDeleteAPNSChannel :: DeleteAPNSChannelResponse -> TestTree
 responseDeleteAPNSChannel = res
@@ -870,12 +1062,54 @@ responseCreateImportJob = res
     pinpoint
     (Proxy :: Proxy CreateImportJob)
 
+responseDeleteAPNSVoipChannel :: DeleteAPNSVoipChannelResponse -> TestTree
+responseDeleteAPNSVoipChannel = res
+    "DeleteAPNSVoipChannelResponse"
+    "fixture/DeleteAPNSVoipChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteAPNSVoipChannel)
+
+responseUpdateAPNSVoipChannel :: UpdateAPNSVoipChannelResponse -> TestTree
+responseUpdateAPNSVoipChannel = res
+    "UpdateAPNSVoipChannelResponse"
+    "fixture/UpdateAPNSVoipChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy UpdateAPNSVoipChannel)
+
+responseSendUsersMessages :: SendUsersMessagesResponse -> TestTree
+responseSendUsersMessages = res
+    "SendUsersMessagesResponse"
+    "fixture/SendUsersMessagesResponse.proto"
+    pinpoint
+    (Proxy :: Proxy SendUsersMessages)
+
 responseGetApplicationSettings :: GetApplicationSettingsResponse -> TestTree
 responseGetApplicationSettings = res
     "GetApplicationSettingsResponse"
     "fixture/GetApplicationSettingsResponse.proto"
     pinpoint
     (Proxy :: Proxy GetApplicationSettings)
+
+responseDeleteBaiduChannel :: DeleteBaiduChannelResponse -> TestTree
+responseDeleteBaiduChannel = res
+    "DeleteBaiduChannelResponse"
+    "fixture/DeleteBaiduChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteBaiduChannel)
+
+responseUpdateBaiduChannel :: UpdateBaiduChannelResponse -> TestTree
+responseUpdateBaiduChannel = res
+    "UpdateBaiduChannelResponse"
+    "fixture/UpdateBaiduChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy UpdateBaiduChannel)
+
+responseGetAPNSVoipChannel :: GetAPNSVoipChannelResponse -> TestTree
+responseGetAPNSVoipChannel = res
+    "GetAPNSVoipChannelResponse"
+    "fixture/GetAPNSVoipChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetAPNSVoipChannel)
 
 responseGetEmailChannel :: GetEmailChannelResponse -> TestTree
 responseGetEmailChannel = res

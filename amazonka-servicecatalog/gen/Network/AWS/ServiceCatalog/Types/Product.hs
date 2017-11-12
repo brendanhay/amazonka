@@ -745,7 +745,7 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ppdIdempotencyToken' - A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- * 'ppdIdempotencyToken' - A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 --
 -- * 'ppdStatus' - The current status of the ProvisionedProduct. @AVAILABLE@ - Stable state, ready to perform any operation. The most recent action request succeeded and completed. @UNDER_CHANGE@ - Transitive state, operations performed may or may not have valid results. Wait for an @AVAILABLE@ status before performing operations. @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.  @ERROR@ - Something unexpected happened such that the provisioned product exists but the stack is not running. For example, CloudFormation received an invalid parameter value and could not launch the stack.
 --
@@ -778,7 +778,7 @@ provisionedProductDetail =
   }
 
 
--- | A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- | A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 ppdIdempotencyToken :: Lens' ProvisionedProductDetail (Maybe Text)
 ppdIdempotencyToken = lens _ppdIdempotencyToken (\ s a -> s{_ppdIdempotencyToken = a});
 

@@ -18,6 +18,7 @@ module Network.AWS.WAFRegional.Types
     -- * Errors
     , _WAFInvalidAccountException
     , _WAFReferencedItemException
+    , _WAFInvalidRegexPatternException
     , _WAFInvalidOperationException
     , _WAFNonexistentItemException
     , _WAFInvalidParameterException
@@ -37,6 +38,12 @@ module Network.AWS.WAFRegional.Types
 
     -- * ComparisonOperator
     , ComparisonOperator (..)
+
+    -- * GeoMatchConstraintType
+    , GeoMatchConstraintType (..)
+
+    -- * GeoMatchConstraintValue
+    , GeoMatchConstraintValue (..)
 
     -- * IPSetDescriptorType
     , IPSetDescriptorType (..)
@@ -103,6 +110,31 @@ module Network.AWS.WAFRegional.Types
     , ftmData
     , ftmType
 
+    -- * GeoMatchConstraint
+    , GeoMatchConstraint
+    , geoMatchConstraint
+    , gmcType
+    , gmcValue
+
+    -- * GeoMatchSet
+    , GeoMatchSet
+    , geoMatchSet
+    , gmsName
+    , gmsGeoMatchSetId
+    , gmsGeoMatchConstraints
+
+    -- * GeoMatchSetSummary
+    , GeoMatchSetSummary
+    , geoMatchSetSummary
+    , gmssGeoMatchSetId
+    , gmssName
+
+    -- * GeoMatchSetUpdate
+    , GeoMatchSetUpdate
+    , geoMatchSetUpdate
+    , gmsuAction
+    , gmsuGeoMatchConstraint
+
     -- * HTTPHeader
     , HTTPHeader
     , hTTPHeader
@@ -160,6 +192,51 @@ module Network.AWS.WAFRegional.Types
     , rbrMatchPredicates
     , rbrRateKey
     , rbrRateLimit
+
+    -- * RegexMatchSet
+    , RegexMatchSet
+    , regexMatchSet
+    , rmsName
+    , rmsRegexMatchTuples
+    , rmsRegexMatchSetId
+
+    -- * RegexMatchSetSummary
+    , RegexMatchSetSummary
+    , regexMatchSetSummary
+    , rmssRegexMatchSetId
+    , rmssName
+
+    -- * RegexMatchSetUpdate
+    , RegexMatchSetUpdate
+    , regexMatchSetUpdate
+    , rmsuAction
+    , rmsuRegexMatchTuple
+
+    -- * RegexMatchTuple
+    , RegexMatchTuple
+    , regexMatchTuple
+    , rmtFieldToMatch
+    , rmtTextTransformation
+    , rmtRegexPatternSetId
+
+    -- * RegexPatternSet
+    , RegexPatternSet
+    , regexPatternSet
+    , rpsName
+    , rpsRegexPatternSetId
+    , rpsRegexPatternStrings
+
+    -- * RegexPatternSetSummary
+    , RegexPatternSetSummary
+    , regexPatternSetSummary
+    , rpssRegexPatternSetId
+    , rpssName
+
+    -- * RegexPatternSetUpdate
+    , RegexPatternSetUpdate
+    , regexPatternSetUpdate
+    , rpsuAction
+    , rpsuRegexPatternString
 
     -- * Rule
     , Rule
@@ -364,6 +441,14 @@ _WAFReferencedItemException =
   _MatchServiceError wAFRegional "WAFReferencedItemException"
 
 
+-- | The regular expression (regex) you specified in @RegexPatternString@ is invalid.
+--
+--
+_WAFInvalidRegexPatternException :: AsError a => Getting (First ServiceError) a ServiceError
+_WAFInvalidRegexPatternException =
+  _MatchServiceError wAFRegional "WAFInvalidRegexPatternException"
+
+
 -- | The operation failed because there was nothing to do. For example:
 --
 --
@@ -409,7 +494,7 @@ _WAFNonexistentItemException =
 --
 --     * You tried to update a @WebACL@ with a @WafAction@ @Type@ other than @ALLOW@ , @BLOCK@ , or @COUNT@ .
 --
---     * You tried to update a @ByteMatchSet@ with a @FieldToMatch@ @Type@ other than HEADER, QUERY_STRING, or URI.
+--     * You tried to update a @ByteMatchSet@ with a @FieldToMatch@ @Type@ other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
 --
 --     * You tried to update a @ByteMatchSet@ with a @Field@ of @HEADER@ but no value for @Data@ .
 --

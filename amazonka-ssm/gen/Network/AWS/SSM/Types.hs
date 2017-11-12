@@ -52,6 +52,7 @@ module Network.AWS.SSM.Types
     , _AutomationExecutionNotFoundException
     , _InvalidTypeNameException
     , _ResourceDataSyncNotFoundException
+    , _ParameterMaxVersionLimitExceeded
     , _ItemSizeLimitExceededException
     , _ResourceDataSyncAlreadyExistsException
     , _DoesNotExistException
@@ -65,16 +66,19 @@ module Network.AWS.SSM.Types
     , _InvalidDocumentContent
     , _ParameterLimitExceeded
     , _AssociationLimitExceeded
+    , _InvalidAssociationVersion
     , _AssociationDoesNotExist
     , _ParameterNotFound
     , _TargetInUseException
     , _InternalServerError
     , _UnsupportedInventoryItemContextException
+    , _AssociationVersionLimitExceeded
     , _InvalidRole
     , _TooManyUpdates
     , _InvalidActivation
     , _InvalidDocumentSchemaVersion
     , _MaxDocumentSizeExceeded
+    , _ParameterVersionNotFound
     , _InvalidUpdate
     , _CustomSchemaCountLimitExceededException
     , _InvalidTarget
@@ -253,6 +257,8 @@ module Network.AWS.SSM.Types
     , aName
     , aTargets
     , aDocumentVersion
+    , aAssociationVersion
+    , aAssociationName
 
     -- * AssociationDescription
     , AssociationDescription
@@ -271,6 +277,8 @@ module Network.AWS.SSM.Types
     , adTargets
     , adParameters
     , adDocumentVersion
+    , adAssociationVersion
+    , adAssociationName
 
     -- * AssociationFilter
     , AssociationFilter
@@ -292,6 +300,20 @@ module Network.AWS.SSM.Types
     , asDate
     , asName
     , asMessage
+
+    -- * AssociationVersionInfo
+    , AssociationVersionInfo
+    , associationVersionInfo
+    , aviAssociationId
+    , aviCreatedDate
+    , aviScheduleExpression
+    , aviName
+    , aviOutputLocation
+    , aviTargets
+    , aviParameters
+    , aviDocumentVersion
+    , aviAssociationVersion
+    , aviAssociationName
 
     -- * AutomationExecution
     , AutomationExecution
@@ -448,6 +470,7 @@ module Network.AWS.SSM.Types
     , cabreTargets
     , cabreParameters
     , cabreDocumentVersion
+    , cabreAssociationName
     , cabreName
 
     -- * DescribeActivationsFilter
@@ -479,6 +502,7 @@ module Network.AWS.SSM.Types
     , dParameters
     , dDocumentVersion
     , dDescription
+    , dTags
     , dLatestVersion
 
     -- * DocumentFilter
@@ -496,6 +520,13 @@ module Network.AWS.SSM.Types
     , diPlatformTypes
     , diName
     , diDocumentVersion
+    , diTags
+
+    -- * DocumentKeyValuesFilter
+    , DocumentKeyValuesFilter
+    , documentKeyValuesFilter
+    , dkvfValues
+    , dkvfKey
 
     -- * DocumentParameter
     , DocumentParameter
@@ -545,6 +576,7 @@ module Network.AWS.SSM.Types
     , iaAssociationId
     , iaInstanceId
     , iaContent
+    , iaAssociationVersion
 
     -- * InstanceAssociationOutputLocation
     , InstanceAssociationOutputLocation
@@ -568,7 +600,9 @@ module Network.AWS.SSM.Types
     , iasiName
     , iasiErrorCode
     , iasiDocumentVersion
+    , iasiAssociationVersion
     , iasiExecutionDate
+    , iasiAssociationName
 
     -- * InstanceInformation
     , InstanceInformation
@@ -826,6 +860,7 @@ module Network.AWS.SSM.Types
     , parameter
     , pValue
     , pName
+    , pVersion
     , pType
 
     -- * ParameterHistory
@@ -835,6 +870,7 @@ module Network.AWS.SSM.Types
     , phKeyId
     , phValue
     , phName
+    , phVersion
     , phLastModifiedUser
     , phAllowedPattern
     , phType
@@ -846,6 +882,7 @@ module Network.AWS.SSM.Types
     , pmLastModifiedDate
     , pmKeyId
     , pmName
+    , pmVersion
     , pmLastModifiedUser
     , pmAllowedPattern
     , pmType
@@ -968,6 +1005,7 @@ module Network.AWS.SSM.Types
     , ResourceDataSyncS3Destination
     , resourceDataSyncS3Destination
     , rdssdPrefix
+    , rdssdAWSKMSKeyARN
     , rdssdBucketName
     , rdssdSyncFormat
     , rdssdRegion
@@ -1114,7 +1152,7 @@ _InvalidPluginName :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPluginName = _MatchServiceError ssm "InvalidPluginName"
 
 
--- | You attempted to register a LAMBDA or STEP_FUNCTION task in a region where there corresponding service is not available.
+-- | You attempted to register a LAMBDA or STEP_FUNCTION task in a region where the corresponding service is not available.
 --
 --
 _FeatureNotAvailableException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1276,7 +1314,7 @@ _DuplicateInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateInstanceId = _MatchServiceError ssm "DuplicateInstanceId"
 
 
--- | The resource type is not valid. If you are attempting to tag an instance, the instance must be a registered, managed instance.
+-- | The resource type is not valid. For example, if you are attempting to tag an instance, the instance must be a registered, managed instance.
 --
 --
 _InvalidResourceType :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1342,6 +1380,14 @@ _InvalidTypeNameException = _MatchServiceError ssm "InvalidTypeNameException"
 _ResourceDataSyncNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceDataSyncNotFoundException =
   _MatchServiceError ssm "ResourceDataSyncNotFoundException"
+
+
+-- | The parameter exceeded the maximum number of allowed versions.
+--
+--
+_ParameterMaxVersionLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+_ParameterMaxVersionLimitExceeded =
+  _MatchServiceError ssm "ParameterMaxVersionLimitExceeded"
 
 
 -- | The inventory item size has exceeded the size limit.
@@ -1442,6 +1488,13 @@ _AssociationLimitExceeded :: AsError a => Getting (First ServiceError) a Service
 _AssociationLimitExceeded = _MatchServiceError ssm "AssociationLimitExceeded"
 
 
+-- | The version you specified is not valid. Use ListAssociationVersions to view all versions of an association according to the association ID. Or, use the @> LATEST@ parameter to view the latest version of the association.
+--
+--
+_InvalidAssociationVersion :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidAssociationVersion = _MatchServiceError ssm "InvalidAssociationVersion"
+
+
 -- | The specified association does not exist.
 --
 --
@@ -1470,12 +1523,20 @@ _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _MatchServiceError ssm "InternalServerError"
 
 
--- | The @Context@ attribute you specified for the @InventoryItem@ is not allowed for this inventory type. You can only use the @Context@ attribute with inventory types like @AWS:ComplianceItem@ .
+-- | The @Context@ attribute that you specified for the @InventoryItem@ is not allowed for this inventory type. You can only use the @Context@ attribute with inventory types like @AWS:ComplianceItem@ .
 --
 --
 _UnsupportedInventoryItemContextException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedInventoryItemContextException =
   _MatchServiceError ssm "UnsupportedInventoryItemContextException"
+
+
+-- | You have reached the maximum number versions allowed for an association. Each association has a limit of 1,000 versions.
+--
+--
+_AssociationVersionLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+_AssociationVersionLimitExceeded =
+  _MatchServiceError ssm "AssociationVersionLimitExceeded"
 
 
 -- | The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html Configuring Amazon SNS Notifications for Run Command> in the /Amazon EC2 Systems Manager User Guide/ .
@@ -1512,6 +1573,13 @@ _InvalidDocumentSchemaVersion =
 --
 _MaxDocumentSizeExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxDocumentSizeExceeded = _MatchServiceError ssm "MaxDocumentSizeExceeded"
+
+
+-- | The specified parameter version was not found. Verify the parameter name and version, and try again.
+--
+--
+_ParameterVersionNotFound :: AsError a => Getting (First ServiceError) a ServiceError
+_ParameterVersionNotFound = _MatchServiceError ssm "ParameterVersionNotFound"
 
 
 -- | The update is not valid.
@@ -1584,7 +1652,7 @@ _InvalidKeyId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidKeyId = _MatchServiceError ssm "InvalidKeyId"
 
 
--- | You must specify values for all required parameters in the SSM document. You can only supply values to parameters defined in the SSM document.
+-- | You must specify values for all required parameters in the Systems Manager document. You can only supply values to parameters defined in the Systems Manager document.
 --
 --
 _InvalidParameters :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1665,7 +1733,7 @@ _DocumentAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceErr
 _DocumentAlreadyExists = _MatchServiceError ssm "DocumentAlreadyExists"
 
 
--- | You can have at most 200 active SSM documents.
+-- | You can have at most 200 active Systems Manager documents.
 --
 --
 _DocumentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError

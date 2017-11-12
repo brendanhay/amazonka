@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of task jobs for a specified job queue. You can filter the results by job status with the @jobStatus@ parameter.
+-- Returns a list of task jobs for a specified job queue. You can filter the results by job status with the @jobStatus@ parameter. If you do not specify a status, only @RUNNING@ jobs are returned.
 --
 --
 module Network.AWS.Batch.ListJobs
@@ -63,7 +63,7 @@ data ListJobs = ListJobs'
 --
 -- * 'ljNextToken' - The @nextToken@ value returned from a previous paginated @ListJobs@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 --
--- * 'ljJobStatus' - The job status with which to filter jobs in the specified queue.
+-- * 'ljJobStatus' - The job status with which to filter jobs in the specified queue. If you do not specify a status, only @RUNNING@ jobs are returned.
 --
 -- * 'ljMaxResults' - The maximum number of results returned by @ListJobs@ in paginated output. When this parameter is used, @ListJobs@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListJobs@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListJobs@ returns up to 100 results and a @nextToken@ value if applicable.
 --
@@ -84,7 +84,7 @@ listJobs pJobQueue_ =
 ljNextToken :: Lens' ListJobs (Maybe Text)
 ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a});
 
--- | The job status with which to filter jobs in the specified queue.
+-- | The job status with which to filter jobs in the specified queue. If you do not specify a status, only @RUNNING@ jobs are returned.
 ljJobStatus :: Lens' ListJobs (Maybe JobStatus)
 ljJobStatus = lens _ljJobStatus (\ s a -> s{_ljJobStatus = a});
 

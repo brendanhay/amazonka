@@ -113,13 +113,13 @@ instance ToQuery DescribeUserProfile where
 -- | /See:/ 'describeUserProfileResponse' smart constructor.
 data DescribeUserProfileResponse = DescribeUserProfileResponse'
   { _duprsSshPublicKey          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _duprsEmailAddress          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _duprsEmailAddress          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
   , _duprsDisplayName           :: {-# NOUNPACK #-}!(Maybe Text)
   , _duprsResponseStatus        :: {-# NOUNPACK #-}!Int
   , _duprsUserARN               :: {-# NOUNPACK #-}!Text
   , _duprsCreatedTimestamp      :: {-# NOUNPACK #-}!POSIX
   , _duprsLastModifiedTimestamp :: {-# NOUNPACK #-}!POSIX
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'DescribeUserProfileResponse' with the minimum fields required to make a request.
@@ -163,7 +163,7 @@ duprsSshPublicKey = lens _duprsSshPublicKey (\ s a -> s{_duprsSshPublicKey = a})
 
 -- | The email address for the user. Optional.
 duprsEmailAddress :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsEmailAddress = lens _duprsEmailAddress (\ s a -> s{_duprsEmailAddress = a});
+duprsEmailAddress = lens _duprsEmailAddress (\ s a -> s{_duprsEmailAddress = a}) . mapping _Sensitive;
 
 -- | The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
 duprsDisplayName :: Lens' DescribeUserProfileResponse (Maybe Text)

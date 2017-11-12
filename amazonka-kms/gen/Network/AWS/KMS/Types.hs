@@ -298,7 +298,7 @@ _DependencyTimeoutException =
   _MatchServiceError kms "DependencyTimeoutException"
 
 
--- | The request was rejected because the provided import token is expired. Use 'GetParametersForImport' to retrieve a new import token and public key, use the new public key to encrypt the key material, and then try the request again.
+-- | The request was rejected because the provided import token is expired. Use 'GetParametersForImport' to get a new import token and public key, use the new public key to encrypt the key material, and then try the request again.
 --
 --
 _ExpiredImportTokenException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -306,7 +306,7 @@ _ExpiredImportTokenException =
   _MatchServiceError kms "ExpiredImportTokenException"
 
 
--- | The request was rejected because the specified ciphertext has been corrupted or is otherwise invalid.
+-- | The request was rejected because the specified ciphertext, or additional authenticated data incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise invalid.
 --
 --
 _InvalidCiphertextException :: AsError a => Getting (First ServiceError) a ServiceError

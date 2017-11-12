@@ -374,6 +374,36 @@ instance Hashable DomainSummary where
 
 instance NFData DomainSummary where
 
+-- | /See:/ 'domainTransferability' smart constructor.
+newtype DomainTransferability = DomainTransferability'
+  { _dtTransferable :: Maybe Transferable
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DomainTransferability' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtTransferable' - Undocumented member.
+domainTransferability
+    :: DomainTransferability
+domainTransferability = DomainTransferability' {_dtTransferable = Nothing}
+
+
+-- | Undocumented member.
+dtTransferable :: Lens' DomainTransferability (Maybe Transferable)
+dtTransferable = lens _dtTransferable (\ s a -> s{_dtTransferable = a});
+
+instance FromJSON DomainTransferability where
+        parseJSON
+          = withObject "DomainTransferability"
+              (\ x ->
+                 DomainTransferability' <$> (x .:? "Transferable"))
+
+instance Hashable DomainTransferability where
+
+instance NFData DomainTransferability where
+
 -- | ExtraParam includes the following elements.
 --
 --

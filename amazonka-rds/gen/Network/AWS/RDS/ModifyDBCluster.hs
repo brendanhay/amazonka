@@ -96,13 +96,13 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- * 'mdcOptionGroupName' - A value that indicates that the DB cluster should be associated with the specified option group. Changing this parameter does not result in an outage except in the following case, and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted.  Permanent options cannot be removed from an option group. The option group cannot be removed from a DB cluster once it is associated with a DB cluster.
 --
--- * 'mdcNewDBClusterIdentifier' - The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-cluster2@
+-- * 'mdcNewDBClusterIdentifier' - The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * The first character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-cluster2@
 --
 -- * 'mdcPort' - The port number on which the DB cluster accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB cluster.
 --
 -- * 'mdcEnableIAMDatabaseAuthentication' - A Boolean value that is true to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts, and otherwise false. Default: @false@
 --
--- * 'mdcDBClusterIdentifier' - The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive. Constraints:     * Must be the identifier for an existing DB cluster.     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
+-- * 'mdcDBClusterIdentifier' - The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive. Constraints:     * Must match the identifier of an existing DBCluster.
 modifyDBCluster
     :: Text -- ^ 'mdcDBClusterIdentifier'
     -> ModifyDBCluster
@@ -155,7 +155,7 @@ mdcApplyImmediately = lens _mdcApplyImmediately (\ s a -> s{_mdcApplyImmediately
 mdcOptionGroupName :: Lens' ModifyDBCluster (Maybe Text)
 mdcOptionGroupName = lens _mdcOptionGroupName (\ s a -> s{_mdcOptionGroupName = a});
 
--- | The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-cluster2@
+-- | The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * The first character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-cluster2@
 mdcNewDBClusterIdentifier :: Lens' ModifyDBCluster (Maybe Text)
 mdcNewDBClusterIdentifier = lens _mdcNewDBClusterIdentifier (\ s a -> s{_mdcNewDBClusterIdentifier = a});
 
@@ -167,7 +167,7 @@ mdcPort = lens _mdcPort (\ s a -> s{_mdcPort = a});
 mdcEnableIAMDatabaseAuthentication :: Lens' ModifyDBCluster (Maybe Bool)
 mdcEnableIAMDatabaseAuthentication = lens _mdcEnableIAMDatabaseAuthentication (\ s a -> s{_mdcEnableIAMDatabaseAuthentication = a});
 
--- | The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive. Constraints:     * Must be the identifier for an existing DB cluster.     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
+-- | The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive. Constraints:     * Must match the identifier of an existing DBCluster.
 mdcDBClusterIdentifier :: Lens' ModifyDBCluster Text
 mdcDBClusterIdentifier = lens _mdcDBClusterIdentifier (\ s a -> s{_mdcDBClusterIdentifier = a});
 

@@ -70,7 +70,7 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups'
 --
 -- * 'ddpgFilters' - This parameter is not currently supported.
 --
--- * 'ddpgDBParameterGroupName' - The name of a specific DB parameter group to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'ddpgDBParameterGroupName' - The name of a specific DB parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBClusterParameterGroup.
 --
 -- * 'ddpgMarker' - An optional pagination token provided by a previous @DescribeDBParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
@@ -90,7 +90,7 @@ describeDBParameterGroups =
 ddpgFilters :: Lens' DescribeDBParameterGroups [Filter]
 ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a}) . _Default . _Coerce;
 
--- | The name of a specific DB parameter group to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The name of a specific DB parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBClusterParameterGroup.
 ddpgDBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddpgDBParameterGroupName = lens _ddpgDBParameterGroupName (\ s a -> s{_ddpgDBParameterGroupName = a});
 

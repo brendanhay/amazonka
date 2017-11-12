@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Rebooting a DB instance restarts the database engine service. A reboot also applies to the DB instance any modifications to the associated DB parameter group that were pending. Rebooting a DB instance results in a momentary outage of the instance, during which the DB instance status is set to rebooting. If the RDS instance is configured for MultiAZ, it is possible that the reboot will be conducted through a failover. An Amazon RDS event is created when the reboot is completed.
+-- Rebooting a DB instance restarts the database engine service. A reboot also applies to the DB instance any modifications to the associated DB parameter group that were pending. Rebooting a DB instance results in a momentary outage of the instance, during which the DB instance status is set to rebooting. If the RDS instance is configured for MultiAZ, it is possible that the reboot is conducted through a failover. An Amazon RDS event is created when the reboot is completed.
 --
 --
 -- If your DB instance is deployed in multiple Availability Zones, you can force a failover from one AZ to the other during the reboot. You might force a failover to test the availability of your DB instance deployment or to restore operations to the original AZ after a failover occurs.
@@ -64,9 +64,9 @@ data RebootDBInstance = RebootDBInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdiForceFailover' - When @true@ , the reboot will be conducted through a MultiAZ failover.  Constraint: You cannot specify @true@ if the instance is not configured for MultiAZ.
+-- * 'rdiForceFailover' - When @true@ , the reboot is conducted through a MultiAZ failover.  Constraint: You cannot specify @true@ if the instance is not configured for MultiAZ.
 --
--- * 'rdiDBInstanceIdentifier' - The DB instance identifier. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'rdiDBInstanceIdentifier' - The DB instance identifier. This parameter is stored as a lowercase string. Constraints:     * Must match the identifier of an existing DBInstance.
 rebootDBInstance
     :: Text -- ^ 'rdiDBInstanceIdentifier'
     -> RebootDBInstance
@@ -77,11 +77,11 @@ rebootDBInstance pDBInstanceIdentifier_ =
   }
 
 
--- | When @true@ , the reboot will be conducted through a MultiAZ failover.  Constraint: You cannot specify @true@ if the instance is not configured for MultiAZ.
+-- | When @true@ , the reboot is conducted through a MultiAZ failover.  Constraint: You cannot specify @true@ if the instance is not configured for MultiAZ.
 rdiForceFailover :: Lens' RebootDBInstance (Maybe Bool)
 rdiForceFailover = lens _rdiForceFailover (\ s a -> s{_rdiForceFailover = a});
 
--- | The DB instance identifier. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The DB instance identifier. This parameter is stored as a lowercase string. Constraints:     * Must match the identifier of an existing DBInstance.
 rdiDBInstanceIdentifier :: Lens' RebootDBInstance Text
 rdiDBInstanceIdentifier = lens _rdiDBInstanceIdentifier (\ s a -> s{_rdiDBInstanceIdentifier = a});
 

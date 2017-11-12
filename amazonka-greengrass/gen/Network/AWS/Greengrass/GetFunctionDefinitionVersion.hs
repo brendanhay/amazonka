@@ -131,7 +131,7 @@ data GetFunctionDefinitionVersionResponse = GetFunctionDefinitionVersionResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfdvrsDefinition' - Undocumented member.
+-- * 'gfdvrsDefinition' - Information on the definition.
 --
 -- * 'gfdvrsARN' - Arn of the function definition version.
 --
@@ -156,7 +156,7 @@ getFunctionDefinitionVersionResponse pResponseStatus_ =
   }
 
 
--- | Undocumented member.
+-- | Information on the definition.
 gfdvrsDefinition :: Lens' GetFunctionDefinitionVersionResponse (Maybe FunctionDefinitionVersion)
 gfdvrsDefinition = lens _gfdvrsDefinition (\ s a -> s{_gfdvrsDefinition = a});
 

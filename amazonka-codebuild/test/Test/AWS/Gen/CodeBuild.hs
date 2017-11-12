@@ -14,11 +14,11 @@
 module Test.AWS.Gen.CodeBuild where
 
 import Data.Proxy
+import Network.AWS.CodeBuild
+import Test.AWS.CodeBuild.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CodeBuild
-import Test.AWS.CodeBuild.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -40,6 +40,9 @@ import Test.AWS.CodeBuild.Internal
 --         , requestListBuilds $
 --             listBuilds
 --
+--         , requestCreateWebhook $
+--             createWebhook
+--
 --         , requestStartBuild $
 --             startBuild
 --
@@ -51,6 +54,12 @@ import Test.AWS.CodeBuild.Internal
 --
 --         , requestBatchGetBuilds $
 --             batchGetBuilds
+--
+--         , requestDeleteWebhook $
+--             deleteWebhook
+--
+--         , requestBatchDeleteBuilds $
+--             batchDeleteBuilds
 --
 --         , requestListCuratedEnvironmentImages $
 --             listCuratedEnvironmentImages
@@ -76,6 +85,9 @@ import Test.AWS.CodeBuild.Internal
 --         , responseListBuilds $
 --             listBuildsResponse
 --
+--         , responseCreateWebhook $
+--             createWebhookResponse
+--
 --         , responseStartBuild $
 --             startBuildResponse
 --
@@ -87,6 +99,12 @@ import Test.AWS.CodeBuild.Internal
 --
 --         , responseBatchGetBuilds $
 --             batchGetBuildsResponse
+--
+--         , responseDeleteWebhook $
+--             deleteWebhookResponse
+--
+--         , responseBatchDeleteBuilds $
+--             batchDeleteBuildsResponse
 --
 --         , responseListCuratedEnvironmentImages $
 --             listCuratedEnvironmentImagesResponse
@@ -122,6 +140,11 @@ requestListBuilds = req
     "ListBuilds"
     "fixture/ListBuilds.yaml"
 
+requestCreateWebhook :: CreateWebhook -> TestTree
+requestCreateWebhook = req
+    "CreateWebhook"
+    "fixture/CreateWebhook.yaml"
+
 requestStartBuild :: StartBuild -> TestTree
 requestStartBuild = req
     "StartBuild"
@@ -141,6 +164,16 @@ requestBatchGetBuilds :: BatchGetBuilds -> TestTree
 requestBatchGetBuilds = req
     "BatchGetBuilds"
     "fixture/BatchGetBuilds.yaml"
+
+requestDeleteWebhook :: DeleteWebhook -> TestTree
+requestDeleteWebhook = req
+    "DeleteWebhook"
+    "fixture/DeleteWebhook.yaml"
+
+requestBatchDeleteBuilds :: BatchDeleteBuilds -> TestTree
+requestBatchDeleteBuilds = req
+    "BatchDeleteBuilds"
+    "fixture/BatchDeleteBuilds.yaml"
 
 requestListCuratedEnvironmentImages :: ListCuratedEnvironmentImages -> TestTree
 requestListCuratedEnvironmentImages = req
@@ -187,6 +220,13 @@ responseListBuilds = res
     codeBuild
     (Proxy :: Proxy ListBuilds)
 
+responseCreateWebhook :: CreateWebhookResponse -> TestTree
+responseCreateWebhook = res
+    "CreateWebhookResponse"
+    "fixture/CreateWebhookResponse.proto"
+    codeBuild
+    (Proxy :: Proxy CreateWebhook)
+
 responseStartBuild :: StartBuildResponse -> TestTree
 responseStartBuild = res
     "StartBuildResponse"
@@ -214,6 +254,20 @@ responseBatchGetBuilds = res
     "fixture/BatchGetBuildsResponse.proto"
     codeBuild
     (Proxy :: Proxy BatchGetBuilds)
+
+responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
+responseDeleteWebhook = res
+    "DeleteWebhookResponse"
+    "fixture/DeleteWebhookResponse.proto"
+    codeBuild
+    (Proxy :: Proxy DeleteWebhook)
+
+responseBatchDeleteBuilds :: BatchDeleteBuildsResponse -> TestTree
+responseBatchDeleteBuilds = res
+    "BatchDeleteBuildsResponse"
+    "fixture/BatchDeleteBuildsResponse.proto"
+    codeBuild
+    (Proxy :: Proxy BatchDeleteBuilds)
 
 responseListCuratedEnvironmentImages :: ListCuratedEnvironmentImagesResponse -> TestTree
 responseListCuratedEnvironmentImages = res

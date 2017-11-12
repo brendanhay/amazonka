@@ -68,7 +68,7 @@ data AssociateTeamMember = AssociateTeamMember'
 --
 -- * 'atmProjectId' - The ID of the project to which you will add the IAM user.
 --
--- * 'atmUserARN' - The Amazon Resource Name (ARN) for the IAM user you want to add to the DevHub project.
+-- * 'atmUserARN' - The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project.
 --
 -- * 'atmProjectRole' - The AWS CodeStar project role that will apply to this user. This role determines what actions a user can take in an AWS CodeStar project.
 associateTeamMember
@@ -98,7 +98,7 @@ atmClientRequestToken = lens _atmClientRequestToken (\ s a -> s{_atmClientReques
 atmProjectId :: Lens' AssociateTeamMember Text
 atmProjectId = lens _atmProjectId (\ s a -> s{_atmProjectId = a});
 
--- | The Amazon Resource Name (ARN) for the IAM user you want to add to the DevHub project.
+-- | The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project.
 atmUserARN :: Lens' AssociateTeamMember Text
 atmUserARN = lens _atmUserARN (\ s a -> s{_atmUserARN = a});
 

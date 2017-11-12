@@ -330,6 +330,13 @@ module Network.AWS.CodePipeline.Types
     , pesPipelineExecutionId
     , pesLastUpdateTime
 
+    -- * PipelineMetadata
+    , PipelineMetadata
+    , pipelineMetadata
+    , pmCreated
+    , pmPipelineARN
+    , pmUpdated
+
     -- * PipelineSummary
     , PipelineSummary
     , pipelineSummary

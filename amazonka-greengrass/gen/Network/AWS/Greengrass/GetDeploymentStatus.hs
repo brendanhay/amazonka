@@ -32,6 +32,8 @@ module Network.AWS.Greengrass.GetDeploymentStatus
     , getDeploymentStatusResponse
     , GetDeploymentStatusResponse
     -- * Response Lenses
+    , gdsrsDeploymentType
+    , gdsrsErrorDetails
     , gdsrsDeploymentStatus
     , gdsrsUpdatedAt
     , gdsrsErrorMessage
@@ -84,7 +86,10 @@ instance AWSRequest GetDeploymentStatus where
           = receiveJSON
               (\ s h x ->
                  GetDeploymentStatusResponse' <$>
-                   (x .?> "DeploymentStatus") <*> (x .?> "UpdatedAt")
+                   (x .?> "DeploymentType") <*>
+                     (x .?> "ErrorDetails" .!@ mempty)
+                     <*> (x .?> "DeploymentStatus")
+                     <*> (x .?> "UpdatedAt")
                      <*> (x .?> "ErrorMessage")
                      <*> (pure (fromEnum s)))
 
@@ -110,7 +115,9 @@ instance ToQuery GetDeploymentStatus where
 
 -- | /See:/ 'getDeploymentStatusResponse' smart constructor.
 data GetDeploymentStatusResponse = GetDeploymentStatusResponse'
-  { _gdsrsDeploymentStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gdsrsDeploymentType   :: {-# NOUNPACK #-}!(Maybe DeploymentType)
+  , _gdsrsErrorDetails     :: {-# NOUNPACK #-}!(Maybe [ErrorDetail])
+  , _gdsrsDeploymentStatus :: {-# NOUNPACK #-}!(Maybe Text)
   , _gdsrsUpdatedAt        :: {-# NOUNPACK #-}!(Maybe Text)
   , _gdsrsErrorMessage     :: {-# NOUNPACK #-}!(Maybe Text)
   , _gdsrsResponseStatus   :: {-# NOUNPACK #-}!Int
@@ -120,6 +127,10 @@ data GetDeploymentStatusResponse = GetDeploymentStatusResponse'
 -- | Creates a value of 'GetDeploymentStatusResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdsrsDeploymentType' - The type of the deployment.
+--
+-- * 'gdsrsErrorDetails' - The error Details
 --
 -- * 'gdsrsDeploymentStatus' - Status of the deployment.
 --
@@ -133,12 +144,22 @@ getDeploymentStatusResponse
     -> GetDeploymentStatusResponse
 getDeploymentStatusResponse pResponseStatus_ =
   GetDeploymentStatusResponse'
-  { _gdsrsDeploymentStatus = Nothing
+  { _gdsrsDeploymentType = Nothing
+  , _gdsrsErrorDetails = Nothing
+  , _gdsrsDeploymentStatus = Nothing
   , _gdsrsUpdatedAt = Nothing
   , _gdsrsErrorMessage = Nothing
   , _gdsrsResponseStatus = pResponseStatus_
   }
 
+
+-- | The type of the deployment.
+gdsrsDeploymentType :: Lens' GetDeploymentStatusResponse (Maybe DeploymentType)
+gdsrsDeploymentType = lens _gdsrsDeploymentType (\ s a -> s{_gdsrsDeploymentType = a});
+
+-- | The error Details
+gdsrsErrorDetails :: Lens' GetDeploymentStatusResponse [ErrorDetail]
+gdsrsErrorDetails = lens _gdsrsErrorDetails (\ s a -> s{_gdsrsErrorDetails = a}) . _Default . _Coerce;
 
 -- | Status of the deployment.
 gdsrsDeploymentStatus :: Lens' GetDeploymentStatusResponse (Maybe Text)

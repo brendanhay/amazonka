@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified job queue. You must first disable submissions for a queue with the 'UpdateJobQueue' operation and terminate any jobs that have not completed with the 'TerminateJob' .
+-- Deletes the specified job queue. You must first disable submissions for a queue with the 'UpdateJobQueue' operation. All jobs in the queue are terminated when you delete a job queue.
 --
 --
 -- It is not necessary to disassociate compute environments from a queue before submitting a @DeleteJobQueue@ request.

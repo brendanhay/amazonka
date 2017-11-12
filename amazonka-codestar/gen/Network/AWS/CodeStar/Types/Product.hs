@@ -118,7 +118,7 @@ data TeamMember = TeamMember'
 --
 -- * 'tmUserARN' - The Amazon Resource Name (ARN) of the user in IAM.
 --
--- * 'tmProjectRole' - The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the AWS CodeStar User Guide.
+-- * 'tmProjectRole' - The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
 teamMember
     :: Text -- ^ 'tmUserARN'
     -> Text -- ^ 'tmProjectRole'
@@ -139,7 +139,7 @@ tmRemoteAccessAllowed = lens _tmRemoteAccessAllowed (\ s a -> s{_tmRemoteAccessA
 tmUserARN :: Lens' TeamMember Text
 tmUserARN = lens _tmUserARN (\ s a -> s{_tmUserARN = a});
 
--- | The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the AWS CodeStar User Guide.
+-- | The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
 tmProjectRole :: Lens' TeamMember Text
 tmProjectRole = lens _tmProjectRole (\ s a -> s{_tmProjectRole = a});
 
@@ -163,9 +163,9 @@ instance NFData TeamMember where
 data UserProfileSummary = UserProfileSummary'
   { _upsSshPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
   , _upsUserARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upsEmailAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _upsEmailAddress :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
   , _upsDisplayName  :: {-# NOUNPACK #-}!(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'UserProfileSummary' with the minimum fields required to make a request.
@@ -200,7 +200,7 @@ upsUserARN = lens _upsUserARN (\ s a -> s{_upsUserARN = a});
 
 -- | The email address associated with the user.
 upsEmailAddress :: Lens' UserProfileSummary (Maybe Text)
-upsEmailAddress = lens _upsEmailAddress (\ s a -> s{_upsEmailAddress = a});
+upsEmailAddress = lens _upsEmailAddress (\ s a -> s{_upsEmailAddress = a}) . mapping _Sensitive;
 
 -- | The display name of a user in AWS CodeStar. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
 upsDisplayName :: Lens' UserProfileSummary (Maybe Text)

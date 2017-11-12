@@ -18,12 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the event destination of a configuration set.
+-- Updates the event destination of a configuration set. Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Monitoring Your Amazon SES Sending Activity> in the /Amazon SES Developer Guide./
 --
 --
--- Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
---
--- This action is throttled at one request per second.
+-- You can execute this operation no more than once per second.
 --
 module Network.AWS.SES.UpdateConfigurationSetEventDestination
     (
@@ -63,7 +61,7 @@ data UpdateConfigurationSetEventDestination = UpdateConfigurationSetEventDestina
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucsedConfigurationSetName' - The name of the configuration set that you want to update.
+-- * 'ucsedConfigurationSetName' - The name of the configuration set that contains the event destination that you want to update.
 --
 -- * 'ucsedEventDestination' - The event destination object that you want to apply to the specified configuration set.
 updateConfigurationSetEventDestination
@@ -77,7 +75,7 @@ updateConfigurationSetEventDestination pConfigurationSetName_ pEventDestination_
   }
 
 
--- | The name of the configuration set that you want to update.
+-- | The name of the configuration set that contains the event destination that you want to update.
 ucsedConfigurationSetName :: Lens' UpdateConfigurationSetEventDestination Text
 ucsedConfigurationSetName = lens _ucsedConfigurationSetName (\ s a -> s{_ucsedConfigurationSetName = a});
 

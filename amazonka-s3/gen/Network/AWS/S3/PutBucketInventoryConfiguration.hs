@@ -46,7 +46,7 @@ data PutBucketInventoryConfiguration = PutBucketInventoryConfiguration'
   { _pbicBucket                 :: {-# NOUNPACK #-}!BucketName
   , _pbicId                     :: {-# NOUNPACK #-}!Text
   , _pbicInventoryConfiguration :: {-# NOUNPACK #-}!InventoryConfiguration
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'PutBucketInventoryConfiguration' with the minimum fields required to make a request.

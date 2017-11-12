@@ -120,7 +120,8 @@ instance NFData BranchInfo where
 --
 -- /See:/ 'commit' smart constructor.
 data Commit = Commit'
-  { _cCommitter      :: {-# NOUNPACK #-}!(Maybe UserInfo)
+  { _cCommitId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cCommitter      :: {-# NOUNPACK #-}!(Maybe UserInfo)
   , _cTreeId         :: {-# NOUNPACK #-}!(Maybe Text)
   , _cAdditionalData :: {-# NOUNPACK #-}!(Maybe Text)
   , _cParents        :: {-# NOUNPACK #-}!(Maybe [Text])
@@ -132,6 +133,8 @@ data Commit = Commit'
 -- | Creates a value of 'Commit' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cCommitId' - The full SHA of the specified commit.
 --
 -- * 'cCommitter' - Information about the person who committed the specified commit, also known as the committer. Information includes the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured in Git. For more information about the difference between an author and a committer in Git, see <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro Git by Scott Chacon and Ben Straub.
 --
@@ -148,7 +151,8 @@ commit
     :: Commit
 commit =
   Commit'
-  { _cCommitter = Nothing
+  { _cCommitId = Nothing
+  , _cCommitter = Nothing
   , _cTreeId = Nothing
   , _cAdditionalData = Nothing
   , _cParents = Nothing
@@ -156,6 +160,10 @@ commit =
   , _cMessage = Nothing
   }
 
+
+-- | The full SHA of the specified commit.
+cCommitId :: Lens' Commit (Maybe Text)
+cCommitId = lens _cCommitId (\ s a -> s{_cCommitId = a});
 
 -- | Information about the person who committed the specified commit, also known as the committer. Information includes the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured in Git. For more information about the difference between an author and a committer in Git, see <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro Git by Scott Chacon and Ben Straub.
 cCommitter :: Lens' Commit (Maybe UserInfo)
@@ -186,8 +194,9 @@ instance FromJSON Commit where
           = withObject "Commit"
               (\ x ->
                  Commit' <$>
-                   (x .:? "committer") <*> (x .:? "treeId") <*>
-                     (x .:? "additionalData")
+                   (x .:? "commitId") <*> (x .:? "committer") <*>
+                     (x .:? "treeId")
+                     <*> (x .:? "additionalData")
                      <*> (x .:? "parents" .!= mempty)
                      <*> (x .:? "author")
                      <*> (x .:? "message"))
@@ -429,7 +438,7 @@ data RepositoryTrigger = RepositoryTrigger'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtBranches' - The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+-- * 'rtBranches' - The branches that will be included in the trigger configuration. If you specify an empty array, the trigger will apply to all branches.
 --
 -- * 'rtCustomData' - Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
 --
@@ -452,7 +461,7 @@ repositoryTrigger pName_ pDestinationARN_ =
   }
 
 
--- | The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
+-- | The branches that will be included in the trigger configuration. If you specify an empty array, the trigger will apply to all branches.
 rtBranches :: Lens' RepositoryTrigger [Text]
 rtBranches = lens _rtBranches (\ s a -> s{_rtBranches = a}) . _Default . _Coerce;
 

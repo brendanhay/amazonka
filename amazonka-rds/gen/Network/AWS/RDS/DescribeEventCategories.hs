@@ -60,7 +60,7 @@ data DescribeEventCategories = DescribeEventCategories'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decSourceType' - The type of source that will be generating the events. Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
+-- * 'decSourceType' - The type of source that is generating the events. Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
 --
 -- * 'decFilters' - This parameter is not currently supported.
 describeEventCategories
@@ -69,7 +69,7 @@ describeEventCategories =
   DescribeEventCategories' {_decSourceType = Nothing, _decFilters = Nothing}
 
 
--- | The type of source that will be generating the events. Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
+-- | The type of source that is generating the events. Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 

@@ -55,7 +55,7 @@ data RejectPortfolioShare = RejectPortfolioShare'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpsAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'rpsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'rpsPortfolioId' - The portfolio identifier.
 rejectPortfolioShare
@@ -66,7 +66,7 @@ rejectPortfolioShare pPortfolioId_ =
   {_rpsAcceptLanguage = Nothing, _rpsPortfolioId = pPortfolioId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 rpsAcceptLanguage :: Lens' RejectPortfolioShare (Maybe Text)
 rpsAcceptLanguage = lens _rpsAcceptLanguage (\ s a -> s{_rpsAcceptLanguage = a});
 

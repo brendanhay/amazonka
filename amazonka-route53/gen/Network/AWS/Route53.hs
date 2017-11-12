@@ -23,6 +23,9 @@ module Network.AWS.Route53
     -- ** HealthCheckVersionMismatch
     , _HealthCheckVersionMismatch
 
+    -- ** NoSuchQueryLoggingConfig
+    , _NoSuchQueryLoggingConfig
+
     -- ** InvalidInput
     , _InvalidInput
 
@@ -38,6 +41,9 @@ module Network.AWS.Route53
     -- ** ConflictingTypes
     , _ConflictingTypes
 
+    -- ** QueryLoggingConfigAlreadyExists
+    , _QueryLoggingConfigAlreadyExists
+
     -- ** ConcurrentModification
     , _ConcurrentModification
 
@@ -46,6 +52,12 @@ module Network.AWS.Route53
 
     -- ** NotAuthorizedException
     , _NotAuthorizedException
+
+    -- ** InsufficientCloudWatchLogsResourcePolicy
+    , _InsufficientCloudWatchLogsResourcePolicy
+
+    -- ** NoSuchCloudWatchLogsLogGroup
+    , _NoSuchCloudWatchLogsLogGroup
 
     -- ** PriorRequestNotComplete
     , _PriorRequestNotComplete
@@ -191,6 +203,9 @@ module Network.AWS.Route53
     -- ** ListTagsForResource
     , module Network.AWS.Route53.ListTagsForResource
 
+    -- ** ListQueryLoggingConfigs
+    , module Network.AWS.Route53.ListQueryLoggingConfigs
+
     -- ** ListTrafficPolicyInstances
     , module Network.AWS.Route53.ListTrafficPolicyInstances
 
@@ -254,6 +269,9 @@ module Network.AWS.Route53
     -- ** CreateReusableDelegationSet
     , module Network.AWS.Route53.CreateReusableDelegationSet
 
+    -- ** CreateQueryLoggingConfig
+    , module Network.AWS.Route53.CreateQueryLoggingConfig
+
     -- ** GetHealthCheckCount
     , module Network.AWS.Route53.GetHealthCheckCount
 
@@ -262,6 +280,12 @@ module Network.AWS.Route53
 
     -- ** GetHostedZoneCount
     , module Network.AWS.Route53.GetHostedZoneCount
+
+    -- ** DeleteQueryLoggingConfig
+    , module Network.AWS.Route53.DeleteQueryLoggingConfig
+
+    -- ** GetQueryLoggingConfig
+    , module Network.AWS.Route53.GetQueryLoggingConfig
 
     -- ** GetReusableDelegationSet
     , module Network.AWS.Route53.GetReusableDelegationSet
@@ -342,6 +366,9 @@ module Network.AWS.Route53
 
     -- ** RecordType
     , RecordType (..)
+
+    -- ** ResettableElementName
+    , ResettableElementName (..)
 
     -- ** Statistic
     , Statistic (..)
@@ -478,6 +505,13 @@ module Network.AWS.Route53
     , hzcPrivateZone
     , hzcComment
 
+    -- ** QueryLoggingConfig
+    , QueryLoggingConfig
+    , queryLoggingConfig
+    , qlcId
+    , qlcHostedZoneId
+    , qlcCloudWatchLogsLogGroupARN
+
     -- ** ResourceRecord
     , ResourceRecord
     , resourceRecord
@@ -563,6 +597,7 @@ import Network.AWS.Route53.ChangeResourceRecordSets
 import Network.AWS.Route53.ChangeTagsForResource
 import Network.AWS.Route53.CreateHealthCheck
 import Network.AWS.Route53.CreateHostedZone
+import Network.AWS.Route53.CreateQueryLoggingConfig
 import Network.AWS.Route53.CreateReusableDelegationSet
 import Network.AWS.Route53.CreateTrafficPolicy
 import Network.AWS.Route53.CreateTrafficPolicyInstance
@@ -570,6 +605,7 @@ import Network.AWS.Route53.CreateTrafficPolicyVersion
 import Network.AWS.Route53.CreateVPCAssociationAuthorization
 import Network.AWS.Route53.DeleteHealthCheck
 import Network.AWS.Route53.DeleteHostedZone
+import Network.AWS.Route53.DeleteQueryLoggingConfig
 import Network.AWS.Route53.DeleteReusableDelegationSet
 import Network.AWS.Route53.DeleteTrafficPolicy
 import Network.AWS.Route53.DeleteTrafficPolicyInstance
@@ -584,6 +620,7 @@ import Network.AWS.Route53.GetHealthCheckLastFailureReason
 import Network.AWS.Route53.GetHealthCheckStatus
 import Network.AWS.Route53.GetHostedZone
 import Network.AWS.Route53.GetHostedZoneCount
+import Network.AWS.Route53.GetQueryLoggingConfig
 import Network.AWS.Route53.GetReusableDelegationSet
 import Network.AWS.Route53.GetTrafficPolicy
 import Network.AWS.Route53.GetTrafficPolicyInstance
@@ -593,6 +630,7 @@ import Network.AWS.Route53.ListGeoLocations
 import Network.AWS.Route53.ListHealthChecks
 import Network.AWS.Route53.ListHostedZones
 import Network.AWS.Route53.ListHostedZonesByName
+import Network.AWS.Route53.ListQueryLoggingConfigs
 import Network.AWS.Route53.ListResourceRecordSets
 import Network.AWS.Route53.ListReusableDelegationSets
 import Network.AWS.Route53.ListTagsForResource

@@ -144,6 +144,8 @@ data Association = Association'
   , _aName               :: {-# NOUNPACK #-}!(Maybe Text)
   , _aTargets            :: {-# NOUNPACK #-}!(Maybe [Target])
   , _aDocumentVersion    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aAssociationVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aAssociationName    :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -161,11 +163,15 @@ data Association = Association'
 --
 -- * 'aScheduleExpression' - A cron expression that specifies a schedule when the association runs.
 --
--- * 'aName' - The name of the SSM document.
+-- * 'aName' - The name of the Systems Manager document.
 --
 -- * 'aTargets' - The instances targeted by the request to create an association.
 --
 -- * 'aDocumentVersion' - The version of the document used in the association.
+--
+-- * 'aAssociationVersion' - The association version.
+--
+-- * 'aAssociationName' - The association name.
 association
     :: Association
 association =
@@ -178,6 +184,8 @@ association =
   , _aName = Nothing
   , _aTargets = Nothing
   , _aDocumentVersion = Nothing
+  , _aAssociationVersion = Nothing
+  , _aAssociationName = Nothing
   }
 
 
@@ -201,7 +209,7 @@ aLastExecutionDate = lens _aLastExecutionDate (\ s a -> s{_aLastExecutionDate = 
 aScheduleExpression :: Lens' Association (Maybe Text)
 aScheduleExpression = lens _aScheduleExpression (\ s a -> s{_aScheduleExpression = a});
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 aName :: Lens' Association (Maybe Text)
 aName = lens _aName (\ s a -> s{_aName = a});
 
@@ -212,6 +220,14 @@ aTargets = lens _aTargets (\ s a -> s{_aTargets = a}) . _Default . _Coerce;
 -- | The version of the document used in the association.
 aDocumentVersion :: Lens' Association (Maybe Text)
 aDocumentVersion = lens _aDocumentVersion (\ s a -> s{_aDocumentVersion = a});
+
+-- | The association version.
+aAssociationVersion :: Lens' Association (Maybe Text)
+aAssociationVersion = lens _aAssociationVersion (\ s a -> s{_aAssociationVersion = a});
+
+-- | The association name.
+aAssociationName :: Lens' Association (Maybe Text)
+aAssociationName = lens _aAssociationName (\ s a -> s{_aAssociationName = a});
 
 instance FromJSON Association where
         parseJSON
@@ -224,7 +240,9 @@ instance FromJSON Association where
                      <*> (x .:? "ScheduleExpression")
                      <*> (x .:? "Name")
                      <*> (x .:? "Targets" .!= mempty)
-                     <*> (x .:? "DocumentVersion"))
+                     <*> (x .:? "DocumentVersion")
+                     <*> (x .:? "AssociationVersion")
+                     <*> (x .:? "AssociationName"))
 
 instance Hashable Association where
 
@@ -250,6 +268,8 @@ data AssociationDescription = AssociationDescription'
   , _adTargets :: {-# NOUNPACK #-}!(Maybe [Target])
   , _adParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
   , _adDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adAssociationVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _adAssociationName :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -275,7 +295,7 @@ data AssociationDescription = AssociationDescription'
 --
 -- * 'adScheduleExpression' - A cron expression that specifies a schedule when the association runs.
 --
--- * 'adName' - The name of the SSM document.
+-- * 'adName' - The name of the Systems Manager document.
 --
 -- * 'adOutputLocation' - An Amazon S3 bucket where you want to store the output details of the request.
 --
@@ -284,6 +304,10 @@ data AssociationDescription = AssociationDescription'
 -- * 'adParameters' - A description of the parameters for a document.
 --
 -- * 'adDocumentVersion' - The document version.
+--
+-- * 'adAssociationVersion' - The association version.
+--
+-- * 'adAssociationName' - The association name.
 associationDescription
     :: AssociationDescription
 associationDescription =
@@ -302,6 +326,8 @@ associationDescription =
   , _adTargets = Nothing
   , _adParameters = Nothing
   , _adDocumentVersion = Nothing
+  , _adAssociationVersion = Nothing
+  , _adAssociationName = Nothing
   }
 
 
@@ -341,7 +367,7 @@ adLastExecutionDate = lens _adLastExecutionDate (\ s a -> s{_adLastExecutionDate
 adScheduleExpression :: Lens' AssociationDescription (Maybe Text)
 adScheduleExpression = lens _adScheduleExpression (\ s a -> s{_adScheduleExpression = a});
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 adName :: Lens' AssociationDescription (Maybe Text)
 adName = lens _adName (\ s a -> s{_adName = a});
 
@@ -361,6 +387,14 @@ adParameters = lens _adParameters (\ s a -> s{_adParameters = a}) . _Default . _
 adDocumentVersion :: Lens' AssociationDescription (Maybe Text)
 adDocumentVersion = lens _adDocumentVersion (\ s a -> s{_adDocumentVersion = a});
 
+-- | The association version.
+adAssociationVersion :: Lens' AssociationDescription (Maybe Text)
+adAssociationVersion = lens _adAssociationVersion (\ s a -> s{_adAssociationVersion = a});
+
+-- | The association name.
+adAssociationName :: Lens' AssociationDescription (Maybe Text)
+adAssociationName = lens _adAssociationName (\ s a -> s{_adAssociationName = a});
+
 instance FromJSON AssociationDescription where
         parseJSON
           = withObject "AssociationDescription"
@@ -378,7 +412,9 @@ instance FromJSON AssociationDescription where
                      <*> (x .:? "OutputLocation")
                      <*> (x .:? "Targets" .!= mempty)
                      <*> (x .:? "Parameters" .!= mempty)
-                     <*> (x .:? "DocumentVersion"))
+                     <*> (x .:? "DocumentVersion")
+                     <*> (x .:? "AssociationVersion")
+                     <*> (x .:? "AssociationName"))
 
 instance Hashable AssociationDescription where
 
@@ -558,6 +594,124 @@ instance ToJSON AssociationStatus where
                  [("AdditionalInfo" .=) <$> _asAdditionalInfo,
                   Just ("Date" .= _asDate), Just ("Name" .= _asName),
                   Just ("Message" .= _asMessage)])
+
+-- | Information about the association version.
+--
+--
+--
+-- /See:/ 'associationVersionInfo' smart constructor.
+data AssociationVersionInfo = AssociationVersionInfo'
+  { _aviAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aviCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _aviScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aviName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aviOutputLocation :: {-# NOUNPACK #-}!(Maybe InstanceAssociationOutputLocation)
+  , _aviTargets :: {-# NOUNPACK #-}!(Maybe [Target])
+  , _aviParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  , _aviDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aviAssociationVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _aviAssociationName :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AssociationVersionInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aviAssociationId' - The ID created by the system when the association was created.
+--
+-- * 'aviCreatedDate' - The date the association version was created.
+--
+-- * 'aviScheduleExpression' - The cron or rate schedule specified for the association when the association version was created.
+--
+-- * 'aviName' - The name specified when the association was created.
+--
+-- * 'aviOutputLocation' - The location in Amazon S3 specified for the association when the association version was created.
+--
+-- * 'aviTargets' - The targets specified for the association when the association version was created.
+--
+-- * 'aviParameters' - Parameters specified when the association version was created.
+--
+-- * 'aviDocumentVersion' - The version of a Systems Manager document used when the association version was created.
+--
+-- * 'aviAssociationVersion' - The association version.
+--
+-- * 'aviAssociationName' - The name specified for the association version when the association version was created.
+associationVersionInfo
+    :: AssociationVersionInfo
+associationVersionInfo =
+  AssociationVersionInfo'
+  { _aviAssociationId = Nothing
+  , _aviCreatedDate = Nothing
+  , _aviScheduleExpression = Nothing
+  , _aviName = Nothing
+  , _aviOutputLocation = Nothing
+  , _aviTargets = Nothing
+  , _aviParameters = Nothing
+  , _aviDocumentVersion = Nothing
+  , _aviAssociationVersion = Nothing
+  , _aviAssociationName = Nothing
+  }
+
+
+-- | The ID created by the system when the association was created.
+aviAssociationId :: Lens' AssociationVersionInfo (Maybe Text)
+aviAssociationId = lens _aviAssociationId (\ s a -> s{_aviAssociationId = a});
+
+-- | The date the association version was created.
+aviCreatedDate :: Lens' AssociationVersionInfo (Maybe UTCTime)
+aviCreatedDate = lens _aviCreatedDate (\ s a -> s{_aviCreatedDate = a}) . mapping _Time;
+
+-- | The cron or rate schedule specified for the association when the association version was created.
+aviScheduleExpression :: Lens' AssociationVersionInfo (Maybe Text)
+aviScheduleExpression = lens _aviScheduleExpression (\ s a -> s{_aviScheduleExpression = a});
+
+-- | The name specified when the association was created.
+aviName :: Lens' AssociationVersionInfo (Maybe Text)
+aviName = lens _aviName (\ s a -> s{_aviName = a});
+
+-- | The location in Amazon S3 specified for the association when the association version was created.
+aviOutputLocation :: Lens' AssociationVersionInfo (Maybe InstanceAssociationOutputLocation)
+aviOutputLocation = lens _aviOutputLocation (\ s a -> s{_aviOutputLocation = a});
+
+-- | The targets specified for the association when the association version was created.
+aviTargets :: Lens' AssociationVersionInfo [Target]
+aviTargets = lens _aviTargets (\ s a -> s{_aviTargets = a}) . _Default . _Coerce;
+
+-- | Parameters specified when the association version was created.
+aviParameters :: Lens' AssociationVersionInfo (HashMap Text [Text])
+aviParameters = lens _aviParameters (\ s a -> s{_aviParameters = a}) . _Default . _Map;
+
+-- | The version of a Systems Manager document used when the association version was created.
+aviDocumentVersion :: Lens' AssociationVersionInfo (Maybe Text)
+aviDocumentVersion = lens _aviDocumentVersion (\ s a -> s{_aviDocumentVersion = a});
+
+-- | The association version.
+aviAssociationVersion :: Lens' AssociationVersionInfo (Maybe Text)
+aviAssociationVersion = lens _aviAssociationVersion (\ s a -> s{_aviAssociationVersion = a});
+
+-- | The name specified for the association version when the association version was created.
+aviAssociationName :: Lens' AssociationVersionInfo (Maybe Text)
+aviAssociationName = lens _aviAssociationName (\ s a -> s{_aviAssociationName = a});
+
+instance FromJSON AssociationVersionInfo where
+        parseJSON
+          = withObject "AssociationVersionInfo"
+              (\ x ->
+                 AssociationVersionInfo' <$>
+                   (x .:? "AssociationId") <*> (x .:? "CreatedDate") <*>
+                     (x .:? "ScheduleExpression")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "OutputLocation")
+                     <*> (x .:? "Targets" .!= mempty)
+                     <*> (x .:? "Parameters" .!= mempty)
+                     <*> (x .:? "DocumentVersion")
+                     <*> (x .:? "AssociationVersion")
+                     <*> (x .:? "AssociationName"))
+
+instance Hashable AssociationVersionInfo where
+
+instance NFData AssociationVersionInfo where
 
 -- | Detailed information about the current state of an individual Automation execution.
 --
@@ -1465,7 +1619,7 @@ data ComplianceItem = ComplianceItem'
 --
 -- * 'ciResourceType' - The type of resource. @ManagedInstance@ is currently the only supported resource type.
 --
--- * 'ciSeverity' - The severity of the compliance status. Severity can be one of the following: Critical, HIGH, Medium, Low, Informational, Unspecified.
+-- * 'ciSeverity' - The severity of the compliance status. Severity can be one of the following: Critical, High, Medium, Low, Informational, Unspecified.
 --
 -- * 'ciExecutionSummary' - A summary for the compliance item. The summary includes an execution ID, the execution type (for example, command), and the execution time.
 --
@@ -1473,7 +1627,7 @@ data ComplianceItem = ComplianceItem'
 --
 -- * 'ciId' - An ID for the compliance item. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article. Here's an example: KB4010320.
 --
--- * 'ciComplianceType' - The compliance type. For example, Association (for a State Manager association), Patch, or Custom:@string@ are all valide compliance types.
+-- * 'ciComplianceType' - The compliance type. For example, Association (for a State Manager association), Patch, or Custom:@string@ are all valid compliance types.
 --
 -- * 'ciTitle' - A title for the compliance item. For example, if the compliance item is a Windows patch, the title could be the title of the KB article for the patch. Here's an example: Security Update for Active Directory Federation Services.
 complianceItem
@@ -1504,7 +1658,7 @@ ciResourceId = lens _ciResourceId (\ s a -> s{_ciResourceId = a});
 ciResourceType :: Lens' ComplianceItem (Maybe Text)
 ciResourceType = lens _ciResourceType (\ s a -> s{_ciResourceType = a});
 
--- | The severity of the compliance status. Severity can be one of the following: Critical, HIGH, Medium, Low, Informational, Unspecified.
+-- | The severity of the compliance status. Severity can be one of the following: Critical, High, Medium, Low, Informational, Unspecified.
 ciSeverity :: Lens' ComplianceItem (Maybe ComplianceSeverity)
 ciSeverity = lens _ciSeverity (\ s a -> s{_ciSeverity = a});
 
@@ -1520,7 +1674,7 @@ ciDetails = lens _ciDetails (\ s a -> s{_ciDetails = a}) . _Default . _Map;
 ciId :: Lens' ComplianceItem (Maybe Text)
 ciId = lens _ciId (\ s a -> s{_ciId = a});
 
--- | The compliance type. For example, Association (for a State Manager association), Patch, or Custom:@string@ are all valide compliance types.
+-- | The compliance type. For example, Association (for a State Manager association), Patch, or Custom:@string@ are all valid compliance types.
 ciComplianceType :: Lens' ComplianceItem (Maybe Text)
 ciComplianceType = lens _ciComplianceType (\ s a -> s{_ciComplianceType = a});
 
@@ -1636,7 +1790,7 @@ data ComplianceStringFilter = ComplianceStringFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csfValues' - The value you want to search for.
+-- * 'csfValues' - The value for which to search.
 --
 -- * 'csfKey' - The name of the filter.
 --
@@ -1648,7 +1802,7 @@ complianceStringFilter =
   {_csfValues = Nothing, _csfKey = Nothing, _csfType = Nothing}
 
 
--- | The value you want to search for.
+-- | The value for which to search.
 csfValues :: Lens' ComplianceStringFilter (Maybe (NonEmpty Text))
 csfValues = lens _csfValues (\ s a -> s{_csfValues = a}) . mapping _List1;
 
@@ -1783,6 +1937,7 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
   , _cabreTargets :: {-# NOUNPACK #-}!(Maybe [Target])
   , _cabreParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
   , _cabreDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cabreAssociationName :: {-# NOUNPACK #-}!(Maybe Text)
   , _cabreName :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -1803,6 +1958,8 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 --
 -- * 'cabreDocumentVersion' - The document version.
 --
+-- * 'cabreAssociationName' - Specify a descriptive name for the association.
+--
 -- * 'cabreName' - The name of the configuration document.
 createAssociationBatchRequestEntry
     :: Text -- ^ 'cabreName'
@@ -1815,6 +1972,7 @@ createAssociationBatchRequestEntry pName_ =
   , _cabreTargets = Nothing
   , _cabreParameters = Nothing
   , _cabreDocumentVersion = Nothing
+  , _cabreAssociationName = Nothing
   , _cabreName = pName_
   }
 
@@ -1843,6 +2001,10 @@ cabreParameters = lens _cabreParameters (\ s a -> s{_cabreParameters = a}) . _De
 cabreDocumentVersion :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
 cabreDocumentVersion = lens _cabreDocumentVersion (\ s a -> s{_cabreDocumentVersion = a});
 
+-- | Specify a descriptive name for the association.
+cabreAssociationName :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
+cabreAssociationName = lens _cabreAssociationName (\ s a -> s{_cabreAssociationName = a});
+
 -- | The name of the configuration document.
 cabreName :: Lens' CreateAssociationBatchRequestEntry Text
 cabreName = lens _cabreName (\ s a -> s{_cabreName = a});
@@ -1858,6 +2020,7 @@ instance FromJSON CreateAssociationBatchRequestEntry
                      <*> (x .:? "Targets" .!= mempty)
                      <*> (x .:? "Parameters" .!= mempty)
                      <*> (x .:? "DocumentVersion")
+                     <*> (x .:? "AssociationName")
                      <*> (x .: "Name"))
 
 instance Hashable CreateAssociationBatchRequestEntry
@@ -1878,6 +2041,7 @@ instance ToJSON CreateAssociationBatchRequestEntry
                   ("Targets" .=) <$> _cabreTargets,
                   ("Parameters" .=) <$> _cabreParameters,
                   ("DocumentVersion" .=) <$> _cabreDocumentVersion,
+                  ("AssociationName" .=) <$> _cabreAssociationName,
                   Just ("Name" .= _cabreName)])
 
 -- | Filter for the DescribeActivation API.
@@ -1971,7 +2135,7 @@ instance Hashable DocumentDefaultVersionDescription
 instance NFData DocumentDefaultVersionDescription
          where
 
--- | Describes an SSM document.
+-- | Describes a Systems Manager document.
 --
 --
 --
@@ -1991,6 +2155,7 @@ data DocumentDescription = DocumentDescription'
   , _dParameters      :: {-# NOUNPACK #-}!(Maybe [DocumentParameter])
   , _dDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
   , _dDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dTags            :: {-# NOUNPACK #-}!(Maybe [Tag])
   , _dLatestVersion   :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -1999,7 +2164,7 @@ data DocumentDescription = DocumentDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dStatus' - The status of the SSM document.
+-- * 'dStatus' - The status of the Systems Manager document.
 --
 -- * 'dDocumentType' - The type of document.
 --
@@ -2007,17 +2172,17 @@ data DocumentDescription = DocumentDescription'
 --
 -- * 'dSchemaVersion' - The schema version.
 --
--- * 'dSha1' - The SHA1 hash of the document, which you can use for verification purposes.
+-- * 'dSha1' - The SHA1 hash of the document, which you can use for verification.
 --
 -- * 'dDefaultVersion' - The default version.
 --
--- * 'dOwner' - The AWS user account of the person who created the document.
+-- * 'dOwner' - The AWS user account that created the document.
 --
--- * 'dPlatformTypes' - The list of OS platforms compatible with this SSM document.
+-- * 'dPlatformTypes' - The list of OS platforms compatible with this Systems Manager document.
 --
 -- * 'dCreatedDate' - The date when the document was created.
 --
--- * 'dName' - The name of the SSM document.
+-- * 'dName' - The name of the Systems Manager document.
 --
 -- * 'dHashType' - Sha256 or Sha1.
 --
@@ -2026,6 +2191,8 @@ data DocumentDescription = DocumentDescription'
 -- * 'dDocumentVersion' - The document version.
 --
 -- * 'dDescription' - A description of the document.
+--
+-- * 'dTags' - The tags, or metadata, that have been applied to the document.
 --
 -- * 'dLatestVersion' - The latest version of the document.
 documentDescription
@@ -2046,11 +2213,12 @@ documentDescription =
   , _dParameters = Nothing
   , _dDocumentVersion = Nothing
   , _dDescription = Nothing
+  , _dTags = Nothing
   , _dLatestVersion = Nothing
   }
 
 
--- | The status of the SSM document.
+-- | The status of the Systems Manager document.
 dStatus :: Lens' DocumentDescription (Maybe DocumentStatus)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
@@ -2066,7 +2234,7 @@ dHash = lens _dHash (\ s a -> s{_dHash = a});
 dSchemaVersion :: Lens' DocumentDescription (Maybe Text)
 dSchemaVersion = lens _dSchemaVersion (\ s a -> s{_dSchemaVersion = a});
 
--- | The SHA1 hash of the document, which you can use for verification purposes.
+-- | The SHA1 hash of the document, which you can use for verification.
 dSha1 :: Lens' DocumentDescription (Maybe Text)
 dSha1 = lens _dSha1 (\ s a -> s{_dSha1 = a});
 
@@ -2074,11 +2242,11 @@ dSha1 = lens _dSha1 (\ s a -> s{_dSha1 = a});
 dDefaultVersion :: Lens' DocumentDescription (Maybe Text)
 dDefaultVersion = lens _dDefaultVersion (\ s a -> s{_dDefaultVersion = a});
 
--- | The AWS user account of the person who created the document.
+-- | The AWS user account that created the document.
 dOwner :: Lens' DocumentDescription (Maybe Text)
 dOwner = lens _dOwner (\ s a -> s{_dOwner = a});
 
--- | The list of OS platforms compatible with this SSM document.
+-- | The list of OS platforms compatible with this Systems Manager document.
 dPlatformTypes :: Lens' DocumentDescription [PlatformType]
 dPlatformTypes = lens _dPlatformTypes (\ s a -> s{_dPlatformTypes = a}) . _Default . _Coerce;
 
@@ -2086,7 +2254,7 @@ dPlatformTypes = lens _dPlatformTypes (\ s a -> s{_dPlatformTypes = a}) . _Defau
 dCreatedDate :: Lens' DocumentDescription (Maybe UTCTime)
 dCreatedDate = lens _dCreatedDate (\ s a -> s{_dCreatedDate = a}) . mapping _Time;
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 dName :: Lens' DocumentDescription (Maybe Text)
 dName = lens _dName (\ s a -> s{_dName = a});
 
@@ -2105,6 +2273,10 @@ dDocumentVersion = lens _dDocumentVersion (\ s a -> s{_dDocumentVersion = a});
 -- | A description of the document.
 dDescription :: Lens' DocumentDescription (Maybe Text)
 dDescription = lens _dDescription (\ s a -> s{_dDescription = a});
+
+-- | The tags, or metadata, that have been applied to the document.
+dTags :: Lens' DocumentDescription [Tag]
+dTags = lens _dTags (\ s a -> s{_dTags = a}) . _Default . _Coerce;
 
 -- | The latest version of the document.
 dLatestVersion :: Lens' DocumentDescription (Maybe Text)
@@ -2128,6 +2300,7 @@ instance FromJSON DocumentDescription where
                      <*> (x .:? "Parameters" .!= mempty)
                      <*> (x .:? "DocumentVersion")
                      <*> (x .:? "Description")
+                     <*> (x .:? "Tags" .!= mempty)
                      <*> (x .:? "LatestVersion"))
 
 instance Hashable DocumentDescription where
@@ -2178,7 +2351,7 @@ instance ToJSON DocumentFilter where
               (catMaybes
                  [Just ("key" .= _dfKey), Just ("value" .= _dfValue)])
 
--- | Describes the name of an SSM document.
+-- | Describes the name of a Systems Manager document.
 --
 --
 --
@@ -2190,6 +2363,7 @@ data DocumentIdentifier = DocumentIdentifier'
   , _diPlatformTypes   :: {-# NOUNPACK #-}!(Maybe [PlatformType])
   , _diName            :: {-# NOUNPACK #-}!(Maybe Text)
   , _diDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diTags            :: {-# NOUNPACK #-}!(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2201,13 +2375,15 @@ data DocumentIdentifier = DocumentIdentifier'
 --
 -- * 'diSchemaVersion' - The schema version.
 --
--- * 'diOwner' - The AWS user account of the person who created the document.
+-- * 'diOwner' - The AWS user account that created the document.
 --
 -- * 'diPlatformTypes' - The operating system platform.
 --
--- * 'diName' - The name of the SSM document.
+-- * 'diName' - The name of the Systems Manager document.
 --
 -- * 'diDocumentVersion' - The document version.
+--
+-- * 'diTags' - The tags, or metadata, that have been applied to the document.
 documentIdentifier
     :: DocumentIdentifier
 documentIdentifier =
@@ -2218,6 +2394,7 @@ documentIdentifier =
   , _diPlatformTypes = Nothing
   , _diName = Nothing
   , _diDocumentVersion = Nothing
+  , _diTags = Nothing
   }
 
 
@@ -2229,7 +2406,7 @@ diDocumentType = lens _diDocumentType (\ s a -> s{_diDocumentType = a});
 diSchemaVersion :: Lens' DocumentIdentifier (Maybe Text)
 diSchemaVersion = lens _diSchemaVersion (\ s a -> s{_diSchemaVersion = a});
 
--- | The AWS user account of the person who created the document.
+-- | The AWS user account that created the document.
 diOwner :: Lens' DocumentIdentifier (Maybe Text)
 diOwner = lens _diOwner (\ s a -> s{_diOwner = a});
 
@@ -2237,13 +2414,17 @@ diOwner = lens _diOwner (\ s a -> s{_diOwner = a});
 diPlatformTypes :: Lens' DocumentIdentifier [PlatformType]
 diPlatformTypes = lens _diPlatformTypes (\ s a -> s{_diPlatformTypes = a}) . _Default . _Coerce;
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 diName :: Lens' DocumentIdentifier (Maybe Text)
 diName = lens _diName (\ s a -> s{_diName = a});
 
 -- | The document version.
 diDocumentVersion :: Lens' DocumentIdentifier (Maybe Text)
 diDocumentVersion = lens _diDocumentVersion (\ s a -> s{_diDocumentVersion = a});
+
+-- | The tags, or metadata, that have been applied to the document.
+diTags :: Lens' DocumentIdentifier [Tag]
+diTags = lens _diTags (\ s a -> s{_diTags = a}) . _Default . _Coerce;
 
 instance FromJSON DocumentIdentifier where
         parseJSON
@@ -2254,11 +2435,73 @@ instance FromJSON DocumentIdentifier where
                      <*> (x .:? "Owner")
                      <*> (x .:? "PlatformTypes" .!= mempty)
                      <*> (x .:? "Name")
-                     <*> (x .:? "DocumentVersion"))
+                     <*> (x .:? "DocumentVersion")
+                     <*> (x .:? "Tags" .!= mempty))
 
 instance Hashable DocumentIdentifier where
 
 instance NFData DocumentIdentifier where
+
+-- | One or more filters. Use a filter to return a more specific list of documents.
+--
+--
+-- For keys, you can specify one or more tags that have been applied to a document.
+--
+-- Other valid values include Owner, Name, PlatformTypes, and DocumentType.
+--
+-- Note that only one Owner can be specified in a request. For example: @Key=Owner,Values=Self@ .
+--
+-- If you use Name as a key, you can use a name prefix to return a list of documents. For example, in the AWS CLI, to return a list of all documents that begin with @Te@ , run the following command:
+--
+-- @aws ssm list-documents --filters Key=Name,Values=Te@
+--
+-- If you specify more than two keys, only documents that are identified by all the tags are returned in the results. If you specify more than two values for a key, documents that are identified by any of the values are returned in the results.
+--
+-- To specify a custom key and value pair, use the format @Key=tag:[tagName],Values=[valueName]@ .
+--
+-- For example, if you created a Key called region and are using the AWS CLI to call the @list-documents@ command:
+--
+-- @aws ssm list-documents --filters Key=tag:region,Values=east,west Key=Owner,Values=Self@
+--
+--
+-- /See:/ 'documentKeyValuesFilter' smart constructor.
+data DocumentKeyValuesFilter = DocumentKeyValuesFilter'
+  { _dkvfValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dkvfKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DocumentKeyValuesFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dkvfValues' - The value for the filter key.
+--
+-- * 'dkvfKey' - The name of the filter key.
+documentKeyValuesFilter
+    :: DocumentKeyValuesFilter
+documentKeyValuesFilter =
+  DocumentKeyValuesFilter' {_dkvfValues = Nothing, _dkvfKey = Nothing}
+
+
+-- | The value for the filter key.
+dkvfValues :: Lens' DocumentKeyValuesFilter [Text]
+dkvfValues = lens _dkvfValues (\ s a -> s{_dkvfValues = a}) . _Default . _Coerce;
+
+-- | The name of the filter key.
+dkvfKey :: Lens' DocumentKeyValuesFilter (Maybe Text)
+dkvfKey = lens _dkvfKey (\ s a -> s{_dkvfKey = a});
+
+instance Hashable DocumentKeyValuesFilter where
+
+instance NFData DocumentKeyValuesFilter where
+
+instance ToJSON DocumentKeyValuesFilter where
+        toJSON DocumentKeyValuesFilter'{..}
+          = object
+              (catMaybes
+                 [("Values" .=) <$> _dkvfValues,
+                  ("Key" .=) <$> _dkvfKey])
 
 -- | Parameters specified in a System Manager document that execute on the server when the command is run.
 --
@@ -2593,9 +2836,10 @@ instance NFData InstanceAggregatedAssociationOverview
 --
 -- /See:/ 'instanceAssociation' smart constructor.
 data InstanceAssociation = InstanceAssociation'
-  { _iaAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iaInstanceId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iaContent       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iaAssociationId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iaInstanceId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iaContent            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iaAssociationVersion :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2608,11 +2852,17 @@ data InstanceAssociation = InstanceAssociation'
 -- * 'iaInstanceId' - The instance ID.
 --
 -- * 'iaContent' - The content of the association document for the instance(s).
+--
+-- * 'iaAssociationVersion' - Version information for the association on the instance.
 instanceAssociation
     :: InstanceAssociation
 instanceAssociation =
   InstanceAssociation'
-  {_iaAssociationId = Nothing, _iaInstanceId = Nothing, _iaContent = Nothing}
+  { _iaAssociationId = Nothing
+  , _iaInstanceId = Nothing
+  , _iaContent = Nothing
+  , _iaAssociationVersion = Nothing
+  }
 
 
 -- | The association ID.
@@ -2627,13 +2877,18 @@ iaInstanceId = lens _iaInstanceId (\ s a -> s{_iaInstanceId = a});
 iaContent :: Lens' InstanceAssociation (Maybe Text)
 iaContent = lens _iaContent (\ s a -> s{_iaContent = a});
 
+-- | Version information for the association on the instance.
+iaAssociationVersion :: Lens' InstanceAssociation (Maybe Text)
+iaAssociationVersion = lens _iaAssociationVersion (\ s a -> s{_iaAssociationVersion = a});
+
 instance FromJSON InstanceAssociation where
         parseJSON
           = withObject "InstanceAssociation"
               (\ x ->
                  InstanceAssociation' <$>
                    (x .:? "AssociationId") <*> (x .:? "InstanceId") <*>
-                     (x .:? "Content"))
+                     (x .:? "Content")
+                     <*> (x .:? "AssociationVersion"))
 
 instance Hashable InstanceAssociation where
 
@@ -2735,7 +2990,9 @@ data InstanceAssociationStatusInfo = InstanceAssociationStatusInfo'
   , _iasiName :: {-# NOUNPACK #-}!(Maybe Text)
   , _iasiErrorCode :: {-# NOUNPACK #-}!(Maybe Text)
   , _iasiDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _iasiAssociationVersion :: {-# NOUNPACK #-}!(Maybe Text)
   , _iasiExecutionDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _iasiAssociationName :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2761,7 +3018,11 @@ data InstanceAssociationStatusInfo = InstanceAssociationStatusInfo'
 --
 -- * 'iasiDocumentVersion' - The association document verions.
 --
+-- * 'iasiAssociationVersion' - The version of the association applied to the instance.
+--
 -- * 'iasiExecutionDate' - The date the instance association executed.
+--
+-- * 'iasiAssociationName' - The name of the association applied to the instance.
 instanceAssociationStatusInfo
     :: InstanceAssociationStatusInfo
 instanceAssociationStatusInfo =
@@ -2775,7 +3036,9 @@ instanceAssociationStatusInfo =
   , _iasiName = Nothing
   , _iasiErrorCode = Nothing
   , _iasiDocumentVersion = Nothing
+  , _iasiAssociationVersion = Nothing
   , _iasiExecutionDate = Nothing
+  , _iasiAssociationName = Nothing
   }
 
 
@@ -2815,9 +3078,17 @@ iasiErrorCode = lens _iasiErrorCode (\ s a -> s{_iasiErrorCode = a});
 iasiDocumentVersion :: Lens' InstanceAssociationStatusInfo (Maybe Text)
 iasiDocumentVersion = lens _iasiDocumentVersion (\ s a -> s{_iasiDocumentVersion = a});
 
+-- | The version of the association applied to the instance.
+iasiAssociationVersion :: Lens' InstanceAssociationStatusInfo (Maybe Text)
+iasiAssociationVersion = lens _iasiAssociationVersion (\ s a -> s{_iasiAssociationVersion = a});
+
 -- | The date the instance association executed.
 iasiExecutionDate :: Lens' InstanceAssociationStatusInfo (Maybe UTCTime)
 iasiExecutionDate = lens _iasiExecutionDate (\ s a -> s{_iasiExecutionDate = a}) . mapping _Time;
+
+-- | The name of the association applied to the instance.
+iasiAssociationName :: Lens' InstanceAssociationStatusInfo (Maybe Text)
+iasiAssociationName = lens _iasiAssociationName (\ s a -> s{_iasiAssociationName = a});
 
 instance FromJSON InstanceAssociationStatusInfo where
         parseJSON
@@ -2832,7 +3103,9 @@ instance FromJSON InstanceAssociationStatusInfo where
                      <*> (x .:? "Name")
                      <*> (x .:? "ErrorCode")
                      <*> (x .:? "DocumentVersion")
-                     <*> (x .:? "ExecutionDate"))
+                     <*> (x .:? "AssociationVersion")
+                     <*> (x .:? "ExecutionDate")
+                     <*> (x .:? "AssociationName"))
 
 instance Hashable InstanceAssociationStatusInfo where
 
@@ -3759,7 +4032,7 @@ instance ToJSON LoggingInfo where
                   Just ("S3BucketName" .= _liS3BucketName),
                   Just ("S3Region" .= _liS3Region)])
 
--- | Parameters for an AUTOMATION task type.
+-- | The parameters for an AUTOMATION task type.
 --
 --
 --
@@ -3774,9 +4047,9 @@ data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParamete
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mwapParameters' - Parameters for the AUTOMATION task.
+-- * 'mwapParameters' - The parameters for the AUTOMATION task.
 --
--- * 'mwapDocumentVersion' - The version of an SSM Automation document to use during task execution.
+-- * 'mwapDocumentVersion' - The version of an Automation document to use during task execution.
 maintenanceWindowAutomationParameters
     :: MaintenanceWindowAutomationParameters
 maintenanceWindowAutomationParameters =
@@ -3784,11 +4057,11 @@ maintenanceWindowAutomationParameters =
   {_mwapParameters = Nothing, _mwapDocumentVersion = Nothing}
 
 
--- | Parameters for the AUTOMATION task.
+-- | The parameters for the AUTOMATION task.
 mwapParameters :: Lens' MaintenanceWindowAutomationParameters (HashMap Text [Text])
 mwapParameters = lens _mwapParameters (\ s a -> s{_mwapParameters = a}) . _Default . _Map;
 
--- | The version of an SSM Automation document to use during task execution.
+-- | The version of an Automation document to use during task execution.
 mwapDocumentVersion :: Lens' MaintenanceWindowAutomationParameters (Maybe Text)
 mwapDocumentVersion = lens _mwapDocumentVersion (\ s a -> s{_mwapDocumentVersion = a});
 
@@ -4273,7 +4546,7 @@ instance Hashable MaintenanceWindowIdentity where
 
 instance NFData MaintenanceWindowIdentity where
 
--- | Parameters for a LAMBDA task type.
+-- | The parameters for a LAMBDA task type.
 --
 --
 --
@@ -4289,11 +4562,11 @@ data MaintenanceWindowLambdaParameters = MaintenanceWindowLambdaParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mwlpPayload' - JSON that you want to provide to your Lambda function as input.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'mwlpPayload' - JSON to provide to your Lambda function as input.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'mwlpQualifier' - You can use this optional parameter to specify a Lambda function version or alias name. If you specify a function version, the API uses the qualified function ARN to invoke a specific Lambda function. If you specify an alias name, the API uses the alias ARN to invoke the Lambda function version to which the alias points.
+-- * 'mwlpQualifier' - (Optional) Specify a Lambda function version or alias name. If you specify a function version, the action uses the qualified function ARN to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version to which the alias points.
 --
--- * 'mwlpClientContext' - Using the ClientContext you can pass client-specific information to the Lambda function you are invoking. You can then process the client information in your Lambda function as you choose through the context variable.
+-- * 'mwlpClientContext' - Pass client-specific information to the Lambda function that you are invoking. You can then process the client information in your Lambda function as you choose through the context variable.
 maintenanceWindowLambdaParameters
     :: MaintenanceWindowLambdaParameters
 maintenanceWindowLambdaParameters =
@@ -4304,15 +4577,15 @@ maintenanceWindowLambdaParameters =
   }
 
 
--- | JSON that you want to provide to your Lambda function as input.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | JSON to provide to your Lambda function as input.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 mwlpPayload :: Lens' MaintenanceWindowLambdaParameters (Maybe ByteString)
 mwlpPayload = lens _mwlpPayload (\ s a -> s{_mwlpPayload = a}) . mapping (_Sensitive . _Base64);
 
--- | You can use this optional parameter to specify a Lambda function version or alias name. If you specify a function version, the API uses the qualified function ARN to invoke a specific Lambda function. If you specify an alias name, the API uses the alias ARN to invoke the Lambda function version to which the alias points.
+-- | (Optional) Specify a Lambda function version or alias name. If you specify a function version, the action uses the qualified function ARN to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version to which the alias points.
 mwlpQualifier :: Lens' MaintenanceWindowLambdaParameters (Maybe Text)
 mwlpQualifier = lens _mwlpQualifier (\ s a -> s{_mwlpQualifier = a});
 
--- | Using the ClientContext you can pass client-specific information to the Lambda function you are invoking. You can then process the client information in your Lambda function as you choose through the context variable.
+-- | Pass client-specific information to the Lambda function that you are invoking. You can then process the client information in your Lambda function as you choose through the context variable.
 mwlpClientContext :: Lens' MaintenanceWindowLambdaParameters (Maybe Text)
 mwlpClientContext = lens _mwlpClientContext (\ s a -> s{_mwlpClientContext = a});
 
@@ -4340,7 +4613,7 @@ instance ToJSON MaintenanceWindowLambdaParameters
                   ("Qualifier" .=) <$> _mwlpQualifier,
                   ("ClientContext" .=) <$> _mwlpClientContext])
 
--- | Parameters for a RUN_COMMAND task type.
+-- | The parameters for a RUN_COMMAND task type.
 --
 --
 --
@@ -4362,19 +4635,19 @@ data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParamete
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mwrcpServiceRoleARN' - The IAM service role that to assume during task execution.
+-- * 'mwrcpServiceRoleARN' - The IAM service role to assume during task execution.
 --
--- * 'mwrcpNotificationConfig' - Configurations for sending notifications about command status changes on a per instance basis.
+-- * 'mwrcpNotificationConfig' - Configurations for sending notifications about command status changes on a per-instance basis.
 --
--- * 'mwrcpDocumentHashType' - Sha256 or Sha1. Sha1 hashes have been deprecated.
+-- * 'mwrcpDocumentHashType' - SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
 --
 -- * 'mwrcpOutputS3KeyPrefix' - The Amazon S3 bucket subfolder.
 --
--- * 'mwrcpParameters' - Parameters for the RUN_COMMAND task execution.
+-- * 'mwrcpParameters' - The parameters for the RUN_COMMAND task execution.
 --
--- * 'mwrcpDocumentHash' - The Sha256 or Sha1 hash created by the system when the document was created. Sha1 hashes have been deprecated.
+-- * 'mwrcpDocumentHash' - The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
 --
--- * 'mwrcpTimeoutSeconds' - If this time is reached and the command has not already started executing, it will not execute.
+-- * 'mwrcpTimeoutSeconds' - If this time is reached and the command has not already started executing, it doesn not execute.
 --
 -- * 'mwrcpComment' - Information about the command(s) to execute.
 --
@@ -4395,15 +4668,15 @@ maintenanceWindowRunCommandParameters =
   }
 
 
--- | The IAM service role that to assume during task execution.
+-- | The IAM service role to assume during task execution.
 mwrcpServiceRoleARN :: Lens' MaintenanceWindowRunCommandParameters (Maybe Text)
 mwrcpServiceRoleARN = lens _mwrcpServiceRoleARN (\ s a -> s{_mwrcpServiceRoleARN = a});
 
--- | Configurations for sending notifications about command status changes on a per instance basis.
+-- | Configurations for sending notifications about command status changes on a per-instance basis.
 mwrcpNotificationConfig :: Lens' MaintenanceWindowRunCommandParameters (Maybe NotificationConfig)
 mwrcpNotificationConfig = lens _mwrcpNotificationConfig (\ s a -> s{_mwrcpNotificationConfig = a});
 
--- | Sha256 or Sha1. Sha1 hashes have been deprecated.
+-- | SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
 mwrcpDocumentHashType :: Lens' MaintenanceWindowRunCommandParameters (Maybe DocumentHashType)
 mwrcpDocumentHashType = lens _mwrcpDocumentHashType (\ s a -> s{_mwrcpDocumentHashType = a});
 
@@ -4411,15 +4684,15 @@ mwrcpDocumentHashType = lens _mwrcpDocumentHashType (\ s a -> s{_mwrcpDocumentHa
 mwrcpOutputS3KeyPrefix :: Lens' MaintenanceWindowRunCommandParameters (Maybe Text)
 mwrcpOutputS3KeyPrefix = lens _mwrcpOutputS3KeyPrefix (\ s a -> s{_mwrcpOutputS3KeyPrefix = a});
 
--- | Parameters for the RUN_COMMAND task execution.
+-- | The parameters for the RUN_COMMAND task execution.
 mwrcpParameters :: Lens' MaintenanceWindowRunCommandParameters (HashMap Text [Text])
 mwrcpParameters = lens _mwrcpParameters (\ s a -> s{_mwrcpParameters = a}) . _Default . _Map;
 
--- | The Sha256 or Sha1 hash created by the system when the document was created. Sha1 hashes have been deprecated.
+-- | The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
 mwrcpDocumentHash :: Lens' MaintenanceWindowRunCommandParameters (Maybe Text)
 mwrcpDocumentHash = lens _mwrcpDocumentHash (\ s a -> s{_mwrcpDocumentHash = a});
 
--- | If this time is reached and the command has not already started executing, it will not execute.
+-- | If this time is reached and the command has not already started executing, it doesn not execute.
 mwrcpTimeoutSeconds :: Lens' MaintenanceWindowRunCommandParameters (Maybe Natural)
 mwrcpTimeoutSeconds = lens _mwrcpTimeoutSeconds (\ s a -> s{_mwrcpTimeoutSeconds = a}) . mapping _Nat;
 
@@ -4472,7 +4745,7 @@ instance ToJSON MaintenanceWindowRunCommandParameters
                   ("OutputS3BucketName" .=) <$>
                     _mwrcpOutputS3BucketName])
 
--- | Parameters for the STEP_FUNCTION execution.
+-- | The parameters for the STEP_FUNCTION execution.
 --
 --
 --
@@ -4657,7 +4930,7 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
 --
 -- * 'mwtPriority' - The priority of the task in the Maintenance Window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
 --
--- * 'mwtTaskARN' - TaskArn is the resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the SSM Document Name/ARN. For LAMBDA tasks, it's the Function Name/ARN. For STEP_FUNCTION tasks, it's the State Machine ARN.
+-- * 'mwtTaskARN' - The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, @TaskArn@ is the Systems Manager document name or ARN. For LAMBDA tasks, it's the function name or ARN. For STEP_FUNCTION tasks, it's the state machine ARN.
 --
 -- * 'mwtMaxErrors' - The maximum number of errors allowed before this task stops being scheduled.
 --
@@ -4710,7 +4983,7 @@ mwtTaskParameters = lens _mwtTaskParameters (\ s a -> s{_mwtTaskParameters = a})
 mwtPriority :: Lens' MaintenanceWindowTask (Maybe Natural)
 mwtPriority = lens _mwtPriority (\ s a -> s{_mwtPriority = a}) . mapping _Nat;
 
--- | TaskArn is the resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the SSM Document Name/ARN. For LAMBDA tasks, it's the Function Name/ARN. For STEP_FUNCTION tasks, it's the State Machine ARN.
+-- | The resource that the task uses during execution. For RUN_COMMAND and AUTOMATION task types, @TaskArn@ is the Systems Manager document name or ARN. For LAMBDA tasks, it's the function name or ARN. For STEP_FUNCTION tasks, it's the state machine ARN.
 mwtTaskARN :: Lens' MaintenanceWindowTask (Maybe Text)
 mwtTaskARN = lens _mwtTaskARN (\ s a -> s{_mwtTaskARN = a});
 
@@ -4768,7 +5041,7 @@ instance Hashable MaintenanceWindowTask where
 
 instance NFData MaintenanceWindowTask where
 
--- | Parameters for task execution.
+-- | The parameters for task execution.
 --
 --
 --
@@ -4785,13 +5058,13 @@ data MaintenanceWindowTaskInvocationParameters = MaintenanceWindowTaskInvocation
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mwtipAutomation' - Parameters for a AUTOMATION task type.
+-- * 'mwtipAutomation' - The parameters for a AUTOMATION task type.
 --
--- * 'mwtipStepFunctions' - Parameters for a STEP_FUNCTION task type.
+-- * 'mwtipStepFunctions' - The parameters for a STEP_FUNCTION task type.
 --
--- * 'mwtipRunCommand' - Parameters for a RUN_COMMAND task type.
+-- * 'mwtipRunCommand' - The parameters for a RUN_COMMAND task type.
 --
--- * 'mwtipLambda' - Parameters for a LAMBDA task type.
+-- * 'mwtipLambda' - The parameters for a LAMBDA task type.
 maintenanceWindowTaskInvocationParameters
     :: MaintenanceWindowTaskInvocationParameters
 maintenanceWindowTaskInvocationParameters =
@@ -4803,19 +5076,19 @@ maintenanceWindowTaskInvocationParameters =
   }
 
 
--- | Parameters for a AUTOMATION task type.
+-- | The parameters for a AUTOMATION task type.
 mwtipAutomation :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowAutomationParameters)
 mwtipAutomation = lens _mwtipAutomation (\ s a -> s{_mwtipAutomation = a});
 
--- | Parameters for a STEP_FUNCTION task type.
+-- | The parameters for a STEP_FUNCTION task type.
 mwtipStepFunctions :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowStepFunctionsParameters)
 mwtipStepFunctions = lens _mwtipStepFunctions (\ s a -> s{_mwtipStepFunctions = a});
 
--- | Parameters for a RUN_COMMAND task type.
+-- | The parameters for a RUN_COMMAND task type.
 mwtipRunCommand :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowRunCommandParameters)
 mwtipRunCommand = lens _mwtipRunCommand (\ s a -> s{_mwtipRunCommand = a});
 
--- | Parameters for a LAMBDA task type.
+-- | The parameters for a LAMBDA task type.
 mwtipLambda :: Lens' MaintenanceWindowTaskInvocationParameters (Maybe MaintenanceWindowLambdaParameters)
 mwtipLambda = lens _mwtipLambda (\ s a -> s{_mwtipLambda = a});
 
@@ -5016,9 +5289,10 @@ instance ToJSON NotificationConfig where
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-  { _pValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pType  :: {-# NOUNPACK #-}!(Maybe ParameterType)
+  { _pValue   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pName    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pVersion :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _pType    :: {-# NOUNPACK #-}!(Maybe ParameterType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5030,10 +5304,14 @@ data Parameter = Parameter'
 --
 -- * 'pName' - The name of the parameter.
 --
+-- * 'pVersion' - The parameter version.
+--
 -- * 'pType' - The type of parameter. Valid values include the following: String, String list, Secure string.
 parameter
     :: Parameter
-parameter = Parameter' {_pValue = Nothing, _pName = Nothing, _pType = Nothing}
+parameter =
+  Parameter'
+  {_pValue = Nothing, _pName = Nothing, _pVersion = Nothing, _pType = Nothing}
 
 
 -- | The parameter value.
@@ -5043,6 +5321,10 @@ pValue = lens _pValue (\ s a -> s{_pValue = a});
 -- | The name of the parameter.
 pName :: Lens' Parameter (Maybe Text)
 pName = lens _pName (\ s a -> s{_pName = a});
+
+-- | The parameter version.
+pVersion :: Lens' Parameter (Maybe Integer)
+pVersion = lens _pVersion (\ s a -> s{_pVersion = a});
 
 -- | The type of parameter. Valid values include the following: String, String list, Secure string.
 pType :: Lens' Parameter (Maybe ParameterType)
@@ -5054,7 +5336,8 @@ instance FromJSON Parameter where
               (\ x ->
                  Parameter' <$>
                    (x .:? "Value") <*> (x .:? "Name") <*>
-                     (x .:? "Type"))
+                     (x .:? "Version")
+                     <*> (x .:? "Type"))
 
 instance Hashable Parameter where
 
@@ -5070,6 +5353,7 @@ data ParameterHistory = ParameterHistory'
   , _phKeyId            :: {-# NOUNPACK #-}!(Maybe Text)
   , _phValue            :: {-# NOUNPACK #-}!(Maybe Text)
   , _phName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _phVersion          :: {-# NOUNPACK #-}!(Maybe Integer)
   , _phLastModifiedUser :: {-# NOUNPACK #-}!(Maybe Text)
   , _phAllowedPattern   :: {-# NOUNPACK #-}!(Maybe Text)
   , _phType             :: {-# NOUNPACK #-}!(Maybe ParameterType)
@@ -5089,6 +5373,8 @@ data ParameterHistory = ParameterHistory'
 --
 -- * 'phName' - The name of the parameter.
 --
+-- * 'phVersion' - The parameter version.
+--
 -- * 'phLastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
 --
 -- * 'phAllowedPattern' - Parameter names can include the following letters and symbols. a-zA-Z0-9_.-
@@ -5104,6 +5390,7 @@ parameterHistory =
   , _phKeyId = Nothing
   , _phValue = Nothing
   , _phName = Nothing
+  , _phVersion = Nothing
   , _phLastModifiedUser = Nothing
   , _phAllowedPattern = Nothing
   , _phType = Nothing
@@ -5126,6 +5413,10 @@ phValue = lens _phValue (\ s a -> s{_phValue = a});
 -- | The name of the parameter.
 phName :: Lens' ParameterHistory (Maybe Text)
 phName = lens _phName (\ s a -> s{_phName = a});
+
+-- | The parameter version.
+phVersion :: Lens' ParameterHistory (Maybe Integer)
+phVersion = lens _phVersion (\ s a -> s{_phVersion = a});
 
 -- | Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
 phLastModifiedUser :: Lens' ParameterHistory (Maybe Text)
@@ -5151,6 +5442,7 @@ instance FromJSON ParameterHistory where
                    (x .:? "LastModifiedDate") <*> (x .:? "KeyId") <*>
                      (x .:? "Value")
                      <*> (x .:? "Name")
+                     <*> (x .:? "Version")
                      <*> (x .:? "LastModifiedUser")
                      <*> (x .:? "AllowedPattern")
                      <*> (x .:? "Type")
@@ -5169,6 +5461,7 @@ data ParameterMetadata = ParameterMetadata'
   { _pmLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
   , _pmKeyId            :: {-# NOUNPACK #-}!(Maybe Text)
   , _pmName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmVersion          :: {-# NOUNPACK #-}!(Maybe Integer)
   , _pmLastModifiedUser :: {-# NOUNPACK #-}!(Maybe Text)
   , _pmAllowedPattern   :: {-# NOUNPACK #-}!(Maybe Text)
   , _pmType             :: {-# NOUNPACK #-}!(Maybe ParameterType)
@@ -5186,6 +5479,8 @@ data ParameterMetadata = ParameterMetadata'
 --
 -- * 'pmName' - The parameter name.
 --
+-- * 'pmVersion' - The parameter version.
+--
 -- * 'pmLastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
 --
 -- * 'pmAllowedPattern' - A parameter name can include only the following letters and symbols. a-zA-Z0-9_.-
@@ -5200,6 +5495,7 @@ parameterMetadata =
   { _pmLastModifiedDate = Nothing
   , _pmKeyId = Nothing
   , _pmName = Nothing
+  , _pmVersion = Nothing
   , _pmLastModifiedUser = Nothing
   , _pmAllowedPattern = Nothing
   , _pmType = Nothing
@@ -5218,6 +5514,10 @@ pmKeyId = lens _pmKeyId (\ s a -> s{_pmKeyId = a});
 -- | The parameter name.
 pmName :: Lens' ParameterMetadata (Maybe Text)
 pmName = lens _pmName (\ s a -> s{_pmName = a});
+
+-- | The parameter version.
+pmVersion :: Lens' ParameterMetadata (Maybe Integer)
+pmVersion = lens _pmVersion (\ s a -> s{_pmVersion = a});
 
 -- | Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
 pmLastModifiedUser :: Lens' ParameterMetadata (Maybe Text)
@@ -5242,6 +5542,7 @@ instance FromJSON ParameterMetadata where
                  ParameterMetadata' <$>
                    (x .:? "LastModifiedDate") <*> (x .:? "KeyId") <*>
                      (x .:? "Name")
+                     <*> (x .:? "Version")
                      <*> (x .:? "LastModifiedUser")
                      <*> (x .:? "AllowedPattern")
                      <*> (x .:? "Type")
@@ -6184,10 +6485,11 @@ instance NFData ResourceDataSyncItem where
 --
 -- /See:/ 'resourceDataSyncS3Destination' smart constructor.
 data ResourceDataSyncS3Destination = ResourceDataSyncS3Destination'
-  { _rdssdPrefix     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdssdBucketName :: {-# NOUNPACK #-}!Text
-  , _rdssdSyncFormat :: {-# NOUNPACK #-}!ResourceDataSyncS3Format
-  , _rdssdRegion     :: {-# NOUNPACK #-}!Text
+  { _rdssdPrefix       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdssdAWSKMSKeyARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rdssdBucketName   :: {-# NOUNPACK #-}!Text
+  , _rdssdSyncFormat   :: {-# NOUNPACK #-}!ResourceDataSyncS3Format
+  , _rdssdRegion       :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6196,6 +6498,8 @@ data ResourceDataSyncS3Destination = ResourceDataSyncS3Destination'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdssdPrefix' - An Amazon S3 prefix for the bucket.
+--
+-- * 'rdssdAWSKMSKeyARN' - The ARN of an encryption key for a destination in Amazon S3. Must belong to the same region as the destination Amazon S3 bucket.
 --
 -- * 'rdssdBucketName' - The name of the Amazon S3 bucket where the aggregated data is stored.
 --
@@ -6210,6 +6514,7 @@ resourceDataSyncS3Destination
 resourceDataSyncS3Destination pBucketName_ pSyncFormat_ pRegion_ =
   ResourceDataSyncS3Destination'
   { _rdssdPrefix = Nothing
+  , _rdssdAWSKMSKeyARN = Nothing
   , _rdssdBucketName = pBucketName_
   , _rdssdSyncFormat = pSyncFormat_
   , _rdssdRegion = pRegion_
@@ -6219,6 +6524,10 @@ resourceDataSyncS3Destination pBucketName_ pSyncFormat_ pRegion_ =
 -- | An Amazon S3 prefix for the bucket.
 rdssdPrefix :: Lens' ResourceDataSyncS3Destination (Maybe Text)
 rdssdPrefix = lens _rdssdPrefix (\ s a -> s{_rdssdPrefix = a});
+
+-- | The ARN of an encryption key for a destination in Amazon S3. Must belong to the same region as the destination Amazon S3 bucket.
+rdssdAWSKMSKeyARN :: Lens' ResourceDataSyncS3Destination (Maybe Text)
+rdssdAWSKMSKeyARN = lens _rdssdAWSKMSKeyARN (\ s a -> s{_rdssdAWSKMSKeyARN = a});
 
 -- | The name of the Amazon S3 bucket where the aggregated data is stored.
 rdssdBucketName :: Lens' ResourceDataSyncS3Destination Text
@@ -6237,8 +6546,9 @@ instance FromJSON ResourceDataSyncS3Destination where
           = withObject "ResourceDataSyncS3Destination"
               (\ x ->
                  ResourceDataSyncS3Destination' <$>
-                   (x .:? "Prefix") <*> (x .: "BucketName") <*>
-                     (x .: "SyncFormat")
+                   (x .:? "Prefix") <*> (x .:? "AWSKMSKeyARN") <*>
+                     (x .: "BucketName")
+                     <*> (x .: "SyncFormat")
                      <*> (x .: "Region"))
 
 instance Hashable ResourceDataSyncS3Destination where
@@ -6250,6 +6560,7 @@ instance ToJSON ResourceDataSyncS3Destination where
           = object
               (catMaybes
                  [("Prefix" .=) <$> _rdssdPrefix,
+                  ("AWSKMSKeyARN" .=) <$> _rdssdAWSKMSKeyARN,
                   Just ("BucketName" .= _rdssdBucketName),
                   Just ("SyncFormat" .= _rdssdSyncFormat),
                   Just ("Region" .= _rdssdRegion)])
@@ -6596,7 +6907,7 @@ instance Hashable StepExecution where
 
 instance NFData StepExecution where
 
--- | Metadata that you assign to your managed instances. Tags enable you to categorize your managed instances in different ways, for example, by purpose, owner, or environment.
+-- | Metadata that you assign to your AWS resources. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. In Systems Manager, you can apply tags to documents, managed instances, Maintenance Windows, Parameter Store parameters, and patch baselines.
 --
 --
 --

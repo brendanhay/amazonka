@@ -66,7 +66,7 @@ data PromoteReadReplica = PromoteReadReplica'
 --
 -- * 'prrBackupRetentionPeriod' - The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Default: 1 Constraints:     * Must be a value from 0 to 8
 --
--- * 'prrDBInstanceIdentifier' - The DB instance identifier. This value is stored as a lowercase string. Constraints:     * Must be the identifier for an existing Read Replica DB instance     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @mydbinstance@
+-- * 'prrDBInstanceIdentifier' - The DB instance identifier. This value is stored as a lowercase string. Constraints:     * Must match the identifier of an existing Read Replica DB instance. Example: @mydbinstance@
 promoteReadReplica
     :: Text -- ^ 'prrDBInstanceIdentifier'
     -> PromoteReadReplica
@@ -86,7 +86,7 @@ prrPreferredBackupWindow = lens _prrPreferredBackupWindow (\ s a -> s{_prrPrefer
 prrBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Int)
 prrBackupRetentionPeriod = lens _prrBackupRetentionPeriod (\ s a -> s{_prrBackupRetentionPeriod = a});
 
--- | The DB instance identifier. This value is stored as a lowercase string. Constraints:     * Must be the identifier for an existing Read Replica DB instance     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @mydbinstance@
+-- | The DB instance identifier. This value is stored as a lowercase string. Constraints:     * Must match the identifier of an existing Read Replica DB instance. Example: @mydbinstance@
 prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
 prrDBInstanceIdentifier = lens _prrDBInstanceIdentifier (\ s a -> s{_prrDBInstanceIdentifier = a});
 

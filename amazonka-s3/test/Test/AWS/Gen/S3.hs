@@ -14,11 +14,11 @@
 module Test.AWS.Gen.S3 where
 
 import Data.Proxy
+import Network.AWS.S3
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.S3
 import Test.AWS.S3.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -154,6 +154,9 @@ import Test.AWS.S3.Internal
 --         , requestDeleteBucketPolicy $
 --             deleteBucketPolicy
 --
+--         , requestGetBucketEncryption $
+--             getBucketEncryption
+--
 --         , requestAbortMultipartUpload $
 --             abortMultipartUpload
 --
@@ -207,6 +210,12 @@ import Test.AWS.S3.Internal
 --
 --         , requestGetBucketPolicy $
 --             getBucketPolicy
+--
+--         , requestPutBucketEncryption $
+--             putBucketEncryption
+--
+--         , requestDeleteBucketEncryption $
+--             deleteBucketEncryption
 --
 --         , requestGetBucketLogging $
 --             getBucketLogging
@@ -367,6 +376,9 @@ import Test.AWS.S3.Internal
 --         , responseDeleteBucketPolicy $
 --             deleteBucketPolicyResponse
 --
+--         , responseGetBucketEncryption $
+--             getBucketEncryptionResponse
+--
 --         , responseAbortMultipartUpload $
 --             abortMultipartUploadResponse
 --
@@ -420,6 +432,12 @@ import Test.AWS.S3.Internal
 --
 --         , responseGetBucketPolicy $
 --             getBucketPolicyResponse
+--
+--         , responsePutBucketEncryption $
+--             putBucketEncryptionResponse
+--
+--         , responseDeleteBucketEncryption $
+--             deleteBucketEncryptionResponse
 --
 --         , responseGetBucketLogging $
 --             getBucketLoggingResponse
@@ -656,6 +674,11 @@ requestDeleteBucketPolicy = req
     "DeleteBucketPolicy"
     "fixture/DeleteBucketPolicy.yaml"
 
+requestGetBucketEncryption :: GetBucketEncryption -> TestTree
+requestGetBucketEncryption = req
+    "GetBucketEncryption"
+    "fixture/GetBucketEncryption.yaml"
+
 requestAbortMultipartUpload :: AbortMultipartUpload -> TestTree
 requestAbortMultipartUpload = req
     "AbortMultipartUpload"
@@ -745,6 +768,16 @@ requestGetBucketPolicy :: GetBucketPolicy -> TestTree
 requestGetBucketPolicy = req
     "GetBucketPolicy"
     "fixture/GetBucketPolicy.yaml"
+
+requestPutBucketEncryption :: PutBucketEncryption -> TestTree
+requestPutBucketEncryption = req
+    "PutBucketEncryption"
+    "fixture/PutBucketEncryption.yaml"
+
+requestDeleteBucketEncryption :: DeleteBucketEncryption -> TestTree
+requestDeleteBucketEncryption = req
+    "DeleteBucketEncryption"
+    "fixture/DeleteBucketEncryption.yaml"
 
 requestGetBucketLogging :: GetBucketLogging -> TestTree
 requestGetBucketLogging = req
@@ -1085,6 +1118,13 @@ responseDeleteBucketPolicy = res
     s3
     (Proxy :: Proxy DeleteBucketPolicy)
 
+responseGetBucketEncryption :: GetBucketEncryptionResponse -> TestTree
+responseGetBucketEncryption = res
+    "GetBucketEncryptionResponse"
+    "fixture/GetBucketEncryptionResponse.proto"
+    s3
+    (Proxy :: Proxy GetBucketEncryption)
+
 responseAbortMultipartUpload :: AbortMultipartUploadResponse -> TestTree
 responseAbortMultipartUpload = res
     "AbortMultipartUploadResponse"
@@ -1203,6 +1243,20 @@ responseGetBucketPolicy = res
     "fixture/GetBucketPolicyResponse.proto"
     s3
     (Proxy :: Proxy GetBucketPolicy)
+
+responsePutBucketEncryption :: PutBucketEncryptionResponse -> TestTree
+responsePutBucketEncryption = res
+    "PutBucketEncryptionResponse"
+    "fixture/PutBucketEncryptionResponse.proto"
+    s3
+    (Proxy :: Proxy PutBucketEncryption)
+
+responseDeleteBucketEncryption :: DeleteBucketEncryptionResponse -> TestTree
+responseDeleteBucketEncryption = res
+    "DeleteBucketEncryptionResponse"
+    "fixture/DeleteBucketEncryptionResponse.proto"
+    s3
+    (Proxy :: Proxy DeleteBucketEncryption)
 
 responseGetBucketLogging :: GetBucketLoggingResponse -> TestTree
 responseGetBucketLogging = res

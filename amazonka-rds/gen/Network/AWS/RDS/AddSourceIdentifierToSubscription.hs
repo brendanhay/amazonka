@@ -62,7 +62,7 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
 --
 -- * 'asitsSubscriptionName' - The name of the RDS event notification subscription you want to add a source identifier to.
 --
--- * 'asitsSourceIdentifier' - The identifier of the event source to be added. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens. Constraints:     * If the source type is a DB instance, then a @DBInstanceIdentifier@ must be supplied.     * If the source type is a DB security group, a @DBSecurityGroupName@ must be supplied.     * If the source type is a DB parameter group, a @DBParameterGroupName@ must be supplied.     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must be supplied.
+-- * 'asitsSourceIdentifier' - The identifier of the event source to be added. Constraints:     * If the source type is a DB instance, then a @DBInstanceIdentifier@ must be supplied.     * If the source type is a DB security group, a @DBSecurityGroupName@ must be supplied.     * If the source type is a DB parameter group, a @DBParameterGroupName@ must be supplied.     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must be supplied.
 addSourceIdentifierToSubscription
     :: Text -- ^ 'asitsSubscriptionName'
     -> Text -- ^ 'asitsSourceIdentifier'
@@ -78,7 +78,7 @@ addSourceIdentifierToSubscription pSubscriptionName_ pSourceIdentifier_ =
 asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
 asitsSubscriptionName = lens _asitsSubscriptionName (\ s a -> s{_asitsSubscriptionName = a});
 
--- | The identifier of the event source to be added. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens. Constraints:     * If the source type is a DB instance, then a @DBInstanceIdentifier@ must be supplied.     * If the source type is a DB security group, a @DBSecurityGroupName@ must be supplied.     * If the source type is a DB parameter group, a @DBParameterGroupName@ must be supplied.     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must be supplied.
+-- | The identifier of the event source to be added. Constraints:     * If the source type is a DB instance, then a @DBInstanceIdentifier@ must be supplied.     * If the source type is a DB security group, a @DBSecurityGroupName@ must be supplied.     * If the source type is a DB parameter group, a @DBParameterGroupName@ must be supplied.     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must be supplied.
 asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
 asitsSourceIdentifier = lens _asitsSourceIdentifier (\ s a -> s{_asitsSourceIdentifier = a});
 

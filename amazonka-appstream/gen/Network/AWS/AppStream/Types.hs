@@ -39,6 +39,15 @@ module Network.AWS.AppStream.Types
     -- * FleetState
     , FleetState (..)
 
+    -- * FleetType
+    , FleetType (..)
+
+    -- * ImageBuilderState
+    , ImageBuilderState (..)
+
+    -- * ImageBuilderStateChangeReasonCode
+    , ImageBuilderStateChangeReasonCode (..)
+
     -- * ImageState
     , ImageState (..)
 
@@ -105,6 +114,7 @@ module Network.AWS.AppStream.Types
     , fDisconnectTimeoutInSeconds
     , fMaxUserDurationInSeconds
     , fCreatedTime
+    , fFleetType
     , fVPCConfig
     , fFleetErrors
     , fDisplayName
@@ -140,11 +150,42 @@ module Network.AWS.AppStream.Types
     , iApplications
     , iName
 
+    -- * ImageBuilder
+    , ImageBuilder
+    , imageBuilder
+    , ibDomainJoinInfo
+    , ibState
+    , ibPlatform
+    , ibStateChangeReason
+    , ibARN
+    , ibCreatedTime
+    , ibImageBuilderErrors
+    , ibInstanceType
+    , ibVPCConfig
+    , ibImageARN
+    , ibDisplayName
+    , ibEnableDefaultInternetAccess
+    , ibDescription
+    , ibName
+
+    -- * ImageBuilderStateChangeReason
+    , ImageBuilderStateChangeReason
+    , imageBuilderStateChangeReason
+    , ibscrCode
+    , ibscrMessage
+
     -- * ImageStateChangeReason
     , ImageStateChangeReason
     , imageStateChangeReason
     , iscrCode
     , iscrMessage
+
+    -- * ResourceError
+    , ResourceError
+    , resourceError
+    , reErrorCode
+    , reErrorMessage
+    , reErrorTimestamp
 
     -- * ServiceAccountCredentials
     , ServiceAccountCredentials

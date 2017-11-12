@@ -223,6 +223,36 @@ instance ToJSON EnvironmentType where
 instance FromJSON EnvironmentType where
     parseJSON = parseJSONText "EnvironmentType"
 
+data EnvironmentVariableType
+  = ParameterStore
+  | Plaintext
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText EnvironmentVariableType where
+    parser = takeLowerText >>= \case
+        "parameter_store" -> pure ParameterStore
+        "plaintext" -> pure Plaintext
+        e -> fromTextError $ "Failure parsing EnvironmentVariableType from value: '" <> e
+           <> "'. Accepted values: parameter_store, plaintext"
+
+instance ToText EnvironmentVariableType where
+    toText = \case
+        ParameterStore -> "PARAMETER_STORE"
+        Plaintext -> "PLAINTEXT"
+
+instance Hashable     EnvironmentVariableType
+instance NFData       EnvironmentVariableType
+instance ToByteString EnvironmentVariableType
+instance ToQuery      EnvironmentVariableType
+instance ToHeader     EnvironmentVariableType
+
+instance ToJSON EnvironmentVariableType where
+    toJSON = toJSONText
+
+instance FromJSON EnvironmentVariableType where
+    parseJSON = parseJSONText "EnvironmentVariableType"
+
 data LanguageType
   = Android
   | Base

@@ -63,7 +63,7 @@ data UpdateJobQueue = UpdateJobQueue'
 --
 -- * 'ujqState' - Describes the queue's ability to accept new jobs.
 --
--- * 'ujqPriority' - The priority of the job queue. Job queues with a higher priority (or a lower integer value for the @priority@ parameter) are evaluated first when associated with same compute environment. Priority is determined in ascending order, for example, a job queue with a priority value of @1@ is given scheduling preference over a job queue with a priority value of @10@ .
+-- * 'ujqPriority' - The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
 --
 -- * 'ujqComputeEnvironmentOrder' - Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment should execute a given job.
 --
@@ -84,7 +84,7 @@ updateJobQueue pJobQueue_ =
 ujqState :: Lens' UpdateJobQueue (Maybe JQState)
 ujqState = lens _ujqState (\ s a -> s{_ujqState = a});
 
--- | The priority of the job queue. Job queues with a higher priority (or a lower integer value for the @priority@ parameter) are evaluated first when associated with same compute environment. Priority is determined in ascending order, for example, a job queue with a priority value of @1@ is given scheduling preference over a job queue with a priority value of @10@ .
+-- | The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
 ujqPriority :: Lens' UpdateJobQueue (Maybe Int)
 ujqPriority = lens _ujqPriority (\ s a -> s{_ujqPriority = a});
 

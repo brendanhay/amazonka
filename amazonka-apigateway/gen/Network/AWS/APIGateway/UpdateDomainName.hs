@@ -35,10 +35,14 @@ module Network.AWS.APIGateway.UpdateDomainName
     , DomainName
     -- * Response Lenses
     , dnCertificateName
+    , dnRegionalCertificateARN
     , dnCertificateARN
     , dnDomainName
+    , dnRegionalCertificateName
+    , dnRegionalDomainName
     , dnCertificateUploadDate
     , dnDistributionDomainName
+    , dnEndpointConfiguration
     ) where
 
 import Network.AWS.APIGateway.Types

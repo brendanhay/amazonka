@@ -21,6 +21,7 @@ import Network.AWS.Prelude
 
 data AssociationFilterKey
   = AFKAssociationId
+  | AFKAssociationName
   | AFKAssociationStatusName
   | AFKInstanceId
   | AFKLastExecutedAfter
@@ -32,17 +33,19 @@ data AssociationFilterKey
 instance FromText AssociationFilterKey where
     parser = takeLowerText >>= \case
         "associationid" -> pure AFKAssociationId
+        "associationname" -> pure AFKAssociationName
         "associationstatusname" -> pure AFKAssociationStatusName
         "instanceid" -> pure AFKInstanceId
         "lastexecutedafter" -> pure AFKLastExecutedAfter
         "lastexecutedbefore" -> pure AFKLastExecutedBefore
         "name" -> pure AFKName
         e -> fromTextError $ "Failure parsing AssociationFilterKey from value: '" <> e
-           <> "'. Accepted values: associationid, associationstatusname, instanceid, lastexecutedafter, lastexecutedbefore, name"
+           <> "'. Accepted values: associationid, associationname, associationstatusname, instanceid, lastexecutedafter, lastexecutedbefore, name"
 
 instance ToText AssociationFilterKey where
     toText = \case
         AFKAssociationId -> "AssociationId"
+        AFKAssociationName -> "AssociationName"
         AFKAssociationStatusName -> "AssociationStatusName"
         AFKInstanceId -> "InstanceId"
         AFKLastExecutedAfter -> "LastExecutedAfter"
@@ -1412,25 +1415,31 @@ instance FromJSON ResourceType where
     parseJSON = parseJSONText "ResourceType"
 
 data ResourceTypeForTagging
-  = RTFTMaintenanceWindow
+  = RTFTDocument
+  | RTFTMaintenanceWindow
   | RTFTManagedInstance
   | RTFTParameter
+  | RTFTPatchBaseline
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ResourceTypeForTagging where
     parser = takeLowerText >>= \case
+        "document" -> pure RTFTDocument
         "maintenancewindow" -> pure RTFTMaintenanceWindow
         "managedinstance" -> pure RTFTManagedInstance
         "parameter" -> pure RTFTParameter
+        "patchbaseline" -> pure RTFTPatchBaseline
         e -> fromTextError $ "Failure parsing ResourceTypeForTagging from value: '" <> e
-           <> "'. Accepted values: maintenancewindow, managedinstance, parameter"
+           <> "'. Accepted values: document, maintenancewindow, managedinstance, parameter, patchbaseline"
 
 instance ToText ResourceTypeForTagging where
     toText = \case
+        RTFTDocument -> "Document"
         RTFTMaintenanceWindow -> "MaintenanceWindow"
         RTFTManagedInstance -> "ManagedInstance"
         RTFTParameter -> "Parameter"
+        RTFTPatchBaseline -> "PatchBaseline"
 
 instance Hashable     ResourceTypeForTagging
 instance NFData       ResourceTypeForTagging

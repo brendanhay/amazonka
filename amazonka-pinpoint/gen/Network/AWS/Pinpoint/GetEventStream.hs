@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | GetEventStream Request
+-- | GetEventStreamRequest
 --
 -- /See:/ 'getEventStream' smart constructor.
 newtype GetEventStream = GetEventStream'
@@ -94,9 +94,7 @@ instance ToPath GetEventStream where
 instance ToQuery GetEventStream where
         toQuery = const mempty
 
--- | GetEventStream Response
---
--- /See:/ 'getEventStreamResponse' smart constructor.
+-- | /See:/ 'getEventStreamResponse' smart constructor.
 data GetEventStreamResponse = GetEventStreamResponse'
   { _gesrsResponseStatus :: {-# NOUNPACK #-}!Int
   , _gesrsEventStream    :: {-# NOUNPACK #-}!EventStream

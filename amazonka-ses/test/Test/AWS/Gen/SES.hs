@@ -14,11 +14,11 @@
 module Test.AWS.Gen.SES where
 
 import Data.Proxy
+import Network.AWS.SES
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.SES
 import Test.AWS.SES.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -28,7 +28,16 @@ import Test.AWS.SES.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateReceiptRuleSet $
+--         [ requestCreateTemplate $
+--             createTemplate
+--
+--         , requestDeleteConfigurationSetTrackingOptions $
+--             deleteConfigurationSetTrackingOptions
+--
+--         , requestUpdateConfigurationSetTrackingOptions $
+--             updateConfigurationSetTrackingOptions
+--
+--         , requestCreateReceiptRuleSet $
 --             createReceiptRuleSet
 --
 --         , requestSetIdentityHeadersInNotificationsEnabled $
@@ -91,8 +100,17 @@ import Test.AWS.SES.Internal
 --         , requestGetIdentityPolicies $
 --             getIdentityPolicies
 --
+--         , requestListTemplates $
+--             listTemplates
+--
 --         , requestVerifyDomainIdentity $
 --             verifyDomainIdentity
+--
+--         , requestUpdateTemplate $
+--             updateTemplate
+--
+--         , requestDeleteTemplate $
+--             deleteTemplate
 --
 --         , requestReorderReceiptRuleSet $
 --             reorderReceiptRuleSet
@@ -112,8 +130,17 @@ import Test.AWS.SES.Internal
 --         , requestGetIdentityDkimAttributes $
 --             getIdentityDkimAttributes
 --
+--         , requestSendTemplatedEmail $
+--             sendTemplatedEmail
+--
 --         , requestVerifyDomainDkim $
 --             verifyDomainDkim
+--
+--         , requestTestRenderTemplate $
+--             testRenderTemplate
+--
+--         , requestSendBulkTemplatedEmail $
+--             sendBulkTemplatedEmail
 --
 --         , requestSendRawEmail $
 --             sendRawEmail
@@ -166,11 +193,17 @@ import Test.AWS.SES.Internal
 --         , requestCreateReceiptRule $
 --             createReceiptRule
 --
+--         , requestGetTemplate $
+--             getTemplate
+--
 --         , requestSetActiveReceiptRuleSet $
 --             setActiveReceiptRuleSet
 --
 --         , requestCreateConfigurationSet $
 --             createConfigurationSet
+--
+--         , requestCreateConfigurationSetTrackingOptions $
+--             createConfigurationSetTrackingOptions
 --
 --         , requestDescribeActiveReceiptRuleSet $
 --             describeActiveReceiptRuleSet
@@ -178,7 +211,16 @@ import Test.AWS.SES.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateReceiptRuleSet $
+--         [ responseCreateTemplate $
+--             createTemplateResponse
+--
+--         , responseDeleteConfigurationSetTrackingOptions $
+--             deleteConfigurationSetTrackingOptionsResponse
+--
+--         , responseUpdateConfigurationSetTrackingOptions $
+--             updateConfigurationSetTrackingOptionsResponse
+--
+--         , responseCreateReceiptRuleSet $
 --             createReceiptRuleSetResponse
 --
 --         , responseSetIdentityHeadersInNotificationsEnabled $
@@ -241,8 +283,17 @@ import Test.AWS.SES.Internal
 --         , responseGetIdentityPolicies $
 --             getIdentityPoliciesResponse
 --
+--         , responseListTemplates $
+--             listTemplatesResponse
+--
 --         , responseVerifyDomainIdentity $
 --             verifyDomainIdentityResponse
+--
+--         , responseUpdateTemplate $
+--             updateTemplateResponse
+--
+--         , responseDeleteTemplate $
+--             deleteTemplateResponse
 --
 --         , responseReorderReceiptRuleSet $
 --             reorderReceiptRuleSetResponse
@@ -262,8 +313,17 @@ import Test.AWS.SES.Internal
 --         , responseGetIdentityDkimAttributes $
 --             getIdentityDkimAttributesResponse
 --
+--         , responseSendTemplatedEmail $
+--             sendTemplatedEmailResponse
+--
 --         , responseVerifyDomainDkim $
 --             verifyDomainDkimResponse
+--
+--         , responseTestRenderTemplate $
+--             testRenderTemplateResponse
+--
+--         , responseSendBulkTemplatedEmail $
+--             sendBulkTemplatedEmailResponse
 --
 --         , responseSendRawEmail $
 --             sendRawEmailResponse
@@ -316,11 +376,17 @@ import Test.AWS.SES.Internal
 --         , responseCreateReceiptRule $
 --             createReceiptRuleResponse
 --
+--         , responseGetTemplate $
+--             getTemplateResponse
+--
 --         , responseSetActiveReceiptRuleSet $
 --             setActiveReceiptRuleSetResponse
 --
 --         , responseCreateConfigurationSet $
 --             createConfigurationSetResponse
+--
+--         , responseCreateConfigurationSetTrackingOptions $
+--             createConfigurationSetTrackingOptionsResponse
 --
 --         , responseDescribeActiveReceiptRuleSet $
 --             describeActiveReceiptRuleSetResponse
@@ -329,6 +395,21 @@ import Test.AWS.SES.Internal
 --     ]
 
 -- Requests
+
+requestCreateTemplate :: CreateTemplate -> TestTree
+requestCreateTemplate = req
+    "CreateTemplate"
+    "fixture/CreateTemplate.yaml"
+
+requestDeleteConfigurationSetTrackingOptions :: DeleteConfigurationSetTrackingOptions -> TestTree
+requestDeleteConfigurationSetTrackingOptions = req
+    "DeleteConfigurationSetTrackingOptions"
+    "fixture/DeleteConfigurationSetTrackingOptions.yaml"
+
+requestUpdateConfigurationSetTrackingOptions :: UpdateConfigurationSetTrackingOptions -> TestTree
+requestUpdateConfigurationSetTrackingOptions = req
+    "UpdateConfigurationSetTrackingOptions"
+    "fixture/UpdateConfigurationSetTrackingOptions.yaml"
 
 requestCreateReceiptRuleSet :: CreateReceiptRuleSet -> TestTree
 requestCreateReceiptRuleSet = req
@@ -435,10 +516,25 @@ requestGetIdentityPolicies = req
     "GetIdentityPolicies"
     "fixture/GetIdentityPolicies.yaml"
 
+requestListTemplates :: ListTemplates -> TestTree
+requestListTemplates = req
+    "ListTemplates"
+    "fixture/ListTemplates.yaml"
+
 requestVerifyDomainIdentity :: VerifyDomainIdentity -> TestTree
 requestVerifyDomainIdentity = req
     "VerifyDomainIdentity"
     "fixture/VerifyDomainIdentity.yaml"
+
+requestUpdateTemplate :: UpdateTemplate -> TestTree
+requestUpdateTemplate = req
+    "UpdateTemplate"
+    "fixture/UpdateTemplate.yaml"
+
+requestDeleteTemplate :: DeleteTemplate -> TestTree
+requestDeleteTemplate = req
+    "DeleteTemplate"
+    "fixture/DeleteTemplate.yaml"
 
 requestReorderReceiptRuleSet :: ReorderReceiptRuleSet -> TestTree
 requestReorderReceiptRuleSet = req
@@ -470,10 +566,25 @@ requestGetIdentityDkimAttributes = req
     "GetIdentityDkimAttributes"
     "fixture/GetIdentityDkimAttributes.yaml"
 
+requestSendTemplatedEmail :: SendTemplatedEmail -> TestTree
+requestSendTemplatedEmail = req
+    "SendTemplatedEmail"
+    "fixture/SendTemplatedEmail.yaml"
+
 requestVerifyDomainDkim :: VerifyDomainDkim -> TestTree
 requestVerifyDomainDkim = req
     "VerifyDomainDkim"
     "fixture/VerifyDomainDkim.yaml"
+
+requestTestRenderTemplate :: TestRenderTemplate -> TestTree
+requestTestRenderTemplate = req
+    "TestRenderTemplate"
+    "fixture/TestRenderTemplate.yaml"
+
+requestSendBulkTemplatedEmail :: SendBulkTemplatedEmail -> TestTree
+requestSendBulkTemplatedEmail = req
+    "SendBulkTemplatedEmail"
+    "fixture/SendBulkTemplatedEmail.yaml"
 
 requestSendRawEmail :: SendRawEmail -> TestTree
 requestSendRawEmail = req
@@ -560,6 +671,11 @@ requestCreateReceiptRule = req
     "CreateReceiptRule"
     "fixture/CreateReceiptRule.yaml"
 
+requestGetTemplate :: GetTemplate -> TestTree
+requestGetTemplate = req
+    "GetTemplate"
+    "fixture/GetTemplate.yaml"
+
 requestSetActiveReceiptRuleSet :: SetActiveReceiptRuleSet -> TestTree
 requestSetActiveReceiptRuleSet = req
     "SetActiveReceiptRuleSet"
@@ -570,12 +686,38 @@ requestCreateConfigurationSet = req
     "CreateConfigurationSet"
     "fixture/CreateConfigurationSet.yaml"
 
+requestCreateConfigurationSetTrackingOptions :: CreateConfigurationSetTrackingOptions -> TestTree
+requestCreateConfigurationSetTrackingOptions = req
+    "CreateConfigurationSetTrackingOptions"
+    "fixture/CreateConfigurationSetTrackingOptions.yaml"
+
 requestDescribeActiveReceiptRuleSet :: DescribeActiveReceiptRuleSet -> TestTree
 requestDescribeActiveReceiptRuleSet = req
     "DescribeActiveReceiptRuleSet"
     "fixture/DescribeActiveReceiptRuleSet.yaml"
 
 -- Responses
+
+responseCreateTemplate :: CreateTemplateResponse -> TestTree
+responseCreateTemplate = res
+    "CreateTemplateResponse"
+    "fixture/CreateTemplateResponse.proto"
+    ses
+    (Proxy :: Proxy CreateTemplate)
+
+responseDeleteConfigurationSetTrackingOptions :: DeleteConfigurationSetTrackingOptionsResponse -> TestTree
+responseDeleteConfigurationSetTrackingOptions = res
+    "DeleteConfigurationSetTrackingOptionsResponse"
+    "fixture/DeleteConfigurationSetTrackingOptionsResponse.proto"
+    ses
+    (Proxy :: Proxy DeleteConfigurationSetTrackingOptions)
+
+responseUpdateConfigurationSetTrackingOptions :: UpdateConfigurationSetTrackingOptionsResponse -> TestTree
+responseUpdateConfigurationSetTrackingOptions = res
+    "UpdateConfigurationSetTrackingOptionsResponse"
+    "fixture/UpdateConfigurationSetTrackingOptionsResponse.proto"
+    ses
+    (Proxy :: Proxy UpdateConfigurationSetTrackingOptions)
 
 responseCreateReceiptRuleSet :: CreateReceiptRuleSetResponse -> TestTree
 responseCreateReceiptRuleSet = res
@@ -724,12 +866,33 @@ responseGetIdentityPolicies = res
     ses
     (Proxy :: Proxy GetIdentityPolicies)
 
+responseListTemplates :: ListTemplatesResponse -> TestTree
+responseListTemplates = res
+    "ListTemplatesResponse"
+    "fixture/ListTemplatesResponse.proto"
+    ses
+    (Proxy :: Proxy ListTemplates)
+
 responseVerifyDomainIdentity :: VerifyDomainIdentityResponse -> TestTree
 responseVerifyDomainIdentity = res
     "VerifyDomainIdentityResponse"
     "fixture/VerifyDomainIdentityResponse.proto"
     ses
     (Proxy :: Proxy VerifyDomainIdentity)
+
+responseUpdateTemplate :: UpdateTemplateResponse -> TestTree
+responseUpdateTemplate = res
+    "UpdateTemplateResponse"
+    "fixture/UpdateTemplateResponse.proto"
+    ses
+    (Proxy :: Proxy UpdateTemplate)
+
+responseDeleteTemplate :: DeleteTemplateResponse -> TestTree
+responseDeleteTemplate = res
+    "DeleteTemplateResponse"
+    "fixture/DeleteTemplateResponse.proto"
+    ses
+    (Proxy :: Proxy DeleteTemplate)
 
 responseReorderReceiptRuleSet :: ReorderReceiptRuleSetResponse -> TestTree
 responseReorderReceiptRuleSet = res
@@ -773,12 +936,33 @@ responseGetIdentityDkimAttributes = res
     ses
     (Proxy :: Proxy GetIdentityDkimAttributes)
 
+responseSendTemplatedEmail :: SendTemplatedEmailResponse -> TestTree
+responseSendTemplatedEmail = res
+    "SendTemplatedEmailResponse"
+    "fixture/SendTemplatedEmailResponse.proto"
+    ses
+    (Proxy :: Proxy SendTemplatedEmail)
+
 responseVerifyDomainDkim :: VerifyDomainDkimResponse -> TestTree
 responseVerifyDomainDkim = res
     "VerifyDomainDkimResponse"
     "fixture/VerifyDomainDkimResponse.proto"
     ses
     (Proxy :: Proxy VerifyDomainDkim)
+
+responseTestRenderTemplate :: TestRenderTemplateResponse -> TestTree
+responseTestRenderTemplate = res
+    "TestRenderTemplateResponse"
+    "fixture/TestRenderTemplateResponse.proto"
+    ses
+    (Proxy :: Proxy TestRenderTemplate)
+
+responseSendBulkTemplatedEmail :: SendBulkTemplatedEmailResponse -> TestTree
+responseSendBulkTemplatedEmail = res
+    "SendBulkTemplatedEmailResponse"
+    "fixture/SendBulkTemplatedEmailResponse.proto"
+    ses
+    (Proxy :: Proxy SendBulkTemplatedEmail)
 
 responseSendRawEmail :: SendRawEmailResponse -> TestTree
 responseSendRawEmail = res
@@ -899,6 +1083,13 @@ responseCreateReceiptRule = res
     ses
     (Proxy :: Proxy CreateReceiptRule)
 
+responseGetTemplate :: GetTemplateResponse -> TestTree
+responseGetTemplate = res
+    "GetTemplateResponse"
+    "fixture/GetTemplateResponse.proto"
+    ses
+    (Proxy :: Proxy GetTemplate)
+
 responseSetActiveReceiptRuleSet :: SetActiveReceiptRuleSetResponse -> TestTree
 responseSetActiveReceiptRuleSet = res
     "SetActiveReceiptRuleSetResponse"
@@ -912,6 +1103,13 @@ responseCreateConfigurationSet = res
     "fixture/CreateConfigurationSetResponse.proto"
     ses
     (Proxy :: Proxy CreateConfigurationSet)
+
+responseCreateConfigurationSetTrackingOptions :: CreateConfigurationSetTrackingOptionsResponse -> TestTree
+responseCreateConfigurationSetTrackingOptions = res
+    "CreateConfigurationSetTrackingOptionsResponse"
+    "fixture/CreateConfigurationSetTrackingOptionsResponse.proto"
+    ses
+    (Proxy :: Proxy CreateConfigurationSetTrackingOptions)
 
 responseDescribeActiveReceiptRuleSet :: DescribeActiveReceiptRuleSetResponse -> TestTree
 responseDescribeActiveReceiptRuleSet = res

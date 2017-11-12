@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a create custom action operation.
+-- | Represents the input of a CreateCustomActionType operation.
 --
 --
 --
@@ -177,7 +177,7 @@ instance ToPath CreateCustomActionType where
 instance ToQuery CreateCustomActionType where
         toQuery = const mempty
 
--- | Represents the output of a create custom action operation.
+-- | Represents the output of a CreateCustomActionType operation.
 --
 --
 --

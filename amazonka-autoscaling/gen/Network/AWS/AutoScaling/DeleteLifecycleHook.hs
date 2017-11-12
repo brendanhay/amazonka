@@ -46,11 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteLifecycleHook.
---
---
---
--- /See:/ 'deleteLifecycleHook' smart constructor.
+-- | /See:/ 'deleteLifecycleHook' smart constructor.
 data DeleteLifecycleHook = DeleteLifecycleHook'
   { _delLifecycleHookName    :: {-# NOUNPACK #-}!Text
   , _delAutoScalingGroupName :: {-# NOUNPACK #-}!Text
@@ -110,11 +106,7 @@ instance ToQuery DeleteLifecycleHook where
                "LifecycleHookName" =: _delLifecycleHookName,
                "AutoScalingGroupName" =: _delAutoScalingGroupName]
 
--- | Contains the output of DeleteLifecycleHook.
---
---
---
--- /See:/ 'deleteLifecycleHookResponse' smart constructor.
+-- | /See:/ 'deleteLifecycleHookResponse' smart constructor.
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
   { _drsResponseStatus :: Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)

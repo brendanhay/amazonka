@@ -14,11 +14,11 @@
 module Test.AWS.Gen.ElasticSearch where
 
 import Data.Proxy
+import Network.AWS.ElasticSearch
+import Test.AWS.ElasticSearch.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ElasticSearch
-import Test.AWS.ElasticSearch.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -39,6 +39,9 @@ import Test.AWS.ElasticSearch.Internal
 --
 --         , requestListElasticsearchInstanceTypes $
 --             listElasticsearchInstanceTypes
+--
+--         , requestDeleteElasticsearchServiceRole $
+--             deleteElasticsearchServiceRole
 --
 --         , requestDescribeElasticsearchDomain $
 --             describeElasticsearchDomain
@@ -81,6 +84,9 @@ import Test.AWS.ElasticSearch.Internal
 --
 --         , responseListElasticsearchInstanceTypes $
 --             listElasticsearchInstanceTypesResponse
+--
+--         , responseDeleteElasticsearchServiceRole $
+--             deleteElasticsearchServiceRoleResponse
 --
 --         , responseDescribeElasticsearchDomain $
 --             describeElasticsearchDomainResponse
@@ -133,6 +139,11 @@ requestListElasticsearchInstanceTypes :: ListElasticsearchInstanceTypes -> TestT
 requestListElasticsearchInstanceTypes = req
     "ListElasticsearchInstanceTypes"
     "fixture/ListElasticsearchInstanceTypes.yaml"
+
+requestDeleteElasticsearchServiceRole :: DeleteElasticsearchServiceRole -> TestTree
+requestDeleteElasticsearchServiceRole = req
+    "DeleteElasticsearchServiceRole"
+    "fixture/DeleteElasticsearchServiceRole.yaml"
 
 requestDescribeElasticsearchDomain :: DescribeElasticsearchDomain -> TestTree
 requestDescribeElasticsearchDomain = req
@@ -208,6 +219,13 @@ responseListElasticsearchInstanceTypes = res
     "fixture/ListElasticsearchInstanceTypesResponse.proto"
     elasticSearch
     (Proxy :: Proxy ListElasticsearchInstanceTypes)
+
+responseDeleteElasticsearchServiceRole :: DeleteElasticsearchServiceRoleResponse -> TestTree
+responseDeleteElasticsearchServiceRole = res
+    "DeleteElasticsearchServiceRoleResponse"
+    "fixture/DeleteElasticsearchServiceRoleResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy DeleteElasticsearchServiceRole)
 
 responseDescribeElasticsearchDomain :: DescribeElasticsearchDomainResponse -> TestTree
 responseDescribeElasticsearchDomain = res

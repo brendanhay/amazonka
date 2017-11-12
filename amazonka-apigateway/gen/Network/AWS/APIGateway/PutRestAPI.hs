@@ -43,6 +43,7 @@ module Network.AWS.APIGateway.PutRestAPI
     , raName
     , raVersion
     , raId
+    , raEndpointConfiguration
     , raDescription
     ) where
 

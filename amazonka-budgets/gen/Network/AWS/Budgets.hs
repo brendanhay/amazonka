@@ -100,6 +100,9 @@ module Network.AWS.Budgets
     -- ** SubscriptionType
     , SubscriptionType (..)
 
+    -- ** ThresholdType
+    , ThresholdType (..)
+
     -- ** TimeUnit
     , TimeUnit (..)
 
@@ -131,6 +134,7 @@ module Network.AWS.Budgets
     -- ** Notification
     , Notification
     , notification
+    , nThresholdType
     , nNotificationType
     , nComparisonOperator
     , nThreshold

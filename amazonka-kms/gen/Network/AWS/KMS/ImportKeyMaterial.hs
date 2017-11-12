@@ -18,14 +18,26 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports key material into an AWS KMS customer master key (CMK) from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ .
+-- Imports key material into an existing AWS KMS customer master key (CMK) that was created without key material. You cannot perform this operation on a CMK in a different AWS account. For more information about creating CMKs with no key material and then importing key material, see <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ .
 --
 --
--- You must specify the key ID of the CMK to import the key material into. This CMK's @Origin@ must be @EXTERNAL@ . You must also send an import token and the encrypted key material. Send the import token that you received in the same 'GetParametersForImport' response that contained the public key that you used to encrypt the key material. You must also specify whether the key material expires and if so, when. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. To use the CMK again, you can reimport the same key material. If you set an expiration date, you can change it only by reimporting the same key material and specifying a new expiration date.
+-- Before using this operation, call 'GetParametersForImport' . Its response includes a public key and an import token. Use the public key to encrypt the key material. Then, submit the import token from the same @GetParametersForImport@ response.
 --
--- When this operation is successful, the specified CMK's key state changes to @Enabled@ , and you can use the CMK.
+-- When calling this operation, you must specify the following values:
 --
--- After you successfully import key material into a CMK, you can reimport the same key material into that CMK, but you cannot import different key material.
+--     * The key ID or key ARN of a CMK with no key material. Its @Origin@ must be @EXTERNAL@ .
+--
+-- To create a CMK with no key material, call 'CreateKey' and set the value of its @Origin@ parameter to @EXTERNAL@ . To get the @Origin@ of a CMK, call 'DescribeKey' .)
+--
+--     * The encrypted key material. To get the public key to encrypt the key material, call 'GetParametersForImport' .
+--
+--     * The import token that 'GetParametersForImport' returned. This token and the public key used to encrypt the key material must have come from the same response.
+--
+--     * Whether the key material expires and if so, when. If you set an expiration date, you can change it only by reimporting the same key material and specifying a new expiration date. If the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. To use the CMK again, you must reimport the same key material.
+--
+--
+--
+-- When this operation is successful, the CMK's key state changes from @PendingImport@ to @Enabled@ , and you can use the CMK. After you successfully import key material into a CMK, you can reimport the same key material into that CMK, but you cannot import different key material.
 --
 module Network.AWS.KMS.ImportKeyMaterial
     (
@@ -71,7 +83,7 @@ data ImportKeyMaterial = ImportKeyMaterial'
 --
 -- * 'ikmValidTo' - The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the @ExpirationModel@ parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@ . Otherwise it is required.
 --
--- * 'ikmKeyId' - The identifier of the CMK to import the key material into. The CMK's @Origin@ must be @EXTERNAL@ . A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+-- * 'ikmKeyId' - The identifier of the CMK to import the key material into. The CMK's @Origin@ must be @EXTERNAL@ . Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- * 'ikmImportToken' - The import token that you received in the response to a previous 'GetParametersForImport' request. It must be from the same response that contained the public key that you used to encrypt the key material.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
@@ -99,7 +111,7 @@ ikmExpirationModel = lens _ikmExpirationModel (\ s a -> s{_ikmExpirationModel = 
 ikmValidTo :: Lens' ImportKeyMaterial (Maybe UTCTime)
 ikmValidTo = lens _ikmValidTo (\ s a -> s{_ikmValidTo = a}) . mapping _Time;
 
--- | The identifier of the CMK to import the key material into. The CMK's @Origin@ must be @EXTERNAL@ . A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+-- | The identifier of the CMK to import the key material into. The CMK's @Origin@ must be @EXTERNAL@ . Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 ikmKeyId :: Lens' ImportKeyMaterial Text
 ikmKeyId = lens _ikmKeyId (\ s a -> s{_ikmKeyId = a});
 

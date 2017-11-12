@@ -21,7 +21,7 @@
 -- Creates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.
 --
 --
--- For more information about virtual private gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+-- For more information about virtual private gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html AWS Managed VPN Connections> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 module Network.AWS.EC2.CreateVPNGateway
     (
@@ -29,6 +29,7 @@ module Network.AWS.EC2.CreateVPNGateway
       createVPNGateway
     , CreateVPNGateway
     -- * Request Lenses
+    , cvgAmazonSideASN
     , cvgAvailabilityZone
     , cvgDryRun
     , cvgType
@@ -54,7 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVPNGateway' smart constructor.
 data CreateVPNGateway = CreateVPNGateway'
-  { _cvgAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cvgAmazonSideASN    :: {-# NOUNPACK #-}!(Maybe Integer)
+  , _cvgAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
   , _cvgDryRun           :: {-# NOUNPACK #-}!(Maybe Bool)
   , _cvgType             :: {-# NOUNPACK #-}!GatewayType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -63,6 +65,8 @@ data CreateVPNGateway = CreateVPNGateway'
 -- | Creates a value of 'CreateVPNGateway' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvgAmazonSideASN' - A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a 32-bit ASN, it must be in the 4200000000 to 4294967294 range. Default: 64512
 --
 -- * 'cvgAvailabilityZone' - The Availability Zone for the virtual private gateway.
 --
@@ -74,8 +78,16 @@ createVPNGateway
     -> CreateVPNGateway
 createVPNGateway pType_ =
   CreateVPNGateway'
-  {_cvgAvailabilityZone = Nothing, _cvgDryRun = Nothing, _cvgType = pType_}
+  { _cvgAmazonSideASN = Nothing
+  , _cvgAvailabilityZone = Nothing
+  , _cvgDryRun = Nothing
+  , _cvgType = pType_
+  }
 
+
+-- | A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a 32-bit ASN, it must be in the 4200000000 to 4294967294 range. Default: 64512
+cvgAmazonSideASN :: Lens' CreateVPNGateway (Maybe Integer)
+cvgAmazonSideASN = lens _cvgAmazonSideASN (\ s a -> s{_cvgAmazonSideASN = a});
 
 -- | The Availability Zone for the virtual private gateway.
 cvgAvailabilityZone :: Lens' CreateVPNGateway (Maybe Text)
@@ -113,6 +125,7 @@ instance ToQuery CreateVPNGateway where
           = mconcat
               ["Action" =: ("CreateVpnGateway" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
+               "AmazonSideAsn" =: _cvgAmazonSideASN,
                "AvailabilityZone" =: _cvgAvailabilityZone,
                "DryRun" =: _cvgDryRun, "Type" =: _cvgType]
 

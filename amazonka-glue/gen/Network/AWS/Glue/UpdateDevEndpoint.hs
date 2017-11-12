@@ -29,6 +29,7 @@ module Network.AWS.Glue.UpdateDevEndpoint
     -- * Request Lenses
     , udeCustomLibraries
     , udePublicKey
+    , udeUpdateEtlLibraries
     , udeEndpointName
 
     -- * Destructuring the Response
@@ -48,8 +49,9 @@ import Network.AWS.Response
 -- | /See:/ 'updateDevEndpoint' smart constructor.
 data UpdateDevEndpoint = UpdateDevEndpoint'
   { _udeCustomLibraries :: {-# NOUNPACK #-}!(Maybe DevEndpointCustomLibraries)
-  , _udePublicKey       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udeEndpointName    :: {-# NOUNPACK #-}!Text
+  , _udePublicKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _udeUpdateEtlLibraries :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _udeEndpointName :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,9 +59,11 @@ data UpdateDevEndpoint = UpdateDevEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udeCustomLibraries' - Custom Python or Java custom libraries to be loaded in the DevEndpoint.
+-- * 'udeCustomLibraries' - Custom Python or Java libraries to be loaded in the DevEndpoint.
 --
 -- * 'udePublicKey' - The public key for the DevEndpoint to use.
+--
+-- * 'udeUpdateEtlLibraries' - True if the list of custom libraries to be loaded in the development endpoint needs to be updated, or False otherwise.
 --
 -- * 'udeEndpointName' - The name of the DevEndpoint to be updated.
 updateDevEndpoint
@@ -69,17 +73,22 @@ updateDevEndpoint pEndpointName_ =
   UpdateDevEndpoint'
   { _udeCustomLibraries = Nothing
   , _udePublicKey = Nothing
+  , _udeUpdateEtlLibraries = Nothing
   , _udeEndpointName = pEndpointName_
   }
 
 
--- | Custom Python or Java custom libraries to be loaded in the DevEndpoint.
+-- | Custom Python or Java libraries to be loaded in the DevEndpoint.
 udeCustomLibraries :: Lens' UpdateDevEndpoint (Maybe DevEndpointCustomLibraries)
 udeCustomLibraries = lens _udeCustomLibraries (\ s a -> s{_udeCustomLibraries = a});
 
 -- | The public key for the DevEndpoint to use.
 udePublicKey :: Lens' UpdateDevEndpoint (Maybe Text)
 udePublicKey = lens _udePublicKey (\ s a -> s{_udePublicKey = a});
+
+-- | True if the list of custom libraries to be loaded in the development endpoint needs to be updated, or False otherwise.
+udeUpdateEtlLibraries :: Lens' UpdateDevEndpoint (Maybe Bool)
+udeUpdateEtlLibraries = lens _udeUpdateEtlLibraries (\ s a -> s{_udeUpdateEtlLibraries = a});
 
 -- | The name of the DevEndpoint to be updated.
 udeEndpointName :: Lens' UpdateDevEndpoint Text
@@ -112,6 +121,7 @@ instance ToJSON UpdateDevEndpoint where
               (catMaybes
                  [("CustomLibraries" .=) <$> _udeCustomLibraries,
                   ("PublicKey" .=) <$> _udePublicKey,
+                  ("UpdateEtlLibraries" .=) <$> _udeUpdateEtlLibraries,
                   Just ("EndpointName" .= _udeEndpointName)])
 
 instance ToPath UpdateDevEndpoint where

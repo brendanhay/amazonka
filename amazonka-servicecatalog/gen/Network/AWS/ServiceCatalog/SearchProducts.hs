@@ -72,7 +72,7 @@ data SearchProducts = SearchProducts'
 --
 -- * 'spSortOrder' - The sort order specifier. If no value is specified, results are not sorted.
 --
--- * 'spAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'spAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'spPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
@@ -100,7 +100,7 @@ spFilters = lens _spFilters (\ s a -> s{_spFilters = a}) . _Default . _Map;
 spSortOrder :: Lens' SearchProducts (Maybe SortOrder)
 spSortOrder = lens _spSortOrder (\ s a -> s{_spSortOrder = a});
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 spAcceptLanguage :: Lens' SearchProducts (Maybe Text)
 spAcceptLanguage = lens _spAcceptLanguage (\ s a -> s{_spAcceptLanguage = a});
 

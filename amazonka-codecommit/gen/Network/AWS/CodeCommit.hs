@@ -39,6 +39,8 @@
 --
 --     * 'CreateBranch' , which creates a new branch in a specified repository
 --
+--     * 'DeleteBranch' , which deletes the specified branch in a repository unless it is the default branch
+--
 --     * 'GetBranch' , which returns information about a specified branch
 --
 --     * 'ListBranches' , which lists all branches for a specified repository
@@ -137,6 +139,9 @@ module Network.AWS.CodeCommit
     -- ** BranchDoesNotExistException
     , _BranchDoesNotExistException
 
+    -- ** DefaultBranchCannotBeDeletedException
+    , _DefaultBranchCannotBeDeletedException
+
     -- ** InvalidPathException
     , _InvalidPathException
 
@@ -233,6 +238,9 @@ module Network.AWS.CodeCommit
     -- ** GetDifferences
     , module Network.AWS.CodeCommit.GetDifferences
 
+    -- ** DeleteBranch
+    , module Network.AWS.CodeCommit.DeleteBranch
+
     -- ** UpdateRepositoryDescription
     , module Network.AWS.CodeCommit.UpdateRepositoryDescription
 
@@ -302,6 +310,7 @@ module Network.AWS.CodeCommit
     -- ** Commit
     , Commit
     , commit
+    , cCommitId
     , cCommitter
     , cTreeId
     , cAdditionalData
@@ -362,6 +371,7 @@ module Network.AWS.CodeCommit
 import Network.AWS.CodeCommit.BatchGetRepositories
 import Network.AWS.CodeCommit.CreateBranch
 import Network.AWS.CodeCommit.CreateRepository
+import Network.AWS.CodeCommit.DeleteBranch
 import Network.AWS.CodeCommit.DeleteRepository
 import Network.AWS.CodeCommit.GetBlob
 import Network.AWS.CodeCommit.GetBranch

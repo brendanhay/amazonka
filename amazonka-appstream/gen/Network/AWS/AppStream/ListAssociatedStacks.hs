@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all stacks to which the specified fleet is associated.
+-- Lists the stacks associated with the specified fleet.
 --
 --
 module Network.AWS.AppStream.ListAssociatedStacks
@@ -59,7 +59,7 @@ data ListAssociatedStacks = ListAssociatedStacks'
 --
 -- * 'lasNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 --
--- * 'lasFleetName' - The name of the fleet whose associated stacks are listed.
+-- * 'lasFleetName' - The name of the fleet.
 listAssociatedStacks
     :: Text -- ^ 'lasFleetName'
     -> ListAssociatedStacks
@@ -71,7 +71,7 @@ listAssociatedStacks pFleetName_ =
 lasNextToken :: Lens' ListAssociatedStacks (Maybe Text)
 lasNextToken = lens _lasNextToken (\ s a -> s{_lasNextToken = a});
 
--- | The name of the fleet whose associated stacks are listed.
+-- | The name of the fleet.
 lasFleetName :: Lens' ListAssociatedStacks Text
 lasFleetName = lens _lasFleetName (\ s a -> s{_lasFleetName = a});
 
@@ -113,11 +113,7 @@ instance ToPath ListAssociatedStacks where
 instance ToQuery ListAssociatedStacks where
         toQuery = const mempty
 
--- | The response from a successful operation.
---
---
---
--- /See:/ 'listAssociatedStacksResponse' smart constructor.
+-- | /See:/ 'listAssociatedStacksResponse' smart constructor.
 data ListAssociatedStacksResponse = ListAssociatedStacksResponse'
   { _lasrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
   , _lasrsNames          :: {-# NOUNPACK #-}!(Maybe [Text])
@@ -131,7 +127,7 @@ data ListAssociatedStacksResponse = ListAssociatedStacksResponse'
 --
 -- * 'lasrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
--- * 'lasrsNames' - The names of associated stacks.
+-- * 'lasrsNames' - The names of the stacks.
 --
 -- * 'lasrsResponseStatus' - -- | The response status code.
 listAssociatedStacksResponse
@@ -149,7 +145,7 @@ listAssociatedStacksResponse pResponseStatus_ =
 lasrsNextToken :: Lens' ListAssociatedStacksResponse (Maybe Text)
 lasrsNextToken = lens _lasrsNextToken (\ s a -> s{_lasrsNextToken = a});
 
--- | The names of associated stacks.
+-- | The names of the stacks.
 lasrsNames :: Lens' ListAssociatedStacksResponse [Text]
 lasrsNames = lens _lasrsNames (\ s a -> s{_lasrsNames = a}) . _Default . _Coerce;
 

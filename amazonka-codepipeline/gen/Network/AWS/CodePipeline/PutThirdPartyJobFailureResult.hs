@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a third party job failure result action.
+-- | Represents the input of a PutThirdPartyJobFailureResult action.
 --
 --
 --

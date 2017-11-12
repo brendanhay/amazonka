@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a delete pipeline action.
+-- | Represents the input of a DeletePipeline action.
 --
 --
 --

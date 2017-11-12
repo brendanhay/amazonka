@@ -14,11 +14,11 @@
 module Test.AWS.Gen.CloudWatchEvents where
 
 import Data.Proxy
+import Network.AWS.CloudWatchEvents
+import Test.AWS.CloudWatchEvents.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CloudWatchEvents
-import Test.AWS.CloudWatchEvents.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

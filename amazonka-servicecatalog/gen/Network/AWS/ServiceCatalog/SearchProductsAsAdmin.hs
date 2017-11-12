@@ -75,7 +75,7 @@ data SearchProductsAsAdmin = SearchProductsAsAdmin'
 --
 -- * 'spaaSortOrder' - The sort order specifier. If no value is specified, results are not sorted.
 --
--- * 'spaaAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'spaaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'spaaPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
@@ -111,7 +111,7 @@ spaaFilters = lens _spaaFilters (\ s a -> s{_spaaFilters = a}) . _Default . _Map
 spaaSortOrder :: Lens' SearchProductsAsAdmin (Maybe SortOrder)
 spaaSortOrder = lens _spaaSortOrder (\ s a -> s{_spaaSortOrder = a});
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 spaaAcceptLanguage :: Lens' SearchProductsAsAdmin (Maybe Text)
 spaaAcceptLanguage = lens _spaaAcceptLanguage (\ s a -> s{_spaaAcceptLanguage = a});
 

@@ -43,11 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteLaunchConfiguration.
---
---
---
--- /See:/ 'deleteLaunchConfiguration' smart constructor.
+-- | /See:/ 'deleteLaunchConfiguration' smart constructor.
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
   { _dlcLaunchConfigurationName :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)

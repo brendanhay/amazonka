@@ -51,11 +51,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for PutScheduledUpdateGroupAction.
---
---
---
--- /See:/ 'putScheduledUpdateGroupAction' smart constructor.
+-- | /See:/ 'putScheduledUpdateGroupAction' smart constructor.
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
   { _psugaStartTime            :: {-# NOUNPACK #-}!(Maybe ISO8601)
   , _psugaTime                 :: {-# NOUNPACK #-}!(Maybe ISO8601)

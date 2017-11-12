@@ -21,6 +21,8 @@
 -- Gets a list of build IDs, with each build ID representing a single build.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListBuilds
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.CodeBuild.ListBuilds
 import Network.AWS.CodeBuild.Types
 import Network.AWS.CodeBuild.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,6 +75,13 @@ lbSortOrder = lens _lbSortOrder (\ s a -> s{_lbSortOrder = a});
 -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 lbNextToken :: Lens' ListBuilds (Maybe Text)
 lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a});
+
+instance AWSPager ListBuilds where
+        page rq rs
+          | stop (rs ^. lbrsNextToken) = Nothing
+          | stop (rs ^. lbrsIds) = Nothing
+          | otherwise =
+            Just $ rq & lbNextToken .~ rs ^. lbrsNextToken
 
 instance AWSRequest ListBuilds where
         type Rs ListBuilds = ListBuildsResponse

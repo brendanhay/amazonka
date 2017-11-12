@@ -59,7 +59,7 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lapsAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'lapsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'lapsPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
@@ -74,7 +74,7 @@ listAcceptedPortfolioShares =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lapsAcceptLanguage :: Lens' ListAcceptedPortfolioShares (Maybe Text)
 lapsAcceptLanguage = lens _lapsAcceptLanguage (\ s a -> s{_lapsAcceptLanguage = a});
 

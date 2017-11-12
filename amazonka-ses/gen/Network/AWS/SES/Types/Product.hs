@@ -262,6 +262,114 @@ instance ToQuery BouncedRecipientInfo where
                "RecipientArn" =: _briRecipientARN,
                "Recipient" =: _briRecipient]
 
+-- | An array that contains one or more Destinations, as well as the tags and replacement data associated with each of those Destinations.
+--
+--
+--
+-- /See:/ 'bulkEmailDestination' smart constructor.
+data BulkEmailDestination = BulkEmailDestination'
+  { _bedReplacementTemplateData :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bedReplacementTags         :: {-# NOUNPACK #-}!(Maybe [MessageTag])
+  , _bedDestination             :: {-# NOUNPACK #-}!Destination
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BulkEmailDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bedReplacementTemplateData' - A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
+--
+-- * 'bedReplacementTags' - A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendBulkTemplatedEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
+--
+-- * 'bedDestination' - Undocumented member.
+bulkEmailDestination
+    :: Destination -- ^ 'bedDestination'
+    -> BulkEmailDestination
+bulkEmailDestination pDestination_ =
+  BulkEmailDestination'
+  { _bedReplacementTemplateData = Nothing
+  , _bedReplacementTags = Nothing
+  , _bedDestination = pDestination_
+  }
+
+
+-- | A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
+bedReplacementTemplateData :: Lens' BulkEmailDestination (Maybe Text)
+bedReplacementTemplateData = lens _bedReplacementTemplateData (\ s a -> s{_bedReplacementTemplateData = a});
+
+-- | A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendBulkTemplatedEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
+bedReplacementTags :: Lens' BulkEmailDestination [MessageTag]
+bedReplacementTags = lens _bedReplacementTags (\ s a -> s{_bedReplacementTags = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+bedDestination :: Lens' BulkEmailDestination Destination
+bedDestination = lens _bedDestination (\ s a -> s{_bedDestination = a});
+
+instance Hashable BulkEmailDestination where
+
+instance NFData BulkEmailDestination where
+
+instance ToQuery BulkEmailDestination where
+        toQuery BulkEmailDestination'{..}
+          = mconcat
+              ["ReplacementTemplateData" =:
+                 _bedReplacementTemplateData,
+               "ReplacementTags" =:
+                 toQuery
+                   (toQueryList "member" <$> _bedReplacementTags),
+               "Destination" =: _bedDestination]
+
+-- | An object that contains the response from the @SendBulkTemplatedEmail@ operation.
+--
+--
+--
+-- /See:/ 'bulkEmailDestinationStatus' smart constructor.
+data BulkEmailDestinationStatus = BulkEmailDestinationStatus'
+  { _bedsStatus    :: {-# NOUNPACK #-}!(Maybe BulkEmailStatus)
+  , _bedsError     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bedsMessageId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BulkEmailDestinationStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bedsStatus' - The status of a message sent using the @SendBulkTemplatedEmail@ operation. Possible values for this parameter include:     * @Success@ : Amazon SES accepted the message, and will attempt to deliver it to the recipients.     * @MessageRejected@ : The message was rejected because it contained a virus.     * @MailFromDomainNotVerified@ : The sender's email address or domain was not verified.     * @ConfigurationSetDoesNotExist@ : The configuration set you specified does not exist.     * @TemplateDoesNotExist@ : The template you specified does not exist.     * @AccountSuspended@ : Your account has been shut down because of issues related to your email sending practices.     * @AccountThrottled@ : The number of emails you can send has been reduced because your account has exceeded its allocated sending limit.     * @AccountDailyQuotaExceeded@ : You have reached or exceeded the maximum number of emails you can send from your account in a 24-hour period.     * @InvalidSendingPoolName@ : The configuration set you specified refers to an IP pool that does not exist.     * @InvalidParameterValue@ : One or more of the parameters you specified when calling this operation was invalid. See the error message for additional information.     * @TransientFailure@ : Amazon SES was unable to process your request because of a temporary issue.     * @Failed@ : Amazon SES was unable to process your request. See the error message for additional information.
+--
+-- * 'bedsError' - A description of an error that prevented a message being sent using the @SendBulkTemplatedEmail@ operation.
+--
+-- * 'bedsMessageId' - The unique message identifier returned from the @SendBulkTemplatedEmail@ operation.
+bulkEmailDestinationStatus
+    :: BulkEmailDestinationStatus
+bulkEmailDestinationStatus =
+  BulkEmailDestinationStatus'
+  {_bedsStatus = Nothing, _bedsError = Nothing, _bedsMessageId = Nothing}
+
+
+-- | The status of a message sent using the @SendBulkTemplatedEmail@ operation. Possible values for this parameter include:     * @Success@ : Amazon SES accepted the message, and will attempt to deliver it to the recipients.     * @MessageRejected@ : The message was rejected because it contained a virus.     * @MailFromDomainNotVerified@ : The sender's email address or domain was not verified.     * @ConfigurationSetDoesNotExist@ : The configuration set you specified does not exist.     * @TemplateDoesNotExist@ : The template you specified does not exist.     * @AccountSuspended@ : Your account has been shut down because of issues related to your email sending practices.     * @AccountThrottled@ : The number of emails you can send has been reduced because your account has exceeded its allocated sending limit.     * @AccountDailyQuotaExceeded@ : You have reached or exceeded the maximum number of emails you can send from your account in a 24-hour period.     * @InvalidSendingPoolName@ : The configuration set you specified refers to an IP pool that does not exist.     * @InvalidParameterValue@ : One or more of the parameters you specified when calling this operation was invalid. See the error message for additional information.     * @TransientFailure@ : Amazon SES was unable to process your request because of a temporary issue.     * @Failed@ : Amazon SES was unable to process your request. See the error message for additional information.
+bedsStatus :: Lens' BulkEmailDestinationStatus (Maybe BulkEmailStatus)
+bedsStatus = lens _bedsStatus (\ s a -> s{_bedsStatus = a});
+
+-- | A description of an error that prevented a message being sent using the @SendBulkTemplatedEmail@ operation.
+bedsError :: Lens' BulkEmailDestinationStatus (Maybe Text)
+bedsError = lens _bedsError (\ s a -> s{_bedsError = a});
+
+-- | The unique message identifier returned from the @SendBulkTemplatedEmail@ operation.
+bedsMessageId :: Lens' BulkEmailDestinationStatus (Maybe Text)
+bedsMessageId = lens _bedsMessageId (\ s a -> s{_bedsMessageId = a});
+
+instance FromXML BulkEmailDestinationStatus where
+        parseXML x
+          = BulkEmailDestinationStatus' <$>
+              (x .@? "Status") <*> (x .@? "Error") <*>
+                (x .@? "MessageId")
+
+instance Hashable BulkEmailDestinationStatus where
+
+instance NFData BulkEmailDestinationStatus where
+
 -- | Contains information associated with an Amazon CloudWatch event destination to which email sending events are published.
 --
 --
@@ -379,7 +487,7 @@ instance ToQuery CloudWatchDimensionConfiguration
 -- | The name of the configuration set.
 --
 --
--- Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+-- Configuration sets let you create groups of rules that you can apply to the emails you send using Amazon SES. For more information about using configuration sets, see <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-configuration-sets.html Using Amazon SES Configuration Sets> in the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/ Amazon SES Developer Guide> .
 --
 --
 -- /See:/ 'configurationSet' smart constructor.
@@ -392,14 +500,14 @@ newtype ConfigurationSet = ConfigurationSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csName' - The name of the configuration set. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 64 characters.
+-- * 'csName' - The name of the configuration set. The name must meet the following requirements:     * Contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain 64 characters or fewer.
 configurationSet
     :: Text -- ^ 'csName'
     -> ConfigurationSet
 configurationSet pName_ = ConfigurationSet' {_csName = pName_}
 
 
--- | The name of the configuration set. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 64 characters.
+-- | The name of the configuration set. The name must meet the following requirements:     * Contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain 64 characters or fewer.
 csName :: Lens' ConfigurationSet Text
 csName = lens _csName (\ s a -> s{_csName = a});
 
@@ -459,7 +567,7 @@ instance ToQuery Content where
 -- | Represents the destination of the message, consisting of To:, CC:, and BCC: fields.
 --
 --
--- By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: @=?charset?encoding?encoded-text?=@ . For more information, see <http://tools.ietf.org/html/rfc2047 RFC 2047> .
+-- By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: @=?charset?encoding?encoded-text?=@ . For more information, see <https://tools.ietf.org/html/rfc2047 RFC 2047> .
 --
 --
 -- /See:/ 'destination' smart constructor.
@@ -512,7 +620,7 @@ instance ToQuery Destination where
                "ToAddresses" =:
                  toQuery (toQueryList "member" <$> _dToAddresses)]
 
--- | Contains information about the event destination to which the specified email sending events are published.
+-- | Contains information about the event destination that the specified email sending events will be published to.
 --
 --
 -- Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
@@ -932,7 +1040,7 @@ data KinesisFirehoseDestination = KinesisFirehoseDestination'
 --
 -- * 'kfdIAMRoleARN' - The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
 --
--- * 'kfdDeliveryStreamARN' - The ARN of the Amazon Kinesis Firehose stream to which to publish email sending events.
+-- * 'kfdDeliveryStreamARN' - The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
 kinesisFirehoseDestination
     :: Text -- ^ 'kfdIAMRoleARN'
     -> Text -- ^ 'kfdDeliveryStreamARN'
@@ -946,7 +1054,7 @@ kinesisFirehoseDestination pIAMRoleARN_ pDeliveryStreamARN_ =
 kfdIAMRoleARN :: Lens' KinesisFirehoseDestination Text
 kfdIAMRoleARN = lens _kfdIAMRoleARN (\ s a -> s{_kfdIAMRoleARN = a});
 
--- | The ARN of the Amazon Kinesis Firehose stream to which to publish email sending events.
+-- | The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
 kfdDeliveryStreamARN :: Lens' KinesisFirehoseDestination Text
 kfdDeliveryStreamARN = lens _kfdDeliveryStreamARN (\ s a -> s{_kfdDeliveryStreamARN = a});
 
@@ -1187,14 +1295,14 @@ newtype RawMessage = RawMessage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rmData' - The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding. The To:, CC:, and BCC: headers in the raw message can contain a group list. If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .  /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'rmData' - The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding. The To:, CC:, and BCC: headers in the raw message can contain a group list. If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .  /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> .-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rawMessage
     :: ByteString -- ^ 'rmData'
     -> RawMessage
 rawMessage pData_ = RawMessage' {_rmData = _Base64 # pData_}
 
 
--- | The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding. The To:, CC:, and BCC: headers in the raw message can contain a group list. If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .  /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding. The To:, CC:, and BCC: headers in the raw message can contain a group list. If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .  /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> .-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rmData :: Lens' RawMessage ByteString
 rmData = lens _rmData (\ s a -> s{_rmData = a}) . _Base64;
 
@@ -1410,7 +1518,7 @@ instance ToQuery ReceiptIPFilter where
 -- | Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.
 --
 --
--- Each receipt rule defines a set of email addresses or domains to which it applies. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule's actions on the message.
+-- Each receipt rule defines a set of email addresses or domains that it applies to. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule's actions on the message.
 --
 -- For information about setting up receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide> .
 --
@@ -1430,13 +1538,13 @@ data ReceiptRule = ReceiptRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrScanEnabled' - If @true@ , then messages to which this receipt rule applies are scanned for spam and viruses. The default value is @false@ .
+-- * 'rrScanEnabled' - If @true@ , then messages that this receipt rule applies to are scanned for spam and viruses. The default value is @false@ .
 --
 -- * 'rrEnabled' - If @true@ , the receipt rule is active. The default value is @false@ .
 --
 -- * 'rrActions' - An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
 --
--- * 'rrRecipients' - The recipient domains and email addresses to which the receipt rule applies. If this field is not specified, this rule will match all recipients under all verified domains.
+-- * 'rrRecipients' - The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains.
 --
 -- * 'rrTLSPolicy' - Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to @Require@ , Amazon SES will bounce emails that are not received over TLS. The default is @Optional@ .
 --
@@ -1455,7 +1563,7 @@ receiptRule pName_ =
   }
 
 
--- | If @true@ , then messages to which this receipt rule applies are scanned for spam and viruses. The default value is @false@ .
+-- | If @true@ , then messages that this receipt rule applies to are scanned for spam and viruses. The default value is @false@ .
 rrScanEnabled :: Lens' ReceiptRule (Maybe Bool)
 rrScanEnabled = lens _rrScanEnabled (\ s a -> s{_rrScanEnabled = a});
 
@@ -1467,7 +1575,7 @@ rrEnabled = lens _rrEnabled (\ s a -> s{_rrEnabled = a});
 rrActions :: Lens' ReceiptRule [ReceiptAction]
 rrActions = lens _rrActions (\ s a -> s{_rrActions = a}) . _Default . _Coerce;
 
--- | The recipient domains and email addresses to which the receipt rule applies. If this field is not specified, this rule will match all recipients under all verified domains.
+-- | The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains.
 rrRecipients :: Lens' ReceiptRule [Text]
 rrRecipients = lens _rrRecipients (\ s a -> s{_rrRecipients = a}) . _Default . _Coerce;
 
@@ -1577,7 +1685,7 @@ data RecipientDsnFields = RecipientDsnFields'
 --
 -- * 'rdfRemoteMta' - The MTA to which the remote MTA attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). This parameter typically applies only to propagating synchronous bounces.
 --
--- * 'rdfFinalRecipient' - The email address to which the message was ultimately delivered. This corresponds to the @Final-Recipient@ in the DSN. If not specified, @FinalRecipient@ will be set to the @Recipient@ specified in the @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the recipient in @BouncedRecipientInfo@ must be a recipient of the original bounced message.
+-- * 'rdfFinalRecipient' - The email address that the message was ultimately delivered to. This corresponds to the @Final-Recipient@ in the DSN. If not specified, @FinalRecipient@ will be set to the @Recipient@ specified in the @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the recipient in @BouncedRecipientInfo@ must be a recipient of the original bounced message.
 --
 -- * 'rdfExtensionFields' - Additional X-headers to include in the DSN.
 --
@@ -1610,7 +1718,7 @@ rdfDiagnosticCode = lens _rdfDiagnosticCode (\ s a -> s{_rdfDiagnosticCode = a})
 rdfRemoteMta :: Lens' RecipientDsnFields (Maybe Text)
 rdfRemoteMta = lens _rdfRemoteMta (\ s a -> s{_rdfRemoteMta = a});
 
--- | The email address to which the message was ultimately delivered. This corresponds to the @Final-Recipient@ in the DSN. If not specified, @FinalRecipient@ will be set to the @Recipient@ specified in the @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the recipient in @BouncedRecipientInfo@ must be a recipient of the original bounced message.
+-- | The email address that the message was ultimately delivered to. This corresponds to the @Final-Recipient@ in the DSN. If not specified, @FinalRecipient@ will be set to the @Recipient@ specified in the @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the recipient in @BouncedRecipientInfo@ must be a recipient of the original bounced message.
 rdfFinalRecipient :: Lens' RecipientDsnFields (Maybe Text)
 rdfFinalRecipient = lens _rdfFinalRecipient (\ s a -> s{_rdfFinalRecipient = a});
 
@@ -1667,13 +1775,13 @@ data S3Action = S3Action'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 's3KMSKeyARN' - The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:     * To use the default master key, provide an ARN in the form of @arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses@ . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be @arn:aws:kms:us-west-2:123456789012:alias/aws/ses@ . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.     * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> . For more information about key policies, see the <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide> . If you do not specify a master key, Amazon SES will not encrypt your emails. /Important:/ Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <http://aws.amazon.com/sdk-for-java/ AWS Java SDK> and <http://aws.amazon.com/sdk-for-ruby/ AWS Ruby SDK> only. For more information about client-side encryption using AWS KMS master keys, see the <http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide> .
+-- * 's3KMSKeyARN' - The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:     * To use the default master key, provide an ARN in the form of @arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses@ . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be @arn:aws:kms:us-west-2:123456789012:alias/aws/ses@ . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.     * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> . For more information about key policies, see the <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide> . If you do not specify a master key, Amazon SES will not encrypt your emails. /Important:/ Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <http://aws.amazon.com/sdk-for-java/ AWS Java SDK> and <http://aws.amazon.com/sdk-for-ruby/ AWS Ruby SDK> only. For more information about client-side encryption using AWS KMS master keys, see the <AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide> .
 --
 -- * 's3TopicARN' - The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 --
 -- * 's3ObjectKeyPrefix' - The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that enables you to store similar data under the same directory in a bucket.
 --
--- * 's3BucketName' - The name of the Amazon S3 bucket to which to save the received email.
+-- * 's3BucketName' - The name of the Amazon S3 bucket that incoming email will be saved to.
 s3Action
     :: Text -- ^ 's3BucketName'
     -> S3Action
@@ -1686,7 +1794,7 @@ s3Action pBucketName_ =
   }
 
 
--- | The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:     * To use the default master key, provide an ARN in the form of @arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses@ . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be @arn:aws:kms:us-west-2:123456789012:alias/aws/ses@ . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.     * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> . For more information about key policies, see the <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide> . If you do not specify a master key, Amazon SES will not encrypt your emails. /Important:/ Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <http://aws.amazon.com/sdk-for-java/ AWS Java SDK> and <http://aws.amazon.com/sdk-for-ruby/ AWS Ruby SDK> only. For more information about client-side encryption using AWS KMS master keys, see the <http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide> .
+-- | The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:     * To use the default master key, provide an ARN in the form of @arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses@ . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be @arn:aws:kms:us-west-2:123456789012:alias/aws/ses@ . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.     * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> . For more information about key policies, see the <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide> . If you do not specify a master key, Amazon SES will not encrypt your emails. /Important:/ Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <http://aws.amazon.com/sdk-for-java/ AWS Java SDK> and <http://aws.amazon.com/sdk-for-ruby/ AWS Ruby SDK> only. For more information about client-side encryption using AWS KMS master keys, see the <AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide> .
 s3KMSKeyARN :: Lens' S3Action (Maybe Text)
 s3KMSKeyARN = lens _s3KMSKeyARN (\ s a -> s{_s3KMSKeyARN = a});
 
@@ -1698,7 +1806,7 @@ s3TopicARN = lens _s3TopicARN (\ s a -> s{_s3TopicARN = a});
 s3ObjectKeyPrefix :: Lens' S3Action (Maybe Text)
 s3ObjectKeyPrefix = lens _s3ObjectKeyPrefix (\ s a -> s{_s3ObjectKeyPrefix = a});
 
--- | The name of the Amazon S3 bucket to which to save the received email.
+-- | The name of the Amazon S3 bucket that incoming email will be saved to.
 s3BucketName :: Lens' S3Action Text
 s3BucketName = lens _s3BucketName (\ s a -> s{_s3BucketName = a});
 
@@ -1791,14 +1899,14 @@ newtype SNSDestination = SNSDestination'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdTopicARN' - The ARN of the Amazon SNS topic to which you want to publish email sending events. An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/http:/alpha-docs-aws.amazon.com/sns/latest/dg/CreateTopic.html /Amazon SNS Developer Guide/ > .
+-- * 'sdTopicARN' - The ARN of the Amazon SNS topic that email sending events will be published to. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 snsDestination
     :: Text -- ^ 'sdTopicARN'
     -> SNSDestination
 snsDestination pTopicARN_ = SNSDestination' {_sdTopicARN = pTopicARN_}
 
 
--- | The ARN of the Amazon SNS topic to which you want to publish email sending events. An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/http:/alpha-docs-aws.amazon.com/sns/latest/dg/CreateTopic.html /Amazon SNS Developer Guide/ > .
+-- | The ARN of the Amazon SNS topic that email sending events will be published to. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 sdTopicARN :: Lens' SNSDestination Text
 sdTopicARN = lens _sdTopicARN (\ s a -> s{_sdTopicARN = a});
 
@@ -1903,7 +2011,7 @@ data StopAction = StopAction'
 --
 -- * 'sTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 --
--- * 'sScope' - The scope to which the Stop action applies. That is, what is being stopped.
+-- * 'sScope' - The name of the RuleSet that is being stopped.
 stopAction
     :: StopScope -- ^ 'sScope'
     -> StopAction
@@ -1914,7 +2022,7 @@ stopAction pScope_ = StopAction' {_sTopicARN = Nothing, _sScope = pScope_}
 sTopicARN :: Lens' StopAction (Maybe Text)
 sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a});
 
--- | The scope to which the Stop action applies. That is, what is being stopped.
+-- | The name of the RuleSet that is being stopped.
 sScope :: Lens' StopAction StopScope
 sScope = lens _sScope (\ s a -> s{_sScope = a});
 
@@ -1931,6 +2039,157 @@ instance ToQuery StopAction where
         toQuery StopAction'{..}
           = mconcat
               ["TopicArn" =: _sTopicARN, "Scope" =: _sScope]
+
+-- | The content of the email, composed of a subject line, an HTML part, and a text-only part.
+--
+--
+--
+-- /See:/ 'template' smart constructor.
+data Template = Template'
+  { _tTextPart     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tSubjectPart  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tHTMLPart     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tTemplateName :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Template' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tTextPart' - The email body that will be visible to recipients whose email clients do not display HTML.
+--
+-- * 'tSubjectPart' - The subject line of the email.
+--
+-- * 'tHTMLPart' - The HTML body of the email.
+--
+-- * 'tTemplateName' - The name of the template. You will refer to this name when you send email using the @SendTemplatedEmail@ or @SendBulkTemplatedEmail@ operations.
+template
+    :: Text -- ^ 'tTemplateName'
+    -> Template
+template pTemplateName_ =
+  Template'
+  { _tTextPart = Nothing
+  , _tSubjectPart = Nothing
+  , _tHTMLPart = Nothing
+  , _tTemplateName = pTemplateName_
+  }
+
+
+-- | The email body that will be visible to recipients whose email clients do not display HTML.
+tTextPart :: Lens' Template (Maybe Text)
+tTextPart = lens _tTextPart (\ s a -> s{_tTextPart = a});
+
+-- | The subject line of the email.
+tSubjectPart :: Lens' Template (Maybe Text)
+tSubjectPart = lens _tSubjectPart (\ s a -> s{_tSubjectPart = a});
+
+-- | The HTML body of the email.
+tHTMLPart :: Lens' Template (Maybe Text)
+tHTMLPart = lens _tHTMLPart (\ s a -> s{_tHTMLPart = a});
+
+-- | The name of the template. You will refer to this name when you send email using the @SendTemplatedEmail@ or @SendBulkTemplatedEmail@ operations.
+tTemplateName :: Lens' Template Text
+tTemplateName = lens _tTemplateName (\ s a -> s{_tTemplateName = a});
+
+instance FromXML Template where
+        parseXML x
+          = Template' <$>
+              (x .@? "TextPart") <*> (x .@? "SubjectPart") <*>
+                (x .@? "HtmlPart")
+                <*> (x .@ "TemplateName")
+
+instance Hashable Template where
+
+instance NFData Template where
+
+instance ToQuery Template where
+        toQuery Template'{..}
+          = mconcat
+              ["TextPart" =: _tTextPart,
+               "SubjectPart" =: _tSubjectPart,
+               "HtmlPart" =: _tHTMLPart,
+               "TemplateName" =: _tTemplateName]
+
+-- | Information about an email template.
+--
+--
+--
+-- /See:/ 'templateMetadata' smart constructor.
+data TemplateMetadata = TemplateMetadata'
+  { _tmName             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tmCreatedTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TemplateMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tmName' - The name of the template.
+--
+-- * 'tmCreatedTimestamp' - The time and date the template was created.
+templateMetadata
+    :: TemplateMetadata
+templateMetadata =
+  TemplateMetadata' {_tmName = Nothing, _tmCreatedTimestamp = Nothing}
+
+
+-- | The name of the template.
+tmName :: Lens' TemplateMetadata (Maybe Text)
+tmName = lens _tmName (\ s a -> s{_tmName = a});
+
+-- | The time and date the template was created.
+tmCreatedTimestamp :: Lens' TemplateMetadata (Maybe UTCTime)
+tmCreatedTimestamp = lens _tmCreatedTimestamp (\ s a -> s{_tmCreatedTimestamp = a}) . mapping _Time;
+
+instance FromXML TemplateMetadata where
+        parseXML x
+          = TemplateMetadata' <$>
+              (x .@? "Name") <*> (x .@? "CreatedTimestamp")
+
+instance Hashable TemplateMetadata where
+
+instance NFData TemplateMetadata where
+
+-- | A domain that is used to redirect email recipients to an Amazon SES-operated domain. This domain captures open and click events generated by Amazon SES emails.
+--
+--
+-- For more information, see <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html Configuring Custom Domains to Handle Open and Click Tracking> in the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide> .
+--
+--
+-- /See:/ 'trackingOptions' smart constructor.
+newtype TrackingOptions = TrackingOptions'
+  { _toCustomRedirectDomain :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TrackingOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'toCustomRedirectDomain' - The custom subdomain that will be used to redirect email recipients to the Amazon SES event tracking domain.
+trackingOptions
+    :: TrackingOptions
+trackingOptions = TrackingOptions' {_toCustomRedirectDomain = Nothing}
+
+
+-- | The custom subdomain that will be used to redirect email recipients to the Amazon SES event tracking domain.
+toCustomRedirectDomain :: Lens' TrackingOptions (Maybe Text)
+toCustomRedirectDomain = lens _toCustomRedirectDomain (\ s a -> s{_toCustomRedirectDomain = a});
+
+instance FromXML TrackingOptions where
+        parseXML x
+          = TrackingOptions' <$> (x .@? "CustomRedirectDomain")
+
+instance Hashable TrackingOptions where
+
+instance NFData TrackingOptions where
+
+instance ToQuery TrackingOptions where
+        toQuery TrackingOptions'{..}
+          = mconcat
+              ["CustomRedirectDomain" =: _toCustomRedirectDomain]
 
 -- | When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS). You will typically not use this action directly because Amazon WorkMail adds the rule automatically during its setup procedure.
 --

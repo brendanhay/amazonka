@@ -21,7 +21,11 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.StepFunctions.Types.Sum
 
--- | /See:/ 'activityFailedEventDetails' smart constructor.
+-- | Contains details about an activity which failed during an execution.
+--
+--
+--
+-- /See:/ 'activityFailedEventDetails' smart constructor.
 data ActivityFailedEventDetails = ActivityFailedEventDetails'
   { _afedError :: {-# NOUNPACK #-}!(Maybe Text)
   , _afedCause :: {-# NOUNPACK #-}!(Maybe Text)
@@ -60,7 +64,11 @@ instance Hashable ActivityFailedEventDetails where
 
 instance NFData ActivityFailedEventDetails where
 
--- | /See:/ 'activityListItem' smart constructor.
+-- | Contains details about an activity.
+--
+--
+--
+-- /See:/ 'activityListItem' smart constructor.
 data ActivityListItem = ActivityListItem'
   { _aliActivityARN  :: {-# NOUNPACK #-}!Text
   , _aliName         :: {-# NOUNPACK #-}!Text
@@ -74,7 +82,7 @@ data ActivityListItem = ActivityListItem'
 --
 -- * 'aliActivityARN' - The Amazon Resource Name (ARN) that identifies the activity.
 --
--- * 'aliName' - The name of the activity.
+-- * 'aliName' - The name of the activity. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 --
 -- * 'aliCreationDate' - The date the activity was created.
 activityListItem
@@ -94,7 +102,7 @@ activityListItem pActivityARN_ pName_ pCreationDate_ =
 aliActivityARN :: Lens' ActivityListItem Text
 aliActivityARN = lens _aliActivityARN (\ s a -> s{_aliActivityARN = a});
 
--- | The name of the activity.
+-- | The name of the activity. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 aliName :: Lens' ActivityListItem Text
 aliName = lens _aliName (\ s a -> s{_aliName = a});
 
@@ -114,7 +122,11 @@ instance Hashable ActivityListItem where
 
 instance NFData ActivityListItem where
 
--- | /See:/ 'activityScheduleFailedEventDetails' smart constructor.
+-- | Contains details about an activity schedule failure which occurred during an execution.
+--
+--
+--
+-- /See:/ 'activityScheduleFailedEventDetails' smart constructor.
 data ActivityScheduleFailedEventDetails = ActivityScheduleFailedEventDetails'
   { _asfedError :: {-# NOUNPACK #-}!(Maybe Text)
   , _asfedCause :: {-# NOUNPACK #-}!(Maybe Text)
@@ -157,7 +169,11 @@ instance Hashable ActivityScheduleFailedEventDetails
 instance NFData ActivityScheduleFailedEventDetails
          where
 
--- | /See:/ 'activityScheduledEventDetails' smart constructor.
+-- | Contains details about an activity scheduled during an execution.
+--
+--
+--
+-- /See:/ 'activityScheduledEventDetails' smart constructor.
 data ActivityScheduledEventDetails = ActivityScheduledEventDetails'
   { _asedHeartbeatInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
   , _asedInput              :: {-# NOUNPACK #-}!(Maybe Text)
@@ -218,7 +234,11 @@ instance Hashable ActivityScheduledEventDetails where
 
 instance NFData ActivityScheduledEventDetails where
 
--- | /See:/ 'activityStartedEventDetails' smart constructor.
+-- | Contains details about the start of an activity during an execution.
+--
+--
+--
+-- /See:/ 'activityStartedEventDetails' smart constructor.
 newtype ActivityStartedEventDetails = ActivityStartedEventDetails'
   { _asedWorkerName :: Maybe Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -250,7 +270,11 @@ instance Hashable ActivityStartedEventDetails where
 
 instance NFData ActivityStartedEventDetails where
 
--- | /See:/ 'activitySucceededEventDetails' smart constructor.
+-- | Contains details about an activity which successfully terminated during an execution.
+--
+--
+--
+-- /See:/ 'activitySucceededEventDetails' smart constructor.
 newtype ActivitySucceededEventDetails = ActivitySucceededEventDetails'
   { _asedOutput :: Maybe Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -281,7 +305,11 @@ instance Hashable ActivitySucceededEventDetails where
 
 instance NFData ActivitySucceededEventDetails where
 
--- | /See:/ 'activityTimedOutEventDetails' smart constructor.
+-- | Contains details about an activity timeout which occurred during an execution.
+--
+--
+--
+-- /See:/ 'activityTimedOutEventDetails' smart constructor.
 data ActivityTimedOutEventDetails = ActivityTimedOutEventDetails'
   { _atoedError :: {-# NOUNPACK #-}!(Maybe Text)
   , _atoedCause :: {-# NOUNPACK #-}!(Maybe Text)
@@ -320,7 +348,11 @@ instance Hashable ActivityTimedOutEventDetails where
 
 instance NFData ActivityTimedOutEventDetails where
 
--- | /See:/ 'executionAbortedEventDetails' smart constructor.
+-- | Contains details about an abort of an execution.
+--
+--
+--
+-- /See:/ 'executionAbortedEventDetails' smart constructor.
 data ExecutionAbortedEventDetails = ExecutionAbortedEventDetails'
   { _eaedError :: {-# NOUNPACK #-}!(Maybe Text)
   , _eaedCause :: {-# NOUNPACK #-}!(Maybe Text)
@@ -359,7 +391,11 @@ instance Hashable ExecutionAbortedEventDetails where
 
 instance NFData ExecutionAbortedEventDetails where
 
--- | /See:/ 'executionFailedEventDetails' smart constructor.
+-- | Contains details about an execution failure event.
+--
+--
+--
+-- /See:/ 'executionFailedEventDetails' smart constructor.
 data ExecutionFailedEventDetails = ExecutionFailedEventDetails'
   { _efedError :: {-# NOUNPACK #-}!(Maybe Text)
   , _efedCause :: {-# NOUNPACK #-}!(Maybe Text)
@@ -398,7 +434,11 @@ instance Hashable ExecutionFailedEventDetails where
 
 instance NFData ExecutionFailedEventDetails where
 
--- | /See:/ 'executionListItem' smart constructor.
+-- | Contains details about an execution.
+--
+--
+--
+-- /See:/ 'executionListItem' smart constructor.
 data ExecutionListItem = ExecutionListItem'
   { _eliStopDate        :: {-# NOUNPACK #-}!(Maybe POSIX)
   , _eliExecutionARN    :: {-# NOUNPACK #-}!Text
@@ -419,7 +459,7 @@ data ExecutionListItem = ExecutionListItem'
 --
 -- * 'eliStateMachineARN' - The Amazon Resource Name (ARN) of the executed state machine.
 --
--- * 'eliName' - The name of the execution.
+-- * 'eliName' - The name of the execution. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 --
 -- * 'eliStatus' - The current status of the execution.
 --
@@ -454,7 +494,7 @@ eliExecutionARN = lens _eliExecutionARN (\ s a -> s{_eliExecutionARN = a});
 eliStateMachineARN :: Lens' ExecutionListItem Text
 eliStateMachineARN = lens _eliStateMachineARN (\ s a -> s{_eliStateMachineARN = a});
 
--- | The name of the execution.
+-- | The name of the execution. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 eliName :: Lens' ExecutionListItem Text
 eliName = lens _eliName (\ s a -> s{_eliName = a});
 
@@ -481,7 +521,11 @@ instance Hashable ExecutionListItem where
 
 instance NFData ExecutionListItem where
 
--- | /See:/ 'executionStartedEventDetails' smart constructor.
+-- | Contains details about the start of the execution.
+--
+--
+--
+-- /See:/ 'executionStartedEventDetails' smart constructor.
 data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
   { _esedInput   :: {-# NOUNPACK #-}!(Maybe Text)
   , _esedRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
@@ -520,7 +564,11 @@ instance Hashable ExecutionStartedEventDetails where
 
 instance NFData ExecutionStartedEventDetails where
 
--- | /See:/ 'executionSucceededEventDetails' smart constructor.
+-- | Contains details about the successful termination of the execution.
+--
+--
+--
+-- /See:/ 'executionSucceededEventDetails' smart constructor.
 newtype ExecutionSucceededEventDetails = ExecutionSucceededEventDetails'
   { _esedOutput :: Maybe Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -553,7 +601,11 @@ instance Hashable ExecutionSucceededEventDetails
 
 instance NFData ExecutionSucceededEventDetails where
 
--- | /See:/ 'executionTimedOutEventDetails' smart constructor.
+-- | Contains details about the execution timeout which occurred during the execution.
+--
+--
+--
+-- /See:/ 'executionTimedOutEventDetails' smart constructor.
 data ExecutionTimedOutEventDetails = ExecutionTimedOutEventDetails'
   { _etoedError :: {-# NOUNPACK #-}!(Maybe Text)
   , _etoedCause :: {-# NOUNPACK #-}!(Maybe Text)
@@ -592,7 +644,11 @@ instance Hashable ExecutionTimedOutEventDetails where
 
 instance NFData ExecutionTimedOutEventDetails where
 
--- | /See:/ 'historyEvent' smart constructor.
+-- | Contains details about the events of an execution.
+--
+--
+--
+-- /See:/ 'historyEvent' smart constructor.
 data HistoryEvent = HistoryEvent'
   { _heActivityStartedEventDetails :: {-# NOUNPACK #-}!(Maybe ActivityStartedEventDetails)
   , _heLambdaFunctionStartFailedEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionStartFailedEventDetails)
@@ -626,11 +682,11 @@ data HistoryEvent = HistoryEvent'
 --
 -- * 'heActivityStartedEventDetails' - Undocumented member.
 --
--- * 'heLambdaFunctionStartFailedEventDetails' - Undocumented member.
+-- * 'heLambdaFunctionStartFailedEventDetails' - Contains details about a lambda function which failed to start during an execution.
 --
 -- * 'heStateExitedEventDetails' - Undocumented member.
 --
--- * 'heLambdaFunctionSucceededEventDetails' - Undocumented member.
+-- * 'heLambdaFunctionSucceededEventDetails' - Contains details about a lambda function which terminated successfully during an execution.
 --
 -- * 'heActivitySucceededEventDetails' - Undocumented member.
 --
@@ -650,7 +706,7 @@ data HistoryEvent = HistoryEvent'
 --
 -- * 'heExecutionStartedEventDetails' - Undocumented member.
 --
--- * 'heActivityScheduleFailedEventDetails' - Undocumented member.
+-- * 'heActivityScheduleFailedEventDetails' - Contains details about an activity schedule event which failed during an execution.
 --
 -- * 'heLambdaFunctionScheduleFailedEventDetails' - Undocumented member.
 --
@@ -664,7 +720,7 @@ data HistoryEvent = HistoryEvent'
 --
 -- * 'heExecutionTimedOutEventDetails' - Undocumented member.
 --
--- * 'heTimestamp' - The date the event occured.
+-- * 'heTimestamp' - The date the event occurred.
 --
 -- * 'heType' - The type of the event.
 --
@@ -706,7 +762,7 @@ historyEvent pTimestamp_ pType_ pId_ =
 heActivityStartedEventDetails :: Lens' HistoryEvent (Maybe ActivityStartedEventDetails)
 heActivityStartedEventDetails = lens _heActivityStartedEventDetails (\ s a -> s{_heActivityStartedEventDetails = a});
 
--- | Undocumented member.
+-- | Contains details about a lambda function which failed to start during an execution.
 heLambdaFunctionStartFailedEventDetails :: Lens' HistoryEvent (Maybe LambdaFunctionStartFailedEventDetails)
 heLambdaFunctionStartFailedEventDetails = lens _heLambdaFunctionStartFailedEventDetails (\ s a -> s{_heLambdaFunctionStartFailedEventDetails = a});
 
@@ -714,7 +770,7 @@ heLambdaFunctionStartFailedEventDetails = lens _heLambdaFunctionStartFailedEvent
 heStateExitedEventDetails :: Lens' HistoryEvent (Maybe StateExitedEventDetails)
 heStateExitedEventDetails = lens _heStateExitedEventDetails (\ s a -> s{_heStateExitedEventDetails = a});
 
--- | Undocumented member.
+-- | Contains details about a lambda function which terminated successfully during an execution.
 heLambdaFunctionSucceededEventDetails :: Lens' HistoryEvent (Maybe LambdaFunctionSucceededEventDetails)
 heLambdaFunctionSucceededEventDetails = lens _heLambdaFunctionSucceededEventDetails (\ s a -> s{_heLambdaFunctionSucceededEventDetails = a});
 
@@ -754,7 +810,7 @@ heActivityScheduledEventDetails = lens _heActivityScheduledEventDetails (\ s a -
 heExecutionStartedEventDetails :: Lens' HistoryEvent (Maybe ExecutionStartedEventDetails)
 heExecutionStartedEventDetails = lens _heExecutionStartedEventDetails (\ s a -> s{_heExecutionStartedEventDetails = a});
 
--- | Undocumented member.
+-- | Contains details about an activity schedule event which failed during an execution.
 heActivityScheduleFailedEventDetails :: Lens' HistoryEvent (Maybe ActivityScheduleFailedEventDetails)
 heActivityScheduleFailedEventDetails = lens _heActivityScheduleFailedEventDetails (\ s a -> s{_heActivityScheduleFailedEventDetails = a});
 
@@ -782,7 +838,7 @@ heLambdaFunctionFailedEventDetails = lens _heLambdaFunctionFailedEventDetails (\
 heExecutionTimedOutEventDetails :: Lens' HistoryEvent (Maybe ExecutionTimedOutEventDetails)
 heExecutionTimedOutEventDetails = lens _heExecutionTimedOutEventDetails (\ s a -> s{_heExecutionTimedOutEventDetails = a});
 
--- | The date the event occured.
+-- | The date the event occurred.
 heTimestamp :: Lens' HistoryEvent UTCTime
 heTimestamp = lens _heTimestamp (\ s a -> s{_heTimestamp = a}) . _Time;
 
@@ -828,7 +884,11 @@ instance Hashable HistoryEvent where
 
 instance NFData HistoryEvent where
 
--- | /See:/ 'lambdaFunctionFailedEventDetails' smart constructor.
+-- | Contains details about a lambda function which failed during an execution.
+--
+--
+--
+-- /See:/ 'lambdaFunctionFailedEventDetails' smart constructor.
 data LambdaFunctionFailedEventDetails = LambdaFunctionFailedEventDetails'
   { _lffedError :: {-# NOUNPACK #-}!(Maybe Text)
   , _lffedCause :: {-# NOUNPACK #-}!(Maybe Text)
@@ -871,7 +931,11 @@ instance Hashable LambdaFunctionFailedEventDetails
 instance NFData LambdaFunctionFailedEventDetails
          where
 
--- | /See:/ 'lambdaFunctionScheduleFailedEventDetails' smart constructor.
+-- | Contains details about a failed lambda function schedule event which occurred during an execution.
+--
+--
+--
+-- /See:/ 'lambdaFunctionScheduleFailedEventDetails' smart constructor.
 data LambdaFunctionScheduleFailedEventDetails = LambdaFunctionScheduleFailedEventDetails'
   { _lError :: {-# NOUNPACK #-}!(Maybe Text)
   , _lCause :: {-# NOUNPACK #-}!(Maybe Text)
@@ -918,7 +982,11 @@ instance NFData
            LambdaFunctionScheduleFailedEventDetails
          where
 
--- | /See:/ 'lambdaFunctionScheduledEventDetails' smart constructor.
+-- | Contains details about a lambda function scheduled during an execution.
+--
+--
+--
+-- /See:/ 'lambdaFunctionScheduledEventDetails' smart constructor.
 data LambdaFunctionScheduledEventDetails = LambdaFunctionScheduledEventDetails'
   { _lfsedInput            :: {-# NOUNPACK #-}!(Maybe Text)
   , _lfsedTimeoutInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
@@ -973,7 +1041,11 @@ instance Hashable LambdaFunctionScheduledEventDetails
 instance NFData LambdaFunctionScheduledEventDetails
          where
 
--- | /See:/ 'lambdaFunctionStartFailedEventDetails' smart constructor.
+-- | Contains details about a lambda function which failed to start during an execution.
+--
+--
+--
+-- /See:/ 'lambdaFunctionStartFailedEventDetails' smart constructor.
 data LambdaFunctionStartFailedEventDetails = LambdaFunctionStartFailedEventDetails'
   { _lfsfedError :: {-# NOUNPACK #-}!(Maybe Text)
   , _lfsfedCause :: {-# NOUNPACK #-}!(Maybe Text)
@@ -1018,7 +1090,11 @@ instance Hashable
 instance NFData LambdaFunctionStartFailedEventDetails
          where
 
--- | /See:/ 'lambdaFunctionSucceededEventDetails' smart constructor.
+-- | Contains details about a lambda function which successfully terminated during an execution.
+--
+--
+--
+-- /See:/ 'lambdaFunctionSucceededEventDetails' smart constructor.
 newtype LambdaFunctionSucceededEventDetails = LambdaFunctionSucceededEventDetails'
   { _lfsedOutput :: Maybe Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -1053,7 +1129,11 @@ instance Hashable LambdaFunctionSucceededEventDetails
 instance NFData LambdaFunctionSucceededEventDetails
          where
 
--- | /See:/ 'lambdaFunctionTimedOutEventDetails' smart constructor.
+-- | Contains details about a lambda function timeout which occurred during an execution.
+--
+--
+--
+-- /See:/ 'lambdaFunctionTimedOutEventDetails' smart constructor.
 data LambdaFunctionTimedOutEventDetails = LambdaFunctionTimedOutEventDetails'
   { _lftoedError :: {-# NOUNPACK #-}!(Maybe Text)
   , _lftoedCause :: {-# NOUNPACK #-}!(Maybe Text)
@@ -1096,7 +1176,11 @@ instance Hashable LambdaFunctionTimedOutEventDetails
 instance NFData LambdaFunctionTimedOutEventDetails
          where
 
--- | /See:/ 'stateEnteredEventDetails' smart constructor.
+-- | Contains details about a state entered during an execution.
+--
+--
+--
+-- /See:/ 'stateEnteredEventDetails' smart constructor.
 data StateEnteredEventDetails = StateEnteredEventDetails'
   { _sInput :: {-# NOUNPACK #-}!(Maybe Text)
   , _sName  :: {-# NOUNPACK #-}!Text
@@ -1107,7 +1191,7 @@ data StateEnteredEventDetails = StateEnteredEventDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sInput' - The JSON input data to the state.
+-- * 'sInput' - The string that contains the JSON input data for the state.
 --
 -- * 'sName' - The name of the state.
 stateEnteredEventDetails
@@ -1117,7 +1201,7 @@ stateEnteredEventDetails pName_ =
   StateEnteredEventDetails' {_sInput = Nothing, _sName = pName_}
 
 
--- | The JSON input data to the state.
+-- | The string that contains the JSON input data for the state.
 sInput :: Lens' StateEnteredEventDetails (Maybe Text)
 sInput = lens _sInput (\ s a -> s{_sInput = a});
 
@@ -1136,7 +1220,11 @@ instance Hashable StateEnteredEventDetails where
 
 instance NFData StateEnteredEventDetails where
 
--- | /See:/ 'stateExitedEventDetails' smart constructor.
+-- | Contains details about an exit from a state during an execution.
+--
+--
+--
+-- /See:/ 'stateExitedEventDetails' smart constructor.
 data StateExitedEventDetails = StateExitedEventDetails'
   { _seedOutput :: {-# NOUNPACK #-}!(Maybe Text)
   , _seedName   :: {-# NOUNPACK #-}!Text
@@ -1149,7 +1237,7 @@ data StateExitedEventDetails = StateExitedEventDetails'
 --
 -- * 'seedOutput' - The JSON output data of the state.
 --
--- * 'seedName' - The name of the state.
+-- * 'seedName' - The name of the state. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 stateExitedEventDetails
     :: Text -- ^ 'seedName'
     -> StateExitedEventDetails
@@ -1161,7 +1249,7 @@ stateExitedEventDetails pName_ =
 seedOutput :: Lens' StateExitedEventDetails (Maybe Text)
 seedOutput = lens _seedOutput (\ s a -> s{_seedOutput = a});
 
--- | The name of the state.
+-- | The name of the state. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 seedName :: Lens' StateExitedEventDetails Text
 seedName = lens _seedName (\ s a -> s{_seedName = a});
 
@@ -1176,7 +1264,11 @@ instance Hashable StateExitedEventDetails where
 
 instance NFData StateExitedEventDetails where
 
--- | /See:/ 'stateMachineListItem' smart constructor.
+-- | Contains details about the state machine.
+--
+--
+--
+-- /See:/ 'stateMachineListItem' smart constructor.
 data StateMachineListItem = StateMachineListItem'
   { _smliStateMachineARN :: {-# NOUNPACK #-}!Text
   , _smliName            :: {-# NOUNPACK #-}!Text
@@ -1190,7 +1282,7 @@ data StateMachineListItem = StateMachineListItem'
 --
 -- * 'smliStateMachineARN' - The Amazon Resource Name (ARN) that identifies the state machine.
 --
--- * 'smliName' - The name of the state machine.
+-- * 'smliName' - The name of the state machine. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 --
 -- * 'smliCreationDate' - The date the state machine was created.
 stateMachineListItem
@@ -1210,7 +1302,7 @@ stateMachineListItem pStateMachineARN_ pName_ pCreationDate_ =
 smliStateMachineARN :: Lens' StateMachineListItem Text
 smliStateMachineARN = lens _smliStateMachineARN (\ s a -> s{_smliStateMachineARN = a});
 
--- | The name of the state machine.
+-- | The name of the state machine. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 smliName :: Lens' StateMachineListItem Text
 smliName = lens _smliName (\ s a -> s{_smliName = a});
 

@@ -14,11 +14,11 @@
 module Test.AWS.Gen.Polly where
 
 import Data.Proxy
+import Network.AWS.Polly
 import Test.AWS.Fixture
+import Test.AWS.Polly.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.Polly
-import Test.AWS.Polly.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

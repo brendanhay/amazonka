@@ -55,7 +55,7 @@ data AcceptPortfolioShare = AcceptPortfolioShare'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apsAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'apsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'apsPortfolioId' - The portfolio identifier.
 acceptPortfolioShare
@@ -66,7 +66,7 @@ acceptPortfolioShare pPortfolioId_ =
   {_apsAcceptLanguage = Nothing, _apsPortfolioId = pPortfolioId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 apsAcceptLanguage :: Lens' AcceptPortfolioShare (Maybe Text)
 apsAcceptLanguage = lens _apsAcceptLanguage (\ s a -> s{_apsAcceptLanguage = a});
 

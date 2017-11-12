@@ -18,12 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the details of the specified configuration set.
+-- Returns the details of the specified configuration set. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
 --
--- Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
---
--- This action is throttled at one request per second.
+-- You can execute this operation no more than once per second.
 --
 module Network.AWS.SES.DescribeConfigurationSet
     (
@@ -38,6 +36,7 @@ module Network.AWS.SES.DescribeConfigurationSet
     , describeConfigurationSetResponse
     , DescribeConfigurationSetResponse
     -- * Response Lenses
+    , dcsrsTrackingOptions
     , dcsrsConfigurationSet
     , dcsrsEventDestinations
     , dcsrsResponseStatus
@@ -94,7 +93,9 @@ instance AWSRequest DescribeConfigurationSet where
           = receiveXMLWrapper "DescribeConfigurationSetResult"
               (\ s h x ->
                  DescribeConfigurationSetResponse' <$>
-                   (x .@? "ConfigurationSet") <*>
+                   (x .@? "TrackingOptions") <*>
+                     (x .@? "ConfigurationSet")
+                     <*>
                      (x .@? "EventDestinations" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
@@ -127,7 +128,8 @@ instance ToQuery DescribeConfigurationSet where
 --
 -- /See:/ 'describeConfigurationSetResponse' smart constructor.
 data DescribeConfigurationSetResponse = DescribeConfigurationSetResponse'
-  { _dcsrsConfigurationSet  :: {-# NOUNPACK #-}!(Maybe ConfigurationSet)
+  { _dcsrsTrackingOptions   :: {-# NOUNPACK #-}!(Maybe TrackingOptions)
+  , _dcsrsConfigurationSet  :: {-# NOUNPACK #-}!(Maybe ConfigurationSet)
   , _dcsrsEventDestinations :: {-# NOUNPACK #-}!(Maybe [EventDestination])
   , _dcsrsResponseStatus    :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -136,6 +138,8 @@ data DescribeConfigurationSetResponse = DescribeConfigurationSetResponse'
 -- | Creates a value of 'DescribeConfigurationSetResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsrsTrackingOptions' - The name of the custom open and click tracking domain associated with the configuration set.
 --
 -- * 'dcsrsConfigurationSet' - The configuration set object associated with the specified configuration set.
 --
@@ -147,11 +151,16 @@ describeConfigurationSetResponse
     -> DescribeConfigurationSetResponse
 describeConfigurationSetResponse pResponseStatus_ =
   DescribeConfigurationSetResponse'
-  { _dcsrsConfigurationSet = Nothing
+  { _dcsrsTrackingOptions = Nothing
+  , _dcsrsConfigurationSet = Nothing
   , _dcsrsEventDestinations = Nothing
   , _dcsrsResponseStatus = pResponseStatus_
   }
 
+
+-- | The name of the custom open and click tracking domain associated with the configuration set.
+dcsrsTrackingOptions :: Lens' DescribeConfigurationSetResponse (Maybe TrackingOptions)
+dcsrsTrackingOptions = lens _dcsrsTrackingOptions (\ s a -> s{_dcsrsTrackingOptions = a});
 
 -- | The configuration set object associated with the specified configuration set.
 dcsrsConfigurationSet :: Lens' DescribeConfigurationSetResponse (Maybe ConfigurationSet)

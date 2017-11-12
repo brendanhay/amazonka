@@ -90,7 +90,7 @@ data AttachVolume = AttachVolume'
 --
 -- * 'avDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'avDevice' - The device name to expose to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+-- * 'avDevice' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
 --
 -- * 'avInstanceId' - The ID of the instance.
 --
@@ -113,7 +113,7 @@ attachVolume pDevice_ pInstanceId_ pVolumeId_ =
 avDryRun :: Lens' AttachVolume (Maybe Bool)
 avDryRun = lens _avDryRun (\ s a -> s{_avDryRun = a});
 
--- | The device name to expose to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+-- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
 avDevice :: Lens' AttachVolume Text
 avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
 

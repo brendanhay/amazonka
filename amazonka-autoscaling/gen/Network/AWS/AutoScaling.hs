@@ -369,6 +369,17 @@ module Network.AWS.AutoScaling
     , lhLifecycleTransition
     , lhRoleARN
 
+    -- ** LifecycleHookSpecification
+    , LifecycleHookSpecification
+    , lifecycleHookSpecification
+    , lhsDefaultResult
+    , lhsHeartbeatTimeout
+    , lhsNotificationMetadata
+    , lhsNotificationTargetARN
+    , lhsLifecycleTransition
+    , lhsRoleARN
+    , lhsLifecycleHookName
+
     -- ** LoadBalancerState
     , LoadBalancerState
     , loadBalancerState

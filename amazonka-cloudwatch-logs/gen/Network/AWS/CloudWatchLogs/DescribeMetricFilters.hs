@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, and metric namespace. The results are ASCII-sorted by filter name.
+-- Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, or metric namespace. The results are ASCII-sorted by filter name.
 --
 --
 --
@@ -70,7 +70,7 @@ data DescribeMetricFilters = DescribeMetricFilters'
 --
 -- * 'dmfFilterNamePrefix' - The prefix to match.
 --
--- * 'dmfMetricName' - The name of the CloudWatch metric.
+-- * 'dmfMetricName' - Undocumented member.
 --
 -- * 'dmfLogGroupName' - The name of the log group.
 --
@@ -96,7 +96,7 @@ describeMetricFilters =
 dmfFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
 dmfFilterNamePrefix = lens _dmfFilterNamePrefix (\ s a -> s{_dmfFilterNamePrefix = a});
 
--- | The name of the CloudWatch metric.
+-- | Undocumented member.
 dmfMetricName :: Lens' DescribeMetricFilters (Maybe Text)
 dmfMetricName = lens _dmfMetricName (\ s a -> s{_dmfMetricName = a});
 

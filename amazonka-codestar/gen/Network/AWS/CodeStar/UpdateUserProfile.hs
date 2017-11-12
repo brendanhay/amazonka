@@ -55,10 +55,10 @@ import Network.AWS.Response
 -- | /See:/ 'updateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
   { _uupSshPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uupEmailAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uupEmailAddress :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
   , _uupDisplayName  :: {-# NOUNPACK #-}!(Maybe Text)
   , _uupUserARN      :: {-# NOUNPACK #-}!Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'UpdateUserProfile' with the minimum fields required to make a request.
@@ -90,7 +90,7 @@ uupSshPublicKey = lens _uupSshPublicKey (\ s a -> s{_uupSshPublicKey = a});
 
 -- | The email address that is displayed as part of the user's profile in AWS CodeStar.
 uupEmailAddress :: Lens' UpdateUserProfile (Maybe Text)
-uupEmailAddress = lens _uupEmailAddress (\ s a -> s{_uupEmailAddress = a});
+uupEmailAddress = lens _uupEmailAddress (\ s a -> s{_uupEmailAddress = a}) . mapping _Sensitive;
 
 -- | The name that is displayed as the friendly name for the user in AWS CodeStar.
 uupDisplayName :: Lens' UpdateUserProfile (Maybe Text)
@@ -148,12 +148,12 @@ instance ToQuery UpdateUserProfile where
 data UpdateUserProfileResponse = UpdateUserProfileResponse'
   { _uuprsLastModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
   , _uuprsSshPublicKey          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uuprsEmailAddress          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uuprsEmailAddress          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
   , _uuprsDisplayName           :: {-# NOUNPACK #-}!(Maybe Text)
   , _uuprsCreatedTimestamp      :: {-# NOUNPACK #-}!(Maybe POSIX)
   , _uuprsResponseStatus        :: {-# NOUNPACK #-}!Int
   , _uuprsUserARN               :: {-# NOUNPACK #-}!Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'UpdateUserProfileResponse' with the minimum fields required to make a request.
@@ -199,7 +199,7 @@ uuprsSshPublicKey = lens _uuprsSshPublicKey (\ s a -> s{_uuprsSshPublicKey = a})
 
 -- | The email address that is displayed as part of the user's profile in AWS CodeStar.
 uuprsEmailAddress :: Lens' UpdateUserProfileResponse (Maybe Text)
-uuprsEmailAddress = lens _uuprsEmailAddress (\ s a -> s{_uuprsEmailAddress = a});
+uuprsEmailAddress = lens _uuprsEmailAddress (\ s a -> s{_uuprsEmailAddress = a}) . mapping _Sensitive;
 
 -- | The name that is displayed as the friendly name for the user in AWS CodeStar.
 uuprsDisplayName :: Lens' UpdateUserProfileResponse (Maybe Text)

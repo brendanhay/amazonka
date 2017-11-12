@@ -61,7 +61,7 @@ data ListLaunchPaths = ListLaunchPaths'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'llpAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'llpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'llpPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
@@ -80,7 +80,7 @@ listLaunchPaths pProductId_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 llpAcceptLanguage :: Lens' ListLaunchPaths (Maybe Text)
 llpAcceptLanguage = lens _llpAcceptLanguage (\ s a -> s{_llpAcceptLanguage = a});
 

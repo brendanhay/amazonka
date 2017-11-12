@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- If stack names are not provided, this operation describes the specified stacks; otherwise, all stacks in the account are described. To retrieve the next set of items, pass the @nextToken@ value in a subsequent call to this operation.
+-- Describes the specified stacks or all stacks in the account.
 --
 --
 module Network.AWS.AppStream.DescribeStacks
@@ -59,7 +59,7 @@ data DescribeStacks = DescribeStacks'
 --
 -- * 'dNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 --
--- * 'dNames' - The stack names to describe. Use null to describe all the stacks for the AWS account.
+-- * 'dNames' - The names of the stacks to describe.
 describeStacks
     :: DescribeStacks
 describeStacks = DescribeStacks' {_dNextToken = Nothing, _dNames = Nothing}
@@ -69,7 +69,7 @@ describeStacks = DescribeStacks' {_dNextToken = Nothing, _dNames = Nothing}
 dNextToken :: Lens' DescribeStacks (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
--- | The stack names to describe. Use null to describe all the stacks for the AWS account.
+-- | The names of the stacks to describe.
 dNames :: Lens' DescribeStacks [Text]
 dNames = lens _dNames (\ s a -> s{_dNames = a}) . _Default . _Coerce;
 
@@ -124,7 +124,7 @@ data DescribeStacksResponse = DescribeStacksResponse'
 --
 -- * 'desrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
--- * 'desrsStacks' - The list of stack details.
+-- * 'desrsStacks' - Information about the stacks.
 --
 -- * 'desrsResponseStatus' - -- | The response status code.
 describeStacksResponse
@@ -142,7 +142,7 @@ describeStacksResponse pResponseStatus_ =
 desrsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
 desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
 
--- | The list of stack details.
+-- | Information about the stacks.
 desrsStacks :: Lens' DescribeStacksResponse [Stack]
 desrsStacks = lens _desrsStacks (\ s a -> s{_desrsStacks = a}) . _Default . _Coerce;
 

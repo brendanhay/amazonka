@@ -120,12 +120,12 @@ instance NFData BotAliasMetadata where
 data BotChannelAssociation = BotChannelAssociation'
   { _bcaBotAlias         :: {-# NOUNPACK #-}!(Maybe Text)
   , _bcaBotName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bcaBotConfiguration :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  , _bcaBotConfiguration :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text Text)))
   , _bcaCreatedDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
   , _bcaName             :: {-# NOUNPACK #-}!(Maybe Text)
   , _bcaType             :: {-# NOUNPACK #-}!(Maybe ChannelType)
   , _bcaDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'BotChannelAssociation' with the minimum fields required to make a request.
@@ -168,8 +168,8 @@ bcaBotName :: Lens' BotChannelAssociation (Maybe Text)
 bcaBotName = lens _bcaBotName (\ s a -> s{_bcaBotName = a});
 
 -- | Provides information necessary to communicate with the messaging platform.
-bcaBotConfiguration :: Lens' BotChannelAssociation (HashMap Text Text)
-bcaBotConfiguration = lens _bcaBotConfiguration (\ s a -> s{_bcaBotConfiguration = a}) . _Default . _Map;
+bcaBotConfiguration :: Lens' BotChannelAssociation (Maybe (HashMap Text Text))
+bcaBotConfiguration = lens _bcaBotConfiguration (\ s a -> s{_bcaBotConfiguration = a}) . mapping (_Sensitive . _Map);
 
 -- | The date that the association between the Amazon Lex bot and the channel was created.
 bcaCreatedDate :: Lens' BotChannelAssociation (Maybe UTCTime)
@@ -475,8 +475,9 @@ instance ToJSON CodeHook where
 --
 --
 -- /See:/ 'enumerationValue' smart constructor.
-newtype EnumerationValue = EnumerationValue'
-  { _evValue :: Text
+data EnumerationValue = EnumerationValue'
+  { _evSynonyms :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _evValue    :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -484,12 +485,19 @@ newtype EnumerationValue = EnumerationValue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'evSynonyms' - Additional values related to the slot type value.
+--
 -- * 'evValue' - The value of the slot type.
 enumerationValue
     :: Text -- ^ 'evValue'
     -> EnumerationValue
-enumerationValue pValue_ = EnumerationValue' {_evValue = pValue_}
+enumerationValue pValue_ =
+  EnumerationValue' {_evSynonyms = Nothing, _evValue = pValue_}
 
+
+-- | Additional values related to the slot type value.
+evSynonyms :: Lens' EnumerationValue [Text]
+evSynonyms = lens _evSynonyms (\ s a -> s{_evSynonyms = a}) . _Default . _Coerce;
 
 -- | The value of the slot type.
 evValue :: Lens' EnumerationValue Text
@@ -498,7 +506,9 @@ evValue = lens _evValue (\ s a -> s{_evValue = a});
 instance FromJSON EnumerationValue where
         parseJSON
           = withObject "EnumerationValue"
-              (\ x -> EnumerationValue' <$> (x .: "value"))
+              (\ x ->
+                 EnumerationValue' <$>
+                   (x .:? "synonyms" .!= mempty) <*> (x .: "value"))
 
 instance Hashable EnumerationValue where
 
@@ -506,7 +516,10 @@ instance NFData EnumerationValue where
 
 instance ToJSON EnumerationValue where
         toJSON EnumerationValue'{..}
-          = object (catMaybes [Just ("value" .= _evValue)])
+          = object
+              (catMaybes
+                 [("synonyms" .=) <$> _evSynonyms,
+                  Just ("value" .= _evValue)])
 
 -- | A prompt for additional activity after an intent is fulfilled. For example, after the @OrderPizza@ intent is fulfilled, you might prompt the user to find out whether the user wants to order drinks.
 --

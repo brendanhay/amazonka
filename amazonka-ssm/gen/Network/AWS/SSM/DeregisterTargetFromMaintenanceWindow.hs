@@ -59,7 +59,7 @@ data DeregisterTargetFromMaintenanceWindow = DeregisterTargetFromMaintenanceWind
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtfmwSafe' - The system checks if the target is being referenced by a task. If the target is being referenced, the system returns and error and does not deregister the target from the Maintenance Window.
+-- * 'dtfmwSafe' - The system checks if the target is being referenced by a task. If the target is being referenced, the system returns an error and does not deregister the target from the Maintenance Window.
 --
 -- * 'dtfmwWindowId' - The ID of the Maintenance Window the target should be removed from.
 --
@@ -76,7 +76,7 @@ deregisterTargetFromMaintenanceWindow pWindowId_ pWindowTargetId_ =
   }
 
 
--- | The system checks if the target is being referenced by a task. If the target is being referenced, the system returns and error and does not deregister the target from the Maintenance Window.
+-- | The system checks if the target is being referenced by a task. If the target is being referenced, the system returns an error and does not deregister the target from the Maintenance Window.
 dtfmwSafe :: Lens' DeregisterTargetFromMaintenanceWindow (Maybe Bool)
 dtfmwSafe = lens _dtfmwSafe (\ s a -> s{_dtfmwSafe = a});
 

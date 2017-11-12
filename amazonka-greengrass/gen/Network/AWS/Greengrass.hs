@@ -140,6 +140,9 @@ module Network.AWS.Greengrass
     -- ** AssociateServiceRoleToAccount
     , module Network.AWS.Greengrass.AssociateServiceRoleToAccount
 
+    -- ** ResetDeployments
+    , module Network.AWS.Greengrass.ResetDeployments
+
     -- ** GetSubscriptionDefinitionVersion
     , module Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
 
@@ -276,6 +279,7 @@ module Network.AWS.Greengrass
     , dDeploymentId
     , dDeploymentARN
     , dCreatedAt
+    , dDeploymentType
     , dGroupARN
 
     -- ** Device
@@ -290,6 +294,12 @@ module Network.AWS.Greengrass
     , DeviceDefinitionVersion
     , deviceDefinitionVersion
     , ddvDevices
+
+    -- ** ErrorDetail
+    , ErrorDetail
+    , errorDetail
+    , edDetailedErrorCode
+    , edDetailedErrorMessage
 
     -- ** Function
     , Function
@@ -436,6 +446,7 @@ import Network.AWS.Greengrass.ListLoggerDefinitions
 import Network.AWS.Greengrass.ListLoggerDefinitionVersions
 import Network.AWS.Greengrass.ListSubscriptionDefinitions
 import Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
+import Network.AWS.Greengrass.ResetDeployments
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.UpdateConnectivityInfo
 import Network.AWS.Greengrass.UpdateCoreDefinition

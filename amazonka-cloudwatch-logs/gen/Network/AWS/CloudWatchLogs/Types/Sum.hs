@@ -19,6 +19,9 @@ module Network.AWS.CloudWatchLogs.Types.Sum where
 
 import Network.AWS.Prelude
 
+-- | The method used to distribute log data to the destination, which can be either random or grouped by log stream.
+--
+--
 data Distribution
   = ByLogStream
   | Random

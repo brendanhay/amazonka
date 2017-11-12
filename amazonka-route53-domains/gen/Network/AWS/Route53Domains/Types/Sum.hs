@@ -770,40 +770,40 @@ instance FromJSON CountryCode where
     parseJSON = parseJSONText "CountryCode"
 
 data DomainAvailability
-  = Available
-  | AvailablePreorder
-  | AvailableReserved
-  | DontKnow
-  | Reserved
-  | Unavailable
-  | UnavailablePremium
-  | UnavailableRestricted
+  = DAAvailable
+  | DAAvailablePreorder
+  | DAAvailableReserved
+  | DADontKnow
+  | DAReserved
+  | DAUnavailable
+  | DAUnavailablePremium
+  | DAUnavailableRestricted
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText DomainAvailability where
     parser = takeLowerText >>= \case
-        "available" -> pure Available
-        "available_preorder" -> pure AvailablePreorder
-        "available_reserved" -> pure AvailableReserved
-        "dont_know" -> pure DontKnow
-        "reserved" -> pure Reserved
-        "unavailable" -> pure Unavailable
-        "unavailable_premium" -> pure UnavailablePremium
-        "unavailable_restricted" -> pure UnavailableRestricted
+        "available" -> pure DAAvailable
+        "available_preorder" -> pure DAAvailablePreorder
+        "available_reserved" -> pure DAAvailableReserved
+        "dont_know" -> pure DADontKnow
+        "reserved" -> pure DAReserved
+        "unavailable" -> pure DAUnavailable
+        "unavailable_premium" -> pure DAUnavailablePremium
+        "unavailable_restricted" -> pure DAUnavailableRestricted
         e -> fromTextError $ "Failure parsing DomainAvailability from value: '" <> e
            <> "'. Accepted values: available, available_preorder, available_reserved, dont_know, reserved, unavailable, unavailable_premium, unavailable_restricted"
 
 instance ToText DomainAvailability where
     toText = \case
-        Available -> "AVAILABLE"
-        AvailablePreorder -> "AVAILABLE_PREORDER"
-        AvailableReserved -> "AVAILABLE_RESERVED"
-        DontKnow -> "DONT_KNOW"
-        Reserved -> "RESERVED"
-        Unavailable -> "UNAVAILABLE"
-        UnavailablePremium -> "UNAVAILABLE_PREMIUM"
-        UnavailableRestricted -> "UNAVAILABLE_RESTRICTED"
+        DAAvailable -> "AVAILABLE"
+        DAAvailablePreorder -> "AVAILABLE_PREORDER"
+        DAAvailableReserved -> "AVAILABLE_RESERVED"
+        DADontKnow -> "DONT_KNOW"
+        DAReserved -> "RESERVED"
+        DAUnavailable -> "UNAVAILABLE"
+        DAUnavailablePremium -> "UNAVAILABLE_PREMIUM"
+        DAUnavailableRestricted -> "UNAVAILABLE_RESTRICTED"
 
 instance Hashable     DomainAvailability
 instance NFData       DomainAvailability
@@ -831,10 +831,15 @@ data ExtraParamName
   | EsLegalForm
   | FiBusinessNumber
   | FiIdNumber
+  | FiNationality
+  | FiOrganizationType
   | ItPin
+  | ItRegistrantEntityType
   | RuPassportData
   | SeIdNumber
   | SgIdNumber
+  | UkCompanyNumber
+  | UkContactType
   | VatNumber
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -857,13 +862,18 @@ instance FromText ExtraParamName where
         "es_legal_form" -> pure EsLegalForm
         "fi_business_number" -> pure FiBusinessNumber
         "fi_id_number" -> pure FiIdNumber
+        "fi_nationality" -> pure FiNationality
+        "fi_organization_type" -> pure FiOrganizationType
         "it_pin" -> pure ItPin
+        "it_registrant_entity_type" -> pure ItRegistrantEntityType
         "ru_passport_data" -> pure RuPassportData
         "se_id_number" -> pure SeIdNumber
         "sg_id_number" -> pure SgIdNumber
+        "uk_company_number" -> pure UkCompanyNumber
+        "uk_contact_type" -> pure UkContactType
         "vat_number" -> pure VatNumber
         e -> fromTextError $ "Failure parsing ExtraParamName from value: '" <> e
-           <> "'. Accepted values: au_id_number, au_id_type, birth_city, birth_country, birth_date_in_yyyy_mm_dd, birth_department, brand_number, ca_business_entity_type, ca_legal_type, document_number, duns_number, es_identification, es_identification_type, es_legal_form, fi_business_number, fi_id_number, it_pin, ru_passport_data, se_id_number, sg_id_number, vat_number"
+           <> "'. Accepted values: au_id_number, au_id_type, birth_city, birth_country, birth_date_in_yyyy_mm_dd, birth_department, brand_number, ca_business_entity_type, ca_legal_type, document_number, duns_number, es_identification, es_identification_type, es_legal_form, fi_business_number, fi_id_number, fi_nationality, fi_organization_type, it_pin, it_registrant_entity_type, ru_passport_data, se_id_number, sg_id_number, uk_company_number, uk_contact_type, vat_number"
 
 instance ToText ExtraParamName where
     toText = \case
@@ -883,10 +893,15 @@ instance ToText ExtraParamName where
         EsLegalForm -> "ES_LEGAL_FORM"
         FiBusinessNumber -> "FI_BUSINESS_NUMBER"
         FiIdNumber -> "FI_ID_NUMBER"
+        FiNationality -> "FI_NATIONALITY"
+        FiOrganizationType -> "FI_ORGANIZATION_TYPE"
         ItPin -> "IT_PIN"
+        ItRegistrantEntityType -> "IT_REGISTRANT_ENTITY_TYPE"
         RuPassportData -> "RU_PASSPORT_DATA"
         SeIdNumber -> "SE_ID_NUMBER"
         SgIdNumber -> "SG_ID_NUMBER"
+        UkCompanyNumber -> "UK_COMPANY_NUMBER"
+        UkContactType -> "UK_CONTACT_TYPE"
         VatNumber -> "VAT_NUMBER"
 
 instance Hashable     ExtraParamName
@@ -938,11 +953,20 @@ instance FromJSON OperationStatus where
     parseJSON = parseJSONText "OperationStatus"
 
 data OperationType
-  = ChangePrivacyProtection
+  = AddDNSsec
+  | ChangeDomainOwner
+  | ChangePrivacyProtection
   | DeleteDomain
+  | DisableAutorenew
   | DomainLock
+  | EnableAutorenew
+  | ExpireDomain
+  | PushDomain
   | RegisterDomain
+  | RemoveDNSsec
+  | RenewDomain
   | TransferInDomain
+  | TransferOutDomain
   | UpdateDomainContact
   | UpdateNameserver
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -950,23 +974,41 @@ data OperationType
 
 instance FromText OperationType where
     parser = takeLowerText >>= \case
+        "add_dnssec" -> pure AddDNSsec
+        "change_domain_owner" -> pure ChangeDomainOwner
         "change_privacy_protection" -> pure ChangePrivacyProtection
         "delete_domain" -> pure DeleteDomain
+        "disable_autorenew" -> pure DisableAutorenew
         "domain_lock" -> pure DomainLock
+        "enable_autorenew" -> pure EnableAutorenew
+        "expire_domain" -> pure ExpireDomain
+        "push_domain" -> pure PushDomain
         "register_domain" -> pure RegisterDomain
+        "remove_dnssec" -> pure RemoveDNSsec
+        "renew_domain" -> pure RenewDomain
         "transfer_in_domain" -> pure TransferInDomain
+        "transfer_out_domain" -> pure TransferOutDomain
         "update_domain_contact" -> pure UpdateDomainContact
         "update_nameserver" -> pure UpdateNameserver
         e -> fromTextError $ "Failure parsing OperationType from value: '" <> e
-           <> "'. Accepted values: change_privacy_protection, delete_domain, domain_lock, register_domain, transfer_in_domain, update_domain_contact, update_nameserver"
+           <> "'. Accepted values: add_dnssec, change_domain_owner, change_privacy_protection, delete_domain, disable_autorenew, domain_lock, enable_autorenew, expire_domain, push_domain, register_domain, remove_dnssec, renew_domain, transfer_in_domain, transfer_out_domain, update_domain_contact, update_nameserver"
 
 instance ToText OperationType where
     toText = \case
+        AddDNSsec -> "ADD_DNSSEC"
+        ChangeDomainOwner -> "CHANGE_DOMAIN_OWNER"
         ChangePrivacyProtection -> "CHANGE_PRIVACY_PROTECTION"
         DeleteDomain -> "DELETE_DOMAIN"
+        DisableAutorenew -> "DISABLE_AUTORENEW"
         DomainLock -> "DOMAIN_LOCK"
+        EnableAutorenew -> "ENABLE_AUTORENEW"
+        ExpireDomain -> "EXPIRE_DOMAIN"
+        PushDomain -> "PUSH_DOMAIN"
         RegisterDomain -> "REGISTER_DOMAIN"
+        RemoveDNSsec -> "REMOVE_DNSSEC"
+        RenewDomain -> "RENEW_DOMAIN"
         TransferInDomain -> "TRANSFER_IN_DOMAIN"
+        TransferOutDomain -> "TRANSFER_OUT_DOMAIN"
         UpdateDomainContact -> "UPDATE_DOMAIN_CONTACT"
         UpdateNameserver -> "UPDATE_NAMESERVER"
 
@@ -1008,3 +1050,46 @@ instance ToHeader     ReachabilityStatus
 
 instance FromJSON ReachabilityStatus where
     parseJSON = parseJSONText "ReachabilityStatus"
+
+-- | Whether the domain name can be transferred to Amazon Route 53.
+--
+--
+-- Valid values:
+--
+--     * TRANSFERABLE    * The domain name can be transferred to Amazon Route 53.
+--
+--     * UNTRANSFERRABLE    * The domain name can't be transferred to Amazon Route 53.
+--
+--     * DONT_KNOW    * Reserved for future use.
+--
+--
+--
+data Transferable
+  = DontKnow
+  | Transferable
+  | Untransferable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Transferable where
+    parser = takeLowerText >>= \case
+        "dont_know" -> pure DontKnow
+        "transferable" -> pure Transferable
+        "untransferable" -> pure Untransferable
+        e -> fromTextError $ "Failure parsing Transferable from value: '" <> e
+           <> "'. Accepted values: dont_know, transferable, untransferable"
+
+instance ToText Transferable where
+    toText = \case
+        DontKnow -> "DONT_KNOW"
+        Transferable -> "TRANSFERABLE"
+        Untransferable -> "UNTRANSFERABLE"
+
+instance Hashable     Transferable
+instance NFData       Transferable
+instance ToByteString Transferable
+instance ToQuery      Transferable
+instance ToHeader     Transferable
+
+instance FromJSON Transferable where
+    parseJSON = parseJSONText "Transferable"

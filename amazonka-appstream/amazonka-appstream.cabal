@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -48,13 +48,18 @@ library
         , Network.AWS.AppStream.AssociateFleet
         , Network.AWS.AppStream.CreateDirectoryConfig
         , Network.AWS.AppStream.CreateFleet
+        , Network.AWS.AppStream.CreateImageBuilder
+        , Network.AWS.AppStream.CreateImageBuilderStreamingURL
         , Network.AWS.AppStream.CreateStack
         , Network.AWS.AppStream.CreateStreamingURL
         , Network.AWS.AppStream.DeleteDirectoryConfig
         , Network.AWS.AppStream.DeleteFleet
+        , Network.AWS.AppStream.DeleteImage
+        , Network.AWS.AppStream.DeleteImageBuilder
         , Network.AWS.AppStream.DeleteStack
         , Network.AWS.AppStream.DescribeDirectoryConfigs
         , Network.AWS.AppStream.DescribeFleets
+        , Network.AWS.AppStream.DescribeImageBuilders
         , Network.AWS.AppStream.DescribeImages
         , Network.AWS.AppStream.DescribeSessions
         , Network.AWS.AppStream.DescribeStacks
@@ -63,7 +68,9 @@ library
         , Network.AWS.AppStream.ListAssociatedFleets
         , Network.AWS.AppStream.ListAssociatedStacks
         , Network.AWS.AppStream.StartFleet
+        , Network.AWS.AppStream.StartImageBuilder
         , Network.AWS.AppStream.StopFleet
+        , Network.AWS.AppStream.StopImageBuilder
         , Network.AWS.AppStream.Types
         , Network.AWS.AppStream.UpdateDirectoryConfig
         , Network.AWS.AppStream.UpdateFleet

@@ -93,6 +93,7 @@ module Network.AWS.CloudWatchLogs.Types
     , lgArn
     , lgLogGroupName
     , lgRetentionInDays
+    , lgKmsKeyId
     , lgStoredBytes
 
     -- * LogStream
@@ -144,6 +145,13 @@ module Network.AWS.CloudWatchLogs.Types
     , rleiTooOldLogEventEndIndex
     , rleiTooNewLogEventStartIndex
     , rleiExpiredLogEventEndIndex
+
+    -- * ResourcePolicy
+    , ResourcePolicy
+    , resourcePolicy
+    , rpPolicyName
+    , rpPolicyDocument
+    , rpLastUpdatedTime
 
     -- * SearchedLogStream
     , SearchedLogStream

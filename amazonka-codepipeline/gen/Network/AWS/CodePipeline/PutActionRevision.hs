@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a put action revision action.
+-- | Represents the input of a PutActionRevision action.
 --
 --
 --
@@ -143,7 +143,7 @@ instance ToPath PutActionRevision where
 instance ToQuery PutActionRevision where
         toQuery = const mempty
 
--- | Represents the output of a put action revision action.
+-- | Represents the output of a PutActionRevision action.
 --
 --
 --

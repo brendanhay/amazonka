@@ -74,7 +74,7 @@ data DeleteStackInstances = DeleteStackInstances'
 --
 -- * 'dsiRegions' - The regions where you want to delete stack set instances.
 --
--- * 'dsiRetainStacks' - Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set.
+-- * 'dsiRetainStacks' - Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options> .
 deleteStackInstances
     :: Text -- ^ 'dsiStackSetName'
     -> Bool -- ^ 'dsiRetainStacks'
@@ -110,7 +110,7 @@ dsiAccounts = lens _dsiAccounts (\ s a -> s{_dsiAccounts = a}) . _Coerce;
 dsiRegions :: Lens' DeleteStackInstances [Text]
 dsiRegions = lens _dsiRegions (\ s a -> s{_dsiRegions = a}) . _Coerce;
 
--- | Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set.
+-- | Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options> .
 dsiRetainStacks :: Lens' DeleteStackInstances Bool
 dsiRetainStacks = lens _dsiRetainStacks (\ s a -> s{_dsiRetainStacks = a});
 

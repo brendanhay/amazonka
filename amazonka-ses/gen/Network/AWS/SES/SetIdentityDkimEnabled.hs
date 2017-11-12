@@ -21,15 +21,15 @@
 -- Enables or disables Easy DKIM signing of email sent from an identity:
 --
 --
---     * If Easy DKIM signing is enabled for a domain name identity (e.g., @example.com@ ), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., @user@example.com@ ).
+--     * If Easy DKIM signing is enabled for a domain name identity (such as @example.com@ ), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (for example, @user@example.com@ ).
 --
 --     * If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.
 --
 --
 --
--- For email addresses (e.g., @user@example.com@ ), you can only enable Easy DKIM signing if the corresponding domain (e.g., @example.com@ ) has been set up for Easy DKIM using the AWS Console or the @VerifyDomainDkim@ action.
+-- For email addresses (for example, @user@example.com@ ), you can only enable Easy DKIM signing if the corresponding domain (in this case, @example.com@ ) has been set up for Easy DKIM using the AWS Console or the @VerifyDomainDkim@ operation.
 --
--- This action is throttled at one request per second.
+-- You can execute this operation no more than once per second.
 --
 -- For more information about Easy DKIM signing, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
 --

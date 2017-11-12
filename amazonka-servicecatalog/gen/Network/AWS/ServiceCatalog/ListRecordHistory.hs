@@ -65,7 +65,7 @@ data ListRecordHistory = ListRecordHistory'
 --
 -- * 'lrhSearchFilter' - The filter to limit search results.
 --
--- * 'lrhAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'lrhAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'lrhAccessLevelFilter' - The access level for obtaining results. If left unspecified, @User@ level access is used.
 --
@@ -88,7 +88,7 @@ listRecordHistory =
 lrhSearchFilter :: Lens' ListRecordHistory (Maybe ListRecordHistorySearchFilter)
 lrhSearchFilter = lens _lrhSearchFilter (\ s a -> s{_lrhSearchFilter = a});
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lrhAcceptLanguage :: Lens' ListRecordHistory (Maybe Text)
 lrhAcceptLanguage = lens _lrhAcceptLanguage (\ s a -> s{_lrhAcceptLanguage = a});
 

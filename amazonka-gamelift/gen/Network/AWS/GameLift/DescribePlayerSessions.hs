@@ -103,7 +103,7 @@ data DescribePlayerSessions = DescribePlayerSessions'
 --
 -- * 'dpssPlayerId' - Unique identifier for a player to retrieve player sessions for.
 --
--- * 'dpssPlayerSessionStatusFilter' - Player session status to filter results on. Possible player session statuses include the following:     * __RESERVED__ – The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ – The player has been validated by the server process and is currently connected.     * __COMPLETED__ – The player connection has been dropped.     * __TIMEDOUT__ – A player session request was received, but the player did not connect and/or was not validated within the time-out limit (60 seconds).
+-- * 'dpssPlayerSessionStatusFilter' - Player session status to filter results on. Possible player session statuses include the following:     * __RESERVED__ -- The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ -- The player has been validated by the server process and is currently connected.     * __COMPLETED__ -- The player connection has been dropped.     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
 describePlayerSessions
     :: DescribePlayerSessions
 describePlayerSessions =
@@ -137,7 +137,7 @@ dpssPlayerSessionId = lens _dpssPlayerSessionId (\ s a -> s{_dpssPlayerSessionId
 dpssPlayerId :: Lens' DescribePlayerSessions (Maybe Text)
 dpssPlayerId = lens _dpssPlayerId (\ s a -> s{_dpssPlayerId = a});
 
--- | Player session status to filter results on. Possible player session statuses include the following:     * __RESERVED__ – The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ – The player has been validated by the server process and is currently connected.     * __COMPLETED__ – The player connection has been dropped.     * __TIMEDOUT__ – A player session request was received, but the player did not connect and/or was not validated within the time-out limit (60 seconds).
+-- | Player session status to filter results on. Possible player session statuses include the following:     * __RESERVED__ -- The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ -- The player has been validated by the server process and is currently connected.     * __COMPLETED__ -- The player connection has been dropped.     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
 dpssPlayerSessionStatusFilter :: Lens' DescribePlayerSessions (Maybe Text)
 dpssPlayerSessionStatusFilter = lens _dpssPlayerSessionStatusFilter (\ s a -> s{_dpssPlayerSessionStatusFilter = a});
 

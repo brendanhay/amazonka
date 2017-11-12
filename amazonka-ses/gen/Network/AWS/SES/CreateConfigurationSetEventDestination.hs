@@ -23,7 +23,7 @@
 --
 -- An event destination is the AWS service to which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
--- This action is throttled at one request per second.
+-- You can execute this operation no more than once per second.
 --
 module Network.AWS.SES.CreateConfigurationSetEventDestination
     (
@@ -63,9 +63,9 @@ data CreateConfigurationSetEventDestination = CreateConfigurationSetEventDestina
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsedConfigurationSetName' - The name of the configuration set to which to apply the event destination.
+-- * 'ccsedConfigurationSetName' - The name of the configuration set that the event destination should be associated with.
 --
--- * 'ccsedEventDestination' - An object that describes the AWS service to which Amazon SES will publish the email sending events associated with the specified configuration set.
+-- * 'ccsedEventDestination' - An object that describes the AWS service that email sending event information will be published to.
 createConfigurationSetEventDestination
     :: Text -- ^ 'ccsedConfigurationSetName'
     -> EventDestination -- ^ 'ccsedEventDestination'
@@ -77,11 +77,11 @@ createConfigurationSetEventDestination pConfigurationSetName_ pEventDestination_
   }
 
 
--- | The name of the configuration set to which to apply the event destination.
+-- | The name of the configuration set that the event destination should be associated with.
 ccsedConfigurationSetName :: Lens' CreateConfigurationSetEventDestination Text
 ccsedConfigurationSetName = lens _ccsedConfigurationSetName (\ s a -> s{_ccsedConfigurationSetName = a});
 
--- | An object that describes the AWS service to which Amazon SES will publish the email sending events associated with the specified configuration set.
+-- | An object that describes the AWS service that email sending event information will be published to.
 ccsedEventDestination :: Lens' CreateConfigurationSetEventDestination EventDestination
 ccsedEventDestination = lens _ccsedEventDestination (\ s a -> s{_ccsedEventDestination = a});
 

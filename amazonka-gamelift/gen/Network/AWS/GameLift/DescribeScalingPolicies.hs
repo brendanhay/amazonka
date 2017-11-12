@@ -121,7 +121,7 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 --
 -- * 'dNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 --
--- * 'dStatusFilter' - Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ – The scaling policy is currently in force.     * __UPDATEREQUESTED__ – A request to update the scaling policy has been received.     * __UPDATING__ – A change is being made to the scaling policy.     * __DELETEREQUESTED__ – A request to delete the scaling policy has been received.     * __DELETING__ – The scaling policy is being deleted.     * __DELETED__ – The scaling policy has been deleted.     * __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
+-- * 'dStatusFilter' - Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ -- The scaling policy is currently in force.     * __UPDATEREQUESTED__ -- A request to update the scaling policy has been received.     * __UPDATING__ -- A change is being made to the scaling policy.     * __DELETEREQUESTED__ -- A request to delete the scaling policy has been received.     * __DELETING__ -- The scaling policy is being deleted.     * __DELETED__ -- The scaling policy has been deleted.     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
 --
 -- * 'dLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
@@ -142,7 +142,7 @@ describeScalingPolicies pFleetId_ =
 dNextToken :: Lens' DescribeScalingPolicies (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
--- | Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ – The scaling policy is currently in force.     * __UPDATEREQUESTED__ – A request to update the scaling policy has been received.     * __UPDATING__ – A change is being made to the scaling policy.     * __DELETEREQUESTED__ – A request to delete the scaling policy has been received.     * __DELETING__ – The scaling policy is being deleted.     * __DELETED__ – The scaling policy has been deleted.     * __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
+-- | Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ -- The scaling policy is currently in force.     * __UPDATEREQUESTED__ -- A request to update the scaling policy has been received.     * __UPDATING__ -- A change is being made to the scaling policy.     * __DELETEREQUESTED__ -- A request to delete the scaling policy has been received.     * __DELETING__ -- The scaling policy is being deleted.     * __DELETED__ -- The scaling policy has been deleted.     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
 dStatusFilter :: Lens' DescribeScalingPolicies (Maybe ScalingStatusType)
 dStatusFilter = lens _dStatusFilter (\ s a -> s{_dStatusFilter = a});
 

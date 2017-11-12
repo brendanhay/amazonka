@@ -69,7 +69,7 @@ data GetMaintenanceWindowExecutionTaskInvocation = GetMaintenanceWindowExecution
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmwetiWindowExecutionId' - The ID of the Maintenance Window execution the task is part of.
+-- * 'gmwetiWindowExecutionId' - The ID of the Maintenance Window execution for which the task is a part.
 --
 -- * 'gmwetiTaskId' - The ID of the specific task in the Maintenance Window task that should be retrieved.
 --
@@ -87,7 +87,7 @@ getMaintenanceWindowExecutionTaskInvocation pWindowExecutionId_ pTaskId_ pInvoca
   }
 
 
--- | The ID of the Maintenance Window execution the task is part of.
+-- | The ID of the Maintenance Window execution for which the task is a part.
 gmwetiWindowExecutionId :: Lens' GetMaintenanceWindowExecutionTaskInvocation Text
 gmwetiWindowExecutionId = lens _gmwetiWindowExecutionId (\ s a -> s{_gmwetiWindowExecutionId = a});
 
@@ -193,11 +193,11 @@ data GetMaintenanceWindowExecutionTaskInvocationResponse = GetMaintenanceWindowE
 --
 -- * 'gmwetirsTaskExecutionId' - The task execution ID.
 --
--- * 'gmwetirsStartTime' - The time the task started executing on the target.
+-- * 'gmwetirsStartTime' - The time that the task started executing on the target.
 --
 -- * 'gmwetirsInvocationId' - The invocation ID.
 --
--- * 'gmwetirsOwnerInformation' - User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+-- * 'gmwetirsOwnerInformation' - User-provided value to be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 --
 -- * 'gmwetirsTaskType' - Retrieves the task type for a Maintenance Window. Task types include the following: LAMBDA, STEP_FUNCTION, AUTOMATION, RUN_COMMAND.
 --
@@ -207,9 +207,9 @@ data GetMaintenanceWindowExecutionTaskInvocationResponse = GetMaintenanceWindowE
 --
 -- * 'gmwetirsStatusDetails' - The details explaining the status. Details are only available for certain status values.
 --
--- * 'gmwetirsEndTime' - The time the task finished executing on the target.
+-- * 'gmwetirsEndTime' - The time that the task finished executing on the target.
 --
--- * 'gmwetirsParameters' - The parameters used at the time the task executed.
+-- * 'gmwetirsParameters' - The parameters used at the time that the task executed.
 --
 -- * 'gmwetirsResponseStatus' - -- | The response status code.
 getMaintenanceWindowExecutionTaskInvocationResponse
@@ -245,7 +245,7 @@ gmwetirsExecutionId = lens _gmwetirsExecutionId (\ s a -> s{_gmwetirsExecutionId
 gmwetirsTaskExecutionId :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
 gmwetirsTaskExecutionId = lens _gmwetirsTaskExecutionId (\ s a -> s{_gmwetirsTaskExecutionId = a});
 
--- | The time the task started executing on the target.
+-- | The time that the task started executing on the target.
 gmwetirsStartTime :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe UTCTime)
 gmwetirsStartTime = lens _gmwetirsStartTime (\ s a -> s{_gmwetirsStartTime = a}) . mapping _Time;
 
@@ -253,7 +253,7 @@ gmwetirsStartTime = lens _gmwetirsStartTime (\ s a -> s{_gmwetirsStartTime = a})
 gmwetirsInvocationId :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
 gmwetirsInvocationId = lens _gmwetirsInvocationId (\ s a -> s{_gmwetirsInvocationId = a});
 
--- | User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+-- | User-provided value to be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 gmwetirsOwnerInformation :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
 gmwetirsOwnerInformation = lens _gmwetirsOwnerInformation (\ s a -> s{_gmwetirsOwnerInformation = a}) . mapping _Sensitive;
 
@@ -273,11 +273,11 @@ gmwetirsWindowExecutionId = lens _gmwetirsWindowExecutionId (\ s a -> s{_gmwetir
 gmwetirsStatusDetails :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
 gmwetirsStatusDetails = lens _gmwetirsStatusDetails (\ s a -> s{_gmwetirsStatusDetails = a});
 
--- | The time the task finished executing on the target.
+-- | The time that the task finished executing on the target.
 gmwetirsEndTime :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe UTCTime)
 gmwetirsEndTime = lens _gmwetirsEndTime (\ s a -> s{_gmwetirsEndTime = a}) . mapping _Time;
 
--- | The parameters used at the time the task executed.
+-- | The parameters used at the time that the task executed.
 gmwetirsParameters :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
 gmwetirsParameters = lens _gmwetirsParameters (\ s a -> s{_gmwetirsParameters = a}) . mapping _Sensitive;
 

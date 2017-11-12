@@ -1957,7 +1957,7 @@ data TableStatistics = TableStatistics'
 --
 -- * 'tsSchemaName' - The schema name.
 --
--- * 'tsTableState' - The state of the table.
+-- * 'tsTableState' - The state of the tables described. Valid states: Table does not exist | Before load | Full load | Table completed | Table cancelled | Table error | Table all | Table updates | Table is being reloaded
 --
 -- * 'tsFullLoadErrorRows' - The number of rows that failed to load during the Full Load operation (valid only for DynamoDB as a target migrations).
 --
@@ -2004,7 +2004,7 @@ tsFullLoadCondtnlChkFailedRows = lens _tsFullLoadCondtnlChkFailedRows (\ s a -> 
 tsSchemaName :: Lens' TableStatistics (Maybe Text)
 tsSchemaName = lens _tsSchemaName (\ s a -> s{_tsSchemaName = a});
 
--- | The state of the table.
+-- | The state of the tables described. Valid states: Table does not exist | Before load | Full load | Table completed | Table cancelled | Table error | Table all | Table updates | Table is being reloaded
 tsTableState :: Lens' TableStatistics (Maybe Text)
 tsTableState = lens _tsTableState (\ s a -> s{_tsTableState = a});
 

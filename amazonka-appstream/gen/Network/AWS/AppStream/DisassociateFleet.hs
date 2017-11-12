@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates a fleet from a stack.
+-- Disassociates the specified fleet from the specified stack.
 --
 --
 module Network.AWS.AppStream.DisassociateFleet
@@ -55,9 +55,9 @@ data DisassociateFleet = DisassociateFleet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfFleetName' - The name of the fleet to disassociate.
+-- * 'dfFleetName' - The name of the fleet.
 --
--- * 'dfStackName' - The name of the stack with which the fleet is associated.
+-- * 'dfStackName' - The name of the stack.
 disassociateFleet
     :: Text -- ^ 'dfFleetName'
     -> Text -- ^ 'dfStackName'
@@ -66,11 +66,11 @@ disassociateFleet pFleetName_ pStackName_ =
   DisassociateFleet' {_dfFleetName = pFleetName_, _dfStackName = pStackName_}
 
 
--- | The name of the fleet to disassociate.
+-- | The name of the fleet.
 dfFleetName :: Lens' DisassociateFleet Text
 dfFleetName = lens _dfFleetName (\ s a -> s{_dfFleetName = a});
 
--- | The name of the stack with which the fleet is associated.
+-- | The name of the stack.
 dfStackName :: Lens' DisassociateFleet Text
 dfStackName = lens _dfStackName (\ s a -> s{_dfStackName = a});
 

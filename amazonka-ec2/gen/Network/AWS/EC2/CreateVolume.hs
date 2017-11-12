@@ -35,15 +35,15 @@ module Network.AWS.EC2.CreateVolume
       createVolume
     , CreateVolume
     -- * Request Lenses
-    , creSize
-    , creIOPS
-    , creEncrypted
-    , creTagSpecifications
-    , creKMSKeyId
-    , creVolumeType
-    , creDryRun
-    , creSnapshotId
-    , creAvailabilityZone
+    , cvvSize
+    , cvvIOPS
+    , cvvEncrypted
+    , cvvTagSpecifications
+    , cvvKMSKeyId
+    , cvvVolumeType
+    , cvvDryRun
+    , cvvSnapshotId
+    , cvvAvailabilityZone
 
     -- * Destructuring the Response
     , volume
@@ -76,15 +76,15 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVolume' smart constructor.
 data CreateVolume = CreateVolume'
-  { _creSize              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _creIOPS              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _creEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _creTagSpecifications :: {-# NOUNPACK #-}!(Maybe [TagSpecification])
-  , _creKMSKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _creVolumeType        :: {-# NOUNPACK #-}!(Maybe VolumeType)
-  , _creDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _creSnapshotId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _creAvailabilityZone  :: {-# NOUNPACK #-}!Text
+  { _cvvSize              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cvvIOPS              :: {-# NOUNPACK #-}!(Maybe Int)
+  , _cvvEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cvvTagSpecifications :: {-# NOUNPACK #-}!(Maybe [TagSpecification])
+  , _cvvKMSKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cvvVolumeType        :: {-# NOUNPACK #-}!(Maybe VolumeType)
+  , _cvvDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _cvvSnapshotId        :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cvvAvailabilityZone  :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -92,75 +92,75 @@ data CreateVolume = CreateVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'creSize' - The size of the volume, in GiBs. Constraints: 1-16384 for @gp2@ , 4-16384 for @io1@ , 500-16384 for @st1@ , 500-16384 for @sc1@ , and 1-1024 for @standard@ . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+-- * 'cvvSize' - The size of the volume, in GiBs. Constraints: 1-16384 for @gp2@ , 4-16384 for @io1@ , 500-16384 for @st1@ , 500-16384 for @sc1@ , and 1-1024 for @standard@ . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
 --
--- * 'creIOPS' - Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB. Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes
+-- * 'cvvIOPS' - Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB. Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes
 --
--- * 'creEncrypted' - Specifies whether the volume should be encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted volumes, you can only launch it on supported instance types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'cvvEncrypted' - Specifies whether the volume should be encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted volumes, you can only launch it on supported instance types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'creTagSpecifications' - The tags to apply to the volume during creation.
+-- * 'cvvTagSpecifications' - The tags to apply to the volume during creation.
 --
--- * 'creKMSKeyId' - The full ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ . If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
+-- * 'cvvKMSKeyId' - The full ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ . If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
 --
--- * 'creVolumeType' - The volume type. This can be @gp2@ for General Purpose SSD, @io1@ for Provisioned IOPS SSD, @st1@ for Throughput Optimized HDD, @sc1@ for Cold HDD, or @standard@ for Magnetic volumes. Default: @standard@
+-- * 'cvvVolumeType' - The volume type. This can be @gp2@ for General Purpose SSD, @io1@ for Provisioned IOPS SSD, @st1@ for Throughput Optimized HDD, @sc1@ for Cold HDD, or @standard@ for Magnetic volumes. Default: @standard@
 --
--- * 'creDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'cvvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'creSnapshotId' - The snapshot from which to create the volume.
+-- * 'cvvSnapshotId' - The snapshot from which to create the volume.
 --
--- * 'creAvailabilityZone' - The Availability Zone in which to create the volume. Use 'DescribeAvailabilityZones' to list the Availability Zones that are currently available to you.
+-- * 'cvvAvailabilityZone' - The Availability Zone in which to create the volume. Use 'DescribeAvailabilityZones' to list the Availability Zones that are currently available to you.
 createVolume
-    :: Text -- ^ 'creAvailabilityZone'
+    :: Text -- ^ 'cvvAvailabilityZone'
     -> CreateVolume
 createVolume pAvailabilityZone_ =
   CreateVolume'
-  { _creSize = Nothing
-  , _creIOPS = Nothing
-  , _creEncrypted = Nothing
-  , _creTagSpecifications = Nothing
-  , _creKMSKeyId = Nothing
-  , _creVolumeType = Nothing
-  , _creDryRun = Nothing
-  , _creSnapshotId = Nothing
-  , _creAvailabilityZone = pAvailabilityZone_
+  { _cvvSize = Nothing
+  , _cvvIOPS = Nothing
+  , _cvvEncrypted = Nothing
+  , _cvvTagSpecifications = Nothing
+  , _cvvKMSKeyId = Nothing
+  , _cvvVolumeType = Nothing
+  , _cvvDryRun = Nothing
+  , _cvvSnapshotId = Nothing
+  , _cvvAvailabilityZone = pAvailabilityZone_
   }
 
 
 -- | The size of the volume, in GiBs. Constraints: 1-16384 for @gp2@ , 4-16384 for @io1@ , 500-16384 for @st1@ , 500-16384 for @sc1@ , and 1-1024 for @standard@ . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
-creSize :: Lens' CreateVolume (Maybe Int)
-creSize = lens _creSize (\ s a -> s{_creSize = a});
+cvvSize :: Lens' CreateVolume (Maybe Int)
+cvvSize = lens _cvvSize (\ s a -> s{_cvvSize = a});
 
 -- | Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB. Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes
-creIOPS :: Lens' CreateVolume (Maybe Int)
-creIOPS = lens _creIOPS (\ s a -> s{_creIOPS = a});
+cvvIOPS :: Lens' CreateVolume (Maybe Int)
+cvvIOPS = lens _cvvIOPS (\ s a -> s{_cvvIOPS = a});
 
 -- | Specifies whether the volume should be encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted volumes, you can only launch it on supported instance types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
-creEncrypted :: Lens' CreateVolume (Maybe Bool)
-creEncrypted = lens _creEncrypted (\ s a -> s{_creEncrypted = a});
+cvvEncrypted :: Lens' CreateVolume (Maybe Bool)
+cvvEncrypted = lens _cvvEncrypted (\ s a -> s{_cvvEncrypted = a});
 
 -- | The tags to apply to the volume during creation.
-creTagSpecifications :: Lens' CreateVolume [TagSpecification]
-creTagSpecifications = lens _creTagSpecifications (\ s a -> s{_creTagSpecifications = a}) . _Default . _Coerce;
+cvvTagSpecifications :: Lens' CreateVolume [TagSpecification]
+cvvTagSpecifications = lens _cvvTagSpecifications (\ s a -> s{_cvvTagSpecifications = a}) . _Default . _Coerce;
 
 -- | The full ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ . If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
-creKMSKeyId :: Lens' CreateVolume (Maybe Text)
-creKMSKeyId = lens _creKMSKeyId (\ s a -> s{_creKMSKeyId = a});
+cvvKMSKeyId :: Lens' CreateVolume (Maybe Text)
+cvvKMSKeyId = lens _cvvKMSKeyId (\ s a -> s{_cvvKMSKeyId = a});
 
 -- | The volume type. This can be @gp2@ for General Purpose SSD, @io1@ for Provisioned IOPS SSD, @st1@ for Throughput Optimized HDD, @sc1@ for Cold HDD, or @standard@ for Magnetic volumes. Default: @standard@
-creVolumeType :: Lens' CreateVolume (Maybe VolumeType)
-creVolumeType = lens _creVolumeType (\ s a -> s{_creVolumeType = a});
+cvvVolumeType :: Lens' CreateVolume (Maybe VolumeType)
+cvvVolumeType = lens _cvvVolumeType (\ s a -> s{_cvvVolumeType = a});
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-creDryRun :: Lens' CreateVolume (Maybe Bool)
-creDryRun = lens _creDryRun (\ s a -> s{_creDryRun = a});
+cvvDryRun :: Lens' CreateVolume (Maybe Bool)
+cvvDryRun = lens _cvvDryRun (\ s a -> s{_cvvDryRun = a});
 
 -- | The snapshot from which to create the volume.
-creSnapshotId :: Lens' CreateVolume (Maybe Text)
-creSnapshotId = lens _creSnapshotId (\ s a -> s{_creSnapshotId = a});
+cvvSnapshotId :: Lens' CreateVolume (Maybe Text)
+cvvSnapshotId = lens _cvvSnapshotId (\ s a -> s{_cvvSnapshotId = a});
 
 -- | The Availability Zone in which to create the volume. Use 'DescribeAvailabilityZones' to list the Availability Zones that are currently available to you.
-creAvailabilityZone :: Lens' CreateVolume Text
-creAvailabilityZone = lens _creAvailabilityZone (\ s a -> s{_creAvailabilityZone = a});
+cvvAvailabilityZone :: Lens' CreateVolume Text
+cvvAvailabilityZone = lens _cvvAvailabilityZone (\ s a -> s{_cvvAvailabilityZone = a});
 
 instance AWSRequest CreateVolume where
         type Rs CreateVolume = Volume
@@ -182,13 +182,13 @@ instance ToQuery CreateVolume where
           = mconcat
               ["Action" =: ("CreateVolume" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "Size" =: _creSize, "Iops" =: _creIOPS,
-               "Encrypted" =: _creEncrypted,
+               "Size" =: _cvvSize, "Iops" =: _cvvIOPS,
+               "Encrypted" =: _cvvEncrypted,
                toQuery
                  (toQueryList "TagSpecification" <$>
-                    _creTagSpecifications),
-               "KmsKeyId" =: _creKMSKeyId,
-               "VolumeType" =: _creVolumeType,
-               "DryRun" =: _creDryRun,
-               "SnapshotId" =: _creSnapshotId,
-               "AvailabilityZone" =: _creAvailabilityZone]
+                    _cvvTagSpecifications),
+               "KmsKeyId" =: _cvvKMSKeyId,
+               "VolumeType" =: _cvvVolumeType,
+               "DryRun" =: _cvvDryRun,
+               "SnapshotId" =: _cvvSnapshotId,
+               "AvailabilityZone" =: _cvvAvailabilityZone]

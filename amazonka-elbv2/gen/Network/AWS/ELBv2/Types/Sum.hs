@@ -99,6 +99,7 @@ instance FromXML LoadBalancerSchemeEnum where
 
 data LoadBalancerStateEnum
   = Active
+  | ActiveImpaired
   | Failed
   | Provisioning
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -107,14 +108,16 @@ data LoadBalancerStateEnum
 instance FromText LoadBalancerStateEnum where
     parser = takeLowerText >>= \case
         "active" -> pure Active
+        "active_impaired" -> pure ActiveImpaired
         "failed" -> pure Failed
         "provisioning" -> pure Provisioning
         e -> fromTextError $ "Failure parsing LoadBalancerStateEnum from value: '" <> e
-           <> "'. Accepted values: active, failed, provisioning"
+           <> "'. Accepted values: active, active_impaired, failed, provisioning"
 
 instance ToText LoadBalancerStateEnum where
     toText = \case
         Active -> "active"
+        ActiveImpaired -> "active_impaired"
         Failed -> "failed"
         Provisioning -> "provisioning"
 
@@ -127,20 +130,23 @@ instance ToHeader     LoadBalancerStateEnum
 instance FromXML LoadBalancerStateEnum where
     parseXML = parseXMLText "LoadBalancerStateEnum"
 
-data LoadBalancerTypeEnum =
-  Application
+data LoadBalancerTypeEnum
+  = Application
+  | Network
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText LoadBalancerTypeEnum where
     parser = takeLowerText >>= \case
         "application" -> pure Application
+        "network" -> pure Network
         e -> fromTextError $ "Failure parsing LoadBalancerTypeEnum from value: '" <> e
-           <> "'. Accepted values: application"
+           <> "'. Accepted values: application, network"
 
 instance ToText LoadBalancerTypeEnum where
     toText = \case
         Application -> "application"
+        Network -> "network"
 
 instance Hashable     LoadBalancerTypeEnum
 instance NFData       LoadBalancerTypeEnum
@@ -154,6 +160,7 @@ instance FromXML LoadBalancerTypeEnum where
 data ProtocolEnum
   = HTTP
   | HTTPS
+  | TCP
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -161,13 +168,15 @@ instance FromText ProtocolEnum where
     parser = takeLowerText >>= \case
         "http" -> pure HTTP
         "https" -> pure HTTPS
+        "tcp" -> pure TCP
         e -> fromTextError $ "Failure parsing ProtocolEnum from value: '" <> e
-           <> "'. Accepted values: http, https"
+           <> "'. Accepted values: http, https, tcp"
 
 instance ToText ProtocolEnum where
     toText = \case
         HTTP -> "HTTP"
         HTTPS -> "HTTPS"
+        TCP -> "TCP"
 
 instance Hashable     ProtocolEnum
 instance NFData       ProtocolEnum
@@ -184,6 +193,7 @@ data TargetHealthReasonEnum
   | Elb_RegistrationInProgress
   | Target_DeregistrationInProgress
   | Target_FailedHealthChecks
+  | Target_IPUnusable
   | Target_InvalidState
   | Target_NotInUse
   | Target_NotRegistered
@@ -199,13 +209,14 @@ instance FromText TargetHealthReasonEnum where
         "elb.registrationinprogress" -> pure Elb_RegistrationInProgress
         "target.deregistrationinprogress" -> pure Target_DeregistrationInProgress
         "target.failedhealthchecks" -> pure Target_FailedHealthChecks
+        "target.ipunusable" -> pure Target_IPUnusable
         "target.invalidstate" -> pure Target_InvalidState
         "target.notinuse" -> pure Target_NotInUse
         "target.notregistered" -> pure Target_NotRegistered
         "target.responsecodemismatch" -> pure Target_ResponseCodeMismatch
         "target.timeout" -> pure Target_Timeout
         e -> fromTextError $ "Failure parsing TargetHealthReasonEnum from value: '" <> e
-           <> "'. Accepted values: elb.initialhealthchecking, elb.internalerror, elb.registrationinprogress, target.deregistrationinprogress, target.failedhealthchecks, target.invalidstate, target.notinuse, target.notregistered, target.responsecodemismatch, target.timeout"
+           <> "'. Accepted values: elb.initialhealthchecking, elb.internalerror, elb.registrationinprogress, target.deregistrationinprogress, target.failedhealthchecks, target.ipunusable, target.invalidstate, target.notinuse, target.notregistered, target.responsecodemismatch, target.timeout"
 
 instance ToText TargetHealthReasonEnum where
     toText = \case
@@ -214,6 +225,7 @@ instance ToText TargetHealthReasonEnum where
         Elb_RegistrationInProgress -> "Elb.RegistrationInProgress"
         Target_DeregistrationInProgress -> "Target.DeregistrationInProgress"
         Target_FailedHealthChecks -> "Target.FailedHealthChecks"
+        Target_IPUnusable -> "Target.IpUnusable"
         Target_InvalidState -> "Target.InvalidState"
         Target_NotInUse -> "Target.NotInUse"
         Target_NotRegistered -> "Target.NotRegistered"
@@ -233,6 +245,7 @@ data TargetHealthStateEnum
   = Draining
   | Healthy
   | Initial
+  | Unavailable
   | Unhealthy
   | Unused
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -243,16 +256,18 @@ instance FromText TargetHealthStateEnum where
         "draining" -> pure Draining
         "healthy" -> pure Healthy
         "initial" -> pure Initial
+        "unavailable" -> pure Unavailable
         "unhealthy" -> pure Unhealthy
         "unused" -> pure Unused
         e -> fromTextError $ "Failure parsing TargetHealthStateEnum from value: '" <> e
-           <> "'. Accepted values: draining, healthy, initial, unhealthy, unused"
+           <> "'. Accepted values: draining, healthy, initial, unavailable, unhealthy, unused"
 
 instance ToText TargetHealthStateEnum where
     toText = \case
         Draining -> "draining"
         Healthy -> "healthy"
         Initial -> "initial"
+        Unavailable -> "unavailable"
         Unhealthy -> "unhealthy"
         Unused -> "unused"
 
@@ -264,3 +279,30 @@ instance ToHeader     TargetHealthStateEnum
 
 instance FromXML TargetHealthStateEnum where
     parseXML = parseXMLText "TargetHealthStateEnum"
+
+data TargetTypeEnum
+  = IP
+  | Instance
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TargetTypeEnum where
+    parser = takeLowerText >>= \case
+        "ip" -> pure IP
+        "instance" -> pure Instance
+        e -> fromTextError $ "Failure parsing TargetTypeEnum from value: '" <> e
+           <> "'. Accepted values: ip, instance"
+
+instance ToText TargetTypeEnum where
+    toText = \case
+        IP -> "ip"
+        Instance -> "instance"
+
+instance Hashable     TargetTypeEnum
+instance NFData       TargetTypeEnum
+instance ToByteString TargetTypeEnum
+instance ToQuery      TargetTypeEnum
+instance ToHeader     TargetTypeEnum
+
+instance FromXML TargetTypeEnum where
+    parseXML = parseXMLText "TargetTypeEnum"

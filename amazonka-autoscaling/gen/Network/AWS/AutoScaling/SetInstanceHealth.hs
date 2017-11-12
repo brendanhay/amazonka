@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for SetInstanceHealth.
---
---
---
--- /See:/ 'setInstanceHealth' smart constructor.
+-- | /See:/ 'setInstanceHealth' smart constructor.
 data SetInstanceHealth = SetInstanceHealth'
   { _sihShouldRespectGracePeriod :: {-# NOUNPACK #-}!(Maybe Bool)
   , _sihInstanceId               :: {-# NOUNPACK #-}!Text

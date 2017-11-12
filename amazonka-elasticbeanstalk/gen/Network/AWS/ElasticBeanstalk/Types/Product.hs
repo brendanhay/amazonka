@@ -3452,6 +3452,10 @@ tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
+instance FromXML Tag where
+        parseXML x
+          = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
+
 instance Hashable Tag where
 
 instance NFData Tag where

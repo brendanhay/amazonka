@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -49,6 +49,7 @@ library
         , Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
         , Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
         , Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
+        , Network.AWS.ServiceCatalog.CopyProduct
         , Network.AWS.ServiceCatalog.CreateConstraint
         , Network.AWS.ServiceCatalog.CreatePortfolio
         , Network.AWS.ServiceCatalog.CreatePortfolioShare
@@ -61,6 +62,7 @@ library
         , Network.AWS.ServiceCatalog.DeleteProduct
         , Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
         , Network.AWS.ServiceCatalog.DescribeConstraint
+        , Network.AWS.ServiceCatalog.DescribeCopyProductStatus
         , Network.AWS.ServiceCatalog.DescribePortfolio
         , Network.AWS.ServiceCatalog.DescribeProduct
         , Network.AWS.ServiceCatalog.DescribeProductAsAdmin

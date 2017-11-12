@@ -33,6 +33,15 @@ module Network.AWS.DirectConnect.Types
     -- * ConnectionState
     , ConnectionState (..)
 
+    -- * DirectConnectGatewayAssociationState
+    , DirectConnectGatewayAssociationState (..)
+
+    -- * DirectConnectGatewayAttachmentState
+    , DirectConnectGatewayAttachmentState (..)
+
+    -- * DirectConnectGatewayState
+    , DirectConnectGatewayState (..)
+
     -- * InterconnectState
     , InterconnectState (..)
 
@@ -76,6 +85,36 @@ module Network.AWS.DirectConnect.Types
     , Connections
     , connections
     , cConnections
+
+    -- * DirectConnectGateway
+    , DirectConnectGateway
+    , directConnectGateway
+    , dcgDirectConnectGatewayId
+    , dcgStateChangeError
+    , dcgAmazonSideASN
+    , dcgDirectConnectGatewayName
+    , dcgDirectConnectGatewayState
+    , dcgOwnerAccount
+
+    -- * DirectConnectGatewayAssociation
+    , DirectConnectGatewayAssociation
+    , directConnectGatewayAssociation
+    , dcgaVirtualGatewayId
+    , dcgaDirectConnectGatewayId
+    , dcgaVirtualGatewayOwnerAccount
+    , dcgaStateChangeError
+    , dcgaVirtualGatewayRegion
+    , dcgaAssociationState
+
+    -- * DirectConnectGatewayAttachment
+    , DirectConnectGatewayAttachment
+    , directConnectGatewayAttachment
+    , dDirectConnectGatewayId
+    , dAttachmentState
+    , dStateChangeError
+    , dVirtualInterfaceRegion
+    , dVirtualInterfaceOwnerAccount
+    , dVirtualInterfaceId
 
     -- * Interconnect
     , Interconnect
@@ -124,14 +163,15 @@ module Network.AWS.DirectConnect.Types
     -- * NewPrivateVirtualInterface
     , NewPrivateVirtualInterface
     , newPrivateVirtualInterface
+    , nVirtualGatewayId
     , nCustomerAddress
     , nAmazonAddress
     , nAddressFamily
+    , nDirectConnectGatewayId
     , nAuthKey
     , nVirtualInterfaceName
     , nVlan
     , nAsn
-    , nVirtualGatewayId
 
     -- * NewPrivateVirtualInterfaceAllocation
     , NewPrivateVirtualInterfaceAllocation
@@ -204,6 +244,8 @@ module Network.AWS.DirectConnect.Types
     , viAddressFamily
     , viVirtualInterfaceState
     , viConnectionId
+    , viDirectConnectGatewayId
+    , viAmazonSideASN
     , viVirtualInterfaceType
     , viAsn
     , viAuthKey

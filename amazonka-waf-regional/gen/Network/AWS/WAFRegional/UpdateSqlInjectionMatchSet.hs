@@ -76,7 +76,7 @@ import Network.AWS.WAFRegional.Types.Product
 data UpdateSqlInjectionMatchSet = UpdateSqlInjectionMatchSet'
   { _usimsSqlInjectionMatchSetId :: {-# NOUNPACK #-}!Text
   , _usimsChangeToken :: {-# NOUNPACK #-}!Text
-  , _usimsUpdates :: {-# NOUNPACK #-}![SqlInjectionMatchSetUpdate]
+  , _usimsUpdates :: {-# NOUNPACK #-}!(List1 SqlInjectionMatchSetUpdate)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -92,12 +92,13 @@ data UpdateSqlInjectionMatchSet = UpdateSqlInjectionMatchSet'
 updateSqlInjectionMatchSet
     :: Text -- ^ 'usimsSqlInjectionMatchSetId'
     -> Text -- ^ 'usimsChangeToken'
+    -> NonEmpty SqlInjectionMatchSetUpdate -- ^ 'usimsUpdates'
     -> UpdateSqlInjectionMatchSet
-updateSqlInjectionMatchSet pSqlInjectionMatchSetId_ pChangeToken_ =
+updateSqlInjectionMatchSet pSqlInjectionMatchSetId_ pChangeToken_ pUpdates_ =
   UpdateSqlInjectionMatchSet'
   { _usimsSqlInjectionMatchSetId = pSqlInjectionMatchSetId_
   , _usimsChangeToken = pChangeToken_
-  , _usimsUpdates = mempty
+  , _usimsUpdates = _List1 # pUpdates_
   }
 
 
@@ -110,8 +111,8 @@ usimsChangeToken :: Lens' UpdateSqlInjectionMatchSet Text
 usimsChangeToken = lens _usimsChangeToken (\ s a -> s{_usimsChangeToken = a});
 
 -- | An array of @SqlInjectionMatchSetUpdate@ objects that you want to insert into or delete from a 'SqlInjectionMatchSet' . For more information, see the applicable data types:     * 'SqlInjectionMatchSetUpdate' : Contains @Action@ and @SqlInjectionMatchTuple@      * 'SqlInjectionMatchTuple' : Contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
-usimsUpdates :: Lens' UpdateSqlInjectionMatchSet [SqlInjectionMatchSetUpdate]
-usimsUpdates = lens _usimsUpdates (\ s a -> s{_usimsUpdates = a}) . _Coerce;
+usimsUpdates :: Lens' UpdateSqlInjectionMatchSet (NonEmpty SqlInjectionMatchSetUpdate)
+usimsUpdates = lens _usimsUpdates (\ s a -> s{_usimsUpdates = a}) . _List1;
 
 instance AWSRequest UpdateSqlInjectionMatchSet where
         type Rs UpdateSqlInjectionMatchSet =

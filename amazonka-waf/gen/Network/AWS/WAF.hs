@@ -28,6 +28,9 @@ module Network.AWS.WAF
     -- ** WAFReferencedItemException
     , _WAFReferencedItemException
 
+    -- ** WAFInvalidRegexPatternException
+    , _WAFInvalidRegexPatternException
+
     -- ** WAFInvalidOperationException
     , _WAFInvalidOperationException
 
@@ -103,8 +106,20 @@ module Network.AWS.WAF
     -- ** CreateWebACL
     , module Network.AWS.WAF.CreateWebACL
 
+    -- ** GetGeoMatchSet
+    , module Network.AWS.WAF.GetGeoMatchSet
+
     -- ** ListByteMatchSets (Paginated)
     , module Network.AWS.WAF.ListByteMatchSets
+
+    -- ** ListGeoMatchSets
+    , module Network.AWS.WAF.ListGeoMatchSets
+
+    -- ** DeleteRegexMatchSet
+    , module Network.AWS.WAF.DeleteRegexMatchSet
+
+    -- ** UpdateRegexMatchSet
+    , module Network.AWS.WAF.UpdateRegexMatchSet
 
     -- ** GetIPSet
     , module Network.AWS.WAF.GetIPSet
@@ -123,6 +138,9 @@ module Network.AWS.WAF
 
     -- ** ListXSSMatchSets (Paginated)
     , module Network.AWS.WAF.ListXSSMatchSets
+
+    -- ** CreateGeoMatchSet
+    , module Network.AWS.WAF.CreateGeoMatchSet
 
     -- ** GetChangeToken
     , module Network.AWS.WAF.GetChangeToken
@@ -154,6 +172,9 @@ module Network.AWS.WAF
     -- ** GetRateBasedRuleManagedKeys
     , module Network.AWS.WAF.GetRateBasedRuleManagedKeys
 
+    -- ** GetRegexMatchSet
+    , module Network.AWS.WAF.GetRegexMatchSet
+
     -- ** DeleteIPSet
     , module Network.AWS.WAF.DeleteIPSet
 
@@ -163,14 +184,29 @@ module Network.AWS.WAF
     -- ** ListIPSets (Paginated)
     , module Network.AWS.WAF.ListIPSets
 
+    -- ** ListRegexMatchSets
+    , module Network.AWS.WAF.ListRegexMatchSets
+
     -- ** CreateXSSMatchSet
     , module Network.AWS.WAF.CreateXSSMatchSet
+
+    -- ** DeleteGeoMatchSet
+    , module Network.AWS.WAF.DeleteGeoMatchSet
+
+    -- ** UpdateGeoMatchSet
+    , module Network.AWS.WAF.UpdateGeoMatchSet
 
     -- ** GetByteMatchSet
     , module Network.AWS.WAF.GetByteMatchSet
 
+    -- ** CreateRegexMatchSet
+    , module Network.AWS.WAF.CreateRegexMatchSet
+
     -- ** GetRateBasedRule
     , module Network.AWS.WAF.GetRateBasedRule
+
+    -- ** CreateRegexPatternSet
+    , module Network.AWS.WAF.CreateRegexPatternSet
 
     -- ** DeleteSizeConstraintSet
     , module Network.AWS.WAF.DeleteSizeConstraintSet
@@ -178,11 +214,23 @@ module Network.AWS.WAF
     -- ** UpdateSizeConstraintSet
     , module Network.AWS.WAF.UpdateSizeConstraintSet
 
+    -- ** DeleteRegexPatternSet
+    , module Network.AWS.WAF.DeleteRegexPatternSet
+
+    -- ** UpdateRegexPatternSet
+    , module Network.AWS.WAF.UpdateRegexPatternSet
+
     -- ** CreateSizeConstraintSet
     , module Network.AWS.WAF.CreateSizeConstraintSet
 
+    -- ** ListRegexPatternSets
+    , module Network.AWS.WAF.ListRegexPatternSets
+
     -- ** ListSqlInjectionMatchSets (Paginated)
     , module Network.AWS.WAF.ListSqlInjectionMatchSets
+
+    -- ** GetRegexPatternSet
+    , module Network.AWS.WAF.GetRegexPatternSet
 
     -- ** CreateRateBasedRule
     , module Network.AWS.WAF.CreateRateBasedRule
@@ -203,6 +251,12 @@ module Network.AWS.WAF
 
     -- ** ComparisonOperator
     , ComparisonOperator (..)
+
+    -- ** GeoMatchConstraintType
+    , GeoMatchConstraintType (..)
+
+    -- ** GeoMatchConstraintValue
+    , GeoMatchConstraintValue (..)
 
     -- ** IPSetDescriptorType
     , IPSetDescriptorType (..)
@@ -269,6 +323,31 @@ module Network.AWS.WAF
     , ftmData
     , ftmType
 
+    -- ** GeoMatchConstraint
+    , GeoMatchConstraint
+    , geoMatchConstraint
+    , gmcType
+    , gmcValue
+
+    -- ** GeoMatchSet
+    , GeoMatchSet
+    , geoMatchSet
+    , gmsName
+    , gmsGeoMatchSetId
+    , gmsGeoMatchConstraints
+
+    -- ** GeoMatchSetSummary
+    , GeoMatchSetSummary
+    , geoMatchSetSummary
+    , gmssGeoMatchSetId
+    , gmssName
+
+    -- ** GeoMatchSetUpdate
+    , GeoMatchSetUpdate
+    , geoMatchSetUpdate
+    , gmsuAction
+    , gmsuGeoMatchConstraint
+
     -- ** HTTPHeader
     , HTTPHeader
     , hTTPHeader
@@ -326,6 +405,51 @@ module Network.AWS.WAF
     , rbrMatchPredicates
     , rbrRateKey
     , rbrRateLimit
+
+    -- ** RegexMatchSet
+    , RegexMatchSet
+    , regexMatchSet
+    , rmsName
+    , rmsRegexMatchTuples
+    , rmsRegexMatchSetId
+
+    -- ** RegexMatchSetSummary
+    , RegexMatchSetSummary
+    , regexMatchSetSummary
+    , rmssRegexMatchSetId
+    , rmssName
+
+    -- ** RegexMatchSetUpdate
+    , RegexMatchSetUpdate
+    , regexMatchSetUpdate
+    , rmsuAction
+    , rmsuRegexMatchTuple
+
+    -- ** RegexMatchTuple
+    , RegexMatchTuple
+    , regexMatchTuple
+    , rmtFieldToMatch
+    , rmtTextTransformation
+    , rmtRegexPatternSetId
+
+    -- ** RegexPatternSet
+    , RegexPatternSet
+    , regexPatternSet
+    , rpsName
+    , rpsRegexPatternSetId
+    , rpsRegexPatternStrings
+
+    -- ** RegexPatternSetSummary
+    , RegexPatternSetSummary
+    , regexPatternSetSummary
+    , rpssRegexPatternSetId
+    , rpssName
+
+    -- ** RegexPatternSetUpdate
+    , RegexPatternSetUpdate
+    , regexPatternSetUpdate
+    , rpsuAction
+    , rpsuRegexPatternString
 
     -- ** Rule
     , Rule
@@ -466,16 +590,22 @@ module Network.AWS.WAF
     ) where
 
 import Network.AWS.WAF.CreateByteMatchSet
+import Network.AWS.WAF.CreateGeoMatchSet
 import Network.AWS.WAF.CreateIPSet
 import Network.AWS.WAF.CreateRateBasedRule
+import Network.AWS.WAF.CreateRegexMatchSet
+import Network.AWS.WAF.CreateRegexPatternSet
 import Network.AWS.WAF.CreateRule
 import Network.AWS.WAF.CreateSizeConstraintSet
 import Network.AWS.WAF.CreateSqlInjectionMatchSet
 import Network.AWS.WAF.CreateWebACL
 import Network.AWS.WAF.CreateXSSMatchSet
 import Network.AWS.WAF.DeleteByteMatchSet
+import Network.AWS.WAF.DeleteGeoMatchSet
 import Network.AWS.WAF.DeleteIPSet
 import Network.AWS.WAF.DeleteRateBasedRule
+import Network.AWS.WAF.DeleteRegexMatchSet
+import Network.AWS.WAF.DeleteRegexPatternSet
 import Network.AWS.WAF.DeleteRule
 import Network.AWS.WAF.DeleteSizeConstraintSet
 import Network.AWS.WAF.DeleteSqlInjectionMatchSet
@@ -484,9 +614,12 @@ import Network.AWS.WAF.DeleteXSSMatchSet
 import Network.AWS.WAF.GetByteMatchSet
 import Network.AWS.WAF.GetChangeToken
 import Network.AWS.WAF.GetChangeTokenStatus
+import Network.AWS.WAF.GetGeoMatchSet
 import Network.AWS.WAF.GetIPSet
 import Network.AWS.WAF.GetRateBasedRule
 import Network.AWS.WAF.GetRateBasedRuleManagedKeys
+import Network.AWS.WAF.GetRegexMatchSet
+import Network.AWS.WAF.GetRegexPatternSet
 import Network.AWS.WAF.GetRule
 import Network.AWS.WAF.GetSampledRequests
 import Network.AWS.WAF.GetSizeConstraintSet
@@ -494,8 +627,11 @@ import Network.AWS.WAF.GetSqlInjectionMatchSet
 import Network.AWS.WAF.GetWebACL
 import Network.AWS.WAF.GetXSSMatchSet
 import Network.AWS.WAF.ListByteMatchSets
+import Network.AWS.WAF.ListGeoMatchSets
 import Network.AWS.WAF.ListIPSets
 import Network.AWS.WAF.ListRateBasedRules
+import Network.AWS.WAF.ListRegexMatchSets
+import Network.AWS.WAF.ListRegexPatternSets
 import Network.AWS.WAF.ListRules
 import Network.AWS.WAF.ListSizeConstraintSets
 import Network.AWS.WAF.ListSqlInjectionMatchSets
@@ -503,8 +639,11 @@ import Network.AWS.WAF.ListWebACLs
 import Network.AWS.WAF.ListXSSMatchSets
 import Network.AWS.WAF.Types
 import Network.AWS.WAF.UpdateByteMatchSet
+import Network.AWS.WAF.UpdateGeoMatchSet
 import Network.AWS.WAF.UpdateIPSet
 import Network.AWS.WAF.UpdateRateBasedRule
+import Network.AWS.WAF.UpdateRegexMatchSet
+import Network.AWS.WAF.UpdateRegexPatternSet
 import Network.AWS.WAF.UpdateRule
 import Network.AWS.WAF.UpdateSizeConstraintSet
 import Network.AWS.WAF.UpdateSqlInjectionMatchSet

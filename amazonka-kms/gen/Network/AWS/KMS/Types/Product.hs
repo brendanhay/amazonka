@@ -440,7 +440,7 @@ data ListGrantsResponse = ListGrantsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
+-- * 'lgTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 --
 -- * 'lgGrants' - A list of grants.
 --
@@ -452,7 +452,7 @@ listGrantsResponse =
   {_lgTruncated = Nothing, _lgGrants = Nothing, _lgNextMarker = Nothing}
 
 
--- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 lgTruncated :: Lens' ListGrantsResponse (Maybe Bool)
 lgTruncated = lens _lgTruncated (\ s a -> s{_lgTruncated = a});
 
@@ -478,6 +478,8 @@ instance NFData ListGrantsResponse where
 
 -- | A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
 --
+--
+-- For information about the rules that apply to tag keys and tag values, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html User-Defined Tag Restrictions> in the /AWS Billing and Cost Management User Guide/ .
 --
 --
 -- /See:/ 'tag' smart constructor.

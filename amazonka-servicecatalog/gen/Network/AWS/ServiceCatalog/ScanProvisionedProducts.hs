@@ -61,7 +61,7 @@ data ScanProvisionedProducts = ScanProvisionedProducts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sppAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'sppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'sppAccessLevelFilter' - The access level for obtaining results. If left unspecified, @User@ level access is used.
 --
@@ -79,7 +79,7 @@ scanProvisionedProducts =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 sppAcceptLanguage :: Lens' ScanProvisionedProducts (Maybe Text)
 sppAcceptLanguage = lens _sppAcceptLanguage (\ s a -> s{_sppAcceptLanguage = a});
 

@@ -21,7 +21,7 @@
 -- This operation returns all of the tags that are associated with the specified domain.
 --
 --
--- All tag operations are eventually consistent; subsequent operations may not immediately represent all issued operations.
+-- All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.
 --
 module Network.AWS.Route53Domains.ListTagsForDomain
     (

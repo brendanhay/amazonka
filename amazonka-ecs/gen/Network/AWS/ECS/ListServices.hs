@@ -66,7 +66,7 @@ data ListServices = ListServices'
 --
 -- * 'lsNextToken' - The @nextToken@ value returned from a previous paginated @ListServices@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 --
--- * 'lsMaxResults' - The maximum number of container instance results returned by @ListServices@ in paginated output. When this parameter is used, @ListServices@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListServices@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @ListServices@ returns up to 10 results and a @nextToken@ value if applicable.
+-- * 'lsMaxResults' - The maximum number of service results returned by @ListServices@ in paginated output. When this parameter is used, @ListServices@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListServices@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @ListServices@ returns up to 10 results and a @nextToken@ value if applicable.
 listServices
     :: ListServices
 listServices =
@@ -82,7 +82,7 @@ lsCluster = lens _lsCluster (\ s a -> s{_lsCluster = a});
 lsNextToken :: Lens' ListServices (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
--- | The maximum number of container instance results returned by @ListServices@ in paginated output. When this parameter is used, @ListServices@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListServices@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @ListServices@ returns up to 10 results and a @nextToken@ value if applicable.
+-- | The maximum number of service results returned by @ListServices@ in paginated output. When this parameter is used, @ListServices@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListServices@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @ListServices@ returns up to 10 results and a @nextToken@ value if applicable.
 lsMaxResults :: Lens' ListServices (Maybe Int)
 lsMaxResults = lens _lsMaxResults (\ s a -> s{_lsMaxResults = a});
 

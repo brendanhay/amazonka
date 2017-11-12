@@ -21,10 +21,12 @@ import Network.AWS.CloudFormation.Types.Sum
 import Network.AWS.Lens
 import Network.AWS.Prelude
 
--- | Structure that contains the results of the account gate function AWS CloudFormation StackSets invokes, if present, before proceeding with stack set operations in an account.
+-- | Structure that contains the results of the account gate function which AWS CloudFormation invokes, if present, before proceeding with a stack set operation in an account and region.
 --
 --
--- Account gating enables you to specify a Lamdba function for an account that encapsulates any requirements that must be met before AWS CloudFormation StackSets proceeds with stack set operations in that account. CloudFormation invokes the function each time stack set operations are initiated for that account, and only proceeds if the function returns a success code.
+-- For each account and region, AWS CloudFormation lets you specify a Lamdba function that encapsulates any requirements that must be met before CloudFormation can proceed with a stack set operation in that account and region. CloudFormation invokes the function each time a stack set operation is requested for that account and region; if the function returns @FAILED@ , CloudFormation cancels the operation in that account and region, and sets the stack set operation result status for that account and region to @FAILED@ .
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-account-gating.html Configuring a target account gate> .
 --
 --
 -- /See:/ 'accountGateResult' smart constructor.
@@ -38,20 +40,20 @@ data AccountGateResult = AccountGateResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'agrStatus' - The status of the account gate function.     * @SUCCEEDED@ : The account gate function has determined that the account passes any requirements for stack set operations to occur. AWS CloudFormation proceeds with stack operations in the account.      * @FAILED@ : The account gate function has determined that the account does not meet the requirements for stack set operations to occur. AWS CloudFormation cancels the stack set operations in that account, and the stack set operation status is set to FAILED.     * @SKIPPED@ : An account gate function has not been specified for the account, or the AWSCloudFormationStackSetExecutionRole of the stack set adminstration account lacks permissions to invoke the function. AWS CloudFormation proceeds with stack set operations in the account.
+-- * 'agrStatus' - The status of the account gate function.     * @SUCCEEDED@ : The account gate function has determined that the account and region passes any requirements for a stack set operation to occur. AWS CloudFormation proceeds with the stack operation in that account and region.      * @FAILED@ : The account gate function has determined that the account and region does not meet the requirements for a stack set operation to occur. AWS CloudFormation cancels the stack set operation in that account and region, and sets the stack set operation result status for that account and region to @FAILED@ .      * @SKIPPED@ : AWS CloudFormation has skipped calling the account gate function for this account and region, for one of the following reasons:     * An account gate function has not been specified for the account and region. AWS CloudFormation proceeds with the stack set operation in this account and region.     * The @AWSCloudFormationStackSetExecutionRole@ of the stack set adminstration account lacks permissions to invoke the function. AWS CloudFormation proceeds with the stack set operation in this account and region.     * Either no action is necessary, or no action is possible, on the stack. AWS CloudFormation skips the stack set operation in this account and region.
 --
--- * 'agrStatusReason' - The reason for the account gate status assigned to this account.
+-- * 'agrStatusReason' - The reason for the account gate status assigned to this account and region for the stack set operation.
 accountGateResult
     :: AccountGateResult
 accountGateResult =
   AccountGateResult' {_agrStatus = Nothing, _agrStatusReason = Nothing}
 
 
--- | The status of the account gate function.     * @SUCCEEDED@ : The account gate function has determined that the account passes any requirements for stack set operations to occur. AWS CloudFormation proceeds with stack operations in the account.      * @FAILED@ : The account gate function has determined that the account does not meet the requirements for stack set operations to occur. AWS CloudFormation cancels the stack set operations in that account, and the stack set operation status is set to FAILED.     * @SKIPPED@ : An account gate function has not been specified for the account, or the AWSCloudFormationStackSetExecutionRole of the stack set adminstration account lacks permissions to invoke the function. AWS CloudFormation proceeds with stack set operations in the account.
+-- | The status of the account gate function.     * @SUCCEEDED@ : The account gate function has determined that the account and region passes any requirements for a stack set operation to occur. AWS CloudFormation proceeds with the stack operation in that account and region.      * @FAILED@ : The account gate function has determined that the account and region does not meet the requirements for a stack set operation to occur. AWS CloudFormation cancels the stack set operation in that account and region, and sets the stack set operation result status for that account and region to @FAILED@ .      * @SKIPPED@ : AWS CloudFormation has skipped calling the account gate function for this account and region, for one of the following reasons:     * An account gate function has not been specified for the account and region. AWS CloudFormation proceeds with the stack set operation in this account and region.     * The @AWSCloudFormationStackSetExecutionRole@ of the stack set adminstration account lacks permissions to invoke the function. AWS CloudFormation proceeds with the stack set operation in this account and region.     * Either no action is necessary, or no action is possible, on the stack. AWS CloudFormation skips the stack set operation in this account and region.
 agrStatus :: Lens' AccountGateResult (Maybe AccountGateStatus)
 agrStatus = lens _agrStatus (\ s a -> s{_agrStatus = a});
 
--- | The reason for the account gate status assigned to this account.
+-- | The reason for the account gate status assigned to this account and region for the stack set operation.
 agrStatusReason :: Lens' AccountGateResult (Maybe Text)
 agrStatusReason = lens _agrStatusReason (\ s a -> s{_agrStatusReason = a});
 
@@ -745,28 +747,138 @@ instance Hashable ResourceTargetDefinition where
 
 instance NFData ResourceTargetDefinition where
 
+-- | Structure containing the rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
+--
+--
+-- Rollback triggers enable you to have AWS CloudFormation monitor the state of your application during stack creation and updating, and to roll back that operation if the application breaches the threshold of any of the alarms you've specified. For each rollback trigger you create, you specify the Cloudwatch alarm that CloudFormation should monitor. CloudFormation monitors the specified alarms during the stack create or update operation, and for the specified amount of time after all resources have been deployed. If any of the alarms goes to ALERT state during the stack operation or the monitoring period, CloudFormation rolls back the entire stack operation. If the monitoring period expires without any alarms going to ALERT state, CloudFormation proceeds to dispose of old resources as usual.
+--
+-- By default, CloudFormation only rolls back stack operations if an alarm goes to ALERT state, not INSUFFICIENT_DATA state. To have CloudFormation roll back the stack operation if an alarm goes to INSUFFICIENT_DATA state as well, edit the CloudWatch alarm to treat missing data as @breaching@ . For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html Configuring How CloudWatch Alarms Treats Missing Data> .
+--
+-- AWS CloudFormation does not monitor rollback triggers when it rolls back a stack during an update operation.
+--
+--
+-- /See:/ 'rollbackConfiguration' smart constructor.
+data RollbackConfiguration = RollbackConfiguration'
+  { _rcRollbackTriggers        :: {-# NOUNPACK #-}!(Maybe [RollbackTrigger])
+  , _rcMonitoringTimeInMinutes :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RollbackConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcRollbackTriggers' - The triggers to monitor during stack creation or update actions.  By default, AWS CloudFormation saves the rollback triggers specified for a stack and applies them to any subsequent update operations for the stack, unless you specify otherwise. If you do specify rollback triggers for this parameter, those triggers replace any list of triggers previously specified for the stack. This means:     * If you don't specify this parameter, AWS CloudFormation uses the rollback triggers previously specified for this stack, if any.     * If you specify any rollback triggers using this parameter, you must specify all the triggers that you want used for this stack, even triggers you've specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don't include in the updated list of triggers are no longer applied to the stack.     * If you specify an empty list, AWS CloudFormation removes all currently specified triggers. If a specified Cloudwatch alarm is missing, the entire stack operation fails and is rolled back.
+--
+-- * 'rcMonitoringTimeInMinutes' - The amount of time, in minutes, during which CloudFormation should monitor all the rollback triggers after the stack creation or update operation deploys all necessary resources. If any of the alarms goes to ALERT state during the stack operation or this monitoring period, CloudFormation rolls back the entire stack operation. Then, for update operations, if the monitoring period expires without any alarms going to ALERT state CloudFormation proceeds to dispose of old resources as usual. If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources for update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html CancelUpdateStack> , for example) as necessary. If you specify 0 for this parameter, CloudFormation still monitors the specified rollback triggers during stack creation and update operations. Then, for update operations, it begins disposing of old resources immediately once the operation completes.
+rollbackConfiguration
+    :: RollbackConfiguration
+rollbackConfiguration =
+  RollbackConfiguration'
+  {_rcRollbackTriggers = Nothing, _rcMonitoringTimeInMinutes = Nothing}
+
+
+-- | The triggers to monitor during stack creation or update actions.  By default, AWS CloudFormation saves the rollback triggers specified for a stack and applies them to any subsequent update operations for the stack, unless you specify otherwise. If you do specify rollback triggers for this parameter, those triggers replace any list of triggers previously specified for the stack. This means:     * If you don't specify this parameter, AWS CloudFormation uses the rollback triggers previously specified for this stack, if any.     * If you specify any rollback triggers using this parameter, you must specify all the triggers that you want used for this stack, even triggers you've specifed before (for example, when creating the stack or during a previous stack update). Any triggers that you don't include in the updated list of triggers are no longer applied to the stack.     * If you specify an empty list, AWS CloudFormation removes all currently specified triggers. If a specified Cloudwatch alarm is missing, the entire stack operation fails and is rolled back.
+rcRollbackTriggers :: Lens' RollbackConfiguration [RollbackTrigger]
+rcRollbackTriggers = lens _rcRollbackTriggers (\ s a -> s{_rcRollbackTriggers = a}) . _Default . _Coerce;
+
+-- | The amount of time, in minutes, during which CloudFormation should monitor all the rollback triggers after the stack creation or update operation deploys all necessary resources. If any of the alarms goes to ALERT state during the stack operation or this monitoring period, CloudFormation rolls back the entire stack operation. Then, for update operations, if the monitoring period expires without any alarms going to ALERT state CloudFormation proceeds to dispose of old resources as usual. If you specify a monitoring period but do not specify any rollback triggers, CloudFormation still waits the specified period of time before cleaning up old resources for update operations. You can use this monitoring period to perform any manual stack validation desired, and manually cancel the stack creation or update (using <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html CancelUpdateStack> , for example) as necessary. If you specify 0 for this parameter, CloudFormation still monitors the specified rollback triggers during stack creation and update operations. Then, for update operations, it begins disposing of old resources immediately once the operation completes.
+rcMonitoringTimeInMinutes :: Lens' RollbackConfiguration (Maybe Natural)
+rcMonitoringTimeInMinutes = lens _rcMonitoringTimeInMinutes (\ s a -> s{_rcMonitoringTimeInMinutes = a}) . mapping _Nat;
+
+instance FromXML RollbackConfiguration where
+        parseXML x
+          = RollbackConfiguration' <$>
+              (x .@? "RollbackTriggers" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "MonitoringTimeInMinutes")
+
+instance Hashable RollbackConfiguration where
+
+instance NFData RollbackConfiguration where
+
+instance ToQuery RollbackConfiguration where
+        toQuery RollbackConfiguration'{..}
+          = mconcat
+              ["RollbackTriggers" =:
+                 toQuery
+                   (toQueryList "member" <$> _rcRollbackTriggers),
+               "MonitoringTimeInMinutes" =:
+                 _rcMonitoringTimeInMinutes]
+
+-- | A rollback trigger AWS CloudFormation monitors during creation and updating of stacks. If any of the alarms you specify goes to ALERT state during the stack operation or within the specified monitoring period afterwards, CloudFormation rolls back the entire stack operation.
+--
+--
+--
+-- /See:/ 'rollbackTrigger' smart constructor.
+data RollbackTrigger = RollbackTrigger'
+  { _rtARN  :: {-# NOUNPACK #-}!Text
+  , _rtType :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RollbackTrigger' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtARN' - The Amazon Resource Name (ARN) of the rollback trigger.
+--
+-- * 'rtType' - The resource type of the rollback trigger. Currently, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html AWS::CloudWatch::Alarm> is the only supported resource type.
+rollbackTrigger
+    :: Text -- ^ 'rtARN'
+    -> Text -- ^ 'rtType'
+    -> RollbackTrigger
+rollbackTrigger pARN_ pType_ =
+  RollbackTrigger' {_rtARN = pARN_, _rtType = pType_}
+
+
+-- | The Amazon Resource Name (ARN) of the rollback trigger.
+rtARN :: Lens' RollbackTrigger Text
+rtARN = lens _rtARN (\ s a -> s{_rtARN = a});
+
+-- | The resource type of the rollback trigger. Currently, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html AWS::CloudWatch::Alarm> is the only supported resource type.
+rtType :: Lens' RollbackTrigger Text
+rtType = lens _rtType (\ s a -> s{_rtType = a});
+
+instance FromXML RollbackTrigger where
+        parseXML x
+          = RollbackTrigger' <$> (x .@ "Arn") <*> (x .@ "Type")
+
+instance Hashable RollbackTrigger where
+
+instance NFData RollbackTrigger where
+
+instance ToQuery RollbackTrigger where
+        toQuery RollbackTrigger'{..}
+          = mconcat ["Arn" =: _rtARN, "Type" =: _rtType]
+
 -- | The Stack data type.
 --
 --
 --
 -- /See:/ 'stack' smart constructor.
 data Stack = Stack'
-  { _sDisableRollback   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sLastUpdatedTime   :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _sNotificationARNs  :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _sDisableRollback :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sLastUpdatedTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _sRootId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sNotificationARNs :: {-# NOUNPACK #-}!(Maybe [Text])
   , _sStackStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sChangeSetId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sOutputs           :: {-# NOUNPACK #-}!(Maybe [Output])
-  , _sParameters        :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _sStackId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sDescription       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCapabilities      :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _sTags              :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _sTimeoutInMinutes  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _sRoleARN           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sStackName         :: {-# NOUNPACK #-}!Text
-  , _sCreationTime      :: {-# NOUNPACK #-}!ISO8601
-  , _sStackStatus       :: {-# NOUNPACK #-}!StackStatus
+  , _sEnableTerminationProtection :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _sChangeSetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sDeletionTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _sOutputs :: {-# NOUNPACK #-}!(Maybe [Output])
+  , _sParameters :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _sStackId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sCapabilities :: {-# NOUNPACK #-}!(Maybe [Capability])
+  , _sRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe RollbackConfiguration)
+  , _sTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _sTimeoutInMinutes :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _sParentId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sStackName :: {-# NOUNPACK #-}!Text
+  , _sCreationTime :: {-# NOUNPACK #-}!ISO8601
+  , _sStackStatus :: {-# NOUNPACK #-}!StackStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -778,11 +890,17 @@ data Stack = Stack'
 --
 -- * 'sLastUpdatedTime' - The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
 --
+-- * 'sRootId' - For nested stacks--stacks created as resources for another stack--the stack ID of the the top-level stack to which the nested stack ultimately belongs. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+--
 -- * 'sNotificationARNs' - SNS topic ARNs to which stack related events are published.
 --
 -- * 'sStackStatusReason' - Success/failure message associated with the stack status.
 --
+-- * 'sEnableTerminationProtection' - Whether termination protection is enabled for the stack. For <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html nested stacks> , termination protection is set on the root stack and cannot be changed directly on the nested stack. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html Protecting a Stack From Being Deleted> in the /AWS CloudFormation User Guide/ .
+--
 -- * 'sChangeSetId' - The unique ID of the change set.
+--
+-- * 'sDeletionTime' - The time the stack was deleted.
 --
 -- * 'sOutputs' - A list of output structures.
 --
@@ -794,9 +912,13 @@ data Stack = Stack'
 --
 -- * 'sCapabilities' - The capabilities allowed in the stack.
 --
+-- * 'sRollbackConfiguration' - The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
+--
 -- * 'sTags' - A list of @Tag@ s that specify information about the stack.
 --
 -- * 'sTimeoutInMinutes' - The amount of time within which stack creation should complete.
+--
+-- * 'sParentId' - For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
 --
 -- * 'sRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role's credentials to make calls on your behalf.
 --
@@ -814,16 +936,21 @@ stack pStackName_ pCreationTime_ pStackStatus_ =
   Stack'
   { _sDisableRollback = Nothing
   , _sLastUpdatedTime = Nothing
+  , _sRootId = Nothing
   , _sNotificationARNs = Nothing
   , _sStackStatusReason = Nothing
+  , _sEnableTerminationProtection = Nothing
   , _sChangeSetId = Nothing
+  , _sDeletionTime = Nothing
   , _sOutputs = Nothing
   , _sParameters = Nothing
   , _sStackId = Nothing
   , _sDescription = Nothing
   , _sCapabilities = Nothing
+  , _sRollbackConfiguration = Nothing
   , _sTags = Nothing
   , _sTimeoutInMinutes = Nothing
+  , _sParentId = Nothing
   , _sRoleARN = Nothing
   , _sStackName = pStackName_
   , _sCreationTime = _Time # pCreationTime_
@@ -839,6 +966,10 @@ sDisableRollback = lens _sDisableRollback (\ s a -> s{_sDisableRollback = a});
 sLastUpdatedTime :: Lens' Stack (Maybe UTCTime)
 sLastUpdatedTime = lens _sLastUpdatedTime (\ s a -> s{_sLastUpdatedTime = a}) . mapping _Time;
 
+-- | For nested stacks--stacks created as resources for another stack--the stack ID of the the top-level stack to which the nested stack ultimately belongs. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+sRootId :: Lens' Stack (Maybe Text)
+sRootId = lens _sRootId (\ s a -> s{_sRootId = a});
+
 -- | SNS topic ARNs to which stack related events are published.
 sNotificationARNs :: Lens' Stack [Text]
 sNotificationARNs = lens _sNotificationARNs (\ s a -> s{_sNotificationARNs = a}) . _Default . _Coerce;
@@ -847,9 +978,17 @@ sNotificationARNs = lens _sNotificationARNs (\ s a -> s{_sNotificationARNs = a})
 sStackStatusReason :: Lens' Stack (Maybe Text)
 sStackStatusReason = lens _sStackStatusReason (\ s a -> s{_sStackStatusReason = a});
 
+-- | Whether termination protection is enabled for the stack. For <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html nested stacks> , termination protection is set on the root stack and cannot be changed directly on the nested stack. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html Protecting a Stack From Being Deleted> in the /AWS CloudFormation User Guide/ .
+sEnableTerminationProtection :: Lens' Stack (Maybe Bool)
+sEnableTerminationProtection = lens _sEnableTerminationProtection (\ s a -> s{_sEnableTerminationProtection = a});
+
 -- | The unique ID of the change set.
 sChangeSetId :: Lens' Stack (Maybe Text)
 sChangeSetId = lens _sChangeSetId (\ s a -> s{_sChangeSetId = a});
+
+-- | The time the stack was deleted.
+sDeletionTime :: Lens' Stack (Maybe UTCTime)
+sDeletionTime = lens _sDeletionTime (\ s a -> s{_sDeletionTime = a}) . mapping _Time;
 
 -- | A list of output structures.
 sOutputs :: Lens' Stack [Output]
@@ -871,6 +1010,10 @@ sDescription = lens _sDescription (\ s a -> s{_sDescription = a});
 sCapabilities :: Lens' Stack [Capability]
 sCapabilities = lens _sCapabilities (\ s a -> s{_sCapabilities = a}) . _Default . _Coerce;
 
+-- | The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
+sRollbackConfiguration :: Lens' Stack (Maybe RollbackConfiguration)
+sRollbackConfiguration = lens _sRollbackConfiguration (\ s a -> s{_sRollbackConfiguration = a});
+
 -- | A list of @Tag@ s that specify information about the stack.
 sTags :: Lens' Stack [Tag]
 sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
@@ -878,6 +1021,10 @@ sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
 -- | The amount of time within which stack creation should complete.
 sTimeoutInMinutes :: Lens' Stack (Maybe Natural)
 sTimeoutInMinutes = lens _sTimeoutInMinutes (\ s a -> s{_sTimeoutInMinutes = a}) . mapping _Nat;
+
+-- | For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+sParentId :: Lens' Stack (Maybe Text)
+sParentId = lens _sParentId (\ s a -> s{_sParentId = a});
 
 -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role's credentials to make calls on your behalf.
 sRoleARN :: Lens' Stack (Maybe Text)
@@ -900,11 +1047,14 @@ instance FromXML Stack where
           = Stack' <$>
               (x .@? "DisableRollback") <*>
                 (x .@? "LastUpdatedTime")
+                <*> (x .@? "RootId")
                 <*>
                 (x .@? "NotificationARNs" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@? "StackStatusReason")
+                <*> (x .@? "EnableTerminationProtection")
                 <*> (x .@? "ChangeSetId")
+                <*> (x .@? "DeletionTime")
                 <*>
                 (x .@? "Outputs" .!@ mempty >>=
                    may (parseXMLList "member"))
@@ -916,10 +1066,12 @@ instance FromXML Stack where
                 <*>
                 (x .@? "Capabilities" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "RollbackConfiguration")
                 <*>
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@? "TimeoutInMinutes")
+                <*> (x .@? "ParentId")
                 <*> (x .@? "RoleARN")
                 <*> (x .@ "StackName")
                 <*> (x .@ "CreationTime")
@@ -1078,7 +1230,7 @@ data StackInstance = StackInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'siStatus' - The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ and @DeleteStackInstances@ operations. You might need to clean up the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
+-- * 'siStatus' - The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ operations. You might need to perform a @DeleteStackInstances@ operation, with @RetainStacks@ set to @true@ , to delete the stack instance, and then delete the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
 --
 -- * 'siAccount' - The name of the AWS account that the stack instance is associated with.
 --
@@ -1102,7 +1254,7 @@ stackInstance =
   }
 
 
--- | The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ and @DeleteStackInstances@ operations. You might need to clean up the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
+-- | The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ operations. You might need to perform a @DeleteStackInstances@ operation, with @RetainStacks@ set to @true@ , to delete the stack instance, and then delete the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
 siStatus :: Lens' StackInstance (Maybe StackInstanceStatus)
 siStatus = lens _siStatus (\ s a -> s{_siStatus = a});
 
@@ -1158,7 +1310,7 @@ data StackInstanceSummary = StackInstanceSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sisStatus' - The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ and @DeleteStackInstances@ operations. You might need to clean up the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
+-- * 'sisStatus' - The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ operations. You might need to perform a @DeleteStackInstances@ operation, with @RetainStacks@ set to @true@ , to delete the stack instance, and then delete the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
 --
 -- * 'sisAccount' - The name of the AWS account that the stack instance is associated with.
 --
@@ -1182,7 +1334,7 @@ stackInstanceSummary =
   }
 
 
--- | The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ and @DeleteStackInstances@ operations. You might need to clean up the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
+-- | The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ operations. You might need to perform a @DeleteStackInstances@ operation, with @RetainStacks@ set to @true@ , to delete the stack instance, and then delete the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
 sisStatus :: Lens' StackInstanceSummary (Maybe StackInstanceStatus)
 sisStatus = lens _sisStatus (\ s a -> s{_sisStatus = a});
 
@@ -1742,6 +1894,8 @@ instance NFData StackSetOperation where
 -- | The user-specified preferences for how AWS CloudFormation performs a stack set operation.
 --
 --
+-- For more information on maximum concurrent accounts and failure tolerance, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options> .
+--
 --
 -- /See:/ 'stackSetOperationPreferences' smart constructor.
 data StackSetOperationPreferences = StackSetOperationPreferences'
@@ -1759,9 +1913,9 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
 --
 -- * 'ssopRegionOrder' - The order of the regions in where you want to perform the stack operation.
 --
--- * 'ssopMaxConcurrentCount' - The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @FailureToleranceCount@ —@MaxConcurrentCount@ is at most one more than the @FailureToleranceCount@ . Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
+-- * 'ssopMaxConcurrentCount' - The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @FailureToleranceCount@ —@MaxConcurrentCount@ is at most one more than the @FailureToleranceCount@ . Note that this setting lets you specify the /maximum/ for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
 --
--- * 'ssopMaxConcurrentPercentage' - The maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead. Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
+-- * 'ssopMaxConcurrentPercentage' - The maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead. Note that this setting lets you specify the /maximum/ for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
 --
 -- * 'ssopFailureToleranceCount' - The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions. Conditional: You must specify either @FailureToleranceCount@ or @FailureTolerancePercentage@ (but not both).
 --
@@ -1782,11 +1936,11 @@ stackSetOperationPreferences =
 ssopRegionOrder :: Lens' StackSetOperationPreferences [Text]
 ssopRegionOrder = lens _ssopRegionOrder (\ s a -> s{_ssopRegionOrder = a}) . _Default . _Coerce;
 
--- | The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @FailureToleranceCount@ —@MaxConcurrentCount@ is at most one more than the @FailureToleranceCount@ . Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
+-- | The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @FailureToleranceCount@ —@MaxConcurrentCount@ is at most one more than the @FailureToleranceCount@ . Note that this setting lets you specify the /maximum/ for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
 ssopMaxConcurrentCount :: Lens' StackSetOperationPreferences (Maybe Natural)
 ssopMaxConcurrentCount = lens _ssopMaxConcurrentCount (\ s a -> s{_ssopMaxConcurrentCount = a}) . mapping _Nat;
 
--- | The maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead. Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
+-- | The maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead. Note that this setting lets you specify the /maximum/ for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
 ssopMaxConcurrentPercentage :: Lens' StackSetOperationPreferences (Maybe Natural)
 ssopMaxConcurrentPercentage = lens _ssopMaxConcurrentPercentage (\ s a -> s{_ssopMaxConcurrentPercentage = a}) . mapping _Nat;
 
@@ -2037,10 +2191,12 @@ instance NFData StackSetSummary where
 -- /See:/ 'stackSummary' smart constructor.
 data StackSummary = StackSummary'
   { _ssLastUpdatedTime     :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _ssRootId              :: {-# NOUNPACK #-}!(Maybe Text)
   , _ssStackStatusReason   :: {-# NOUNPACK #-}!(Maybe Text)
   , _ssTemplateDescription :: {-# NOUNPACK #-}!(Maybe Text)
   , _ssDeletionTime        :: {-# NOUNPACK #-}!(Maybe ISO8601)
   , _ssStackId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ssParentId            :: {-# NOUNPACK #-}!(Maybe Text)
   , _ssStackName           :: {-# NOUNPACK #-}!Text
   , _ssCreationTime        :: {-# NOUNPACK #-}!ISO8601
   , _ssStackStatus         :: {-# NOUNPACK #-}!StackStatus
@@ -2053,6 +2209,8 @@ data StackSummary = StackSummary'
 --
 -- * 'ssLastUpdatedTime' - The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
 --
+-- * 'ssRootId' - For nested stacks--stacks created as resources for another stack--the stack ID of the the top-level stack to which the nested stack ultimately belongs. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+--
 -- * 'ssStackStatusReason' - Success/Failure message associated with the stack status.
 --
 -- * 'ssTemplateDescription' - The template description of the template used to create the stack.
@@ -2060,6 +2218,8 @@ data StackSummary = StackSummary'
 -- * 'ssDeletionTime' - The time the stack was deleted.
 --
 -- * 'ssStackId' - Unique stack identifier.
+--
+-- * 'ssParentId' - For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
 --
 -- * 'ssStackName' - The name associated with the stack.
 --
@@ -2074,10 +2234,12 @@ stackSummary
 stackSummary pStackName_ pCreationTime_ pStackStatus_ =
   StackSummary'
   { _ssLastUpdatedTime = Nothing
+  , _ssRootId = Nothing
   , _ssStackStatusReason = Nothing
   , _ssTemplateDescription = Nothing
   , _ssDeletionTime = Nothing
   , _ssStackId = Nothing
+  , _ssParentId = Nothing
   , _ssStackName = pStackName_
   , _ssCreationTime = _Time # pCreationTime_
   , _ssStackStatus = pStackStatus_
@@ -2087,6 +2249,10 @@ stackSummary pStackName_ pCreationTime_ pStackStatus_ =
 -- | The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
 ssLastUpdatedTime :: Lens' StackSummary (Maybe UTCTime)
 ssLastUpdatedTime = lens _ssLastUpdatedTime (\ s a -> s{_ssLastUpdatedTime = a}) . mapping _Time;
+
+-- | For nested stacks--stacks created as resources for another stack--the stack ID of the the top-level stack to which the nested stack ultimately belongs. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+ssRootId :: Lens' StackSummary (Maybe Text)
+ssRootId = lens _ssRootId (\ s a -> s{_ssRootId = a});
 
 -- | Success/Failure message associated with the stack status.
 ssStackStatusReason :: Lens' StackSummary (Maybe Text)
@@ -2104,6 +2270,10 @@ ssDeletionTime = lens _ssDeletionTime (\ s a -> s{_ssDeletionTime = a}) . mappin
 ssStackId :: Lens' StackSummary (Maybe Text)
 ssStackId = lens _ssStackId (\ s a -> s{_ssStackId = a});
 
+-- | For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+ssParentId :: Lens' StackSummary (Maybe Text)
+ssParentId = lens _ssParentId (\ s a -> s{_ssParentId = a});
+
 -- | The name associated with the stack.
 ssStackName :: Lens' StackSummary Text
 ssStackName = lens _ssStackName (\ s a -> s{_ssStackName = a});
@@ -2119,11 +2289,12 @@ ssStackStatus = lens _ssStackStatus (\ s a -> s{_ssStackStatus = a});
 instance FromXML StackSummary where
         parseXML x
           = StackSummary' <$>
-              (x .@? "LastUpdatedTime") <*>
+              (x .@? "LastUpdatedTime") <*> (x .@? "RootId") <*>
                 (x .@? "StackStatusReason")
                 <*> (x .@? "TemplateDescription")
                 <*> (x .@? "DeletionTime")
                 <*> (x .@? "StackId")
+                <*> (x .@? "ParentId")
                 <*> (x .@ "StackName")
                 <*> (x .@ "CreationTime")
                 <*> (x .@ "StackStatus")

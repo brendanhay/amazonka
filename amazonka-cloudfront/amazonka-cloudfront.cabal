@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -53,6 +53,7 @@ library
         , Network.AWS.CloudFront.CreateStreamingDistributionWithTags
         , Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.DeleteDistribution
+        , Network.AWS.CloudFront.DeleteServiceLinkedRole
         , Network.AWS.CloudFront.DeleteStreamingDistribution
         , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig

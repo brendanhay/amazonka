@@ -14,11 +14,11 @@
 module Test.AWS.Gen.CodeStar where
 
 import Data.Proxy
+import Network.AWS.CodeStar
+import Test.AWS.CodeStar.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CodeStar
-import Test.AWS.CodeStar.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -43,6 +43,9 @@ import Test.AWS.CodeStar.Internal
 --         , requestDisassociateTeamMember $
 --             disassociateTeamMember
 --
+--         , requestTagProject $
+--             tagProject
+--
 --         , requestDescribeProject $
 --             describeProject
 --
@@ -55,11 +58,17 @@ import Test.AWS.CodeStar.Internal
 --         , requestAssociateTeamMember $
 --             associateTeamMember
 --
+--         , requestUntagProject $
+--             untagProject
+--
 --         , requestUpdateTeamMember $
 --             updateTeamMember
 --
 --         , requestDescribeUserProfile $
 --             describeUserProfile
+--
+--         , requestListTagsForProject $
+--             listTagsForProject
 --
 --         , requestDeleteUserProfile $
 --             deleteUserProfile
@@ -91,6 +100,9 @@ import Test.AWS.CodeStar.Internal
 --         , responseDisassociateTeamMember $
 --             disassociateTeamMemberResponse
 --
+--         , responseTagProject $
+--             tagProjectResponse
+--
 --         , responseDescribeProject $
 --             describeProjectResponse
 --
@@ -103,11 +115,17 @@ import Test.AWS.CodeStar.Internal
 --         , responseAssociateTeamMember $
 --             associateTeamMemberResponse
 --
+--         , responseUntagProject $
+--             untagProjectResponse
+--
 --         , responseUpdateTeamMember $
 --             updateTeamMemberResponse
 --
 --         , responseDescribeUserProfile $
 --             describeUserProfileResponse
+--
+--         , responseListTagsForProject $
+--             listTagsForProjectResponse
 --
 --         , responseDeleteUserProfile $
 --             deleteUserProfileResponse
@@ -151,6 +169,11 @@ requestDisassociateTeamMember = req
     "DisassociateTeamMember"
     "fixture/DisassociateTeamMember.yaml"
 
+requestTagProject :: TagProject -> TestTree
+requestTagProject = req
+    "TagProject"
+    "fixture/TagProject.yaml"
+
 requestDescribeProject :: DescribeProject -> TestTree
 requestDescribeProject = req
     "DescribeProject"
@@ -171,6 +194,11 @@ requestAssociateTeamMember = req
     "AssociateTeamMember"
     "fixture/AssociateTeamMember.yaml"
 
+requestUntagProject :: UntagProject -> TestTree
+requestUntagProject = req
+    "UntagProject"
+    "fixture/UntagProject.yaml"
+
 requestUpdateTeamMember :: UpdateTeamMember -> TestTree
 requestUpdateTeamMember = req
     "UpdateTeamMember"
@@ -180,6 +208,11 @@ requestDescribeUserProfile :: DescribeUserProfile -> TestTree
 requestDescribeUserProfile = req
     "DescribeUserProfile"
     "fixture/DescribeUserProfile.yaml"
+
+requestListTagsForProject :: ListTagsForProject -> TestTree
+requestListTagsForProject = req
+    "ListTagsForProject"
+    "fixture/ListTagsForProject.yaml"
 
 requestDeleteUserProfile :: DeleteUserProfile -> TestTree
 requestDeleteUserProfile = req
@@ -238,6 +271,13 @@ responseDisassociateTeamMember = res
     codeStar
     (Proxy :: Proxy DisassociateTeamMember)
 
+responseTagProject :: TagProjectResponse -> TestTree
+responseTagProject = res
+    "TagProjectResponse"
+    "fixture/TagProjectResponse.proto"
+    codeStar
+    (Proxy :: Proxy TagProject)
+
 responseDescribeProject :: DescribeProjectResponse -> TestTree
 responseDescribeProject = res
     "DescribeProjectResponse"
@@ -266,6 +306,13 @@ responseAssociateTeamMember = res
     codeStar
     (Proxy :: Proxy AssociateTeamMember)
 
+responseUntagProject :: UntagProjectResponse -> TestTree
+responseUntagProject = res
+    "UntagProjectResponse"
+    "fixture/UntagProjectResponse.proto"
+    codeStar
+    (Proxy :: Proxy UntagProject)
+
 responseUpdateTeamMember :: UpdateTeamMemberResponse -> TestTree
 responseUpdateTeamMember = res
     "UpdateTeamMemberResponse"
@@ -279,6 +326,13 @@ responseDescribeUserProfile = res
     "fixture/DescribeUserProfileResponse.proto"
     codeStar
     (Proxy :: Proxy DescribeUserProfile)
+
+responseListTagsForProject :: ListTagsForProjectResponse -> TestTree
+responseListTagsForProject = res
+    "ListTagsForProjectResponse"
+    "fixture/ListTagsForProjectResponse.proto"
+    codeStar
+    (Proxy :: Proxy ListTagsForProject)
 
 responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
 responseDeleteUserProfile = res

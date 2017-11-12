@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the contents of the specified SSM document.
+-- Gets the contents of the specified Systems Manager document.
 --
 --
 module Network.AWS.SSM.GetDocument
@@ -61,7 +61,7 @@ data GetDocument = GetDocument'
 --
 -- * 'gdDocumentVersion' - The document version for which you want information.
 --
--- * 'gdName' - The name of the SSM document.
+-- * 'gdName' - The name of the Systems Manager document.
 getDocument
     :: Text -- ^ 'gdName'
     -> GetDocument
@@ -73,7 +73,7 @@ getDocument pName_ =
 gdDocumentVersion :: Lens' GetDocument (Maybe Text)
 gdDocumentVersion = lens _gdDocumentVersion (\ s a -> s{_gdDocumentVersion = a});
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 gdName :: Lens' GetDocument Text
 gdName = lens _gdName (\ s a -> s{_gdName = a});
 
@@ -131,9 +131,9 @@ data GetDocumentResponse = GetDocumentResponse'
 --
 -- * 'gdrsDocumentType' - The document type.
 --
--- * 'gdrsContent' - The contents of the SSM document.
+-- * 'gdrsContent' - The contents of the Systems Manager document.
 --
--- * 'gdrsName' - The name of the SSM document.
+-- * 'gdrsName' - The name of the Systems Manager document.
 --
 -- * 'gdrsDocumentVersion' - The document version.
 --
@@ -155,11 +155,11 @@ getDocumentResponse pResponseStatus_ =
 gdrsDocumentType :: Lens' GetDocumentResponse (Maybe DocumentType)
 gdrsDocumentType = lens _gdrsDocumentType (\ s a -> s{_gdrsDocumentType = a});
 
--- | The contents of the SSM document.
+-- | The contents of the Systems Manager document.
 gdrsContent :: Lens' GetDocumentResponse (Maybe Text)
 gdrsContent = lens _gdrsContent (\ s a -> s{_gdrsContent = a});
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 gdrsName :: Lens' GetDocumentResponse (Maybe Text)
 gdrsName = lens _gdrsName (\ s a -> s{_gdrsName = a});
 

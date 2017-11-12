@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DetachLoadBalancers.
---
---
---
--- /See:/ 'detachLoadBalancers' smart constructor.
+-- | /See:/ 'detachLoadBalancers' smart constructor.
 data DetachLoadBalancers = DetachLoadBalancers'
   { _dAutoScalingGroupName :: {-# NOUNPACK #-}!Text
   , _dLoadBalancerNames    :: {-# NOUNPACK #-}![Text]
@@ -112,11 +108,7 @@ instance ToQuery DetachLoadBalancers where
                "LoadBalancerNames" =:
                  toQueryList "member" _dLoadBalancerNames]
 
--- | Contains the output for DetachLoadBalancers.
---
---
---
--- /See:/ 'detachLoadBalancersResponse' smart constructor.
+-- | /See:/ 'detachLoadBalancersResponse' smart constructor.
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
   { _dlbsrsResponseStatus :: Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)

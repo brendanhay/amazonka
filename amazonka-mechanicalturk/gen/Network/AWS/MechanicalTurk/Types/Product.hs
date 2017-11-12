@@ -453,8 +453,8 @@ instance NFData HIT where
 --
 -- /See:/ 'hITLayoutParameter' smart constructor.
 data HITLayoutParameter = HITLayoutParameter'
-  { _hitlpValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitlpName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _hitlpName  :: {-# NOUNPACK #-}!Text
+  , _hitlpValue :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -462,22 +462,24 @@ data HITLayoutParameter = HITLayoutParameter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hitlpValue' - The value substituted for the parameter referenced in the HITLayout.
---
 -- * 'hitlpName' - The name of the parameter in the HITLayout.
+--
+-- * 'hitlpValue' - The value substituted for the parameter referenced in the HITLayout.
 hITLayoutParameter
-    :: HITLayoutParameter
-hITLayoutParameter =
-  HITLayoutParameter' {_hitlpValue = Nothing, _hitlpName = Nothing}
+    :: Text -- ^ 'hitlpName'
+    -> Text -- ^ 'hitlpValue'
+    -> HITLayoutParameter
+hITLayoutParameter pName_ pValue_ =
+  HITLayoutParameter' {_hitlpName = pName_, _hitlpValue = pValue_}
 
-
--- | The value substituted for the parameter referenced in the HITLayout.
-hitlpValue :: Lens' HITLayoutParameter (Maybe Text)
-hitlpValue = lens _hitlpValue (\ s a -> s{_hitlpValue = a});
 
 -- | The name of the parameter in the HITLayout.
-hitlpName :: Lens' HITLayoutParameter (Maybe Text)
+hitlpName :: Lens' HITLayoutParameter Text
 hitlpName = lens _hitlpName (\ s a -> s{_hitlpName = a});
+
+-- | The value substituted for the parameter referenced in the HITLayout.
+hitlpValue :: Lens' HITLayoutParameter Text
+hitlpValue = lens _hitlpValue (\ s a -> s{_hitlpValue = a});
 
 instance Hashable HITLayoutParameter where
 
@@ -487,8 +489,8 @@ instance ToJSON HITLayoutParameter where
         toJSON HITLayoutParameter'{..}
           = object
               (catMaybes
-                 [("Value" .=) <$> _hitlpValue,
-                  ("Name" .=) <$> _hitlpName])
+                 [Just ("Name" .= _hitlpName),
+                  Just ("Value" .= _hitlpValue)])
 
 -- | The Locale data structure represents a geographical region or location.
 --
@@ -546,10 +548,10 @@ instance ToJSON Locale where
 --
 -- /See:/ 'notificationSpecification' smart constructor.
 data NotificationSpecification = NotificationSpecification'
-  { _nsEventTypes  :: {-# NOUNPACK #-}!(Maybe [EventType])
-  , _nsVersion     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nsDestination :: {-# NOUNPACK #-}!Text
+  { _nsDestination :: {-# NOUNPACK #-}!Text
   , _nsTransport   :: {-# NOUNPACK #-}!NotificationTransport
+  , _nsVersion     :: {-# NOUNPACK #-}!Text
+  , _nsEventTypes  :: {-# NOUNPACK #-}![EventType]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -557,41 +559,42 @@ data NotificationSpecification = NotificationSpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nsEventTypes' - The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
+-- * 'nsDestination' - The target for notification messages. The Destination’s format is determined by the specified Transport:      * When Transport is Email, the Destination is your email address.     * When Transport is SQS, the Destination is your queue URL.     * When Transport is SNS, the Destination is the ARN of your topic.
+--
+-- * 'nsTransport' - The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS | SNS.
 --
 -- * 'nsVersion' - The version of the Notification API to use. Valid value is 2006-05-05.
 --
--- * 'nsDestination' - The destination for notification messages. or email notifications (if Transport is Email), this is an email address. For Amazon Simple Queue Service (Amazon SQS) notifications (if Transport is SQS), this is the URL for your Amazon SQS queue.
---
--- * 'nsTransport' - The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS.
+-- * 'nsEventTypes' - The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
 notificationSpecification
     :: Text -- ^ 'nsDestination'
     -> NotificationTransport -- ^ 'nsTransport'
+    -> Text -- ^ 'nsVersion'
     -> NotificationSpecification
-notificationSpecification pDestination_ pTransport_ =
+notificationSpecification pDestination_ pTransport_ pVersion_ =
   NotificationSpecification'
-  { _nsEventTypes = Nothing
-  , _nsVersion = Nothing
-  , _nsDestination = pDestination_
+  { _nsDestination = pDestination_
   , _nsTransport = pTransport_
+  , _nsVersion = pVersion_
+  , _nsEventTypes = mempty
   }
 
 
--- | The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
-nsEventTypes :: Lens' NotificationSpecification [EventType]
-nsEventTypes = lens _nsEventTypes (\ s a -> s{_nsEventTypes = a}) . _Default . _Coerce;
-
--- | The version of the Notification API to use. Valid value is 2006-05-05.
-nsVersion :: Lens' NotificationSpecification (Maybe Text)
-nsVersion = lens _nsVersion (\ s a -> s{_nsVersion = a});
-
--- | The destination for notification messages. or email notifications (if Transport is Email), this is an email address. For Amazon Simple Queue Service (Amazon SQS) notifications (if Transport is SQS), this is the URL for your Amazon SQS queue.
+-- | The target for notification messages. The Destination’s format is determined by the specified Transport:      * When Transport is Email, the Destination is your email address.     * When Transport is SQS, the Destination is your queue URL.     * When Transport is SNS, the Destination is the ARN of your topic.
 nsDestination :: Lens' NotificationSpecification Text
 nsDestination = lens _nsDestination (\ s a -> s{_nsDestination = a});
 
--- | The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS.
+-- | The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS | SNS.
 nsTransport :: Lens' NotificationSpecification NotificationTransport
 nsTransport = lens _nsTransport (\ s a -> s{_nsTransport = a});
+
+-- | The version of the Notification API to use. Valid value is 2006-05-05.
+nsVersion :: Lens' NotificationSpecification Text
+nsVersion = lens _nsVersion (\ s a -> s{_nsVersion = a});
+
+-- | The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
+nsEventTypes :: Lens' NotificationSpecification [EventType]
+nsEventTypes = lens _nsEventTypes (\ s a -> s{_nsEventTypes = a}) . _Coerce;
 
 instance Hashable NotificationSpecification where
 
@@ -601,10 +604,10 @@ instance ToJSON NotificationSpecification where
         toJSON NotificationSpecification'{..}
           = object
               (catMaybes
-                 [("EventTypes" .=) <$> _nsEventTypes,
-                  ("Version" .=) <$> _nsVersion,
-                  Just ("Destination" .= _nsDestination),
-                  Just ("Transport" .= _nsTransport)])
+                 [Just ("Destination" .= _nsDestination),
+                  Just ("Transport" .= _nsTransport),
+                  Just ("Version" .= _nsVersion),
+                  Just ("EventTypes" .= _nsEventTypes)])
 
 -- | When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details.
 --
@@ -1275,8 +1278,8 @@ instance NFData ReviewActionDetail where
 --
 -- /See:/ 'reviewPolicy' smart constructor.
 data ReviewPolicy = ReviewPolicy'
-  { _rpPolicyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rpParameters :: {-# NOUNPACK #-}!(Maybe [PolicyParameter])
+  { _rpParameters :: {-# NOUNPACK #-}!(Maybe [PolicyParameter])
+  , _rpPolicyName :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1284,29 +1287,31 @@ data ReviewPolicy = ReviewPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpPolicyName' - Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
---
 -- * 'rpParameters' - Name of the parameter from the Review policy.
+--
+-- * 'rpPolicyName' - Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
 reviewPolicy
-    :: ReviewPolicy
-reviewPolicy = ReviewPolicy' {_rpPolicyName = Nothing, _rpParameters = Nothing}
+    :: Text -- ^ 'rpPolicyName'
+    -> ReviewPolicy
+reviewPolicy pPolicyName_ =
+  ReviewPolicy' {_rpParameters = Nothing, _rpPolicyName = pPolicyName_}
 
-
--- | Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
-rpPolicyName :: Lens' ReviewPolicy (Maybe Text)
-rpPolicyName = lens _rpPolicyName (\ s a -> s{_rpPolicyName = a});
 
 -- | Name of the parameter from the Review policy.
 rpParameters :: Lens' ReviewPolicy [PolicyParameter]
 rpParameters = lens _rpParameters (\ s a -> s{_rpParameters = a}) . _Default . _Coerce;
+
+-- | Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01
+rpPolicyName :: Lens' ReviewPolicy Text
+rpPolicyName = lens _rpPolicyName (\ s a -> s{_rpPolicyName = a});
 
 instance FromJSON ReviewPolicy where
         parseJSON
           = withObject "ReviewPolicy"
               (\ x ->
                  ReviewPolicy' <$>
-                   (x .:? "PolicyName") <*>
-                     (x .:? "Parameters" .!= mempty))
+                   (x .:? "Parameters" .!= mempty) <*>
+                     (x .: "PolicyName"))
 
 instance Hashable ReviewPolicy where
 
@@ -1316,8 +1321,8 @@ instance ToJSON ReviewPolicy where
         toJSON ReviewPolicy'{..}
           = object
               (catMaybes
-                 [("PolicyName" .=) <$> _rpPolicyName,
-                  ("Parameters" .=) <$> _rpParameters])
+                 [("Parameters" .=) <$> _rpParameters,
+                  Just ("PolicyName" .= _rpPolicyName)])
 
 -- | Contains both ReviewResult and ReviewAction elements for a particular HIT.
 --

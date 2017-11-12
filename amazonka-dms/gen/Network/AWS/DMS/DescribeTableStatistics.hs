@@ -21,12 +21,15 @@
 -- Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.
 --
 --
+-- Note that the "last updated" column the DMS console only indicates the time that AWS DMS last updated the table statistics record for a table. It does not indicate the time of the last update to the table.
+--
 module Network.AWS.DMS.DescribeTableStatistics
     (
     -- * Creating a Request
       describeTableStatistics
     , DescribeTableStatistics
     -- * Request Lenses
+    , dtsFilters
     , dtsMarker
     , dtsMaxRecords
     , dtsReplicationTaskARN
@@ -54,7 +57,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeTableStatistics' smart constructor.
 data DescribeTableStatistics = DescribeTableStatistics'
-  { _dtsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dtsFilters            :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dtsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
   , _dtsMaxRecords         :: {-# NOUNPACK #-}!(Maybe Int)
   , _dtsReplicationTaskARN :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -64,9 +68,11 @@ data DescribeTableStatistics = DescribeTableStatistics'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dtsFilters' - Filters applied to the describe table statistics action. Valid filter names: schema-name | table-name | table-state A combination of filters creates an AND condition where each record matches all specified filters.
+--
 -- * 'dtsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dtsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
+-- * 'dtsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 500.
 --
 -- * 'dtsReplicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
 describeTableStatistics
@@ -74,17 +80,22 @@ describeTableStatistics
     -> DescribeTableStatistics
 describeTableStatistics pReplicationTaskARN_ =
   DescribeTableStatistics'
-  { _dtsMarker = Nothing
+  { _dtsFilters = Nothing
+  , _dtsMarker = Nothing
   , _dtsMaxRecords = Nothing
   , _dtsReplicationTaskARN = pReplicationTaskARN_
   }
 
 
+-- | Filters applied to the describe table statistics action. Valid filter names: schema-name | table-name | table-state A combination of filters creates an AND condition where each record matches all specified filters.
+dtsFilters :: Lens' DescribeTableStatistics [Filter]
+dtsFilters = lens _dtsFilters (\ s a -> s{_dtsFilters = a}) . _Default . _Coerce;
+
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dtsMarker :: Lens' DescribeTableStatistics (Maybe Text)
 dtsMarker = lens _dtsMarker (\ s a -> s{_dtsMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 500.
 dtsMaxRecords :: Lens' DescribeTableStatistics (Maybe Int)
 dtsMaxRecords = lens _dtsMaxRecords (\ s a -> s{_dtsMaxRecords = a});
 
@@ -122,7 +133,8 @@ instance ToJSON DescribeTableStatistics where
         toJSON DescribeTableStatistics'{..}
           = object
               (catMaybes
-                 [("Marker" .=) <$> _dtsMarker,
+                 [("Filters" .=) <$> _dtsFilters,
+                  ("Marker" .=) <$> _dtsMarker,
                   ("MaxRecords" .=) <$> _dtsMaxRecords,
                   Just
                     ("ReplicationTaskArn" .= _dtsReplicationTaskARN)])

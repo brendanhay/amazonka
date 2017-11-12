@@ -85,6 +85,36 @@ instance ToHeader     DeliveryStreamStatus
 instance FromJSON DeliveryStreamStatus where
     parseJSON = parseJSONText "DeliveryStreamStatus"
 
+data DeliveryStreamType
+  = DirectPut
+  | KinesisStreamAsSource
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeliveryStreamType where
+    parser = takeLowerText >>= \case
+        "directput" -> pure DirectPut
+        "kinesisstreamassource" -> pure KinesisStreamAsSource
+        e -> fromTextError $ "Failure parsing DeliveryStreamType from value: '" <> e
+           <> "'. Accepted values: directput, kinesisstreamassource"
+
+instance ToText DeliveryStreamType where
+    toText = \case
+        DirectPut -> "DirectPut"
+        KinesisStreamAsSource -> "KinesisStreamAsSource"
+
+instance Hashable     DeliveryStreamType
+instance NFData       DeliveryStreamType
+instance ToByteString DeliveryStreamType
+instance ToQuery      DeliveryStreamType
+instance ToHeader     DeliveryStreamType
+
+instance ToJSON DeliveryStreamType where
+    toJSON = toJSONText
+
+instance FromJSON DeliveryStreamType where
+    parseJSON = parseJSONText "DeliveryStreamType"
+
 data ElasticsearchIndexRotationPeriod
   = NoRotation
   | OneDay

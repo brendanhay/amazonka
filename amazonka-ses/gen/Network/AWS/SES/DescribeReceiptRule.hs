@@ -23,7 +23,7 @@
 --
 -- For information about setting up receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide> .
 --
--- This action is throttled at one request per second.
+-- You can execute this operation no more than once per second.
 --
 module Network.AWS.SES.DescribeReceiptRule
     (
@@ -64,7 +64,7 @@ data DescribeReceiptRule = DescribeReceiptRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrRuleSetName' - The name of the receipt rule set to which the receipt rule belongs.
+-- * 'drrRuleSetName' - The name of the receipt rule set that the receipt rule belongs to.
 --
 -- * 'drrRuleName' - The name of the receipt rule.
 describeReceiptRule
@@ -76,7 +76,7 @@ describeReceiptRule pRuleSetName_ pRuleName_ =
   {_drrRuleSetName = pRuleSetName_, _drrRuleName = pRuleName_}
 
 
--- | The name of the receipt rule set to which the receipt rule belongs.
+-- | The name of the receipt rule set that the receipt rule belongs to.
 drrRuleSetName :: Lens' DescribeReceiptRule Text
 drrRuleSetName = lens _drrRuleSetName (\ s a -> s{_drrRuleSetName = a});
 

@@ -182,6 +182,9 @@ module Network.AWS.ECS
     -- ** DesiredStatus
     , DesiredStatus (..)
 
+    -- ** DeviceCgroupPermission
+    , DeviceCgroupPermission (..)
+
     -- ** LogDriver
     , LogDriver (..)
 
@@ -266,6 +269,7 @@ module Network.AWS.ECS
     , cdUser
     , cdDnsSearchDomains
     , cdLogConfiguration
+    , cdLinuxParameters
     , cdName
     , cdDnsServers
     , cdMountPoints
@@ -340,6 +344,13 @@ module Network.AWS.ECS
     , dcMinimumHealthyPercent
     , dcMaximumPercent
 
+    -- ** Device
+    , Device
+    , device
+    , dContainerPath
+    , dPermissions
+    , dHostPath
+
     -- ** Failure
     , Failure
     , failure
@@ -357,11 +368,24 @@ module Network.AWS.ECS
     , hostVolumeProperties
     , hvpSourcePath
 
+    -- ** KernelCapabilities
+    , KernelCapabilities
+    , kernelCapabilities
+    , kcDrop
+    , kcAdd
+
     -- ** KeyValuePair
     , KeyValuePair
     , keyValuePair
     , kvpValue
     , kvpName
+
+    -- ** LinuxParameters
+    , LinuxParameters
+    , linuxParameters
+    , lpInitProcessEnabled
+    , lpDevices
+    , lpCapabilities
 
     -- ** LoadBalancer
     , LoadBalancer

@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Moves the specified instances out of @Standby@ mode.
+-- Moves the specified instances out of the standby state.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-enter-exit-standby.html Temporarily Removing Instances from Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.ExitStandby
     (
@@ -47,11 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for ExitStandby.
---
---
---
--- /See:/ 'exitStandby' smart constructor.
+-- | /See:/ 'exitStandby' smart constructor.
 data ExitStandby = ExitStandby'
   { _eInstanceIds          :: {-# NOUNPACK #-}!(Maybe [Text])
   , _eAutoScalingGroupName :: {-# NOUNPACK #-}!Text
@@ -111,11 +107,7 @@ instance ToQuery ExitStandby where
                  toQuery (toQueryList "member" <$> _eInstanceIds),
                "AutoScalingGroupName" =: _eAutoScalingGroupName]
 
--- | Contains the parameters for ExitStandby.
---
---
---
--- /See:/ 'exitStandbyResponse' smart constructor.
+-- | /See:/ 'exitStandbyResponse' smart constructor.
 data ExitStandbyResponse = ExitStandbyResponse'
   { _esrsActivities     :: {-# NOUNPACK #-}!(Maybe [Activity])
   , _esrsResponseStatus :: {-# NOUNPACK #-}!Int

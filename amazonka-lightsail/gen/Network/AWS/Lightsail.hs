@@ -211,6 +211,9 @@ module Network.AWS.Lightsail
     -- ** InstanceMetricName
     , InstanceMetricName (..)
 
+    -- ** InstancePlatform
+    , InstancePlatform (..)
+
     -- ** InstanceSnapshotState
     , InstanceSnapshotState (..)
 
@@ -251,6 +254,7 @@ module Network.AWS.Lightsail
     , Blueprint
     , blueprint
     , bVersionCode
+    , bPlatform
     , bGroup
     , bMinPower
     , bProductURL
@@ -272,6 +276,7 @@ module Network.AWS.Lightsail
     , bunName
     , bunPower
     , bunDiskSizeInGb
+    , bunSupportedPlatforms
     , bunPrice
     , bunIsActive
     , bunRamSizeInGb
@@ -345,6 +350,7 @@ module Network.AWS.Lightsail
     , iadExpiresAt
     , iadUsername
     , iadProtocol
+    , iadPasswordData
     , iadPassword
     , iadInstanceName
 
@@ -445,6 +451,12 @@ module Network.AWS.Lightsail
     , oId
     , oOperationType
     , oIsTerminal
+
+    -- ** PasswordData
+    , PasswordData
+    , passwordData
+    , pdKeyPairName
+    , pdCiphertext
 
     -- ** PortInfo
     , PortInfo

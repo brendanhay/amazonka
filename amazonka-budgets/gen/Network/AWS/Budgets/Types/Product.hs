@@ -139,7 +139,7 @@ instance ToJSON Budget where
                   Just ("TimePeriod" .= _bTimePeriod),
                   Just ("BudgetType" .= _bBudgetType)])
 
--- | A structure holds the actual and forecasted spend for a budget.
+-- | A structure that holds the actual and forecasted spend for a budget.
 --
 -- /See:/ 'calculatedSpend' smart constructor.
 data CalculatedSpend = CalculatedSpend'
@@ -258,7 +258,8 @@ instance ToJSON CostTypes where
 --
 -- /See:/ 'notification' smart constructor.
 data Notification = Notification'
-  { _nNotificationType   :: {-# NOUNPACK #-}!NotificationType
+  { _nThresholdType      :: {-# NOUNPACK #-}!(Maybe ThresholdType)
+  , _nNotificationType   :: {-# NOUNPACK #-}!NotificationType
   , _nComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
   , _nThreshold          :: {-# NOUNPACK #-}!Double
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -267,6 +268,8 @@ data Notification = Notification'
 -- | Creates a value of 'Notification' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'nThresholdType' - Undocumented member.
 --
 -- * 'nNotificationType' - Undocumented member.
 --
@@ -280,11 +283,16 @@ notification
     -> Notification
 notification pNotificationType_ pComparisonOperator_ pThreshold_ =
   Notification'
-  { _nNotificationType = pNotificationType_
+  { _nThresholdType = Nothing
+  , _nNotificationType = pNotificationType_
   , _nComparisonOperator = pComparisonOperator_
   , _nThreshold = pThreshold_
   }
 
+
+-- | Undocumented member.
+nThresholdType :: Lens' Notification (Maybe ThresholdType)
+nThresholdType = lens _nThresholdType (\ s a -> s{_nThresholdType = a});
 
 -- | Undocumented member.
 nNotificationType :: Lens' Notification NotificationType
@@ -303,8 +311,8 @@ instance FromJSON Notification where
           = withObject "Notification"
               (\ x ->
                  Notification' <$>
-                   (x .: "NotificationType") <*>
-                     (x .: "ComparisonOperator")
+                   (x .:? "ThresholdType") <*> (x .: "NotificationType")
+                     <*> (x .: "ComparisonOperator")
                      <*> (x .: "Threshold"))
 
 instance Hashable Notification where
@@ -315,7 +323,8 @@ instance ToJSON Notification where
         toJSON Notification'{..}
           = object
               (catMaybes
-                 [Just ("NotificationType" .= _nNotificationType),
+                 [("ThresholdType" .=) <$> _nThresholdType,
+                  Just ("NotificationType" .= _nNotificationType),
                   Just ("ComparisonOperator" .= _nComparisonOperator),
                   Just ("Threshold" .= _nThreshold)])
 
@@ -363,7 +372,7 @@ instance ToJSON NotificationWithSubscribers where
                  [Just ("Notification" .= _nwsNotification),
                   Just ("Subscribers" .= _nwsSubscribers)])
 
--- | A structure represent either a cost spend or usage spend. Contains an amount and a unit.
+-- | A structure that represents either a cost spend or usage spend. Contains an amount and a unit.
 --
 -- /See:/ 'spend' smart constructor.
 data Spend = Spend'
@@ -460,7 +469,7 @@ instance ToJSON Subscriber where
                  [Just ("SubscriptionType" .= _sSubscriptionType),
                   Just ("Address" .= _sAddress)])
 
--- | A time period indicated the start date and end date of a budget.
+-- | A time period indicating the start date and end date of a budget.
 --
 -- /See:/ 'timePeriod' smart constructor.
 data TimePeriod = TimePeriod'

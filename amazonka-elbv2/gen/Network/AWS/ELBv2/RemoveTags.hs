@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified tags from the specified resource.
+-- Removes the specified tags from the specified Elastic Load Balancing resource.
 --
 --
 -- To list the current tags for your resources, use 'DescribeTags' .

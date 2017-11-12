@@ -21,7 +21,7 @@
 -- Uploads a batch of log events to the specified log stream.
 --
 --
--- You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using 'DescribeLogStreams' .
+-- You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using 'DescribeLogStreams' . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls may be successful, or one may be rejected.
 --
 -- The batch of events must satisfy the following constraints:
 --
@@ -31,7 +31,7 @@
 --
 --     * None of the log events in the batch can be older than 14 days or the retention period of the log group.
 --
---     * The log events in the batch must be in chronological ordered by their timestamp (the time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC).
+--     * The log events in the batch must be in chronological ordered by their time stamp (the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC).
 --
 --     * The maximum number of log events in a batch is 10,000.
 --
@@ -79,7 +79,7 @@ data PutLogEvents = PutLogEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pleSequenceToken' - The sequence token.
+-- * 'pleSequenceToken' - The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using 'DescribeLogStreams' . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls may be successful, or one may be rejected.
 --
 -- * 'pleLogGroupName' - The name of the log group.
 --
@@ -100,7 +100,7 @@ putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
   }
 
 
--- | The sequence token.
+-- | The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using 'DescribeLogStreams' . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls may be successful, or one may be rejected.
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
 pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a});
 

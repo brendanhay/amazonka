@@ -94,11 +94,7 @@ instance ToQuery DescribeMetricCollectionTypes where
                     ("DescribeMetricCollectionTypes" :: ByteString),
                   "Version" =: ("2011-01-01" :: ByteString)])
 
--- | Contains the output of DescribeMetricsCollectionTypes.
---
---
---
--- /See:/ 'describeMetricCollectionTypesResponse' smart constructor.
+-- | /See:/ 'describeMetricCollectionTypesResponse' smart constructor.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
   { _dmctrsMetrics        :: {-# NOUNPACK #-}!(Maybe [MetricCollectionType])
   , _dmctrsGranularities  :: {-# NOUNPACK #-}!(Maybe [MetricGranularityType])

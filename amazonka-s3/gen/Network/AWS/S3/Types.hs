@@ -84,6 +84,9 @@ module Network.AWS.S3.Types
     -- * ObjectVersionStorageClass
     , ObjectVersionStorageClass (..)
 
+    -- * OwnerOverride
+    , OwnerOverride (..)
+
     -- * Payer
     , Payer (..)
 
@@ -107,6 +110,9 @@ module Network.AWS.S3.Types
 
     -- * ServerSideEncryption
     , ServerSideEncryption (..)
+
+    -- * SseKMSEncryptedObjectsStatus
+    , SseKMSEncryptedObjectsStatus (..)
 
     -- * StorageClass
     , StorageClass (..)
@@ -141,6 +147,11 @@ module Network.AWS.S3.Types
     , accessControlPolicy
     , acpGrants
     , acpOwner
+
+    -- * AccessControlTranslation
+    , AccessControlTranslation
+    , accessControlTranslation
+    , actOwner
 
     -- * AnalyticsAndOperator
     , AnalyticsAndOperator
@@ -270,8 +281,16 @@ module Network.AWS.S3.Types
     -- * Destination
     , Destination
     , destination
+    , dAccessControlTranslation
+    , dAccount
     , dStorageClass
+    , dEncryptionConfiguration
     , dBucket
+
+    -- * EncryptionConfiguration
+    , EncryptionConfiguration
+    , encryptionConfiguration
+    , ecReplicaKMSKeyId
 
     -- * ErrorDocument
     , ErrorDocument
@@ -331,6 +350,12 @@ module Network.AWS.S3.Types
     , inventoryDestination
     , idS3BucketDestination
 
+    -- * InventoryEncryption
+    , InventoryEncryption
+    , inventoryEncryption
+    , ieSSES3
+    , ieSSEKMS
+
     -- * InventoryFilter
     , InventoryFilter
     , inventoryFilter
@@ -341,6 +366,7 @@ module Network.AWS.S3.Types
     , inventoryS3BucketDestination
     , isbdPrefix
     , isbdAccountId
+    , isbdEncryption
     , isbdBucket
     , isbdFormat
 
@@ -524,6 +550,7 @@ module Network.AWS.S3.Types
     , ReplicationRule
     , replicationRule
     , rrId
+    , rrSourceSelectionCriteria
     , rrPrefix
     , rrStatus
     , rrDestination
@@ -557,6 +584,41 @@ module Network.AWS.S3.Types
     , sseKey
     , sseCode
     , sseMessage
+
+    -- * SSEKMS
+    , SSEKMS
+    , sSEKMS
+    , ssekKeyId
+
+    -- * SSES3
+    , SSES3
+    , sSES3
+
+    -- * ServerSideEncryptionByDefault
+    , ServerSideEncryptionByDefault
+    , serverSideEncryptionByDefault
+    , ssebdKMSMasterKeyId
+    , ssebdSSEAlgorithm
+
+    -- * ServerSideEncryptionConfiguration
+    , ServerSideEncryptionConfiguration
+    , serverSideEncryptionConfiguration
+    , ssecRules
+
+    -- * ServerSideEncryptionRule
+    , ServerSideEncryptionRule
+    , serverSideEncryptionRule
+    , sserApplyServerSideEncryptionByDefault
+
+    -- * SourceSelectionCriteria
+    , SourceSelectionCriteria
+    , sourceSelectionCriteria
+    , sscSseKMSEncryptedObjects
+
+    -- * SseKMSEncryptedObjects
+    , SseKMSEncryptedObjects
+    , sseKMSEncryptedObjects
+    , skeoStatus
 
     -- * StorageClassAnalysis
     , StorageClassAnalysis

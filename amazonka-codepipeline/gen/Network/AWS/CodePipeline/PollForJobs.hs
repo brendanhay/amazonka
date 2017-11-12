@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a poll for jobs action.
+-- | Represents the input of a PollForJobs action.
 --
 --
 --
@@ -128,7 +128,7 @@ instance ToPath PollForJobs where
 instance ToQuery PollForJobs where
         toQuery = const mempty
 
--- | Represents the output of a poll for jobs action.
+-- | Represents the output of a PollForJobs action.
 --
 --
 --

@@ -41,6 +41,7 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     , casgAvailabilityZones
     , casgDesiredCapacity
     , casgLaunchConfigurationName
+    , casgLifecycleHookSpecificationList
     , casgHealthCheckType
     , casgPlacementGroup
     , casgLoadBalancerNames
@@ -61,11 +62,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for CreateAutoScalingGroup.
---
---
---
--- /See:/ 'createAutoScalingGroup' smart constructor.
+-- | /See:/ 'createAutoScalingGroup' smart constructor.
 data CreateAutoScalingGroup = CreateAutoScalingGroup'
   { _casgInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
   , _casgTerminationPolicies :: {-# NOUNPACK #-}!(Maybe [Text])
@@ -77,6 +74,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
   , _casgAvailabilityZones :: {-# NOUNPACK #-}!(Maybe (List1 Text))
   , _casgDesiredCapacity :: {-# NOUNPACK #-}!(Maybe Int)
   , _casgLaunchConfigurationName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _casgLifecycleHookSpecificationList :: {-# NOUNPACK #-}!(Maybe [LifecycleHookSpecification])
   , _casgHealthCheckType :: {-# NOUNPACK #-}!(Maybe Text)
   , _casgPlacementGroup :: {-# NOUNPACK #-}!(Maybe Text)
   , _casgLoadBalancerNames :: {-# NOUNPACK #-}!(Maybe [Text])
@@ -107,9 +105,11 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 --
 -- * 'casgAvailabilityZones' - One or more Availability Zones for the group. This parameter is optional if you specify one or more subnets.
 --
--- * 'casgDesiredCapacity' - The number of EC2 instances that should be running in the group. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
+-- * 'casgDesiredCapacity' - The number of EC2 instances that should be running in the group. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity, the default is the minimum size of the group.
 --
 -- * 'casgLaunchConfigurationName' - The name of the launch configuration. Alternatively, specify an EC2 instance instead of a launch configuration.
+--
+-- * 'casgLifecycleHookSpecificationList' - One or more lifecycle hooks.
 --
 -- * 'casgHealthCheckType' - The service to use for the health checks. The valid values are @EC2@ and @ELB@ . By default, health checks use Amazon EC2 instance status checks to determine the health of an instance. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/ .
 --
@@ -141,6 +141,7 @@ createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
   , _casgAvailabilityZones = Nothing
   , _casgDesiredCapacity = Nothing
   , _casgLaunchConfigurationName = Nothing
+  , _casgLifecycleHookSpecificationList = Nothing
   , _casgHealthCheckType = Nothing
   , _casgPlacementGroup = Nothing
   , _casgLoadBalancerNames = Nothing
@@ -183,13 +184,17 @@ casgDefaultCooldown = lens _casgDefaultCooldown (\ s a -> s{_casgDefaultCooldown
 casgAvailabilityZones :: Lens' CreateAutoScalingGroup (Maybe (NonEmpty Text))
 casgAvailabilityZones = lens _casgAvailabilityZones (\ s a -> s{_casgAvailabilityZones = a}) . mapping _List1;
 
--- | The number of EC2 instances that should be running in the group. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
+-- | The number of EC2 instances that should be running in the group. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity, the default is the minimum size of the group.
 casgDesiredCapacity :: Lens' CreateAutoScalingGroup (Maybe Int)
 casgDesiredCapacity = lens _casgDesiredCapacity (\ s a -> s{_casgDesiredCapacity = a});
 
 -- | The name of the launch configuration. Alternatively, specify an EC2 instance instead of a launch configuration.
 casgLaunchConfigurationName :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgLaunchConfigurationName = lens _casgLaunchConfigurationName (\ s a -> s{_casgLaunchConfigurationName = a});
+
+-- | One or more lifecycle hooks.
+casgLifecycleHookSpecificationList :: Lens' CreateAutoScalingGroup [LifecycleHookSpecification]
+casgLifecycleHookSpecificationList = lens _casgLifecycleHookSpecificationList (\ s a -> s{_casgLifecycleHookSpecificationList = a}) . _Default . _Coerce;
 
 -- | The service to use for the health checks. The valid values are @EC2@ and @ELB@ . By default, health checks use Amazon EC2 instance status checks to determine the health of an instance. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/ .
 casgHealthCheckType :: Lens' CreateAutoScalingGroup (Maybe Text)
@@ -261,6 +266,10 @@ instance ToQuery CreateAutoScalingGroup where
                "DesiredCapacity" =: _casgDesiredCapacity,
                "LaunchConfigurationName" =:
                  _casgLaunchConfigurationName,
+               "LifecycleHookSpecificationList" =:
+                 toQuery
+                   (toQueryList "member" <$>
+                      _casgLifecycleHookSpecificationList),
                "HealthCheckType" =: _casgHealthCheckType,
                "PlacementGroup" =: _casgPlacementGroup,
                "LoadBalancerNames" =:

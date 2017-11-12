@@ -94,9 +94,7 @@ instance ToPath DeleteEventStream where
 instance ToQuery DeleteEventStream where
         toQuery = const mempty
 
--- | DeleteEventStream Response
---
--- /See:/ 'deleteEventStreamResponse' smart constructor.
+-- | /See:/ 'deleteEventStreamResponse' smart constructor.
 data DeleteEventStreamResponse = DeleteEventStreamResponse'
   { _desrsResponseStatus :: {-# NOUNPACK #-}!Int
   , _desrsEventStream    :: {-# NOUNPACK #-}!EventStream

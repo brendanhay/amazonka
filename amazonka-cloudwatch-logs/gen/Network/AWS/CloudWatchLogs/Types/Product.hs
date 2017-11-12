@@ -40,9 +40,9 @@ data Destination = Destination'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dTargetARN' - The Amazon Resource Name (ARN) of the physical target where the log events will be delivered (for example, a Kinesis stream).
+-- * 'dTargetARN' - The Amazon Resource Name (ARN) of the physical target to where the log events are delivered (for example, a Kinesis stream).
 --
--- * 'dCreationTime' - The creation time of the destination, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'dCreationTime' - The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'dArn' - The ARN of this destination.
 --
@@ -64,11 +64,11 @@ destination =
   }
 
 
--- | The Amazon Resource Name (ARN) of the physical target where the log events will be delivered (for example, a Kinesis stream).
+-- | The Amazon Resource Name (ARN) of the physical target to where the log events are delivered (for example, a Kinesis stream).
 dTargetARN :: Lens' Destination (Maybe Text)
 dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 
--- | The creation time of the destination, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 dCreationTime :: Lens' Destination (Maybe Natural)
 dCreationTime = lens _dCreationTime (\ s a -> s{_dCreationTime = a}) . mapping _Nat;
 
@@ -135,9 +135,9 @@ data ExportTask = ExportTask'
 --
 -- * 'etTaskId' - The ID of the export task.
 --
--- * 'etTo' - The end time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
+-- * 'etTo' - The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.
 --
--- * 'etFrom' - The start time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not exported.
+-- * 'etFrom' - The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not exported.
 --
 -- * 'etLogGroupName' - The name of the log group from which logs data was exported.
 --
@@ -178,11 +178,11 @@ etTaskName = lens _etTaskName (\ s a -> s{_etTaskName = a});
 etTaskId :: Lens' ExportTask (Maybe Text)
 etTaskId = lens _etTaskId (\ s a -> s{_etTaskId = a});
 
--- | The end time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
+-- | The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.
 etTo :: Lens' ExportTask (Maybe Natural)
 etTo = lens _etTo (\ s a -> s{_etTo = a}) . mapping _Nat;
 
--- | The start time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not exported.
+-- | The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not exported.
 etFrom :: Lens' ExportTask (Maybe Natural)
 etFrom = lens _etFrom (\ s a -> s{_etFrom = a}) . mapping _Nat;
 
@@ -227,9 +227,9 @@ data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eteiCreationTime' - The creation time of the export task, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'eteiCreationTime' - The creation time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
--- * 'eteiCompletionTime' - The completion time of the export task, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'eteiCompletionTime' - The completion time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 exportTaskExecutionInfo
     :: ExportTaskExecutionInfo
 exportTaskExecutionInfo =
@@ -237,11 +237,11 @@ exportTaskExecutionInfo =
   {_eteiCreationTime = Nothing, _eteiCompletionTime = Nothing}
 
 
--- | The creation time of the export task, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The creation time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 eteiCreationTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
 eteiCreationTime = lens _eteiCreationTime (\ s a -> s{_eteiCreationTime = a}) . mapping _Nat;
 
--- | The completion time of the export task, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The completion time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 eteiCompletionTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
 eteiCompletionTime = lens _eteiCompletionTime (\ s a -> s{_eteiCompletionTime = a}) . mapping _Nat;
 
@@ -316,13 +316,13 @@ data FilteredLogEvent = FilteredLogEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fleIngestionTime' - The time the event was ingested, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'fleIngestionTime' - The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'fleLogStreamName' - The name of the log stream this event belongs to.
 --
 -- * 'fleMessage' - The data contained in the log event.
 --
--- * 'fleTimestamp' - The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'fleTimestamp' - The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'fleEventId' - The ID of the event.
 filteredLogEvent
@@ -337,7 +337,7 @@ filteredLogEvent =
   }
 
 
--- | The time the event was ingested, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 fleIngestionTime :: Lens' FilteredLogEvent (Maybe Natural)
 fleIngestionTime = lens _fleIngestionTime (\ s a -> s{_fleIngestionTime = a}) . mapping _Nat;
 
@@ -349,7 +349,7 @@ fleLogStreamName = lens _fleLogStreamName (\ s a -> s{_fleLogStreamName = a});
 fleMessage :: Lens' FilteredLogEvent (Maybe Text)
 fleMessage = lens _fleMessage (\ s a -> s{_fleMessage = a});
 
--- | The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 fleTimestamp :: Lens' FilteredLogEvent (Maybe Natural)
 fleTimestamp = lens _fleTimestamp (\ s a -> s{_fleTimestamp = a}) . mapping _Nat;
 
@@ -386,7 +386,7 @@ data InputLogEvent = InputLogEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ileTimestamp' - The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'ileTimestamp' - The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'ileMessage' - The raw event message.
 inputLogEvent
@@ -397,7 +397,7 @@ inputLogEvent pTimestamp_ pMessage_ =
   InputLogEvent' {_ileTimestamp = _Nat # pTimestamp_, _ileMessage = pMessage_}
 
 
--- | The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
 ileTimestamp :: Lens' InputLogEvent Natural
 ileTimestamp = lens _ileTimestamp (\ s a -> s{_ileTimestamp = a}) . _Nat;
 
@@ -427,6 +427,7 @@ data LogGroup = LogGroup'
   , _lgArn               :: {-# NOUNPACK #-}!(Maybe Text)
   , _lgLogGroupName      :: {-# NOUNPACK #-}!(Maybe Text)
   , _lgRetentionInDays   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _lgKmsKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
   , _lgStoredBytes       :: {-# NOUNPACK #-}!(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -435,7 +436,7 @@ data LogGroup = LogGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgCreationTime' - The creation time of the log group, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'lgCreationTime' - The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'lgMetricFilterCount' - The number of metric filters.
 --
@@ -444,6 +445,8 @@ data LogGroup = LogGroup'
 -- * 'lgLogGroupName' - The name of the log group.
 --
 -- * 'lgRetentionInDays' - Undocumented member.
+--
+-- * 'lgKmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 --
 -- * 'lgStoredBytes' - The number of bytes stored.
 logGroup
@@ -455,11 +458,12 @@ logGroup =
   , _lgArn = Nothing
   , _lgLogGroupName = Nothing
   , _lgRetentionInDays = Nothing
+  , _lgKmsKeyId = Nothing
   , _lgStoredBytes = Nothing
   }
 
 
--- | The creation time of the log group, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 lgCreationTime :: Lens' LogGroup (Maybe Natural)
 lgCreationTime = lens _lgCreationTime (\ s a -> s{_lgCreationTime = a}) . mapping _Nat;
 
@@ -479,6 +483,10 @@ lgLogGroupName = lens _lgLogGroupName (\ s a -> s{_lgLogGroupName = a});
 lgRetentionInDays :: Lens' LogGroup (Maybe Int)
 lgRetentionInDays = lens _lgRetentionInDays (\ s a -> s{_lgRetentionInDays = a});
 
+-- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
+lgKmsKeyId :: Lens' LogGroup (Maybe Text)
+lgKmsKeyId = lens _lgKmsKeyId (\ s a -> s{_lgKmsKeyId = a});
+
 -- | The number of bytes stored.
 lgStoredBytes :: Lens' LogGroup (Maybe Natural)
 lgStoredBytes = lens _lgStoredBytes (\ s a -> s{_lgStoredBytes = a}) . mapping _Nat;
@@ -493,6 +501,7 @@ instance FromJSON LogGroup where
                      <*> (x .:? "arn")
                      <*> (x .:? "logGroupName")
                      <*> (x .:? "retentionInDays")
+                     <*> (x .:? "kmsKeyId")
                      <*> (x .:? "storedBytes"))
 
 instance Hashable LogGroup where
@@ -520,21 +529,21 @@ data LogStream = LogStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsCreationTime' - The creation time of the stream, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'lsCreationTime' - The creation time of the stream, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'lsUploadSequenceToken' - The sequence token.
 --
 -- * 'lsArn' - The Amazon Resource Name (ARN) of the log stream.
 --
--- * 'lsFirstEventTimestamp' - The time of the first event, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'lsFirstEventTimestamp' - The time of the first event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'lsLogStreamName' - The name of the log stream.
 --
 -- * 'lsStoredBytes' - The number of bytes stored.
 --
--- * 'lsLastIngestionTime' - The ingestion time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'lsLastIngestionTime' - The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
--- * 'lsLastEventTimestamp' - the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. lastEventTime updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
+-- * 'lsLastEventTimestamp' - the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTime updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
 logStream
     :: LogStream
 logStream =
@@ -550,7 +559,7 @@ logStream =
   }
 
 
--- | The creation time of the stream, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The creation time of the stream, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 lsCreationTime :: Lens' LogStream (Maybe Natural)
 lsCreationTime = lens _lsCreationTime (\ s a -> s{_lsCreationTime = a}) . mapping _Nat;
 
@@ -562,7 +571,7 @@ lsUploadSequenceToken = lens _lsUploadSequenceToken (\ s a -> s{_lsUploadSequenc
 lsArn :: Lens' LogStream (Maybe Text)
 lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
 
--- | The time of the first event, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The time of the first event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 lsFirstEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsFirstEventTimestamp = lens _lsFirstEventTimestamp (\ s a -> s{_lsFirstEventTimestamp = a}) . mapping _Nat;
 
@@ -574,11 +583,11 @@ lsLogStreamName = lens _lsLogStreamName (\ s a -> s{_lsLogStreamName = a});
 lsStoredBytes :: Lens' LogStream (Maybe Natural)
 lsStoredBytes = lens _lsStoredBytes (\ s a -> s{_lsStoredBytes = a}) . mapping _Nat;
 
--- | The ingestion time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 lsLastIngestionTime :: Lens' LogStream (Maybe Natural)
 lsLastIngestionTime = lens _lsLastIngestionTime (\ s a -> s{_lsLastIngestionTime = a}) . mapping _Nat;
 
--- | the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. lastEventTime updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
+-- | the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTime updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
 lsLastEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsLastEventTimestamp = lens _lsLastEventTimestamp (\ s a -> s{_lsLastEventTimestamp = a}) . mapping _Nat;
 
@@ -618,7 +627,7 @@ data MetricFilter = MetricFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mfCreationTime' - The creation time of the metric filter, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'mfCreationTime' - The creation time of the metric filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'mfFilterName' - The name of the metric filter.
 --
@@ -639,7 +648,7 @@ metricFilter =
   }
 
 
--- | The creation time of the metric filter, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The creation time of the metric filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 mfCreationTime :: Lens' MetricFilter (Maybe Natural)
 mfCreationTime = lens _mfCreationTime (\ s a -> s{_mfCreationTime = a}) . mapping _Nat;
 
@@ -729,7 +738,7 @@ instance Hashable MetricFilterMatchRecord where
 
 instance NFData MetricFilterMatchRecord where
 
--- | Indicates how to transform ingested log events into metric data in a CloudWatch metric.
+-- | Indicates how to transform ingested log events in to metric data in a CloudWatch metric.
 --
 --
 --
@@ -821,11 +830,11 @@ data OutputLogEvent = OutputLogEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oleIngestionTime' - The time the event was ingested, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'oleIngestionTime' - The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'oleMessage' - The data contained in the log event.
 --
--- * 'oleTimestamp' - The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'oleTimestamp' - The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 outputLogEvent
     :: OutputLogEvent
 outputLogEvent =
@@ -833,7 +842,7 @@ outputLogEvent =
   {_oleIngestionTime = Nothing, _oleMessage = Nothing, _oleTimestamp = Nothing}
 
 
--- | The time the event was ingested, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 oleIngestionTime :: Lens' OutputLogEvent (Maybe Natural)
 oleIngestionTime = lens _oleIngestionTime (\ s a -> s{_oleIngestionTime = a}) . mapping _Nat;
 
@@ -841,7 +850,7 @@ oleIngestionTime = lens _oleIngestionTime (\ s a -> s{_oleIngestionTime = a}) . 
 oleMessage :: Lens' OutputLogEvent (Maybe Text)
 oleMessage = lens _oleMessage (\ s a -> s{_oleMessage = a});
 
--- | The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 oleTimestamp :: Lens' OutputLogEvent (Maybe Natural)
 oleTimestamp = lens _oleTimestamp (\ s a -> s{_oleTimestamp = a}) . mapping _Nat;
 
@@ -913,6 +922,61 @@ instance Hashable RejectedLogEventsInfo where
 
 instance NFData RejectedLogEventsInfo where
 
+-- | A policy enabling one or more entities to put logs to a log group in this account.
+--
+--
+--
+-- /See:/ 'resourcePolicy' smart constructor.
+data ResourcePolicy = ResourcePolicy'
+  { _rpPolicyName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rpPolicyDocument  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rpLastUpdatedTime :: {-# NOUNPACK #-}!(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ResourcePolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpPolicyName' - The name of the resource policy.
+--
+-- * 'rpPolicyDocument' - The details of the policy.
+--
+-- * 'rpLastUpdatedTime' - Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+resourcePolicy
+    :: ResourcePolicy
+resourcePolicy =
+  ResourcePolicy'
+  { _rpPolicyName = Nothing
+  , _rpPolicyDocument = Nothing
+  , _rpLastUpdatedTime = Nothing
+  }
+
+
+-- | The name of the resource policy.
+rpPolicyName :: Lens' ResourcePolicy (Maybe Text)
+rpPolicyName = lens _rpPolicyName (\ s a -> s{_rpPolicyName = a});
+
+-- | The details of the policy.
+rpPolicyDocument :: Lens' ResourcePolicy (Maybe Text)
+rpPolicyDocument = lens _rpPolicyDocument (\ s a -> s{_rpPolicyDocument = a});
+
+-- | Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+rpLastUpdatedTime :: Lens' ResourcePolicy (Maybe Natural)
+rpLastUpdatedTime = lens _rpLastUpdatedTime (\ s a -> s{_rpLastUpdatedTime = a}) . mapping _Nat;
+
+instance FromJSON ResourcePolicy where
+        parseJSON
+          = withObject "ResourcePolicy"
+              (\ x ->
+                 ResourcePolicy' <$>
+                   (x .:? "policyName") <*> (x .:? "policyDocument") <*>
+                     (x .:? "lastUpdatedTime"))
+
+instance Hashable ResourcePolicy where
+
+instance NFData ResourcePolicy where
+
 -- | Represents the search status of a log stream.
 --
 --
@@ -978,11 +1042,11 @@ data SubscriptionFilter = SubscriptionFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sfCreationTime' - The creation time of the subscription filter, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'sfCreationTime' - The creation time of the subscription filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'sfFilterName' - The name of the subscription filter.
 --
--- * 'sfDistribution' - The method used to distribute log data to the destination, when the destination is an Amazon Kinesis stream.
+-- * 'sfDistribution' - Undocumented member.
 --
 -- * 'sfDestinationARN' - The Amazon Resource Name (ARN) of the destination.
 --
@@ -1005,7 +1069,7 @@ subscriptionFilter =
   }
 
 
--- | The creation time of the subscription filter, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | The creation time of the subscription filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 sfCreationTime :: Lens' SubscriptionFilter (Maybe Natural)
 sfCreationTime = lens _sfCreationTime (\ s a -> s{_sfCreationTime = a}) . mapping _Nat;
 
@@ -1013,7 +1077,7 @@ sfCreationTime = lens _sfCreationTime (\ s a -> s{_sfCreationTime = a}) . mappin
 sfFilterName :: Lens' SubscriptionFilter (Maybe Text)
 sfFilterName = lens _sfFilterName (\ s a -> s{_sfFilterName = a});
 
--- | The method used to distribute log data to the destination, when the destination is an Amazon Kinesis stream.
+-- | Undocumented member.
 sfDistribution :: Lens' SubscriptionFilter (Maybe Distribution)
 sfDistribution = lens _sfDistribution (\ s a -> s{_sfDistribution = a});
 

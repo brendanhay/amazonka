@@ -14,11 +14,11 @@
 module Test.AWS.Gen.CloudWatchLogs where
 
 import Data.Proxy
+import Network.AWS.CloudWatchLogs
+import Test.AWS.CloudWatchLogs.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CloudWatchLogs
-import Test.AWS.CloudWatchLogs.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -52,11 +52,17 @@ import Test.AWS.CloudWatchLogs.Internal
 --         , requestDeleteDestination $
 --             deleteDestination
 --
+--         , requestDisassociateKMSKey $
+--             disassociateKMSKey
+--
 --         , requestFilterLogEvents $
 --             filterLogEvents
 --
 --         , requestTagLogGroup $
 --             tagLogGroup
+--
+--         , requestDescribeResourcePolicies $
+--             describeResourcePolicies
 --
 --         , requestDeleteLogStream $
 --             deleteLogStream
@@ -109,6 +115,15 @@ import Test.AWS.CloudWatchLogs.Internal
 --         , requestListTagsLogGroup $
 --             listTagsLogGroup
 --
+--         , requestPutResourcePolicy $
+--             putResourcePolicy
+--
+--         , requestDeleteResourcePolicy $
+--             deleteResourcePolicy
+--
+--         , requestAssociateKMSKey $
+--             associateKMSKey
+--
 --         , requestDescribeLogStreams $
 --             describeLogStreams
 --
@@ -139,11 +154,17 @@ import Test.AWS.CloudWatchLogs.Internal
 --         , responseDeleteDestination $
 --             deleteDestinationResponse
 --
+--         , responseDisassociateKMSKey $
+--             disassociateKMSKeyResponse
+--
 --         , responseFilterLogEvents $
 --             filterLogEventsResponse
 --
 --         , responseTagLogGroup $
 --             tagLogGroupResponse
+--
+--         , responseDescribeResourcePolicies $
+--             describeResourcePoliciesResponse
 --
 --         , responseDeleteLogStream $
 --             deleteLogStreamResponse
@@ -196,6 +217,15 @@ import Test.AWS.CloudWatchLogs.Internal
 --         , responseListTagsLogGroup $
 --             listTagsLogGroupResponse
 --
+--         , responsePutResourcePolicy $
+--             putResourcePolicyResponse
+--
+--         , responseDeleteResourcePolicy $
+--             deleteResourcePolicyResponse
+--
+--         , responseAssociateKMSKey $
+--             associateKMSKeyResponse
+--
 --         , responseDescribeLogStreams $
 --             describeLogStreamsResponse
 --
@@ -244,6 +274,11 @@ requestDeleteDestination = req
     "DeleteDestination"
     "fixture/DeleteDestination.yaml"
 
+requestDisassociateKMSKey :: DisassociateKMSKey -> TestTree
+requestDisassociateKMSKey = req
+    "DisassociateKMSKey"
+    "fixture/DisassociateKMSKey.yaml"
+
 requestFilterLogEvents :: FilterLogEvents -> TestTree
 requestFilterLogEvents = req
     "FilterLogEvents"
@@ -253,6 +288,11 @@ requestTagLogGroup :: TagLogGroup -> TestTree
 requestTagLogGroup = req
     "TagLogGroup"
     "fixture/TagLogGroup.yaml"
+
+requestDescribeResourcePolicies :: DescribeResourcePolicies -> TestTree
+requestDescribeResourcePolicies = req
+    "DescribeResourcePolicies"
+    "fixture/DescribeResourcePolicies.yaml"
 
 requestDeleteLogStream :: DeleteLogStream -> TestTree
 requestDeleteLogStream = req
@@ -339,6 +379,21 @@ requestListTagsLogGroup = req
     "ListTagsLogGroup"
     "fixture/ListTagsLogGroup.yaml"
 
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy = req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
+
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy = req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
+
+requestAssociateKMSKey :: AssociateKMSKey -> TestTree
+requestAssociateKMSKey = req
+    "AssociateKMSKey"
+    "fixture/AssociateKMSKey.yaml"
+
 requestDescribeLogStreams :: DescribeLogStreams -> TestTree
 requestDescribeLogStreams = req
     "DescribeLogStreams"
@@ -402,6 +457,13 @@ responseDeleteDestination = res
     cloudWatchLogs
     (Proxy :: Proxy DeleteDestination)
 
+responseDisassociateKMSKey :: DisassociateKMSKeyResponse -> TestTree
+responseDisassociateKMSKey = res
+    "DisassociateKMSKeyResponse"
+    "fixture/DisassociateKMSKeyResponse.proto"
+    cloudWatchLogs
+    (Proxy :: Proxy DisassociateKMSKey)
+
 responseFilterLogEvents :: FilterLogEventsResponse -> TestTree
 responseFilterLogEvents = res
     "FilterLogEventsResponse"
@@ -415,6 +477,13 @@ responseTagLogGroup = res
     "fixture/TagLogGroupResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy TagLogGroup)
+
+responseDescribeResourcePolicies :: DescribeResourcePoliciesResponse -> TestTree
+responseDescribeResourcePolicies = res
+    "DescribeResourcePoliciesResponse"
+    "fixture/DescribeResourcePoliciesResponse.proto"
+    cloudWatchLogs
+    (Proxy :: Proxy DescribeResourcePolicies)
 
 responseDeleteLogStream :: DeleteLogStreamResponse -> TestTree
 responseDeleteLogStream = res
@@ -534,6 +603,27 @@ responseListTagsLogGroup = res
     "fixture/ListTagsLogGroupResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy ListTagsLogGroup)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy = res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    cloudWatchLogs
+    (Proxy :: Proxy PutResourcePolicy)
+
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy = res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    cloudWatchLogs
+    (Proxy :: Proxy DeleteResourcePolicy)
+
+responseAssociateKMSKey :: AssociateKMSKeyResponse -> TestTree
+responseAssociateKMSKey = res
+    "AssociateKMSKeyResponse"
+    "fixture/AssociateKMSKeyResponse.proto"
+    cloudWatchLogs
+    (Proxy :: Proxy AssociateKMSKey)
 
 responseDescribeLogStreams :: DescribeLogStreamsResponse -> TestTree
 responseDescribeLogStreams = res

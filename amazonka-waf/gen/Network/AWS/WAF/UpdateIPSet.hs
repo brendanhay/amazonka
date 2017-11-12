@@ -88,7 +88,7 @@ import Network.AWS.WAF.Types.Product
 data UpdateIPSet = UpdateIPSet'
   { _uisIPSetId     :: {-# NOUNPACK #-}!Text
   , _uisChangeToken :: {-# NOUNPACK #-}!Text
-  , _uisUpdates     :: {-# NOUNPACK #-}![IPSetUpdate]
+  , _uisUpdates     :: {-# NOUNPACK #-}!(List1 IPSetUpdate)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -104,12 +104,13 @@ data UpdateIPSet = UpdateIPSet'
 updateIPSet
     :: Text -- ^ 'uisIPSetId'
     -> Text -- ^ 'uisChangeToken'
+    -> NonEmpty IPSetUpdate -- ^ 'uisUpdates'
     -> UpdateIPSet
-updateIPSet pIPSetId_ pChangeToken_ =
+updateIPSet pIPSetId_ pChangeToken_ pUpdates_ =
   UpdateIPSet'
   { _uisIPSetId = pIPSetId_
   , _uisChangeToken = pChangeToken_
-  , _uisUpdates = mempty
+  , _uisUpdates = _List1 # pUpdates_
   }
 
 
@@ -122,8 +123,8 @@ uisChangeToken :: Lens' UpdateIPSet Text
 uisChangeToken = lens _uisChangeToken (\ s a -> s{_uisChangeToken = a});
 
 -- | An array of @IPSetUpdate@ objects that you want to insert into or delete from an 'IPSet' . For more information, see the applicable data types:     * 'IPSetUpdate' : Contains @Action@ and @IPSetDescriptor@      * 'IPSetDescriptor' : Contains @Type@ and @Value@
-uisUpdates :: Lens' UpdateIPSet [IPSetUpdate]
-uisUpdates = lens _uisUpdates (\ s a -> s{_uisUpdates = a}) . _Coerce;
+uisUpdates :: Lens' UpdateIPSet (NonEmpty IPSetUpdate)
+uisUpdates = lens _uisUpdates (\ s a -> s{_uisUpdates = a}) . _List1;
 
 instance AWSRequest UpdateIPSet where
         type Rs UpdateIPSet = UpdateIPSetResponse

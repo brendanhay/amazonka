@@ -345,9 +345,15 @@ instance FromJSON RecorderStatus where
 
 data ResourceType
   = AWSAcmCertificate
+  | AWSAutoScalingAutoScalingGroup
+  | AWSAutoScalingLaunchConfiguration
+  | AWSAutoScalingScalingPolicy
+  | AWSAutoScalingScheduledAction
   | AWSCloudFormationStack
   | AWSCloudTrailTrail
   | AWSCloudWatchAlarm
+  | AWSCodeBuildProject
+  | AWSDynamoDBTable
   | AWSEC2CustomerGateway
   | AWSEC2EIP
   | AWSEC2Host
@@ -386,9 +392,15 @@ data ResourceType
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
         "aws::acm::certificate" -> pure AWSAcmCertificate
+        "aws::autoscaling::autoscalinggroup" -> pure AWSAutoScalingAutoScalingGroup
+        "aws::autoscaling::launchconfiguration" -> pure AWSAutoScalingLaunchConfiguration
+        "aws::autoscaling::scalingpolicy" -> pure AWSAutoScalingScalingPolicy
+        "aws::autoscaling::scheduledaction" -> pure AWSAutoScalingScheduledAction
         "aws::cloudformation::stack" -> pure AWSCloudFormationStack
         "aws::cloudtrail::trail" -> pure AWSCloudTrailTrail
         "aws::cloudwatch::alarm" -> pure AWSCloudWatchAlarm
+        "aws::codebuild::project" -> pure AWSCodeBuildProject
+        "aws::dynamodb::table" -> pure AWSDynamoDBTable
         "aws::ec2::customergateway" -> pure AWSEC2CustomerGateway
         "aws::ec2::eip" -> pure AWSEC2EIP
         "aws::ec2::host" -> pure AWSEC2Host
@@ -422,14 +434,20 @@ instance FromText ResourceType where
         "aws::s3::bucket" -> pure AWSS3Bucket
         "aws::ssm::managedinstanceinventory" -> pure AWSSsmManagedInstanceInventory
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: aws::acm::certificate, aws::cloudformation::stack, aws::cloudtrail::trail, aws::cloudwatch::alarm, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::elasticloadbalancingv2::loadbalancer, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription, aws::redshift::cluster, aws::redshift::clusterparametergroup, aws::redshift::clustersecuritygroup, aws::redshift::clustersnapshot, aws::redshift::clustersubnetgroup, aws::redshift::eventsubscription, aws::s3::bucket, aws::ssm::managedinstanceinventory"
+           <> "'. Accepted values: aws::acm::certificate, aws::autoscaling::autoscalinggroup, aws::autoscaling::launchconfiguration, aws::autoscaling::scalingpolicy, aws::autoscaling::scheduledaction, aws::cloudformation::stack, aws::cloudtrail::trail, aws::cloudwatch::alarm, aws::codebuild::project, aws::dynamodb::table, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::elasticloadbalancingv2::loadbalancer, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription, aws::redshift::cluster, aws::redshift::clusterparametergroup, aws::redshift::clustersecuritygroup, aws::redshift::clustersnapshot, aws::redshift::clustersubnetgroup, aws::redshift::eventsubscription, aws::s3::bucket, aws::ssm::managedinstanceinventory"
 
 instance ToText ResourceType where
     toText = \case
         AWSAcmCertificate -> "AWS::ACM::Certificate"
+        AWSAutoScalingAutoScalingGroup -> "AWS::AutoScaling::AutoScalingGroup"
+        AWSAutoScalingLaunchConfiguration -> "AWS::AutoScaling::LaunchConfiguration"
+        AWSAutoScalingScalingPolicy -> "AWS::AutoScaling::ScalingPolicy"
+        AWSAutoScalingScheduledAction -> "AWS::AutoScaling::ScheduledAction"
         AWSCloudFormationStack -> "AWS::CloudFormation::Stack"
         AWSCloudTrailTrail -> "AWS::CloudTrail::Trail"
         AWSCloudWatchAlarm -> "AWS::CloudWatch::Alarm"
+        AWSCodeBuildProject -> "AWS::CodeBuild::Project"
+        AWSDynamoDBTable -> "AWS::DynamoDB::Table"
         AWSEC2CustomerGateway -> "AWS::EC2::CustomerGateway"
         AWSEC2EIP -> "AWS::EC2::EIP"
         AWSEC2Host -> "AWS::EC2::Host"

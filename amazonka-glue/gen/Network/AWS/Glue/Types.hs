@@ -84,6 +84,19 @@ module Network.AWS.Glue.Types
     , aArguments
     , aJobName
 
+    -- * BatchStopJobRunError
+    , BatchStopJobRunError
+    , batchStopJobRunError
+    , bsjreJobName
+    , bsjreJobRunId
+    , bsjreErrorDetail
+
+    -- * BatchStopJobRunSuccessfulSubmission
+    , BatchStopJobRunSuccessfulSubmission
+    , batchStopJobRunSuccessfulSubmission
+    , bsjrssJobName
+    , bsjrssJobRunId
+
     -- * CatalogEntry
     , CatalogEntry
     , catalogEntry
@@ -244,6 +257,7 @@ module Network.AWS.Glue.Types
     , deNumberOfNodes
     , dePublicAddress
     , deAvailabilityZone
+    , deZeppelinRemoteSparkInterpreterPort
     , deExtraJARsS3Path
     , deCreatedTimestamp
     , deYarnEndpointAddress

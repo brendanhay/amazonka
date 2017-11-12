@@ -27,6 +27,7 @@ module Network.AWS.IAM.Types
     , _DeleteConflictException
     , _NoSuchEntityException
     , _InvalidCertificateException
+    , _PolicyNotAttachableException
     , _ServiceNotSupportedException
     , _UnrecognizedPublicKeyEncodingException
     , _InvalidUserTypeException
@@ -46,6 +47,9 @@ module Network.AWS.IAM.Types
 
     -- * ContextKeyTypeEnum
     , ContextKeyTypeEnum (..)
+
+    -- * DeletionTaskStatusType
+    , DeletionTaskStatusType (..)
 
     -- * EncodingType
     , EncodingType (..)
@@ -110,6 +114,12 @@ module Network.AWS.IAM.Types
     , ceContextKeyValues
     , ceContextKeyName
     , ceContextKeyType
+
+    -- * DeletionTaskFailureReasonType
+    , DeletionTaskFailureReasonType
+    , deletionTaskFailureReasonType
+    , dtfrtRoleUsageList
+    , dtfrtReason
 
     -- * EvaluationResult
     , EvaluationResult
@@ -295,6 +305,12 @@ module Network.AWS.IAM.Types
     , rdRoleId
     , rdRolePolicyList
     , rdAttachedManagedPolicies
+
+    -- * RoleUsageType
+    , RoleUsageType
+    , roleUsageType
+    , rutResources
+    , rutRegion
 
     -- * SAMLProviderListEntry
     , SAMLProviderListEntry
@@ -545,6 +561,14 @@ _InvalidCertificateException =
   _MatchServiceError iam "InvalidCertificate" . hasStatus 400
 
 
+-- | The request failed because AWS service role policies can only be attached to the service-linked role for that service.
+--
+--
+_PolicyNotAttachableException :: AsError a => Getting (First ServiceError) a ServiceError
+_PolicyNotAttachableException =
+  _MatchServiceError iam "PolicyNotAttachable" . hasStatus 400
+
+
 -- | The specified service does not support service-specific credentials.
 --
 --
@@ -624,7 +648,7 @@ _KeyPairMismatchException =
   _MatchServiceError iam "KeyPairMismatch" . hasStatus 400
 
 
--- | The request failed because a provided policy could not be successfully evaluated. An additional detail message indicates the source of the failure.
+-- | The request failed because a provided policy could not be successfully evaluated. An additional detailed message indicates the source of the failure.
 --
 --
 _PolicyEvaluationException :: AsError a => Getting (First ServiceError) a ServiceError

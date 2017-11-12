@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for AttachInstances.
---
---
---
--- /See:/ 'attachInstances' smart constructor.
+-- | /See:/ 'attachInstances' smart constructor.
 data AttachInstances = AttachInstances'
   { _aiInstanceIds          :: {-# NOUNPACK #-}!(Maybe [Text])
   , _aiAutoScalingGroupName :: {-# NOUNPACK #-}!Text

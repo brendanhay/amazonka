@@ -14,11 +14,11 @@
 module Test.AWS.Gen.Firehose where
 
 import Data.Proxy
+import Network.AWS.Firehose
+import Test.AWS.Firehose.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.Firehose
-import Test.AWS.Firehose.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -30,6 +30,9 @@ import Test.AWS.Firehose.Internal
 --     [ testGroup "request"
 --         [ requestPutRecord $
 --             putRecord
+--
+--         , requestGetKinesisStream $
+--             getKinesisStream
 --
 --         , requestUpdateDestination $
 --             updateDestination
@@ -54,6 +57,9 @@ import Test.AWS.Firehose.Internal
 --     , testGroup "response"
 --         [ responsePutRecord $
 --             putRecordResponse
+--
+--         , responseGetKinesisStream $
+--             getKinesisStreamResponse
 --
 --         , responseUpdateDestination $
 --             updateDestinationResponse
@@ -82,6 +88,11 @@ requestPutRecord :: PutRecord -> TestTree
 requestPutRecord = req
     "PutRecord"
     "fixture/PutRecord.yaml"
+
+requestGetKinesisStream :: GetKinesisStream -> TestTree
+requestGetKinesisStream = req
+    "GetKinesisStream"
+    "fixture/GetKinesisStream.yaml"
 
 requestUpdateDestination :: UpdateDestination -> TestTree
 requestUpdateDestination = req
@@ -121,6 +132,13 @@ responsePutRecord = res
     "fixture/PutRecordResponse.proto"
     firehose
     (Proxy :: Proxy PutRecord)
+
+responseGetKinesisStream :: GetKinesisStreamResponse -> TestTree
+responseGetKinesisStream = res
+    "GetKinesisStreamResponse"
+    "fixture/GetKinesisStreamResponse.proto"
+    firehose
+    (Proxy :: Proxy GetKinesisStream)
 
 responseUpdateDestination :: UpdateDestinationResponse -> TestTree
 responseUpdateDestination = res

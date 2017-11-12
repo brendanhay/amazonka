@@ -292,10 +292,11 @@ instance NFData DefinitionInformation where
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
-  { _dDeploymentId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dDeploymentARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dCreatedAt     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dGroupARN      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dDeploymentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDeploymentARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dCreatedAt      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dDeploymentType :: {-# NOUNPACK #-}!(Maybe DeploymentType)
+  , _dGroupARN       :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -309,6 +310,8 @@ data Deployment = Deployment'
 --
 -- * 'dCreatedAt' - Timestamp when the deployment was created.
 --
+-- * 'dDeploymentType' - The type of deployment.
+--
 -- * 'dGroupARN' - Arn of the group for this deployment.
 deployment
     :: Deployment
@@ -317,6 +320,7 @@ deployment =
   { _dDeploymentId = Nothing
   , _dDeploymentARN = Nothing
   , _dCreatedAt = Nothing
+  , _dDeploymentType = Nothing
   , _dGroupARN = Nothing
   }
 
@@ -333,6 +337,10 @@ dDeploymentARN = lens _dDeploymentARN (\ s a -> s{_dDeploymentARN = a});
 dCreatedAt :: Lens' Deployment (Maybe Text)
 dCreatedAt = lens _dCreatedAt (\ s a -> s{_dCreatedAt = a});
 
+-- | The type of deployment.
+dDeploymentType :: Lens' Deployment (Maybe DeploymentType)
+dDeploymentType = lens _dDeploymentType (\ s a -> s{_dDeploymentType = a});
+
 -- | Arn of the group for this deployment.
 dGroupARN :: Lens' Deployment (Maybe Text)
 dGroupARN = lens _dGroupARN (\ s a -> s{_dGroupARN = a});
@@ -344,6 +352,7 @@ instance FromJSON Deployment where
                  Deployment' <$>
                    (x .:? "DeploymentId") <*> (x .:? "DeploymentArn")
                      <*> (x .:? "CreatedAt")
+                     <*> (x .:? "DeploymentType")
                      <*> (x .:? "GroupArn"))
 
 instance Hashable Deployment where
@@ -457,6 +466,49 @@ instance NFData DeviceDefinitionVersion where
 instance ToJSON DeviceDefinitionVersion where
         toJSON DeviceDefinitionVersion'{..}
           = object (catMaybes [("Devices" .=) <$> _ddvDevices])
+
+-- | ErrorDetail
+--
+-- /See:/ 'errorDetail' smart constructor.
+data ErrorDetail = ErrorDetail'
+  { _edDetailedErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edDetailedErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ErrorDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edDetailedErrorCode' - Detailed Error Code
+--
+-- * 'edDetailedErrorMessage' - Detailed Error Message
+errorDetail
+    :: ErrorDetail
+errorDetail =
+  ErrorDetail'
+  {_edDetailedErrorCode = Nothing, _edDetailedErrorMessage = Nothing}
+
+
+-- | Detailed Error Code
+edDetailedErrorCode :: Lens' ErrorDetail (Maybe Text)
+edDetailedErrorCode = lens _edDetailedErrorCode (\ s a -> s{_edDetailedErrorCode = a});
+
+-- | Detailed Error Message
+edDetailedErrorMessage :: Lens' ErrorDetail (Maybe Text)
+edDetailedErrorMessage = lens _edDetailedErrorMessage (\ s a -> s{_edDetailedErrorMessage = a});
+
+instance FromJSON ErrorDetail where
+        parseJSON
+          = withObject "ErrorDetail"
+              (\ x ->
+                 ErrorDetail' <$>
+                   (x .:? "DetailedErrorCode") <*>
+                     (x .:? "DetailedErrorMessage"))
+
+instance Hashable ErrorDetail where
+
+instance NFData ErrorDetail where
 
 -- | Information on function
 --
@@ -818,7 +870,7 @@ instance Hashable GroupCertificateAuthorityProperties
 instance NFData GroupCertificateAuthorityProperties
          where
 
--- | Information of a group
+-- | Information on the group
 --
 -- /See:/ 'groupInformation' smart constructor.
 data GroupInformation = GroupInformation'

@@ -35,6 +35,7 @@ module Network.AWS.CodePipeline.GetPipeline
     , GetPipelineResponse
     -- * Response Lenses
     , gprsPipeline
+    , gprsMetadata
     , gprsResponseStatus
     ) where
 
@@ -45,7 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a get pipeline action.
+-- | Represents the input of a GetPipeline action.
 --
 --
 --
@@ -84,7 +85,8 @@ instance AWSRequest GetPipeline where
           = receiveJSON
               (\ s h x ->
                  GetPipelineResponse' <$>
-                   (x .?> "pipeline") <*> (pure (fromEnum s)))
+                   (x .?> "pipeline") <*> (x .?> "metadata") <*>
+                     (pure (fromEnum s)))
 
 instance Hashable GetPipeline where
 
@@ -112,13 +114,14 @@ instance ToPath GetPipeline where
 instance ToQuery GetPipeline where
         toQuery = const mempty
 
--- | Represents the output of a get pipeline action.
+-- | Represents the output of a GetPipeline action.
 --
 --
 --
 -- /See:/ 'getPipelineResponse' smart constructor.
 data GetPipelineResponse = GetPipelineResponse'
   { _gprsPipeline       :: {-# NOUNPACK #-}!(Maybe PipelineDeclaration)
+  , _gprsMetadata       :: {-# NOUNPACK #-}!(Maybe PipelineMetadata)
   , _gprsResponseStatus :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -129,18 +132,27 @@ data GetPipelineResponse = GetPipelineResponse'
 --
 -- * 'gprsPipeline' - Represents the structure of actions and stages to be performed in the pipeline.
 --
+-- * 'gprsMetadata' - Represents the pipeline metadata information returned as part of the output of a GetPipeline action.
+--
 -- * 'gprsResponseStatus' - -- | The response status code.
 getPipelineResponse
     :: Int -- ^ 'gprsResponseStatus'
     -> GetPipelineResponse
 getPipelineResponse pResponseStatus_ =
   GetPipelineResponse'
-  {_gprsPipeline = Nothing, _gprsResponseStatus = pResponseStatus_}
+  { _gprsPipeline = Nothing
+  , _gprsMetadata = Nothing
+  , _gprsResponseStatus = pResponseStatus_
+  }
 
 
 -- | Represents the structure of actions and stages to be performed in the pipeline.
 gprsPipeline :: Lens' GetPipelineResponse (Maybe PipelineDeclaration)
 gprsPipeline = lens _gprsPipeline (\ s a -> s{_gprsPipeline = a});
+
+-- | Represents the pipeline metadata information returned as part of the output of a GetPipeline action.
+gprsMetadata :: Lens' GetPipelineResponse (Maybe PipelineMetadata)
+gprsMetadata = lens _gprsMetadata (\ s a -> s{_gprsMetadata = a});
 
 -- | -- | The response status code.
 gprsResponseStatus :: Lens' GetPipelineResponse Int

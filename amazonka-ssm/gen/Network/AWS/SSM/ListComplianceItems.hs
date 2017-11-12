@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For a specified resource ID, this API returns a list of compliance statuses for different resource types. Currently, you can only specify one resource ID per call. List results depend on the criteria specified in the filter.
+-- For a specified resource ID, this API action returns a list of compliance statuses for different resource types. Currently, you can only specify one resource ID per call. List results depend on the criteria specified in the filter.
 --
 --
 module Network.AWS.SSM.ListComplianceItems
@@ -63,7 +63,7 @@ data ListComplianceItems = ListComplianceItems'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lResourceIds' - The ID for the resources from which you want to get compliance information. Currently, you can only specify one resource ID.
+-- * 'lResourceIds' - The ID for the resources from which to get compliance information. Currently, you can only specify one resource ID.
 --
 -- * 'lFilters' - One or more compliance filters. Use a filter to return a more specific list of results.
 --
@@ -71,7 +71,7 @@ data ListComplianceItems = ListComplianceItems'
 --
 -- * 'lMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
--- * 'lResourceTypes' - The type of resource from which you want to get compliance information. Currently, the only supported resource type is @ManagedInstance@ .
+-- * 'lResourceTypes' - The type of resource from which to get compliance information. Currently, the only supported resource type is @ManagedInstance@ .
 listComplianceItems
     :: ListComplianceItems
 listComplianceItems =
@@ -84,7 +84,7 @@ listComplianceItems =
   }
 
 
--- | The ID for the resources from which you want to get compliance information. Currently, you can only specify one resource ID.
+-- | The ID for the resources from which to get compliance information. Currently, you can only specify one resource ID.
 lResourceIds :: Lens' ListComplianceItems (Maybe (NonEmpty Text))
 lResourceIds = lens _lResourceIds (\ s a -> s{_lResourceIds = a}) . mapping _List1;
 
@@ -100,7 +100,7 @@ lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
 lMaxResults :: Lens' ListComplianceItems (Maybe Natural)
 lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a}) . mapping _Nat;
 
--- | The type of resource from which you want to get compliance information. Currently, the only supported resource type is @ManagedInstance@ .
+-- | The type of resource from which to get compliance information. Currently, the only supported resource type is @ManagedInstance@ .
 lResourceTypes :: Lens' ListComplianceItems (Maybe (NonEmpty Text))
 lResourceTypes = lens _lResourceTypes (\ s a -> s{_lResourceTypes = a}) . mapping _List1;
 

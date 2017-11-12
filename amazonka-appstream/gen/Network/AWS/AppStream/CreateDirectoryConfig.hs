@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a directory configuration with the given parameters.
+-- Creates a directory configuration.
 --
 --
 module Network.AWS.AppStream.CreateDirectoryConfig
@@ -58,11 +58,11 @@ data CreateDirectoryConfig = CreateDirectoryConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcDirectoryName' - The fully qualified name of the directory, such as corp.example.com
+-- * 'cdcDirectoryName' - The fully qualified name of the directory (for example, corp.example.com).
 --
--- * 'cdcOrganizationalUnitDistinguishedNames' - The list of the distinguished names of organizational units to place computer accounts in.
+-- * 'cdcOrganizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
 --
--- * 'cdcServiceAccountCredentials' - The /AccountName/ and /AccountPassword/ values for the service account, which are used by the streaming instance to connect to the directory.
+-- * 'cdcServiceAccountCredentials' - The credentials for the service account used by the streaming instance to connect to the directory.
 createDirectoryConfig
     :: Text -- ^ 'cdcDirectoryName'
     -> ServiceAccountCredentials -- ^ 'cdcServiceAccountCredentials'
@@ -75,15 +75,15 @@ createDirectoryConfig pDirectoryName_ pServiceAccountCredentials_ =
   }
 
 
--- | The fully qualified name of the directory, such as corp.example.com
+-- | The fully qualified name of the directory (for example, corp.example.com).
 cdcDirectoryName :: Lens' CreateDirectoryConfig Text
 cdcDirectoryName = lens _cdcDirectoryName (\ s a -> s{_cdcDirectoryName = a});
 
--- | The list of the distinguished names of organizational units to place computer accounts in.
+-- | The distinguished names of the organizational units for computer accounts.
 cdcOrganizationalUnitDistinguishedNames :: Lens' CreateDirectoryConfig [Text]
 cdcOrganizationalUnitDistinguishedNames = lens _cdcOrganizationalUnitDistinguishedNames (\ s a -> s{_cdcOrganizationalUnitDistinguishedNames = a}) . _Coerce;
 
--- | The /AccountName/ and /AccountPassword/ values for the service account, which are used by the streaming instance to connect to the directory.
+-- | The credentials for the service account used by the streaming instance to connect to the directory.
 cdcServiceAccountCredentials :: Lens' CreateDirectoryConfig ServiceAccountCredentials
 cdcServiceAccountCredentials = lens _cdcServiceAccountCredentials (\ s a -> s{_cdcServiceAccountCredentials = a});
 
@@ -140,7 +140,7 @@ data CreateDirectoryConfigResponse = CreateDirectoryConfigResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcrsDirectoryConfig' - Directory configuration details.
+-- * 'cdcrsDirectoryConfig' - Information about the directory configuration.
 --
 -- * 'cdcrsResponseStatus' - -- | The response status code.
 createDirectoryConfigResponse
@@ -151,7 +151,7 @@ createDirectoryConfigResponse pResponseStatus_ =
   {_cdcrsDirectoryConfig = Nothing, _cdcrsResponseStatus = pResponseStatus_}
 
 
--- | Directory configuration details.
+-- | Information about the directory configuration.
 cdcrsDirectoryConfig :: Lens' CreateDirectoryConfigResponse (Maybe DirectoryConfig)
 cdcrsDirectoryConfig = lens _cdcrsDirectoryConfig (\ s a -> s{_cdcrsDirectoryConfig = a});
 

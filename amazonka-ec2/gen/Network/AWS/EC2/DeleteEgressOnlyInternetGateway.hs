@@ -34,8 +34,8 @@ module Network.AWS.EC2.DeleteEgressOnlyInternetGateway
     , deleteEgressOnlyInternetGatewayResponse
     , DeleteEgressOnlyInternetGatewayResponse
     -- * Response Lenses
-    , delrsReturnCode
-    , delrsResponseStatus
+    , deoigersReturnCode
+    , deoigersResponseStatus
     ) where
 
 import Network.AWS.EC2.Types
@@ -113,8 +113,8 @@ instance ToQuery DeleteEgressOnlyInternetGateway
 
 -- | /See:/ 'deleteEgressOnlyInternetGatewayResponse' smart constructor.
 data DeleteEgressOnlyInternetGatewayResponse = DeleteEgressOnlyInternetGatewayResponse'
-  { _delrsReturnCode     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _deoigersReturnCode     :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _deoigersResponseStatus :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,24 +122,24 @@ data DeleteEgressOnlyInternetGatewayResponse = DeleteEgressOnlyInternetGatewayRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsReturnCode' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'deoigersReturnCode' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'delrsResponseStatus' - -- | The response status code.
+-- * 'deoigersResponseStatus' - -- | The response status code.
 deleteEgressOnlyInternetGatewayResponse
-    :: Int -- ^ 'delrsResponseStatus'
+    :: Int -- ^ 'deoigersResponseStatus'
     -> DeleteEgressOnlyInternetGatewayResponse
 deleteEgressOnlyInternetGatewayResponse pResponseStatus_ =
   DeleteEgressOnlyInternetGatewayResponse'
-  {_delrsReturnCode = Nothing, _delrsResponseStatus = pResponseStatus_}
+  {_deoigersReturnCode = Nothing, _deoigersResponseStatus = pResponseStatus_}
 
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-delrsReturnCode :: Lens' DeleteEgressOnlyInternetGatewayResponse (Maybe Bool)
-delrsReturnCode = lens _delrsReturnCode (\ s a -> s{_delrsReturnCode = a});
+deoigersReturnCode :: Lens' DeleteEgressOnlyInternetGatewayResponse (Maybe Bool)
+deoigersReturnCode = lens _deoigersReturnCode (\ s a -> s{_deoigersReturnCode = a});
 
 -- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteEgressOnlyInternetGatewayResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+deoigersResponseStatus :: Lens' DeleteEgressOnlyInternetGatewayResponse Int
+deoigersResponseStatus = lens _deoigersResponseStatus (\ s a -> s{_deoigersResponseStatus = a});
 
 instance NFData
            DeleteEgressOnlyInternetGatewayResponse

@@ -43,9 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | PutEventStream Request
---
--- /See:/ 'putEventStream' smart constructor.
+-- | /See:/ 'putEventStream' smart constructor.
 data PutEventStream = PutEventStream'
   { _pesApplicationId    :: {-# NOUNPACK #-}!Text
   , _pesWriteEventStream :: {-# NOUNPACK #-}!WriteEventStream

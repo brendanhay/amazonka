@@ -85,11 +85,7 @@ instance ToQuery DescribeAdjustmentTypes where
                     ("DescribeAdjustmentTypes" :: ByteString),
                   "Version" =: ("2011-01-01" :: ByteString)])
 
--- | Contains the parameters for DescribeAdjustmentTypes.
---
---
---
--- /See:/ 'describeAdjustmentTypesResponse' smart constructor.
+-- | /See:/ 'describeAdjustmentTypesResponse' smart constructor.
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
   { _datrsAdjustmentTypes :: {-# NOUNPACK #-}!(Maybe [AdjustmentType])
   , _datrsResponseStatus  :: {-# NOUNPACK #-}!Int

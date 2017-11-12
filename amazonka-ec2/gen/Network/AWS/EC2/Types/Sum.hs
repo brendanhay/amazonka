@@ -926,6 +926,36 @@ instance ToByteString FlowLogsResourceType
 instance ToQuery      FlowLogsResourceType
 instance ToHeader     FlowLogsResourceType
 
+data FpgaImageAttributeName
+  = FIANDescription
+  | FIANLoadPermission
+  | FIANName
+  | FIANProductCodes
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FpgaImageAttributeName where
+    parser = takeLowerText >>= \case
+        "description" -> pure FIANDescription
+        "loadpermission" -> pure FIANLoadPermission
+        "name" -> pure FIANName
+        "productcodes" -> pure FIANProductCodes
+        e -> fromTextError $ "Failure parsing FpgaImageAttributeName from value: '" <> e
+           <> "'. Accepted values: description, loadpermission, name, productcodes"
+
+instance ToText FpgaImageAttributeName where
+    toText = \case
+        FIANDescription -> "description"
+        FIANLoadPermission -> "loadPermission"
+        FIANName -> "name"
+        FIANProductCodes -> "productCodes"
+
+instance Hashable     FpgaImageAttributeName
+instance NFData       FpgaImageAttributeName
+instance ToByteString FpgaImageAttributeName
+instance ToQuery      FpgaImageAttributeName
+instance ToHeader     FpgaImageAttributeName
+
 data FpgaImageStateCode
   = FISCAvailable
   | FISCFailed
@@ -1265,6 +1295,33 @@ instance ToHeader     InstanceHealthStatus
 instance FromXML InstanceHealthStatus where
     parseXML = parseXMLText "InstanceHealthStatus"
 
+data InstanceInterruptionBehavior
+  = IIBStop
+  | IIBTerminate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText InstanceInterruptionBehavior where
+    parser = takeLowerText >>= \case
+        "stop" -> pure IIBStop
+        "terminate" -> pure IIBTerminate
+        e -> fromTextError $ "Failure parsing InstanceInterruptionBehavior from value: '" <> e
+           <> "'. Accepted values: stop, terminate"
+
+instance ToText InstanceInterruptionBehavior where
+    toText = \case
+        IIBStop -> "stop"
+        IIBTerminate -> "terminate"
+
+instance Hashable     InstanceInterruptionBehavior
+instance NFData       InstanceInterruptionBehavior
+instance ToByteString InstanceInterruptionBehavior
+instance ToQuery      InstanceInterruptionBehavior
+instance ToHeader     InstanceInterruptionBehavior
+
+instance FromXML InstanceInterruptionBehavior where
+    parseXML = parseXMLText "InstanceInterruptionBehavior"
+
 data InstanceLifecycleType
   = Scheduled
   | Spot
@@ -1344,6 +1401,12 @@ data InstanceType
   | C4_8XLarge
   | C4_Large
   | C4_XLarge
+  | C5_18XLarge
+  | C5_2XLarge
+  | C5_4XLarge
+  | C5_9XLarge
+  | C5_Large
+  | C5_XLarge
   | CC1_4XLarge
   | CC2_8XLarge
   | CG1_4XLarge
@@ -1391,6 +1454,9 @@ data InstanceType
   | P2_16XLarge
   | P2_8XLarge
   | P2_XLarge
+  | P3_16XLarge
+  | P3_2XLarge
+  | P3_8XLarge
   | R3_2XLarge
   | R3_4XLarge
   | R3_8XLarge
@@ -1412,6 +1478,7 @@ data InstanceType
   | T2_XLarge
   | X1_16XLarge
   | X1_32XLarge
+  | X1e_32XLarge
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -1429,6 +1496,12 @@ instance FromText InstanceType where
         "c4.8xlarge" -> pure C4_8XLarge
         "c4.large" -> pure C4_Large
         "c4.xlarge" -> pure C4_XLarge
+        "c5.18xlarge" -> pure C5_18XLarge
+        "c5.2xlarge" -> pure C5_2XLarge
+        "c5.4xlarge" -> pure C5_4XLarge
+        "c5.9xlarge" -> pure C5_9XLarge
+        "c5.large" -> pure C5_Large
+        "c5.xlarge" -> pure C5_XLarge
         "cc1.4xlarge" -> pure CC1_4XLarge
         "cc2.8xlarge" -> pure CC2_8XLarge
         "cg1.4xlarge" -> pure CG1_4XLarge
@@ -1476,6 +1549,9 @@ instance FromText InstanceType where
         "p2.16xlarge" -> pure P2_16XLarge
         "p2.8xlarge" -> pure P2_8XLarge
         "p2.xlarge" -> pure P2_XLarge
+        "p3.16xlarge" -> pure P3_16XLarge
+        "p3.2xlarge" -> pure P3_2XLarge
+        "p3.8xlarge" -> pure P3_8XLarge
         "r3.2xlarge" -> pure R3_2XLarge
         "r3.4xlarge" -> pure R3_4XLarge
         "r3.8xlarge" -> pure R3_8XLarge
@@ -1497,8 +1573,9 @@ instance FromText InstanceType where
         "t2.xlarge" -> pure T2_XLarge
         "x1.16xlarge" -> pure X1_16XLarge
         "x1.32xlarge" -> pure X1_32XLarge
+        "x1e.32xlarge" -> pure X1e_32XLarge
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, g3.16xlarge, g3.4xlarge, g3.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, i3.16xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.large, i3.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, t1.micro, t2.2xlarge, t2.large, t2.medium, t2.micro, t2.nano, t2.small, t2.xlarge, x1.16xlarge, x1.32xlarge"
+           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, c5.18xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.large, c5.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, g3.16xlarge, g3.4xlarge, g3.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, i3.16xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.large, i3.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, p3.16xlarge, p3.2xlarge, p3.8xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, t1.micro, t2.2xlarge, t2.large, t2.medium, t2.micro, t2.nano, t2.small, t2.xlarge, x1.16xlarge, x1.32xlarge, x1e.32xlarge"
 
 instance ToText InstanceType where
     toText = \case
@@ -1514,6 +1591,12 @@ instance ToText InstanceType where
         C4_8XLarge -> "c4.8xlarge"
         C4_Large -> "c4.large"
         C4_XLarge -> "c4.xlarge"
+        C5_18XLarge -> "c5.18xlarge"
+        C5_2XLarge -> "c5.2xlarge"
+        C5_4XLarge -> "c5.4xlarge"
+        C5_9XLarge -> "c5.9xlarge"
+        C5_Large -> "c5.large"
+        C5_XLarge -> "c5.xlarge"
         CC1_4XLarge -> "cc1.4xlarge"
         CC2_8XLarge -> "cc2.8xlarge"
         CG1_4XLarge -> "cg1.4xlarge"
@@ -1561,6 +1644,9 @@ instance ToText InstanceType where
         P2_16XLarge -> "p2.16xlarge"
         P2_8XLarge -> "p2.8xlarge"
         P2_XLarge -> "p2.xlarge"
+        P3_16XLarge -> "p3.16xlarge"
+        P3_2XLarge -> "p3.2xlarge"
+        P3_8XLarge -> "p3.8xlarge"
         R3_2XLarge -> "r3.2xlarge"
         R3_4XLarge -> "r3.4xlarge"
         R3_8XLarge -> "r3.8xlarge"
@@ -1582,6 +1668,7 @@ instance ToText InstanceType where
         T2_XLarge -> "t2.xlarge"
         X1_16XLarge -> "x1.16xlarge"
         X1_32XLarge -> "x1.32xlarge"
+        X1e_32XLarge -> "x1e.32xlarge"
 
 instance Hashable     InstanceType
 instance NFData       InstanceType
@@ -1878,22 +1965,22 @@ instance FromXML NetworkInterfaceStatus where
     parseXML = parseXMLText "NetworkInterfaceStatus"
 
 data NetworkInterfaceType
-  = Interface
-  | NatGateway
+  = NITInterface
+  | NITNatGateway
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText NetworkInterfaceType where
     parser = takeLowerText >>= \case
-        "interface" -> pure Interface
-        "natgateway" -> pure NatGateway
+        "interface" -> pure NITInterface
+        "natgateway" -> pure NITNatGateway
         e -> fromTextError $ "Failure parsing NetworkInterfaceType from value: '" <> e
            <> "'. Accepted values: interface, natgateway"
 
 instance ToText NetworkInterfaceType where
     toText = \case
-        Interface -> "interface"
-        NatGateway -> "natGateway"
+        NITInterface -> "interface"
+        NITNatGateway -> "natGateway"
 
 instance Hashable     NetworkInterfaceType
 instance NFData       NetworkInterfaceType
@@ -2348,6 +2435,27 @@ instance ToHeader     ReservedInstanceState
 instance FromXML ReservedInstanceState where
     parseXML = parseXMLText "ReservedInstanceState"
 
+data ResetFpgaImageAttributeName =
+  LoadPermission
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ResetFpgaImageAttributeName where
+    parser = takeLowerText >>= \case
+        "loadpermission" -> pure LoadPermission
+        e -> fromTextError $ "Failure parsing ResetFpgaImageAttributeName from value: '" <> e
+           <> "'. Accepted values: loadpermission"
+
+instance ToText ResetFpgaImageAttributeName where
+    toText = \case
+        LoadPermission -> "loadPermission"
+
+instance Hashable     ResetFpgaImageAttributeName
+instance NFData       ResetFpgaImageAttributeName
+instance ToByteString ResetFpgaImageAttributeName
+instance ToQuery      ResetFpgaImageAttributeName
+instance ToHeader     ResetFpgaImageAttributeName
+
 data ResetImageAttributeName =
   RIANLaunchPermission
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -2552,6 +2660,33 @@ instance ToHeader     Scope
 instance FromXML Scope where
     parseXML = parseXMLText "Scope"
 
+data ServiceType
+  = Gateway
+  | Interface
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ServiceType where
+    parser = takeLowerText >>= \case
+        "gateway" -> pure Gateway
+        "interface" -> pure Interface
+        e -> fromTextError $ "Failure parsing ServiceType from value: '" <> e
+           <> "'. Accepted values: gateway, interface"
+
+instance ToText ServiceType where
+    toText = \case
+        Gateway -> "Gateway"
+        Interface -> "Interface"
+
+instance Hashable     ServiceType
+instance NFData       ServiceType
+instance ToByteString ServiceType
+instance ToQuery      ServiceType
+instance ToHeader     ServiceType
+
+instance FromXML ServiceType where
+    parseXML = parseXMLText "ServiceType"
+
 data ShutdownBehavior
   = Stop
   | Terminate
@@ -2697,7 +2832,11 @@ data State
   = SAvailable
   | SDeleted
   | SDeleting
+  | SExpired
+  | SFailed
   | SPending
+  | SPendingAcceptance
+  | SRejected
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -2706,16 +2845,24 @@ instance FromText State where
         "available" -> pure SAvailable
         "deleted" -> pure SDeleted
         "deleting" -> pure SDeleting
+        "expired" -> pure SExpired
+        "failed" -> pure SFailed
         "pending" -> pure SPending
+        "pendingacceptance" -> pure SPendingAcceptance
+        "rejected" -> pure SRejected
         e -> fromTextError $ "Failure parsing State from value: '" <> e
-           <> "'. Accepted values: available, deleted, deleting, pending"
+           <> "'. Accepted values: available, deleted, deleting, expired, failed, pending, pendingacceptance, rejected"
 
 instance ToText State where
     toText = \case
         SAvailable -> "Available"
         SDeleted -> "Deleted"
         SDeleting -> "Deleting"
+        SExpired -> "Expired"
+        SFailed -> "Failed"
         SPending -> "Pending"
+        SPendingAcceptance -> "PendingAcceptance"
+        SRejected -> "Rejected"
 
 instance Hashable     State
 instance NFData       State
@@ -3035,6 +3182,33 @@ instance ToHeader     VPCCidrBlockStateCode
 instance FromXML VPCCidrBlockStateCode where
     parseXML = parseXMLText "VPCCidrBlockStateCode"
 
+data VPCEndpointType
+  = VETGateway
+  | VETInterface
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText VPCEndpointType where
+    parser = takeLowerText >>= \case
+        "gateway" -> pure VETGateway
+        "interface" -> pure VETInterface
+        e -> fromTextError $ "Failure parsing VPCEndpointType from value: '" <> e
+           <> "'. Accepted values: gateway, interface"
+
+instance ToText VPCEndpointType where
+    toText = \case
+        VETGateway -> "Gateway"
+        VETInterface -> "Interface"
+
+instance Hashable     VPCEndpointType
+instance NFData       VPCEndpointType
+instance ToByteString VPCEndpointType
+instance ToQuery      VPCEndpointType
+instance ToHeader     VPCEndpointType
+
+instance FromXML VPCEndpointType where
+    parseXML = parseXMLText "VPCEndpointType"
+
 data VPCPeeringConnectionStateReasonCode
   = VPCSRCActive
   | VPCSRCDeleted
@@ -3109,6 +3283,27 @@ instance ToHeader     VPCState
 
 instance FromXML VPCState where
     parseXML = parseXMLText "VPCState"
+
+data VPCTenancy =
+  VTDefault
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText VPCTenancy where
+    parser = takeLowerText >>= \case
+        "default" -> pure VTDefault
+        e -> fromTextError $ "Failure parsing VPCTenancy from value: '" <> e
+           <> "'. Accepted values: default"
+
+instance ToText VPCTenancy where
+    toText = \case
+        VTDefault -> "default"
+
+instance Hashable     VPCTenancy
+instance NFData       VPCTenancy
+instance ToByteString VPCTenancy
+instance ToQuery      VPCTenancy
+instance ToHeader     VPCTenancy
 
 data VPNState
   = VSAvailable

@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Moves the specified instances into @Standby@ mode.
+-- Moves the specified instances into the standby state.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-enter-exit-standby.html Temporarily Removing Instances from Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.EnterStandby
     (
@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for EnteStandby.
---
---
---
--- /See:/ 'enterStandby' smart constructor.
+-- | /See:/ 'enterStandby' smart constructor.
 data EnterStandby = EnterStandby'
   { _esInstanceIds                    :: {-# NOUNPACK #-}!(Maybe [Text])
   , _esAutoScalingGroupName           :: {-# NOUNPACK #-}!Text
@@ -125,11 +121,7 @@ instance ToQuery EnterStandby where
                "ShouldDecrementDesiredCapacity" =:
                  _esShouldDecrementDesiredCapacity]
 
--- | Contains the output of EnterStandby.
---
---
---
--- /See:/ 'enterStandbyResponse' smart constructor.
+-- | /See:/ 'enterStandbyResponse' smart constructor.
 data EnterStandbyResponse = EnterStandbyResponse'
   { _ersActivities     :: {-# NOUNPACK #-}!(Maybe [Activity])
   , _ersResponseStatus :: {-# NOUNPACK #-}!Int

@@ -120,7 +120,7 @@ data ListBucketInventoryConfigurationsResponse = ListBucketInventoryConfiguratio
   , _lbicrsNextContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
   , _lbicrsIsTruncated :: {-# NOUNPACK #-}!(Maybe Bool)
   , _lbicrsResponseStatus :: {-# NOUNPACK #-}!Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'ListBucketInventoryConfigurationsResponse' with the minimum fields required to make a request.

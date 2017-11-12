@@ -14,11 +14,11 @@
 module Test.AWS.Gen.GameLift where
 
 import Data.Proxy
+import Network.AWS.GameLift
 import Test.AWS.Fixture
+import Test.AWS.GameLift.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.GameLift
-import Test.AWS.GameLift.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -64,17 +64,26 @@ import Test.AWS.GameLift.Internal
 --         , requestUpdateRuntimeConfiguration $
 --             updateRuntimeConfiguration
 --
+--         , requestCreateVPCPeeringConnection $
+--             createVPCPeeringConnection
+--
 --         , requestCreateGameSessionQueue $
 --             createGameSessionQueue
 --
 --         , requestSearchGameSessions $
 --             searchGameSessions
 --
+--         , requestCreateVPCPeeringAuthorization $
+--             createVPCPeeringAuthorization
+--
 --         , requestUpdateGameSessionQueue $
 --             updateGameSessionQueue
 --
 --         , requestDeleteGameSessionQueue $
 --             deleteGameSessionQueue
+--
+--         , requestDeleteVPCPeeringConnection $
+--             deleteVPCPeeringConnection
 --
 --         , requestGetInstanceAccess $
 --             getInstanceAccess
@@ -145,11 +154,17 @@ import Test.AWS.GameLift.Internal
 --         , requestDescribeGameSessionQueues $
 --             describeGameSessionQueues
 --
+--         , requestDescribeVPCPeeringConnections $
+--             describeVPCPeeringConnections
+--
 --         , requestCreatePlayerSessions $
 --             createPlayerSessions
 --
 --         , requestDescribeMatchmakingConfigurations $
 --             describeMatchmakingConfigurations
+--
+--         , requestDescribeVPCPeeringAuthorizations $
+--             describeVPCPeeringAuthorizations
 --
 --         , requestCreateFleet $
 --             createFleet
@@ -159,6 +174,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , requestUpdateMatchmakingConfiguration $
 --             updateMatchmakingConfiguration
+--
+--         , requestDeleteVPCPeeringAuthorization $
+--             deleteVPCPeeringAuthorization
 --
 --         , requestUpdateFleetAttributes $
 --             updateFleetAttributes
@@ -241,17 +259,26 @@ import Test.AWS.GameLift.Internal
 --         , responseUpdateRuntimeConfiguration $
 --             updateRuntimeConfigurationResponse
 --
+--         , responseCreateVPCPeeringConnection $
+--             createVPCPeeringConnectionResponse
+--
 --         , responseCreateGameSessionQueue $
 --             createGameSessionQueueResponse
 --
 --         , responseSearchGameSessions $
 --             searchGameSessionsResponse
 --
+--         , responseCreateVPCPeeringAuthorization $
+--             createVPCPeeringAuthorizationResponse
+--
 --         , responseUpdateGameSessionQueue $
 --             updateGameSessionQueueResponse
 --
 --         , responseDeleteGameSessionQueue $
 --             deleteGameSessionQueueResponse
+--
+--         , responseDeleteVPCPeeringConnection $
+--             deleteVPCPeeringConnectionResponse
 --
 --         , responseGetInstanceAccess $
 --             getInstanceAccessResponse
@@ -322,11 +349,17 @@ import Test.AWS.GameLift.Internal
 --         , responseDescribeGameSessionQueues $
 --             describeGameSessionQueuesResponse
 --
+--         , responseDescribeVPCPeeringConnections $
+--             describeVPCPeeringConnectionsResponse
+--
 --         , responseCreatePlayerSessions $
 --             createPlayerSessionsResponse
 --
 --         , responseDescribeMatchmakingConfigurations $
 --             describeMatchmakingConfigurationsResponse
+--
+--         , responseDescribeVPCPeeringAuthorizations $
+--             describeVPCPeeringAuthorizationsResponse
 --
 --         , responseCreateFleet $
 --             createFleetResponse
@@ -336,6 +369,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , responseUpdateMatchmakingConfiguration $
 --             updateMatchmakingConfigurationResponse
+--
+--         , responseDeleteVPCPeeringAuthorization $
+--             deleteVPCPeeringAuthorizationResponse
 --
 --         , responseUpdateFleetAttributes $
 --             updateFleetAttributesResponse
@@ -444,6 +480,11 @@ requestUpdateRuntimeConfiguration = req
     "UpdateRuntimeConfiguration"
     "fixture/UpdateRuntimeConfiguration.yaml"
 
+requestCreateVPCPeeringConnection :: CreateVPCPeeringConnection -> TestTree
+requestCreateVPCPeeringConnection = req
+    "CreateVPCPeeringConnection"
+    "fixture/CreateVPCPeeringConnection.yaml"
+
 requestCreateGameSessionQueue :: CreateGameSessionQueue -> TestTree
 requestCreateGameSessionQueue = req
     "CreateGameSessionQueue"
@@ -454,6 +495,11 @@ requestSearchGameSessions = req
     "SearchGameSessions"
     "fixture/SearchGameSessions.yaml"
 
+requestCreateVPCPeeringAuthorization :: CreateVPCPeeringAuthorization -> TestTree
+requestCreateVPCPeeringAuthorization = req
+    "CreateVPCPeeringAuthorization"
+    "fixture/CreateVPCPeeringAuthorization.yaml"
+
 requestUpdateGameSessionQueue :: UpdateGameSessionQueue -> TestTree
 requestUpdateGameSessionQueue = req
     "UpdateGameSessionQueue"
@@ -463,6 +509,11 @@ requestDeleteGameSessionQueue :: DeleteGameSessionQueue -> TestTree
 requestDeleteGameSessionQueue = req
     "DeleteGameSessionQueue"
     "fixture/DeleteGameSessionQueue.yaml"
+
+requestDeleteVPCPeeringConnection :: DeleteVPCPeeringConnection -> TestTree
+requestDeleteVPCPeeringConnection = req
+    "DeleteVPCPeeringConnection"
+    "fixture/DeleteVPCPeeringConnection.yaml"
 
 requestGetInstanceAccess :: GetInstanceAccess -> TestTree
 requestGetInstanceAccess = req
@@ -579,6 +630,11 @@ requestDescribeGameSessionQueues = req
     "DescribeGameSessionQueues"
     "fixture/DescribeGameSessionQueues.yaml"
 
+requestDescribeVPCPeeringConnections :: DescribeVPCPeeringConnections -> TestTree
+requestDescribeVPCPeeringConnections = req
+    "DescribeVPCPeeringConnections"
+    "fixture/DescribeVPCPeeringConnections.yaml"
+
 requestCreatePlayerSessions :: CreatePlayerSessions -> TestTree
 requestCreatePlayerSessions = req
     "CreatePlayerSessions"
@@ -588,6 +644,11 @@ requestDescribeMatchmakingConfigurations :: DescribeMatchmakingConfigurations ->
 requestDescribeMatchmakingConfigurations = req
     "DescribeMatchmakingConfigurations"
     "fixture/DescribeMatchmakingConfigurations.yaml"
+
+requestDescribeVPCPeeringAuthorizations :: DescribeVPCPeeringAuthorizations -> TestTree
+requestDescribeVPCPeeringAuthorizations = req
+    "DescribeVPCPeeringAuthorizations"
+    "fixture/DescribeVPCPeeringAuthorizations.yaml"
 
 requestCreateFleet :: CreateFleet -> TestTree
 requestCreateFleet = req
@@ -603,6 +664,11 @@ requestUpdateMatchmakingConfiguration :: UpdateMatchmakingConfiguration -> TestT
 requestUpdateMatchmakingConfiguration = req
     "UpdateMatchmakingConfiguration"
     "fixture/UpdateMatchmakingConfiguration.yaml"
+
+requestDeleteVPCPeeringAuthorization :: DeleteVPCPeeringAuthorization -> TestTree
+requestDeleteVPCPeeringAuthorization = req
+    "DeleteVPCPeeringAuthorization"
+    "fixture/DeleteVPCPeeringAuthorization.yaml"
 
 requestUpdateFleetAttributes :: UpdateFleetAttributes -> TestTree
 requestUpdateFleetAttributes = req
@@ -760,6 +826,13 @@ responseUpdateRuntimeConfiguration = res
     gameLift
     (Proxy :: Proxy UpdateRuntimeConfiguration)
 
+responseCreateVPCPeeringConnection :: CreateVPCPeeringConnectionResponse -> TestTree
+responseCreateVPCPeeringConnection = res
+    "CreateVPCPeeringConnectionResponse"
+    "fixture/CreateVPCPeeringConnectionResponse.proto"
+    gameLift
+    (Proxy :: Proxy CreateVPCPeeringConnection)
+
 responseCreateGameSessionQueue :: CreateGameSessionQueueResponse -> TestTree
 responseCreateGameSessionQueue = res
     "CreateGameSessionQueueResponse"
@@ -774,6 +847,13 @@ responseSearchGameSessions = res
     gameLift
     (Proxy :: Proxy SearchGameSessions)
 
+responseCreateVPCPeeringAuthorization :: CreateVPCPeeringAuthorizationResponse -> TestTree
+responseCreateVPCPeeringAuthorization = res
+    "CreateVPCPeeringAuthorizationResponse"
+    "fixture/CreateVPCPeeringAuthorizationResponse.proto"
+    gameLift
+    (Proxy :: Proxy CreateVPCPeeringAuthorization)
+
 responseUpdateGameSessionQueue :: UpdateGameSessionQueueResponse -> TestTree
 responseUpdateGameSessionQueue = res
     "UpdateGameSessionQueueResponse"
@@ -787,6 +867,13 @@ responseDeleteGameSessionQueue = res
     "fixture/DeleteGameSessionQueueResponse.proto"
     gameLift
     (Proxy :: Proxy DeleteGameSessionQueue)
+
+responseDeleteVPCPeeringConnection :: DeleteVPCPeeringConnectionResponse -> TestTree
+responseDeleteVPCPeeringConnection = res
+    "DeleteVPCPeeringConnectionResponse"
+    "fixture/DeleteVPCPeeringConnectionResponse.proto"
+    gameLift
+    (Proxy :: Proxy DeleteVPCPeeringConnection)
 
 responseGetInstanceAccess :: GetInstanceAccessResponse -> TestTree
 responseGetInstanceAccess = res
@@ -949,6 +1036,13 @@ responseDescribeGameSessionQueues = res
     gameLift
     (Proxy :: Proxy DescribeGameSessionQueues)
 
+responseDescribeVPCPeeringConnections :: DescribeVPCPeeringConnectionsResponse -> TestTree
+responseDescribeVPCPeeringConnections = res
+    "DescribeVPCPeeringConnectionsResponse"
+    "fixture/DescribeVPCPeeringConnectionsResponse.proto"
+    gameLift
+    (Proxy :: Proxy DescribeVPCPeeringConnections)
+
 responseCreatePlayerSessions :: CreatePlayerSessionsResponse -> TestTree
 responseCreatePlayerSessions = res
     "CreatePlayerSessionsResponse"
@@ -962,6 +1056,13 @@ responseDescribeMatchmakingConfigurations = res
     "fixture/DescribeMatchmakingConfigurationsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeMatchmakingConfigurations)
+
+responseDescribeVPCPeeringAuthorizations :: DescribeVPCPeeringAuthorizationsResponse -> TestTree
+responseDescribeVPCPeeringAuthorizations = res
+    "DescribeVPCPeeringAuthorizationsResponse"
+    "fixture/DescribeVPCPeeringAuthorizationsResponse.proto"
+    gameLift
+    (Proxy :: Proxy DescribeVPCPeeringAuthorizations)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
 responseCreateFleet = res
@@ -983,6 +1084,13 @@ responseUpdateMatchmakingConfiguration = res
     "fixture/UpdateMatchmakingConfigurationResponse.proto"
     gameLift
     (Proxy :: Proxy UpdateMatchmakingConfiguration)
+
+responseDeleteVPCPeeringAuthorization :: DeleteVPCPeeringAuthorizationResponse -> TestTree
+responseDeleteVPCPeeringAuthorization = res
+    "DeleteVPCPeeringAuthorizationResponse"
+    "fixture/DeleteVPCPeeringAuthorizationResponse.proto"
+    gameLift
+    (Proxy :: Proxy DeleteVPCPeeringAuthorization)
 
 responseUpdateFleetAttributes :: UpdateFleetAttributesResponse -> TestTree
 responseUpdateFleetAttributes = res

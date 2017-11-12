@@ -21,7 +21,7 @@
 -- Describes the current Elastic Load Balancing resource limits for your AWS account.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html Limits for Your Application Load Balancer> in the /Application Load Balancer Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html Limits for Your Application Load Balancers> in the /Application Load Balancer Guide/ or <http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html Limits for Your Network Load Balancers> in the /Network Load Balancers Guide/ .
 --
 module Network.AWS.ELBv2.DescribeAccountLimits
     (

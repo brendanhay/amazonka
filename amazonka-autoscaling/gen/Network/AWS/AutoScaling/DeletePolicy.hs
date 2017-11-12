@@ -44,11 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeletePolicy.
---
---
---
--- /See:/ 'deletePolicy' smart constructor.
+-- | /See:/ 'deletePolicy' smart constructor.
 data DeletePolicy = DeletePolicy'
   { _dpAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
   , _dpPolicyName           :: {-# NOUNPACK #-}!Text

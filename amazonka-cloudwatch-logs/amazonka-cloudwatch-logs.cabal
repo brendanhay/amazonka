@@ -39,12 +39,13 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.CloudWatchLogs
+        , Network.AWS.CloudWatchLogs.AssociateKMSKey
         , Network.AWS.CloudWatchLogs.CancelExportTask
         , Network.AWS.CloudWatchLogs.CreateExportTask
         , Network.AWS.CloudWatchLogs.CreateLogGroup
@@ -53,6 +54,7 @@ library
         , Network.AWS.CloudWatchLogs.DeleteLogGroup
         , Network.AWS.CloudWatchLogs.DeleteLogStream
         , Network.AWS.CloudWatchLogs.DeleteMetricFilter
+        , Network.AWS.CloudWatchLogs.DeleteResourcePolicy
         , Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
         , Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
         , Network.AWS.CloudWatchLogs.DescribeDestinations
@@ -60,7 +62,9 @@ library
         , Network.AWS.CloudWatchLogs.DescribeLogGroups
         , Network.AWS.CloudWatchLogs.DescribeLogStreams
         , Network.AWS.CloudWatchLogs.DescribeMetricFilters
+        , Network.AWS.CloudWatchLogs.DescribeResourcePolicies
         , Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
+        , Network.AWS.CloudWatchLogs.DisassociateKMSKey
         , Network.AWS.CloudWatchLogs.FilterLogEvents
         , Network.AWS.CloudWatchLogs.GetLogEvents
         , Network.AWS.CloudWatchLogs.ListTagsLogGroup
@@ -68,6 +72,7 @@ library
         , Network.AWS.CloudWatchLogs.PutDestinationPolicy
         , Network.AWS.CloudWatchLogs.PutLogEvents
         , Network.AWS.CloudWatchLogs.PutMetricFilter
+        , Network.AWS.CloudWatchLogs.PutResourcePolicy
         , Network.AWS.CloudWatchLogs.PutRetentionPolicy
         , Network.AWS.CloudWatchLogs.PutSubscriptionFilter
         , Network.AWS.CloudWatchLogs.TagLogGroup

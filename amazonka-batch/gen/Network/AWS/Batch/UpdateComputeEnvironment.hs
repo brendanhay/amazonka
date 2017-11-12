@@ -65,7 +65,7 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
 --
 -- * 'uceComputeResources' - Details of the compute resources managed by the compute environment. Required for a managed compute environment.
 --
--- * 'uceServiceRole' - The name or full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to ECS, Auto Scaling, and EC2 on your behalf.
+-- * 'uceServiceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path.
 --
 -- * 'uceComputeEnvironment' - The name or full Amazon Resource Name (ARN) of the compute environment to update.
 updateComputeEnvironment
@@ -88,7 +88,7 @@ uceState = lens _uceState (\ s a -> s{_uceState = a});
 uceComputeResources :: Lens' UpdateComputeEnvironment (Maybe ComputeResourceUpdate)
 uceComputeResources = lens _uceComputeResources (\ s a -> s{_uceComputeResources = a});
 
--- | The name or full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to ECS, Auto Scaling, and EC2 on your behalf.
+-- | The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path.
 uceServiceRole :: Lens' UpdateComputeEnvironment (Maybe Text)
 uceServiceRole = lens _uceServiceRole (\ s a -> s{_uceServiceRole = a});
 

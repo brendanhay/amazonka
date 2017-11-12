@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -78,6 +78,7 @@ library
         , Network.AWS.ElastiCache.ModifyCacheParameterGroup
         , Network.AWS.ElastiCache.ModifyCacheSubnetGroup
         , Network.AWS.ElastiCache.ModifyReplicationGroup
+        , Network.AWS.ElastiCache.ModifyReplicationGroupShardConfiguration
         , Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
         , Network.AWS.ElastiCache.RebootCacheCluster
         , Network.AWS.ElastiCache.RemoveTagsFromResource

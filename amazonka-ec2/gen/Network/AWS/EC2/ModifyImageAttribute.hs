@@ -18,8 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.
+-- Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time. You can use the @Attribute@ parameter to specify the attribute or one of the following parameters: @Description@ , @LaunchPermission@ , or @ProductCode@ .
 --
+--
+-- AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product code cannot be made public.
+--
+-- To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance and create an AMI from the instance.
 --
 module Network.AWS.EC2.ModifyImageAttribute
     (
@@ -73,21 +77,21 @@ data ModifyImageAttribute = ModifyImageAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'miaAttribute' - The name of the attribute to modify.
+-- * 'miaAttribute' - The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
 --
--- * 'miaUserIds' - One or more AWS account IDs. This is only valid when modifying the @launchPermission@ attribute.
+-- * 'miaUserIds' - One or more AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
 --
--- * 'miaUserGroups' - One or more user groups. This is only valid when modifying the @launchPermission@ attribute.
+-- * 'miaUserGroups' - One or more user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
 --
--- * 'miaValue' - The value of the attribute being modified. This is only valid when modifying the @description@ attribute.
+-- * 'miaValue' - The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
 --
--- * 'miaLaunchPermission' - A launch permission modification.
+-- * 'miaLaunchPermission' - A new launch permission for the AMI.
 --
--- * 'miaOperationType' - The operation type.
+-- * 'miaOperationType' - The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
 --
--- * 'miaProductCodes' - One or more product codes. After you add a product code to an AMI, it can't be removed. This is only valid when modifying the @productCodes@ attribute.
+-- * 'miaProductCodes' - One or more DevPay product codes. After you add a product code to an AMI, it can't be removed.
 --
--- * 'miaDescription' - A description for the AMI.
+-- * 'miaDescription' - A new description for the AMI.
 --
 -- * 'miaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
@@ -110,35 +114,35 @@ modifyImageAttribute pImageId_ =
   }
 
 
--- | The name of the attribute to modify.
+-- | The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
 miaAttribute :: Lens' ModifyImageAttribute (Maybe Text)
 miaAttribute = lens _miaAttribute (\ s a -> s{_miaAttribute = a});
 
--- | One or more AWS account IDs. This is only valid when modifying the @launchPermission@ attribute.
+-- | One or more AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
 miaUserIds :: Lens' ModifyImageAttribute [Text]
 miaUserIds = lens _miaUserIds (\ s a -> s{_miaUserIds = a}) . _Default . _Coerce;
 
--- | One or more user groups. This is only valid when modifying the @launchPermission@ attribute.
+-- | One or more user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
 miaUserGroups :: Lens' ModifyImageAttribute [Text]
 miaUserGroups = lens _miaUserGroups (\ s a -> s{_miaUserGroups = a}) . _Default . _Coerce;
 
--- | The value of the attribute being modified. This is only valid when modifying the @description@ attribute.
+-- | The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
 miaValue :: Lens' ModifyImageAttribute (Maybe Text)
 miaValue = lens _miaValue (\ s a -> s{_miaValue = a});
 
--- | A launch permission modification.
+-- | A new launch permission for the AMI.
 miaLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
 miaLaunchPermission = lens _miaLaunchPermission (\ s a -> s{_miaLaunchPermission = a});
 
--- | The operation type.
+-- | The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
 miaOperationType :: Lens' ModifyImageAttribute (Maybe OperationType)
 miaOperationType = lens _miaOperationType (\ s a -> s{_miaOperationType = a});
 
--- | One or more product codes. After you add a product code to an AMI, it can't be removed. This is only valid when modifying the @productCodes@ attribute.
+-- | One or more DevPay product codes. After you add a product code to an AMI, it can't be removed.
 miaProductCodes :: Lens' ModifyImageAttribute [Text]
 miaProductCodes = lens _miaProductCodes (\ s a -> s{_miaProductCodes = a}) . _Default . _Coerce;
 
--- | A description for the AMI.
+-- | A new description for the AMI.
 miaDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
 miaDescription = lens _miaDescription (\ s a -> s{_miaDescription = a});
 

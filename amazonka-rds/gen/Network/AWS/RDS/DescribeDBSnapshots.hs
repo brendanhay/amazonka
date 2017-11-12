@@ -80,11 +80,11 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 --
 -- * 'ddsFilters' - This parameter is not currently supported.
 --
--- * 'ddsDBSnapshotIdentifier' - A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.  Constraints:     * Must be 1 to 255 alphanumeric characters.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
+-- * 'ddsDBSnapshotIdentifier' - A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.  Constraints:     * If supplied, must match the identifier of an existing DBSnapshot.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
 --
 -- * 'ddsSnapshotType' - The type of snapshots to be returned. You can specify one of the following values:     * @automated@ - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.     * @manual@ - Return all DB snapshots that have been taken by my AWS account.     * @shared@ - Return all manual DB snapshots that have been shared to my AWS account.     * @public@ - Return all DB snapshots that have been marked as public. If you don't specify a @SnapshotType@ value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the @IncludeShared@ parameter to @true@ . You can include public snapshots with these results by setting the @IncludePublic@ parameter to @true@ . The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
 --
--- * 'ddsDBInstanceIdentifier' - The ID of the DB instance to retrieve the list of DB snapshots for. This parameter cannot be used in conjunction with @DBSnapshotIdentifier@ . This parameter is not case-sensitive.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'ddsDBInstanceIdentifier' - The ID of the DB instance to retrieve the list of DB snapshots for. This parameter cannot be used in conjunction with @DBSnapshotIdentifier@ . This parameter is not case-sensitive.  Constraints:     * If supplied, must match the identifier of an existing DBInstance.
 --
 -- * 'ddsMarker' - An optional pagination token provided by a previous @DescribeDBSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
@@ -114,7 +114,7 @@ ddsIncludeShared = lens _ddsIncludeShared (\ s a -> s{_ddsIncludeShared = a});
 ddsFilters :: Lens' DescribeDBSnapshots [Filter]
 ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a}) . _Default . _Coerce;
 
--- | A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.  Constraints:     * Must be 1 to 255 alphanumeric characters.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
+-- | A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.  Constraints:     * If supplied, must match the identifier of an existing DBSnapshot.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
 ddsDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsDBSnapshotIdentifier = lens _ddsDBSnapshotIdentifier (\ s a -> s{_ddsDBSnapshotIdentifier = a});
 
@@ -122,7 +122,7 @@ ddsDBSnapshotIdentifier = lens _ddsDBSnapshotIdentifier (\ s a -> s{_ddsDBSnapsh
 ddsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsSnapshotType = lens _ddsSnapshotType (\ s a -> s{_ddsSnapshotType = a});
 
--- | The ID of the DB instance to retrieve the list of DB snapshots for. This parameter cannot be used in conjunction with @DBSnapshotIdentifier@ . This parameter is not case-sensitive.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The ID of the DB instance to retrieve the list of DB snapshots for. This parameter cannot be used in conjunction with @DBSnapshotIdentifier@ . This parameter is not case-sensitive.  Constraints:     * If supplied, must match the identifier of an existing DBInstance.
 ddsDBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsDBInstanceIdentifier = lens _ddsDBInstanceIdentifier (\ s a -> s{_ddsDBInstanceIdentifier = a});
 

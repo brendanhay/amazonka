@@ -18,14 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the encrypted administrator password for an instance running Windows.
+-- Retrieves the encrypted administrator password for a running Windows instance.
 --
 --
--- The Windows password is generated at boot if the @EC2Config@ service plugin, @Ec2SetPassword@ , is enabled. This usually only happens the first time an AMI is launched, and then @Ec2SetPassword@ is automatically disabled. The password is not generated for rebundled AMIs unless @Ec2SetPassword@ is enabled before bundling.
+-- The Windows password is generated at boot by the @EC2Config@ service or @EC2Launch@ scripts (Windows Server 2016 and later). This usually only happens the first time an instance is launched. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html EC2Config> and <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html EC2Launch> in the Amazon Elastic Compute Cloud User Guide.
+--
+-- For the @EC2Config@ service, the password is not generated for rebundled AMIs unless @Ec2SetPassword@ is enabled before bundling.
 --
 -- The password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.
 --
--- Password generation and encryption takes a few moments. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.
+-- When you launch an instance, password generation and encryption may take a few minutes. If you try to retrieve the password before it's available, the output returns an empty string. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.
 --
 module Network.AWS.EC2.GetPasswordData
     (
@@ -136,7 +138,7 @@ data GetPasswordDataResponse = GetPasswordDataResponse'
 --
 -- * 'gpdrsInstanceId' - The ID of the Windows instance.
 --
--- * 'gpdrsPasswordData' - The password of the instance.
+-- * 'gpdrsPasswordData' - The password of the instance. Returns an empty string if the password is not available.
 --
 -- * 'gpdrsTimestamp' - The time the data was last updated.
 getPasswordDataResponse
@@ -162,7 +164,7 @@ gpdrsResponseStatus = lens _gpdrsResponseStatus (\ s a -> s{_gpdrsResponseStatus
 gpdrsInstanceId :: Lens' GetPasswordDataResponse Text
 gpdrsInstanceId = lens _gpdrsInstanceId (\ s a -> s{_gpdrsInstanceId = a});
 
--- | The password of the instance.
+-- | The password of the instance. Returns an empty string if the password is not available.
 gpdrsPasswordData :: Lens' GetPasswordDataResponse Text
 gpdrsPasswordData = lens _gpdrsPasswordData (\ s a -> s{_gpdrsPasswordData = a});
 

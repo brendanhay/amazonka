@@ -18,8 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about an HSM. You can identify the HSM by its ARN or its serial number.
+-- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
 --
+--
+-- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
+--
+-- Retrieves information about an HSM. You can identify the HSM by its ARN or its serial number.
 --
 module Network.AWS.CloudHSM.DescribeHSM
     (
@@ -80,20 +84,20 @@ data DescribeHSM = DescribeHSM'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhsmHSMSerialNumber' - The serial number of the HSM. Either the /HsmArn/ or the /HsmSerialNumber/ parameter must be specified.
+-- * 'dhsmHSMSerialNumber' - The serial number of the HSM. Either the @HsmArn@ or the @HsmSerialNumber@ parameter must be specified.
 --
--- * 'dhsmHSMARN' - The ARN of the HSM. Either the /HsmArn/ or the /SerialNumber/ parameter must be specified.
+-- * 'dhsmHSMARN' - The ARN of the HSM. Either the @HsmArn@ or the @SerialNumber@ parameter must be specified.
 describeHSM
     :: DescribeHSM
 describeHSM =
   DescribeHSM' {_dhsmHSMSerialNumber = Nothing, _dhsmHSMARN = Nothing}
 
 
--- | The serial number of the HSM. Either the /HsmArn/ or the /HsmSerialNumber/ parameter must be specified.
+-- | The serial number of the HSM. Either the @HsmArn@ or the @HsmSerialNumber@ parameter must be specified.
 dhsmHSMSerialNumber :: Lens' DescribeHSM (Maybe Text)
 dhsmHSMSerialNumber = lens _dhsmHSMSerialNumber (\ s a -> s{_dhsmHSMSerialNumber = a});
 
--- | The ARN of the HSM. Either the /HsmArn/ or the /SerialNumber/ parameter must be specified.
+-- | The ARN of the HSM. Either the @HsmArn@ or the @SerialNumber@ parameter must be specified.
 dhsmHSMARN :: Lens' DescribeHSM (Maybe Text)
 dhsmHSMARN = lens _dhsmHSMARN (\ s a -> s{_dhsmHSMARN = a});
 

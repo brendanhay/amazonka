@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -107,6 +107,7 @@ library
         , Network.AWS.SSM.GetParametersByPath
         , Network.AWS.SSM.GetPatchBaseline
         , Network.AWS.SSM.GetPatchBaselineForPatchGroup
+        , Network.AWS.SSM.ListAssociationVersions
         , Network.AWS.SSM.ListAssociations
         , Network.AWS.SSM.ListCommandInvocations
         , Network.AWS.SSM.ListCommands

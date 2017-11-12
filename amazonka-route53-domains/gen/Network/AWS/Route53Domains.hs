@@ -50,6 +50,9 @@ module Network.AWS.Route53Domains
     -- ** GetDomainDetail
     , module Network.AWS.Route53Domains.GetDomainDetail
 
+    -- ** CheckDomainTransferability
+    , module Network.AWS.Route53Domains.CheckDomainTransferability
+
     -- ** UpdateDomainContactPrivacy
     , module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
 
@@ -136,6 +139,9 @@ module Network.AWS.Route53Domains
     -- ** ReachabilityStatus
     , ReachabilityStatus (..)
 
+    -- ** Transferable
+    , Transferable (..)
+
     -- ** BillingRecord
     , BillingRecord
     , billingRecord
@@ -177,6 +183,11 @@ module Network.AWS.Route53Domains
     , dsAutoRenew
     , dsDomainName
 
+    -- ** DomainTransferability
+    , DomainTransferability
+    , domainTransferability
+    , dtTransferable
+
     -- ** ExtraParam
     , ExtraParam
     , extraParam
@@ -205,6 +216,7 @@ module Network.AWS.Route53Domains
     ) where
 
 import Network.AWS.Route53Domains.CheckDomainAvailability
+import Network.AWS.Route53Domains.CheckDomainTransferability
 import Network.AWS.Route53Domains.DeleteTagsForDomain
 import Network.AWS.Route53Domains.DisableDomainAutoRenew
 import Network.AWS.Route53Domains.DisableDomainTransferLock

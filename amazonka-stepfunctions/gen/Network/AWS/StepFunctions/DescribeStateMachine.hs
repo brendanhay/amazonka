@@ -134,11 +134,11 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
 --
 -- * 'dsmrsStateMachineARN' - The Amazon Resource Name (ARN) that identifies the state machine.
 --
--- * 'dsmrsName' - The name of the state machine.
+-- * 'dsmrsName' - The name of the state machine. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 --
 -- * 'dsmrsDefinition' - The Amazon States Language definition of the state machine.
 --
--- * 'dsmrsRoleARN' - The Amazon Resource Name (ARN) of the IAM role used for executing this state machine.
+-- * 'dsmrsRoleARN' - The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role maintains security by granting Step Functions access to AWS resources.)
 --
 -- * 'dsmrsCreationDate' - The date the state machine was created.
 describeStateMachineResponse
@@ -173,7 +173,7 @@ dsmrsResponseStatus = lens _dsmrsResponseStatus (\ s a -> s{_dsmrsResponseStatus
 dsmrsStateMachineARN :: Lens' DescribeStateMachineResponse Text
 dsmrsStateMachineARN = lens _dsmrsStateMachineARN (\ s a -> s{_dsmrsStateMachineARN = a});
 
--- | The name of the state machine.
+-- | The name of the state machine. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 dsmrsName :: Lens' DescribeStateMachineResponse Text
 dsmrsName = lens _dsmrsName (\ s a -> s{_dsmrsName = a});
 
@@ -181,7 +181,7 @@ dsmrsName = lens _dsmrsName (\ s a -> s{_dsmrsName = a});
 dsmrsDefinition :: Lens' DescribeStateMachineResponse Text
 dsmrsDefinition = lens _dsmrsDefinition (\ s a -> s{_dsmrsDefinition = a});
 
--- | The Amazon Resource Name (ARN) of the IAM role used for executing this state machine.
+-- | The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role maintains security by granting Step Functions access to AWS resources.)
 dsmrsRoleARN :: Lens' DescribeStateMachineResponse Text
 dsmrsRoleARN = lens _dsmrsRoleARN (\ s a -> s{_dsmrsRoleARN = a});
 

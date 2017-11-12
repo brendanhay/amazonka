@@ -23,16 +23,22 @@ module Network.AWS.ECR.Types
     , _LayerInaccessibleException
     , _InvalidLayerException
     , _LayerPartTooSmallException
+    , _LifecyclePolicyPreviewNotFoundException
     , _ImageNotFoundException
     , _ImageAlreadyExistsException
     , _RepositoryNotFoundException
+    , _LifecyclePolicyPreviewInProgressException
     , _UploadNotFoundException
+    , _LifecyclePolicyNotFoundException
     , _InvalidLayerPartException
     , _RepositoryNotEmptyException
     , _RepositoryAlreadyExistsException
     , _RepositoryPolicyNotFoundException
     , _EmptyUploadException
     , _LimitExceededException
+
+    -- * ImageActionType
+    , ImageActionType (..)
 
     -- * ImageFailureCode
     , ImageFailureCode (..)
@@ -42,6 +48,9 @@ module Network.AWS.ECR.Types
 
     -- * LayerFailureCode
     , LayerFailureCode (..)
+
+    -- * LifecyclePolicyPreviewStatus
+    , LifecyclePolicyPreviewStatus (..)
 
     -- * TagStatus
     , TagStatus (..)
@@ -103,6 +112,30 @@ module Network.AWS.ECR.Types
     , lfFailureReason
     , lfFailureCode
     , lfLayerDigest
+
+    -- * LifecyclePolicyPreviewFilter
+    , LifecyclePolicyPreviewFilter
+    , lifecyclePolicyPreviewFilter
+    , lppfTagStatus
+
+    -- * LifecyclePolicyPreviewResult
+    , LifecyclePolicyPreviewResult
+    , lifecyclePolicyPreviewResult
+    , lpprImageTags
+    , lpprAction
+    , lpprImageDigest
+    , lpprImagePushedAt
+    , lpprAppliedRulePriority
+
+    -- * LifecyclePolicyPreviewSummary
+    , LifecyclePolicyPreviewSummary
+    , lifecyclePolicyPreviewSummary
+    , lppsExpiringImageTotalCount
+
+    -- * LifecyclePolicyRuleAction
+    , LifecyclePolicyRuleAction
+    , lifecyclePolicyRuleAction
+    , lpraType
 
     -- * ListImagesFilter
     , ListImagesFilter
@@ -214,6 +247,14 @@ _LayerPartTooSmallException =
   _MatchServiceError ecr "LayerPartTooSmallException"
 
 
+-- | There is no dry run for this repository.
+--
+--
+_LifecyclePolicyPreviewNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_LifecyclePolicyPreviewNotFoundException =
+  _MatchServiceError ecr "LifecyclePolicyPreviewNotFoundException"
+
+
 -- | The image requested does not exist in the specified repository.
 --
 --
@@ -221,7 +262,7 @@ _ImageNotFoundException :: AsError a => Getting (First ServiceError) a ServiceEr
 _ImageNotFoundException = _MatchServiceError ecr "ImageNotFoundException"
 
 
--- | The specified image has already been pushed, and there are no changes to the manifest or image tag since the last push.
+-- | The specified image has already been pushed, and there were no changes to the manifest or image tag after the last push.
 --
 --
 _ImageAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -237,11 +278,27 @@ _RepositoryNotFoundException =
   _MatchServiceError ecr "RepositoryNotFoundException"
 
 
+-- | The previous lifecycle policy preview request has not completed. Please try again later.
+--
+--
+_LifecyclePolicyPreviewInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
+_LifecyclePolicyPreviewInProgressException =
+  _MatchServiceError ecr "LifecyclePolicyPreviewInProgressException"
+
+
 -- | The upload could not be found, or the specified upload id is not valid for this repository.
 --
 --
 _UploadNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _UploadNotFoundException = _MatchServiceError ecr "UploadNotFoundException"
+
+
+-- | The lifecycle policy could not be found, and no policy is set to the repository.
+--
+--
+_LifecyclePolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_LifecyclePolicyNotFoundException =
+  _MatchServiceError ecr "LifecyclePolicyNotFoundException"
 
 
 -- | The layer part size is not valid, or the first byte specified is not consecutive to the last byte of a previous layer part upload.

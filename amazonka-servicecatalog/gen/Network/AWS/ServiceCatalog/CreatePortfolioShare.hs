@@ -57,7 +57,7 @@ data CreatePortfolioShare = CreatePortfolioShare'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpsAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'cpsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'cpsPortfolioId' - The portfolio identifier.
 --
@@ -74,7 +74,7 @@ createPortfolioShare pPortfolioId_ pAccountId_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 cpsAcceptLanguage :: Lens' CreatePortfolioShare (Maybe Text)
 cpsAcceptLanguage = lens _cpsAcceptLanguage (\ s a -> s{_cpsAcceptLanguage = a});
 

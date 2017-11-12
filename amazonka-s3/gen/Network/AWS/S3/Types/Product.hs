@@ -127,6 +127,42 @@ instance ToXML AccessControlPolicy where
                  toXML (toXMLList "Grant" <$> _acpGrants),
                "Owner" @= _acpOwner]
 
+-- | Container for information regarding the access control for replicas.
+--
+-- /See:/ 'accessControlTranslation' smart constructor.
+newtype AccessControlTranslation = AccessControlTranslation'
+  { _actOwner :: OwnerOverride
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AccessControlTranslation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'actOwner' - The override value for the owner of the replica object.
+accessControlTranslation
+    :: OwnerOverride -- ^ 'actOwner'
+    -> AccessControlTranslation
+accessControlTranslation pOwner_ =
+  AccessControlTranslation' {_actOwner = pOwner_}
+
+
+-- | The override value for the owner of the replica object.
+actOwner :: Lens' AccessControlTranslation OwnerOverride
+actOwner = lens _actOwner (\ s a -> s{_actOwner = a});
+
+instance FromXML AccessControlTranslation where
+        parseXML x
+          = AccessControlTranslation' <$> (x .@ "Owner")
+
+instance Hashable AccessControlTranslation where
+
+instance NFData AccessControlTranslation where
+
+instance ToXML AccessControlTranslation where
+        toXML AccessControlTranslation'{..}
+          = mconcat ["Owner" @= _actOwner]
+
 -- | /See:/ 'analyticsAndOperator' smart constructor.
 data AnalyticsAndOperator = AnalyticsAndOperator'
   { _aaoPrefix :: {-# NOUNPACK #-}!(Maybe Text)
@@ -988,10 +1024,15 @@ instance Hashable DeletedObject where
 
 instance NFData DeletedObject where
 
--- | /See:/ 'destination' smart constructor.
+-- | Container for replication destination information.
+--
+-- /See:/ 'destination' smart constructor.
 data Destination = Destination'
-  { _dStorageClass :: {-# NOUNPACK #-}!(Maybe StorageClass)
-  , _dBucket       :: {-# NOUNPACK #-}!BucketName
+  { _dAccessControlTranslation :: {-# NOUNPACK #-}!(Maybe AccessControlTranslation)
+  , _dAccount :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dStorageClass :: {-# NOUNPACK #-}!(Maybe StorageClass)
+  , _dEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
+  , _dBucket :: {-# NOUNPACK #-}!BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -999,19 +1040,43 @@ data Destination = Destination'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dAccessControlTranslation' - Container for information regarding the access control for replicas.
+--
+-- * 'dAccount' - Account ID of the destination bucket. Currently this is only being verified if Access Control Translation is enabled
+--
 -- * 'dStorageClass' - The class of storage used to store the object.
+--
+-- * 'dEncryptionConfiguration' - Container for information regarding encryption based configuration for replicas.
 --
 -- * 'dBucket' - Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule.
 destination
     :: BucketName -- ^ 'dBucket'
     -> Destination
 destination pBucket_ =
-  Destination' {_dStorageClass = Nothing, _dBucket = pBucket_}
+  Destination'
+  { _dAccessControlTranslation = Nothing
+  , _dAccount = Nothing
+  , _dStorageClass = Nothing
+  , _dEncryptionConfiguration = Nothing
+  , _dBucket = pBucket_
+  }
 
+
+-- | Container for information regarding the access control for replicas.
+dAccessControlTranslation :: Lens' Destination (Maybe AccessControlTranslation)
+dAccessControlTranslation = lens _dAccessControlTranslation (\ s a -> s{_dAccessControlTranslation = a});
+
+-- | Account ID of the destination bucket. Currently this is only being verified if Access Control Translation is enabled
+dAccount :: Lens' Destination (Maybe Text)
+dAccount = lens _dAccount (\ s a -> s{_dAccount = a});
 
 -- | The class of storage used to store the object.
 dStorageClass :: Lens' Destination (Maybe StorageClass)
 dStorageClass = lens _dStorageClass (\ s a -> s{_dStorageClass = a});
+
+-- | Container for information regarding encryption based configuration for replicas.
+dEncryptionConfiguration :: Lens' Destination (Maybe EncryptionConfiguration)
+dEncryptionConfiguration = lens _dEncryptionConfiguration (\ s a -> s{_dEncryptionConfiguration = a});
 
 -- | Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule.
 dBucket :: Lens' Destination BucketName
@@ -1020,7 +1085,11 @@ dBucket = lens _dBucket (\ s a -> s{_dBucket = a});
 instance FromXML Destination where
         parseXML x
           = Destination' <$>
-              (x .@? "StorageClass") <*> (x .@ "Bucket")
+              (x .@? "AccessControlTranslation") <*>
+                (x .@? "Account")
+                <*> (x .@? "StorageClass")
+                <*> (x .@? "EncryptionConfiguration")
+                <*> (x .@ "Bucket")
 
 instance Hashable Destination where
 
@@ -1029,8 +1098,49 @@ instance NFData Destination where
 instance ToXML Destination where
         toXML Destination'{..}
           = mconcat
-              ["StorageClass" @= _dStorageClass,
+              ["AccessControlTranslation" @=
+                 _dAccessControlTranslation,
+               "Account" @= _dAccount,
+               "StorageClass" @= _dStorageClass,
+               "EncryptionConfiguration" @=
+                 _dEncryptionConfiguration,
                "Bucket" @= _dBucket]
+
+-- | Container for information regarding encryption based configuration for replicas.
+--
+-- /See:/ 'encryptionConfiguration' smart constructor.
+newtype EncryptionConfiguration = EncryptionConfiguration'
+  { _ecReplicaKMSKeyId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecReplicaKMSKeyId' - The id of the KMS key used to encrypt the replica object.
+encryptionConfiguration
+    :: EncryptionConfiguration
+encryptionConfiguration =
+  EncryptionConfiguration' {_ecReplicaKMSKeyId = Nothing}
+
+
+-- | The id of the KMS key used to encrypt the replica object.
+ecReplicaKMSKeyId :: Lens' EncryptionConfiguration (Maybe Text)
+ecReplicaKMSKeyId = lens _ecReplicaKMSKeyId (\ s a -> s{_ecReplicaKMSKeyId = a});
+
+instance FromXML EncryptionConfiguration where
+        parseXML x
+          = EncryptionConfiguration' <$>
+              (x .@? "ReplicaKmsKeyID")
+
+instance Hashable EncryptionConfiguration where
+
+instance NFData EncryptionConfiguration where
+
+instance ToXML EncryptionConfiguration where
+        toXML EncryptionConfiguration'{..}
+          = mconcat ["ReplicaKmsKeyID" @= _ecReplicaKMSKeyId]
 
 -- | /See:/ 'errorDocument' smart constructor.
 newtype ErrorDocument = ErrorDocument'
@@ -1327,7 +1437,7 @@ data InventoryConfiguration = InventoryConfiguration'
   , _icId :: {-# NOUNPACK #-}!Text
   , _icIncludedObjectVersions :: {-# NOUNPACK #-}!InventoryIncludedObjectVersions
   , _icSchedule :: {-# NOUNPACK #-}!InventorySchedule
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'InventoryConfiguration' with the minimum fields required to make a request.
@@ -1425,7 +1535,7 @@ instance ToXML InventoryConfiguration where
 -- | /See:/ 'inventoryDestination' smart constructor.
 newtype InventoryDestination = InventoryDestination'
   { _idS3BucketDestination :: InventoryS3BucketDestination
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'InventoryDestination' with the minimum fields required to make a request.
@@ -1457,6 +1567,50 @@ instance ToXML InventoryDestination where
         toXML InventoryDestination'{..}
           = mconcat
               ["S3BucketDestination" @= _idS3BucketDestination]
+
+-- | Contains the type of server-side encryption used to encrypt the inventory results.
+--
+-- /See:/ 'inventoryEncryption' smart constructor.
+data InventoryEncryption = InventoryEncryption'
+  { _ieSSES3  :: {-# NOUNPACK #-}!(Maybe SSES3)
+  , _ieSSEKMS :: {-# NOUNPACK #-}!(Maybe SSEKMS)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'InventoryEncryption' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ieSSES3' - Specifies the use of SSE-S3 to encrypt delievered Inventory reports.
+--
+-- * 'ieSSEKMS' - Specifies the use of SSE-KMS to encrypt delievered Inventory reports.
+inventoryEncryption
+    :: InventoryEncryption
+inventoryEncryption =
+  InventoryEncryption' {_ieSSES3 = Nothing, _ieSSEKMS = Nothing}
+
+
+-- | Specifies the use of SSE-S3 to encrypt delievered Inventory reports.
+ieSSES3 :: Lens' InventoryEncryption (Maybe SSES3)
+ieSSES3 = lens _ieSSES3 (\ s a -> s{_ieSSES3 = a});
+
+-- | Specifies the use of SSE-KMS to encrypt delievered Inventory reports.
+ieSSEKMS :: Lens' InventoryEncryption (Maybe SSEKMS)
+ieSSEKMS = lens _ieSSEKMS (\ s a -> s{_ieSSEKMS = a});
+
+instance FromXML InventoryEncryption where
+        parseXML x
+          = InventoryEncryption' <$>
+              (x .@? "SSE-S3") <*> (x .@? "SSE-KMS")
+
+instance Hashable InventoryEncryption where
+
+instance NFData InventoryEncryption where
+
+instance ToXML InventoryEncryption where
+        toXML InventoryEncryption'{..}
+          = mconcat
+              ["SSE-S3" @= _ieSSES3, "SSE-KMS" @= _ieSSEKMS]
 
 -- | /See:/ 'inventoryFilter' smart constructor.
 newtype InventoryFilter = InventoryFilter'
@@ -1492,11 +1646,12 @@ instance ToXML InventoryFilter where
 
 -- | /See:/ 'inventoryS3BucketDestination' smart constructor.
 data InventoryS3BucketDestination = InventoryS3BucketDestination'
-  { _isbdPrefix    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isbdAccountId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isbdBucket    :: {-# NOUNPACK #-}!BucketName
-  , _isbdFormat    :: {-# NOUNPACK #-}!InventoryFormat
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { _isbdPrefix     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isbdAccountId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _isbdEncryption :: {-# NOUNPACK #-}!(Maybe InventoryEncryption)
+  , _isbdBucket     :: {-# NOUNPACK #-}!BucketName
+  , _isbdFormat     :: {-# NOUNPACK #-}!InventoryFormat
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'InventoryS3BucketDestination' with the minimum fields required to make a request.
@@ -1506,6 +1661,8 @@ data InventoryS3BucketDestination = InventoryS3BucketDestination'
 -- * 'isbdPrefix' - The prefix that is prepended to all inventory results.
 --
 -- * 'isbdAccountId' - The ID of the account that owns the destination bucket.
+--
+-- * 'isbdEncryption' - Contains the type of server-side encryption used to encrypt the inventory results.
 --
 -- * 'isbdBucket' - The Amazon resource name (ARN) of the bucket where inventory results will be published.
 --
@@ -1518,6 +1675,7 @@ inventoryS3BucketDestination pBucket_ pFormat_ =
   InventoryS3BucketDestination'
   { _isbdPrefix = Nothing
   , _isbdAccountId = Nothing
+  , _isbdEncryption = Nothing
   , _isbdBucket = pBucket_
   , _isbdFormat = pFormat_
   }
@@ -1531,6 +1689,10 @@ isbdPrefix = lens _isbdPrefix (\ s a -> s{_isbdPrefix = a});
 isbdAccountId :: Lens' InventoryS3BucketDestination (Maybe Text)
 isbdAccountId = lens _isbdAccountId (\ s a -> s{_isbdAccountId = a});
 
+-- | Contains the type of server-side encryption used to encrypt the inventory results.
+isbdEncryption :: Lens' InventoryS3BucketDestination (Maybe InventoryEncryption)
+isbdEncryption = lens _isbdEncryption (\ s a -> s{_isbdEncryption = a});
+
 -- | The Amazon resource name (ARN) of the bucket where inventory results will be published.
 isbdBucket :: Lens' InventoryS3BucketDestination BucketName
 isbdBucket = lens _isbdBucket (\ s a -> s{_isbdBucket = a});
@@ -1543,7 +1705,8 @@ instance FromXML InventoryS3BucketDestination where
         parseXML x
           = InventoryS3BucketDestination' <$>
               (x .@? "Prefix") <*> (x .@? "AccountId") <*>
-                (x .@ "Bucket")
+                (x .@? "Encryption")
+                <*> (x .@ "Bucket")
                 <*> (x .@ "Format")
 
 instance Hashable InventoryS3BucketDestination where
@@ -1555,6 +1718,7 @@ instance ToXML InventoryS3BucketDestination where
           = mconcat
               ["Prefix" @= _isbdPrefix,
                "AccountId" @= _isbdAccountId,
+               "Encryption" @= _isbdEncryption,
                "Bucket" @= _isbdBucket, "Format" @= _isbdFormat]
 
 -- | /See:/ 'inventorySchedule' smart constructor.
@@ -2932,11 +3096,14 @@ instance ToXML ReplicationConfiguration where
           = mconcat
               ["Role" @= _rcRole, toXMLList "Rule" _rcRules]
 
--- | /See:/ 'replicationRule' smart constructor.
+-- | Container for information about a particular replication rule.
+--
+-- /See:/ 'replicationRule' smart constructor.
 data ReplicationRule = ReplicationRule'
-  { _rrId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrPrefix      :: {-# NOUNPACK #-}!Text
-  , _rrStatus      :: {-# NOUNPACK #-}!ReplicationRuleStatus
+  { _rrId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _rrSourceSelectionCriteria :: {-# NOUNPACK #-}!(Maybe SourceSelectionCriteria)
+  , _rrPrefix :: {-# NOUNPACK #-}!Text
+  , _rrStatus :: {-# NOUNPACK #-}!ReplicationRuleStatus
   , _rrDestination :: {-# NOUNPACK #-}!Destination
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -2947,11 +3114,13 @@ data ReplicationRule = ReplicationRule'
 --
 -- * 'rrId' - Unique identifier for the rule. The value cannot be longer than 255 characters.
 --
+-- * 'rrSourceSelectionCriteria' - Container for filters that define which source objects should be replicated.
+--
 -- * 'rrPrefix' - Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported.
 --
 -- * 'rrStatus' - The rule is ignored if status is not Enabled.
 --
--- * 'rrDestination' - Undocumented member.
+-- * 'rrDestination' - Container for replication destination information.
 replicationRule
     :: Text -- ^ 'rrPrefix'
     -> ReplicationRuleStatus -- ^ 'rrStatus'
@@ -2960,6 +3129,7 @@ replicationRule
 replicationRule pPrefix_ pStatus_ pDestination_ =
   ReplicationRule'
   { _rrId = Nothing
+  , _rrSourceSelectionCriteria = Nothing
   , _rrPrefix = pPrefix_
   , _rrStatus = pStatus_
   , _rrDestination = pDestination_
@@ -2970,6 +3140,10 @@ replicationRule pPrefix_ pStatus_ pDestination_ =
 rrId :: Lens' ReplicationRule (Maybe Text)
 rrId = lens _rrId (\ s a -> s{_rrId = a});
 
+-- | Container for filters that define which source objects should be replicated.
+rrSourceSelectionCriteria :: Lens' ReplicationRule (Maybe SourceSelectionCriteria)
+rrSourceSelectionCriteria = lens _rrSourceSelectionCriteria (\ s a -> s{_rrSourceSelectionCriteria = a});
+
 -- | Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported.
 rrPrefix :: Lens' ReplicationRule Text
 rrPrefix = lens _rrPrefix (\ s a -> s{_rrPrefix = a});
@@ -2978,14 +3152,16 @@ rrPrefix = lens _rrPrefix (\ s a -> s{_rrPrefix = a});
 rrStatus :: Lens' ReplicationRule ReplicationRuleStatus
 rrStatus = lens _rrStatus (\ s a -> s{_rrStatus = a});
 
--- | Undocumented member.
+-- | Container for replication destination information.
 rrDestination :: Lens' ReplicationRule Destination
 rrDestination = lens _rrDestination (\ s a -> s{_rrDestination = a});
 
 instance FromXML ReplicationRule where
         parseXML x
           = ReplicationRule' <$>
-              (x .@? "ID") <*> (x .@ "Prefix") <*> (x .@ "Status")
+              (x .@? "ID") <*> (x .@? "SourceSelectionCriteria")
+                <*> (x .@ "Prefix")
+                <*> (x .@ "Status")
                 <*> (x .@ "Destination")
 
 instance Hashable ReplicationRule where
@@ -2995,8 +3171,10 @@ instance NFData ReplicationRule where
 instance ToXML ReplicationRule where
         toXML ReplicationRule'{..}
           = mconcat
-              ["ID" @= _rrId, "Prefix" @= _rrPrefix,
-               "Status" @= _rrStatus,
+              ["ID" @= _rrId,
+               "SourceSelectionCriteria" @=
+                 _rrSourceSelectionCriteria,
+               "Prefix" @= _rrPrefix, "Status" @= _rrStatus,
                "Destination" @= _rrDestination]
 
 -- | /See:/ 'requestPaymentConfiguration' smart constructor.
@@ -3205,6 +3383,263 @@ instance FromXML S3ServiceError where
 instance Hashable S3ServiceError where
 
 instance NFData S3ServiceError where
+
+-- | Specifies the use of SSE-KMS to encrypt delievered Inventory reports.
+--
+-- /See:/ 'sSEKMS' smart constructor.
+newtype SSEKMS = SSEKMS'
+  { _ssekKeyId :: Sensitive Text
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SSEKMS' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssekKeyId' - Specifies the ID of the AWS Key Management Service (KMS) master encryption key to use for encrypting Inventory reports.
+sSEKMS
+    :: Text -- ^ 'ssekKeyId'
+    -> SSEKMS
+sSEKMS pKeyId_ = SSEKMS' {_ssekKeyId = _Sensitive # pKeyId_}
+
+
+-- | Specifies the ID of the AWS Key Management Service (KMS) master encryption key to use for encrypting Inventory reports.
+ssekKeyId :: Lens' SSEKMS Text
+ssekKeyId = lens _ssekKeyId (\ s a -> s{_ssekKeyId = a}) . _Sensitive;
+
+instance FromXML SSEKMS where
+        parseXML x = SSEKMS' <$> (x .@ "KeyId")
+
+instance Hashable SSEKMS where
+
+instance NFData SSEKMS where
+
+instance ToXML SSEKMS where
+        toXML SSEKMS'{..} = mconcat ["KeyId" @= _ssekKeyId]
+
+-- | Specifies the use of SSE-S3 to encrypt delievered Inventory reports.
+--
+-- /See:/ 'sSES3' smart constructor.
+data SSES3 =
+  SSES3'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SSES3' with the minimum fields required to make a request.
+--
+sSES3
+    :: SSES3
+sSES3 = SSES3'
+
+
+instance FromXML SSES3 where
+        parseXML = const (pure SSES3')
+
+instance Hashable SSES3 where
+
+instance NFData SSES3 where
+
+instance ToXML SSES3 where
+        toXML = const mempty
+
+-- | Describes the default server-side encryption to apply to new objects in the bucket. If Put Object request does not specify any server-side encryption, this default encryption will be applied.
+--
+-- /See:/ 'serverSideEncryptionByDefault' smart constructor.
+data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
+  { _ssebdKMSMasterKeyId :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  , _ssebdSSEAlgorithm   :: {-# NOUNPACK #-}!ServerSideEncryption
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ServerSideEncryptionByDefault' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssebdKMSMasterKeyId' - KMS master key ID to use for the default encryption. This parameter is allowed if SSEAlgorithm is aws:kms.
+--
+-- * 'ssebdSSEAlgorithm' - Server-side encryption algorithm to use for the default encryption.
+serverSideEncryptionByDefault
+    :: ServerSideEncryption -- ^ 'ssebdSSEAlgorithm'
+    -> ServerSideEncryptionByDefault
+serverSideEncryptionByDefault pSSEAlgorithm_ =
+  ServerSideEncryptionByDefault'
+  {_ssebdKMSMasterKeyId = Nothing, _ssebdSSEAlgorithm = pSSEAlgorithm_}
+
+
+-- | KMS master key ID to use for the default encryption. This parameter is allowed if SSEAlgorithm is aws:kms.
+ssebdKMSMasterKeyId :: Lens' ServerSideEncryptionByDefault (Maybe Text)
+ssebdKMSMasterKeyId = lens _ssebdKMSMasterKeyId (\ s a -> s{_ssebdKMSMasterKeyId = a}) . mapping _Sensitive;
+
+-- | Server-side encryption algorithm to use for the default encryption.
+ssebdSSEAlgorithm :: Lens' ServerSideEncryptionByDefault ServerSideEncryption
+ssebdSSEAlgorithm = lens _ssebdSSEAlgorithm (\ s a -> s{_ssebdSSEAlgorithm = a});
+
+instance FromXML ServerSideEncryptionByDefault where
+        parseXML x
+          = ServerSideEncryptionByDefault' <$>
+              (x .@? "KMSMasterKeyID") <*> (x .@ "SSEAlgorithm")
+
+instance Hashable ServerSideEncryptionByDefault where
+
+instance NFData ServerSideEncryptionByDefault where
+
+instance ToXML ServerSideEncryptionByDefault where
+        toXML ServerSideEncryptionByDefault'{..}
+          = mconcat
+              ["KMSMasterKeyID" @= _ssebdKMSMasterKeyId,
+               "SSEAlgorithm" @= _ssebdSSEAlgorithm]
+
+-- | Container for server-side encryption configuration rules. Currently S3 supports one rule only.
+--
+-- /See:/ 'serverSideEncryptionConfiguration' smart constructor.
+newtype ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
+  { _ssecRules :: [ServerSideEncryptionRule]
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ServerSideEncryptionConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssecRules' - Container for information about a particular server-side encryption configuration rule.
+serverSideEncryptionConfiguration
+    :: ServerSideEncryptionConfiguration
+serverSideEncryptionConfiguration =
+  ServerSideEncryptionConfiguration' {_ssecRules = mempty}
+
+
+-- | Container for information about a particular server-side encryption configuration rule.
+ssecRules :: Lens' ServerSideEncryptionConfiguration [ServerSideEncryptionRule]
+ssecRules = lens _ssecRules (\ s a -> s{_ssecRules = a}) . _Coerce;
+
+instance FromXML ServerSideEncryptionConfiguration
+         where
+        parseXML x
+          = ServerSideEncryptionConfiguration' <$>
+              (parseXMLList "Rule" x)
+
+instance Hashable ServerSideEncryptionConfiguration
+         where
+
+instance NFData ServerSideEncryptionConfiguration
+         where
+
+instance ToXML ServerSideEncryptionConfiguration
+         where
+        toXML ServerSideEncryptionConfiguration'{..}
+          = mconcat [toXMLList "Rule" _ssecRules]
+
+-- | Container for information about a particular server-side encryption configuration rule.
+--
+-- /See:/ 'serverSideEncryptionRule' smart constructor.
+newtype ServerSideEncryptionRule = ServerSideEncryptionRule'
+  { _sserApplyServerSideEncryptionByDefault :: Maybe ServerSideEncryptionByDefault
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ServerSideEncryptionRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sserApplyServerSideEncryptionByDefault' - Describes the default server-side encryption to apply to new objects in the bucket. If Put Object request does not specify any server-side encryption, this default encryption will be applied.
+serverSideEncryptionRule
+    :: ServerSideEncryptionRule
+serverSideEncryptionRule =
+  ServerSideEncryptionRule' {_sserApplyServerSideEncryptionByDefault = Nothing}
+
+
+-- | Describes the default server-side encryption to apply to new objects in the bucket. If Put Object request does not specify any server-side encryption, this default encryption will be applied.
+sserApplyServerSideEncryptionByDefault :: Lens' ServerSideEncryptionRule (Maybe ServerSideEncryptionByDefault)
+sserApplyServerSideEncryptionByDefault = lens _sserApplyServerSideEncryptionByDefault (\ s a -> s{_sserApplyServerSideEncryptionByDefault = a});
+
+instance FromXML ServerSideEncryptionRule where
+        parseXML x
+          = ServerSideEncryptionRule' <$>
+              (x .@? "ApplyServerSideEncryptionByDefault")
+
+instance Hashable ServerSideEncryptionRule where
+
+instance NFData ServerSideEncryptionRule where
+
+instance ToXML ServerSideEncryptionRule where
+        toXML ServerSideEncryptionRule'{..}
+          = mconcat
+              ["ApplyServerSideEncryptionByDefault" @=
+                 _sserApplyServerSideEncryptionByDefault]
+
+-- | Container for filters that define which source objects should be replicated.
+--
+-- /See:/ 'sourceSelectionCriteria' smart constructor.
+newtype SourceSelectionCriteria = SourceSelectionCriteria'
+  { _sscSseKMSEncryptedObjects :: Maybe SseKMSEncryptedObjects
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SourceSelectionCriteria' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sscSseKMSEncryptedObjects' - Container for filter information of selection of KMS Encrypted S3 objects.
+sourceSelectionCriteria
+    :: SourceSelectionCriteria
+sourceSelectionCriteria =
+  SourceSelectionCriteria' {_sscSseKMSEncryptedObjects = Nothing}
+
+
+-- | Container for filter information of selection of KMS Encrypted S3 objects.
+sscSseKMSEncryptedObjects :: Lens' SourceSelectionCriteria (Maybe SseKMSEncryptedObjects)
+sscSseKMSEncryptedObjects = lens _sscSseKMSEncryptedObjects (\ s a -> s{_sscSseKMSEncryptedObjects = a});
+
+instance FromXML SourceSelectionCriteria where
+        parseXML x
+          = SourceSelectionCriteria' <$>
+              (x .@? "SseKmsEncryptedObjects")
+
+instance Hashable SourceSelectionCriteria where
+
+instance NFData SourceSelectionCriteria where
+
+instance ToXML SourceSelectionCriteria where
+        toXML SourceSelectionCriteria'{..}
+          = mconcat
+              ["SseKmsEncryptedObjects" @=
+                 _sscSseKMSEncryptedObjects]
+
+-- | Container for filter information of selection of KMS Encrypted S3 objects.
+--
+-- /See:/ 'sseKMSEncryptedObjects' smart constructor.
+newtype SseKMSEncryptedObjects = SseKMSEncryptedObjects'
+  { _skeoStatus :: SseKMSEncryptedObjectsStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SseKMSEncryptedObjects' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'skeoStatus' - The replication for KMS encrypted S3 objects is disabled if status is not Enabled.
+sseKMSEncryptedObjects
+    :: SseKMSEncryptedObjectsStatus -- ^ 'skeoStatus'
+    -> SseKMSEncryptedObjects
+sseKMSEncryptedObjects pStatus_ =
+  SseKMSEncryptedObjects' {_skeoStatus = pStatus_}
+
+
+-- | The replication for KMS encrypted S3 objects is disabled if status is not Enabled.
+skeoStatus :: Lens' SseKMSEncryptedObjects SseKMSEncryptedObjectsStatus
+skeoStatus = lens _skeoStatus (\ s a -> s{_skeoStatus = a});
+
+instance FromXML SseKMSEncryptedObjects where
+        parseXML x
+          = SseKMSEncryptedObjects' <$> (x .@ "Status")
+
+instance Hashable SseKMSEncryptedObjects where
+
+instance NFData SseKMSEncryptedObjects where
+
+instance ToXML SseKMSEncryptedObjects where
+        toXML SseKMSEncryptedObjects'{..}
+          = mconcat ["Status" @= _skeoStatus]
 
 -- | /See:/ 'storageClassAnalysis' smart constructor.
 newtype StorageClassAnalysis = StorageClassAnalysis'

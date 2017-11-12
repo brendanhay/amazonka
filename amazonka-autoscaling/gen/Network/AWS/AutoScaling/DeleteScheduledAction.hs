@@ -42,11 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteScheduledAction.
---
---
---
--- /See:/ 'deleteScheduledAction' smart constructor.
+-- | /See:/ 'deleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'
   { _dsaAutoScalingGroupName :: {-# NOUNPACK #-}!Text
   , _dsaScheduledActionName  :: {-# NOUNPACK #-}!Text

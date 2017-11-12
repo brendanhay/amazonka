@@ -16,6 +16,7 @@ module Network.AWS.Firehose.Types
       firehose
 
     -- * Errors
+    , _InvalidStreamTypeException
     , _InvalidArgumentException
     , _ConcurrentModificationException
     , _ServiceUnavailableException
@@ -28,6 +29,9 @@ module Network.AWS.Firehose.Types
 
     -- * DeliveryStreamStatus
     , DeliveryStreamStatus (..)
+
+    -- * DeliveryStreamType
+    , DeliveryStreamType (..)
 
     -- * ElasticsearchIndexRotationPeriod
     , ElasticsearchIndexRotationPeriod (..)
@@ -74,10 +78,12 @@ module Network.AWS.Firehose.Types
     , DeliveryStreamDescription
     , deliveryStreamDescription
     , dsdCreateTimestamp
+    , dsdSource
     , dsdLastUpdateTimestamp
     , dsdDeliveryStreamName
     , dsdDeliveryStreamARN
     , dsdDeliveryStreamStatus
+    , dsdDeliveryStreamType
     , dsdVersionId
     , dsdDestinations
     , dsdHasMoreDestinations
@@ -199,6 +205,19 @@ module Network.AWS.Firehose.Types
     , kmsEncryptionConfig
     , kecAWSKMSKeyARN
 
+    -- * KinesisStreamSourceConfiguration
+    , KinesisStreamSourceConfiguration
+    , kinesisStreamSourceConfiguration
+    , ksscKinesisStreamARN
+    , ksscRoleARN
+
+    -- * KinesisStreamSourceDescription
+    , KinesisStreamSourceDescription
+    , kinesisStreamSourceDescription
+    , kssdDeliveryStartTimestamp
+    , kssdKinesisStreamARN
+    , kssdRoleARN
+
     -- * ProcessingConfiguration
     , ProcessingConfiguration
     , processingConfiguration
@@ -310,6 +329,19 @@ module Network.AWS.Firehose.Types
     , sduBufferingHints
     , sduBucketARN
     , sduRoleARN
+
+    -- * SessionCredentials
+    , SessionCredentials
+    , sessionCredentials
+    , scAccessKeyId
+    , scSecretAccessKey
+    , scSessionToken
+    , scExpiration
+
+    -- * SourceDescription
+    , SourceDescription
+    , sourceDescription
+    , sdKinesisStreamSourceDescription
     ) where
 
 import Network.AWS.Firehose.Types.Product
@@ -355,7 +387,13 @@ firehose =
       | otherwise = Nothing
 
 
--- | The specified input parameter has an value that is not valid.
+-- | Prism for InvalidStreamTypeException' errors.
+_InvalidStreamTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidStreamTypeException =
+  _MatchServiceError firehose "InvalidStreamTypeException"
+
+
+-- | The specified input parameter has a value that is not valid.
 --
 --
 _InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError

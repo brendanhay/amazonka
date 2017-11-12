@@ -49,6 +49,60 @@ instance ToHeader     AccessLevelFilterKey
 instance ToJSON AccessLevelFilterKey where
     toJSON = toJSONText
 
+data CopyOption =
+  CopyTags
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CopyOption where
+    parser = takeLowerText >>= \case
+        "copytags" -> pure CopyTags
+        e -> fromTextError $ "Failure parsing CopyOption from value: '" <> e
+           <> "'. Accepted values: copytags"
+
+instance ToText CopyOption where
+    toText = \case
+        CopyTags -> "CopyTags"
+
+instance Hashable     CopyOption
+instance NFData       CopyOption
+instance ToByteString CopyOption
+instance ToQuery      CopyOption
+instance ToHeader     CopyOption
+
+instance ToJSON CopyOption where
+    toJSON = toJSONText
+
+data CopyProductStatus
+  = CPSFailed
+  | CPSInProgress
+  | CPSSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CopyProductStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure CPSFailed
+        "in_progress" -> pure CPSInProgress
+        "succeeded" -> pure CPSSucceeded
+        e -> fromTextError $ "Failure parsing CopyProductStatus from value: '" <> e
+           <> "'. Accepted values: failed, in_progress, succeeded"
+
+instance ToText CopyProductStatus where
+    toText = \case
+        CPSFailed -> "FAILED"
+        CPSInProgress -> "IN_PROGRESS"
+        CPSSucceeded -> "SUCCEEDED"
+
+instance Hashable     CopyProductStatus
+instance NFData       CopyProductStatus
+instance ToByteString CopyProductStatus
+instance ToQuery      CopyProductStatus
+instance ToHeader     CopyProductStatus
+
+instance FromJSON CopyProductStatus where
+    parseJSON = parseJSONText "CopyProductStatus"
+
 data PrincipalType =
   IAM
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -225,6 +279,30 @@ instance ToHeader     ProvisionedProductStatus
 
 instance FromJSON ProvisionedProductStatus where
     parseJSON = parseJSONText "ProvisionedProductStatus"
+
+data ProvisioningArtifactPropertyName =
+  Id
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ProvisioningArtifactPropertyName where
+    parser = takeLowerText >>= \case
+        "id" -> pure Id
+        e -> fromTextError $ "Failure parsing ProvisioningArtifactPropertyName from value: '" <> e
+           <> "'. Accepted values: id"
+
+instance ToText ProvisioningArtifactPropertyName where
+    toText = \case
+        Id -> "Id"
+
+instance Hashable     ProvisioningArtifactPropertyName
+instance NFData       ProvisioningArtifactPropertyName
+instance ToByteString ProvisioningArtifactPropertyName
+instance ToQuery      ProvisioningArtifactPropertyName
+instance ToHeader     ProvisioningArtifactPropertyName
+
+instance ToJSON ProvisioningArtifactPropertyName where
+    toJSON = toJSONText
 
 data ProvisioningArtifactType
   = PATCloudFormationTemplate

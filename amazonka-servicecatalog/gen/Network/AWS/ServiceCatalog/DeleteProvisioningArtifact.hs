@@ -57,7 +57,7 @@ data DeleteProvisioningArtifact = DeleteProvisioningArtifact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpapAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dpapAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'dpapProductId' - The product identifier.
 --
@@ -74,7 +74,7 @@ deleteProvisioningArtifact pProductId_ pProvisioningArtifactId_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpapAcceptLanguage :: Lens' DeleteProvisioningArtifact (Maybe Text)
 dpapAcceptLanguage = lens _dpapAcceptLanguage (\ s a -> s{_dpapAcceptLanguage = a});
 

@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -48,6 +48,7 @@ library
         , Network.AWS.CodeCommit.BatchGetRepositories
         , Network.AWS.CodeCommit.CreateBranch
         , Network.AWS.CodeCommit.CreateRepository
+        , Network.AWS.CodeCommit.DeleteBranch
         , Network.AWS.CodeCommit.DeleteRepository
         , Network.AWS.CodeCommit.GetBlob
         , Network.AWS.CodeCommit.GetBranch

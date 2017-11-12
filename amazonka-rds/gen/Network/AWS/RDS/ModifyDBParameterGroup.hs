@@ -61,7 +61,7 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'mdpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * If supplied, must match the name of an existing DBParameterGroup.
 --
 -- * 'mdpgParameters' - An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; subsequent arguments are optional. A maximum of 20 parameters can be modified in a single request. Valid Values (for the application method): @immediate | pending-reboot@
 modifyDBParameterGroup
@@ -72,7 +72,7 @@ modifyDBParameterGroup pDBParameterGroupName_ =
   {_mdpgDBParameterGroupName = pDBParameterGroupName_, _mdpgParameters = mempty}
 
 
--- | The name of the DB parameter group. Constraints:     * Must be the name of an existing DB parameter group     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The name of the DB parameter group. Constraints:     * If supplied, must match the name of an existing DBParameterGroup.
 mdpgDBParameterGroupName :: Lens' ModifyDBParameterGroup Text
 mdpgDBParameterGroupName = lens _mdpgDBParameterGroupName (\ s a -> s{_mdpgDBParameterGroupName = a});
 

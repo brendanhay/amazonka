@@ -47,11 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for SetInstanceProtection.
---
---
---
--- /See:/ 'setInstanceProtection' smart constructor.
+-- | /See:/ 'setInstanceProtection' smart constructor.
 data SetInstanceProtection = SetInstanceProtection'
   { _sipInstanceIds          :: {-# NOUNPACK #-}![Text]
   , _sipAutoScalingGroupName :: {-# NOUNPACK #-}!Text
@@ -122,11 +118,7 @@ instance ToQuery SetInstanceProtection where
                "AutoScalingGroupName" =: _sipAutoScalingGroupName,
                "ProtectedFromScaleIn" =: _sipProtectedFromScaleIn]
 
--- | Contains the output of SetInstanceProtection.
---
---
---
--- /See:/ 'setInstanceProtectionResponse' smart constructor.
+-- | /See:/ 'setInstanceProtectionResponse' smart constructor.
 newtype SetInstanceProtectionResponse = SetInstanceProtectionResponse'
   { _siprsResponseStatus :: Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)

@@ -50,11 +50,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for AttachLoadBalancers.
---
---
---
--- /See:/ 'attachLoadBalancers' smart constructor.
+-- | /See:/ 'attachLoadBalancers' smart constructor.
 data AttachLoadBalancers = AttachLoadBalancers'
   { _albAutoScalingGroupName :: {-# NOUNPACK #-}!Text
   , _albLoadBalancerNames    :: {-# NOUNPACK #-}![Text]
@@ -114,11 +110,7 @@ instance ToQuery AttachLoadBalancers where
                "LoadBalancerNames" =:
                  toQueryList "member" _albLoadBalancerNames]
 
--- | Contains the output of AttachLoadBalancers.
---
---
---
--- /See:/ 'attachLoadBalancersResponse' smart constructor.
+-- | /See:/ 'attachLoadBalancersResponse' smart constructor.
 newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
   { _albrsResponseStatus :: Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables an organizational control policy type in a root. A poicy of a certain type can be attached to entities in a root only if that type is enabled in the root. After you perform this operation, you no longer can attach policies of the specified type to that root or to any OU or account in that root. You can undo this by using the 'EnablePolicyType' operation.
+-- Disables an organizational control policy type in a root. A policy of a certain type can be attached to entities in a root only if that type is enabled in the root. After you perform this operation, you no longer can attach policies of the specified type to that root or to any OU or account in that root. You can undo this by using the 'EnablePolicyType' operation.
 --
 --
 -- This operation can be called only from the organization's master account.
@@ -58,7 +58,7 @@ data DisablePolicyType = DisablePolicyType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dptRootId' - The unique identifier (ID) of the root in which you want to disable a policy type. You can get the ID from the 'ListPolicies' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
+-- * 'dptRootId' - The unique identifier (ID) of the root in which you want to disable a policy type. You can get the ID from the 'ListRoots' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
 --
 -- * 'dptPolicyType' - The policy type that you want to disable in this root.
 disablePolicyType
@@ -69,7 +69,7 @@ disablePolicyType pRootId_ pPolicyType_ =
   DisablePolicyType' {_dptRootId = pRootId_, _dptPolicyType = pPolicyType_}
 
 
--- | The unique identifier (ID) of the root in which you want to disable a policy type. You can get the ID from the 'ListPolicies' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
+-- | The unique identifier (ID) of the root in which you want to disable a policy type. You can get the ID from the 'ListRoots' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lower-case letters or digits.
 dptRootId :: Lens' DisablePolicyType Text
 dptRootId = lens _dptRootId (\ s a -> s{_dptRootId = a});
 

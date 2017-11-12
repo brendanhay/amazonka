@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -55,12 +55,16 @@ library
         , Network.AWS.GameLift.CreateMatchmakingRuleSet
         , Network.AWS.GameLift.CreatePlayerSession
         , Network.AWS.GameLift.CreatePlayerSessions
+        , Network.AWS.GameLift.CreateVPCPeeringAuthorization
+        , Network.AWS.GameLift.CreateVPCPeeringConnection
         , Network.AWS.GameLift.DeleteAlias
         , Network.AWS.GameLift.DeleteBuild
         , Network.AWS.GameLift.DeleteFleet
         , Network.AWS.GameLift.DeleteGameSessionQueue
         , Network.AWS.GameLift.DeleteMatchmakingConfiguration
         , Network.AWS.GameLift.DeleteScalingPolicy
+        , Network.AWS.GameLift.DeleteVPCPeeringAuthorization
+        , Network.AWS.GameLift.DeleteVPCPeeringConnection
         , Network.AWS.GameLift.DescribeAlias
         , Network.AWS.GameLift.DescribeBuild
         , Network.AWS.GameLift.DescribeEC2InstanceLimits
@@ -80,6 +84,8 @@ library
         , Network.AWS.GameLift.DescribePlayerSessions
         , Network.AWS.GameLift.DescribeRuntimeConfiguration
         , Network.AWS.GameLift.DescribeScalingPolicies
+        , Network.AWS.GameLift.DescribeVPCPeeringAuthorizations
+        , Network.AWS.GameLift.DescribeVPCPeeringConnections
         , Network.AWS.GameLift.GetGameSessionLogURL
         , Network.AWS.GameLift.GetInstanceAccess
         , Network.AWS.GameLift.ListAliases

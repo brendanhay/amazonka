@@ -70,6 +70,7 @@ instance NFData AvailabilityZone where
 -- /See:/ 'blueprint' smart constructor.
 data Blueprint = Blueprint'
   { _bVersionCode :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bPlatform    :: {-# NOUNPACK #-}!(Maybe InstancePlatform)
   , _bGroup       :: {-# NOUNPACK #-}!(Maybe Text)
   , _bMinPower    :: {-# NOUNPACK #-}!(Maybe Int)
   , _bProductURL  :: {-# NOUNPACK #-}!(Maybe Text)
@@ -89,9 +90,11 @@ data Blueprint = Blueprint'
 --
 -- * 'bVersionCode' - The version code.
 --
+-- * 'bPlatform' - The operating system platform (either Linux/Unix-based or Windows Server-based) of the blueprint.
+--
 -- * 'bGroup' - The group name of the blueprint (e.g., @amazon-linux@ ).
 --
--- * 'bMinPower' - The minimum machine size required to run this blueprint. @0@ indicates that the blueprint runs on all instances.
+-- * 'bMinPower' - The minimum bundle power required to run this blueprint. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500. @0@ indicates that the blueprint runs on all instance sizes.
 --
 -- * 'bProductURL' - The product URL to learn more about the image or blueprint.
 --
@@ -113,6 +116,7 @@ blueprint
 blueprint =
   Blueprint'
   { _bVersionCode = Nothing
+  , _bPlatform = Nothing
   , _bGroup = Nothing
   , _bMinPower = Nothing
   , _bProductURL = Nothing
@@ -130,11 +134,15 @@ blueprint =
 bVersionCode :: Lens' Blueprint (Maybe Text)
 bVersionCode = lens _bVersionCode (\ s a -> s{_bVersionCode = a});
 
+-- | The operating system platform (either Linux/Unix-based or Windows Server-based) of the blueprint.
+bPlatform :: Lens' Blueprint (Maybe InstancePlatform)
+bPlatform = lens _bPlatform (\ s a -> s{_bPlatform = a});
+
 -- | The group name of the blueprint (e.g., @amazon-linux@ ).
 bGroup :: Lens' Blueprint (Maybe Text)
 bGroup = lens _bGroup (\ s a -> s{_bGroup = a});
 
--- | The minimum machine size required to run this blueprint. @0@ indicates that the blueprint runs on all instances.
+-- | The minimum bundle power required to run this blueprint. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500. @0@ indicates that the blueprint runs on all instance sizes.
 bMinPower :: Lens' Blueprint (Maybe Int)
 bMinPower = lens _bMinPower (\ s a -> s{_bMinPower = a});
 
@@ -175,8 +183,9 @@ instance FromJSON Blueprint where
           = withObject "Blueprint"
               (\ x ->
                  Blueprint' <$>
-                   (x .:? "versionCode") <*> (x .:? "group") <*>
-                     (x .:? "minPower")
+                   (x .:? "versionCode") <*> (x .:? "platform") <*>
+                     (x .:? "group")
+                     <*> (x .:? "minPower")
                      <*> (x .:? "productUrl")
                      <*> (x .:? "licenseUrl")
                      <*> (x .:? "name")
@@ -203,6 +212,7 @@ data Bundle = Bundle'
   , _bunName                 :: {-# NOUNPACK #-}!(Maybe Text)
   , _bunPower                :: {-# NOUNPACK #-}!(Maybe Int)
   , _bunDiskSizeInGb         :: {-# NOUNPACK #-}!(Maybe Int)
+  , _bunSupportedPlatforms   :: {-# NOUNPACK #-}!(Maybe [InstancePlatform])
   , _bunPrice                :: {-# NOUNPACK #-}!(Maybe Double)
   , _bunIsActive             :: {-# NOUNPACK #-}!(Maybe Bool)
   , _bunRamSizeInGb          :: {-# NOUNPACK #-}!(Maybe Double)
@@ -223,9 +233,11 @@ data Bundle = Bundle'
 --
 -- * 'bunName' - A friendly name for the bundle (e.g., @Micro@ ).
 --
--- * 'bunPower' - The power of the bundle (e.g., @500@ ).
+-- * 'bunPower' - A numeric value that represents the power of the bundle (e.g., @500@ ). You can use the bundle's power value in conjunction with a blueprint's minimum power value to determine whether the blueprint will run on the bundle. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500.
 --
 -- * 'bunDiskSizeInGb' - The size of the SSD (e.g., @30@ ).
+--
+-- * 'bunSupportedPlatforms' - The operating system platform (Linux/Unix-based or Windows Server-based) that the bundle supports. You can only launch a @WINDOWS@ bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@ blueprints require a @LINUX_UNIX@ bundle.
 --
 -- * 'bunPrice' - The price in US dollars (e.g., @5.0@ ).
 --
@@ -243,6 +255,7 @@ bundle =
   , _bunName = Nothing
   , _bunPower = Nothing
   , _bunDiskSizeInGb = Nothing
+  , _bunSupportedPlatforms = Nothing
   , _bunPrice = Nothing
   , _bunIsActive = Nothing
   , _bunRamSizeInGb = Nothing
@@ -269,13 +282,17 @@ bunInstanceType = lens _bunInstanceType (\ s a -> s{_bunInstanceType = a});
 bunName :: Lens' Bundle (Maybe Text)
 bunName = lens _bunName (\ s a -> s{_bunName = a});
 
--- | The power of the bundle (e.g., @500@ ).
+-- | A numeric value that represents the power of the bundle (e.g., @500@ ). You can use the bundle's power value in conjunction with a blueprint's minimum power value to determine whether the blueprint will run on the bundle. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500.
 bunPower :: Lens' Bundle (Maybe Int)
 bunPower = lens _bunPower (\ s a -> s{_bunPower = a});
 
 -- | The size of the SSD (e.g., @30@ ).
 bunDiskSizeInGb :: Lens' Bundle (Maybe Int)
 bunDiskSizeInGb = lens _bunDiskSizeInGb (\ s a -> s{_bunDiskSizeInGb = a});
+
+-- | The operating system platform (Linux/Unix-based or Windows Server-based) that the bundle supports. You can only launch a @WINDOWS@ bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@ blueprints require a @LINUX_UNIX@ bundle.
+bunSupportedPlatforms :: Lens' Bundle [InstancePlatform]
+bunSupportedPlatforms = lens _bunSupportedPlatforms (\ s a -> s{_bunSupportedPlatforms = a}) . _Default . _Coerce;
 
 -- | The price in US dollars (e.g., @5.0@ ).
 bunPrice :: Lens' Bundle (Maybe Double)
@@ -300,6 +317,7 @@ instance FromJSON Bundle where
                      <*> (x .:? "name")
                      <*> (x .:? "power")
                      <*> (x .:? "diskSizeInGb")
+                     <*> (x .:? "supportedPlatforms" .!= mempty)
                      <*> (x .:? "price")
                      <*> (x .:? "isActive")
                      <*> (x .:? "ramSizeInGb"))
@@ -838,6 +856,7 @@ data InstanceAccessDetails = InstanceAccessDetails'
   , _iadExpiresAt    :: {-# NOUNPACK #-}!(Maybe POSIX)
   , _iadUsername     :: {-# NOUNPACK #-}!(Maybe Text)
   , _iadProtocol     :: {-# NOUNPACK #-}!(Maybe InstanceAccessProtocol)
+  , _iadPasswordData :: {-# NOUNPACK #-}!(Maybe PasswordData)
   , _iadPassword     :: {-# NOUNPACK #-}!(Maybe Text)
   , _iadInstanceName :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -859,7 +878,9 @@ data InstanceAccessDetails = InstanceAccessDetails'
 --
 -- * 'iadProtocol' - The protocol for these Amazon Lightsail instance access details.
 --
--- * 'iadPassword' - For RDP access, the temporary password of the Amazon EC2 instance.
+-- * 'iadPasswordData' - For a Windows Server-based instance, an object with the data you can use to retrieve your password. This is only needed if @password@ is empty and the instance is not new (and therefore the password is not ready yet). When you create an instance, it can take up to 15 minutes for the instance to be ready.
+--
+-- * 'iadPassword' - For RDP access, the password for your Amazon Lightsail instance. Password will be an empty string if the password for your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
 --
 -- * 'iadInstanceName' - The name of this Amazon Lightsail instance.
 instanceAccessDetails
@@ -872,6 +893,7 @@ instanceAccessDetails =
   , _iadExpiresAt = Nothing
   , _iadUsername = Nothing
   , _iadProtocol = Nothing
+  , _iadPasswordData = Nothing
   , _iadPassword = Nothing
   , _iadInstanceName = Nothing
   }
@@ -901,7 +923,11 @@ iadUsername = lens _iadUsername (\ s a -> s{_iadUsername = a});
 iadProtocol :: Lens' InstanceAccessDetails (Maybe InstanceAccessProtocol)
 iadProtocol = lens _iadProtocol (\ s a -> s{_iadProtocol = a});
 
--- | For RDP access, the temporary password of the Amazon EC2 instance.
+-- | For a Windows Server-based instance, an object with the data you can use to retrieve your password. This is only needed if @password@ is empty and the instance is not new (and therefore the password is not ready yet). When you create an instance, it can take up to 15 minutes for the instance to be ready.
+iadPasswordData :: Lens' InstanceAccessDetails (Maybe PasswordData)
+iadPasswordData = lens _iadPasswordData (\ s a -> s{_iadPasswordData = a});
+
+-- | For RDP access, the password for your Amazon Lightsail instance. Password will be an empty string if the password for your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
 iadPassword :: Lens' InstanceAccessDetails (Maybe Text)
 iadPassword = lens _iadPassword (\ s a -> s{_iadPassword = a});
 
@@ -919,6 +945,7 @@ instance FromJSON InstanceAccessDetails where
                      <*> (x .:? "expiresAt")
                      <*> (x .:? "username")
                      <*> (x .:? "protocol")
+                     <*> (x .:? "passwordData")
                      <*> (x .:? "password")
                      <*> (x .:? "instanceName"))
 
@@ -1714,6 +1741,48 @@ instance FromJSON Operation where
 instance Hashable Operation where
 
 instance NFData Operation where
+
+-- | The password data for the Windows Server-based instance, including the ciphertext and the key pair name.
+--
+--
+--
+-- /See:/ 'passwordData' smart constructor.
+data PasswordData = PasswordData'
+  { _pdKeyPairName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pdCiphertext  :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PasswordData' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdKeyPairName' - The name of the key pair that you used when creating your instance. If no key pair name was specified when creating the instance, Lightsail uses the default key pair (@LightsailDefaultKeyPair@ ). If you are using a custom key pair, you need to use your own means of decrypting your password using the @ciphertext@ . Lightsail creates the ciphertext by encrypting your password with the public key part of this key pair.
+--
+-- * 'pdCiphertext' - The encrypted password. Ciphertext will be an empty string if access to your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
+passwordData
+    :: PasswordData
+passwordData = PasswordData' {_pdKeyPairName = Nothing, _pdCiphertext = Nothing}
+
+
+-- | The name of the key pair that you used when creating your instance. If no key pair name was specified when creating the instance, Lightsail uses the default key pair (@LightsailDefaultKeyPair@ ). If you are using a custom key pair, you need to use your own means of decrypting your password using the @ciphertext@ . Lightsail creates the ciphertext by encrypting your password with the public key part of this key pair.
+pdKeyPairName :: Lens' PasswordData (Maybe Text)
+pdKeyPairName = lens _pdKeyPairName (\ s a -> s{_pdKeyPairName = a});
+
+-- | The encrypted password. Ciphertext will be an empty string if access to your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
+pdCiphertext :: Lens' PasswordData (Maybe Text)
+pdCiphertext = lens _pdCiphertext (\ s a -> s{_pdCiphertext = a});
+
+instance FromJSON PasswordData where
+        parseJSON
+          = withObject "PasswordData"
+              (\ x ->
+                 PasswordData' <$>
+                   (x .:? "keyPairName") <*> (x .:? "ciphertext"))
+
+instance Hashable PasswordData where
+
+instance NFData PasswordData where
 
 -- | Describes information about the ports on your virtual private server (or /instance/ ).
 --

@@ -110,6 +110,9 @@ module Network.AWS.EC2.Types
     -- * FlowLogsResourceType
     , FlowLogsResourceType (..)
 
+    -- * FpgaImageAttributeName
+    , FpgaImageAttributeName (..)
+
     -- * FpgaImageStateCode
     , FpgaImageStateCode (..)
 
@@ -139,6 +142,9 @@ module Network.AWS.EC2.Types
 
     -- * InstanceHealthStatus
     , InstanceHealthStatus (..)
+
+    -- * InstanceInterruptionBehavior
+    , InstanceInterruptionBehavior (..)
 
     -- * InstanceLifecycleType
     , InstanceLifecycleType (..)
@@ -224,6 +230,9 @@ module Network.AWS.EC2.Types
     -- * ReservedInstanceState
     , ReservedInstanceState (..)
 
+    -- * ResetFpgaImageAttributeName
+    , ResetFpgaImageAttributeName (..)
+
     -- * ResetImageAttributeName
     , ResetImageAttributeName (..)
 
@@ -241,6 +250,9 @@ module Network.AWS.EC2.Types
 
     -- * Scope
     , Scope (..)
+
+    -- * ServiceType
+    , ServiceType (..)
 
     -- * ShutdownBehavior
     , ShutdownBehavior (..)
@@ -290,11 +302,17 @@ module Network.AWS.EC2.Types
     -- * VPCCidrBlockStateCode
     , VPCCidrBlockStateCode (..)
 
+    -- * VPCEndpointType
+    , VPCEndpointType (..)
+
     -- * VPCPeeringConnectionStateReasonCode
     , VPCPeeringConnectionStateReasonCode (..)
 
     -- * VPCState
     , VPCState (..)
+
+    -- * VPCTenancy
+    , VPCTenancy (..)
 
     -- * VPNState
     , VPNState (..)
@@ -442,6 +460,11 @@ module Network.AWS.EC2.Types
     , csirState
     , csirSpotInstanceRequestId
 
+    -- * CidrBlock
+    , CidrBlock
+    , cidrBlock
+    , cbCidrBlock
+
     -- * ClassicLinkDNSSupport
     , ClassicLinkDNSSupport
     , classicLinkDNSSupport
@@ -455,6 +478,16 @@ module Network.AWS.EC2.Types
     , cliGroups
     , cliVPCId
     , cliTags
+
+    -- * ClassicLoadBalancer
+    , ClassicLoadBalancer
+    , classicLoadBalancer
+    , clbName
+
+    -- * ClassicLoadBalancersConfig
+    , ClassicLoadBalancersConfig
+    , classicLoadBalancersConfig
+    , clbcClassicLoadBalancers
 
     -- * ClientData
     , ClientData
@@ -509,6 +542,12 @@ module Network.AWS.EC2.Types
     , doDHCPConfigurations
     , doDHCPOptionsId
     , doTags
+
+    -- * DNSEntry
+    , DNSEntry
+    , dnsEntry
+    , deHostedZoneId
+    , deDNSName
 
     -- * DiskImage
     , DiskImage
@@ -663,7 +702,17 @@ module Network.AWS.EC2.Types
     , fiDescription
     , fiCreateTime
     , fiTags
+    , fiPublic
     , fiFpgaImageGlobalId
+
+    -- * FpgaImageAttribute
+    , FpgaImageAttribute
+    , fpgaImageAttribute
+    , fiaFpgaImageId
+    , fiaName
+    , fiaProductCodes
+    , fiaDescription
+    , fiaLoadPermissions
 
     -- * FpgaImageState
     , FpgaImageState
@@ -780,7 +829,8 @@ module Network.AWS.EC2.Types
     -- * IPRange
     , IPRange
     , ipRange
-    , irCidrIP
+    , iprDescription
+    , iprCidrIP
 
     -- * IPv6CidrBlock
     , IPv6CidrBlock
@@ -791,6 +841,7 @@ module Network.AWS.EC2.Types
     , IPv6Range
     , ipv6Range
     , irCidrIPv6
+    , irDescription
 
     -- * IdFormat
     , IdFormat
@@ -1114,14 +1165,14 @@ module Network.AWS.EC2.Types
     -- * LaunchPermission
     , LaunchPermission
     , launchPermission
-    , lpGroup
-    , lpUserId
+    , lGroup
+    , lUserId
 
     -- * LaunchPermissionModifications
     , LaunchPermissionModifications
     , launchPermissionModifications
-    , lpmRemove
-    , lpmAdd
+    , lRemove
+    , lAdd
 
     -- * LaunchSpecification
     , LaunchSpecification
@@ -1141,6 +1192,30 @@ module Network.AWS.EC2.Types
     , lsAddressingType
     , lsBlockDeviceMappings
     , lsPlacement
+
+    -- * LoadBalancersConfig
+    , LoadBalancersConfig
+    , loadBalancersConfig
+    , lbcClassicLoadBalancersConfig
+    , lbcTargetGroupsConfig
+
+    -- * LoadPermission
+    , LoadPermission
+    , loadPermission
+    , lpGroup
+    , lpUserId
+
+    -- * LoadPermissionModifications
+    , LoadPermissionModifications
+    , loadPermissionModifications
+    , lpmRemove
+    , lpmAdd
+
+    -- * LoadPermissionRequest
+    , LoadPermissionRequest
+    , loadPermissionRequest
+    , lprGroup
+    , lprUserId
 
     -- * Monitoring
     , Monitoring
@@ -1166,6 +1241,7 @@ module Network.AWS.EC2.Types
     , ngProvisionedBandwidth
     , ngNatGatewayAddresses
     , ngCreateTime
+    , ngTags
 
     -- * NatGatewayAddress
     , NatGatewayAddress
@@ -1345,6 +1421,7 @@ module Network.AWS.EC2.Types
     , PrefixListId
     , prefixListId
     , pliPrefixListId
+    , pliDescription
 
     -- * PriceSchedule
     , PriceSchedule
@@ -1753,12 +1830,35 @@ module Network.AWS.EC2.Types
     , sgGroupName
     , sgDescription
 
+    -- * SecurityGroupIdentifier
+    , SecurityGroupIdentifier
+    , securityGroupIdentifier
+    , sgiGroupId
+    , sgiGroupName
+
     -- * SecurityGroupReference
     , SecurityGroupReference
     , securityGroupReference
     , sgrVPCPeeringConnectionId
     , sgrGroupId
     , sgrReferencingVPCId
+
+    -- * ServiceDetail
+    , ServiceDetail
+    , serviceDetail
+    , sdVPCEndpointPolicySupported
+    , sdBaseEndpointDNSNames
+    , sdOwner
+    , sdAvailabilityZones
+    , sdServiceName
+    , sdServiceType
+    , sdAcceptanceRequired
+    , sdPrivateDNSName
+
+    -- * ServiceTypeDetail
+    , ServiceTypeDetail
+    , serviceTypeDetail
+    , stdServiceType
 
     -- * SlotDateTimeRangeRequest
     , SlotDateTimeRangeRequest
@@ -1874,6 +1974,8 @@ module Network.AWS.EC2.Types
     , SpotFleetRequestConfigData
     , spotFleetRequestConfigData
     , sfrcdClientToken
+    , sfrcdInstanceInterruptionBehavior
+    , sfrcdLoadBalancersConfig
     , sfrcdExcessCapacityTerminationPolicy
     , sfrcdValidUntil
     , sfrcdTerminateInstancesWithExpiration
@@ -1901,6 +2003,7 @@ module Network.AWS.EC2.Types
     , sirState
     , sirActualBlockHourlyPrice
     , sirBlockDurationMinutes
+    , sirInstanceInterruptionBehavior
     , sirProductDescription
     , sirSpotPrice
     , sirLaunchSpecification
@@ -2041,6 +2144,16 @@ module Network.AWS.EC2.Types
     , tcrInstanceCount
     , tcrOfferingId
 
+    -- * TargetGroup
+    , TargetGroup
+    , targetGroup
+    , tgARN
+
+    -- * TargetGroupsConfig
+    , TargetGroupsConfig
+    , targetGroupsConfig
+    , tgcTargetGroups
+
     -- * TargetReservationValue
     , TargetReservationValue
     , targetReservationValue
@@ -2084,6 +2197,7 @@ module Network.AWS.EC2.Types
     , uigpUserId
     , uigpGroupId
     , uigpGroupName
+    , uigpDescription
     , uigpPeeringStatus
 
     -- * VGWTelemetry
@@ -2099,6 +2213,7 @@ module Network.AWS.EC2.Types
     , VPC
     , vpc
     , vpcIPv6CidrBlockAssociationSet
+    , vpcCidrBlockAssociationSet
     , vpcTags
     , vpcIsDefault
     , vpcCidrBlock
@@ -2112,6 +2227,13 @@ module Network.AWS.EC2.Types
     , vpcAttachment
     , vaState
     , vaVPCId
+
+    -- * VPCCidrBlockAssociation
+    , VPCCidrBlockAssociation
+    , vpcCidrBlockAssociation
+    , vcbaAssociationId
+    , vcbaCidrBlockState
+    , vcbaCidrBlock
 
     -- * VPCCidrBlockState
     , VPCCidrBlockState
@@ -2129,9 +2251,15 @@ module Network.AWS.EC2.Types
     -- * VPCEndpoint
     , VPCEndpoint
     , vpcEndpoint
+    , veGroups
     , veState
     , vePolicyDocument
+    , veSubnetIds
+    , veNetworkInterfaceIds
     , veVPCId
+    , veDNSEntries
+    , veVPCEndpointType
+    , vePrivateDNSEnabled
     , veCreationTimestamp
     , veServiceName
     , veVPCEndpointId
@@ -2170,6 +2298,7 @@ module Network.AWS.EC2.Types
     -- * VPCPeeringConnectionVPCInfo
     , VPCPeeringConnectionVPCInfo
     , vpcPeeringConnectionVPCInfo
+    , vpcviCidrBlockSet
     , vpcviVPCId
     , vpcviOwnerId
     , vpcviPeeringOptions
@@ -2182,6 +2311,7 @@ module Network.AWS.EC2.Types
     , vcCustomerGatewayConfiguration
     , vcRoutes
     , vcVPNGatewayId
+    , vcCategory
     , vcOptions
     , vcTags
     , vcVGWTelemetry
@@ -2198,6 +2328,7 @@ module Network.AWS.EC2.Types
     -- * VPNConnectionOptionsSpecification
     , VPNConnectionOptionsSpecification
     , vpnConnectionOptionsSpecification
+    , vcosTunnelOptions
     , vcosStaticRoutesOnly
 
     -- * VPNGateway
@@ -2206,6 +2337,7 @@ module Network.AWS.EC2.Types
     , vgState
     , vgVPCAttachments
     , vgVPNGatewayId
+    , vgAmazonSideASN
     , vgAvailabilityZone
     , vgType
     , vgTags
@@ -2216,6 +2348,12 @@ module Network.AWS.EC2.Types
     , vsrState
     , vsrSource
     , vsrDestinationCidrBlock
+
+    -- * VPNTunnelOptionsSpecification
+    , VPNTunnelOptionsSpecification
+    , vpnTunnelOptionsSpecification
+    , vtosTunnelInsideCidr
+    , vtosPreSharedKey
 
     -- * Volume
     , Volume

@@ -29,8 +29,10 @@ module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
     -- * Request Lenses
     , uedcEBSOptions
     , uedcAccessPolicies
+    , uedcLogPublishingOptions
     , uedcElasticsearchClusterConfig
     , uedcSnapshotOptions
+    , uedcVPCOptions
     , uedcAdvancedOptions
     , uedcDomainName
 
@@ -57,8 +59,10 @@ import Network.AWS.Response
 data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
   { _uedcEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptions)
   , _uedcAccessPolicies :: {-# NOUNPACK #-}!(Maybe Text)
+  , _uedcLogPublishingOptions :: {-# NOUNPACK #-}!(Maybe (Map LogType LogPublishingOption))
   , _uedcElasticsearchClusterConfig :: {-# NOUNPACK #-}!(Maybe ElasticsearchClusterConfig)
   , _uedcSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptions)
+  , _uedcVPCOptions :: {-# NOUNPACK #-}!(Maybe VPCOptions)
   , _uedcAdvancedOptions :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
   , _uedcDomainName :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -72,9 +76,13 @@ data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
 --
 -- * 'uedcAccessPolicies' - IAM access policy as a JSON-formatted string.
 --
+-- * 'uedcLogPublishingOptions' - Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
+--
 -- * 'uedcElasticsearchClusterConfig' - The type and number of instances to instantiate for the domain cluster.
 --
 -- * 'uedcSnapshotOptions' - Option to set the time, in UTC format, for the daily automated snapshot. Default value is @0@ hours.
+--
+-- * 'uedcVPCOptions' - Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
 --
 -- * 'uedcAdvancedOptions' - Modifies the advanced option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
 --
@@ -86,8 +94,10 @@ updateElasticsearchDomainConfig pDomainName_ =
   UpdateElasticsearchDomainConfig'
   { _uedcEBSOptions = Nothing
   , _uedcAccessPolicies = Nothing
+  , _uedcLogPublishingOptions = Nothing
   , _uedcElasticsearchClusterConfig = Nothing
   , _uedcSnapshotOptions = Nothing
+  , _uedcVPCOptions = Nothing
   , _uedcAdvancedOptions = Nothing
   , _uedcDomainName = pDomainName_
   }
@@ -101,6 +111,10 @@ uedcEBSOptions = lens _uedcEBSOptions (\ s a -> s{_uedcEBSOptions = a});
 uedcAccessPolicies :: Lens' UpdateElasticsearchDomainConfig (Maybe Text)
 uedcAccessPolicies = lens _uedcAccessPolicies (\ s a -> s{_uedcAccessPolicies = a});
 
+-- | Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
+uedcLogPublishingOptions :: Lens' UpdateElasticsearchDomainConfig (HashMap LogType LogPublishingOption)
+uedcLogPublishingOptions = lens _uedcLogPublishingOptions (\ s a -> s{_uedcLogPublishingOptions = a}) . _Default . _Map;
+
 -- | The type and number of instances to instantiate for the domain cluster.
 uedcElasticsearchClusterConfig :: Lens' UpdateElasticsearchDomainConfig (Maybe ElasticsearchClusterConfig)
 uedcElasticsearchClusterConfig = lens _uedcElasticsearchClusterConfig (\ s a -> s{_uedcElasticsearchClusterConfig = a});
@@ -108,6 +122,10 @@ uedcElasticsearchClusterConfig = lens _uedcElasticsearchClusterConfig (\ s a -> 
 -- | Option to set the time, in UTC format, for the daily automated snapshot. Default value is @0@ hours.
 uedcSnapshotOptions :: Lens' UpdateElasticsearchDomainConfig (Maybe SnapshotOptions)
 uedcSnapshotOptions = lens _uedcSnapshotOptions (\ s a -> s{_uedcSnapshotOptions = a});
+
+-- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
+uedcVPCOptions :: Lens' UpdateElasticsearchDomainConfig (Maybe VPCOptions)
+uedcVPCOptions = lens _uedcVPCOptions (\ s a -> s{_uedcVPCOptions = a});
 
 -- | Modifies the advanced option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
 uedcAdvancedOptions :: Lens' UpdateElasticsearchDomainConfig (HashMap Text Text)
@@ -143,9 +161,12 @@ instance ToJSON UpdateElasticsearchDomainConfig where
               (catMaybes
                  [("EBSOptions" .=) <$> _uedcEBSOptions,
                   ("AccessPolicies" .=) <$> _uedcAccessPolicies,
+                  ("LogPublishingOptions" .=) <$>
+                    _uedcLogPublishingOptions,
                   ("ElasticsearchClusterConfig" .=) <$>
                     _uedcElasticsearchClusterConfig,
                   ("SnapshotOptions" .=) <$> _uedcSnapshotOptions,
+                  ("VPCOptions" .=) <$> _uedcVPCOptions,
                   ("AdvancedOptions" .=) <$> _uedcAdvancedOptions])
 
 instance ToPath UpdateElasticsearchDomainConfig where

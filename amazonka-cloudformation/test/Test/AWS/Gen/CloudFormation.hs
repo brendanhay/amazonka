@@ -14,11 +14,11 @@
 module Test.AWS.Gen.CloudFormation where
 
 import Data.Proxy
+import Network.AWS.CloudFormation
+import Test.AWS.CloudFormation.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CloudFormation
-import Test.AWS.CloudFormation.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -126,6 +126,9 @@ import Test.AWS.CloudFormation.Internal
 --
 --         , requestCreateStackSet $
 --             createStackSet
+--
+--         , requestUpdateTerminationProtection $
+--             updateTerminationProtection
 --
 --         , requestGetTemplate $
 --             getTemplate
@@ -246,6 +249,9 @@ import Test.AWS.CloudFormation.Internal
 --
 --         , responseCreateStackSet $
 --             createStackSetResponse
+--
+--         , responseUpdateTerminationProtection $
+--             updateTerminationProtectionResponse
 --
 --         , responseGetTemplate $
 --             getTemplateResponse
@@ -434,6 +440,11 @@ requestCreateStackSet :: CreateStackSet -> TestTree
 requestCreateStackSet = req
     "CreateStackSet"
     "fixture/CreateStackSet.yaml"
+
+requestUpdateTerminationProtection :: UpdateTerminationProtection -> TestTree
+requestUpdateTerminationProtection = req
+    "UpdateTerminationProtection"
+    "fixture/UpdateTerminationProtection.yaml"
 
 requestGetTemplate :: GetTemplate -> TestTree
 requestGetTemplate = req
@@ -697,6 +708,13 @@ responseCreateStackSet = res
     "fixture/CreateStackSetResponse.proto"
     cloudFormation
     (Proxy :: Proxy CreateStackSet)
+
+responseUpdateTerminationProtection :: UpdateTerminationProtectionResponse -> TestTree
+responseUpdateTerminationProtection = res
+    "UpdateTerminationProtectionResponse"
+    "fixture/UpdateTerminationProtectionResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy UpdateTerminationProtection)
 
 responseGetTemplate :: GetTemplateResponse -> TestTree
 responseGetTemplate = res

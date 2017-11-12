@@ -75,7 +75,7 @@ data CreateModel = CreateModel'
 --
 -- * 'cmRestAPIId' - The 'RestApi' identifier under which the 'Model' will be created.
 --
--- * 'cmName' - The name of the model.
+-- * 'cmName' - The name of the model. Must be alphanumeric.
 --
 -- * 'cmContentType' - The content-type for the model.
 createModel
@@ -105,7 +105,7 @@ cmDescription = lens _cmDescription (\ s a -> s{_cmDescription = a});
 cmRestAPIId :: Lens' CreateModel Text
 cmRestAPIId = lens _cmRestAPIId (\ s a -> s{_cmRestAPIId = a});
 
--- | The name of the model.
+-- | The name of the model. Must be alphanumeric.
 cmName :: Lens' CreateModel Text
 cmName = lens _cmName (\ s a -> s{_cmName = a});
 

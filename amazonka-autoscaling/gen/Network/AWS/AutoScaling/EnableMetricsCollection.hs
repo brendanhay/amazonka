@@ -43,11 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for EnableMetricsCollection.
---
---
---
--- /See:/ 'enableMetricsCollection' smart constructor.
+-- | /See:/ 'enableMetricsCollection' smart constructor.
 data EnableMetricsCollection = EnableMetricsCollection'
   { _emcMetrics              :: {-# NOUNPACK #-}!(Maybe [Text])
   , _emcAutoScalingGroupName :: {-# NOUNPACK #-}!Text

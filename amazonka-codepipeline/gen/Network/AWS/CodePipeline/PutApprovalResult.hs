@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a put approval result action.
+-- | Represents the input of a PutApprovalResult action.
 --
 --
 --
@@ -151,7 +151,7 @@ instance ToPath PutApprovalResult where
 instance ToQuery PutApprovalResult where
         toQuery = const mempty
 
--- | Represents the output of a put approval result action.
+-- | Represents the output of a PutApprovalResult action.
 --
 --
 --

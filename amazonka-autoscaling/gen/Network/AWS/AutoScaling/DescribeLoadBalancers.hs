@@ -49,11 +49,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeLoadBalancers.
---
---
---
--- /See:/ 'describeLoadBalancers' smart constructor.
+-- | /See:/ 'describeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
   { _dlbNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
   , _dlbMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
@@ -125,11 +121,7 @@ instance ToQuery DescribeLoadBalancers where
                "MaxRecords" =: _dlbMaxRecords,
                "AutoScalingGroupName" =: _dlbAutoScalingGroupName]
 
--- | Contains the output of DescribeLoadBalancers.
---
---
---
--- /See:/ 'describeLoadBalancersResponse' smart constructor.
+-- | /See:/ 'describeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
   { _dlbrsLoadBalancers  :: {-# NOUNPACK #-}!(Maybe [LoadBalancerState])
   , _dlbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)

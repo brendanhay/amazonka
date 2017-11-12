@@ -64,7 +64,7 @@ data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
 --
 -- * 'dpaVerbose' - Enable a verbose level of details for the provisioning artifact.
 --
--- * 'dpaAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dpaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'dpaProvisioningArtifactId' - The identifier of the provisioning artifact. This is sometimes referred to as the product version.
 --
@@ -86,7 +86,7 @@ describeProvisioningArtifact pProvisioningArtifactId_ pProductId_ =
 dpaVerbose :: Lens' DescribeProvisioningArtifact (Maybe Bool)
 dpaVerbose = lens _dpaVerbose (\ s a -> s{_dpaVerbose = a});
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpaAcceptLanguage :: Lens' DescribeProvisioningArtifact (Maybe Text)
 dpaAcceptLanguage = lens _dpaAcceptLanguage (\ s a -> s{_dpaAcceptLanguage = a});
 

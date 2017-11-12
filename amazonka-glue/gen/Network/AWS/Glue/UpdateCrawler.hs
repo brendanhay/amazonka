@@ -71,11 +71,11 @@ data UpdateCrawler = UpdateCrawler'
 --
 -- * 'uSchemaChangePolicy' - Policy for the crawler's update and deletion behavior.
 --
--- * 'uSchedule' - A cron expression that can be used as a Cloudwatch event (see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html CloudWatch Schedule Expression Syntax> . For example, to run every day at 12:15 UTC, specify: @cron(15 12 * * ? *)@ .
+-- * 'uSchedule' - A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 --
 -- * 'uClassifiers' - A list of custom @Classifier@ names that the user has registered. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 --
--- * 'uRole' - The AWS ARN of the IAM role used by the new @Crawler@ to access customer resources.
+-- * 'uRole' - The IAM role (or ARN of an IAM role) used by the new @Crawler@ to access customer resources.
 --
 -- * 'uTargets' - A list of collection of targets to crawl.
 --
@@ -107,7 +107,7 @@ updateCrawler pName_ =
 uSchemaChangePolicy :: Lens' UpdateCrawler (Maybe SchemaChangePolicy)
 uSchemaChangePolicy = lens _uSchemaChangePolicy (\ s a -> s{_uSchemaChangePolicy = a});
 
--- | A cron expression that can be used as a Cloudwatch event (see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html CloudWatch Schedule Expression Syntax> . For example, to run every day at 12:15 UTC, specify: @cron(15 12 * * ? *)@ .
+-- | A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 uSchedule :: Lens' UpdateCrawler (Maybe Text)
 uSchedule = lens _uSchedule (\ s a -> s{_uSchedule = a});
 
@@ -115,7 +115,7 @@ uSchedule = lens _uSchedule (\ s a -> s{_uSchedule = a});
 uClassifiers :: Lens' UpdateCrawler [Text]
 uClassifiers = lens _uClassifiers (\ s a -> s{_uClassifiers = a}) . _Default . _Coerce;
 
--- | The AWS ARN of the IAM role used by the new @Crawler@ to access customer resources.
+-- | The IAM role (or ARN of an IAM role) used by the new @Crawler@ to access customer resources.
 uRole :: Lens' UpdateCrawler (Maybe Text)
 uRole = lens _uRole (\ s a -> s{_uRole = a});
 

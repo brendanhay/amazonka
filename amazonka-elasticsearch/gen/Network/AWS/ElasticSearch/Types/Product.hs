@@ -460,8 +460,10 @@ instance NFData ElasticsearchClusterConfigStatus
 data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
   { _edcEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptionsStatus)
   , _edcAccessPolicies :: {-# NOUNPACK #-}!(Maybe AccessPoliciesStatus)
+  , _edcLogPublishingOptions :: {-# NOUNPACK #-}!(Maybe LogPublishingOptionsStatus)
   , _edcElasticsearchClusterConfig :: {-# NOUNPACK #-}!(Maybe ElasticsearchClusterConfigStatus)
   , _edcSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptionsStatus)
+  , _edcVPCOptions :: {-# NOUNPACK #-}!(Maybe VPCDerivedInfoStatus)
   , _edcAdvancedOptions :: {-# NOUNPACK #-}!(Maybe AdvancedOptionsStatus)
   , _edcElasticsearchVersion :: {-# NOUNPACK #-}!(Maybe ElasticsearchVersionStatus)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -475,9 +477,13 @@ data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
 --
 -- * 'edcAccessPolicies' - IAM access policy as a JSON-formatted string.
 --
+-- * 'edcLogPublishingOptions' - Log publishing options for the given domain.
+--
 -- * 'edcElasticsearchClusterConfig' - Specifies the @ElasticsearchClusterConfig@ for the Elasticsearch domain.
 --
 -- * 'edcSnapshotOptions' - Specifies the @SnapshotOptions@ for the Elasticsearch domain.
+--
+-- * 'edcVPCOptions' - The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
 --
 -- * 'edcAdvancedOptions' - Specifies the @AdvancedOptions@ for the domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options> for more information.
 --
@@ -488,8 +494,10 @@ elasticsearchDomainConfig =
   ElasticsearchDomainConfig'
   { _edcEBSOptions = Nothing
   , _edcAccessPolicies = Nothing
+  , _edcLogPublishingOptions = Nothing
   , _edcElasticsearchClusterConfig = Nothing
   , _edcSnapshotOptions = Nothing
+  , _edcVPCOptions = Nothing
   , _edcAdvancedOptions = Nothing
   , _edcElasticsearchVersion = Nothing
   }
@@ -503,6 +511,10 @@ edcEBSOptions = lens _edcEBSOptions (\ s a -> s{_edcEBSOptions = a});
 edcAccessPolicies :: Lens' ElasticsearchDomainConfig (Maybe AccessPoliciesStatus)
 edcAccessPolicies = lens _edcAccessPolicies (\ s a -> s{_edcAccessPolicies = a});
 
+-- | Log publishing options for the given domain.
+edcLogPublishingOptions :: Lens' ElasticsearchDomainConfig (Maybe LogPublishingOptionsStatus)
+edcLogPublishingOptions = lens _edcLogPublishingOptions (\ s a -> s{_edcLogPublishingOptions = a});
+
 -- | Specifies the @ElasticsearchClusterConfig@ for the Elasticsearch domain.
 edcElasticsearchClusterConfig :: Lens' ElasticsearchDomainConfig (Maybe ElasticsearchClusterConfigStatus)
 edcElasticsearchClusterConfig = lens _edcElasticsearchClusterConfig (\ s a -> s{_edcElasticsearchClusterConfig = a});
@@ -510,6 +522,10 @@ edcElasticsearchClusterConfig = lens _edcElasticsearchClusterConfig (\ s a -> s{
 -- | Specifies the @SnapshotOptions@ for the Elasticsearch domain.
 edcSnapshotOptions :: Lens' ElasticsearchDomainConfig (Maybe SnapshotOptionsStatus)
 edcSnapshotOptions = lens _edcSnapshotOptions (\ s a -> s{_edcSnapshotOptions = a});
+
+-- | The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
+edcVPCOptions :: Lens' ElasticsearchDomainConfig (Maybe VPCDerivedInfoStatus)
+edcVPCOptions = lens _edcVPCOptions (\ s a -> s{_edcVPCOptions = a});
 
 -- | Specifies the @AdvancedOptions@ for the domain. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuring Advanced Options> for more information.
 edcAdvancedOptions :: Lens' ElasticsearchDomainConfig (Maybe AdvancedOptionsStatus)
@@ -525,8 +541,10 @@ instance FromJSON ElasticsearchDomainConfig where
               (\ x ->
                  ElasticsearchDomainConfig' <$>
                    (x .:? "EBSOptions") <*> (x .:? "AccessPolicies") <*>
-                     (x .:? "ElasticsearchClusterConfig")
+                     (x .:? "LogPublishingOptions")
+                     <*> (x .:? "ElasticsearchClusterConfig")
                      <*> (x .:? "SnapshotOptions")
+                     <*> (x .:? "VPCOptions")
                      <*> (x .:? "AdvancedOptions")
                      <*> (x .:? "ElasticsearchVersion"))
 
@@ -542,9 +560,12 @@ instance NFData ElasticsearchDomainConfig where
 data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
   { _edsEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptions)
   , _edsAccessPolicies :: {-# NOUNPACK #-}!(Maybe Text)
+  , _edsLogPublishingOptions :: {-# NOUNPACK #-}!(Maybe (Map LogType LogPublishingOption))
   , _edsCreated :: {-# NOUNPACK #-}!(Maybe Bool)
   , _edsSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptions)
   , _edsDeleted :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _edsVPCOptions :: {-# NOUNPACK #-}!(Maybe VPCDerivedInfo)
+  , _edsEndpoints :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
   , _edsProcessing :: {-# NOUNPACK #-}!(Maybe Bool)
   , _edsEndpoint :: {-# NOUNPACK #-}!(Maybe Text)
   , _edsAdvancedOptions :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
@@ -564,11 +585,17 @@ data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
 --
 -- * 'edsAccessPolicies' - IAM access policy as a JSON-formatted string.
 --
+-- * 'edsLogPublishingOptions' - Log publishing options for the given domain.
+--
 -- * 'edsCreated' - The domain creation status. @True@ if the creation of an Elasticsearch domain is complete. @False@ if domain creation is still in progress.
 --
 -- * 'edsSnapshotOptions' - Specifies the status of the @SnapshotOptions@
 --
 -- * 'edsDeleted' - The domain deletion status. @True@ if a delete request has been received for the domain but resource cleanup is still in progress. @False@ if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.
+--
+-- * 'edsVPCOptions' - The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
+--
+-- * 'edsEndpoints' - Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example @key, value@ : @'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'@ .
 --
 -- * 'edsProcessing' - The status of the Elasticsearch domain configuration. @True@ if Amazon Elasticsearch Service is processing configuration changes. @False@ if the configuration is active.
 --
@@ -595,9 +622,12 @@ elasticsearchDomainStatus pDomainId_ pDomainName_ pARN_ pElasticsearchClusterCon
   ElasticsearchDomainStatus'
   { _edsEBSOptions = Nothing
   , _edsAccessPolicies = Nothing
+  , _edsLogPublishingOptions = Nothing
   , _edsCreated = Nothing
   , _edsSnapshotOptions = Nothing
   , _edsDeleted = Nothing
+  , _edsVPCOptions = Nothing
+  , _edsEndpoints = Nothing
   , _edsProcessing = Nothing
   , _edsEndpoint = Nothing
   , _edsAdvancedOptions = Nothing
@@ -617,6 +647,10 @@ edsEBSOptions = lens _edsEBSOptions (\ s a -> s{_edsEBSOptions = a});
 edsAccessPolicies :: Lens' ElasticsearchDomainStatus (Maybe Text)
 edsAccessPolicies = lens _edsAccessPolicies (\ s a -> s{_edsAccessPolicies = a});
 
+-- | Log publishing options for the given domain.
+edsLogPublishingOptions :: Lens' ElasticsearchDomainStatus (HashMap LogType LogPublishingOption)
+edsLogPublishingOptions = lens _edsLogPublishingOptions (\ s a -> s{_edsLogPublishingOptions = a}) . _Default . _Map;
+
 -- | The domain creation status. @True@ if the creation of an Elasticsearch domain is complete. @False@ if domain creation is still in progress.
 edsCreated :: Lens' ElasticsearchDomainStatus (Maybe Bool)
 edsCreated = lens _edsCreated (\ s a -> s{_edsCreated = a});
@@ -628,6 +662,14 @@ edsSnapshotOptions = lens _edsSnapshotOptions (\ s a -> s{_edsSnapshotOptions = 
 -- | The domain deletion status. @True@ if a delete request has been received for the domain but resource cleanup is still in progress. @False@ if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.
 edsDeleted :: Lens' ElasticsearchDomainStatus (Maybe Bool)
 edsDeleted = lens _edsDeleted (\ s a -> s{_edsDeleted = a});
+
+-- | The @VPCOptions@ for the specified domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
+edsVPCOptions :: Lens' ElasticsearchDomainStatus (Maybe VPCDerivedInfo)
+edsVPCOptions = lens _edsVPCOptions (\ s a -> s{_edsVPCOptions = a});
+
+-- | Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example @key, value@ : @'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'@ .
+edsEndpoints :: Lens' ElasticsearchDomainStatus (HashMap Text Text)
+edsEndpoints = lens _edsEndpoints (\ s a -> s{_edsEndpoints = a}) . _Default . _Map;
 
 -- | The status of the Elasticsearch domain configuration. @True@ if Amazon Elasticsearch Service is processing configuration changes. @False@ if the configuration is active.
 edsProcessing :: Lens' ElasticsearchDomainStatus (Maybe Bool)
@@ -667,9 +709,12 @@ instance FromJSON ElasticsearchDomainStatus where
               (\ x ->
                  ElasticsearchDomainStatus' <$>
                    (x .:? "EBSOptions") <*> (x .:? "AccessPolicies") <*>
-                     (x .:? "Created")
+                     (x .:? "LogPublishingOptions" .!= mempty)
+                     <*> (x .:? "Created")
                      <*> (x .:? "SnapshotOptions")
                      <*> (x .:? "Deleted")
+                     <*> (x .:? "VPCOptions")
+                     <*> (x .:? "Endpoints" .!= mempty)
                      <*> (x .:? "Processing")
                      <*> (x .:? "Endpoint")
                      <*> (x .:? "AdvancedOptions" .!= mempty)
@@ -863,6 +908,105 @@ instance FromJSON Limits where
 instance Hashable Limits where
 
 instance NFData Limits where
+
+-- | Log Publishing option that is set for given domain.
+--
+-- Attributes and their details:     * CloudWatchLogsLogGroupArn: ARN of the Cloudwatch log group to which log needs to be published.    * Enabled: Whether the log publishing for given log type is enabled or not
+--
+--
+--
+--
+-- /See:/ 'logPublishingOption' smart constructor.
+data LogPublishingOption = LogPublishingOption'
+  { _lpoEnabled                   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _lpoCloudWatchLogsLogGroupARN :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LogPublishingOption' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpoEnabled' - Specifies whether given log publishing option is enabled or not.
+--
+-- * 'lpoCloudWatchLogsLogGroupARN' - Undocumented member.
+logPublishingOption
+    :: LogPublishingOption
+logPublishingOption =
+  LogPublishingOption'
+  {_lpoEnabled = Nothing, _lpoCloudWatchLogsLogGroupARN = Nothing}
+
+
+-- | Specifies whether given log publishing option is enabled or not.
+lpoEnabled :: Lens' LogPublishingOption (Maybe Bool)
+lpoEnabled = lens _lpoEnabled (\ s a -> s{_lpoEnabled = a});
+
+-- | Undocumented member.
+lpoCloudWatchLogsLogGroupARN :: Lens' LogPublishingOption (Maybe Text)
+lpoCloudWatchLogsLogGroupARN = lens _lpoCloudWatchLogsLogGroupARN (\ s a -> s{_lpoCloudWatchLogsLogGroupARN = a});
+
+instance FromJSON LogPublishingOption where
+        parseJSON
+          = withObject "LogPublishingOption"
+              (\ x ->
+                 LogPublishingOption' <$>
+                   (x .:? "Enabled") <*>
+                     (x .:? "CloudWatchLogsLogGroupArn"))
+
+instance Hashable LogPublishingOption where
+
+instance NFData LogPublishingOption where
+
+instance ToJSON LogPublishingOption where
+        toJSON LogPublishingOption'{..}
+          = object
+              (catMaybes
+                 [("Enabled" .=) <$> _lpoEnabled,
+                  ("CloudWatchLogsLogGroupArn" .=) <$>
+                    _lpoCloudWatchLogsLogGroupARN])
+
+-- | The configured log publishing options for the domain and their current status.
+--
+--
+--
+-- /See:/ 'logPublishingOptionsStatus' smart constructor.
+data LogPublishingOptionsStatus = LogPublishingOptionsStatus'
+  { _lposStatus  :: {-# NOUNPACK #-}!(Maybe OptionStatus)
+  , _lposOptions :: {-# NOUNPACK #-}!(Maybe (Map LogType LogPublishingOption))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LogPublishingOptionsStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lposStatus' - The status of the log publishing options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
+--
+-- * 'lposOptions' - The log publishing options configured for the Elasticsearch domain.
+logPublishingOptionsStatus
+    :: LogPublishingOptionsStatus
+logPublishingOptionsStatus =
+  LogPublishingOptionsStatus' {_lposStatus = Nothing, _lposOptions = Nothing}
+
+
+-- | The status of the log publishing options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
+lposStatus :: Lens' LogPublishingOptionsStatus (Maybe OptionStatus)
+lposStatus = lens _lposStatus (\ s a -> s{_lposStatus = a});
+
+-- | The log publishing options configured for the Elasticsearch domain.
+lposOptions :: Lens' LogPublishingOptionsStatus (HashMap LogType LogPublishingOption)
+lposOptions = lens _lposOptions (\ s a -> s{_lposOptions = a}) . _Default . _Map;
+
+instance FromJSON LogPublishingOptionsStatus where
+        parseJSON
+          = withObject "LogPublishingOptionsStatus"
+              (\ x ->
+                 LogPublishingOptionsStatus' <$>
+                   (x .:? "Status") <*> (x .:? "Options" .!= mempty))
+
+instance Hashable LogPublishingOptionsStatus where
+
+instance NFData LogPublishingOptionsStatus where
 
 -- | Provides the current status of the entity.
 --
@@ -1175,3 +1319,155 @@ instance ToJSON Tag where
               (catMaybes
                  [Just ("Key" .= _tagKey),
                   Just ("Value" .= _tagValue)])
+
+-- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
+--
+--
+--
+-- /See:/ 'vpcDerivedInfo' smart constructor.
+data VPCDerivedInfo = VPCDerivedInfo'
+  { _vdiSecurityGroupIds  :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _vdiSubnetIds         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _vdiVPCId             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vdiAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'VPCDerivedInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vdiSecurityGroupIds' - Specifies the security groups for VPC endpoint.
+--
+-- * 'vdiSubnetIds' - Specifies the subnets for VPC endpoint.
+--
+-- * 'vdiVPCId' - The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+--
+-- * 'vdiAvailabilityZones' - The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+vpcDerivedInfo
+    :: VPCDerivedInfo
+vpcDerivedInfo =
+  VPCDerivedInfo'
+  { _vdiSecurityGroupIds = Nothing
+  , _vdiSubnetIds = Nothing
+  , _vdiVPCId = Nothing
+  , _vdiAvailabilityZones = Nothing
+  }
+
+
+-- | Specifies the security groups for VPC endpoint.
+vdiSecurityGroupIds :: Lens' VPCDerivedInfo [Text]
+vdiSecurityGroupIds = lens _vdiSecurityGroupIds (\ s a -> s{_vdiSecurityGroupIds = a}) . _Default . _Coerce;
+
+-- | Specifies the subnets for VPC endpoint.
+vdiSubnetIds :: Lens' VPCDerivedInfo [Text]
+vdiSubnetIds = lens _vdiSubnetIds (\ s a -> s{_vdiSubnetIds = a}) . _Default . _Coerce;
+
+-- | The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+vdiVPCId :: Lens' VPCDerivedInfo (Maybe Text)
+vdiVPCId = lens _vdiVPCId (\ s a -> s{_vdiVPCId = a});
+
+-- | The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+vdiAvailabilityZones :: Lens' VPCDerivedInfo [Text]
+vdiAvailabilityZones = lens _vdiAvailabilityZones (\ s a -> s{_vdiAvailabilityZones = a}) . _Default . _Coerce;
+
+instance FromJSON VPCDerivedInfo where
+        parseJSON
+          = withObject "VPCDerivedInfo"
+              (\ x ->
+                 VPCDerivedInfo' <$>
+                   (x .:? "SecurityGroupIds" .!= mempty) <*>
+                     (x .:? "SubnetIds" .!= mempty)
+                     <*> (x .:? "VPCId")
+                     <*> (x .:? "AvailabilityZones" .!= mempty))
+
+instance Hashable VPCDerivedInfo where
+
+instance NFData VPCDerivedInfo where
+
+-- | Status of the VPC options for the specified Elasticsearch domain.
+--
+--
+--
+-- /See:/ 'vpcDerivedInfoStatus' smart constructor.
+data VPCDerivedInfoStatus = VPCDerivedInfoStatus'
+  { _vdisOptions :: {-# NOUNPACK #-}!VPCDerivedInfo
+  , _vdisStatus  :: {-# NOUNPACK #-}!OptionStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'VPCDerivedInfoStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vdisOptions' - Specifies the VPC options for the specified Elasticsearch domain.
+--
+-- * 'vdisStatus' - Specifies the status of the VPC options for the specified Elasticsearch domain.
+vpcDerivedInfoStatus
+    :: VPCDerivedInfo -- ^ 'vdisOptions'
+    -> OptionStatus -- ^ 'vdisStatus'
+    -> VPCDerivedInfoStatus
+vpcDerivedInfoStatus pOptions_ pStatus_ =
+  VPCDerivedInfoStatus' {_vdisOptions = pOptions_, _vdisStatus = pStatus_}
+
+
+-- | Specifies the VPC options for the specified Elasticsearch domain.
+vdisOptions :: Lens' VPCDerivedInfoStatus VPCDerivedInfo
+vdisOptions = lens _vdisOptions (\ s a -> s{_vdisOptions = a});
+
+-- | Specifies the status of the VPC options for the specified Elasticsearch domain.
+vdisStatus :: Lens' VPCDerivedInfoStatus OptionStatus
+vdisStatus = lens _vdisStatus (\ s a -> s{_vdisStatus = a});
+
+instance FromJSON VPCDerivedInfoStatus where
+        parseJSON
+          = withObject "VPCDerivedInfoStatus"
+              (\ x ->
+                 VPCDerivedInfoStatus' <$>
+                   (x .: "Options") <*> (x .: "Status"))
+
+instance Hashable VPCDerivedInfoStatus where
+
+instance NFData VPCDerivedInfoStatus where
+
+-- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
+--
+--
+--
+-- /See:/ 'vpcOptions' smart constructor.
+data VPCOptions = VPCOptions'
+  { _voSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _voSubnetIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'VPCOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'voSecurityGroupIds' - Specifies the security groups for VPC endpoint.
+--
+-- * 'voSubnetIds' - Specifies the subnets for VPC endpoint.
+vpcOptions
+    :: VPCOptions
+vpcOptions = VPCOptions' {_voSecurityGroupIds = Nothing, _voSubnetIds = Nothing}
+
+
+-- | Specifies the security groups for VPC endpoint.
+voSecurityGroupIds :: Lens' VPCOptions [Text]
+voSecurityGroupIds = lens _voSecurityGroupIds (\ s a -> s{_voSecurityGroupIds = a}) . _Default . _Coerce;
+
+-- | Specifies the subnets for VPC endpoint.
+voSubnetIds :: Lens' VPCOptions [Text]
+voSubnetIds = lens _voSubnetIds (\ s a -> s{_voSubnetIds = a}) . _Default . _Coerce;
+
+instance Hashable VPCOptions where
+
+instance NFData VPCOptions where
+
+instance ToJSON VPCOptions where
+        toJSON VPCOptions'{..}
+          = object
+              (catMaybes
+                 [("SecurityGroupIds" .=) <$> _voSecurityGroupIds,
+                  ("SubnetIds" .=) <$> _voSubnetIds])

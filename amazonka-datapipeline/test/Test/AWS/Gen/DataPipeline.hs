@@ -14,11 +14,11 @@
 module Test.AWS.Gen.DataPipeline where
 
 import Data.Proxy
+import Network.AWS.DataPipeline
+import Test.AWS.DataPipeline.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.DataPipeline
-import Test.AWS.DataPipeline.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

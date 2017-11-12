@@ -27,12 +27,12 @@ module Network.AWS.EC2.DescribeFpgaImages
       describeFpgaImages
     , DescribeFpgaImages
     -- * Request Lenses
-    , dfiOwners
-    , dfiFilters
-    , dfiNextToken
-    , dfiDryRun
-    , dfiMaxResults
-    , dfiFpgaImageIds
+    , dfisOwners
+    , dfisFilters
+    , dfisNextToken
+    , dfisDryRun
+    , dfisMaxResults
+    , dfisFpgaImageIds
 
     -- * Destructuring the Response
     , describeFpgaImagesResponse
@@ -52,12 +52,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeFpgaImages' smart constructor.
 data DescribeFpgaImages = DescribeFpgaImages'
-  { _dfiOwners       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dfiFilters      :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dfiNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfiDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dfiMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dfiFpgaImageIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dfisOwners       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _dfisFilters      :: {-# NOUNPACK #-}!(Maybe [Filter])
+  , _dfisNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dfisDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _dfisMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _dfisFpgaImageIds :: {-# NOUNPACK #-}!(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -65,53 +65,53 @@ data DescribeFpgaImages = DescribeFpgaImages'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfiOwners' - Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is the sender of the request), or an AWS owner alias (valid values are @amazon@ | @aws-marketplace@ ).
+-- * 'dfisOwners' - Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is the sender of the request), or an AWS owner alias (valid values are @amazon@ | @aws-marketplace@ ).
 --
--- * 'dfiFilters' - One or more filters.     * @create-time@ - The creation time of the AFI.     * @fpga-image-id@ - The FPGA image identifier (AFI ID).     * @fpga-image-global-id@ - The global FPGA image identifier (AGFI ID).     * @name@ - The name of the AFI.     * @owner-id@ - The AWS account ID of the AFI owner.     * @product-code@ - The product code.     * @shell-version@ - The version of the AWS Shell that was used to create the bitstream.     * @state@ - The state of the AFI (@pending@ | @failed@ | @available@ | @unavailable@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @update-time@ - The time of the most recent update.
+-- * 'dfisFilters' - One or more filters.     * @create-time@ - The creation time of the AFI.     * @fpga-image-id@ - The FPGA image identifier (AFI ID).     * @fpga-image-global-id@ - The global FPGA image identifier (AGFI ID).     * @name@ - The name of the AFI.     * @owner-id@ - The AWS account ID of the AFI owner.     * @product-code@ - The product code.     * @shell-version@ - The version of the AWS Shell that was used to create the bitstream.     * @state@ - The state of the AFI (@pending@ | @failed@ | @available@ | @unavailable@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @update-time@ - The time of the most recent update.
 --
--- * 'dfiNextToken' - The token to retrieve the next page of results.
+-- * 'dfisNextToken' - The token to retrieve the next page of results.
 --
--- * 'dfiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'dfisDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dfiMaxResults' - The maximum number of results to return in a single call.
+-- * 'dfisMaxResults' - The maximum number of results to return in a single call.
 --
--- * 'dfiFpgaImageIds' - One or more AFI IDs.
+-- * 'dfisFpgaImageIds' - One or more AFI IDs.
 describeFpgaImages
     :: DescribeFpgaImages
 describeFpgaImages =
   DescribeFpgaImages'
-  { _dfiOwners = Nothing
-  , _dfiFilters = Nothing
-  , _dfiNextToken = Nothing
-  , _dfiDryRun = Nothing
-  , _dfiMaxResults = Nothing
-  , _dfiFpgaImageIds = Nothing
+  { _dfisOwners = Nothing
+  , _dfisFilters = Nothing
+  , _dfisNextToken = Nothing
+  , _dfisDryRun = Nothing
+  , _dfisMaxResults = Nothing
+  , _dfisFpgaImageIds = Nothing
   }
 
 
 -- | Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is the sender of the request), or an AWS owner alias (valid values are @amazon@ | @aws-marketplace@ ).
-dfiOwners :: Lens' DescribeFpgaImages [Text]
-dfiOwners = lens _dfiOwners (\ s a -> s{_dfiOwners = a}) . _Default . _Coerce;
+dfisOwners :: Lens' DescribeFpgaImages [Text]
+dfisOwners = lens _dfisOwners (\ s a -> s{_dfisOwners = a}) . _Default . _Coerce;
 
 -- | One or more filters.     * @create-time@ - The creation time of the AFI.     * @fpga-image-id@ - The FPGA image identifier (AFI ID).     * @fpga-image-global-id@ - The global FPGA image identifier (AGFI ID).     * @name@ - The name of the AFI.     * @owner-id@ - The AWS account ID of the AFI owner.     * @product-code@ - The product code.     * @shell-version@ - The version of the AWS Shell that was used to create the bitstream.     * @state@ - The state of the AFI (@pending@ | @failed@ | @available@ | @unavailable@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @update-time@ - The time of the most recent update.
-dfiFilters :: Lens' DescribeFpgaImages [Filter]
-dfiFilters = lens _dfiFilters (\ s a -> s{_dfiFilters = a}) . _Default . _Coerce;
+dfisFilters :: Lens' DescribeFpgaImages [Filter]
+dfisFilters = lens _dfisFilters (\ s a -> s{_dfisFilters = a}) . _Default . _Coerce;
 
 -- | The token to retrieve the next page of results.
-dfiNextToken :: Lens' DescribeFpgaImages (Maybe Text)
-dfiNextToken = lens _dfiNextToken (\ s a -> s{_dfiNextToken = a});
+dfisNextToken :: Lens' DescribeFpgaImages (Maybe Text)
+dfisNextToken = lens _dfisNextToken (\ s a -> s{_dfisNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dfiDryRun :: Lens' DescribeFpgaImages (Maybe Bool)
-dfiDryRun = lens _dfiDryRun (\ s a -> s{_dfiDryRun = a});
+dfisDryRun :: Lens' DescribeFpgaImages (Maybe Bool)
+dfisDryRun = lens _dfisDryRun (\ s a -> s{_dfisDryRun = a});
 
 -- | The maximum number of results to return in a single call.
-dfiMaxResults :: Lens' DescribeFpgaImages (Maybe Natural)
-dfiMaxResults = lens _dfiMaxResults (\ s a -> s{_dfiMaxResults = a}) . mapping _Nat;
+dfisMaxResults :: Lens' DescribeFpgaImages (Maybe Natural)
+dfisMaxResults = lens _dfisMaxResults (\ s a -> s{_dfisMaxResults = a}) . mapping _Nat;
 
 -- | One or more AFI IDs.
-dfiFpgaImageIds :: Lens' DescribeFpgaImages [Text]
-dfiFpgaImageIds = lens _dfiFpgaImageIds (\ s a -> s{_dfiFpgaImageIds = a}) . _Default . _Coerce;
+dfisFpgaImageIds :: Lens' DescribeFpgaImages [Text]
+dfisFpgaImageIds = lens _dfisFpgaImageIds (\ s a -> s{_dfisFpgaImageIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeFpgaImages where
         type Rs DescribeFpgaImages =
@@ -141,12 +141,13 @@ instance ToQuery DescribeFpgaImages where
           = mconcat
               ["Action" =: ("DescribeFpgaImages" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               toQuery (toQueryList "Owner" <$> _dfiOwners),
-               toQuery (toQueryList "Filter" <$> _dfiFilters),
-               "NextToken" =: _dfiNextToken, "DryRun" =: _dfiDryRun,
-               "MaxResults" =: _dfiMaxResults,
+               toQuery (toQueryList "Owner" <$> _dfisOwners),
+               toQuery (toQueryList "Filter" <$> _dfisFilters),
+               "NextToken" =: _dfisNextToken,
+               "DryRun" =: _dfisDryRun,
+               "MaxResults" =: _dfisMaxResults,
                toQuery
-                 (toQueryList "FpgaImageId" <$> _dfiFpgaImageIds)]
+                 (toQueryList "FpgaImageId" <$> _dfisFpgaImageIds)]
 
 -- | /See:/ 'describeFpgaImagesResponse' smart constructor.
 data DescribeFpgaImagesResponse = DescribeFpgaImagesResponse'

@@ -62,7 +62,7 @@ data ListStateMachines = ListStateMachines'
 --
 -- * 'lsmNextToken' - If a @nextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 --
--- * 'lsmMaxResults' - The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- * 'lsmMaxResults' - The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 means to use the default. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 listStateMachines
     :: ListStateMachines
 listStateMachines =
@@ -73,7 +73,7 @@ listStateMachines =
 lsmNextToken :: Lens' ListStateMachines (Maybe Text)
 lsmNextToken = lens _lsmNextToken (\ s a -> s{_lsmNextToken = a});
 
--- | The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- | The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 means to use the default. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 lsmMaxResults :: Lens' ListStateMachines (Maybe Natural)
 lsmMaxResults = lens _lsmMaxResults (\ s a -> s{_lsmMaxResults = a}) . mapping _Nat;
 

@@ -21,7 +21,7 @@
 -- Accept ownership of a private virtual interface created by another customer.
 --
 --
--- After the virtual interface owner calls this function, the virtual interface will be created and attached to the given virtual private gateway, and will be available for handling traffic.
+-- After the virtual interface owner calls this function, the virtual interface will be created and attached to the given virtual private gateway or direct connect gateway, and will be available for handling traffic.
 --
 module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     (
@@ -29,8 +29,9 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
       confirmPrivateVirtualInterface
     , ConfirmPrivateVirtualInterface
     -- * Request Lenses
-    , cpviVirtualInterfaceId
     , cpviVirtualGatewayId
+    , cpviDirectConnectGatewayId
+    , cpviVirtualInterfaceId
 
     -- * Destructuring the Response
     , confirmPrivateVirtualInterfaceResponse
@@ -53,8 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'confirmPrivateVirtualInterface' smart constructor.
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
-  { _cpviVirtualInterfaceId :: {-# NOUNPACK #-}!Text
-  , _cpviVirtualGatewayId   :: {-# NOUNPACK #-}!Text
+  { _cpviVirtualGatewayId       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpviDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cpviVirtualInterfaceId     :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -62,27 +64,33 @@ data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpviVirtualInterfaceId' - Undocumented member.
---
 -- * 'cpviVirtualGatewayId' - ID of the virtual private gateway that will be attached to the virtual interface. A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action. Default: None
+--
+-- * 'cpviDirectConnectGatewayId' - ID of the direct connect gateway that will be attached to the virtual interface. A direct connect gateway can be managed via the AWS Direct Connect console or the 'CreateDirectConnectGateway' action. Default: None
+--
+-- * 'cpviVirtualInterfaceId' - Undocumented member.
 confirmPrivateVirtualInterface
     :: Text -- ^ 'cpviVirtualInterfaceId'
-    -> Text -- ^ 'cpviVirtualGatewayId'
     -> ConfirmPrivateVirtualInterface
-confirmPrivateVirtualInterface pVirtualInterfaceId_ pVirtualGatewayId_ =
+confirmPrivateVirtualInterface pVirtualInterfaceId_ =
   ConfirmPrivateVirtualInterface'
-  { _cpviVirtualInterfaceId = pVirtualInterfaceId_
-  , _cpviVirtualGatewayId = pVirtualGatewayId_
+  { _cpviVirtualGatewayId = Nothing
+  , _cpviDirectConnectGatewayId = Nothing
+  , _cpviVirtualInterfaceId = pVirtualInterfaceId_
   }
 
+
+-- | ID of the virtual private gateway that will be attached to the virtual interface. A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action. Default: None
+cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface (Maybe Text)
+cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewayId = a});
+
+-- | ID of the direct connect gateway that will be attached to the virtual interface. A direct connect gateway can be managed via the AWS Direct Connect console or the 'CreateDirectConnectGateway' action. Default: None
+cpviDirectConnectGatewayId :: Lens' ConfirmPrivateVirtualInterface (Maybe Text)
+cpviDirectConnectGatewayId = lens _cpviDirectConnectGatewayId (\ s a -> s{_cpviDirectConnectGatewayId = a});
 
 -- | Undocumented member.
 cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualInterfaceId = lens _cpviVirtualInterfaceId (\ s a -> s{_cpviVirtualInterfaceId = a});
-
--- | ID of the virtual private gateway that will be attached to the virtual interface. A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action. Default: None
-cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
-cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewayId = a});
 
 instance AWSRequest ConfirmPrivateVirtualInterface
          where
@@ -116,9 +124,11 @@ instance ToJSON ConfirmPrivateVirtualInterface where
         toJSON ConfirmPrivateVirtualInterface'{..}
           = object
               (catMaybes
-                 [Just
-                    ("virtualInterfaceId" .= _cpviVirtualInterfaceId),
-                  Just ("virtualGatewayId" .= _cpviVirtualGatewayId)])
+                 [("virtualGatewayId" .=) <$> _cpviVirtualGatewayId,
+                  ("directConnectGatewayId" .=) <$>
+                    _cpviDirectConnectGatewayId,
+                  Just
+                    ("virtualInterfaceId" .= _cpviVirtualInterfaceId)])
 
 instance ToPath ConfirmPrivateVirtualInterface where
         toPath = const "/"

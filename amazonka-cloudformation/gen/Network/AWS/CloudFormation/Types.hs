@@ -193,21 +193,38 @@ module Network.AWS.CloudFormation.Types
     , rtdRequiresRecreation
     , rtdName
 
+    -- * RollbackConfiguration
+    , RollbackConfiguration
+    , rollbackConfiguration
+    , rcRollbackTriggers
+    , rcMonitoringTimeInMinutes
+
+    -- * RollbackTrigger
+    , RollbackTrigger
+    , rollbackTrigger
+    , rtARN
+    , rtType
+
     -- * Stack
     , Stack
     , stack
     , sDisableRollback
     , sLastUpdatedTime
+    , sRootId
     , sNotificationARNs
     , sStackStatusReason
+    , sEnableTerminationProtection
     , sChangeSetId
+    , sDeletionTime
     , sOutputs
     , sParameters
     , sStackId
     , sDescription
     , sCapabilities
+    , sRollbackConfiguration
     , sTags
     , sTimeoutInMinutes
+    , sParentId
     , sRoleARN
     , sStackName
     , sCreationTime
@@ -348,10 +365,12 @@ module Network.AWS.CloudFormation.Types
     , StackSummary
     , stackSummary
     , ssLastUpdatedTime
+    , ssRootId
     , ssStackStatusReason
     , ssTemplateDescription
     , ssDeletionTime
     , ssStackId
+    , ssParentId
     , ssStackName
     , ssCreationTime
     , ssStackStatus
@@ -542,6 +561,8 @@ _AlreadyExistsException =
 
 -- | The quota for the resource has already been reached.
 --
+--
+-- For information on stack set limitations, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-limitations.html Limitations of StackSets> .
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =

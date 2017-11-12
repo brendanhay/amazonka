@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of an update pipeline action.
+-- | Represents the input of an UpdatePipeline action.
 --
 --
 --
@@ -103,7 +103,7 @@ instance ToPath UpdatePipeline where
 instance ToQuery UpdatePipeline where
         toQuery = const mempty
 
--- | Represents the output of an update pipeline action.
+-- | Represents the output of an UpdatePipeline action.
 --
 --
 --

@@ -21,7 +21,7 @@
 -- Given an identity (an email address or a domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with that identity as the @Source@ .
 --
 --
--- This action is throttled at one request per second.
+-- You can execute this operation no more than once per second.
 --
 -- For more information about feedback notification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide> .
 --

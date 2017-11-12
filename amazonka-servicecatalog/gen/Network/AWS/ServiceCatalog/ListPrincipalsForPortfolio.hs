@@ -61,7 +61,7 @@ data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpfpAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'lpfpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'lpfpPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
@@ -80,7 +80,7 @@ listPrincipalsForPortfolio pPortfolioId_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lpfpAcceptLanguage :: Lens' ListPrincipalsForPortfolio (Maybe Text)
 lpfpAcceptLanguage = lens _lpfpAcceptLanguage (\ s a -> s{_lpfpAcceptLanguage = a});
 

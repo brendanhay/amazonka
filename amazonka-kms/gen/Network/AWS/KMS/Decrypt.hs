@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Decrypts ciphertext. Ciphertext is plaintext that has been previously encrypted by using any of the following functions:
+-- Decrypts ciphertext. Ciphertext is plaintext that has been previously encrypted by using any of the following operations:
 --
 --
 --     * 'GenerateDataKey'
@@ -148,7 +148,7 @@ data DecryptResponse = DecryptResponse'
 --
 -- * 'drsKeyId' - ARN of the key used to perform the decryption. This value is returned if no errors are encountered during the operation.
 --
--- * 'drsPlaintext' - Decrypted plaintext data. This value may not be returned if the customer master key is not available or if you didn't have permission to use it.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'drsPlaintext' - Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
 -- * 'drsResponseStatus' - -- | The response status code.
 decryptResponse
@@ -166,7 +166,7 @@ decryptResponse pResponseStatus_ =
 drsKeyId :: Lens' DecryptResponse (Maybe Text)
 drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a});
 
--- | Decrypted plaintext data. This value may not be returned if the customer master key is not available or if you didn't have permission to use it.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 drsPlaintext :: Lens' DecryptResponse (Maybe ByteString)
 drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping (_Sensitive . _Base64);
 

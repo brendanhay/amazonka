@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a previously provisioned cache cluster. @DeleteCacheCluster@ deletes all associated cache nodes, node endpoints and the cache cluster itself. When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the cache cluster; you cannot cancel or revert this operation.
+-- Deletes a previously provisioned cluster. @DeleteCacheCluster@ deletes all associated cache nodes, node endpoints and the cluster itself. When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the cluster; you cannot cancel or revert this operation.
 --
 --
--- This operation cannot be used to delete a cache cluster that is the last read replica of a replication group or node group (shard) that has Multi-AZ mode enabled or a cache cluster from a Redis (cluster mode enabled) replication group.
+-- This operation cannot be used to delete a cluster that is the last read replica of a replication group or node group (shard) that has Multi-AZ mode enabled or a cluster from a Redis (cluster mode enabled) replication group.
 --
 -- /Important:/ Due to current limitations on Redis (cluster mode disabled), this operation or parameter is not supported on Redis (cluster mode enabled) replication groups.
 --
@@ -64,9 +64,9 @@ data DeleteCacheCluster = DeleteCacheCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dccFinalSnapshotIdentifier' - The user-supplied name of a final cache cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cache cluster immediately afterward.
+-- * 'dccFinalSnapshotIdentifier' - The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cluster immediately afterward.
 --
--- * 'dccCacheClusterId' - The cache cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
+-- * 'dccCacheClusterId' - The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
 deleteCacheCluster
     :: Text -- ^ 'dccCacheClusterId'
     -> DeleteCacheCluster
@@ -75,11 +75,11 @@ deleteCacheCluster pCacheClusterId_ =
   {_dccFinalSnapshotIdentifier = Nothing, _dccCacheClusterId = pCacheClusterId_}
 
 
--- | The user-supplied name of a final cache cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cache cluster immediately afterward.
+-- | The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cluster immediately afterward.
 dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
 dccFinalSnapshotIdentifier = lens _dccFinalSnapshotIdentifier (\ s a -> s{_dccFinalSnapshotIdentifier = a});
 
--- | The cache cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
+-- | The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
 dccCacheClusterId :: Lens' DeleteCacheCluster Text
 dccCacheClusterId = lens _dccCacheClusterId (\ s a -> s{_dccCacheClusterId = a});
 

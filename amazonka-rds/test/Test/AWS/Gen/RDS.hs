@@ -14,11 +14,11 @@
 module Test.AWS.Gen.RDS where
 
 import Data.Proxy
+import Network.AWS.RDS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.RDS
 import Test.AWS.RDS.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -153,6 +153,9 @@ import Test.AWS.RDS.Internal
 --
 --         , requestDeleteDBClusterSnapshot $
 --             deleteDBClusterSnapshot
+--
+--         , requestDescribeValidDBInstanceModifications $
+--             describeValidDBInstanceModifications
 --
 --         , requestDescribeOptionGroupOptions $
 --             describeOptionGroupOptions
@@ -423,6 +426,9 @@ import Test.AWS.RDS.Internal
 --
 --         , responseDeleteDBClusterSnapshot $
 --             deleteDBClusterSnapshotResponse
+--
+--         , responseDescribeValidDBInstanceModifications $
+--             describeValidDBInstanceModificationsResponse
 --
 --         , responseDescribeOptionGroupOptions $
 --             describeOptionGroupOptionsResponse
@@ -779,6 +785,11 @@ requestDeleteDBClusterSnapshot :: DeleteDBClusterSnapshot -> TestTree
 requestDeleteDBClusterSnapshot = req
     "DeleteDBClusterSnapshot"
     "fixture/DeleteDBClusterSnapshot.yaml"
+
+requestDescribeValidDBInstanceModifications :: DescribeValidDBInstanceModifications -> TestTree
+requestDescribeValidDBInstanceModifications = req
+    "DescribeValidDBInstanceModifications"
+    "fixture/DescribeValidDBInstanceModifications.yaml"
 
 requestDescribeOptionGroupOptions :: DescribeOptionGroupOptions -> TestTree
 requestDescribeOptionGroupOptions = req
@@ -1310,6 +1321,13 @@ responseDeleteDBClusterSnapshot = res
     "fixture/DeleteDBClusterSnapshotResponse.proto"
     rds
     (Proxy :: Proxy DeleteDBClusterSnapshot)
+
+responseDescribeValidDBInstanceModifications :: DescribeValidDBInstanceModificationsResponse -> TestTree
+responseDescribeValidDBInstanceModifications = res
+    "DescribeValidDBInstanceModificationsResponse"
+    "fixture/DescribeValidDBInstanceModificationsResponse.proto"
+    rds
+    (Proxy :: Proxy DescribeValidDBInstanceModifications)
 
 responseDescribeOptionGroupOptions :: DescribeOptionGroupOptionsResponse -> TestTree
 responseDescribeOptionGroupOptions = res

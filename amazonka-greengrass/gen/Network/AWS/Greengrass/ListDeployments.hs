@@ -130,7 +130,7 @@ data ListDeploymentsResponse = ListDeploymentsResponse'
 --
 -- * 'ldrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'ldrsDeployments' - Information on deployments
+-- * 'ldrsDeployments' - List of deployments for the requested groups
 --
 -- * 'ldrsResponseStatus' - -- | The response status code.
 listDeploymentsResponse
@@ -148,7 +148,7 @@ listDeploymentsResponse pResponseStatus_ =
 ldrsNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
--- | Information on deployments
+-- | List of deployments for the requested groups
 ldrsDeployments :: Lens' ListDeploymentsResponse [Deployment]
 ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default . _Coerce;
 

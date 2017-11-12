@@ -18,18 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about all provisioned cache clusters if no cache cluster identifier is specified, or about a specific cache cluster if a cache cluster identifier is supplied.
+-- Returns information about all provisioned clusters if no cluster identifier is specified, or about a specific cache cluster if a cluster identifier is supplied.
 --
 --
--- By default, abbreviated information about the cache clusters is returned. You can use the optional /ShowCacheNodeInfo/ flag to retrieve detailed information about the cache nodes associated with the cache clusters. These details include the DNS address and port for the cache node endpoint.
+-- By default, abbreviated information about the clusters is returned. You can use the optional /ShowCacheNodeInfo/ flag to retrieve detailed information about the cache nodes associated with the clusters. These details include the DNS address and port for the cache node endpoint.
 --
 -- If the cluster is in the /creating/ state, only cluster-level information is displayed until all of the nodes are successfully provisioned.
 --
 -- If the cluster is in the /deleting/ state, only cluster-level information is displayed.
 --
--- If cache nodes are currently being added to the cache cluster, node endpoint information and creation time for the additional nodes are not displayed until they are completely provisioned. When the cache cluster state is /available/ , the cluster is ready for use.
+-- If cache nodes are currently being added to the cluster, node endpoint information and creation time for the additional nodes are not displayed until they are completely provisioned. When the cluster state is /available/ , the cluster is ready for use.
 --
--- If cache nodes are currently being removed from the cache cluster, no endpoint information for the removed nodes is displayed.
+-- If cache nodes are currently being removed from the cluster, no endpoint information for the removed nodes is displayed.
 --
 --
 -- This operation returns paginated results.
@@ -82,7 +82,7 @@ data DescribeCacheClusters = DescribeCacheClusters'
 --
 -- * 'dShowCacheClustersNotInReplicationGroups' - An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
 --
--- * 'dCacheClusterId' - The user-supplied cluster identifier. If this parameter is specified, only information about that specific cache cluster is returned. This parameter isn't case sensitive.
+-- * 'dCacheClusterId' - The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
 --
 -- * 'dMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
@@ -105,7 +105,7 @@ describeCacheClusters =
 dShowCacheClustersNotInReplicationGroups :: Lens' DescribeCacheClusters (Maybe Bool)
 dShowCacheClustersNotInReplicationGroups = lens _dShowCacheClustersNotInReplicationGroups (\ s a -> s{_dShowCacheClustersNotInReplicationGroups = a});
 
--- | The user-supplied cluster identifier. If this parameter is specified, only information about that specific cache cluster is returned. This parameter isn't case sensitive.
+-- | The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
 dCacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
 dCacheClusterId = lens _dCacheClusterId (\ s a -> s{_dCacheClusterId = a});
 
@@ -177,7 +177,7 @@ data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsCacheClusters' - A list of cache clusters. Each item in the list contains detailed information about one cache cluster.
+-- * 'drsCacheClusters' - A list of clusters. Each item in the list contains detailed information about one cluster.
 --
 -- * 'drsMarker' - Provides an identifier to allow retrieval of paginated results.
 --
@@ -193,7 +193,7 @@ describeCacheClustersResponse pResponseStatus_ =
   }
 
 
--- | A list of cache clusters. Each item in the list contains detailed information about one cache cluster.
+-- | A list of clusters. Each item in the list contains detailed information about one cluster.
 drsCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
 drsCacheClusters = lens _drsCacheClusters (\ s a -> s{_drsCacheClusters = a}) . _Default . _Coerce;
 

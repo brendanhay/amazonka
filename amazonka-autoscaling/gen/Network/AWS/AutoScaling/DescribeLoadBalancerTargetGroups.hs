@@ -47,11 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeLoadBalancerTargetGroups.
---
---
---
--- /See:/ 'describeLoadBalancerTargetGroups' smart constructor.
+-- | /See:/ 'describeLoadBalancerTargetGroups' smart constructor.
 data DescribeLoadBalancerTargetGroups = DescribeLoadBalancerTargetGroups'
   { _dlbtgsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
   , _dlbtgsMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
@@ -132,11 +128,7 @@ instance ToQuery DescribeLoadBalancerTargetGroups
                "AutoScalingGroupName" =:
                  _dlbtgsAutoScalingGroupName]
 
--- | Contains the output of DescribeLoadBalancerTargetGroups.
---
---
---
--- /See:/ 'describeLoadBalancerTargetGroupsResponse' smart constructor.
+-- | /See:/ 'describeLoadBalancerTargetGroupsResponse' smart constructor.
 data DescribeLoadBalancerTargetGroupsResponse = DescribeLoadBalancerTargetGroupsResponse'
   { _dlbtgsrsLoadBalancerTargetGroups :: {-# NOUNPACK #-}!(Maybe [LoadBalancerTargetGroupState])
   , _dlbtgsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)

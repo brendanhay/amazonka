@@ -71,7 +71,7 @@ data AddApplicationInput = AddApplicationInput'
 --
 -- * 'aaiCurrentApplicationVersionId' - Current version of your Amazon Kinesis Analytics application. You can use the 'DescribeApplication' operation to find the current application version.
 --
--- * 'aaiInput' -
+-- * 'aaiInput' - The 'Input' to add.
 addApplicationInput
     :: Text -- ^ 'aaiApplicationName'
     -> Natural -- ^ 'aaiCurrentApplicationVersionId'
@@ -93,7 +93,7 @@ aaiApplicationName = lens _aaiApplicationName (\ s a -> s{_aaiApplicationName = 
 aaiCurrentApplicationVersionId :: Lens' AddApplicationInput Natural
 aaiCurrentApplicationVersionId = lens _aaiCurrentApplicationVersionId (\ s a -> s{_aaiCurrentApplicationVersionId = a}) . _Nat;
 
--- |
+-- | The 'Input' to add.
 aaiInput :: Lens' AddApplicationInput Input
 aaiInput = lens _aaiInput (\ s a -> s{_aaiInput = a});
 

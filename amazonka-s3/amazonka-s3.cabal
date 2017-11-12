@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -53,6 +53,7 @@ library
         , Network.AWS.S3.DeleteBucket
         , Network.AWS.S3.DeleteBucketAnalyticsConfiguration
         , Network.AWS.S3.DeleteBucketCORS
+        , Network.AWS.S3.DeleteBucketEncryption
         , Network.AWS.S3.DeleteBucketInventoryConfiguration
         , Network.AWS.S3.DeleteBucketLifecycle
         , Network.AWS.S3.DeleteBucketMetricsConfiguration
@@ -67,6 +68,7 @@ library
         , Network.AWS.S3.GetBucketAccelerateConfiguration
         , Network.AWS.S3.GetBucketAnalyticsConfiguration
         , Network.AWS.S3.GetBucketCORS
+        , Network.AWS.S3.GetBucketEncryption
         , Network.AWS.S3.GetBucketInventoryConfiguration
         , Network.AWS.S3.GetBucketLifecycleConfiguration
         , Network.AWS.S3.GetBucketLocation
@@ -98,6 +100,7 @@ library
         , Network.AWS.S3.PutBucketAccelerateConfiguration
         , Network.AWS.S3.PutBucketAnalyticsConfiguration
         , Network.AWS.S3.PutBucketCORS
+        , Network.AWS.S3.PutBucketEncryption
         , Network.AWS.S3.PutBucketInventoryConfiguration
         , Network.AWS.S3.PutBucketLifecycleConfiguration
         , Network.AWS.S3.PutBucketLogging

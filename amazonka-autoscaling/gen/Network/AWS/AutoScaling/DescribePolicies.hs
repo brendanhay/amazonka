@@ -52,11 +52,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribePolicies.
---
---
---
--- /See:/ 'describePolicies' smart constructor.
+-- | /See:/ 'describePolicies' smart constructor.
 data DescribePolicies = DescribePolicies'
   { _dpsPolicyNames          :: {-# NOUNPACK #-}!(Maybe [Text])
   , _dpsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
@@ -153,11 +149,7 @@ instance ToQuery DescribePolicies where
                "PolicyTypes" =:
                  toQuery (toQueryList "member" <$> _dpsPolicyTypes)]
 
--- | Contains the output of DescribePolicies.
---
---
---
--- /See:/ 'describePoliciesResponse' smart constructor.
+-- | /See:/ 'describePoliciesResponse' smart constructor.
 data DescribePoliciesResponse = DescribePoliciesResponse'
   { _dprsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
   , _dprsScalingPolicies :: {-# NOUNPACK #-}!(Maybe [ScalingPolicy])

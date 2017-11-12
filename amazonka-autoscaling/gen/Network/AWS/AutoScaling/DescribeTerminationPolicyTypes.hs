@@ -89,11 +89,7 @@ instance ToQuery DescribeTerminationPolicyTypes where
                     ("DescribeTerminationPolicyTypes" :: ByteString),
                   "Version" =: ("2011-01-01" :: ByteString)])
 
--- | Contains the output of DescribeTerminationPolicyTypes.
---
---
---
--- /See:/ 'describeTerminationPolicyTypesResponse' smart constructor.
+-- | /See:/ 'describeTerminationPolicyTypesResponse' smart constructor.
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
   { _dtptrsTerminationPolicyTypes :: {-# NOUNPACK #-}!(Maybe [Text])
   , _dtptrsResponseStatus         :: {-# NOUNPACK #-}!Int

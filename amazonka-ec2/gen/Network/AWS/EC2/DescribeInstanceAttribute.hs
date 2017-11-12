@@ -189,7 +189,7 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 --
 -- * 'desrsEnaSupport' - Indicates whether enhanced networking with ENA is enabled.
 --
--- * 'desrsSourceDestCheck' - Indicates whether source/destination checking is enabled. A value of @true@ means checking is enabled, and @false@ means checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
+-- * 'desrsSourceDestCheck' - Indicates whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
 --
 -- * 'desrsDisableAPITermination' - If the value is @true@ , you can't terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
 --
@@ -197,13 +197,13 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 --
 -- * 'desrsKernelId' - The kernel ID.
 --
--- * 'desrsRootDeviceName' - The name of the root device (for example, @/dev/sda1@ or @/dev/xvda@ ).
+-- * 'desrsRootDeviceName' - The device name of the root device volume (for example, @/dev/sda1@ ).
 --
 -- * 'desrsInstanceType' - The instance type.
 --
 -- * 'desrsSRIOVNetSupport' - Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 --
--- * 'desrsEBSOptimized' - Indicates whether the instance is optimized for EBS I/O.
+-- * 'desrsEBSOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O.
 --
 -- * 'desrsUserData' - The user data.
 --
@@ -250,7 +250,7 @@ desrsGroups = lens _desrsGroups (\ s a -> s{_desrsGroups = a}) . _Default . _Coe
 desrsEnaSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 desrsEnaSupport = lens _desrsEnaSupport (\ s a -> s{_desrsEnaSupport = a});
 
--- | Indicates whether source/destination checking is enabled. A value of @true@ means checking is enabled, and @false@ means checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
+-- | Indicates whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
 desrsSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 desrsSourceDestCheck = lens _desrsSourceDestCheck (\ s a -> s{_desrsSourceDestCheck = a});
 
@@ -266,7 +266,7 @@ desrsRAMDiskId = lens _desrsRAMDiskId (\ s a -> s{_desrsRAMDiskId = a});
 desrsKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 desrsKernelId = lens _desrsKernelId (\ s a -> s{_desrsKernelId = a});
 
--- | The name of the root device (for example, @/dev/sda1@ or @/dev/xvda@ ).
+-- | The device name of the root device volume (for example, @/dev/sda1@ ).
 desrsRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 desrsRootDeviceName = lens _desrsRootDeviceName (\ s a -> s{_desrsRootDeviceName = a});
 
@@ -278,7 +278,7 @@ desrsInstanceType = lens _desrsInstanceType (\ s a -> s{_desrsInstanceType = a})
 desrsSRIOVNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 desrsSRIOVNetSupport = lens _desrsSRIOVNetSupport (\ s a -> s{_desrsSRIOVNetSupport = a});
 
--- | Indicates whether the instance is optimized for EBS I/O.
+-- | Indicates whether the instance is optimized for Amazon EBS I/O.
 desrsEBSOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 desrsEBSOptimized = lens _desrsEBSOptimized (\ s a -> s{_desrsEBSOptimized = a});
 

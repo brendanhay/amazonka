@@ -14,11 +14,11 @@
 module Test.AWS.Gen.CodeCommit where
 
 import Data.Proxy
+import Network.AWS.CodeCommit
+import Test.AWS.CodeCommit.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.CodeCommit
-import Test.AWS.CodeCommit.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -39,6 +39,9 @@ import Test.AWS.CodeCommit.Internal
 --
 --         , requestGetDifferences $
 --             getDifferences
+--
+--         , requestDeleteBranch $
+--             deleteBranch
 --
 --         , requestUpdateRepositoryDescription $
 --             updateRepositoryDescription
@@ -93,6 +96,9 @@ import Test.AWS.CodeCommit.Internal
 --
 --         , responseGetDifferences $
 --             getDifferencesResponse
+--
+--         , responseDeleteBranch $
+--             deleteBranchResponse
 --
 --         , responseUpdateRepositoryDescription $
 --             updateRepositoryDescriptionResponse
@@ -157,6 +163,11 @@ requestGetDifferences :: GetDifferences -> TestTree
 requestGetDifferences = req
     "GetDifferences"
     "fixture/GetDifferences.yaml"
+
+requestDeleteBranch :: DeleteBranch -> TestTree
+requestDeleteBranch = req
+    "DeleteBranch"
+    "fixture/DeleteBranch.yaml"
 
 requestUpdateRepositoryDescription :: UpdateRepositoryDescription -> TestTree
 requestUpdateRepositoryDescription = req
@@ -252,6 +263,13 @@ responseGetDifferences = res
     "fixture/GetDifferencesResponse.proto"
     codeCommit
     (Proxy :: Proxy GetDifferences)
+
+responseDeleteBranch :: DeleteBranchResponse -> TestTree
+responseDeleteBranch = res
+    "DeleteBranchResponse"
+    "fixture/DeleteBranchResponse.proto"
+    codeCommit
+    (Proxy :: Proxy DeleteBranch)
 
 responseUpdateRepositoryDescription :: UpdateRepositoryDescriptionResponse -> TestTree
 responseUpdateRepositoryDescription = res

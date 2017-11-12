@@ -68,7 +68,7 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
 --
 -- * 'cmwClientToken' - User-provided idempotency token.
 --
--- * 'cmwDescription' - An optional description for the Maintenance Window. We recommend specifying a description to help your organize your Maintenance Windows.
+-- * 'cmwDescription' - An optional description for the Maintenance Window. We recommend specifying a description to help you organize your Maintenance Windows.
 --
 -- * 'cmwName' - The name of the Maintenance Window.
 --
@@ -78,7 +78,7 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
 --
 -- * 'cmwCutoff' - The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
 --
--- * 'cmwAllowUnassociatedTargets' - Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
+-- * 'cmwAllowUnassociatedTargets' - Enables a Maintenance Window task to execute on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the Maintenance Window  If you don't enable this option, then you must specify previously-registered targets when you register a task with the Maintenance Window.
 createMaintenanceWindow
     :: Text -- ^ 'cmwName'
     -> Text -- ^ 'cmwSchedule'
@@ -102,7 +102,7 @@ createMaintenanceWindow pName_ pSchedule_ pDuration_ pCutoff_ pAllowUnassociated
 cmwClientToken :: Lens' CreateMaintenanceWindow (Maybe Text)
 cmwClientToken = lens _cmwClientToken (\ s a -> s{_cmwClientToken = a});
 
--- | An optional description for the Maintenance Window. We recommend specifying a description to help your organize your Maintenance Windows.
+-- | An optional description for the Maintenance Window. We recommend specifying a description to help you organize your Maintenance Windows.
 cmwDescription :: Lens' CreateMaintenanceWindow (Maybe Text)
 cmwDescription = lens _cmwDescription (\ s a -> s{_cmwDescription = a}) . mapping _Sensitive;
 
@@ -122,7 +122,7 @@ cmwDuration = lens _cmwDuration (\ s a -> s{_cmwDuration = a}) . _Nat;
 cmwCutoff :: Lens' CreateMaintenanceWindow Natural
 cmwCutoff = lens _cmwCutoff (\ s a -> s{_cmwCutoff = a}) . _Nat;
 
--- | Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
+-- | Enables a Maintenance Window task to execute on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the Maintenance Window  If you don't enable this option, then you must specify previously-registered targets when you register a task with the Maintenance Window.
 cmwAllowUnassociatedTargets :: Lens' CreateMaintenanceWindow Bool
 cmwAllowUnassociatedTargets = lens _cmwAllowUnassociatedTargets (\ s a -> s{_cmwAllowUnassociatedTargets = a});
 

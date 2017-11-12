@@ -51,11 +51,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeScalingActivities.
---
---
---
--- /See:/ 'describeScalingActivities' smart constructor.
+-- | /See:/ 'describeScalingActivities' smart constructor.
 data DescribeScalingActivities = DescribeScalingActivities'
   { _desNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
   , _desAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
@@ -143,11 +139,7 @@ instance ToQuery DescribeScalingActivities where
                "ActivityIds" =:
                  toQuery (toQueryList "member" <$> _desActivityIds)]
 
--- | Contains the output of DescribeScalingActivities.
---
---
---
--- /See:/ 'describeScalingActivitiesResponse' smart constructor.
+-- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
   { _dsasrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
   , _dsasrsResponseStatus :: {-# NOUNPACK #-}!Int

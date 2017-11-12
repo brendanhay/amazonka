@@ -21,7 +21,7 @@
 -- This operation deletes the specified tags for a domain.
 --
 --
--- All tag operations are eventually consistent; subsequent operations may not immediately represent all issued operations.
+-- All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.
 --
 module Network.AWS.Route53Domains.DeleteTagsForDomain
     (

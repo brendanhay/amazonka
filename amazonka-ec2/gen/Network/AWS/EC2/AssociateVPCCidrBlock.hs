@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a CIDR block with your VPC. You can only associate a single Amazon-provided IPv6 CIDR block with your VPC. The IPv6 CIDR block size is fixed at /56.
+-- Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, or you can associate an Amazon-provided IPv6 CIDR block. The IPv6 CIDR block size is fixed at /56.
 --
+--
+-- For more information about associating CIDR blocks with your VPC and applicable restrictions, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html#VPC_Sizing VPC and Subnet Sizing> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 module Network.AWS.EC2.AssociateVPCCidrBlock
     (
@@ -27,6 +29,7 @@ module Network.AWS.EC2.AssociateVPCCidrBlock
       associateVPCCidrBlock
     , AssociateVPCCidrBlock
     -- * Request Lenses
+    , avcbCidrBlock
     , avcbAmazonProvidedIPv6CidrBlock
     , avcbVPCId
 
@@ -35,6 +38,7 @@ module Network.AWS.EC2.AssociateVPCCidrBlock
     , AssociateVPCCidrBlockResponse
     -- * Response Lenses
     , avcbrsVPCId
+    , avcbrsCidrBlockAssociation
     , avcbrsIPv6CidrBlockAssociation
     , avcbrsResponseStatus
     ) where
@@ -48,7 +52,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'associateVPCCidrBlock' smart constructor.
 data AssociateVPCCidrBlock = AssociateVPCCidrBlock'
-  { _avcbAmazonProvidedIPv6CidrBlock :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _avcbCidrBlock                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avcbAmazonProvidedIPv6CidrBlock :: {-# NOUNPACK #-}!(Maybe Bool)
   , _avcbVPCId                       :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -56,6 +61,8 @@ data AssociateVPCCidrBlock = AssociateVPCCidrBlock'
 -- | Creates a value of 'AssociateVPCCidrBlock' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avcbCidrBlock' - An IPv4 CIDR block to associate with the VPC.
 --
 -- * 'avcbAmazonProvidedIPv6CidrBlock' - Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
 --
@@ -65,8 +72,15 @@ associateVPCCidrBlock
     -> AssociateVPCCidrBlock
 associateVPCCidrBlock pVPCId_ =
   AssociateVPCCidrBlock'
-  {_avcbAmazonProvidedIPv6CidrBlock = Nothing, _avcbVPCId = pVPCId_}
+  { _avcbCidrBlock = Nothing
+  , _avcbAmazonProvidedIPv6CidrBlock = Nothing
+  , _avcbVPCId = pVPCId_
+  }
 
+
+-- | An IPv4 CIDR block to associate with the VPC.
+avcbCidrBlock :: Lens' AssociateVPCCidrBlock (Maybe Text)
+avcbCidrBlock = lens _avcbCidrBlock (\ s a -> s{_avcbCidrBlock = a});
 
 -- | Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
 avcbAmazonProvidedIPv6CidrBlock :: Lens' AssociateVPCCidrBlock (Maybe Bool)
@@ -84,8 +98,8 @@ instance AWSRequest AssociateVPCCidrBlock where
           = receiveXML
               (\ s h x ->
                  AssociateVPCCidrBlockResponse' <$>
-                   (x .@? "vpcId") <*>
-                     (x .@? "ipv6CidrBlockAssociation")
+                   (x .@? "vpcId") <*> (x .@? "cidrBlockAssociation")
+                     <*> (x .@? "ipv6CidrBlockAssociation")
                      <*> (pure (fromEnum s)))
 
 instance Hashable AssociateVPCCidrBlock where
@@ -103,6 +117,7 @@ instance ToQuery AssociateVPCCidrBlock where
           = mconcat
               ["Action" =: ("AssociateVpcCidrBlock" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
+               "CidrBlock" =: _avcbCidrBlock,
                "AmazonProvidedIpv6CidrBlock" =:
                  _avcbAmazonProvidedIPv6CidrBlock,
                "VpcId" =: _avcbVPCId]
@@ -110,6 +125,7 @@ instance ToQuery AssociateVPCCidrBlock where
 -- | /See:/ 'associateVPCCidrBlockResponse' smart constructor.
 data AssociateVPCCidrBlockResponse = AssociateVPCCidrBlockResponse'
   { _avcbrsVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _avcbrsCidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe VPCCidrBlockAssociation)
   , _avcbrsIPv6CidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe VPCIPv6CidrBlockAssociation)
   , _avcbrsResponseStatus :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -121,6 +137,8 @@ data AssociateVPCCidrBlockResponse = AssociateVPCCidrBlockResponse'
 --
 -- * 'avcbrsVPCId' - The ID of the VPC.
 --
+-- * 'avcbrsCidrBlockAssociation' - Information about the IPv4 CIDR block association.
+--
 -- * 'avcbrsIPv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
 --
 -- * 'avcbrsResponseStatus' - -- | The response status code.
@@ -130,6 +148,7 @@ associateVPCCidrBlockResponse
 associateVPCCidrBlockResponse pResponseStatus_ =
   AssociateVPCCidrBlockResponse'
   { _avcbrsVPCId = Nothing
+  , _avcbrsCidrBlockAssociation = Nothing
   , _avcbrsIPv6CidrBlockAssociation = Nothing
   , _avcbrsResponseStatus = pResponseStatus_
   }
@@ -138,6 +157,10 @@ associateVPCCidrBlockResponse pResponseStatus_ =
 -- | The ID of the VPC.
 avcbrsVPCId :: Lens' AssociateVPCCidrBlockResponse (Maybe Text)
 avcbrsVPCId = lens _avcbrsVPCId (\ s a -> s{_avcbrsVPCId = a});
+
+-- | Information about the IPv4 CIDR block association.
+avcbrsCidrBlockAssociation :: Lens' AssociateVPCCidrBlockResponse (Maybe VPCCidrBlockAssociation)
+avcbrsCidrBlockAssociation = lens _avcbrsCidrBlockAssociation (\ s a -> s{_avcbrsCidrBlockAssociation = a});
 
 -- | Information about the IPv6 CIDR block association.
 avcbrsIPv6CidrBlockAssociation :: Lens' AssociateVPCCidrBlockResponse (Maybe VPCIPv6CidrBlockAssociation)

@@ -337,7 +337,9 @@ module Network.AWS.GameLift.Types
     , mtStartTime
     , mtGameSessionConnectionInfo
     , mtTicketId
+    , mtEstimatedWaitTime
     , mtStatusMessage
+    , mtEndTime
     , mtStatusReason
     , mtPlayers
 
@@ -428,6 +430,31 @@ module Network.AWS.GameLift.Types
     , spParameters
     , spLaunchPath
     , spConcurrentExecutions
+
+    -- * VPCPeeringAuthorization
+    , VPCPeeringAuthorization
+    , vpcPeeringAuthorization
+    , vpaCreationTime
+    , vpaPeerVPCId
+    , vpaPeerVPCAWSAccountId
+    , vpaGameLiftAWSAccountId
+    , vpaExpirationTime
+
+    -- * VPCPeeringConnection
+    , VPCPeeringConnection
+    , vpcPeeringConnection
+    , vpcVPCPeeringConnectionId
+    , vpcStatus
+    , vpcPeerVPCId
+    , vpcIPV4CidrBlock
+    , vpcGameLiftVPCId
+    , vpcFleetId
+
+    -- * VPCPeeringConnectionStatus
+    , VPCPeeringConnectionStatus
+    , vpcPeeringConnectionStatus
+    , vpcsCode
+    , vpcsMessage
     ) where
 
 import Network.AWS.GameLift.Types.Product

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a policy attached to the specified key.
+-- Gets a key policy attached to the specified customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.
 --
 --
 module Network.AWS.KMS.GetKeyPolicy
@@ -56,9 +56,9 @@ data GetKeyPolicy = GetKeyPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gkpKeyId' - A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- * 'gkpKeyId' - A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
--- * 'gkpPolicyName' - String that contains the name of the policy. Currently, this must be "default". Policy names can be discovered by calling 'ListKeyPolicies' .
+-- * 'gkpPolicyName' - Specifies the name of the policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
 getKeyPolicy
     :: Text -- ^ 'gkpKeyId'
     -> Text -- ^ 'gkpPolicyName'
@@ -67,11 +67,11 @@ getKeyPolicy pKeyId_ pPolicyName_ =
   GetKeyPolicy' {_gkpKeyId = pKeyId_, _gkpPolicyName = pPolicyName_}
 
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 gkpKeyId :: Lens' GetKeyPolicy Text
 gkpKeyId = lens _gkpKeyId (\ s a -> s{_gkpKeyId = a});
 
--- | String that contains the name of the policy. Currently, this must be "default". Policy names can be discovered by calling 'ListKeyPolicies' .
+-- | Specifies the name of the policy. The only valid name is @default@ . To get the names of key policies, use 'ListKeyPolicies' .
 gkpPolicyName :: Lens' GetKeyPolicy Text
 gkpPolicyName = lens _gkpPolicyName (\ s a -> s{_gkpPolicyName = a});
 

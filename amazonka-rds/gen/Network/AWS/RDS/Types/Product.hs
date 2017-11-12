@@ -360,7 +360,7 @@ data DBCluster = DBCluster'
 --
 -- * 'dcPercentProgress' - Specifies the progress of the operation as a percentage.
 --
--- * 'dcReaderEndpoint' - The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.  If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection will be dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
+-- * 'dcReaderEndpoint' - The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.  If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
 --
 -- * 'dcPort' - Specifies the port that the database engine is listening on.
 --
@@ -535,7 +535,7 @@ dcEndpoint = lens _dcEndpoint (\ s a -> s{_dcEndpoint = a});
 dcPercentProgress :: Lens' DBCluster (Maybe Text)
 dcPercentProgress = lens _dcPercentProgress (\ s a -> s{_dcPercentProgress = a});
 
--- | The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.  If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection will be dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
+-- | The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.  If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
 dcReaderEndpoint :: Lens' DBCluster (Maybe Text)
 dcReaderEndpoint = lens _dcReaderEndpoint (\ s a -> s{_dcReaderEndpoint = a});
 
@@ -786,7 +786,7 @@ newtype DBClusterParameterGroupNameMessage = DBClusterParameterGroupNameMessage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcpgnmDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'dcpgnmDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must be 1 to 255 letters or numbers.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 dbClusterParameterGroupNameMessage
     :: DBClusterParameterGroupNameMessage
 dbClusterParameterGroupNameMessage =
@@ -794,7 +794,7 @@ dbClusterParameterGroupNameMessage =
   {_dcpgnmDBClusterParameterGroupName = Nothing}
 
 
--- | The name of the DB cluster parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The name of the DB cluster parameter group. Constraints:     * Must be 1 to 255 letters or numbers.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 dcpgnmDBClusterParameterGroupName :: Lens' DBClusterParameterGroupNameMessage (Maybe Text)
 dcpgnmDBClusterParameterGroupName = lens _dcpgnmDBClusterParameterGroupName (\ s a -> s{_dcpgnmDBClusterParameterGroupName = a});
 
@@ -1326,11 +1326,13 @@ data DBInstance = DBInstance'
   , _diAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
   , _diVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [VPCSecurityGroupMembership])
   , _diBackupRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
+  , _diPerformanceInsightsKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
   , _diDBSubnetGroup :: {-# NOUNPACK #-}!(Maybe DBSubnetGroup)
   , _diMultiAZ :: {-# NOUNPACK #-}!(Maybe Bool)
   , _diOptionGroupMemberships :: {-# NOUNPACK #-}!(Maybe [OptionGroupMembership])
   , _diEnhancedMonitoringResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
   , _diSecondaryAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _diPerformanceInsightsEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
   , _diAllocatedStorage :: {-# NOUNPACK #-}!(Maybe Int)
   , _diDBiResourceId :: {-# NOUNPACK #-}!(Maybe Text)
   , _diDBParameterGroups :: {-# NOUNPACK #-}!(Maybe [DBParameterGroupStatus])
@@ -1361,7 +1363,7 @@ data DBInstance = DBInstance'
 --
 -- * 'diDBClusterIdentifier' - If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
 --
--- * 'diPubliclyAccessible' - Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
+-- * 'diPubliclyAccessible' - Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is private.
 --
 -- * 'diAutoMinorVersionUpgrade' - Indicates that minor version patches are applied automatically.
 --
@@ -1411,6 +1413,8 @@ data DBInstance = DBInstance'
 --
 -- * 'diBackupRetentionPeriod' - Specifies the number of days for which automatic DB snapshots are retained.
 --
+-- * 'diPerformanceInsightsKMSKeyId' - The KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+--
 -- * 'diDBSubnetGroup' - Specifies information on the subnet group associated with the DB instance, including the name, description, and subnets in the subnet group.
 --
 -- * 'diMultiAZ' - Specifies if the DB instance is a Multi-AZ deployment.
@@ -1420,6 +1424,8 @@ data DBInstance = DBInstance'
 -- * 'diEnhancedMonitoringResourceARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the Enhanced Monitoring metrics data for the DB instance.
 --
 -- * 'diSecondaryAvailabilityZone' - If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
+--
+-- * 'diPerformanceInsightsEnabled' - True if Performance Insights is enabled for the DB instance; otherwise false.
 --
 -- * 'diAllocatedStorage' - Specifies the allocated storage size specified in gigabytes.
 --
@@ -1445,7 +1451,7 @@ data DBInstance = DBInstance'
 --
 -- * 'diStorageType' - Specifies the storage type associated with DB instance.
 --
--- * 'diStatusInfos' - The status of a Read Replica. If the instance is not a Read Replica, this will be blank.
+-- * 'diStatusInfos' - The status of a Read Replica. If the instance is not a Read Replica, this is blank.
 --
 -- * 'diDomainMemberships' - The Active Directory Domain membership records associated with the DB instance.
 --
@@ -1483,11 +1489,13 @@ dbInstance =
   , _diAvailabilityZone = Nothing
   , _diVPCSecurityGroups = Nothing
   , _diBackupRetentionPeriod = Nothing
+  , _diPerformanceInsightsKMSKeyId = Nothing
   , _diDBSubnetGroup = Nothing
   , _diMultiAZ = Nothing
   , _diOptionGroupMemberships = Nothing
   , _diEnhancedMonitoringResourceARN = Nothing
   , _diSecondaryAvailabilityZone = Nothing
+  , _diPerformanceInsightsEnabled = Nothing
   , _diAllocatedStorage = Nothing
   , _diDBiResourceId = Nothing
   , _diDBParameterGroups = Nothing
@@ -1522,7 +1530,7 @@ diStorageEncrypted = lens _diStorageEncrypted (\ s a -> s{_diStorageEncrypted = 
 diDBClusterIdentifier :: Lens' DBInstance (Maybe Text)
 diDBClusterIdentifier = lens _diDBClusterIdentifier (\ s a -> s{_diDBClusterIdentifier = a});
 
--- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
+-- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is private.
 diPubliclyAccessible :: Lens' DBInstance (Maybe Bool)
 diPubliclyAccessible = lens _diPubliclyAccessible (\ s a -> s{_diPubliclyAccessible = a});
 
@@ -1622,6 +1630,10 @@ diVPCSecurityGroups = lens _diVPCSecurityGroups (\ s a -> s{_diVPCSecurityGroups
 diBackupRetentionPeriod :: Lens' DBInstance (Maybe Int)
 diBackupRetentionPeriod = lens _diBackupRetentionPeriod (\ s a -> s{_diBackupRetentionPeriod = a});
 
+-- | The KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+diPerformanceInsightsKMSKeyId :: Lens' DBInstance (Maybe Text)
+diPerformanceInsightsKMSKeyId = lens _diPerformanceInsightsKMSKeyId (\ s a -> s{_diPerformanceInsightsKMSKeyId = a});
+
 -- | Specifies information on the subnet group associated with the DB instance, including the name, description, and subnets in the subnet group.
 diDBSubnetGroup :: Lens' DBInstance (Maybe DBSubnetGroup)
 diDBSubnetGroup = lens _diDBSubnetGroup (\ s a -> s{_diDBSubnetGroup = a});
@@ -1641,6 +1653,10 @@ diEnhancedMonitoringResourceARN = lens _diEnhancedMonitoringResourceARN (\ s a -
 -- | If present, specifies the name of the secondary Availability Zone for a DB instance with multi-AZ support.
 diSecondaryAvailabilityZone :: Lens' DBInstance (Maybe Text)
 diSecondaryAvailabilityZone = lens _diSecondaryAvailabilityZone (\ s a -> s{_diSecondaryAvailabilityZone = a});
+
+-- | True if Performance Insights is enabled for the DB instance; otherwise false.
+diPerformanceInsightsEnabled :: Lens' DBInstance (Maybe Bool)
+diPerformanceInsightsEnabled = lens _diPerformanceInsightsEnabled (\ s a -> s{_diPerformanceInsightsEnabled = a});
 
 -- | Specifies the allocated storage size specified in gigabytes.
 diAllocatedStorage :: Lens' DBInstance (Maybe Int)
@@ -1690,7 +1706,7 @@ diReadReplicaDBClusterIdentifiers = lens _diReadReplicaDBClusterIdentifiers (\ s
 diStorageType :: Lens' DBInstance (Maybe Text)
 diStorageType = lens _diStorageType (\ s a -> s{_diStorageType = a});
 
--- | The status of a Read Replica. If the instance is not a Read Replica, this will be blank.
+-- | The status of a Read Replica. If the instance is not a Read Replica, this is blank.
 diStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
 diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a}) . _Default . _Coerce;
 
@@ -1740,6 +1756,7 @@ instance FromXML DBInstance where
                 (x .@? "VpcSecurityGroups" .!@ mempty >>=
                    may (parseXMLList "VpcSecurityGroupMembership"))
                 <*> (x .@? "BackupRetentionPeriod")
+                <*> (x .@? "PerformanceInsightsKMSKeyId")
                 <*> (x .@? "DBSubnetGroup")
                 <*> (x .@? "MultiAZ")
                 <*>
@@ -1747,6 +1764,7 @@ instance FromXML DBInstance where
                    may (parseXMLList "OptionGroupMembership"))
                 <*> (x .@? "EnhancedMonitoringResourceArn")
                 <*> (x .@? "SecondaryAvailabilityZone")
+                <*> (x .@? "PerformanceInsightsEnabled")
                 <*> (x .@? "AllocatedStorage")
                 <*> (x .@? "DbiResourceId")
                 <*>
@@ -2721,6 +2739,45 @@ instance Hashable DomainMembership where
 
 instance NFData DomainMembership where
 
+-- | A range of double values.
+--
+--
+--
+-- /See:/ 'doubleRange' smart constructor.
+data DoubleRange = DoubleRange'
+  { _drTo   :: {-# NOUNPACK #-}!(Maybe Double)
+  , _drFrom :: {-# NOUNPACK #-}!(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DoubleRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drTo' - The maximum value in the range.
+--
+-- * 'drFrom' - The minimum value in the range.
+doubleRange
+    :: DoubleRange
+doubleRange = DoubleRange' {_drTo = Nothing, _drFrom = Nothing}
+
+
+-- | The maximum value in the range.
+drTo :: Lens' DoubleRange (Maybe Double)
+drTo = lens _drTo (\ s a -> s{_drTo = a});
+
+-- | The minimum value in the range.
+drFrom :: Lens' DoubleRange (Maybe Double)
+drFrom = lens _drFrom (\ s a -> s{_drFrom = a});
+
+instance FromXML DoubleRange where
+        parseXML x
+          = DoubleRange' <$> (x .@? "To") <*> (x .@? "From")
+
+instance Hashable DoubleRange where
+
+instance NFData DoubleRange where
+
 -- | This data type is used as a response element in the following actions:
 --
 --
@@ -3587,11 +3644,14 @@ data OptionGroupOption = OptionGroupOption'
   , _ogoEngineName :: {-# NOUNPACK #-}!(Maybe Text)
   , _ogoMajorEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
   , _ogoName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ogoSupportsOptionVersionDowngrade :: {-# NOUNPACK #-}!(Maybe Bool)
   , _ogoDefaultPort :: {-# NOUNPACK #-}!(Maybe Int)
   , _ogoOptionGroupOptionSettings :: {-# NOUNPACK #-}!(Maybe [OptionGroupOptionSetting])
+  , _ogoRequiresAutoMinorEngineVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
   , _ogoPortRequired :: {-# NOUNPACK #-}!(Maybe Bool)
   , _ogoDescription :: {-# NOUNPACK #-}!(Maybe Text)
   , _ogoOptionsDependedOn :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ogoVPCOnly :: {-# NOUNPACK #-}!(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3615,15 +3675,21 @@ data OptionGroupOption = OptionGroupOption'
 --
 -- * 'ogoName' - The name of the option.
 --
+-- * 'ogoSupportsOptionVersionDowngrade' - If true, you can change the option to an earlier version of the option. This only applies to options that have different versions available.
+--
 -- * 'ogoDefaultPort' - If the option requires a port, specifies the default port for the option.
 --
 -- * 'ogoOptionGroupOptionSettings' - The option settings that are available (and the default value) for each option in an option group.
+--
+-- * 'ogoRequiresAutoMinorEngineVersionUpgrade' - If true, you must enable the Auto Minor Version Upgrade setting for your DB instance before you can use this option. You can enable Auto Minor Version Upgrade when you first create your DB instance, or by modifying your DB instance later.
 --
 -- * 'ogoPortRequired' - Specifies whether the option requires a port.
 --
 -- * 'ogoDescription' - The description of the option.
 --
 -- * 'ogoOptionsDependedOn' - The options that are prerequisites for this option.
+--
+-- * 'ogoVPCOnly' - If true, you can only use this option with a DB instance that is in a VPC.
 optionGroupOption
     :: OptionGroupOption
 optionGroupOption =
@@ -3636,11 +3702,14 @@ optionGroupOption =
   , _ogoEngineName = Nothing
   , _ogoMajorEngineVersion = Nothing
   , _ogoName = Nothing
+  , _ogoSupportsOptionVersionDowngrade = Nothing
   , _ogoDefaultPort = Nothing
   , _ogoOptionGroupOptionSettings = Nothing
+  , _ogoRequiresAutoMinorEngineVersionUpgrade = Nothing
   , _ogoPortRequired = Nothing
   , _ogoDescription = Nothing
   , _ogoOptionsDependedOn = Nothing
+  , _ogoVPCOnly = Nothing
   }
 
 
@@ -3676,6 +3745,10 @@ ogoMajorEngineVersion = lens _ogoMajorEngineVersion (\ s a -> s{_ogoMajorEngineV
 ogoName :: Lens' OptionGroupOption (Maybe Text)
 ogoName = lens _ogoName (\ s a -> s{_ogoName = a});
 
+-- | If true, you can change the option to an earlier version of the option. This only applies to options that have different versions available.
+ogoSupportsOptionVersionDowngrade :: Lens' OptionGroupOption (Maybe Bool)
+ogoSupportsOptionVersionDowngrade = lens _ogoSupportsOptionVersionDowngrade (\ s a -> s{_ogoSupportsOptionVersionDowngrade = a});
+
 -- | If the option requires a port, specifies the default port for the option.
 ogoDefaultPort :: Lens' OptionGroupOption (Maybe Int)
 ogoDefaultPort = lens _ogoDefaultPort (\ s a -> s{_ogoDefaultPort = a});
@@ -3683,6 +3756,10 @@ ogoDefaultPort = lens _ogoDefaultPort (\ s a -> s{_ogoDefaultPort = a});
 -- | The option settings that are available (and the default value) for each option in an option group.
 ogoOptionGroupOptionSettings :: Lens' OptionGroupOption [OptionGroupOptionSetting]
 ogoOptionGroupOptionSettings = lens _ogoOptionGroupOptionSettings (\ s a -> s{_ogoOptionGroupOptionSettings = a}) . _Default . _Coerce;
+
+-- | If true, you must enable the Auto Minor Version Upgrade setting for your DB instance before you can use this option. You can enable Auto Minor Version Upgrade when you first create your DB instance, or by modifying your DB instance later.
+ogoRequiresAutoMinorEngineVersionUpgrade :: Lens' OptionGroupOption (Maybe Bool)
+ogoRequiresAutoMinorEngineVersionUpgrade = lens _ogoRequiresAutoMinorEngineVersionUpgrade (\ s a -> s{_ogoRequiresAutoMinorEngineVersionUpgrade = a});
 
 -- | Specifies whether the option requires a port.
 ogoPortRequired :: Lens' OptionGroupOption (Maybe Bool)
@@ -3695,6 +3772,10 @@ ogoDescription = lens _ogoDescription (\ s a -> s{_ogoDescription = a});
 -- | The options that are prerequisites for this option.
 ogoOptionsDependedOn :: Lens' OptionGroupOption [Text]
 ogoOptionsDependedOn = lens _ogoOptionsDependedOn (\ s a -> s{_ogoOptionsDependedOn = a}) . _Default . _Coerce;
+
+-- | If true, you can only use this option with a DB instance that is in a VPC.
+ogoVPCOnly :: Lens' OptionGroupOption (Maybe Bool)
+ogoVPCOnly = lens _ogoVPCOnly (\ s a -> s{_ogoVPCOnly = a});
 
 instance FromXML OptionGroupOption where
         parseXML x
@@ -3710,15 +3791,18 @@ instance FromXML OptionGroupOption where
                 <*> (x .@? "EngineName")
                 <*> (x .@? "MajorEngineVersion")
                 <*> (x .@? "Name")
+                <*> (x .@? "SupportsOptionVersionDowngrade")
                 <*> (x .@? "DefaultPort")
                 <*>
                 (x .@? "OptionGroupOptionSettings" .!@ mempty >>=
                    may (parseXMLList "OptionGroupOptionSetting"))
+                <*> (x .@? "RequiresAutoMinorEngineVersionUpgrade")
                 <*> (x .@? "PortRequired")
                 <*> (x .@? "Description")
                 <*>
                 (x .@? "OptionsDependedOn" .!@ mempty >>=
                    may (parseXMLList "OptionName"))
+                <*> (x .@? "VpcOnly")
 
 instance Hashable OptionGroupOption where
 
@@ -3962,7 +4046,7 @@ instance Hashable OptionVersion where
 
 instance NFData OptionVersion where
 
--- | Contains a list of available options for a DB instance
+-- | Contains a list of available options for a DB instance.
 --
 --
 -- This data type is used as a response element in the 'DescribeOrderableDBInstanceOptions' action.
@@ -3971,17 +4055,24 @@ instance NFData OptionVersion where
 -- /See:/ 'orderableDBInstanceOption' smart constructor.
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
   { _odioEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _odioMinIOPSPerGib :: {-# NOUNPACK #-}!(Maybe Double)
   , _odioSupportsIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioMinIOPSPerDBInstance :: {-# NOUNPACK #-}!(Maybe Int)
   , _odioMultiAZCapable :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioMaxStorageSize :: {-# NOUNPACK #-}!(Maybe Int)
   , _odioEngine :: {-# NOUNPACK #-}!(Maybe Text)
+  , _odioMinStorageSize :: {-# NOUNPACK #-}!(Maybe Int)
   , _odioSupportsIOPS :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioSupportsPerformanceInsights :: {-# NOUNPACK #-}!(Maybe Bool)
   , _odioDBInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
   , _odioLicenseModel :: {-# NOUNPACK #-}!(Maybe Text)
   , _odioAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [AvailabilityZone])
   , _odioSupportsStorageEncryption :: {-# NOUNPACK #-}!(Maybe Bool)
   , _odioReadReplicaCapable :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioMaxIOPSPerGib :: {-# NOUNPACK #-}!(Maybe Double)
   , _odioVPC :: {-# NOUNPACK #-}!(Maybe Bool)
   , _odioSupportsEnhancedMonitoring :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _odioMaxIOPSPerDBInstance :: {-# NOUNPACK #-}!(Maybe Int)
   , _odioStorageType :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -3990,111 +4081,164 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'odioEngineVersion' - The engine version of the orderable DB instance.
+-- * 'odioEngineVersion' - The engine version of a DB instance.
 --
--- * 'odioSupportsIAMDatabaseAuthentication' - Indicates whether this orderable DB instance supports IAM database authentication.
+-- * 'odioMinIOPSPerGib' - Minimum provisioned IOPS per GiB for a DB instance.
 --
--- * 'odioMultiAZCapable' - Indicates whether this orderable DB instance is multi-AZ capable.
+-- * 'odioSupportsIAMDatabaseAuthentication' - Indicates whether a DB instance supports IAM database authentication.
 --
--- * 'odioEngine' - The engine type of the orderable DB instance.
+-- * 'odioMinIOPSPerDBInstance' - Minimum total provisioned IOPS for a DB instance.
 --
--- * 'odioSupportsIOPS' - Indicates whether this orderable DB instance supports provisioned IOPS.
+-- * 'odioMultiAZCapable' - Indicates whether a DB instance is Multi-AZ capable.
 --
--- * 'odioDBInstanceClass' - The DB instance class for the orderable DB instance.
+-- * 'odioMaxStorageSize' - Maximum storage size for a DB instance.
 --
--- * 'odioLicenseModel' - The license model for the orderable DB instance.
+-- * 'odioEngine' - The engine type of a DB instance.
 --
--- * 'odioAvailabilityZones' - A list of Availability Zones for the orderable DB instance.
+-- * 'odioMinStorageSize' - Minimum storage size for a DB instance.
 --
--- * 'odioSupportsStorageEncryption' - Indicates whether this orderable DB instance supports encrypted storage.
+-- * 'odioSupportsIOPS' - Indicates whether a DB instance supports provisioned IOPS.
 --
--- * 'odioReadReplicaCapable' - Indicates whether this orderable DB instance can have a Read Replica.
+-- * 'odioSupportsPerformanceInsights' - True if a DB instance supports Performance Insights, otherwise false.
 --
--- * 'odioVPC' - Indicates whether this is a VPC orderable DB instance.
+-- * 'odioDBInstanceClass' - The DB instance class for a DB instance.
 --
--- * 'odioSupportsEnhancedMonitoring' - Indicates whether the DB instance supports enhanced monitoring at intervals from 1 to 60 seconds.
+-- * 'odioLicenseModel' - The license model for a DB instance.
 --
--- * 'odioStorageType' - Indicates the storage type for this orderable DB instance.
+-- * 'odioAvailabilityZones' - A list of Availability Zones for a DB instance.
+--
+-- * 'odioSupportsStorageEncryption' - Indicates whether a DB instance supports encrypted storage.
+--
+-- * 'odioReadReplicaCapable' - Indicates whether a DB instance can have a Read Replica.
+--
+-- * 'odioMaxIOPSPerGib' - Maximum provisioned IOPS per GiB for a DB instance.
+--
+-- * 'odioVPC' - Indicates whether a DB instance is in a VPC.
+--
+-- * 'odioSupportsEnhancedMonitoring' - Indicates whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+--
+-- * 'odioMaxIOPSPerDBInstance' - Maximum total provisioned IOPS for a DB instance.
+--
+-- * 'odioStorageType' - Indicates the storage type for a DB instance.
 orderableDBInstanceOption
     :: OrderableDBInstanceOption
 orderableDBInstanceOption =
   OrderableDBInstanceOption'
   { _odioEngineVersion = Nothing
+  , _odioMinIOPSPerGib = Nothing
   , _odioSupportsIAMDatabaseAuthentication = Nothing
+  , _odioMinIOPSPerDBInstance = Nothing
   , _odioMultiAZCapable = Nothing
+  , _odioMaxStorageSize = Nothing
   , _odioEngine = Nothing
+  , _odioMinStorageSize = Nothing
   , _odioSupportsIOPS = Nothing
+  , _odioSupportsPerformanceInsights = Nothing
   , _odioDBInstanceClass = Nothing
   , _odioLicenseModel = Nothing
   , _odioAvailabilityZones = Nothing
   , _odioSupportsStorageEncryption = Nothing
   , _odioReadReplicaCapable = Nothing
+  , _odioMaxIOPSPerGib = Nothing
   , _odioVPC = Nothing
   , _odioSupportsEnhancedMonitoring = Nothing
+  , _odioMaxIOPSPerDBInstance = Nothing
   , _odioStorageType = Nothing
   }
 
 
--- | The engine version of the orderable DB instance.
+-- | The engine version of a DB instance.
 odioEngineVersion :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioEngineVersion = lens _odioEngineVersion (\ s a -> s{_odioEngineVersion = a});
 
--- | Indicates whether this orderable DB instance supports IAM database authentication.
+-- | Minimum provisioned IOPS per GiB for a DB instance.
+odioMinIOPSPerGib :: Lens' OrderableDBInstanceOption (Maybe Double)
+odioMinIOPSPerGib = lens _odioMinIOPSPerGib (\ s a -> s{_odioMinIOPSPerGib = a});
+
+-- | Indicates whether a DB instance supports IAM database authentication.
 odioSupportsIAMDatabaseAuthentication :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioSupportsIAMDatabaseAuthentication = lens _odioSupportsIAMDatabaseAuthentication (\ s a -> s{_odioSupportsIAMDatabaseAuthentication = a});
 
--- | Indicates whether this orderable DB instance is multi-AZ capable.
+-- | Minimum total provisioned IOPS for a DB instance.
+odioMinIOPSPerDBInstance :: Lens' OrderableDBInstanceOption (Maybe Int)
+odioMinIOPSPerDBInstance = lens _odioMinIOPSPerDBInstance (\ s a -> s{_odioMinIOPSPerDBInstance = a});
+
+-- | Indicates whether a DB instance is Multi-AZ capable.
 odioMultiAZCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioMultiAZCapable = lens _odioMultiAZCapable (\ s a -> s{_odioMultiAZCapable = a});
 
--- | The engine type of the orderable DB instance.
+-- | Maximum storage size for a DB instance.
+odioMaxStorageSize :: Lens' OrderableDBInstanceOption (Maybe Int)
+odioMaxStorageSize = lens _odioMaxStorageSize (\ s a -> s{_odioMaxStorageSize = a});
+
+-- | The engine type of a DB instance.
 odioEngine :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioEngine = lens _odioEngine (\ s a -> s{_odioEngine = a});
 
--- | Indicates whether this orderable DB instance supports provisioned IOPS.
+-- | Minimum storage size for a DB instance.
+odioMinStorageSize :: Lens' OrderableDBInstanceOption (Maybe Int)
+odioMinStorageSize = lens _odioMinStorageSize (\ s a -> s{_odioMinStorageSize = a});
+
+-- | Indicates whether a DB instance supports provisioned IOPS.
 odioSupportsIOPS :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioSupportsIOPS = lens _odioSupportsIOPS (\ s a -> s{_odioSupportsIOPS = a});
 
--- | The DB instance class for the orderable DB instance.
+-- | True if a DB instance supports Performance Insights, otherwise false.
+odioSupportsPerformanceInsights :: Lens' OrderableDBInstanceOption (Maybe Bool)
+odioSupportsPerformanceInsights = lens _odioSupportsPerformanceInsights (\ s a -> s{_odioSupportsPerformanceInsights = a});
+
+-- | The DB instance class for a DB instance.
 odioDBInstanceClass :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioDBInstanceClass = lens _odioDBInstanceClass (\ s a -> s{_odioDBInstanceClass = a});
 
--- | The license model for the orderable DB instance.
+-- | The license model for a DB instance.
 odioLicenseModel :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioLicenseModel = lens _odioLicenseModel (\ s a -> s{_odioLicenseModel = a});
 
--- | A list of Availability Zones for the orderable DB instance.
+-- | A list of Availability Zones for a DB instance.
 odioAvailabilityZones :: Lens' OrderableDBInstanceOption [AvailabilityZone]
 odioAvailabilityZones = lens _odioAvailabilityZones (\ s a -> s{_odioAvailabilityZones = a}) . _Default . _Coerce;
 
--- | Indicates whether this orderable DB instance supports encrypted storage.
+-- | Indicates whether a DB instance supports encrypted storage.
 odioSupportsStorageEncryption :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioSupportsStorageEncryption = lens _odioSupportsStorageEncryption (\ s a -> s{_odioSupportsStorageEncryption = a});
 
--- | Indicates whether this orderable DB instance can have a Read Replica.
+-- | Indicates whether a DB instance can have a Read Replica.
 odioReadReplicaCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioReadReplicaCapable = lens _odioReadReplicaCapable (\ s a -> s{_odioReadReplicaCapable = a});
 
--- | Indicates whether this is a VPC orderable DB instance.
+-- | Maximum provisioned IOPS per GiB for a DB instance.
+odioMaxIOPSPerGib :: Lens' OrderableDBInstanceOption (Maybe Double)
+odioMaxIOPSPerGib = lens _odioMaxIOPSPerGib (\ s a -> s{_odioMaxIOPSPerGib = a});
+
+-- | Indicates whether a DB instance is in a VPC.
 odioVPC :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioVPC = lens _odioVPC (\ s a -> s{_odioVPC = a});
 
--- | Indicates whether the DB instance supports enhanced monitoring at intervals from 1 to 60 seconds.
+-- | Indicates whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
 odioSupportsEnhancedMonitoring :: Lens' OrderableDBInstanceOption (Maybe Bool)
 odioSupportsEnhancedMonitoring = lens _odioSupportsEnhancedMonitoring (\ s a -> s{_odioSupportsEnhancedMonitoring = a});
 
--- | Indicates the storage type for this orderable DB instance.
+-- | Maximum total provisioned IOPS for a DB instance.
+odioMaxIOPSPerDBInstance :: Lens' OrderableDBInstanceOption (Maybe Int)
+odioMaxIOPSPerDBInstance = lens _odioMaxIOPSPerDBInstance (\ s a -> s{_odioMaxIOPSPerDBInstance = a});
+
+-- | Indicates the storage type for a DB instance.
 odioStorageType :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioStorageType = lens _odioStorageType (\ s a -> s{_odioStorageType = a});
 
 instance FromXML OrderableDBInstanceOption where
         parseXML x
           = OrderableDBInstanceOption' <$>
-              (x .@? "EngineVersion") <*>
-                (x .@? "SupportsIAMDatabaseAuthentication")
+              (x .@? "EngineVersion") <*> (x .@? "MinIopsPerGib")
+                <*> (x .@? "SupportsIAMDatabaseAuthentication")
+                <*> (x .@? "MinIopsPerDbInstance")
                 <*> (x .@? "MultiAZCapable")
+                <*> (x .@? "MaxStorageSize")
                 <*> (x .@? "Engine")
+                <*> (x .@? "MinStorageSize")
                 <*> (x .@? "SupportsIops")
+                <*> (x .@? "SupportsPerformanceInsights")
                 <*> (x .@? "DBInstanceClass")
                 <*> (x .@? "LicenseModel")
                 <*>
@@ -4102,8 +4246,10 @@ instance FromXML OrderableDBInstanceOption where
                    may (parseXMLList "AvailabilityZone"))
                 <*> (x .@? "SupportsStorageEncryption")
                 <*> (x .@? "ReadReplicaCapable")
+                <*> (x .@? "MaxIopsPerGib")
                 <*> (x .@? "Vpc")
                 <*> (x .@? "SupportsEnhancedMonitoring")
+                <*> (x .@? "MaxIopsPerDbInstance")
                 <*> (x .@? "StorageType")
 
 instance Hashable OrderableDBInstanceOption where
@@ -4261,7 +4407,7 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pmaAutoAppliedAfterDate' - The date of the maintenance window when the action will be applied. The maintenance action will be applied to the resource during its first maintenance window after this date. If this date is specified, any @next-maintenance@ opt-in requests are ignored.
+-- * 'pmaAutoAppliedAfterDate' - The date of the maintenance window when the action is applied. The maintenance action is applied to the resource during its first maintenance window after this date. If this date is specified, any @next-maintenance@ opt-in requests are ignored.
 --
 -- * 'pmaAction' - The type of pending maintenance action that is available for the resource.
 --
@@ -4269,9 +4415,9 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
 --
 -- * 'pmaDescription' - A description providing more detail about the maintenance action.
 --
--- * 'pmaForcedApplyDate' - The date when the maintenance action will be automatically applied. The maintenance action will be applied to the resource on this date regardless of the maintenance window for the resource. If this date is specified, any @immediate@ opt-in requests are ignored.
+-- * 'pmaForcedApplyDate' - The date when the maintenance action is automatically applied. The maintenance action is applied to the resource on this date regardless of the maintenance window for the resource. If this date is specified, any @immediate@ opt-in requests are ignored.
 --
--- * 'pmaCurrentApplyDate' - The effective date when the pending maintenance action will be applied to the resource. This date takes into account opt-in requests received from the 'ApplyPendingMaintenanceAction' API, the @AutoAppliedAfterDate@ , and the @ForcedApplyDate@ . This value is blank if an opt-in request has not been received and nothing has been specified as @AutoAppliedAfterDate@ or @ForcedApplyDate@ .
+-- * 'pmaCurrentApplyDate' - The effective date when the pending maintenance action is applied to the resource. This date takes into account opt-in requests received from the 'ApplyPendingMaintenanceAction' API, the @AutoAppliedAfterDate@ , and the @ForcedApplyDate@ . This value is blank if an opt-in request has not been received and nothing has been specified as @AutoAppliedAfterDate@ or @ForcedApplyDate@ .
 pendingMaintenanceAction
     :: PendingMaintenanceAction
 pendingMaintenanceAction =
@@ -4285,7 +4431,7 @@ pendingMaintenanceAction =
   }
 
 
--- | The date of the maintenance window when the action will be applied. The maintenance action will be applied to the resource during its first maintenance window after this date. If this date is specified, any @next-maintenance@ opt-in requests are ignored.
+-- | The date of the maintenance window when the action is applied. The maintenance action is applied to the resource during its first maintenance window after this date. If this date is specified, any @next-maintenance@ opt-in requests are ignored.
 pmaAutoAppliedAfterDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaAutoAppliedAfterDate = lens _pmaAutoAppliedAfterDate (\ s a -> s{_pmaAutoAppliedAfterDate = a}) . mapping _Time;
 
@@ -4301,11 +4447,11 @@ pmaOptInStatus = lens _pmaOptInStatus (\ s a -> s{_pmaOptInStatus = a});
 pmaDescription :: Lens' PendingMaintenanceAction (Maybe Text)
 pmaDescription = lens _pmaDescription (\ s a -> s{_pmaDescription = a});
 
--- | The date when the maintenance action will be automatically applied. The maintenance action will be applied to the resource on this date regardless of the maintenance window for the resource. If this date is specified, any @immediate@ opt-in requests are ignored.
+-- | The date when the maintenance action is automatically applied. The maintenance action is applied to the resource on this date regardless of the maintenance window for the resource. If this date is specified, any @immediate@ opt-in requests are ignored.
 pmaForcedApplyDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaForcedApplyDate = lens _pmaForcedApplyDate (\ s a -> s{_pmaForcedApplyDate = a}) . mapping _Time;
 
--- | The effective date when the pending maintenance action will be applied to the resource. This date takes into account opt-in requests received from the 'ApplyPendingMaintenanceAction' API, the @AutoAppliedAfterDate@ , and the @ForcedApplyDate@ . This value is blank if an opt-in request has not been received and nothing has been specified as @AutoAppliedAfterDate@ or @ForcedApplyDate@ .
+-- | The effective date when the pending maintenance action is applied to the resource. This date takes into account opt-in requests received from the 'ApplyPendingMaintenanceAction' API, the @AutoAppliedAfterDate@ , and the @ForcedApplyDate@ . This value is blank if an opt-in request has not been received and nothing has been specified as @AutoAppliedAfterDate@ or @ForcedApplyDate@ .
 pmaCurrentApplyDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaCurrentApplyDate = lens _pmaCurrentApplyDate (\ s a -> s{_pmaCurrentApplyDate = a}) . mapping _Time;
 
@@ -4350,25 +4496,25 @@ data PendingModifiedValues = PendingModifiedValues'
 --
 -- * 'pmvEngineVersion' - Indicates the database engine version.
 --
--- * 'pmvMasterUserPassword' - Contains the pending or in-progress change of the master credentials for the DB instance.
+-- * 'pmvMasterUserPassword' - Contains the pending or currently-in-progress change of the master credentials for the DB instance.
 --
 -- * 'pmvDBSubnetGroupName' - The new DB subnet group for the DB instance.
 --
--- * 'pmvIOPS' - Specifies the new Provisioned IOPS value for the DB instance that will be applied or is being applied.
+-- * 'pmvIOPS' - Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
 --
--- * 'pmvDBInstanceClass' - Contains the new @DBInstanceClass@ for the DB instance that will be applied or is in progress.
+-- * 'pmvDBInstanceClass' - Contains the new @DBInstanceClass@ for the DB instance that will be applied or is currently being applied.
 --
 -- * 'pmvLicenseModel' - The license model for the DB instance. Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
 --
 -- * 'pmvCACertificateIdentifier' - Specifies the identifier of the CA certificate for the DB instance.
 --
--- * 'pmvDBInstanceIdentifier' - Contains the new @DBInstanceIdentifier@ for the DB instance that will be applied or is in progress.
+-- * 'pmvDBInstanceIdentifier' - Contains the new @DBInstanceIdentifier@ for the DB instance that will be applied or is currently being applied.
 --
 -- * 'pmvBackupRetentionPeriod' - Specifies the pending number of days for which automated backups are retained.
 --
 -- * 'pmvMultiAZ' - Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.
 --
--- * 'pmvAllocatedStorage' - Contains the new @AllocatedStorage@ size for the DB instance that will be applied or is in progress.
+-- * 'pmvAllocatedStorage' - Contains the new @AllocatedStorage@ size for the DB instance that will be applied or is currently being applied.
 --
 -- * 'pmvPort' - Specifies the pending port for the DB instance.
 --
@@ -4397,7 +4543,7 @@ pendingModifiedValues =
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
 pmvEngineVersion = lens _pmvEngineVersion (\ s a -> s{_pmvEngineVersion = a});
 
--- | Contains the pending or in-progress change of the master credentials for the DB instance.
+-- | Contains the pending or currently-in-progress change of the master credentials for the DB instance.
 pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
 pmvMasterUserPassword = lens _pmvMasterUserPassword (\ s a -> s{_pmvMasterUserPassword = a});
 
@@ -4405,11 +4551,11 @@ pmvMasterUserPassword = lens _pmvMasterUserPassword (\ s a -> s{_pmvMasterUserPa
 pmvDBSubnetGroupName :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBSubnetGroupName = lens _pmvDBSubnetGroupName (\ s a -> s{_pmvDBSubnetGroupName = a});
 
--- | Specifies the new Provisioned IOPS value for the DB instance that will be applied or is being applied.
+-- | Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
 pmvIOPS :: Lens' PendingModifiedValues (Maybe Int)
 pmvIOPS = lens _pmvIOPS (\ s a -> s{_pmvIOPS = a});
 
--- | Contains the new @DBInstanceClass@ for the DB instance that will be applied or is in progress.
+-- | Contains the new @DBInstanceClass@ for the DB instance that will be applied or is currently being applied.
 pmvDBInstanceClass :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBInstanceClass = lens _pmvDBInstanceClass (\ s a -> s{_pmvDBInstanceClass = a});
 
@@ -4421,7 +4567,7 @@ pmvLicenseModel = lens _pmvLicenseModel (\ s a -> s{_pmvLicenseModel = a});
 pmvCACertificateIdentifier :: Lens' PendingModifiedValues (Maybe Text)
 pmvCACertificateIdentifier = lens _pmvCACertificateIdentifier (\ s a -> s{_pmvCACertificateIdentifier = a});
 
--- | Contains the new @DBInstanceIdentifier@ for the DB instance that will be applied or is in progress.
+-- | Contains the new @DBInstanceIdentifier@ for the DB instance that will be applied or is currently being applied.
 pmvDBInstanceIdentifier :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBInstanceIdentifier = lens _pmvDBInstanceIdentifier (\ s a -> s{_pmvDBInstanceIdentifier = a});
 
@@ -4433,7 +4579,7 @@ pmvBackupRetentionPeriod = lens _pmvBackupRetentionPeriod (\ s a -> s{_pmvBackup
 pmvMultiAZ :: Lens' PendingModifiedValues (Maybe Bool)
 pmvMultiAZ = lens _pmvMultiAZ (\ s a -> s{_pmvMultiAZ = a});
 
--- | Contains the new @AllocatedStorage@ size for the DB instance that will be applied or is in progress.
+-- | Contains the new @AllocatedStorage@ size for the DB instance that will be applied or is currently being applied.
 pmvAllocatedStorage :: Lens' PendingModifiedValues (Maybe Int)
 pmvAllocatedStorage = lens _pmvAllocatedStorage (\ s a -> s{_pmvAllocatedStorage = a});
 
@@ -4465,6 +4611,53 @@ instance FromXML PendingModifiedValues where
 instance Hashable PendingModifiedValues where
 
 instance NFData PendingModifiedValues where
+
+-- | A range of integer values.
+--
+--
+--
+-- /See:/ 'range' smart constructor.
+data Range = Range'
+  { _rTo   :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rFrom :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rStep :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Range' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rTo' - The maximum value in the range.
+--
+-- * 'rFrom' - The minimum value in the range.
+--
+-- * 'rStep' - The step value for the range. For example, if you have a range of 5,000 to 10,000, with a step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500 is within the range, it isn't a valid value for the range. The valid values are 5,000, 6,000, 7,000, 8,000...
+range
+    :: Range
+range = Range' {_rTo = Nothing, _rFrom = Nothing, _rStep = Nothing}
+
+
+-- | The maximum value in the range.
+rTo :: Lens' Range (Maybe Int)
+rTo = lens _rTo (\ s a -> s{_rTo = a});
+
+-- | The minimum value in the range.
+rFrom :: Lens' Range (Maybe Int)
+rFrom = lens _rFrom (\ s a -> s{_rFrom = a});
+
+-- | The step value for the range. For example, if you have a range of 5,000 to 10,000, with a step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500 is within the range, it isn't a valid value for the range. The valid values are 5,000, 6,000, 7,000, 8,000...
+rStep :: Lens' Range (Maybe Int)
+rStep = lens _rStep (\ s a -> s{_rStep = a});
+
+instance FromXML Range where
+        parseXML x
+          = Range' <$>
+              (x .@? "To") <*> (x .@? "From") <*> (x .@? "Step")
+
+instance Hashable Range where
+
+instance NFData Range where
 
 -- | This data type is used as a response element in the 'DescribeReservedDBInstances' and 'DescribeReservedDBInstancesOfferings' actions.
 --
@@ -5037,11 +5230,11 @@ data UpgradeTarget = UpgradeTarget'
 --
 -- * 'utEngineVersion' - The version number of the upgrade target database engine.
 --
--- * 'utIsMajorVersionUpgrade' - A value that indicates whether a database engine will be upgraded to a major version.
+-- * 'utIsMajorVersionUpgrade' - A value that indicates whether a database engine is upgraded to a major version.
 --
 -- * 'utEngine' - The name of the upgrade target database engine.
 --
--- * 'utAutoUpgrade' - A value that indicates whether the target version will be applied to any source DB instances that have AutoMinorVersionUpgrade set to true.
+-- * 'utAutoUpgrade' - A value that indicates whether the target version is applied to any source DB instances that have AutoMinorVersionUpgrade set to true.
 --
 -- * 'utDescription' - The version of the database engine that a DB instance can be upgraded to.
 upgradeTarget
@@ -5060,7 +5253,7 @@ upgradeTarget =
 utEngineVersion :: Lens' UpgradeTarget (Maybe Text)
 utEngineVersion = lens _utEngineVersion (\ s a -> s{_utEngineVersion = a});
 
--- | A value that indicates whether a database engine will be upgraded to a major version.
+-- | A value that indicates whether a database engine is upgraded to a major version.
 utIsMajorVersionUpgrade :: Lens' UpgradeTarget (Maybe Bool)
 utIsMajorVersionUpgrade = lens _utIsMajorVersionUpgrade (\ s a -> s{_utIsMajorVersionUpgrade = a});
 
@@ -5068,7 +5261,7 @@ utIsMajorVersionUpgrade = lens _utIsMajorVersionUpgrade (\ s a -> s{_utIsMajorVe
 utEngine :: Lens' UpgradeTarget (Maybe Text)
 utEngine = lens _utEngine (\ s a -> s{_utEngine = a});
 
--- | A value that indicates whether the target version will be applied to any source DB instances that have AutoMinorVersionUpgrade set to true.
+-- | A value that indicates whether the target version is applied to any source DB instances that have AutoMinorVersionUpgrade set to true.
 utAutoUpgrade :: Lens' UpgradeTarget (Maybe Bool)
 utAutoUpgrade = lens _utAutoUpgrade (\ s a -> s{_utAutoUpgrade = a});
 
@@ -5130,3 +5323,109 @@ instance FromXML VPCSecurityGroupMembership where
 instance Hashable VPCSecurityGroupMembership where
 
 instance NFData VPCSecurityGroupMembership where
+
+-- | Information about valid modifications that you can make to your DB instance. Contains the result of a successful call to the 'DescribeValidDBInstanceModifications' action. You can use this information when you call 'ModifyDBInstance' .
+--
+--
+--
+-- /See:/ 'validDBInstanceModificationsMessage' smart constructor.
+newtype ValidDBInstanceModificationsMessage = ValidDBInstanceModificationsMessage'
+  { _vdimmStorage :: Maybe [ValidStorageOptions]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ValidDBInstanceModificationsMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vdimmStorage' - Valid storage options for your DB instance.
+validDBInstanceModificationsMessage
+    :: ValidDBInstanceModificationsMessage
+validDBInstanceModificationsMessage =
+  ValidDBInstanceModificationsMessage' {_vdimmStorage = Nothing}
+
+
+-- | Valid storage options for your DB instance.
+vdimmStorage :: Lens' ValidDBInstanceModificationsMessage [ValidStorageOptions]
+vdimmStorage = lens _vdimmStorage (\ s a -> s{_vdimmStorage = a}) . _Default . _Coerce;
+
+instance FromXML ValidDBInstanceModificationsMessage
+         where
+        parseXML x
+          = ValidDBInstanceModificationsMessage' <$>
+              (x .@? "Storage" .!@ mempty >>=
+                 may (parseXMLList "ValidStorageOptions"))
+
+instance Hashable ValidDBInstanceModificationsMessage
+         where
+
+instance NFData ValidDBInstanceModificationsMessage
+         where
+
+-- | Information about valid modifications that you can make to your DB instance. Contains the result of a successful call to the 'DescribeValidDBInstanceModifications' action.
+--
+--
+--
+-- /See:/ 'validStorageOptions' smart constructor.
+data ValidStorageOptions = ValidStorageOptions'
+  { _vsoStorageSize        :: {-# NOUNPACK #-}!(Maybe [Range])
+  , _vsoProvisionedIOPS    :: {-# NOUNPACK #-}!(Maybe [Range])
+  , _vsoIOPSToStorageRatio :: {-# NOUNPACK #-}!(Maybe [DoubleRange])
+  , _vsoStorageType        :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ValidStorageOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vsoStorageSize' - The valid range of storage in gigabytes. For example, 100 to 6144.
+--
+-- * 'vsoProvisionedIOPS' - The valid range of provisioned IOPS. For example, 1000-20000.
+--
+-- * 'vsoIOPSToStorageRatio' - The valid range of Provisioned IOPS to gigabytes of storage multiplier. For example, 3-10, which means that provisioned IOPS can be between 3 and 10 times storage.
+--
+-- * 'vsoStorageType' - The valid storage types for your DB instance. For example, gp2, io1.
+validStorageOptions
+    :: ValidStorageOptions
+validStorageOptions =
+  ValidStorageOptions'
+  { _vsoStorageSize = Nothing
+  , _vsoProvisionedIOPS = Nothing
+  , _vsoIOPSToStorageRatio = Nothing
+  , _vsoStorageType = Nothing
+  }
+
+
+-- | The valid range of storage in gigabytes. For example, 100 to 6144.
+vsoStorageSize :: Lens' ValidStorageOptions [Range]
+vsoStorageSize = lens _vsoStorageSize (\ s a -> s{_vsoStorageSize = a}) . _Default . _Coerce;
+
+-- | The valid range of provisioned IOPS. For example, 1000-20000.
+vsoProvisionedIOPS :: Lens' ValidStorageOptions [Range]
+vsoProvisionedIOPS = lens _vsoProvisionedIOPS (\ s a -> s{_vsoProvisionedIOPS = a}) . _Default . _Coerce;
+
+-- | The valid range of Provisioned IOPS to gigabytes of storage multiplier. For example, 3-10, which means that provisioned IOPS can be between 3 and 10 times storage.
+vsoIOPSToStorageRatio :: Lens' ValidStorageOptions [DoubleRange]
+vsoIOPSToStorageRatio = lens _vsoIOPSToStorageRatio (\ s a -> s{_vsoIOPSToStorageRatio = a}) . _Default . _Coerce;
+
+-- | The valid storage types for your DB instance. For example, gp2, io1.
+vsoStorageType :: Lens' ValidStorageOptions (Maybe Text)
+vsoStorageType = lens _vsoStorageType (\ s a -> s{_vsoStorageType = a});
+
+instance FromXML ValidStorageOptions where
+        parseXML x
+          = ValidStorageOptions' <$>
+              (x .@? "StorageSize" .!@ mempty >>=
+                 may (parseXMLList "Range"))
+                <*>
+                (x .@? "ProvisionedIops" .!@ mempty >>=
+                   may (parseXMLList "Range"))
+                <*>
+                (x .@? "IopsToStorageRatio" .!@ mempty >>=
+                   may (parseXMLList "DoubleRange"))
+                <*> (x .@? "StorageType")
+
+instance Hashable ValidStorageOptions where
+
+instance NFData ValidStorageOptions where

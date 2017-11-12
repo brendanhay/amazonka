@@ -55,7 +55,7 @@ data DeleteProduct = DeleteProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'delAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'delId' - The identifier of the product for the delete request.
 deleteProduct
@@ -65,7 +65,7 @@ deleteProduct pId_ =
   DeleteProduct' {_delAcceptLanguage = Nothing, _delId = pId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 delAcceptLanguage :: Lens' DeleteProduct (Maybe Text)
 delAcceptLanguage = lens _delAcceptLanguage (\ s a -> s{_delAcceptLanguage = a});
 

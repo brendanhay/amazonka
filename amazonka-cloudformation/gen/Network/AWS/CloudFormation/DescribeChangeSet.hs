@@ -47,6 +47,7 @@ module Network.AWS.CloudFormation.DescribeChangeSet
     , desrsStackId
     , desrsDescription
     , desrsCapabilities
+    , desrsRollbackConfiguration
     , desrsTags
     , desrsStackName
     , desrsResponseStatus
@@ -130,6 +131,7 @@ instance AWSRequest DescribeChangeSet where
                      <*>
                      (x .@? "Capabilities" .!@ mempty >>=
                         may (parseXMLList "member"))
+                     <*> (x .@? "RollbackConfiguration")
                      <*>
                      (x .@? "Tags" .!@ mempty >>=
                         may (parseXMLList "member"))
@@ -162,22 +164,23 @@ instance ToQuery DescribeChangeSet where
 --
 -- /See:/ 'describeChangeSetResponse' smart constructor.
 data DescribeChangeSetResponse = DescribeChangeSetResponse'
-  { _desrsCreationTime     :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _desrsChanges          :: {-# NOUNPACK #-}!(Maybe [Change])
+  { _desrsCreationTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  , _desrsChanges :: {-# NOUNPACK #-}!(Maybe [Change])
   , _desrsNotificationARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _desrsChangeSetName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsExecutionStatus  :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
-  , _desrsChangeSetId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsParameters       :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _desrsStatusReason     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsStackId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsCapabilities     :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _desrsTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _desrsStackName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _desrsStatus           :: {-# NOUNPACK #-}!ChangeSetStatus
+  , _desrsChangeSetName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsExecutionStatus :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
+  , _desrsChangeSetId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsParameters :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _desrsStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsStackId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsCapabilities :: {-# NOUNPACK #-}!(Maybe [Capability])
+  , _desrsRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe RollbackConfiguration)
+  , _desrsTags :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _desrsStackName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  , _desrsStatus :: {-# NOUNPACK #-}!ChangeSetStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -209,6 +212,8 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 --
 -- * 'desrsCapabilities' - If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created.
 --
+-- * 'desrsRollbackConfiguration' - The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
+--
 -- * 'desrsTags' - If you execute the change set, the tags that will be associated with the stack.
 --
 -- * 'desrsStackName' - The name of the stack that is associated with the change set.
@@ -234,6 +239,7 @@ describeChangeSetResponse pResponseStatus_ pStatus_ =
   , _desrsStackId = Nothing
   , _desrsDescription = Nothing
   , _desrsCapabilities = Nothing
+  , _desrsRollbackConfiguration = Nothing
   , _desrsTags = Nothing
   , _desrsStackName = Nothing
   , _desrsResponseStatus = pResponseStatus_
@@ -288,6 +294,10 @@ desrsDescription = lens _desrsDescription (\ s a -> s{_desrsDescription = a});
 -- | If you execute the change set, the list of capabilities that were explicitly acknowledged when the change set was created.
 desrsCapabilities :: Lens' DescribeChangeSetResponse [Capability]
 desrsCapabilities = lens _desrsCapabilities (\ s a -> s{_desrsCapabilities = a}) . _Default . _Coerce;
+
+-- | The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
+desrsRollbackConfiguration :: Lens' DescribeChangeSetResponse (Maybe RollbackConfiguration)
+desrsRollbackConfiguration = lens _desrsRollbackConfiguration (\ s a -> s{_desrsRollbackConfiguration = a});
 
 -- | If you execute the change set, the tags that will be associated with the stack.
 desrsTags :: Lens' DescribeChangeSetResponse [Tag]

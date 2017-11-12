@@ -31,6 +31,12 @@ data ESPartitionInstanceType
   | D2_XLarge_Elasticsearch
   | I2_2XLarge_Elasticsearch
   | I2_XLarge_Elasticsearch
+  | I3_16XLarge_Elasticsearch
+  | I3_2XLarge_Elasticsearch
+  | I3_4XLarge_Elasticsearch
+  | I3_8XLarge_Elasticsearch
+  | I3_Large_Elasticsearch
+  | I3_XLarge_Elasticsearch
   | M3_2XLarge_Elasticsearch
   | M3_Large_Elasticsearch
   | M3_Medium_Elasticsearch
@@ -70,6 +76,12 @@ instance FromText ESPartitionInstanceType where
         "d2.xlarge.elasticsearch" -> pure D2_XLarge_Elasticsearch
         "i2.2xlarge.elasticsearch" -> pure I2_2XLarge_Elasticsearch
         "i2.xlarge.elasticsearch" -> pure I2_XLarge_Elasticsearch
+        "i3.16xlarge.elasticsearch" -> pure I3_16XLarge_Elasticsearch
+        "i3.2xlarge.elasticsearch" -> pure I3_2XLarge_Elasticsearch
+        "i3.4xlarge.elasticsearch" -> pure I3_4XLarge_Elasticsearch
+        "i3.8xlarge.elasticsearch" -> pure I3_8XLarge_Elasticsearch
+        "i3.large.elasticsearch" -> pure I3_Large_Elasticsearch
+        "i3.xlarge.elasticsearch" -> pure I3_XLarge_Elasticsearch
         "m3.2xlarge.elasticsearch" -> pure M3_2XLarge_Elasticsearch
         "m3.large.elasticsearch" -> pure M3_Large_Elasticsearch
         "m3.medium.elasticsearch" -> pure M3_Medium_Elasticsearch
@@ -94,7 +106,7 @@ instance FromText ESPartitionInstanceType where
         "t2.micro.elasticsearch" -> pure T2_Micro_Elasticsearch
         "t2.small.elasticsearch" -> pure T2_Small_Elasticsearch
         e -> fromTextError $ "Failure parsing ESPartitionInstanceType from value: '" <> e
-           <> "'. Accepted values: c4.2xlarge.elasticsearch, c4.4xlarge.elasticsearch, c4.8xlarge.elasticsearch, c4.large.elasticsearch, c4.xlarge.elasticsearch, d2.2xlarge.elasticsearch, d2.4xlarge.elasticsearch, d2.8xlarge.elasticsearch, d2.xlarge.elasticsearch, i2.2xlarge.elasticsearch, i2.xlarge.elasticsearch, m3.2xlarge.elasticsearch, m3.large.elasticsearch, m3.medium.elasticsearch, m3.xlarge.elasticsearch, m4.10xlarge.elasticsearch, m4.2xlarge.elasticsearch, m4.4xlarge.elasticsearch, m4.large.elasticsearch, m4.xlarge.elasticsearch, r3.2xlarge.elasticsearch, r3.4xlarge.elasticsearch, r3.8xlarge.elasticsearch, r3.large.elasticsearch, r3.xlarge.elasticsearch, r4.16xlarge.elasticsearch, r4.2xlarge.elasticsearch, r4.4xlarge.elasticsearch, r4.8xlarge.elasticsearch, r4.large.elasticsearch, r4.xlarge.elasticsearch, t2.medium.elasticsearch, t2.micro.elasticsearch, t2.small.elasticsearch"
+           <> "'. Accepted values: c4.2xlarge.elasticsearch, c4.4xlarge.elasticsearch, c4.8xlarge.elasticsearch, c4.large.elasticsearch, c4.xlarge.elasticsearch, d2.2xlarge.elasticsearch, d2.4xlarge.elasticsearch, d2.8xlarge.elasticsearch, d2.xlarge.elasticsearch, i2.2xlarge.elasticsearch, i2.xlarge.elasticsearch, i3.16xlarge.elasticsearch, i3.2xlarge.elasticsearch, i3.4xlarge.elasticsearch, i3.8xlarge.elasticsearch, i3.large.elasticsearch, i3.xlarge.elasticsearch, m3.2xlarge.elasticsearch, m3.large.elasticsearch, m3.medium.elasticsearch, m3.xlarge.elasticsearch, m4.10xlarge.elasticsearch, m4.2xlarge.elasticsearch, m4.4xlarge.elasticsearch, m4.large.elasticsearch, m4.xlarge.elasticsearch, r3.2xlarge.elasticsearch, r3.4xlarge.elasticsearch, r3.8xlarge.elasticsearch, r3.large.elasticsearch, r3.xlarge.elasticsearch, r4.16xlarge.elasticsearch, r4.2xlarge.elasticsearch, r4.4xlarge.elasticsearch, r4.8xlarge.elasticsearch, r4.large.elasticsearch, r4.xlarge.elasticsearch, t2.medium.elasticsearch, t2.micro.elasticsearch, t2.small.elasticsearch"
 
 instance ToText ESPartitionInstanceType where
     toText = \case
@@ -109,6 +121,12 @@ instance ToText ESPartitionInstanceType where
         D2_XLarge_Elasticsearch -> "d2.xlarge.elasticsearch"
         I2_2XLarge_Elasticsearch -> "i2.2xlarge.elasticsearch"
         I2_XLarge_Elasticsearch -> "i2.xlarge.elasticsearch"
+        I3_16XLarge_Elasticsearch -> "i3.16xlarge.elasticsearch"
+        I3_2XLarge_Elasticsearch -> "i3.2xlarge.elasticsearch"
+        I3_4XLarge_Elasticsearch -> "i3.4xlarge.elasticsearch"
+        I3_8XLarge_Elasticsearch -> "i3.8xlarge.elasticsearch"
+        I3_Large_Elasticsearch -> "i3.large.elasticsearch"
+        I3_XLarge_Elasticsearch -> "i3.xlarge.elasticsearch"
         M3_2XLarge_Elasticsearch -> "m3.2xlarge.elasticsearch"
         M3_Large_Elasticsearch -> "m3.large.elasticsearch"
         M3_Medium_Elasticsearch -> "m3.medium.elasticsearch"
@@ -144,6 +162,41 @@ instance ToJSON ESPartitionInstanceType where
 
 instance FromJSON ESPartitionInstanceType where
     parseJSON = parseJSONText "ESPartitionInstanceType"
+
+-- | Type of Log File, it can be one of the following:     * INDEX_SLOW_LOGS: Index slow logs contains insert requests that took more time than configured index query log threshold to execute.    * SEARCH_SLOW_LOGS: Search slow logs contains search queries that took more time than configured search query log threshold to execute.
+--
+--
+--
+--
+data LogType
+  = IndexSlowLogs
+  | SearchSlowLogs
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText LogType where
+    parser = takeLowerText >>= \case
+        "index_slow_logs" -> pure IndexSlowLogs
+        "search_slow_logs" -> pure SearchSlowLogs
+        e -> fromTextError $ "Failure parsing LogType from value: '" <> e
+           <> "'. Accepted values: index_slow_logs, search_slow_logs"
+
+instance ToText LogType where
+    toText = \case
+        IndexSlowLogs -> "INDEX_SLOW_LOGS"
+        SearchSlowLogs -> "SEARCH_SLOW_LOGS"
+
+instance Hashable     LogType
+instance NFData       LogType
+instance ToByteString LogType
+instance ToQuery      LogType
+instance ToHeader     LogType
+
+instance ToJSON LogType where
+    toJSON = toJSONText
+
+instance FromJSON LogType where
+    parseJSON = parseJSONText "LogType"
 
 -- | The state of a requested change. One of the following:
 --

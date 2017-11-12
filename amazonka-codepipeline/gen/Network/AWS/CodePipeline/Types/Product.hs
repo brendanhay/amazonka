@@ -134,7 +134,7 @@ data ActionConfigurationProperty = ActionConfigurationProperty'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acpQueryable' - Indicates that the proprety will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret. If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
+-- * 'acpQueryable' - Indicates that the property will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret. If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
 --
 -- * 'acpType' - The type of the configuration property.
 --
@@ -165,7 +165,7 @@ actionConfigurationProperty pName_ pRequired_ pKey_ pSecret_ =
   }
 
 
--- | Indicates that the proprety will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret. If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
+-- | Indicates that the property will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret. If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
 acpQueryable :: Lens' ActionConfigurationProperty (Maybe Bool)
 acpQueryable = lens _acpQueryable (\ s a -> s{_acpQueryable = a});
 
@@ -1804,7 +1804,7 @@ data PipelineContext = PipelineContext'
 --
 -- * 'pcPipelineName' - The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.
 --
--- * 'pcAction' -
+-- * 'pcAction' - The context of an action to a job worker within the stage of a pipeline.
 pipelineContext
     :: PipelineContext
 pipelineContext =
@@ -1820,7 +1820,7 @@ pcStage = lens _pcStage (\ s a -> s{_pcStage = a});
 pcPipelineName :: Lens' PipelineContext (Maybe Text)
 pcPipelineName = lens _pcPipelineName (\ s a -> s{_pcPipelineName = a});
 
--- |
+-- | The context of an action to a job worker within the stage of a pipeline.
 pcAction :: Lens' PipelineContext (Maybe ActionContext)
 pcAction = lens _pcAction (\ s a -> s{_pcAction = a});
 
@@ -1860,7 +1860,7 @@ data PipelineDeclaration = PipelineDeclaration'
 --
 -- * 'pdRoleARN' - The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn.
 --
--- * 'pdArtifactStore' - Represents the context of an action within the stage of a pipeline to a job worker.
+-- * 'pdArtifactStore' - Represents information about the Amazon S3 bucket where artifacts are stored for the pipeline.
 --
 -- * 'pdStages' - The stage in which to perform the action.
 pipelineDeclaration
@@ -1890,7 +1890,7 @@ pdName = lens _pdName (\ s a -> s{_pdName = a});
 pdRoleARN :: Lens' PipelineDeclaration Text
 pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a});
 
--- | Represents the context of an action within the stage of a pipeline to a job worker.
+-- | Represents information about the Amazon S3 bucket where artifacts are stored for the pipeline.
 pdArtifactStore :: Lens' PipelineDeclaration ArtifactStore
 pdArtifactStore = lens _pdArtifactStore (\ s a -> s{_pdArtifactStore = a});
 
@@ -1940,7 +1940,7 @@ data PipelineExecution = PipelineExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'peStatus' - The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline execution did not complete successfully.
+-- * 'peStatus' - The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution was completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead.      * Failed: The pipeline execution was not completed successfully.
 --
 -- * 'pePipelineName' - The name of the pipeline that was executed.
 --
@@ -1961,7 +1961,7 @@ pipelineExecution =
   }
 
 
--- | The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline execution did not complete successfully.
+-- | The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution was completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead.      * Failed: The pipeline execution was not completed successfully.
 peStatus :: Lens' PipelineExecution (Maybe PipelineExecutionStatus)
 peStatus = lens _peStatus (\ s a -> s{_peStatus = a});
 
@@ -2012,7 +2012,7 @@ data PipelineExecutionSummary = PipelineExecutionSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pesStatus' - The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline execution did not complete successfully.
+-- * 'pesStatus' - The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution was completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead.      * Failed: The pipeline execution was not completed successfully.
 --
 -- * 'pesStartTime' - The date and time when the pipeline execution began, in timestamp format.
 --
@@ -2030,7 +2030,7 @@ pipelineExecutionSummary =
   }
 
 
--- | The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline execution did not complete successfully.
+-- | The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution was completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead.      * Failed: The pipeline execution was not completed successfully.
 pesStatus :: Lens' PipelineExecutionSummary (Maybe PipelineExecutionStatus)
 pesStatus = lens _pesStatus (\ s a -> s{_pesStatus = a});
 
@@ -2058,6 +2058,58 @@ instance FromJSON PipelineExecutionSummary where
 instance Hashable PipelineExecutionSummary where
 
 instance NFData PipelineExecutionSummary where
+
+-- | Information about a pipeline.
+--
+--
+--
+-- /See:/ 'pipelineMetadata' smart constructor.
+data PipelineMetadata = PipelineMetadata'
+  { _pmCreated     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pmPipelineARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _pmUpdated     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PipelineMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pmCreated' - The date and time the pipeline was created, in timestamp format.
+--
+-- * 'pmPipelineARN' - The Amazon Resource Name (ARN) of the pipeline.
+--
+-- * 'pmUpdated' - The date and time the pipeline was last updated, in timestamp format.
+pipelineMetadata
+    :: PipelineMetadata
+pipelineMetadata =
+  PipelineMetadata'
+  {_pmCreated = Nothing, _pmPipelineARN = Nothing, _pmUpdated = Nothing}
+
+
+-- | The date and time the pipeline was created, in timestamp format.
+pmCreated :: Lens' PipelineMetadata (Maybe UTCTime)
+pmCreated = lens _pmCreated (\ s a -> s{_pmCreated = a}) . mapping _Time;
+
+-- | The Amazon Resource Name (ARN) of the pipeline.
+pmPipelineARN :: Lens' PipelineMetadata (Maybe Text)
+pmPipelineARN = lens _pmPipelineARN (\ s a -> s{_pmPipelineARN = a});
+
+-- | The date and time the pipeline was last updated, in timestamp format.
+pmUpdated :: Lens' PipelineMetadata (Maybe UTCTime)
+pmUpdated = lens _pmUpdated (\ s a -> s{_pmUpdated = a}) . mapping _Time;
+
+instance FromJSON PipelineMetadata where
+        parseJSON
+          = withObject "PipelineMetadata"
+              (\ x ->
+                 PipelineMetadata' <$>
+                   (x .:? "created") <*> (x .:? "pipelineArn") <*>
+                     (x .:? "updated"))
+
+instance Hashable PipelineMetadata where
+
+instance NFData PipelineMetadata where
 
 -- | Returns a summary of a pipeline.
 --

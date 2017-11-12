@@ -103,6 +103,7 @@ module Network.AWS.KinesisAnalytics.Types
     , Input
     , input
     , iInputParallelism
+    , iInputProcessingConfiguration
     , iKinesisStreamsInput
     , iKinesisFirehoseInput
     , iNamePrefix
@@ -125,6 +126,25 @@ module Network.AWS.KinesisAnalytics.Types
     , idInputSchema
     , idKinesisStreamsInputDescription
     , idNamePrefix
+    , idInputProcessingConfigurationDescription
+
+    -- * InputLambdaProcessor
+    , InputLambdaProcessor
+    , inputLambdaProcessor
+    , ilpResourceARN
+    , ilpRoleARN
+
+    -- * InputLambdaProcessorDescription
+    , InputLambdaProcessorDescription
+    , inputLambdaProcessorDescription
+    , ilpdResourceARN
+    , ilpdRoleARN
+
+    -- * InputLambdaProcessorUpdate
+    , InputLambdaProcessorUpdate
+    , inputLambdaProcessorUpdate
+    , ilpuRoleARNUpdate
+    , ilpuResourceARNUpdate
 
     -- * InputParallelism
     , InputParallelism
@@ -135,6 +155,21 @@ module Network.AWS.KinesisAnalytics.Types
     , InputParallelismUpdate
     , inputParallelismUpdate
     , ipuCountUpdate
+
+    -- * InputProcessingConfiguration
+    , InputProcessingConfiguration
+    , inputProcessingConfiguration
+    , ipcInputLambdaProcessor
+
+    -- * InputProcessingConfigurationDescription
+    , InputProcessingConfigurationDescription
+    , inputProcessingConfigurationDescription
+    , ipcdInputLambdaProcessorDescription
+
+    -- * InputProcessingConfigurationUpdate
+    , InputProcessingConfigurationUpdate
+    , inputProcessingConfigurationUpdate
+    , ipcuInputLambdaProcessorUpdate
 
     -- * InputSchemaUpdate
     , InputSchemaUpdate
@@ -151,6 +186,7 @@ module Network.AWS.KinesisAnalytics.Types
     -- * InputUpdate
     , InputUpdate
     , inputUpdate
+    , iuInputProcessingConfigurationUpdate
     , iuKinesisStreamsInputUpdate
     , iuInputParallelismUpdate
     , iuNamePrefixUpdate
@@ -302,6 +338,13 @@ module Network.AWS.KinesisAnalytics.Types
     , rdsuS3ReferenceDataSourceUpdate
     , rdsuReferenceSchemaUpdate
     , rdsuReferenceId
+
+    -- * S3Configuration
+    , S3Configuration
+    , s3Configuration
+    , scRoleARN
+    , scBucketARN
+    , scFileKey
 
     -- * S3ReferenceDataSource
     , S3ReferenceDataSource

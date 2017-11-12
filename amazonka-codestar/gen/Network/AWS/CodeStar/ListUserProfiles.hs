@@ -115,7 +115,7 @@ data ListUserProfilesResponse = ListUserProfilesResponse'
   { _luprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
   , _luprsResponseStatus :: {-# NOUNPACK #-}!Int
   , _luprsUserProfiles   :: {-# NOUNPACK #-}![UserProfileSummary]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'ListUserProfilesResponse' with the minimum fields required to make a request.

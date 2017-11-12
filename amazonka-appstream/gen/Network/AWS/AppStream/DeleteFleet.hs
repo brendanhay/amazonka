@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a fleet.
+-- Deletes the specified fleet.
 --
 --
 module Network.AWS.AppStream.DeleteFleet
@@ -53,14 +53,14 @@ newtype DeleteFleet = DeleteFleet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfName' - The name of the fleet to be deleted.
+-- * 'dfName' - The name of the fleet.
 deleteFleet
     :: Text -- ^ 'dfName'
     -> DeleteFleet
 deleteFleet pName_ = DeleteFleet' {_dfName = pName_}
 
 
--- | The name of the fleet to be deleted.
+-- | The name of the fleet.
 dfName :: Lens' DeleteFleet Text
 dfName = lens _dfName (\ s a -> s{_dfName = a});
 

@@ -82,7 +82,7 @@ data CreateProduct = CreateProduct'
 --
 -- * 'cpDistributor' - The distributor of the product.
 --
--- * 'cpAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'cpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'cpSupportEmail' - Contact email for product support.
 --
@@ -100,7 +100,7 @@ data CreateProduct = CreateProduct'
 --
 -- * 'cpProvisioningArtifactParameters' - Parameters for the provisioning artifact.
 --
--- * 'cpIdempotencyToken' - A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- * 'cpIdempotencyToken' - A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 createProduct
     :: Text -- ^ 'cpName'
     -> Text -- ^ 'cpOwner'
@@ -133,7 +133,7 @@ cpSupportURL = lens _cpSupportURL (\ s a -> s{_cpSupportURL = a});
 cpDistributor :: Lens' CreateProduct (Maybe Text)
 cpDistributor = lens _cpDistributor (\ s a -> s{_cpDistributor = a});
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 cpAcceptLanguage :: Lens' CreateProduct (Maybe Text)
 cpAcceptLanguage = lens _cpAcceptLanguage (\ s a -> s{_cpAcceptLanguage = a});
 
@@ -169,7 +169,7 @@ cpProductType = lens _cpProductType (\ s a -> s{_cpProductType = a});
 cpProvisioningArtifactParameters :: Lens' CreateProduct ProvisioningArtifactProperties
 cpProvisioningArtifactParameters = lens _cpProvisioningArtifactParameters (\ s a -> s{_cpProvisioningArtifactParameters = a});
 
--- | A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- | A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 cpIdempotencyToken :: Lens' CreateProduct Text
 cpIdempotencyToken = lens _cpIdempotencyToken (\ s a -> s{_cpIdempotencyToken = a});
 

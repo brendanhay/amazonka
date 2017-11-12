@@ -79,6 +79,63 @@ instance ToJSON ContentType where
 instance FromJSON ContentType where
     parseJSON = parseJSONText "ContentType"
 
+data ExportStatus
+  = Failed
+  | InProgress
+  | Ready
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ExportStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "in_progress" -> pure InProgress
+        "ready" -> pure Ready
+        e -> fromTextError $ "Failure parsing ExportStatus from value: '" <> e
+           <> "'. Accepted values: failed, in_progress, ready"
+
+instance ToText ExportStatus where
+    toText = \case
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+        Ready -> "READY"
+
+instance Hashable     ExportStatus
+instance NFData       ExportStatus
+instance ToByteString ExportStatus
+instance ToQuery      ExportStatus
+instance ToHeader     ExportStatus
+
+instance FromJSON ExportStatus where
+    parseJSON = parseJSONText "ExportStatus"
+
+data ExportType =
+  AlexaSkillsKit
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ExportType where
+    parser = takeLowerText >>= \case
+        "alexa_skills_kit" -> pure AlexaSkillsKit
+        e -> fromTextError $ "Failure parsing ExportType from value: '" <> e
+           <> "'. Accepted values: alexa_skills_kit"
+
+instance ToText ExportType where
+    toText = \case
+        AlexaSkillsKit -> "ALEXA_SKILLS_KIT"
+
+instance Hashable     ExportType
+instance NFData       ExportType
+instance ToByteString ExportType
+instance ToQuery      ExportType
+instance ToHeader     ExportType
+
+instance ToJSON ExportType where
+    toJSON = toJSONText
+
+instance FromJSON ExportType where
+    parseJSON = parseJSONText "ExportType"
+
 data FulfillmentActivityType
   = CodeHook
   | ReturnIntent
@@ -110,28 +167,28 @@ instance FromJSON FulfillmentActivityType where
     parseJSON = parseJSONText "FulfillmentActivityType"
 
 data LexStatus
-  = Building
-  | Failed
-  | NotBuilt
-  | Ready
+  = LSBuilding
+  | LSFailed
+  | LSNotBuilt
+  | LSReady
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText LexStatus where
     parser = takeLowerText >>= \case
-        "building" -> pure Building
-        "failed" -> pure Failed
-        "not_built" -> pure NotBuilt
-        "ready" -> pure Ready
+        "building" -> pure LSBuilding
+        "failed" -> pure LSFailed
+        "not_built" -> pure LSNotBuilt
+        "ready" -> pure LSReady
         e -> fromTextError $ "Failure parsing LexStatus from value: '" <> e
            <> "'. Accepted values: building, failed, not_built, ready"
 
 instance ToText LexStatus where
     toText = \case
-        Building -> "BUILDING"
-        Failed -> "FAILED"
-        NotBuilt -> "NOT_BUILT"
-        Ready -> "READY"
+        LSBuilding -> "BUILDING"
+        LSFailed -> "FAILED"
+        LSNotBuilt -> "NOT_BUILT"
+        LSReady -> "READY"
 
 instance Hashable     LexStatus
 instance NFData       LexStatus
@@ -196,6 +253,33 @@ instance ToHeader     ProcessBehavior
 instance ToJSON ProcessBehavior where
     toJSON = toJSONText
 
+data ResourceType =
+  Bot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ResourceType where
+    parser = takeLowerText >>= \case
+        "bot" -> pure Bot
+        e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
+           <> "'. Accepted values: bot"
+
+instance ToText ResourceType where
+    toText = \case
+        Bot -> "BOT"
+
+instance Hashable     ResourceType
+instance NFData       ResourceType
+instance ToByteString ResourceType
+instance ToQuery      ResourceType
+instance ToHeader     ResourceType
+
+instance ToJSON ResourceType where
+    toJSON = toJSONText
+
+instance FromJSON ResourceType where
+    parseJSON = parseJSONText "ResourceType"
+
 data SlotConstraint
   = Optional
   | Required
@@ -225,6 +309,36 @@ instance ToJSON SlotConstraint where
 
 instance FromJSON SlotConstraint where
     parseJSON = parseJSONText "SlotConstraint"
+
+data SlotValueSelectionStrategy
+  = OriginalValue
+  | TopResolution
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SlotValueSelectionStrategy where
+    parser = takeLowerText >>= \case
+        "original_value" -> pure OriginalValue
+        "top_resolution" -> pure TopResolution
+        e -> fromTextError $ "Failure parsing SlotValueSelectionStrategy from value: '" <> e
+           <> "'. Accepted values: original_value, top_resolution"
+
+instance ToText SlotValueSelectionStrategy where
+    toText = \case
+        OriginalValue -> "ORIGINAL_VALUE"
+        TopResolution -> "TOP_RESOLUTION"
+
+instance Hashable     SlotValueSelectionStrategy
+instance NFData       SlotValueSelectionStrategy
+instance ToByteString SlotValueSelectionStrategy
+instance ToQuery      SlotValueSelectionStrategy
+instance ToHeader     SlotValueSelectionStrategy
+
+instance ToJSON SlotValueSelectionStrategy where
+    toJSON = toJSONText
+
+instance FromJSON SlotValueSelectionStrategy where
+    parseJSON = parseJSONText "SlotValueSelectionStrategy"
 
 data StatusType
   = Detected

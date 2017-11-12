@@ -71,7 +71,7 @@ data CreateCrawler = CreateCrawler'
 --
 -- * 'ccSchemaChangePolicy' - Policy for the crawler's update and deletion behavior.
 --
--- * 'ccSchedule' - A cron expression that can be used as a Cloudwatch event (see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html CloudWatch Schedule Expression Syntax> . For example, to run every day at 12:15 UTC, specify: @cron(15 12 * * ? *)@ .
+-- * 'ccSchedule' - A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 --
 -- * 'ccClassifiers' - A list of custom @Classifier@ names that the user has registered. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 --
@@ -81,7 +81,7 @@ data CreateCrawler = CreateCrawler'
 --
 -- * 'ccName' - Name of the new @Crawler@ .
 --
--- * 'ccRole' - The AWS ARN of the IAM role used by the new @Crawler@ to access customer resources.
+-- * 'ccRole' - The IAM role (or ARN of an IAM role) used by the new @Crawler@ to access customer resources.
 --
 -- * 'ccDatabaseName' - The Glue @Database@ where results will be stored, such as: @arn:aws:daylight:us-east-1::database/sometable/*@ .
 --
@@ -110,7 +110,7 @@ createCrawler pName_ pRole_ pDatabaseName_ pTargets_ =
 ccSchemaChangePolicy :: Lens' CreateCrawler (Maybe SchemaChangePolicy)
 ccSchemaChangePolicy = lens _ccSchemaChangePolicy (\ s a -> s{_ccSchemaChangePolicy = a});
 
--- | A cron expression that can be used as a Cloudwatch event (see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html CloudWatch Schedule Expression Syntax> . For example, to run every day at 12:15 UTC, specify: @cron(15 12 * * ? *)@ .
+-- | A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 ccSchedule :: Lens' CreateCrawler (Maybe Text)
 ccSchedule = lens _ccSchedule (\ s a -> s{_ccSchedule = a});
 
@@ -130,7 +130,7 @@ ccDescription = lens _ccDescription (\ s a -> s{_ccDescription = a});
 ccName :: Lens' CreateCrawler Text
 ccName = lens _ccName (\ s a -> s{_ccName = a});
 
--- | The AWS ARN of the IAM role used by the new @Crawler@ to access customer resources.
+-- | The IAM role (or ARN of an IAM role) used by the new @Crawler@ to access customer resources.
 ccRole :: Lens' CreateCrawler Text
 ccRole = lens _ccRole (\ s a -> s{_ccRole = a});
 

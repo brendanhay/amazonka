@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -55,6 +55,7 @@ library
         , Network.AWS.SQS.GetQueueAttributes
         , Network.AWS.SQS.GetQueueURL
         , Network.AWS.SQS.ListDeadLetterSourceQueues
+        , Network.AWS.SQS.ListQueueTags
         , Network.AWS.SQS.ListQueues
         , Network.AWS.SQS.PurgeQueue
         , Network.AWS.SQS.ReceiveMessage
@@ -62,7 +63,9 @@ library
         , Network.AWS.SQS.SendMessage
         , Network.AWS.SQS.SendMessageBatch
         , Network.AWS.SQS.SetQueueAttributes
+        , Network.AWS.SQS.TagQueue
         , Network.AWS.SQS.Types
+        , Network.AWS.SQS.UntagQueue
         , Network.AWS.SQS.Waiters
 
     other-modules:

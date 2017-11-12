@@ -14,11 +14,11 @@
 module Test.AWS.Gen.IAM where
 
 import Data.Proxy
+import Network.AWS.IAM
 import Test.AWS.Fixture
+import Test.AWS.IAM.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.IAM
-import Test.AWS.IAM.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -169,6 +169,9 @@ import Test.AWS.IAM.Internal
 --         , requestGetAccountAuthorizationDetails $
 --             getAccountAuthorizationDetails
 --
+--         , requestGetServiceLinkedRoleDeletionStatus $
+--             getServiceLinkedRoleDeletionStatus
+--
 --         , requestDeleteAccountAlias $
 --             deleteAccountAlias
 --
@@ -195,6 +198,9 @@ import Test.AWS.IAM.Internal
 --
 --         , requestListServerCertificates $
 --             listServerCertificates
+--
+--         , requestDeleteServiceLinkedRole $
+--             deleteServiceLinkedRole
 --
 --         , requestDeletePolicy $
 --             deletePolicy
@@ -532,6 +538,9 @@ import Test.AWS.IAM.Internal
 --         , responseGetAccountAuthorizationDetails $
 --             getAccountAuthorizationDetailsResponse
 --
+--         , responseGetServiceLinkedRoleDeletionStatus $
+--             getServiceLinkedRoleDeletionStatusResponse
+--
 --         , responseDeleteAccountAlias $
 --             deleteAccountAliasResponse
 --
@@ -558,6 +567,9 @@ import Test.AWS.IAM.Internal
 --
 --         , responseListServerCertificates $
 --             listServerCertificatesResponse
+--
+--         , responseDeleteServiceLinkedRole $
+--             deleteServiceLinkedRoleResponse
 --
 --         , responseDeletePolicy $
 --             deletePolicyResponse
@@ -991,6 +1003,11 @@ requestGetAccountAuthorizationDetails = req
     "GetAccountAuthorizationDetails"
     "fixture/GetAccountAuthorizationDetails.yaml"
 
+requestGetServiceLinkedRoleDeletionStatus :: GetServiceLinkedRoleDeletionStatus -> TestTree
+requestGetServiceLinkedRoleDeletionStatus = req
+    "GetServiceLinkedRoleDeletionStatus"
+    "fixture/GetServiceLinkedRoleDeletionStatus.yaml"
+
 requestDeleteAccountAlias :: DeleteAccountAlias -> TestTree
 requestDeleteAccountAlias = req
     "DeleteAccountAlias"
@@ -1035,6 +1052,11 @@ requestListServerCertificates :: ListServerCertificates -> TestTree
 requestListServerCertificates = req
     "ListServerCertificates"
     "fixture/ListServerCertificates.yaml"
+
+requestDeleteServiceLinkedRole :: DeleteServiceLinkedRole -> TestTree
+requestDeleteServiceLinkedRole = req
+    "DeleteServiceLinkedRole"
+    "fixture/DeleteServiceLinkedRole.yaml"
 
 requestDeletePolicy :: DeletePolicy -> TestTree
 requestDeletePolicy = req
@@ -1687,6 +1709,13 @@ responseGetAccountAuthorizationDetails = res
     iam
     (Proxy :: Proxy GetAccountAuthorizationDetails)
 
+responseGetServiceLinkedRoleDeletionStatus :: GetServiceLinkedRoleDeletionStatusResponse -> TestTree
+responseGetServiceLinkedRoleDeletionStatus = res
+    "GetServiceLinkedRoleDeletionStatusResponse"
+    "fixture/GetServiceLinkedRoleDeletionStatusResponse.proto"
+    iam
+    (Proxy :: Proxy GetServiceLinkedRoleDeletionStatus)
+
 responseDeleteAccountAlias :: DeleteAccountAliasResponse -> TestTree
 responseDeleteAccountAlias = res
     "DeleteAccountAliasResponse"
@@ -1749,6 +1778,13 @@ responseListServerCertificates = res
     "fixture/ListServerCertificatesResponse.proto"
     iam
     (Proxy :: Proxy ListServerCertificates)
+
+responseDeleteServiceLinkedRole :: DeleteServiceLinkedRoleResponse -> TestTree
+responseDeleteServiceLinkedRole = res
+    "DeleteServiceLinkedRoleResponse"
+    "fixture/DeleteServiceLinkedRoleResponse.proto"
+    iam
+    (Proxy :: Proxy DeleteServiceLinkedRole)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
 responseDeletePolicy = res

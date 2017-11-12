@@ -21,7 +21,7 @@
 -- Given an identity (an email address or a domain), sets whether Amazon SES includes the original email headers in the Amazon Simple Notification Service (Amazon SNS) notifications of a specified type.
 --
 --
--- This action is throttled at one request per second.
+-- You can execute this operation no more than once per second.
 --
 -- For more information about using notifications with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide> .
 --

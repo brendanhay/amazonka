@@ -86,20 +86,26 @@ module Network.AWS.ApplicationAutoScaling.Types
     , stRoleARN
     , stCreationTime
 
+    -- * ScalableTargetAction
+    , ScalableTargetAction
+    , scalableTargetAction
+    , staMaxCapacity
+    , staMinCapacity
+
     -- * ScalingActivity
     , ScalingActivity
     , scalingActivity
-    , saStatusMessage
-    , saEndTime
-    , saDetails
-    , saActivityId
-    , saServiceNamespace
-    , saResourceId
-    , saScalableDimension
-    , saDescription
-    , saCause
-    , saStartTime
-    , saStatusCode
+    , sStatusMessage
+    , sEndTime
+    , sDetails
+    , sActivityId
+    , sServiceNamespace
+    , sResourceId
+    , sScalableDimension
+    , sDescription
+    , sCause
+    , sStartTime
+    , sStatusCode
 
     -- * ScalingPolicy
     , ScalingPolicy
@@ -114,6 +120,20 @@ module Network.AWS.ApplicationAutoScaling.Types
     , spScalableDimension
     , spPolicyType
     , spCreationTime
+
+    -- * ScheduledAction
+    , ScheduledAction
+    , scheduledAction
+    , saScalableDimension
+    , saStartTime
+    , saEndTime
+    , saScalableTargetAction
+    , saScheduledActionName
+    , saScheduledActionARN
+    , saServiceNamespace
+    , saSchedule
+    , saResourceId
+    , saCreationTime
 
     -- * StepAdjustment
     , StepAdjustment
@@ -137,6 +157,7 @@ module Network.AWS.ApplicationAutoScaling.Types
     , ttspcPredefinedMetricSpecification
     , ttspcScaleInCooldown
     , ttspcCustomizedMetricSpecification
+    , ttspcDisableScaleIn
     , ttspcScaleOutCooldown
     , ttspcTargetValue
     ) where

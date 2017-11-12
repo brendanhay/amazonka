@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates a CIDR block from a VPC. Currently, you can disassociate an IPv6 CIDR block only. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it.
+-- Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must specify its association ID. You can get the association ID by using 'DescribeVpcs' . You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it.
 --
+--
+-- You cannot disassociate the CIDR block with which you originally created the VPC (the primary CIDR block).
 --
 module Network.AWS.EC2.DisassociateVPCCidrBlock
     (
@@ -34,6 +36,7 @@ module Network.AWS.EC2.DisassociateVPCCidrBlock
     , DisassociateVPCCidrBlockResponse
     -- * Response Lenses
     , dvcbrsVPCId
+    , dvcbrsCidrBlockAssociation
     , dvcbrsIPv6CidrBlockAssociation
     , dvcbrsResponseStatus
     ) where
@@ -75,8 +78,8 @@ instance AWSRequest DisassociateVPCCidrBlock where
           = receiveXML
               (\ s h x ->
                  DisassociateVPCCidrBlockResponse' <$>
-                   (x .@? "vpcId") <*>
-                     (x .@? "ipv6CidrBlockAssociation")
+                   (x .@? "vpcId") <*> (x .@? "cidrBlockAssociation")
+                     <*> (x .@? "ipv6CidrBlockAssociation")
                      <*> (pure (fromEnum s)))
 
 instance Hashable DisassociateVPCCidrBlock where
@@ -100,6 +103,7 @@ instance ToQuery DisassociateVPCCidrBlock where
 -- | /See:/ 'disassociateVPCCidrBlockResponse' smart constructor.
 data DisassociateVPCCidrBlockResponse = DisassociateVPCCidrBlockResponse'
   { _dvcbrsVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dvcbrsCidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe VPCCidrBlockAssociation)
   , _dvcbrsIPv6CidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe VPCIPv6CidrBlockAssociation)
   , _dvcbrsResponseStatus :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -111,6 +115,8 @@ data DisassociateVPCCidrBlockResponse = DisassociateVPCCidrBlockResponse'
 --
 -- * 'dvcbrsVPCId' - The ID of the VPC.
 --
+-- * 'dvcbrsCidrBlockAssociation' - Information about the IPv4 CIDR block association.
+--
 -- * 'dvcbrsIPv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
 --
 -- * 'dvcbrsResponseStatus' - -- | The response status code.
@@ -120,6 +126,7 @@ disassociateVPCCidrBlockResponse
 disassociateVPCCidrBlockResponse pResponseStatus_ =
   DisassociateVPCCidrBlockResponse'
   { _dvcbrsVPCId = Nothing
+  , _dvcbrsCidrBlockAssociation = Nothing
   , _dvcbrsIPv6CidrBlockAssociation = Nothing
   , _dvcbrsResponseStatus = pResponseStatus_
   }
@@ -128,6 +135,10 @@ disassociateVPCCidrBlockResponse pResponseStatus_ =
 -- | The ID of the VPC.
 dvcbrsVPCId :: Lens' DisassociateVPCCidrBlockResponse (Maybe Text)
 dvcbrsVPCId = lens _dvcbrsVPCId (\ s a -> s{_dvcbrsVPCId = a});
+
+-- | Information about the IPv4 CIDR block association.
+dvcbrsCidrBlockAssociation :: Lens' DisassociateVPCCidrBlockResponse (Maybe VPCCidrBlockAssociation)
+dvcbrsCidrBlockAssociation = lens _dvcbrsCidrBlockAssociation (\ s a -> s{_dvcbrsCidrBlockAssociation = a});
 
 -- | Information about the IPv6 CIDR block association.
 dvcbrsIPv6CidrBlockAssociation :: Lens' DisassociateVPCCidrBlockResponse (Maybe VPCIPv6CidrBlockAssociation)

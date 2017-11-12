@@ -85,7 +85,7 @@ data UpdateProduct = UpdateProduct'
 --
 -- * 'upName' - The updated product name.
 --
--- * 'upAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'upAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'upAddTags' - Tags to add to the existing list of tags associated with the product.
 --
@@ -135,7 +135,7 @@ upDistributor = lens _upDistributor (\ s a -> s{_upDistributor = a});
 upName :: Lens' UpdateProduct (Maybe Text)
 upName = lens _upName (\ s a -> s{_upName = a});
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 upAcceptLanguage :: Lens' UpdateProduct (Maybe Text)
 upAcceptLanguage = lens _upAcceptLanguage (\ s a -> s{_upAcceptLanguage = a});
 

@@ -101,7 +101,7 @@ instance AWSRequest CreateBotVersion where
                  CreateBotVersionResponse' <$>
                    (x .?> "failureReason") <*> (x .?> "status") <*>
                      (x .?> "abortStatement")
-                     <*> (x .?> "intents")
+                     <*> (x .?> "intents" .!@ mempty)
                      <*> (x .?> "checksum")
                      <*> (x .?> "locale")
                      <*> (x .?> "createdDate")
@@ -143,7 +143,7 @@ data CreateBotVersionResponse = CreateBotVersionResponse'
   { _cbvrsFailureReason           :: {-# NOUNPACK #-}!(Maybe Text)
   , _cbvrsStatus                  :: {-# NOUNPACK #-}!(Maybe LexStatus)
   , _cbvrsAbortStatement          :: {-# NOUNPACK #-}!(Maybe Statement)
-  , _cbvrsIntents                 :: {-# NOUNPACK #-}!(Maybe (List1 Intent))
+  , _cbvrsIntents                 :: {-# NOUNPACK #-}!(Maybe [Intent])
   , _cbvrsChecksum                :: {-# NOUNPACK #-}!(Maybe Text)
   , _cbvrsLocale                  :: {-# NOUNPACK #-}!(Maybe Locale)
   , _cbvrsCreatedDate             :: {-# NOUNPACK #-}!(Maybe POSIX)
@@ -231,8 +231,8 @@ cbvrsAbortStatement :: Lens' CreateBotVersionResponse (Maybe Statement)
 cbvrsAbortStatement = lens _cbvrsAbortStatement (\ s a -> s{_cbvrsAbortStatement = a});
 
 -- | An array of @Intent@ objects. For more information, see 'PutBot' .
-cbvrsIntents :: Lens' CreateBotVersionResponse (Maybe (NonEmpty Intent))
-cbvrsIntents = lens _cbvrsIntents (\ s a -> s{_cbvrsIntents = a}) . mapping _List1;
+cbvrsIntents :: Lens' CreateBotVersionResponse [Intent]
+cbvrsIntents = lens _cbvrsIntents (\ s a -> s{_cbvrsIntents = a}) . _Default . _Coerce;
 
 -- | Checksum identifying the version of the bot that was created.
 cbvrsChecksum :: Lens' CreateBotVersionResponse (Maybe Text)

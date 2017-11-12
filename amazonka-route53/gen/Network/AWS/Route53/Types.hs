@@ -17,14 +17,18 @@ module Network.AWS.Route53.Types
 
     -- * Errors
     , _HealthCheckVersionMismatch
+    , _NoSuchQueryLoggingConfig
     , _InvalidInput
     , _HostedZoneNotEmpty
     , _InvalidArgument
     , _TrafficPolicyInstanceAlreadyExists
     , _ConflictingTypes
+    , _QueryLoggingConfigAlreadyExists
     , _ConcurrentModification
     , _DelegationSetAlreadyReusable
     , _NotAuthorizedException
+    , _InsufficientCloudWatchLogsResourcePolicy
+    , _NoSuchCloudWatchLogsLogGroup
     , _PriorRequestNotComplete
     , _InvalidChangeBatch
     , _TooManyVPCAssociationAuthorizations
@@ -91,6 +95,9 @@ module Network.AWS.Route53.Types
 
     -- * RecordType
     , RecordType (..)
+
+    -- * ResettableElementName
+    , ResettableElementName (..)
 
     -- * Statistic
     , Statistic (..)
@@ -226,6 +233,13 @@ module Network.AWS.Route53.Types
     , hostedZoneConfig
     , hzcPrivateZone
     , hzcComment
+
+    -- * QueryLoggingConfig
+    , QueryLoggingConfig
+    , queryLoggingConfig
+    , qlcId
+    , qlcHostedZoneId
+    , qlcCloudWatchLogsLogGroupARN
 
     -- * ResourceRecord
     , ResourceRecord
@@ -363,6 +377,14 @@ _HealthCheckVersionMismatch =
   _MatchServiceError route53 "HealthCheckVersionMismatch" . hasStatus 409
 
 
+-- | There is no DNS query logging configuration with the specified ID.
+--
+--
+_NoSuchQueryLoggingConfig :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchQueryLoggingConfig =
+  _MatchServiceError route53 "NoSuchQueryLoggingConfig" . hasStatus 404
+
+
 -- | The input is not valid.
 --
 --
@@ -385,7 +407,7 @@ _InvalidArgument :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidArgument = _MatchServiceError route53 "InvalidArgument"
 
 
--- | Traffic policy instance with given Id already exists.
+-- | There is already a traffic policy instance with the specified ID.
 --
 --
 _TrafficPolicyInstanceAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
@@ -402,7 +424,15 @@ _ConflictingTypes =
   _MatchServiceError route53 "ConflictingTypes" . hasStatus 400
 
 
--- | Another user submitted a request to update the object at the same time that you did. Retry the request.
+-- | You can create only one query logging configuration for a hosted zone, and a query logging configuration already exists for this hosted zone.
+--
+--
+_QueryLoggingConfigAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
+_QueryLoggingConfigAlreadyExists =
+  _MatchServiceError route53 "QueryLoggingConfigAlreadyExists" . hasStatus 409
+
+
+-- | Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
 --
 --
 _ConcurrentModification :: AsError a => Getting (First ServiceError) a ServiceError
@@ -424,6 +454,31 @@ _DelegationSetAlreadyReusable =
 _NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotAuthorizedException =
   _MatchServiceError route53 "NotAuthorizedException" . hasStatus 401
+
+
+-- | Amazon Route 53 doesn't have the permissions required to create log streams and send query logs to log streams. Possible causes include the following:
+--
+--
+--     * There is no resource policy that specifies the log group ARN in the value for @Resource@ .
+--
+--     * The resource policy that includes the log group ARN in the value for @Resource@ doesn't have the necessary permissions.
+--
+--     * The resource policy hasn't finished propagating yet.
+--
+--
+--
+_InsufficientCloudWatchLogsResourcePolicy :: AsError a => Getting (First ServiceError) a ServiceError
+_InsufficientCloudWatchLogsResourcePolicy =
+  _MatchServiceError route53 "InsufficientCloudWatchLogsResourcePolicy" .
+  hasStatus 400
+
+
+-- | There is no CloudWatch Logs log group with the specified ARN.
+--
+--
+_NoSuchCloudWatchLogsLogGroup :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchCloudWatchLogsLogGroup =
+  _MatchServiceError route53 "NoSuchCloudWatchLogsLogGroup" . hasStatus 404
 
 
 -- | If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an @HTTP 400 error@ (@Bad request@ ). If Amazon Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
@@ -466,7 +521,9 @@ _InvalidTrafficPolicyDocument =
   _MatchServiceError route53 "InvalidTrafficPolicyDocument" . hasStatus 400
 
 
--- | Prism for InvalidPaginationToken' errors.
+-- | The value that you specified to get the second or subsequent page of results is invalid.
+--
+--
 _InvalidPaginationToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPaginationToken =
   _MatchServiceError route53 "InvalidPaginationToken" . hasStatus 400

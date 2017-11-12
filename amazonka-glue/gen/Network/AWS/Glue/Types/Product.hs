@@ -21,7 +21,11 @@ import Network.AWS.Glue.Types.Sum
 import Network.AWS.Lens
 import Network.AWS.Prelude
 
--- | /See:/ 'action' smart constructor.
+-- | Defines an action to be initiated by a trigger.
+--
+--
+--
+-- /See:/ 'action' smart constructor.
 data Action = Action'
   { _aArguments :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
   , _aJobName   :: {-# NOUNPACK #-}!(Maybe Text)
@@ -32,19 +36,19 @@ data Action = Action'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aArguments' - Undocumented member.
+-- * 'aArguments' - Arguments to be passed to the job.
 --
--- * 'aJobName' - Undocumented member.
+-- * 'aJobName' - The name of a job to be executed.
 action
     :: Action
 action = Action' {_aArguments = Nothing, _aJobName = Nothing}
 
 
--- | Undocumented member.
+-- | Arguments to be passed to the job.
 aArguments :: Lens' Action (HashMap Text Text)
 aArguments = lens _aArguments (\ s a -> s{_aArguments = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The name of a job to be executed.
 aJobName :: Lens' Action (Maybe Text)
 aJobName = lens _aJobName (\ s a -> s{_aJobName = a});
 
@@ -65,6 +69,108 @@ instance ToJSON Action where
               (catMaybes
                  [("Arguments" .=) <$> _aArguments,
                   ("JobName" .=) <$> _aJobName])
+
+-- | Details about the job run and the error that occurred while trying to submit it for stopping.
+--
+--
+--
+-- /See:/ 'batchStopJobRunError' smart constructor.
+data BatchStopJobRunError = BatchStopJobRunError'
+  { _bsjreJobName     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bsjreJobRunId    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bsjreErrorDetail :: {-# NOUNPACK #-}!(Maybe ErrorDetail)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BatchStopJobRunError' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bsjreJobName' - The name of the job.
+--
+-- * 'bsjreJobRunId' - The job run Id.
+--
+-- * 'bsjreErrorDetail' - The details of the error that occurred.
+batchStopJobRunError
+    :: BatchStopJobRunError
+batchStopJobRunError =
+  BatchStopJobRunError'
+  { _bsjreJobName = Nothing
+  , _bsjreJobRunId = Nothing
+  , _bsjreErrorDetail = Nothing
+  }
+
+
+-- | The name of the job.
+bsjreJobName :: Lens' BatchStopJobRunError (Maybe Text)
+bsjreJobName = lens _bsjreJobName (\ s a -> s{_bsjreJobName = a});
+
+-- | The job run Id.
+bsjreJobRunId :: Lens' BatchStopJobRunError (Maybe Text)
+bsjreJobRunId = lens _bsjreJobRunId (\ s a -> s{_bsjreJobRunId = a});
+
+-- | The details of the error that occurred.
+bsjreErrorDetail :: Lens' BatchStopJobRunError (Maybe ErrorDetail)
+bsjreErrorDetail = lens _bsjreErrorDetail (\ s a -> s{_bsjreErrorDetail = a});
+
+instance FromJSON BatchStopJobRunError where
+        parseJSON
+          = withObject "BatchStopJobRunError"
+              (\ x ->
+                 BatchStopJobRunError' <$>
+                   (x .:? "JobName") <*> (x .:? "JobRunId") <*>
+                     (x .:? "ErrorDetail"))
+
+instance Hashable BatchStopJobRunError where
+
+instance NFData BatchStopJobRunError where
+
+-- | Details about the job run which is submitted successfully for stopping.
+--
+--
+--
+-- /See:/ 'batchStopJobRunSuccessfulSubmission' smart constructor.
+data BatchStopJobRunSuccessfulSubmission = BatchStopJobRunSuccessfulSubmission'
+  { _bsjrssJobName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bsjrssJobRunId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BatchStopJobRunSuccessfulSubmission' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bsjrssJobName' - The name of the job.
+--
+-- * 'bsjrssJobRunId' - The job run Id.
+batchStopJobRunSuccessfulSubmission
+    :: BatchStopJobRunSuccessfulSubmission
+batchStopJobRunSuccessfulSubmission =
+  BatchStopJobRunSuccessfulSubmission'
+  {_bsjrssJobName = Nothing, _bsjrssJobRunId = Nothing}
+
+
+-- | The name of the job.
+bsjrssJobName :: Lens' BatchStopJobRunSuccessfulSubmission (Maybe Text)
+bsjrssJobName = lens _bsjrssJobName (\ s a -> s{_bsjrssJobName = a});
+
+-- | The job run Id.
+bsjrssJobRunId :: Lens' BatchStopJobRunSuccessfulSubmission (Maybe Text)
+bsjrssJobRunId = lens _bsjrssJobRunId (\ s a -> s{_bsjrssJobRunId = a});
+
+instance FromJSON BatchStopJobRunSuccessfulSubmission
+         where
+        parseJSON
+          = withObject "BatchStopJobRunSuccessfulSubmission"
+              (\ x ->
+                 BatchStopJobRunSuccessfulSubmission' <$>
+                   (x .:? "JobName") <*> (x .:? "JobRunId"))
+
+instance Hashable BatchStopJobRunSuccessfulSubmission
+         where
+
+instance NFData BatchStopJobRunSuccessfulSubmission
+         where
 
 -- | Specifies a table definition in the Data Catalog.
 --
@@ -456,7 +562,11 @@ instance ToJSON Column where
                   ("Comment" .=) <$> _cComment,
                   Just ("Name" .= _cName)])
 
--- | /See:/ 'condition' smart constructor.
+-- | Defines a condition under which a trigger fires.
+--
+--
+--
+-- /See:/ 'condition' smart constructor.
 data Condition = Condition'
   { _cState           :: {-# NOUNPACK #-}!(Maybe JobRunState)
   , _cJobName         :: {-# NOUNPACK #-}!(Maybe Text)
@@ -468,11 +578,11 @@ data Condition = Condition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cState' - Undocumented member.
+-- * 'cState' - The condition state.
 --
--- * 'cJobName' - Undocumented member.
+-- * 'cJobName' - The name of the job in question.
 --
--- * 'cLogicalOperator' - Undocumented member.
+-- * 'cLogicalOperator' - A logical operator.
 condition
     :: Condition
 condition =
@@ -480,15 +590,15 @@ condition =
   {_cState = Nothing, _cJobName = Nothing, _cLogicalOperator = Nothing}
 
 
--- | Undocumented member.
+-- | The condition state.
 cState :: Lens' Condition (Maybe JobRunState)
 cState = lens _cState (\ s a -> s{_cState = a});
 
--- | Undocumented member.
+-- | The name of the job in question.
 cJobName :: Lens' Condition (Maybe Text)
 cJobName = lens _cJobName (\ s a -> s{_cJobName = a});
 
--- | Undocumented member.
+-- | A logical operator.
 cLogicalOperator :: Lens' Condition (Maybe LogicalOperator)
 cLogicalOperator = lens _cLogicalOperator (\ s a -> s{_cLogicalOperator = a});
 
@@ -550,7 +660,7 @@ data Connection = Connection'
 --
 -- * 'conDescription' - Description of the connection.
 --
--- * 'conConnectionType' - The type of the connection.
+-- * 'conConnectionType' - The type of the connection. Currently, only JDBC is supported; SFTP is not supported.
 connection
     :: Connection
 connection =
@@ -599,7 +709,7 @@ conName = lens _conName (\ s a -> s{_conName = a});
 conDescription :: Lens' Connection (Maybe Text)
 conDescription = lens _conDescription (\ s a -> s{_conDescription = a});
 
--- | The type of the connection.
+-- | The type of the connection. Currently, only JDBC is supported; SFTP is not supported.
 conConnectionType :: Lens' Connection (Maybe ConnectionType)
 conConnectionType = lens _conConnectionType (\ s a -> s{_conConnectionType = a});
 
@@ -650,7 +760,7 @@ data ConnectionInput = ConnectionInput'
 --
 -- * 'ciDescription' - Description of the connection.
 --
--- * 'ciConnectionType' - The type of the connection.
+-- * 'ciConnectionType' - The type of the connection. Currently, only JDBC is supported; SFTP is not supported.
 connectionInput
     :: ConnectionInput
 connectionInput =
@@ -684,7 +794,7 @@ ciName = lens _ciName (\ s a -> s{_ciName = a});
 ciDescription :: Lens' ConnectionInput (Maybe Text)
 ciDescription = lens _ciDescription (\ s a -> s{_ciDescription = a});
 
--- | The type of the connection.
+-- | The type of the connection. Currently, only JDBC is supported; SFTP is not supported.
 ciConnectionType :: Lens' ConnectionInput (Maybe ConnectionType)
 ciConnectionType = lens _ciConnectionType (\ s a -> s{_ciConnectionType = a});
 
@@ -745,7 +855,7 @@ instance ToJSON ConnectionsList where
           = object
               (catMaybes [("Connections" .=) <$> _clConnections])
 
--- | Specifies a crawler program that examines a data source and uses classifiers to try to its schema. If successful, the crawler records metatdata concerning the data source in the Data Catalog.
+-- | Specifies a crawler program that examines a data source and uses classifiers to try to determine its schema. If successful, the crawler records metatdata concerning the data source in the Data Catalog.
 --
 --
 --
@@ -789,7 +899,7 @@ data Crawler = Crawler'
 --
 -- * 'craClassifiers' - A list of custom @Classifier@ s associated with this Crawler.
 --
--- * 'craRole' - The ARN of an IAM role used to access customer resources such as data in S3.
+-- * 'craRole' - The IAM role (or ARN of an IAM role) used to access customer resources such as data in S3.
 --
 -- * 'craName' - The @Crawler@ name.
 --
@@ -856,7 +966,7 @@ craCrawlElapsedTime = lens _craCrawlElapsedTime (\ s a -> s{_craCrawlElapsedTime
 craClassifiers :: Lens' Crawler [Text]
 craClassifiers = lens _craClassifiers (\ s a -> s{_craClassifiers = a}) . _Default . _Coerce;
 
--- | The ARN of an IAM role used to access customer resources such as data in S3.
+-- | The IAM role (or ARN of an IAM role) used to access customer resources such as data in S3.
 craRole :: Lens' Crawler (Maybe Text)
 craRole = lens _craRole (\ s a -> s{_craRole = a});
 
@@ -1273,23 +1383,24 @@ instance ToJSON DatabaseInput where
 --
 -- /See:/ 'devEndpoint' smart constructor.
 data DevEndpoint = DevEndpoint'
-  { _deStatus                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deFailureReason         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deEndpointName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deExtraPythonLibsS3Path :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deLastUpdateStatus      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deSecurityGroupIds      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _deLastModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _deVPCId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dePublicKey             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deSubnetId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deNumberOfNodes         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dePublicAddress         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deAvailabilityZone      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deExtraJARsS3Path       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deCreatedTimestamp      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _deYarnEndpointAddress   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  { _deStatus                             :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deFailureReason                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deEndpointName                       :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deExtraPythonLibsS3Path              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deLastUpdateStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deSecurityGroupIds                   :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _deLastModifiedTimestamp              :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _deVPCId                              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dePublicKey                          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deSubnetId                           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deNumberOfNodes                      :: {-# NOUNPACK #-}!(Maybe Int)
+  , _dePublicAddress                      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deAvailabilityZone                   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deZeppelinRemoteSparkInterpreterPort :: {-# NOUNPACK #-}!(Maybe Int)
+  , _deExtraJARsS3Path                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deCreatedTimestamp                   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _deYarnEndpointAddress                :: {-# NOUNPACK #-}!(Maybe Text)
+  , _deRoleARN                            :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1303,7 +1414,7 @@ data DevEndpoint = DevEndpoint'
 --
 -- * 'deEndpointName' - The name of the DevEndpoint.
 --
--- * 'deExtraPythonLibsS3Path' - Path to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint.
+-- * 'deExtraPythonLibsS3Path' - Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma. Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <http://pandas.pydata.org/ pandas> Python data analysis library, are not yet supported.
 --
 -- * 'deLastUpdateStatus' - The status of the last update.
 --
@@ -1317,13 +1428,15 @@ data DevEndpoint = DevEndpoint'
 --
 -- * 'deSubnetId' - The subnet ID for this DevEndpoint.
 --
--- * 'deNumberOfNodes' - The number of nodes used by this DevEndpoint.
+-- * 'deNumberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.
 --
 -- * 'dePublicAddress' - The public address used by this DevEndpoint.
 --
 -- * 'deAvailabilityZone' - The AWS availability zone where this DevEndpoint is located.
 --
--- * 'deExtraJARsS3Path' - Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.
+-- * 'deZeppelinRemoteSparkInterpreterPort' - The Apache Zeppelin port for the remote Apache Spark interpreter.
+--
+-- * 'deExtraJARsS3Path' - Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint. Please note that only pure Java/Scala libraries can currently be used on a DevEndpoint.
 --
 -- * 'deCreatedTimestamp' - The point in time at which this DevEndpoint was created.
 --
@@ -1347,6 +1460,7 @@ devEndpoint =
   , _deNumberOfNodes = Nothing
   , _dePublicAddress = Nothing
   , _deAvailabilityZone = Nothing
+  , _deZeppelinRemoteSparkInterpreterPort = Nothing
   , _deExtraJARsS3Path = Nothing
   , _deCreatedTimestamp = Nothing
   , _deYarnEndpointAddress = Nothing
@@ -1366,7 +1480,7 @@ deFailureReason = lens _deFailureReason (\ s a -> s{_deFailureReason = a});
 deEndpointName :: Lens' DevEndpoint (Maybe Text)
 deEndpointName = lens _deEndpointName (\ s a -> s{_deEndpointName = a});
 
--- | Path to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint.
+-- | Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma. Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <http://pandas.pydata.org/ pandas> Python data analysis library, are not yet supported.
 deExtraPythonLibsS3Path :: Lens' DevEndpoint (Maybe Text)
 deExtraPythonLibsS3Path = lens _deExtraPythonLibsS3Path (\ s a -> s{_deExtraPythonLibsS3Path = a});
 
@@ -1394,7 +1508,7 @@ dePublicKey = lens _dePublicKey (\ s a -> s{_dePublicKey = a});
 deSubnetId :: Lens' DevEndpoint (Maybe Text)
 deSubnetId = lens _deSubnetId (\ s a -> s{_deSubnetId = a});
 
--- | The number of nodes used by this DevEndpoint.
+-- | The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.
 deNumberOfNodes :: Lens' DevEndpoint (Maybe Int)
 deNumberOfNodes = lens _deNumberOfNodes (\ s a -> s{_deNumberOfNodes = a});
 
@@ -1406,7 +1520,11 @@ dePublicAddress = lens _dePublicAddress (\ s a -> s{_dePublicAddress = a});
 deAvailabilityZone :: Lens' DevEndpoint (Maybe Text)
 deAvailabilityZone = lens _deAvailabilityZone (\ s a -> s{_deAvailabilityZone = a});
 
--- | Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.
+-- | The Apache Zeppelin port for the remote Apache Spark interpreter.
+deZeppelinRemoteSparkInterpreterPort :: Lens' DevEndpoint (Maybe Int)
+deZeppelinRemoteSparkInterpreterPort = lens _deZeppelinRemoteSparkInterpreterPort (\ s a -> s{_deZeppelinRemoteSparkInterpreterPort = a});
+
+-- | Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint. Please note that only pure Java/Scala libraries can currently be used on a DevEndpoint.
 deExtraJARsS3Path :: Lens' DevEndpoint (Maybe Text)
 deExtraJARsS3Path = lens _deExtraJARsS3Path (\ s a -> s{_deExtraJARsS3Path = a});
 
@@ -1439,6 +1557,7 @@ instance FromJSON DevEndpoint where
                      <*> (x .:? "NumberOfNodes")
                      <*> (x .:? "PublicAddress")
                      <*> (x .:? "AvailabilityZone")
+                     <*> (x .:? "ZeppelinRemoteSparkInterpreterPort")
                      <*> (x .:? "ExtraJarsS3Path")
                      <*> (x .:? "CreatedTimestamp")
                      <*> (x .:? "YarnEndpointAddress")
@@ -1463,9 +1582,9 @@ data DevEndpointCustomLibraries = DevEndpointCustomLibraries'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'declExtraPythonLibsS3Path' - Path to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint.
+-- * 'declExtraPythonLibsS3Path' - Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma. Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <http://pandas.pydata.org/ pandas> Python data analysis library, are not yet supported.
 --
--- * 'declExtraJARsS3Path' - Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.
+-- * 'declExtraJARsS3Path' - Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint. Please note that only pure Java/Scala libraries can currently be used on a DevEndpoint.
 devEndpointCustomLibraries
     :: DevEndpointCustomLibraries
 devEndpointCustomLibraries =
@@ -1473,11 +1592,11 @@ devEndpointCustomLibraries =
   {_declExtraPythonLibsS3Path = Nothing, _declExtraJARsS3Path = Nothing}
 
 
--- | Path to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint.
+-- | Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma. Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <http://pandas.pydata.org/ pandas> Python data analysis library, are not yet supported.
 declExtraPythonLibsS3Path :: Lens' DevEndpointCustomLibraries (Maybe Text)
 declExtraPythonLibsS3Path = lens _declExtraPythonLibsS3Path (\ s a -> s{_declExtraPythonLibsS3Path = a});
 
--- | Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.
+-- | Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint. Please note that only pure Java/Scala libraries can currently be used on a DevEndpoint.
 declExtraJARsS3Path :: Lens' DevEndpointCustomLibraries (Maybe Text)
 declExtraJARsS3Path = lens _declExtraJARsS3Path (\ s a -> s{_declExtraJARsS3Path = a});
 
@@ -1592,7 +1711,7 @@ data GetConnectionsFilter = GetConnectionsFilter'
 --
 -- * 'gcfMatchCriteria' - A criteria string that must match the criteria recorded in the connection definition for that connection definition to be returned.
 --
--- * 'gcfConnectionType' - The type of connections to return.
+-- * 'gcfConnectionType' - The type of connections to return. Currently, only JDBC is supported; SFTP is not supported.
 getConnectionsFilter
     :: GetConnectionsFilter
 getConnectionsFilter =
@@ -1604,7 +1723,7 @@ getConnectionsFilter =
 gcfMatchCriteria :: Lens' GetConnectionsFilter [Text]
 gcfMatchCriteria = lens _gcfMatchCriteria (\ s a -> s{_gcfMatchCriteria = a}) . _Default . _Coerce;
 
--- | The type of connections to return.
+-- | The type of connections to return. Currently, only JDBC is supported; SFTP is not supported.
 gcfConnectionType :: Lens' GetConnectionsFilter (Maybe ConnectionType)
 gcfConnectionType = lens _gcfConnectionType (\ s a -> s{_gcfConnectionType = a});
 
@@ -1808,7 +1927,7 @@ data Job = Job'
 --
 -- * 'jName' - The name you assign to this job.
 --
--- * 'jLogURI' - Location of the logs for this job.
+-- * 'jLogURI' - This field is reserved for future use.
 --
 -- * 'jMaxRetries' - The maximum number of times to retry this job if it fails.
 --
@@ -1860,7 +1979,7 @@ jRole = lens _jRole (\ s a -> s{_jRole = a});
 jName :: Lens' Job (Maybe Text)
 jName = lens _jName (\ s a -> s{_jName = a});
 
--- | Location of the logs for this job.
+-- | This field is reserved for future use.
 jLogURI :: Lens' Job (Maybe Text)
 jLogURI = lens _jLogURI (\ s a -> s{_jLogURI = a});
 
@@ -2204,7 +2323,7 @@ data JobUpdate = JobUpdate'
 --
 -- * 'juRole' - The role associated with this job.
 --
--- * 'juLogURI' - Location of the logs for this job.
+-- * 'juLogURI' - This field is reserved for future use.
 --
 -- * 'juMaxRetries' - The maximum number of times to retry this job if it fails.
 --
@@ -2243,7 +2362,7 @@ juConnections = lens _juConnections (\ s a -> s{_juConnections = a});
 juRole :: Lens' JobUpdate (Maybe Text)
 juRole = lens _juRole (\ s a -> s{_juRole = a});
 
--- | Location of the logs for this job.
+-- | This field is reserved for future use.
 juLogURI :: Lens' JobUpdate (Maybe Text)
 juLogURI = lens _juLogURI (\ s a -> s{_juLogURI = a});
 
@@ -2769,7 +2888,11 @@ instance ToJSON PartitionInput where
                   ("Parameters" .=) <$> _piParameters,
                   ("LastAccessTime" .=) <$> _piLastAccessTime])
 
--- | /See:/ 'partitionValueList' smart constructor.
+-- | Contains a list of values defining partitions.
+--
+--
+--
+-- /See:/ 'partitionValueList' smart constructor.
 newtype PartitionValueList = PartitionValueList'
   { _pvlValues :: [Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -2779,13 +2902,13 @@ newtype PartitionValueList = PartitionValueList'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pvlValues' - Undocumented member.
+-- * 'pvlValues' - The list of values.
 partitionValueList
     :: PartitionValueList
 partitionValueList = PartitionValueList' {_pvlValues = mempty}
 
 
--- | Undocumented member.
+-- | The list of values.
 pvlValues :: Lens' PartitionValueList [Text]
 pvlValues = lens _pvlValues (\ s a -> s{_pvlValues = a}) . _Coerce;
 
@@ -3077,7 +3200,7 @@ data Schedule = Schedule'
 --
 -- * 'sState' - The state of the schedule.
 --
--- * 'sScheduleExpression' - A @cron@ expression that can be used as a Cloudwatch event to schedule something (see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html CloudWatch Schedule Expression Syntax> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
+-- * 'sScheduleExpression' - A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 schedule
     :: Schedule
 schedule = Schedule' {_sState = Nothing, _sScheduleExpression = Nothing}
@@ -3087,7 +3210,7 @@ schedule = Schedule' {_sState = Nothing, _sScheduleExpression = Nothing}
 sState :: Lens' Schedule (Maybe ScheduleState)
 sState = lens _sState (\ s a -> s{_sState = a});
 
--- | A @cron@ expression that can be used as a Cloudwatch event to schedule something (see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html CloudWatch Schedule Expression Syntax> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
+-- | A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 sScheduleExpression :: Lens' Schedule (Maybe Text)
 sScheduleExpression = lens _sScheduleExpression (\ s a -> s{_sScheduleExpression = a});
 
@@ -3838,7 +3961,11 @@ instance ToJSON TableInput where
                   ("PartitionKeys" .=) <$> _tiPartitionKeys,
                   Just ("Name" .= _tiName)])
 
--- | /See:/ 'tableVersion' smart constructor.
+-- | Specifies a version of a table.
+--
+--
+--
+-- /See:/ 'tableVersion' smart constructor.
 data TableVersion = TableVersion'
   { _tvVersionId :: {-# NOUNPACK #-}!(Maybe Text)
   , _tvTable     :: {-# NOUNPACK #-}!(Maybe Table)
@@ -3849,19 +3976,19 @@ data TableVersion = TableVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tvVersionId' - Undocumented member.
+-- * 'tvVersionId' - The ID value that identifies this table version.
 --
--- * 'tvTable' - Undocumented member.
+-- * 'tvTable' - The table in question
 tableVersion
     :: TableVersion
 tableVersion = TableVersion' {_tvVersionId = Nothing, _tvTable = Nothing}
 
 
--- | Undocumented member.
+-- | The ID value that identifies this table version.
 tvVersionId :: Lens' TableVersion (Maybe Text)
 tvVersionId = lens _tvVersionId (\ s a -> s{_tvVersionId = a});
 
--- | Undocumented member.
+-- | The table in question
 tvTable :: Lens' TableVersion (Maybe Table)
 tvTable = lens _tvTable (\ s a -> s{_tvTable = a});
 
@@ -3901,7 +4028,7 @@ data Trigger = Trigger'
 --
 -- * 'triActions' - The actions initiated by this trigger.
 --
--- * 'triSchedule' - A cron schedule expression.
+-- * 'triSchedule' - A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 --
 -- * 'triPredicate' - The predicate of this trigger.
 --
@@ -3935,7 +4062,7 @@ triState = lens _triState (\ s a -> s{_triState = a});
 triActions :: Lens' Trigger [Action]
 triActions = lens _triActions (\ s a -> s{_triActions = a}) . _Default . _Coerce;
 
--- | A cron schedule expression.
+-- | A @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 triSchedule :: Lens' Trigger (Maybe Text)
 triSchedule = lens _triSchedule (\ s a -> s{_triSchedule = a});
 
@@ -3996,7 +4123,7 @@ data TriggerUpdate = TriggerUpdate'
 --
 -- * 'tuActions' - The actions initiated by this trigger.
 --
--- * 'tuSchedule' - A cron expression specifying the schedule.
+-- * 'tuSchedule' - An updated @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 --
 -- * 'tuPredicate' - The predicate of this trigger, which defines when it will fire.
 --
@@ -4019,7 +4146,7 @@ triggerUpdate =
 tuActions :: Lens' TriggerUpdate [Action]
 tuActions = lens _tuActions (\ s a -> s{_tuActions = a}) . _Default . _Coerce;
 
--- | A cron expression specifying the schedule.
+-- | An updated @cron@ expression used to specify the schedule (see <http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
 tuSchedule :: Lens' TriggerUpdate (Maybe Text)
 tuSchedule = lens _tuSchedule (\ s a -> s{_tuSchedule = a});
 

@@ -275,7 +275,7 @@ _StateMachineLimitExceeded =
   _MatchServiceError stepFunctions "StateMachineLimitExceeded"
 
 
--- | An execution with the same name already exists.
+-- | The execution has the same @name@ as another execution (but a different @input@ ).
 --
 --
 _ExecutionAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError

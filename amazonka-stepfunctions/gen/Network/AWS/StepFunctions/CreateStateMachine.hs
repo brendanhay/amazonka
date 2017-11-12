@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a state machine.
+-- Creates a state machine. A state machine consists of a collection of states that can do work (@Task@ states), determine which states to transition to next (@Choice@ states), stop an execution with an error (@Fail@ states), and so on. State machines are specified using a JSON-based, structured language.
 --
 --
 module Network.AWS.StepFunctions.CreateStateMachine
@@ -59,7 +59,7 @@ data CreateStateMachine = CreateStateMachine'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csmName' - The name of the state machine. This name must be unique for your AWS account and region.
+-- * 'csmName' - The name of the state machine. This name must be unique for your AWS account and region for 90 days. For more information, see <http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 --
 -- * 'csmDefinition' - The Amazon States Language definition of the state machine.
 --
@@ -74,7 +74,7 @@ createStateMachine pName_ pDefinition_ pRoleARN_ =
   {_csmName = pName_, _csmDefinition = pDefinition_, _csmRoleARN = pRoleARN_}
 
 
--- | The name of the state machine. This name must be unique for your AWS account and region.
+-- | The name of the state machine. This name must be unique for your AWS account and region for 90 days. For more information, see <http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 csmName :: Lens' CreateStateMachine Text
 csmName = lens _csmName (\ s a -> s{_csmName = a});
 

@@ -60,7 +60,7 @@ data GetRepositoryPolicy = GetRepositoryPolicy'
 --
 -- * 'grpRegistryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 --
--- * 'grpRepositoryName' - The name of the repository whose policy you want to retrieve.
+-- * 'grpRepositoryName' - The name of the repository with the policy to retrieve.
 getRepositoryPolicy
     :: Text -- ^ 'grpRepositoryName'
     -> GetRepositoryPolicy
@@ -73,7 +73,7 @@ getRepositoryPolicy pRepositoryName_ =
 grpRegistryId :: Lens' GetRepositoryPolicy (Maybe Text)
 grpRegistryId = lens _grpRegistryId (\ s a -> s{_grpRegistryId = a});
 
--- | The name of the repository whose policy you want to retrieve.
+-- | The name of the repository with the policy to retrieve.
 grpRepositoryName :: Lens' GetRepositoryPolicy Text
 grpRepositoryName = lens _grpRepositoryName (\ s a -> s{_grpRepositoryName = a});
 

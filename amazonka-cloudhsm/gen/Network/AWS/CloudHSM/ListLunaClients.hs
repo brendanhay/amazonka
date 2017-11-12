@@ -18,10 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
+--
+--
+-- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
+--
 -- Lists all of the clients.
 --
---
--- This operation supports pagination with the use of the /NextToken/ member. If more results are available, the /NextToken/ member of the response contains a token that you pass in the next call to 'ListLunaClients' to retrieve the next set of items.
+-- This operation supports pagination with the use of the @NextToken@ member. If more results are available, the @NextToken@ member of the response contains a token that you pass in the next call to @ListLunaClients@ to retrieve the next set of items.
 --
 module Network.AWS.CloudHSM.ListLunaClients
     (
@@ -57,13 +61,13 @@ newtype ListLunaClients = ListLunaClients'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'llcNextToken' - The /NextToken/ value from a previous call to 'ListLunaClients' . Pass null if this is the first call.
+-- * 'llcNextToken' - The @NextToken@ value from a previous call to @ListLunaClients@ . Pass null if this is the first call.
 listLunaClients
     :: ListLunaClients
 listLunaClients = ListLunaClients' {_llcNextToken = Nothing}
 
 
--- | The /NextToken/ value from a previous call to 'ListLunaClients' . Pass null if this is the first call.
+-- | The @NextToken@ value from a previous call to @ListLunaClients@ . Pass null if this is the first call.
 llcNextToken :: Lens' ListLunaClients (Maybe Text)
 llcNextToken = lens _llcNextToken (\ s a -> s{_llcNextToken = a});
 
@@ -114,7 +118,7 @@ data ListLunaClientsResponse = ListLunaClientsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'llcrsNextToken' - If not null, more results are available. Pass this to 'ListLunaClients' to retrieve the next set of items.
+-- * 'llcrsNextToken' - If not null, more results are available. Pass this to @ListLunaClients@ to retrieve the next set of items.
 --
 -- * 'llcrsResponseStatus' - -- | The response status code.
 --
@@ -130,7 +134,7 @@ listLunaClientsResponse pResponseStatus_ =
   }
 
 
--- | If not null, more results are available. Pass this to 'ListLunaClients' to retrieve the next set of items.
+-- | If not null, more results are available. Pass this to @ListLunaClients@ to retrieve the next set of items.
 llcrsNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
 llcrsNextToken = lens _llcrsNextToken (\ s a -> s{_llcrsNextToken = a});
 

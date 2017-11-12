@@ -23,7 +23,7 @@
 --
 -- This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use 'DescribeExportTasks' to get the status of the export task. Each account can only have one active (@RUNNING@ or @PENDING@ ) export task at a time. To cancel an export task, use 'CancelExportTask' .
 --
--- You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix that will be used as the Amazon S3 key prefix for all exported objects.
+-- You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.
 --
 module Network.AWS.CloudWatchLogs.CreateExportTask
     (
@@ -78,9 +78,9 @@ data CreateExportTask = CreateExportTask'
 --
 -- * 'cetLogGroupName' - The name of the log group.
 --
--- * 'cetFrom' - The start time of the range for the request, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
+-- * 'cetFrom' - The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not exported.
 --
--- * 'cetTo' - The end time of the range for the request, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
+-- * 'cetTo' - The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.
 --
 -- * 'cetDestination' - The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.
 createExportTask
@@ -117,11 +117,11 @@ cetLogStreamNamePrefix = lens _cetLogStreamNamePrefix (\ s a -> s{_cetLogStreamN
 cetLogGroupName :: Lens' CreateExportTask Text
 cetLogGroupName = lens _cetLogGroupName (\ s a -> s{_cetLogGroupName = a});
 
--- | The start time of the range for the request, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
+-- | The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not exported.
 cetFrom :: Lens' CreateExportTask Natural
 cetFrom = lens _cetFrom (\ s a -> s{_cetFrom = a}) . _Nat;
 
--- | The end time of the range for the request, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
+-- | The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.
 cetTo :: Lens' CreateExportTask Natural
 cetTo = lens _cetTo (\ s a -> s{_cetTo = a}) . _Nat;
 

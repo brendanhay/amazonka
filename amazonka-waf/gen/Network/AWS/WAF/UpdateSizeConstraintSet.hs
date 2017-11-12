@@ -76,7 +76,7 @@ import Network.AWS.WAF.Types.Product
 data UpdateSizeConstraintSet = UpdateSizeConstraintSet'
   { _uscsSizeConstraintSetId :: {-# NOUNPACK #-}!Text
   , _uscsChangeToken         :: {-# NOUNPACK #-}!Text
-  , _uscsUpdates             :: {-# NOUNPACK #-}![SizeConstraintSetUpdate]
+  , _uscsUpdates             :: {-# NOUNPACK #-}!(List1 SizeConstraintSetUpdate)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -92,12 +92,13 @@ data UpdateSizeConstraintSet = UpdateSizeConstraintSet'
 updateSizeConstraintSet
     :: Text -- ^ 'uscsSizeConstraintSetId'
     -> Text -- ^ 'uscsChangeToken'
+    -> NonEmpty SizeConstraintSetUpdate -- ^ 'uscsUpdates'
     -> UpdateSizeConstraintSet
-updateSizeConstraintSet pSizeConstraintSetId_ pChangeToken_ =
+updateSizeConstraintSet pSizeConstraintSetId_ pChangeToken_ pUpdates_ =
   UpdateSizeConstraintSet'
   { _uscsSizeConstraintSetId = pSizeConstraintSetId_
   , _uscsChangeToken = pChangeToken_
-  , _uscsUpdates = mempty
+  , _uscsUpdates = _List1 # pUpdates_
   }
 
 
@@ -110,8 +111,8 @@ uscsChangeToken :: Lens' UpdateSizeConstraintSet Text
 uscsChangeToken = lens _uscsChangeToken (\ s a -> s{_uscsChangeToken = a});
 
 -- | An array of @SizeConstraintSetUpdate@ objects that you want to insert into or delete from a 'SizeConstraintSet' . For more information, see the applicable data types:     * 'SizeConstraintSetUpdate' : Contains @Action@ and @SizeConstraint@      * 'SizeConstraint' : Contains @FieldToMatch@ , @TextTransformation@ , @ComparisonOperator@ , and @Size@      * 'FieldToMatch' : Contains @Data@ and @Type@
-uscsUpdates :: Lens' UpdateSizeConstraintSet [SizeConstraintSetUpdate]
-uscsUpdates = lens _uscsUpdates (\ s a -> s{_uscsUpdates = a}) . _Coerce;
+uscsUpdates :: Lens' UpdateSizeConstraintSet (NonEmpty SizeConstraintSetUpdate)
+uscsUpdates = lens _uscsUpdates (\ s a -> s{_uscsUpdates = a}) . _List1;
 
 instance AWSRequest UpdateSizeConstraintSet where
         type Rs UpdateSizeConstraintSet =

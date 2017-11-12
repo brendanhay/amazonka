@@ -102,7 +102,7 @@ data CreateServer = CreateServer'
 --
 -- * 'csAssociatePublicIPAddress' - Associate a public IP address with a server that you are launching. Valid values are @true@ or @false@ . The default value is @true@ .
 --
--- * 'csSubnetIds' - The IDs of subnets in which to launch the server EC2 instance.  Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.  EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.  For more information about supported Amazon EC2 platforms, see <http://docs.aws.amazon.com/https:/docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms> .
+-- * 'csSubnetIds' - The IDs of subnets in which to launch the server EC2 instance.  Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.  EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.  For more information about supported Amazon EC2 platforms, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms> .
 --
 -- * 'csKeyPair' - The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.
 --
@@ -126,7 +126,7 @@ data CreateServer = CreateServer'
 --
 -- * 'csInstanceType' - The Amazon EC2 instance type to use. Valid values must be specified in the following format: @^([cm][34]|t2).*@ For example, @m4.large@ . Valid values are @t2.medium@ , @m4.large@ , or @m4.2xlarge@ .
 --
--- * 'csServiceRoleARN' - The service role that the AWS OpsWorks for Chef Automate service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-stuff/latest/service-role-creation.yaml. This template creates a CloudFormation stack that includes the service role that you need.
+-- * 'csServiceRoleARN' - The service role that the AWS OpsWorks for Chef Automate service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role that you need.
 createServer
     :: Text -- ^ 'csServerName'
     -> Text -- ^ 'csInstanceProfileARN'
@@ -171,7 +171,7 @@ csSecurityGroupIds = lens _csSecurityGroupIds (\ s a -> s{_csSecurityGroupIds = 
 csAssociatePublicIPAddress :: Lens' CreateServer (Maybe Bool)
 csAssociatePublicIPAddress = lens _csAssociatePublicIPAddress (\ s a -> s{_csAssociatePublicIPAddress = a});
 
--- | The IDs of subnets in which to launch the server EC2 instance.  Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.  EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.  For more information about supported Amazon EC2 platforms, see <http://docs.aws.amazon.com/https:/docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms> .
+-- | The IDs of subnets in which to launch the server EC2 instance.  Amazon EC2-Classic customers: This field is required. All servers must run within a VPC. The VPC must have "Auto Assign Public IP" enabled.  EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your EC2 instances are created in a default subnet that is selected by Amazon EC2. If you specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled.  For more information about supported Amazon EC2 platforms, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms> .
 csSubnetIds :: Lens' CreateServer [Text]
 csSubnetIds = lens _csSubnetIds (\ s a -> s{_csSubnetIds = a}) . _Default . _Coerce;
 
@@ -219,7 +219,7 @@ csInstanceProfileARN = lens _csInstanceProfileARN (\ s a -> s{_csInstanceProfile
 csInstanceType :: Lens' CreateServer Text
 csInstanceType = lens _csInstanceType (\ s a -> s{_csInstanceType = a});
 
--- | The service role that the AWS OpsWorks for Chef Automate service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-stuff/latest/service-role-creation.yaml. This template creates a CloudFormation stack that includes the service role that you need.
+-- | The service role that the AWS OpsWorks for Chef Automate service backend uses to work with your account. Although the AWS OpsWorks management console typically creates the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml. This template creates a CloudFormation stack that includes the service role that you need.
 csServiceRoleARN :: Lens' CreateServer Text
 csServiceRoleARN = lens _csServiceRoleARN (\ s a -> s{_csServiceRoleARN = a});
 

@@ -76,7 +76,7 @@ import Network.AWS.WAFRegional.Types.Product
 data UpdateXSSMatchSet = UpdateXSSMatchSet'
   { _uxmsXSSMatchSetId :: {-# NOUNPACK #-}!Text
   , _uxmsChangeToken   :: {-# NOUNPACK #-}!Text
-  , _uxmsUpdates       :: {-# NOUNPACK #-}![XSSMatchSetUpdate]
+  , _uxmsUpdates       :: {-# NOUNPACK #-}!(List1 XSSMatchSetUpdate)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -92,12 +92,13 @@ data UpdateXSSMatchSet = UpdateXSSMatchSet'
 updateXSSMatchSet
     :: Text -- ^ 'uxmsXSSMatchSetId'
     -> Text -- ^ 'uxmsChangeToken'
+    -> NonEmpty XSSMatchSetUpdate -- ^ 'uxmsUpdates'
     -> UpdateXSSMatchSet
-updateXSSMatchSet pXSSMatchSetId_ pChangeToken_ =
+updateXSSMatchSet pXSSMatchSetId_ pChangeToken_ pUpdates_ =
   UpdateXSSMatchSet'
   { _uxmsXSSMatchSetId = pXSSMatchSetId_
   , _uxmsChangeToken = pChangeToken_
-  , _uxmsUpdates = mempty
+  , _uxmsUpdates = _List1 # pUpdates_
   }
 
 
@@ -110,8 +111,8 @@ uxmsChangeToken :: Lens' UpdateXSSMatchSet Text
 uxmsChangeToken = lens _uxmsChangeToken (\ s a -> s{_uxmsChangeToken = a});
 
 -- | An array of @XssMatchSetUpdate@ objects that you want to insert into or delete from a 'XssMatchSet' . For more information, see the applicable data types:     * 'XssMatchSetUpdate' : Contains @Action@ and @XssMatchTuple@      * 'XssMatchTuple' : Contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
-uxmsUpdates :: Lens' UpdateXSSMatchSet [XSSMatchSetUpdate]
-uxmsUpdates = lens _uxmsUpdates (\ s a -> s{_uxmsUpdates = a}) . _Coerce;
+uxmsUpdates :: Lens' UpdateXSSMatchSet (NonEmpty XSSMatchSetUpdate)
+uxmsUpdates = lens _uxmsUpdates (\ s a -> s{_uxmsUpdates = a}) . _List1;
 
 instance AWSRequest UpdateXSSMatchSet where
         type Rs UpdateXSSMatchSet = UpdateXSSMatchSetResponse

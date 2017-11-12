@@ -50,11 +50,17 @@ module Network.AWS.ElasticBeanstalk
     -- ** TooManyConfigurationTemplatesException
     , _TooManyConfigurationTemplatesException
 
+    -- ** ResourceTypeNotSupportedException
+    , _ResourceTypeNotSupportedException
+
     -- ** InsufficientPrivilegesException
     , _InsufficientPrivilegesException
 
     -- ** ElasticBeanstalkServiceException
     , _ElasticBeanstalkServiceException
+
+    -- ** TooManyTagsException
+    , _TooManyTagsException
 
     -- ** TooManyApplicationsException
     , _TooManyApplicationsException
@@ -76,6 +82,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** TooManyEnvironmentsException
     , _TooManyEnvironmentsException
+
+    -- ** ResourceNotFoundException
+    , _ResourceNotFoundException
 
     -- * Waiters
     -- $waiters
@@ -107,6 +116,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** RequestEnvironmentInfo
     , module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 
+    -- ** ListTagsForResource
+    , module Network.AWS.ElasticBeanstalk.ListTagsForResource
+
     -- ** RetrieveEnvironmentInfo
     , module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
 
@@ -136,6 +148,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** UpdateConfigurationTemplate
     , module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
+
+    -- ** UpdateTagsForResource
+    , module Network.AWS.ElasticBeanstalk.UpdateTagsForResource
 
     -- ** DescribeEnvironmentResources
     , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
@@ -741,6 +756,7 @@ import Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
 import Network.AWS.ElasticBeanstalk.DescribePlatformVersion
 import Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
 import Network.AWS.ElasticBeanstalk.ListPlatformVersions
+import Network.AWS.ElasticBeanstalk.ListTagsForResource
 import Network.AWS.ElasticBeanstalk.RebuildEnvironment
 import Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 import Network.AWS.ElasticBeanstalk.RestartAppServer
@@ -753,6 +769,7 @@ import Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
 import Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
 import Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
 import Network.AWS.ElasticBeanstalk.UpdateEnvironment
+import Network.AWS.ElasticBeanstalk.UpdateTagsForResource
 import Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 import Network.AWS.ElasticBeanstalk.Waiters
 

@@ -68,7 +68,7 @@ data GetExecutionHistory = GetExecutionHistory'
 --
 -- * 'gehNextToken' - If a @nextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextToken@ . Keep all other arguments unchanged. The configured @maxResults@ determines how many results can be returned in a single call.
 --
--- * 'gehMaxResults' - The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- * 'gehMaxResults' - The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 means to use the default. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 --
 -- * 'gehExecutionARN' - The Amazon Resource Name (ARN) of the execution.
 getExecutionHistory
@@ -91,7 +91,7 @@ gehReverseOrder = lens _gehReverseOrder (\ s a -> s{_gehReverseOrder = a});
 gehNextToken :: Lens' GetExecutionHistory (Maybe Text)
 gehNextToken = lens _gehNextToken (\ s a -> s{_gehNextToken = a});
 
--- | The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- | The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 100. A value of 0 means to use the default. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 gehMaxResults :: Lens' GetExecutionHistory (Maybe Natural)
 gehMaxResults = lens _gehMaxResults (\ s a -> s{_gehMaxResults = a}) . mapping _Nat;
 

@@ -14,11 +14,11 @@
 module Test.AWS.Gen.EFS where
 
 import Data.Proxy
+import Network.AWS.EFS
+import Test.AWS.EFS.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.EFS
-import Test.AWS.EFS.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

@@ -29,6 +29,8 @@
 --
 -- To import a new certificate, omit the @CertificateArn@ field. Include this field only when you want to replace a previously imported certificate.
 --
+-- When you import a certificate by using the CLI or one of the SDKs, you must specify the certificate, chain, and private key parameters as file names preceded by @file://@ . For example, you can specify a certificate saved in the @C:\temp@ folder as @C:\temp\certificate_to_import.pem@ . If you are making an HTTP or HTTPS Query request, include these parameters as BLOBs.
+--
 -- This operation returns the <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of the imported certificate.
 --
 module Network.AWS.CertificateManager.ImportCertificate

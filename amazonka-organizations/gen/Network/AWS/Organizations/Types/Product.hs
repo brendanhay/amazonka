@@ -270,7 +270,7 @@ data Handshake = Handshake'
 --
 -- * 'hARN' - The Amazon Resource Name (ARN) of a handshake. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
--- * 'hAction' - The type of handshake, indicating what action occurs when the recipient accepts the handshake.
+-- * 'hAction' - The type of handshake, indicating what action occurs when the recipient accepts the handshake. The following handshake types are supported:     * __INVITE__ : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts.     * __ENABLE_ALL_FEATURES__ : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only /invited/ member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred.     * __APPROVE_ALL_FEATURES__ : This type of handshake is sent from the Organizations service when all member accounts have approved the @ENABLE_ALL_FEATURES@ invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features.
 --
 -- * 'hResources' - Additional information that is needed to process the handshake.
 --
@@ -304,7 +304,7 @@ hState = lens _hState (\ s a -> s{_hState = a});
 hARN :: Lens' Handshake (Maybe Text)
 hARN = lens _hARN (\ s a -> s{_hARN = a});
 
--- | The type of handshake, indicating what action occurs when the recipient accepts the handshake.
+-- | The type of handshake, indicating what action occurs when the recipient accepts the handshake. The following handshake types are supported:     * __INVITE__ : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts.     * __ENABLE_ALL_FEATURES__ : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only /invited/ member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred.     * __APPROVE_ALL_FEATURES__ : This type of handshake is sent from the Organizations service when all member accounts have approved the @ENABLE_ALL_FEATURES@ invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features.
 hAction :: Lens' Handshake (Maybe ActionType)
 hAction = lens _hAction (\ s a -> s{_hAction = a});
 
@@ -394,8 +394,8 @@ instance ToJSON HandshakeFilter where
 --
 -- /See:/ 'handshakeParty' smart constructor.
 data HandshakeParty = HandshakeParty'
-  { _hpId   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _hpType :: {-# NOUNPACK #-}!(Maybe HandshakePartyType)
+  { _hpId   :: {-# NOUNPACK #-}!(Sensitive Text)
+  , _hpType :: {-# NOUNPACK #-}!HandshakePartyType
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -407,23 +407,26 @@ data HandshakeParty = HandshakeParty'
 --
 -- * 'hpType' - The type of party.
 handshakeParty
-    :: HandshakeParty
-handshakeParty = HandshakeParty' {_hpId = Nothing, _hpType = Nothing}
+    :: Text -- ^ 'hpId'
+    -> HandshakePartyType -- ^ 'hpType'
+    -> HandshakeParty
+handshakeParty pId_ pType_ =
+  HandshakeParty' {_hpId = _Sensitive # pId_, _hpType = pType_}
 
 
 -- | The unique identifier (ID) for the party. The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lower-case letters or digits.
-hpId :: Lens' HandshakeParty (Maybe Text)
-hpId = lens _hpId (\ s a -> s{_hpId = a}) . mapping _Sensitive;
+hpId :: Lens' HandshakeParty Text
+hpId = lens _hpId (\ s a -> s{_hpId = a}) . _Sensitive;
 
 -- | The type of party.
-hpType :: Lens' HandshakeParty (Maybe HandshakePartyType)
+hpType :: Lens' HandshakeParty HandshakePartyType
 hpType = lens _hpType (\ s a -> s{_hpType = a});
 
 instance FromJSON HandshakeParty where
         parseJSON
           = withObject "HandshakeParty"
               (\ x ->
-                 HandshakeParty' <$> (x .:? "Id") <*> (x .:? "Type"))
+                 HandshakeParty' <$> (x .: "Id") <*> (x .: "Type"))
 
 instance Hashable HandshakeParty where
 
@@ -433,7 +436,7 @@ instance ToJSON HandshakeParty where
         toJSON HandshakeParty'{..}
           = object
               (catMaybes
-                 [("Id" .=) <$> _hpId, ("Type" .=) <$> _hpType])
+                 [Just ("Id" .= _hpId), Just ("Type" .= _hpType)])
 
 -- | Contains additional data that is needed to process a handshake.
 --

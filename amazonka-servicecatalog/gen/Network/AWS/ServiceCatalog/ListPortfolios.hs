@@ -59,7 +59,7 @@ data ListPortfolios = ListPortfolios'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'lpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'lpPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
@@ -71,7 +71,7 @@ listPortfolios =
   {_lpAcceptLanguage = Nothing, _lpPageToken = Nothing, _lpPageSize = Nothing}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lpAcceptLanguage :: Lens' ListPortfolios (Maybe Text)
 lpAcceptLanguage = lens _lpAcceptLanguage (\ s a -> s{_lpAcceptLanguage = a});
 

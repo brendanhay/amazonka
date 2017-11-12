@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the current status of Easy DKIM signing for an entity. For domain name identities, this action also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES has successfully verified that these tokens have been published.
+-- Returns the current status of Easy DKIM signing for an entity. For domain name identities, this operation also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES has successfully verified that these tokens have been published.
 --
 --
--- This action takes a list of identities as input and returns the following information for each:
+-- This operation takes a list of identities as input and returns the following information for each:
 --
 --     * Whether Easy DKIM signing is enabled or disabled.
 --
@@ -31,7 +31,7 @@
 --
 --
 --
--- This action is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.
+-- This operation is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.
 --
 -- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide> .
 --

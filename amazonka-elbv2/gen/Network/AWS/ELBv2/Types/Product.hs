@@ -76,8 +76,9 @@ instance ToQuery Action where
 --
 -- /See:/ 'availabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { _azSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _azZoneName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _azSubnetId              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _azZoneName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _azLoadBalancerAddresses :: {-# NOUNPACK #-}!(Maybe [LoadBalancerAddress])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -88,10 +89,16 @@ data AvailabilityZone = AvailabilityZone'
 -- * 'azSubnetId' - The ID of the subnet.
 --
 -- * 'azZoneName' - The name of the Availability Zone.
+--
+-- * 'azLoadBalancerAddresses' - [Network Load Balancers] The static IP address.
 availabilityZone
     :: AvailabilityZone
 availabilityZone =
-  AvailabilityZone' {_azSubnetId = Nothing, _azZoneName = Nothing}
+  AvailabilityZone'
+  { _azSubnetId = Nothing
+  , _azZoneName = Nothing
+  , _azLoadBalancerAddresses = Nothing
+  }
 
 
 -- | The ID of the subnet.
@@ -102,22 +109,29 @@ azSubnetId = lens _azSubnetId (\ s a -> s{_azSubnetId = a});
 azZoneName :: Lens' AvailabilityZone (Maybe Text)
 azZoneName = lens _azZoneName (\ s a -> s{_azZoneName = a});
 
+-- | [Network Load Balancers] The static IP address.
+azLoadBalancerAddresses :: Lens' AvailabilityZone [LoadBalancerAddress]
+azLoadBalancerAddresses = lens _azLoadBalancerAddresses (\ s a -> s{_azLoadBalancerAddresses = a}) . _Default . _Coerce;
+
 instance FromXML AvailabilityZone where
         parseXML x
           = AvailabilityZone' <$>
-              (x .@? "SubnetId") <*> (x .@? "ZoneName")
+              (x .@? "SubnetId") <*> (x .@? "ZoneName") <*>
+                (x .@? "LoadBalancerAddresses" .!@ mempty >>=
+                   may (parseXMLList "member"))
 
 instance Hashable AvailabilityZone where
 
 instance NFData AvailabilityZone where
 
--- | Information about an SSL server certificate deployed on a load balancer.
+-- | Information about an SSL server certificate.
 --
 --
 --
 -- /See:/ 'certificate' smart constructor.
-newtype Certificate = Certificate'
-  { _cCertificateARN :: Maybe Text
+data Certificate = Certificate'
+  { _cCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cIsDefault      :: {-# NOUNPACK #-}!(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,18 +140,25 @@ newtype Certificate = Certificate'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cCertificateARN' - The Amazon Resource Name (ARN) of the certificate.
+--
+-- * 'cIsDefault' - Indicates whether the certificate is the default certificate.
 certificate
     :: Certificate
-certificate = Certificate' {_cCertificateARN = Nothing}
+certificate = Certificate' {_cCertificateARN = Nothing, _cIsDefault = Nothing}
 
 
 -- | The Amazon Resource Name (ARN) of the certificate.
 cCertificateARN :: Lens' Certificate (Maybe Text)
 cCertificateARN = lens _cCertificateARN (\ s a -> s{_cCertificateARN = a});
 
+-- | Indicates whether the certificate is the default certificate.
+cIsDefault :: Lens' Certificate (Maybe Bool)
+cIsDefault = lens _cIsDefault (\ s a -> s{_cIsDefault = a});
+
 instance FromXML Certificate where
         parseXML x
-          = Certificate' <$> (x .@? "CertificateArn")
+          = Certificate' <$>
+              (x .@? "CertificateArn") <*> (x .@? "IsDefault")
 
 instance Hashable Certificate where
 
@@ -145,7 +166,9 @@ instance NFData Certificate where
 
 instance ToQuery Certificate where
         toQuery Certificate'{..}
-          = mconcat ["CertificateArn" =: _cCertificateARN]
+          = mconcat
+              ["CertificateArn" =: _cCertificateARN,
+               "IsDefault" =: _cIsDefault]
 
 -- | Information about a cipher used in a policy.
 --
@@ -203,7 +226,7 @@ data Limit = Limit'
 --
 -- * 'lMax' - The maximum value of the limit.
 --
--- * 'lName' - The name of the limit. The possible values are:     * application-load-balancers     * listeners-per-application-load-balancer     * rules-per-application-load-balancer     * target-groups     * targets-per-application-load-balancer
+-- * 'lName' - The name of the limit. The possible values are:     * application-load-balancers     * listeners-per-application-load-balancer     * listeners-per-network-load-balancer     * network-load-balancers     * rules-per-application-load-balancer     * target-groups     * targets-per-application-load-balancer     * targets-per-availability-zone-per-network-load-balancer     * targets-per-network-load-balancer
 limit
     :: Limit
 limit = Limit' {_lMax = Nothing, _lName = Nothing}
@@ -213,7 +236,7 @@ limit = Limit' {_lMax = Nothing, _lName = Nothing}
 lMax :: Lens' Limit (Maybe Text)
 lMax = lens _lMax (\ s a -> s{_lMax = a});
 
--- | The name of the limit. The possible values are:     * application-load-balancers     * listeners-per-application-load-balancer     * rules-per-application-load-balancer     * target-groups     * targets-per-application-load-balancer
+-- | The name of the limit. The possible values are:     * application-load-balancers     * listeners-per-application-load-balancer     * listeners-per-network-load-balancer     * network-load-balancers     * rules-per-application-load-balancer     * target-groups     * targets-per-application-load-balancer     * targets-per-availability-zone-per-network-load-balancer     * targets-per-network-load-balancer
 lName :: Lens' Limit (Maybe Text)
 lName = lens _lName (\ s a -> s{_lName = a});
 
@@ -456,6 +479,47 @@ instance Hashable LoadBalancer where
 
 instance NFData LoadBalancer where
 
+-- | Information about a static IP address for a load balancer.
+--
+--
+--
+-- /See:/ 'loadBalancerAddress' smart constructor.
+data LoadBalancerAddress = LoadBalancerAddress'
+  { _lbaIPAddress    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _lbaAllocationId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LoadBalancerAddress' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbaIPAddress' - The static IP address.
+--
+-- * 'lbaAllocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address.
+loadBalancerAddress
+    :: LoadBalancerAddress
+loadBalancerAddress =
+  LoadBalancerAddress' {_lbaIPAddress = Nothing, _lbaAllocationId = Nothing}
+
+
+-- | The static IP address.
+lbaIPAddress :: Lens' LoadBalancerAddress (Maybe Text)
+lbaIPAddress = lens _lbaIPAddress (\ s a -> s{_lbaIPAddress = a});
+
+-- | [Network Load Balancers] The allocation ID of the Elastic IP address.
+lbaAllocationId :: Lens' LoadBalancerAddress (Maybe Text)
+lbaAllocationId = lens _lbaAllocationId (\ s a -> s{_lbaAllocationId = a});
+
+instance FromXML LoadBalancerAddress where
+        parseXML x
+          = LoadBalancerAddress' <$>
+              (x .@? "IpAddress") <*> (x .@? "AllocationId")
+
+instance Hashable LoadBalancerAddress where
+
+instance NFData LoadBalancerAddress where
+
 -- | Information about a load balancer attribute.
 --
 --
@@ -473,7 +537,7 @@ data LoadBalancerAttribute = LoadBalancerAttribute'
 --
 -- * 'lbaValue' - The value of the attribute.
 --
--- * 'lbaKey' - The name of the attribute.     * @access_logs.s3.enabled@ - Indicates whether access logs stored in Amazon S3 are enabled. The value is @true@ or @false@ .     * @access_logs.s3.bucket@ - The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.     * @access_logs.s3.prefix@ - The prefix for the location in the S3 bucket. If you don't specify a prefix, the access logs are stored in the root of the bucket.     * @deletion_protection.enabled@ - Indicates whether deletion protection is enabled. The value is @true@ or @false@ .     * @idle_timeout.timeout_seconds@ - The idle timeout value, in seconds. The valid range is 1-3600. The default is 60 seconds.
+-- * 'lbaKey' - The name of the attribute.     * @access_logs.s3.enabled@ - [Application Load Balancers] Indicates whether access logs stored in Amazon S3 are enabled. The value is @true@ or @false@ .     * @access_logs.s3.bucket@ - [Application Load Balancers] The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.     * @access_logs.s3.prefix@ - [Application Load Balancers] The prefix for the location in the S3 bucket. If you don't specify a prefix, the access logs are stored in the root of the bucket.     * @deletion_protection.enabled@ - Indicates whether deletion protection is enabled. The value is @true@ or @false@ .     * @idle_timeout.timeout_seconds@ - [Application Load Balancers] The idle timeout value, in seconds. The valid range is 1-4000. The default is 60 seconds.
 loadBalancerAttribute
     :: LoadBalancerAttribute
 loadBalancerAttribute =
@@ -484,7 +548,7 @@ loadBalancerAttribute =
 lbaValue :: Lens' LoadBalancerAttribute (Maybe Text)
 lbaValue = lens _lbaValue (\ s a -> s{_lbaValue = a});
 
--- | The name of the attribute.     * @access_logs.s3.enabled@ - Indicates whether access logs stored in Amazon S3 are enabled. The value is @true@ or @false@ .     * @access_logs.s3.bucket@ - The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.     * @access_logs.s3.prefix@ - The prefix for the location in the S3 bucket. If you don't specify a prefix, the access logs are stored in the root of the bucket.     * @deletion_protection.enabled@ - Indicates whether deletion protection is enabled. The value is @true@ or @false@ .     * @idle_timeout.timeout_seconds@ - The idle timeout value, in seconds. The valid range is 1-3600. The default is 60 seconds.
+-- | The name of the attribute.     * @access_logs.s3.enabled@ - [Application Load Balancers] Indicates whether access logs stored in Amazon S3 are enabled. The value is @true@ or @false@ .     * @access_logs.s3.bucket@ - [Application Load Balancers] The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.     * @access_logs.s3.prefix@ - [Application Load Balancers] The prefix for the location in the S3 bucket. If you don't specify a prefix, the access logs are stored in the root of the bucket.     * @deletion_protection.enabled@ - Indicates whether deletion protection is enabled. The value is @true@ or @false@ .     * @idle_timeout.timeout_seconds@ - [Application Load Balancers] The idle timeout value, in seconds. The valid range is 1-4000. The default is 60 seconds.
 lbaKey :: Lens' LoadBalancerAttribute (Maybe Text)
 lbaKey = lens _lbaKey (\ s a -> s{_lbaKey = a});
 
@@ -556,14 +620,14 @@ newtype Matcher = Matcher'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mHTTPCode' - The HTTP codes. You can specify values between 200 and 499. The default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+-- * 'mHTTPCode' - The HTTP codes. For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). For Network Load Balancers, this is 200 to 399.
 matcher
     :: Text -- ^ 'mHTTPCode'
     -> Matcher
 matcher pHTTPCode_ = Matcher' {_mHTTPCode = pHTTPCode_}
 
 
--- | The HTTP codes. You can specify values between 200 and 499. The default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+-- | The HTTP codes. For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). For Network Load Balancers, this is 200 to 399.
 mHTTPCode :: Lens' Matcher Text
 mHTTPCode = lens _mHTTPCode (\ s a -> s{_mHTTPCode = a});
 
@@ -798,6 +862,48 @@ instance Hashable SSLPolicy where
 
 instance NFData SSLPolicy where
 
+-- | Information about a subnet mapping.
+--
+--
+--
+-- /See:/ 'subnetMapping' smart constructor.
+data SubnetMapping = SubnetMapping'
+  { _smAllocationId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _smSubnetId     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SubnetMapping' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'smAllocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address.
+--
+-- * 'smSubnetId' - The ID of the subnet.
+subnetMapping
+    :: SubnetMapping
+subnetMapping =
+  SubnetMapping' {_smAllocationId = Nothing, _smSubnetId = Nothing}
+
+
+-- | [Network Load Balancers] The allocation ID of the Elastic IP address.
+smAllocationId :: Lens' SubnetMapping (Maybe Text)
+smAllocationId = lens _smAllocationId (\ s a -> s{_smAllocationId = a});
+
+-- | The ID of the subnet.
+smSubnetId :: Lens' SubnetMapping (Maybe Text)
+smSubnetId = lens _smSubnetId (\ s a -> s{_smSubnetId = a});
+
+instance Hashable SubnetMapping where
+
+instance NFData SubnetMapping where
+
+instance ToQuery SubnetMapping where
+        toQuery SubnetMapping'{..}
+          = mconcat
+              ["AllocationId" =: _smAllocationId,
+               "SubnetId" =: _smSubnetId]
+
 -- | Information about a tag.
 --
 --
@@ -890,8 +996,9 @@ instance NFData TagDescription where
 --
 -- /See:/ 'targetDescription' smart constructor.
 data TargetDescription = TargetDescription'
-  { _tdPort :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _tdId   :: {-# NOUNPACK #-}!Text
+  { _tdAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
+  , _tdPort             :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _tdId               :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -899,27 +1006,36 @@ data TargetDescription = TargetDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'tdAvailabilityZone' - An Availability Zone or @all@ . This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer. This parameter is not supported if the target type of the target group is @instance@ . If the IP address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC, this parameter is required. With an Application Load Balancer, if the IP address is outside the VPC for the target group, the only supported value is @all@ .
+--
 -- * 'tdPort' - The port on which the target is listening.
 --
--- * 'tdId' - The ID of the target.
+-- * 'tdId' - The ID of the target. If the target type of the target group is @instance@ , specify an instance ID. If the target type is @ip@ , specify an IP address.
 targetDescription
     :: Text -- ^ 'tdId'
     -> TargetDescription
-targetDescription pId_ = TargetDescription' {_tdPort = Nothing, _tdId = pId_}
+targetDescription pId_ =
+  TargetDescription'
+  {_tdAvailabilityZone = Nothing, _tdPort = Nothing, _tdId = pId_}
 
+
+-- | An Availability Zone or @all@ . This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer. This parameter is not supported if the target type of the target group is @instance@ . If the IP address is in a subnet of the VPC for the target group, the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside the VPC, this parameter is required. With an Application Load Balancer, if the IP address is outside the VPC for the target group, the only supported value is @all@ .
+tdAvailabilityZone :: Lens' TargetDescription (Maybe Text)
+tdAvailabilityZone = lens _tdAvailabilityZone (\ s a -> s{_tdAvailabilityZone = a});
 
 -- | The port on which the target is listening.
 tdPort :: Lens' TargetDescription (Maybe Natural)
 tdPort = lens _tdPort (\ s a -> s{_tdPort = a}) . mapping _Nat;
 
--- | The ID of the target.
+-- | The ID of the target. If the target type of the target group is @instance@ , specify an instance ID. If the target type is @ip@ , specify an IP address.
 tdId :: Lens' TargetDescription Text
 tdId = lens _tdId (\ s a -> s{_tdId = a});
 
 instance FromXML TargetDescription where
         parseXML x
           = TargetDescription' <$>
-              (x .@? "Port") <*> (x .@ "Id")
+              (x .@? "AvailabilityZone") <*> (x .@? "Port") <*>
+                (x .@ "Id")
 
 instance Hashable TargetDescription where
 
@@ -927,7 +1043,9 @@ instance NFData TargetDescription where
 
 instance ToQuery TargetDescription where
         toQuery TargetDescription'{..}
-          = mconcat ["Port" =: _tdPort, "Id" =: _tdId]
+          = mconcat
+              ["AvailabilityZone" =: _tdAvailabilityZone,
+               "Port" =: _tdPort, "Id" =: _tdId]
 
 -- | Information about a target group.
 --
@@ -942,6 +1060,7 @@ data TargetGroup = TargetGroup'
   , _tgTargetGroupARN             :: {-# NOUNPACK #-}!(Maybe Text)
   , _tgProtocol                   :: {-# NOUNPACK #-}!(Maybe ProtocolEnum)
   , _tgHealthCheckIntervalSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  , _tgTargetType                 :: {-# NOUNPACK #-}!(Maybe TargetTypeEnum)
   , _tgHealthyThresholdCount      :: {-# NOUNPACK #-}!(Maybe Nat)
   , _tgHealthCheckProtocol        :: {-# NOUNPACK #-}!(Maybe ProtocolEnum)
   , _tgLoadBalancerARNs           :: {-# NOUNPACK #-}!(Maybe [Text])
@@ -970,6 +1089,8 @@ data TargetGroup = TargetGroup'
 --
 -- * 'tgHealthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an individual target.
 --
+-- * 'tgTargetType' - The type of target that you must specify when registering targets with this target group. The possible values are @instance@ (targets are specified by instance ID) or @ip@ (targets are specified by IP address).
+--
 -- * 'tgHealthyThresholdCount' - The number of consecutive health checks successes required before considering an unhealthy target healthy.
 --
 -- * 'tgHealthCheckProtocol' - The protocol to use to connect with the target.
@@ -994,6 +1115,7 @@ targetGroup =
   , _tgTargetGroupARN = Nothing
   , _tgProtocol = Nothing
   , _tgHealthCheckIntervalSeconds = Nothing
+  , _tgTargetType = Nothing
   , _tgHealthyThresholdCount = Nothing
   , _tgHealthCheckProtocol = Nothing
   , _tgLoadBalancerARNs = Nothing
@@ -1032,6 +1154,10 @@ tgProtocol = lens _tgProtocol (\ s a -> s{_tgProtocol = a});
 tgHealthCheckIntervalSeconds :: Lens' TargetGroup (Maybe Natural)
 tgHealthCheckIntervalSeconds = lens _tgHealthCheckIntervalSeconds (\ s a -> s{_tgHealthCheckIntervalSeconds = a}) . mapping _Nat;
 
+-- | The type of target that you must specify when registering targets with this target group. The possible values are @instance@ (targets are specified by instance ID) or @ip@ (targets are specified by IP address).
+tgTargetType :: Lens' TargetGroup (Maybe TargetTypeEnum)
+tgTargetType = lens _tgTargetType (\ s a -> s{_tgTargetType = a});
+
 -- | The number of consecutive health checks successes required before considering an unhealthy target healthy.
 tgHealthyThresholdCount :: Lens' TargetGroup (Maybe Natural)
 tgHealthyThresholdCount = lens _tgHealthyThresholdCount (\ s a -> s{_tgHealthyThresholdCount = a}) . mapping _Nat;
@@ -1069,6 +1195,7 @@ instance FromXML TargetGroup where
                 <*> (x .@? "TargetGroupArn")
                 <*> (x .@? "Protocol")
                 <*> (x .@? "HealthCheckIntervalSeconds")
+                <*> (x .@? "TargetType")
                 <*> (x .@? "HealthyThresholdCount")
                 <*> (x .@? "HealthCheckProtocol")
                 <*>
@@ -1100,7 +1227,7 @@ data TargetGroupAttribute = TargetGroupAttribute'
 --
 -- * 'tgaValue' - The value of the attribute.
 --
--- * 'tgaKey' - The name of the attribute.     * @deregistration_delay.timeout_seconds@ - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from @draining@ to @unused@ . The range is 0-3600 seconds. The default value is 300 seconds.     * @stickiness.enabled@ - Indicates whether sticky sessions are enabled. The value is @true@ or @false@ .     * @stickiness.type@ - The type of sticky sessions. The possible value is @lb_cookie@ .     * @stickiness.lb_cookie.duration_seconds@ - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+-- * 'tgaKey' - The name of the attribute.     * @deregistration_delay.timeout_seconds@ - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from @draining@ to @unused@ . The range is 0-3600 seconds. The default value is 300 seconds.     * @stickiness.enabled@ - [Application Load Balancers] Indicates whether sticky sessions are enabled. The value is @true@ or @false@ .     * @stickiness.type@ - [Application Load Balancers] The type of sticky sessions. The possible value is @lb_cookie@ .     * @stickiness.lb_cookie.duration_seconds@ - [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 targetGroupAttribute
     :: TargetGroupAttribute
 targetGroupAttribute =
@@ -1111,7 +1238,7 @@ targetGroupAttribute =
 tgaValue :: Lens' TargetGroupAttribute (Maybe Text)
 tgaValue = lens _tgaValue (\ s a -> s{_tgaValue = a});
 
--- | The name of the attribute.     * @deregistration_delay.timeout_seconds@ - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from @draining@ to @unused@ . The range is 0-3600 seconds. The default value is 300 seconds.     * @stickiness.enabled@ - Indicates whether sticky sessions are enabled. The value is @true@ or @false@ .     * @stickiness.type@ - The type of sticky sessions. The possible value is @lb_cookie@ .     * @stickiness.lb_cookie.duration_seconds@ - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+-- | The name of the attribute.     * @deregistration_delay.timeout_seconds@ - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from @draining@ to @unused@ . The range is 0-3600 seconds. The default value is 300 seconds.     * @stickiness.enabled@ - [Application Load Balancers] Indicates whether sticky sessions are enabled. The value is @true@ or @false@ .     * @stickiness.type@ - [Application Load Balancers] The type of sticky sessions. The possible value is @lb_cookie@ .     * @stickiness.lb_cookie.duration_seconds@ - [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 tgaKey :: Lens' TargetGroupAttribute (Maybe Text)
 tgaKey = lens _tgaKey (\ s a -> s{_tgaKey = a});
 
@@ -1146,7 +1273,7 @@ data TargetHealth = TargetHealth'
 --
 -- * 'thState' - The state of the target.
 --
--- * 'thReason' - The reason code. If the target state is @healthy@ , a reason code is not provided. If the target state is @initial@ , the reason code can be one of the following values:     * @Elb.RegistrationInProgress@ - The target is in the process of being registered with the load balancer.     * @Elb.InitialHealthChecking@ - The load balancer is still sending the target the minimum number of health checks required to determine its health status. If the target state is @unhealthy@ , the reason code can be one of the following values:     * @Target.ResponseCodeMismatch@ - The health checks did not return an expected HTTP code.     * @Target.Timeout@ - The health check requests timed out.     * @Target.FailedHealthChecks@ - The health checks failed because the connection to the target timed out, the target response was malformed, or the target failed the health check for an unknown reason.     * @Elb.InternalError@ - The health checks failed due to an internal error. If the target state is @unused@ , the reason code can be one of the following values:     * @Target.NotRegistered@ - The target is not registered with the target group.     * @Target.NotInUse@ - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.     * @Target.InvalidState@ - The target is in the stopped or terminated state. If the target state is @draining@ , the reason code can be the following value:     * @Target.DeregistrationInProgress@ - The target is in the process of being deregistered and the deregistration delay period has not expired.
+-- * 'thReason' - The reason code. If the target state is @healthy@ , a reason code is not provided. If the target state is @initial@ , the reason code can be one of the following values:     * @Elb.RegistrationInProgress@ - The target is in the process of being registered with the load balancer.     * @Elb.InitialHealthChecking@ - The load balancer is still sending the target the minimum number of health checks required to determine its health status. If the target state is @unhealthy@ , the reason code can be one of the following values:     * @Target.ResponseCodeMismatch@ - The health checks did not return an expected HTTP code.     * @Target.Timeout@ - The health check requests timed out.     * @Target.FailedHealthChecks@ - The health checks failed because the connection to the target timed out, the target response was malformed, or the target failed the health check for an unknown reason.     * @Elb.InternalError@ - The health checks failed due to an internal error. If the target state is @unused@ , the reason code can be one of the following values:     * @Target.NotRegistered@ - The target is not registered with the target group.     * @Target.NotInUse@ - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.     * @Target.IpUnusable@ - The target IP address is reserved for use by a load balancer.     * @Target.InvalidState@ - The target is in the stopped or terminated state. If the target state is @draining@ , the reason code can be the following value:     * @Target.DeregistrationInProgress@ - The target is in the process of being deregistered and the deregistration delay period has not expired.
 --
 -- * 'thDescription' - A description of the target health that provides additional details. If the state is @healthy@ , a description is not provided.
 targetHealth
@@ -1160,7 +1287,7 @@ targetHealth =
 thState :: Lens' TargetHealth (Maybe TargetHealthStateEnum)
 thState = lens _thState (\ s a -> s{_thState = a});
 
--- | The reason code. If the target state is @healthy@ , a reason code is not provided. If the target state is @initial@ , the reason code can be one of the following values:     * @Elb.RegistrationInProgress@ - The target is in the process of being registered with the load balancer.     * @Elb.InitialHealthChecking@ - The load balancer is still sending the target the minimum number of health checks required to determine its health status. If the target state is @unhealthy@ , the reason code can be one of the following values:     * @Target.ResponseCodeMismatch@ - The health checks did not return an expected HTTP code.     * @Target.Timeout@ - The health check requests timed out.     * @Target.FailedHealthChecks@ - The health checks failed because the connection to the target timed out, the target response was malformed, or the target failed the health check for an unknown reason.     * @Elb.InternalError@ - The health checks failed due to an internal error. If the target state is @unused@ , the reason code can be one of the following values:     * @Target.NotRegistered@ - The target is not registered with the target group.     * @Target.NotInUse@ - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.     * @Target.InvalidState@ - The target is in the stopped or terminated state. If the target state is @draining@ , the reason code can be the following value:     * @Target.DeregistrationInProgress@ - The target is in the process of being deregistered and the deregistration delay period has not expired.
+-- | The reason code. If the target state is @healthy@ , a reason code is not provided. If the target state is @initial@ , the reason code can be one of the following values:     * @Elb.RegistrationInProgress@ - The target is in the process of being registered with the load balancer.     * @Elb.InitialHealthChecking@ - The load balancer is still sending the target the minimum number of health checks required to determine its health status. If the target state is @unhealthy@ , the reason code can be one of the following values:     * @Target.ResponseCodeMismatch@ - The health checks did not return an expected HTTP code.     * @Target.Timeout@ - The health check requests timed out.     * @Target.FailedHealthChecks@ - The health checks failed because the connection to the target timed out, the target response was malformed, or the target failed the health check for an unknown reason.     * @Elb.InternalError@ - The health checks failed due to an internal error. If the target state is @unused@ , the reason code can be one of the following values:     * @Target.NotRegistered@ - The target is not registered with the target group.     * @Target.NotInUse@ - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.     * @Target.IpUnusable@ - The target IP address is reserved for use by a load balancer.     * @Target.InvalidState@ - The target is in the stopped or terminated state. If the target state is @draining@ , the reason code can be the following value:     * @Target.DeregistrationInProgress@ - The target is in the process of being deregistered and the deregistration delay period has not expired.
 thReason :: Lens' TargetHealth (Maybe TargetHealthReasonEnum)
 thReason = lens _thReason (\ s a -> s{_thReason = a});
 

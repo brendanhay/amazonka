@@ -285,25 +285,25 @@ data Authorizer = Authorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aAuthorizerURI' - [Required] Specifies the authorizer's Uniform Resource Identifier (URI). For @TOKEN@ authorizers, this must be a well-formed Lambda function URI, for example, @arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations@ . In general, the URI has this form @arn:aws:apigateway:{region}:lambda:path/{service_api}@ , where @{region}@ is the same as the region hosting the Lambda function, @path@ indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ . For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations.
+-- * 'aAuthorizerURI' - Specifies the authorizer's Uniform Resource Identifier (URI). For @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda function URI, for example, @arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations@ . In general, the URI has this form @arn:aws:apigateway:{region}:lambda:path/{service_api}@ , where @{region}@ is the same as the region hosting the Lambda function, @path@ indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ . For Lambda functions, this is usually of the form @/2015-03-31/functions/[FunctionARN]/invocations@ .
 --
--- * 'aIdentityValidationExpression' - A validation expression for the incoming identity. For @TOKEN@ authorizers, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
+-- * 'aIdentityValidationExpression' - A validation expression for the incoming identity token. For @TOKEN@ authorizers, this value is a regular expression. Amazon API Gateway will match the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the @REQUEST@ authorizer.
 --
--- * 'aProviderARNs' - A list of the provider ARNs of the authorizer. For an @TOKEN@ authorizer, this is not defined. For authorizers of the @COGNITO_USER_POOLS@ type, each element corresponds to a user pool ARN of this format: @arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}@ .
+-- * 'aProviderARNs' - A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@ authorizer. Each element is of this format: @arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}@ . For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
 --
 -- * 'aName' - [Required] The name of the authorizer.
 --
 -- * 'aId' - The identifier for the authorizer resource.
 --
--- * 'aAuthorizerResultTtlInSeconds' - The TTL in seconds of cached authorizer results. If greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
+-- * 'aAuthorizerResultTtlInSeconds' - The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
 --
--- * 'aAuthType' - Optional customer-defined field, used in Swagger imports/exports. Has no functional impact.
+-- * 'aAuthType' - Optional customer-defined field, used in Swagger imports and exports without functional impact.
 --
--- * 'aType' - [Required] The type of the authorizer. Currently, the valid type is @TOKEN@ for a Lambda function or @COGNITO_USER_POOLS@ for an Amazon Cognito user pool.
+-- * 'aType' - [Required] The authorizer type. Valid values are @TOKEN@ for a Lambda function using a single authorization token submitted in a custom header, @REQUEST@ for a Lambda function using incoming request parameters, and @COGNITO_USER_POOLS@ for using an Amazon Cognito user pool.
 --
--- * 'aIdentitySource' - [Required] The source of the identity in an incoming request. For a @TOKEN@ authorizer, this value is a mapping expression with the same syntax as integration parameter mappings. The only valid source for tokens is 'header', so the expression should match 'method.request.header.[headerName]'. The value of the header '[headerName]' will be interpreted as the incoming token. For @COGNITO_USER_POOLS@ authorizers, this property is used.
+-- * 'aIdentitySource' - The identity source for which authorization is requested.     * For a @TOKEN@ authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is @Auth@ , the header mapping expression is @method.request.header.Auth@ .    * For the @REQUEST@ authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an @Auth@ header, a @Name@ query string parameter are defined as identity sources, this value is @method.request.header.Auth, method.request.querystring.Name@ . These parameters will be used to derive the authorization caching key and to perform runtime validation of the @REQUEST@ authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.    * For a @COGNITO_USER_POOLS@ authorizer, this property is not used.
 --
--- * 'aAuthorizerCredentials' - Specifies the credentials required for the authorizer, if any. Two options are available. To specify an IAM role for Amazon API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
+-- * 'aAuthorizerCredentials' - Specifies the required credentials as an IAM role for Amazon API Gateway to invoke the authorizer. To specify an IAM role for Amazon API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
 authorizer
     :: Authorizer
 authorizer =
@@ -321,15 +321,15 @@ authorizer =
   }
 
 
--- | [Required] Specifies the authorizer's Uniform Resource Identifier (URI). For @TOKEN@ authorizers, this must be a well-formed Lambda function URI, for example, @arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations@ . In general, the URI has this form @arn:aws:apigateway:{region}:lambda:path/{service_api}@ , where @{region}@ is the same as the region hosting the Lambda function, @path@ indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ . For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations.
+-- | Specifies the authorizer's Uniform Resource Identifier (URI). For @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda function URI, for example, @arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations@ . In general, the URI has this form @arn:aws:apigateway:{region}:lambda:path/{service_api}@ , where @{region}@ is the same as the region hosting the Lambda function, @path@ indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ . For Lambda functions, this is usually of the form @/2015-03-31/functions/[FunctionARN]/invocations@ .
 aAuthorizerURI :: Lens' Authorizer (Maybe Text)
 aAuthorizerURI = lens _aAuthorizerURI (\ s a -> s{_aAuthorizerURI = a});
 
--- | A validation expression for the incoming identity. For @TOKEN@ authorizers, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
+-- | A validation expression for the incoming identity token. For @TOKEN@ authorizers, this value is a regular expression. Amazon API Gateway will match the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the @REQUEST@ authorizer.
 aIdentityValidationExpression :: Lens' Authorizer (Maybe Text)
 aIdentityValidationExpression = lens _aIdentityValidationExpression (\ s a -> s{_aIdentityValidationExpression = a});
 
--- | A list of the provider ARNs of the authorizer. For an @TOKEN@ authorizer, this is not defined. For authorizers of the @COGNITO_USER_POOLS@ type, each element corresponds to a user pool ARN of this format: @arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}@ .
+-- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@ authorizer. Each element is of this format: @arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}@ . For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
 aProviderARNs :: Lens' Authorizer [Text]
 aProviderARNs = lens _aProviderARNs (\ s a -> s{_aProviderARNs = a}) . _Default . _Coerce;
 
@@ -341,23 +341,23 @@ aName = lens _aName (\ s a -> s{_aName = a});
 aId :: Lens' Authorizer (Maybe Text)
 aId = lens _aId (\ s a -> s{_aId = a});
 
--- | The TTL in seconds of cached authorizer results. If greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
+-- | The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
 aAuthorizerResultTtlInSeconds :: Lens' Authorizer (Maybe Int)
 aAuthorizerResultTtlInSeconds = lens _aAuthorizerResultTtlInSeconds (\ s a -> s{_aAuthorizerResultTtlInSeconds = a});
 
--- | Optional customer-defined field, used in Swagger imports/exports. Has no functional impact.
+-- | Optional customer-defined field, used in Swagger imports and exports without functional impact.
 aAuthType :: Lens' Authorizer (Maybe Text)
 aAuthType = lens _aAuthType (\ s a -> s{_aAuthType = a});
 
--- | [Required] The type of the authorizer. Currently, the valid type is @TOKEN@ for a Lambda function or @COGNITO_USER_POOLS@ for an Amazon Cognito user pool.
+-- | [Required] The authorizer type. Valid values are @TOKEN@ for a Lambda function using a single authorization token submitted in a custom header, @REQUEST@ for a Lambda function using incoming request parameters, and @COGNITO_USER_POOLS@ for using an Amazon Cognito user pool.
 aType :: Lens' Authorizer (Maybe AuthorizerType)
 aType = lens _aType (\ s a -> s{_aType = a});
 
--- | [Required] The source of the identity in an incoming request. For a @TOKEN@ authorizer, this value is a mapping expression with the same syntax as integration parameter mappings. The only valid source for tokens is 'header', so the expression should match 'method.request.header.[headerName]'. The value of the header '[headerName]' will be interpreted as the incoming token. For @COGNITO_USER_POOLS@ authorizers, this property is used.
+-- | The identity source for which authorization is requested.     * For a @TOKEN@ authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is @Auth@ , the header mapping expression is @method.request.header.Auth@ .    * For the @REQUEST@ authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an @Auth@ header, a @Name@ query string parameter are defined as identity sources, this value is @method.request.header.Auth, method.request.querystring.Name@ . These parameters will be used to derive the authorization caching key and to perform runtime validation of the @REQUEST@ authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.    * For a @COGNITO_USER_POOLS@ authorizer, this property is not used.
 aIdentitySource :: Lens' Authorizer (Maybe Text)
 aIdentitySource = lens _aIdentitySource (\ s a -> s{_aIdentitySource = a});
 
--- | Specifies the credentials required for the authorizer, if any. Two options are available. To specify an IAM role for Amazon API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
+-- | Specifies the required credentials as an IAM role for Amazon API Gateway to invoke the authorizer. To specify an IAM role for Amazon API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
 aAuthorizerCredentials :: Lens' Authorizer (Maybe Text)
 aAuthorizerCredentials = lens _aAuthorizerCredentials (\ s a -> s{_aAuthorizerCredentials = a});
 
@@ -437,7 +437,7 @@ instance NFData BasePathMapping where
 -- | Represents a client certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.
 --
 --
--- Client certificates are used authenticate an API by the back-end server. To authenticate an API client (or user), use a custom 'Authorizer' .<http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html Use Client-Side Certificate>
+-- Client certificates are used to authenticate an API by the backend server. To authenticate an API client (or user), use IAM roles and policies, a custom 'Authorizer' or an Amazon Cognito user pool.<http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html Use Client-Side Certificate>
 --
 -- /See:/ 'clientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
@@ -658,7 +658,7 @@ data DocumentationPartLocation = DocumentationPartLocation'
 --
 -- * 'dplStatusCode' - The HTTP status code of a response. It is a valid field for the API entity types of @RESPONSE@ , @RESPONSE_HEADER@ , and @RESPONSE_BODY@ . The default value is @*@ for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other @location@ attributes, the child entity's @statusCode@ attribute must match that of the parent entity exactly.
 --
--- * 'dplType' - The type of API entity to which the documentation content applies. It is a valid and required field for API entity types of @API@ , @AUTHORIZER@ , @MODEL@ , @RESOURCE@ , @METHOD@ , @PATH_PARAMETER@ , @QUERY_PARAMETER@ , @REQUEST_HEADER@ , @REQUEST_BODY@ , @RESPONSE@ , @RESPONSE_HEADER@ , and @RESPONSE_BODY@ . Content inheritance does not apply to any entity of the @API@ , @AUTHROZER@ , @METHOD@ , @MODEL@ , @REQUEST_BODY@ , or @RESOURCE@ type.
+-- * 'dplType' - The type of API entity to which the documentation content applies. It is a valid and required field for API entity types of @API@ , @AUTHORIZER@ , @MODEL@ , @RESOURCE@ , @METHOD@ , @PATH_PARAMETER@ , @QUERY_PARAMETER@ , @REQUEST_HEADER@ , @REQUEST_BODY@ , @RESPONSE@ , @RESPONSE_HEADER@ , and @RESPONSE_BODY@ . Content inheritance does not apply to any entity of the @API@ , @AUTHORIZER@ , @METHOD@ , @MODEL@ , @REQUEST_BODY@ , or @RESOURCE@ type.
 documentationPartLocation
     :: DocumentationPartType -- ^ 'dplType'
     -> DocumentationPartLocation
@@ -688,7 +688,7 @@ dplMethod = lens _dplMethod (\ s a -> s{_dplMethod = a});
 dplStatusCode :: Lens' DocumentationPartLocation (Maybe Text)
 dplStatusCode = lens _dplStatusCode (\ s a -> s{_dplStatusCode = a});
 
--- | The type of API entity to which the documentation content applies. It is a valid and required field for API entity types of @API@ , @AUTHORIZER@ , @MODEL@ , @RESOURCE@ , @METHOD@ , @PATH_PARAMETER@ , @QUERY_PARAMETER@ , @REQUEST_HEADER@ , @REQUEST_BODY@ , @RESPONSE@ , @RESPONSE_HEADER@ , and @RESPONSE_BODY@ . Content inheritance does not apply to any entity of the @API@ , @AUTHROZER@ , @METHOD@ , @MODEL@ , @REQUEST_BODY@ , or @RESOURCE@ type.
+-- | The type of API entity to which the documentation content applies. It is a valid and required field for API entity types of @API@ , @AUTHORIZER@ , @MODEL@ , @RESOURCE@ , @METHOD@ , @PATH_PARAMETER@ , @QUERY_PARAMETER@ , @REQUEST_HEADER@ , @REQUEST_BODY@ , @RESPONSE@ , @RESPONSE_HEADER@ , and @RESPONSE_BODY@ . Content inheritance does not apply to any entity of the @API@ , @AUTHORIZER@ , @METHOD@ , @MODEL@ , @REQUEST_BODY@ , or @RESOURCE@ type.
 dplType :: Lens' DocumentationPartLocation DocumentationPartType
 dplType = lens _dplType (\ s a -> s{_dplType = a});
 
@@ -770,18 +770,24 @@ instance Hashable DocumentationVersion where
 
 instance NFData DocumentationVersion where
 
--- | Represents a domain name that is contained in a simpler, more intuitive URL that can be called.
+-- | Represents a custom domain name as a user-friendly host name of an API ('RestApi' ).
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Client-Side Certificate>
+-- When you deploy an API, Amazon API Gateway creates a default host name for the API. This default API host name is of the @{restapi-id}.execute-api.{region}.amazonaws.com@ format. With the default host name, you can access the API's root resource with the URL of @https://{restapi-id}.execute-api.{region}.amazonaws.com/{stage}/@ . When you set up a custom domain name of @apis.example.com@ for this API, you can then access the same resource using the URL of the @https://apis.examples.com/myApi@ , where @myApi@ is the base path mapping ('BasePathMapping' ) of your API under the custom domain name.
+--
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Set a Custom Host Name for an API>
 --
 -- /See:/ 'domainName' smart constructor.
 data DomainName = DomainName'
-  { _dnCertificateName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnCertificateARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnDomainName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnCertificateUploadDate  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dnDistributionDomainName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dnCertificateName         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnRegionalCertificateARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnCertificateARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnDomainName              :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnRegionalCertificateName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnRegionalDomainName      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnCertificateUploadDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _dnDistributionDomainName  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _dnEndpointConfiguration   :: {-# NOUNPACK #-}!(Maybe EndpointConfiguration)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -789,32 +795,48 @@ data DomainName = DomainName'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnCertificateName' - The name of the certificate.
+-- * 'dnCertificateName' - The name of the certificate that will be used by edge-optimized endpoint for this domain name.
 --
--- * 'dnCertificateARN' - The reference to an AWS-managed certificate. AWS Certificate Manager is the only supported source.
+-- * 'dnRegionalCertificateARN' - The reference to an AWS-managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+--
+-- * 'dnCertificateARN' - The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
 --
 -- * 'dnDomainName' - The name of the 'DomainName' resource.
 --
--- * 'dnCertificateUploadDate' - The timestamp when the certificate was uploaded.
+-- * 'dnRegionalCertificateName' - The name of the certificate that will be used for validating the regional domain name.
 --
--- * 'dnDistributionDomainName' - The domain name of the Amazon CloudFront distribution. For more information, see the <http://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation> .
+-- * 'dnRegionalDomainName' - The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name. The regional domain name is returned by Amazon API Gateway when you create a regional endpoint.
+--
+-- * 'dnCertificateUploadDate' - The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.
+--
+-- * 'dnDistributionDomainName' - The domain name of the Amazon CloudFront distribution associated with this custom domain name for an edge-optimized endpoint. You set up this association when adding a DNS record pointing the custom domain name to this distribution name. For more information about CloudFront distributions, see the <http://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation> .
+--
+-- * 'dnEndpointConfiguration' - The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
 domainName
     :: DomainName
 domainName =
   DomainName'
   { _dnCertificateName = Nothing
+  , _dnRegionalCertificateARN = Nothing
   , _dnCertificateARN = Nothing
   , _dnDomainName = Nothing
+  , _dnRegionalCertificateName = Nothing
+  , _dnRegionalDomainName = Nothing
   , _dnCertificateUploadDate = Nothing
   , _dnDistributionDomainName = Nothing
+  , _dnEndpointConfiguration = Nothing
   }
 
 
--- | The name of the certificate.
+-- | The name of the certificate that will be used by edge-optimized endpoint for this domain name.
 dnCertificateName :: Lens' DomainName (Maybe Text)
 dnCertificateName = lens _dnCertificateName (\ s a -> s{_dnCertificateName = a});
 
--- | The reference to an AWS-managed certificate. AWS Certificate Manager is the only supported source.
+-- | The reference to an AWS-managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+dnRegionalCertificateARN :: Lens' DomainName (Maybe Text)
+dnRegionalCertificateARN = lens _dnRegionalCertificateARN (\ s a -> s{_dnRegionalCertificateARN = a});
+
+-- | The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
 dnCertificateARN :: Lens' DomainName (Maybe Text)
 dnCertificateARN = lens _dnCertificateARN (\ s a -> s{_dnCertificateARN = a});
 
@@ -822,13 +844,25 @@ dnCertificateARN = lens _dnCertificateARN (\ s a -> s{_dnCertificateARN = a});
 dnDomainName :: Lens' DomainName (Maybe Text)
 dnDomainName = lens _dnDomainName (\ s a -> s{_dnDomainName = a});
 
--- | The timestamp when the certificate was uploaded.
+-- | The name of the certificate that will be used for validating the regional domain name.
+dnRegionalCertificateName :: Lens' DomainName (Maybe Text)
+dnRegionalCertificateName = lens _dnRegionalCertificateName (\ s a -> s{_dnRegionalCertificateName = a});
+
+-- | The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name. The regional domain name is returned by Amazon API Gateway when you create a regional endpoint.
+dnRegionalDomainName :: Lens' DomainName (Maybe Text)
+dnRegionalDomainName = lens _dnRegionalDomainName (\ s a -> s{_dnRegionalDomainName = a});
+
+-- | The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.
 dnCertificateUploadDate :: Lens' DomainName (Maybe UTCTime)
 dnCertificateUploadDate = lens _dnCertificateUploadDate (\ s a -> s{_dnCertificateUploadDate = a}) . mapping _Time;
 
--- | The domain name of the Amazon CloudFront distribution. For more information, see the <http://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation> .
+-- | The domain name of the Amazon CloudFront distribution associated with this custom domain name for an edge-optimized endpoint. You set up this association when adding a DNS record pointing the custom domain name to this distribution name. For more information about CloudFront distributions, see the <http://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation> .
 dnDistributionDomainName :: Lens' DomainName (Maybe Text)
 dnDistributionDomainName = lens _dnDistributionDomainName (\ s a -> s{_dnDistributionDomainName = a});
+
+-- | The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
+dnEndpointConfiguration :: Lens' DomainName (Maybe EndpointConfiguration)
+dnEndpointConfiguration = lens _dnEndpointConfiguration (\ s a -> s{_dnEndpointConfiguration = a});
 
 instance FromJSON DomainName where
         parseJSON
@@ -836,14 +870,57 @@ instance FromJSON DomainName where
               (\ x ->
                  DomainName' <$>
                    (x .:? "certificateName") <*>
-                     (x .:? "certificateArn")
+                     (x .:? "regionalCertificateArn")
+                     <*> (x .:? "certificateArn")
                      <*> (x .:? "domainName")
+                     <*> (x .:? "regionalCertificateName")
+                     <*> (x .:? "regionalDomainName")
                      <*> (x .:? "certificateUploadDate")
-                     <*> (x .:? "distributionDomainName"))
+                     <*> (x .:? "distributionDomainName")
+                     <*> (x .:? "endpointConfiguration"))
 
 instance Hashable DomainName where
 
 instance NFData DomainName where
+
+-- | The endpoint configuration to indicate the types of endpoints an API ('RestApi' ) or its custom domain name ('DomainName' ) has.
+--
+--
+--
+-- /See:/ 'endpointConfiguration' smart constructor.
+newtype EndpointConfiguration = EndpointConfiguration'
+  { _ecTypes :: Maybe [EndpointType]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EndpointConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecTypes' - A list of endpoint types of an API ('RestApi' ) or its custom domain name ('DomainName' ). For an edge-optimized API and its custom domain name, the endpoint type is @"EDGE"@ . For a regional API and its custom domain name, the endpoint type is @REGIONAL@ .
+endpointConfiguration
+    :: EndpointConfiguration
+endpointConfiguration = EndpointConfiguration' {_ecTypes = Nothing}
+
+
+-- | A list of endpoint types of an API ('RestApi' ) or its custom domain name ('DomainName' ). For an edge-optimized API and its custom domain name, the endpoint type is @"EDGE"@ . For a regional API and its custom domain name, the endpoint type is @REGIONAL@ .
+ecTypes :: Lens' EndpointConfiguration [EndpointType]
+ecTypes = lens _ecTypes (\ s a -> s{_ecTypes = a}) . _Default . _Coerce;
+
+instance FromJSON EndpointConfiguration where
+        parseJSON
+          = withObject "EndpointConfiguration"
+              (\ x ->
+                 EndpointConfiguration' <$>
+                   (x .:? "types" .!= mempty))
+
+instance Hashable EndpointConfiguration where
+
+instance NFData EndpointConfiguration where
+
+instance ToJSON EndpointConfiguration where
+        toJSON EndpointConfiguration'{..}
+          = object (catMaybes [("types" .=) <$> _ecTypes])
 
 -- | A gateway response of a given response type and status code, with optional response parameters and mapping templates.
 --
@@ -1522,7 +1599,7 @@ data Model = Model'
 --
 -- * 'mSchema' - The schema for the model. For @application/json@ models, this should be <http://json-schema.org/documentation.html JSON-schema draft v4> model. Do not include "\*/" characters in the description of any properties because such "\*/" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail.
 --
--- * 'mName' - The name of the model.
+-- * 'mName' - The name of the model. Must be an alphanumeric string.
 --
 -- * 'mId' - The identifier for the model resource.
 --
@@ -1545,7 +1622,7 @@ model =
 mSchema :: Lens' Model (Maybe Text)
 mSchema = lens _mSchema (\ s a -> s{_mSchema = a});
 
--- | The name of the model.
+-- | The name of the model. Must be an alphanumeric string.
 mName :: Lens' Model (Maybe Text)
 mName = lens _mName (\ s a -> s{_mName = a});
 
@@ -1838,13 +1915,14 @@ instance NFData Resource where
 --
 -- /See:/ 'restAPI' smart constructor.
 data RestAPI = RestAPI'
-  { _raBinaryMediaTypes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _raWarnings         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _raCreatedDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _raName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raVersion          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _raBinaryMediaTypes      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _raWarnings              :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _raCreatedDate           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _raName                  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raVersion               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raId                    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _raEndpointConfiguration :: {-# NOUNPACK #-}!(Maybe EndpointConfiguration)
+  , _raDescription           :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1864,6 +1942,8 @@ data RestAPI = RestAPI'
 --
 -- * 'raId' - The API's identifier. This identifier is unique across all of your APIs in Amazon API Gateway.
 --
+-- * 'raEndpointConfiguration' - The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
+--
 -- * 'raDescription' - The API's description.
 restAPI
     :: RestAPI
@@ -1875,6 +1955,7 @@ restAPI =
   , _raName = Nothing
   , _raVersion = Nothing
   , _raId = Nothing
+  , _raEndpointConfiguration = Nothing
   , _raDescription = Nothing
   }
 
@@ -1903,6 +1984,10 @@ raVersion = lens _raVersion (\ s a -> s{_raVersion = a});
 raId :: Lens' RestAPI (Maybe Text)
 raId = lens _raId (\ s a -> s{_raId = a});
 
+-- | The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
+raEndpointConfiguration :: Lens' RestAPI (Maybe EndpointConfiguration)
+raEndpointConfiguration = lens _raEndpointConfiguration (\ s a -> s{_raEndpointConfiguration = a});
+
 -- | The API's description.
 raDescription :: Lens' RestAPI (Maybe Text)
 raDescription = lens _raDescription (\ s a -> s{_raDescription = a});
@@ -1918,6 +2003,7 @@ instance FromJSON RestAPI where
                      <*> (x .:? "name")
                      <*> (x .:? "version")
                      <*> (x .:? "id")
+                     <*> (x .:? "endpointConfiguration")
                      <*> (x .:? "description"))
 
 instance Hashable RestAPI where

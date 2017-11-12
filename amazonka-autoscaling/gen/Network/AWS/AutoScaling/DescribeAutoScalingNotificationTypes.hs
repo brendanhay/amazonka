@@ -96,11 +96,7 @@ instance ToQuery DescribeAutoScalingNotificationTypes
                        ByteString),
                   "Version" =: ("2011-01-01" :: ByteString)])
 
--- | Contains the output of DescribeAutoScalingNotificationTypes.
---
---
---
--- /See:/ 'describeAutoScalingNotificationTypesResponse' smart constructor.
+-- | /See:/ 'describeAutoScalingNotificationTypesResponse' smart constructor.
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
   { _dasntrsAutoScalingNotificationTypes :: {-# NOUNPACK #-}!(Maybe [Text])
   , _dasntrsResponseStatus               :: {-# NOUNPACK #-}!Int

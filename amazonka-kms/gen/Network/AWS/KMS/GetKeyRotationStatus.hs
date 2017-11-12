@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a Boolean value that indicates whether key rotation is enabled for the specified key.
+-- Gets a Boolean value that indicates whether automatic rotation of the key material is enabled for the specified customer master key (CMK).
 --
+--
+-- To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the KeyId parameter.
 --
 module Network.AWS.KMS.GetKeyRotationStatus
     (
@@ -54,14 +56,14 @@ newtype GetKeyRotationStatus = GetKeyRotationStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gkrsKeyId' - A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- * 'gkrsKeyId' - A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 getKeyRotationStatus
     :: Text -- ^ 'gkrsKeyId'
     -> GetKeyRotationStatus
 getKeyRotationStatus pKeyId_ = GetKeyRotationStatus' {_gkrsKeyId = pKeyId_}
 
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 gkrsKeyId :: Lens' GetKeyRotationStatus Text
 gkrsKeyId = lens _gkrsKeyId (\ s a -> s{_gkrsKeyId = a});
 

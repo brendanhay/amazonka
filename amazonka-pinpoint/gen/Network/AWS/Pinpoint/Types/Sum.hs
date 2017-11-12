@@ -122,6 +122,9 @@ data ChannelType
   = ADM
   | APNS
   | APNSSandbox
+  | APNSVoip
+  | APNSVoipSandbox
+  | Baidu
   | Email
   | GCM
   | Sms
@@ -133,17 +136,23 @@ instance FromText ChannelType where
         "adm" -> pure ADM
         "apns" -> pure APNS
         "apns_sandbox" -> pure APNSSandbox
+        "apns_voip" -> pure APNSVoip
+        "apns_voip_sandbox" -> pure APNSVoipSandbox
+        "baidu" -> pure Baidu
         "email" -> pure Email
         "gcm" -> pure GCM
         "sms" -> pure Sms
         e -> fromTextError $ "Failure parsing ChannelType from value: '" <> e
-           <> "'. Accepted values: adm, apns, apns_sandbox, email, gcm, sms"
+           <> "'. Accepted values: adm, apns, apns_sandbox, apns_voip, apns_voip_sandbox, baidu, email, gcm, sms"
 
 instance ToText ChannelType where
     toText = \case
         ADM -> "ADM"
         APNS -> "APNS"
         APNSSandbox -> "APNS_SANDBOX"
+        APNSVoip -> "APNS_VOIP"
+        APNSVoipSandbox -> "APNS_VOIP_SANDBOX"
+        Baidu -> "BAIDU"
         Email -> "EMAIL"
         GCM -> "GCM"
         Sms -> "SMS"
@@ -191,28 +200,37 @@ instance FromJSON DefinitionFormat where
     parseJSON = parseJSONText "DefinitionFormat"
 
 data DeliveryStatus
-  = PermanentFailure
+  = Duplicate
+  | OptOut
+  | PermanentFailure
   | Successful
   | TemporaryFailure
   | Throttled
+  | UnknownFailure
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText DeliveryStatus where
     parser = takeLowerText >>= \case
+        "duplicate" -> pure Duplicate
+        "opt_out" -> pure OptOut
         "permanent_failure" -> pure PermanentFailure
         "successful" -> pure Successful
         "temporary_failure" -> pure TemporaryFailure
         "throttled" -> pure Throttled
+        "unknown_failure" -> pure UnknownFailure
         e -> fromTextError $ "Failure parsing DeliveryStatus from value: '" <> e
-           <> "'. Accepted values: permanent_failure, successful, temporary_failure, throttled"
+           <> "'. Accepted values: duplicate, opt_out, permanent_failure, successful, temporary_failure, throttled, unknown_failure"
 
 instance ToText DeliveryStatus where
     toText = \case
+        Duplicate -> "DUPLICATE"
+        OptOut -> "OPT_OUT"
         PermanentFailure -> "PERMANENT_FAILURE"
         Successful -> "SUCCESSFUL"
         TemporaryFailure -> "TEMPORARY_FAILURE"
         Throttled -> "THROTTLED"
+        UnknownFailure -> "UNKNOWN_FAILURE"
 
 instance Hashable     DeliveryStatus
 instance NFData       DeliveryStatus

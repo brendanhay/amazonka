@@ -59,7 +59,7 @@ data DescribeProductAsAdmin = DescribeProductAsAdmin'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpaaAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dpaaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'dpaaId' - The identifier of the product for which to retrieve information.
 describeProductAsAdmin
@@ -69,7 +69,7 @@ describeProductAsAdmin pId_ =
   DescribeProductAsAdmin' {_dpaaAcceptLanguage = Nothing, _dpaaId = pId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpaaAcceptLanguage :: Lens' DescribeProductAsAdmin (Maybe Text)
 dpaaAcceptLanguage = lens _dpaaAcceptLanguage (\ s a -> s{_dpaaAcceptLanguage = a});
 

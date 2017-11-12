@@ -261,6 +261,9 @@ module Network.AWS.ElastiCache
     -- ** ListAllowedNodeTypeModifications
     , module Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
 
+    -- ** ModifyReplicationGroupShardConfiguration
+    , module Network.AWS.ElastiCache.ModifyReplicationGroupShardConfiguration
+
     -- ** DescribeSnapshots (Paginated)
     , module Network.AWS.ElastiCache.DescribeSnapshots
 
@@ -329,14 +332,17 @@ module Network.AWS.ElastiCache
     , ccCacheNodeType
     , ccCacheNodes
     , ccCacheClusterCreateTime
+    , ccAtRestEncryptionEnabled
     , ccAutoMinorVersionUpgrade
     , ccSecurityGroups
     , ccNotificationConfiguration
+    , ccTransitEncryptionEnabled
     , ccSnapshotWindow
     , ccCacheClusterId
     , ccConfigurationEndpoint
     , ccEngine
     , ccCacheSecurityGroups
+    , ccAuthTokenEnabled
     , ccClientDownloadLandingPage
     , ccPreferredMaintenanceWindow
     , ccCacheSubnetGroupName
@@ -541,8 +547,11 @@ module Network.AWS.ElastiCache
     , rgNodeGroups
     , rgSnapshottingClusterId
     , rgClusterEnabled
+    , rgAtRestEncryptionEnabled
+    , rgTransitEncryptionEnabled
     , rgSnapshotWindow
     , rgConfigurationEndpoint
+    , rgAuthTokenEnabled
     , rgMemberClusters
     , rgSnapshotRetentionLimit
     , rgDescription
@@ -553,6 +562,7 @@ module Network.AWS.ElastiCache
     -- ** ReplicationGroupPendingModifiedValues
     , ReplicationGroupPendingModifiedValues
     , replicationGroupPendingModifiedValues
+    , rgpmvResharding
     , rgpmvPrimaryClusterId
     , rgpmvAutomaticFailoverStatus
 
@@ -584,11 +594,26 @@ module Network.AWS.ElastiCache
     , rcnoDuration
     , rcnoReservedCacheNodesOfferingId
 
+    -- ** ReshardingConfiguration
+    , ReshardingConfiguration
+    , reshardingConfiguration
+    , rcPreferredAvailabilityZones
+
+    -- ** ReshardingStatus
+    , ReshardingStatus
+    , reshardingStatus
+    , rsSlotMigration
+
     -- ** SecurityGroupMembership
     , SecurityGroupMembership
     , securityGroupMembership
     , sgmStatus
     , sgmSecurityGroupId
+
+    -- ** SlotMigration
+    , SlotMigration
+    , slotMigration
+    , smProgressPercentage
 
     -- ** Snapshot
     , Snapshot
@@ -669,6 +694,7 @@ import Network.AWS.ElastiCache.ModifyCacheCluster
 import Network.AWS.ElastiCache.ModifyCacheParameterGroup
 import Network.AWS.ElastiCache.ModifyCacheSubnetGroup
 import Network.AWS.ElastiCache.ModifyReplicationGroup
+import Network.AWS.ElastiCache.ModifyReplicationGroupShardConfiguration
 import Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
 import Network.AWS.ElastiCache.RebootCacheCluster
 import Network.AWS.ElastiCache.RemoveTagsFromResource

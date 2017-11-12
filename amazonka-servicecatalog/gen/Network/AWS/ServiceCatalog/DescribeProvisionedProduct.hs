@@ -56,7 +56,7 @@ data DescribeProvisionedProduct = DescribeProvisionedProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpppAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dpppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'dpppId' - The provisioned product identifier.
 describeProvisionedProduct
@@ -66,7 +66,7 @@ describeProvisionedProduct pId_ =
   DescribeProvisionedProduct' {_dpppAcceptLanguage = Nothing, _dpppId = pId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpppAcceptLanguage :: Lens' DescribeProvisionedProduct (Maybe Text)
 dpppAcceptLanguage = lens _dpppAcceptLanguage (\ s a -> s{_dpppAcceptLanguage = a});
 

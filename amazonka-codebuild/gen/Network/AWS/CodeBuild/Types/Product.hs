@@ -246,6 +246,48 @@ instance Hashable BuildArtifacts where
 
 instance NFData BuildArtifacts where
 
+-- | Information about a build that could not be successfully deleted.
+--
+--
+--
+-- /See:/ 'buildNotDeleted' smart constructor.
+data BuildNotDeleted = BuildNotDeleted'
+  { _bndId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _bndStatusCode :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BuildNotDeleted' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bndId' - The ID of the build that could not be successfully deleted.
+--
+-- * 'bndStatusCode' - Additional information about the build that could not be successfully deleted.
+buildNotDeleted
+    :: BuildNotDeleted
+buildNotDeleted = BuildNotDeleted' {_bndId = Nothing, _bndStatusCode = Nothing}
+
+
+-- | The ID of the build that could not be successfully deleted.
+bndId :: Lens' BuildNotDeleted (Maybe Text)
+bndId = lens _bndId (\ s a -> s{_bndId = a});
+
+-- | Additional information about the build that could not be successfully deleted.
+bndStatusCode :: Lens' BuildNotDeleted (Maybe Text)
+bndStatusCode = lens _bndStatusCode (\ s a -> s{_bndStatusCode = a});
+
+instance FromJSON BuildNotDeleted where
+        parseJSON
+          = withObject "BuildNotDeleted"
+              (\ x ->
+                 BuildNotDeleted' <$>
+                   (x .:? "id") <*> (x .:? "statusCode"))
+
+instance Hashable BuildNotDeleted where
+
+instance NFData BuildNotDeleted where
+
 -- | Information about a stage for a build.
 --
 --
@@ -464,7 +506,8 @@ instance NFData EnvironmentPlatform where
 --
 -- /See:/ 'environmentVariable' smart constructor.
 data EnvironmentVariable = EnvironmentVariable'
-  { _evName  :: {-# NOUNPACK #-}!Text
+  { _evType  :: {-# NOUNPACK #-}!(Maybe EnvironmentVariableType)
+  , _evName  :: {-# NOUNPACK #-}!Text
   , _evValue :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -472,6 +515,8 @@ data EnvironmentVariable = EnvironmentVariable'
 -- | Creates a value of 'EnvironmentVariable' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'evType' - The type of environment variable. Valid values include:     * @PARAMETER_STORE@ : An environment variable stored in Amazon EC2 Systems Manager Parameter Store.     * @PLAINTEXT@ : An environment variable in plaintext format.
 --
 -- * 'evName' - The name or key of the environment variable.
 --
@@ -481,8 +526,12 @@ environmentVariable
     -> Text -- ^ 'evValue'
     -> EnvironmentVariable
 environmentVariable pName_ pValue_ =
-  EnvironmentVariable' {_evName = pName_, _evValue = pValue_}
+  EnvironmentVariable' {_evType = Nothing, _evName = pName_, _evValue = pValue_}
 
+
+-- | The type of environment variable. Valid values include:     * @PARAMETER_STORE@ : An environment variable stored in Amazon EC2 Systems Manager Parameter Store.     * @PLAINTEXT@ : An environment variable in plaintext format.
+evType :: Lens' EnvironmentVariable (Maybe EnvironmentVariableType)
+evType = lens _evType (\ s a -> s{_evType = a});
 
 -- | The name or key of the environment variable.
 evName :: Lens' EnvironmentVariable Text
@@ -497,7 +546,7 @@ instance FromJSON EnvironmentVariable where
           = withObject "EnvironmentVariable"
               (\ x ->
                  EnvironmentVariable' <$>
-                   (x .: "name") <*> (x .: "value"))
+                   (x .:? "type") <*> (x .: "name") <*> (x .: "value"))
 
 instance Hashable EnvironmentVariable where
 
@@ -507,7 +556,7 @@ instance ToJSON EnvironmentVariable where
         toJSON EnvironmentVariable'{..}
           = object
               (catMaybes
-                 [Just ("name" .= _evName),
+                 [("type" .=) <$> _evType, Just ("name" .= _evName),
                   Just ("value" .= _evValue)])
 
 -- | Information about build logs in Amazon CloudWatch Logs.
@@ -618,6 +667,7 @@ data Project = Project'
   , _pSource           :: {-# NOUNPACK #-}!(Maybe ProjectSource)
   , _pEncryptionKey    :: {-# NOUNPACK #-}!(Maybe Text)
   , _pLastModified     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _pWebhook          :: {-# NOUNPACK #-}!(Maybe Webhook)
   , _pDescription      :: {-# NOUNPACK #-}!(Maybe Text)
   , _pServiceRole      :: {-# NOUNPACK #-}!(Maybe Text)
   , _pTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
@@ -645,6 +695,8 @@ data Project = Project'
 --
 -- * 'pLastModified' - When the build project's settings were last modified, expressed in Unix time format.
 --
+-- * 'pWebhook' - Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+--
 -- * 'pDescription' - A description that makes the build project easy to identify.
 --
 -- * 'pServiceRole' - The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
@@ -664,6 +716,7 @@ project =
   , _pSource = Nothing
   , _pEncryptionKey = Nothing
   , _pLastModified = Nothing
+  , _pWebhook = Nothing
   , _pDescription = Nothing
   , _pServiceRole = Nothing
   , _pTags = Nothing
@@ -703,6 +756,10 @@ pEncryptionKey = lens _pEncryptionKey (\ s a -> s{_pEncryptionKey = a});
 pLastModified :: Lens' Project (Maybe UTCTime)
 pLastModified = lens _pLastModified (\ s a -> s{_pLastModified = a}) . mapping _Time;
 
+-- | Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+pWebhook :: Lens' Project (Maybe Webhook)
+pWebhook = lens _pWebhook (\ s a -> s{_pWebhook = a});
+
 -- | A description that makes the build project easy to identify.
 pDescription :: Lens' Project (Maybe Text)
 pDescription = lens _pDescription (\ s a -> s{_pDescription = a});
@@ -731,6 +788,7 @@ instance FromJSON Project where
                      <*> (x .:? "source")
                      <*> (x .:? "encryptionKey")
                      <*> (x .:? "lastModified")
+                     <*> (x .:? "webhook")
                      <*> (x .:? "description")
                      <*> (x .:? "serviceRole")
                      <*> (x .:? "tags" .!= mempty)
@@ -852,7 +910,7 @@ data ProjectEnvironment = ProjectEnvironment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pePrivilegedMode' - If set to true, enables running the Docker daemon inside a Docker container; otherwise, false or not specified (the default). This value must be set to true only if this build project will be used to build Docker images, and the specified build environment image is not one provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that your builds can interact with it as needed. One way to do this is to initialize the Docker daemon in the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.) @- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=vfs& - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"@
+-- * 'pePrivilegedMode' - If set to true, enables running the Docker daemon inside a Docker container; otherwise, false or not specified (the default). This value must be set to true only if this build project will be used to build Docker images, and the specified build environment image is not one provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that your builds can interact with it as needed. One way to do this is to initialize the Docker daemon in the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.) @- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"@
 --
 -- * 'peEnvironmentVariables' - A set of environment variables to make available to builds for this build project.
 --
@@ -876,7 +934,7 @@ projectEnvironment pType_ pImage_ pComputeType_ =
   }
 
 
--- | If set to true, enables running the Docker daemon inside a Docker container; otherwise, false or not specified (the default). This value must be set to true only if this build project will be used to build Docker images, and the specified build environment image is not one provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that your builds can interact with it as needed. One way to do this is to initialize the Docker daemon in the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.) @- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=vfs& - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"@
+-- | If set to true, enables running the Docker daemon inside a Docker container; otherwise, false or not specified (the default). This value must be set to true only if this build project will be used to build Docker images, and the specified build environment image is not one provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail. Note that you must also start the Docker daemon so that your builds can interact with it as needed. One way to do this is to initialize the Docker daemon in the install phase of your build spec by running the following build commands. (Do not run the following build commands if the specified build environment image is provided by AWS CodeBuild with Docker support.) @- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay& - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"@
 pePrivilegedMode :: Lens' ProjectEnvironment (Maybe Bool)
 pePrivilegedMode = lens _pePrivilegedMode (\ s a -> s{_pePrivilegedMode = a});
 
@@ -938,13 +996,13 @@ data ProjectSource = ProjectSource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psLocation' - Information about the location of the source code to be built. Valid values include:     * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, @location@ should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value.     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, @https://git-codecommit./region-ID/ .amazonaws.com/v1/repos//repo-name/ @ ).     * For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the path to the ZIP file that contains the source code (for example, @/bucket-name/ //path/ //to/ //object-name/ .zip@ )     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub __Authorize application__ page that displays, for __Organization access__ , choose __Request access__ next to each repository you want to allow AWS CodeBuild to have access to. Then choose __Authorize application__ . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the @source@ object, set the @auth@ object's @type@ value to @OAUTH@ .
+-- * 'psLocation' - Information about the location of the source code to be built. Valid values include:     * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, @location@ should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value.     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, @https://git-codecommit./region-ID/ .amazonaws.com/v1/repos//repo-name/ @ ).     * For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the path to the ZIP file that contains the source code (for example, @/bucket-name/ //path/ //to/ //object-name/ .zip@ )     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub __Authorize application__ page that displays, for __Organization access__ , choose __Request access__ next to each repository you want to allow AWS CodeBuild to have access to. Then choose __Authorize application__ . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the @source@ object, set the @auth@ object's @type@ value to @OAUTH@ .     * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket __Confirm access to your account__ page that displays, choose __Grant access__ . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the @source@ object, set the @auth@ object's @type@ value to @OAUTH@ .
 --
--- * 'psAuth' - Information about the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source @type@ value is @GITHUB@ ).
+-- * 'psAuth' - Information about the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source @type@ value is @BITBUCKET@ or @GITHUB@ ).
 --
 -- * 'psBuildspec' - The build spec declaration to use for the builds in this build project. If this value is not specified, a build spec must be included along with the source code to be built.
 --
--- * 'psType' - The type of repository that contains the source code to be built. Valid values include:     * @CODECOMMIT@ : The source code is in an AWS CodeCommit repository.     * @CODEPIPELINE@ : The source code settings are specified in the source action of a pipeline in AWS CodePipeline.     * @GITHUB@ : The source code is in a GitHub repository.     * @S3@ : The source code is in an Amazon Simple Storage Service (Amazon S3) input bucket.
+-- * 'psType' - The type of repository that contains the source code to be built. Valid values include:     * @BITBUCKET@ : The source code is in a Bitbucket repository.     * @CODECOMMIT@ : The source code is in an AWS CodeCommit repository.     * @CODEPIPELINE@ : The source code settings are specified in the source action of a pipeline in AWS CodePipeline.     * @GITHUB@ : The source code is in a GitHub repository.     * @S3@ : The source code is in an Amazon Simple Storage Service (Amazon S3) input bucket.
 projectSource
     :: SourceType -- ^ 'psType'
     -> ProjectSource
@@ -957,11 +1015,11 @@ projectSource pType_ =
   }
 
 
--- | Information about the location of the source code to be built. Valid values include:     * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, @location@ should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value.     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, @https://git-codecommit./region-ID/ .amazonaws.com/v1/repos//repo-name/ @ ).     * For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the path to the ZIP file that contains the source code (for example, @/bucket-name/ //path/ //to/ //object-name/ .zip@ )     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub __Authorize application__ page that displays, for __Organization access__ , choose __Request access__ next to each repository you want to allow AWS CodeBuild to have access to. Then choose __Authorize application__ . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the @source@ object, set the @auth@ object's @type@ value to @OAUTH@ .
+-- | Information about the location of the source code to be built. Valid values include:     * For source code settings that are specified in the source action of a pipeline in AWS CodePipeline, @location@ should not be specified. If it is specified, AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings in a pipeline's source action instead of this value.     * For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository that contains the source code and the build spec (for example, @https://git-codecommit./region-ID/ .amazonaws.com/v1/repos//repo-name/ @ ).     * For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the path to the ZIP file that contains the source code (for example, @/bucket-name/ //path/ //to/ //object-name/ .zip@ )     * For source code in a GitHub repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your GitHub account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with GitHub, on the GitHub __Authorize application__ page that displays, for __Organization access__ , choose __Request access__ next to each repository you want to allow AWS CodeBuild to have access to. Then choose __Authorize application__ . (After you have connected to your GitHub account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the @source@ object, set the @auth@ object's @type@ value to @OAUTH@ .     * For source code in a Bitbucket repository, the HTTPS clone URL to the repository that contains the source and the build spec. Also, you must connect your AWS account to your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating a build project. When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket __Confirm access to your account__ page that displays, choose __Grant access__ . (After you have connected to your Bitbucket account, you do not need to finish creating the build project, and you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use this connection, in the @source@ object, set the @auth@ object's @type@ value to @OAUTH@ .
 psLocation :: Lens' ProjectSource (Maybe Text)
 psLocation = lens _psLocation (\ s a -> s{_psLocation = a});
 
--- | Information about the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source @type@ value is @GITHUB@ ).
+-- | Information about the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source @type@ value is @BITBUCKET@ or @GITHUB@ ).
 psAuth :: Lens' ProjectSource (Maybe SourceAuth)
 psAuth = lens _psAuth (\ s a -> s{_psAuth = a});
 
@@ -969,7 +1027,7 @@ psAuth = lens _psAuth (\ s a -> s{_psAuth = a});
 psBuildspec :: Lens' ProjectSource (Maybe Text)
 psBuildspec = lens _psBuildspec (\ s a -> s{_psBuildspec = a});
 
--- | The type of repository that contains the source code to be built. Valid values include:     * @CODECOMMIT@ : The source code is in an AWS CodeCommit repository.     * @CODEPIPELINE@ : The source code settings are specified in the source action of a pipeline in AWS CodePipeline.     * @GITHUB@ : The source code is in a GitHub repository.     * @S3@ : The source code is in an Amazon Simple Storage Service (Amazon S3) input bucket.
+-- | The type of repository that contains the source code to be built. Valid values include:     * @BITBUCKET@ : The source code is in a Bitbucket repository.     * @CODECOMMIT@ : The source code is in an AWS CodeCommit repository.     * @CODEPIPELINE@ : The source code settings are specified in the source action of a pipeline in AWS CodePipeline.     * @GITHUB@ : The source code is in a GitHub repository.     * @S3@ : The source code is in an Amazon Simple Storage Service (Amazon S3) input bucket.
 psType :: Lens' ProjectSource SourceType
 psType = lens _psType (\ s a -> s{_psType = a});
 
@@ -998,7 +1056,7 @@ instance ToJSON ProjectSource where
 -- | Information about the authorization settings for AWS CodeBuild to access the source code to be built.
 --
 --
--- This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source @type@ value is @GITHUB@ ).
+-- This information is for the AWS CodeBuild console's use only. Your code should not get or set this information directly (unless the build project's source @type@ value is @BITBUCKET@ or @GITHUB@ ).
 --
 --
 -- /See:/ 'sourceAuth' smart constructor.
@@ -1093,3 +1151,36 @@ instance ToJSON Tag where
           = object
               (catMaybes
                  [("value" .=) <$> _tagValue, ("key" .=) <$> _tagKey])
+
+-- | Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+--
+--
+--
+-- /See:/ 'webhook' smart constructor.
+newtype Webhook = Webhook'
+  { _wUrl :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Webhook' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wUrl' - The URL to the webhook.
+webhook
+    :: Webhook
+webhook = Webhook' {_wUrl = Nothing}
+
+
+-- | The URL to the webhook.
+wUrl :: Lens' Webhook (Maybe Text)
+wUrl = lens _wUrl (\ s a -> s{_wUrl = a});
+
+instance FromJSON Webhook where
+        parseJSON
+          = withObject "Webhook"
+              (\ x -> Webhook' <$> (x .:? "url"))
+
+instance Hashable Webhook where
+
+instance NFData Webhook where

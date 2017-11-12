@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -73,10 +73,12 @@ library
         , Network.AWS.EC2.CancelSpotFleetRequests
         , Network.AWS.EC2.CancelSpotInstanceRequests
         , Network.AWS.EC2.ConfirmProductInstance
+        , Network.AWS.EC2.CopyFpgaImage
         , Network.AWS.EC2.CopyImage
         , Network.AWS.EC2.CopySnapshot
         , Network.AWS.EC2.CreateCustomerGateway
         , Network.AWS.EC2.CreateDHCPOptions
+        , Network.AWS.EC2.CreateDefaultSubnet
         , Network.AWS.EC2.CreateDefaultVPC
         , Network.AWS.EC2.CreateEgressOnlyInternetGateway
         , Network.AWS.EC2.CreateFlowLogs
@@ -110,6 +112,7 @@ library
         , Network.AWS.EC2.DeleteDHCPOptions
         , Network.AWS.EC2.DeleteEgressOnlyInternetGateway
         , Network.AWS.EC2.DeleteFlowLogs
+        , Network.AWS.EC2.DeleteFpgaImage
         , Network.AWS.EC2.DeleteInternetGateway
         , Network.AWS.EC2.DeleteKeyPair
         , Network.AWS.EC2.DeleteNatGateway
@@ -145,6 +148,7 @@ library
         , Network.AWS.EC2.DescribeElasticGpus
         , Network.AWS.EC2.DescribeExportTasks
         , Network.AWS.EC2.DescribeFlowLogs
+        , Network.AWS.EC2.DescribeFpgaImageAttribute
         , Network.AWS.EC2.DescribeFpgaImages
         , Network.AWS.EC2.DescribeHostReservationOfferings
         , Network.AWS.EC2.DescribeHostReservations
@@ -230,6 +234,7 @@ library
         , Network.AWS.EC2.ImportKeyPair
         , Network.AWS.EC2.ImportSnapshot
         , Network.AWS.EC2.ImportVolume
+        , Network.AWS.EC2.ModifyFpgaImageAttribute
         , Network.AWS.EC2.ModifyHosts
         , Network.AWS.EC2.ModifyIdFormat
         , Network.AWS.EC2.ModifyIdentityIdFormat
@@ -244,6 +249,7 @@ library
         , Network.AWS.EC2.ModifyVPCAttribute
         , Network.AWS.EC2.ModifyVPCEndpoint
         , Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
+        , Network.AWS.EC2.ModifyVPCTenancy
         , Network.AWS.EC2.ModifyVolume
         , Network.AWS.EC2.ModifyVolumeAttribute
         , Network.AWS.EC2.MonitorInstances
@@ -264,6 +270,7 @@ library
         , Network.AWS.EC2.ReportInstanceStatus
         , Network.AWS.EC2.RequestSpotFleet
         , Network.AWS.EC2.RequestSpotInstances
+        , Network.AWS.EC2.ResetFpgaImageAttribute
         , Network.AWS.EC2.ResetImageAttribute
         , Network.AWS.EC2.ResetInstanceAttribute
         , Network.AWS.EC2.ResetNetworkInterfaceAttribute
@@ -280,6 +287,8 @@ library
         , Network.AWS.EC2.UnassignIPv6Addresses
         , Network.AWS.EC2.UnassignPrivateIPAddresses
         , Network.AWS.EC2.UnmonitorInstances
+        , Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsEgress
+        , Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsIngress
         , Network.AWS.EC2.Waiters
 
     other-modules:

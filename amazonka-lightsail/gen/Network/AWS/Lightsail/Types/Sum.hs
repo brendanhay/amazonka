@@ -145,6 +145,33 @@ instance ToJSON InstanceMetricName where
 instance FromJSON InstanceMetricName where
     parseJSON = parseJSONText "InstanceMetricName"
 
+data InstancePlatform
+  = LinuxUnix
+  | Windows
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText InstancePlatform where
+    parser = takeLowerText >>= \case
+        "linux_unix" -> pure LinuxUnix
+        "windows" -> pure Windows
+        e -> fromTextError $ "Failure parsing InstancePlatform from value: '" <> e
+           <> "'. Accepted values: linux_unix, windows"
+
+instance ToText InstancePlatform where
+    toText = \case
+        LinuxUnix -> "LINUX_UNIX"
+        Windows -> "WINDOWS"
+
+instance Hashable     InstancePlatform
+instance NFData       InstancePlatform
+instance ToByteString InstancePlatform
+instance ToQuery      InstancePlatform
+instance ToHeader     InstancePlatform
+
+instance FromJSON InstancePlatform where
+    parseJSON = parseJSONText "InstancePlatform"
+
 data InstanceSnapshotState
   = Available
   | Error'

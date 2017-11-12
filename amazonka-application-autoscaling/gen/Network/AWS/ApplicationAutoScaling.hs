@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- With Application Auto Scaling, you can automatically scale your AWS resources. The experience similar to that of <https://aws.amazon.com/autoscaling/ Auto Scaling> . You can use Application Auto Scaling to accomplish the following tasks:
+-- With Application Auto Scaling, you can automatically scale your AWS resources. The experience is similar to that of <https://aws.amazon.com/autoscaling/ Auto Scaling> . You can use Application Auto Scaling to accomplish the following tasks:
 --
 --
 --     * Define scaling policies to automatically scale your AWS resources
@@ -32,7 +32,7 @@
 --
 --     * AppStream 2.0 fleets. For more information, see <http://docs.aws.amazon.com/appstream2/latest/developerguide/autoscaling.html Fleet Auto Scaling for Amazon AppStream 2.0> in the /Amazon AppStream 2.0 Developer Guide/ .
 --
---     * Provisioned read and write capacity for Amazon DynamoDB tables and global secondary indexes. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TargetTracking.html Auto Scaling for DynamoDB> in the /Amazon DynamoDB Developer Guide/ .
+--     * Provisioned read and write capacity for Amazon DynamoDB tables and global secondary indexes. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html Managing Throughput Capacity Automatically with DynamoDB Auto Scaling> in the /Amazon DynamoDB Developer Guide/ .
 --
 --
 --
@@ -84,6 +84,15 @@ module Network.AWS.ApplicationAutoScaling
 
     -- ** DescribeScalingPolicies (Paginated)
     , module Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
+
+    -- ** PutScheduledAction
+    , module Network.AWS.ApplicationAutoScaling.PutScheduledAction
+
+    -- ** DeleteScheduledAction
+    , module Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
+
+    -- ** DescribeScheduledActions
+    , module Network.AWS.ApplicationAutoScaling.DescribeScheduledActions
 
     -- ** DescribeScalableTargets (Paginated)
     , module Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
@@ -158,20 +167,26 @@ module Network.AWS.ApplicationAutoScaling
     , stRoleARN
     , stCreationTime
 
+    -- ** ScalableTargetAction
+    , ScalableTargetAction
+    , scalableTargetAction
+    , staMaxCapacity
+    , staMinCapacity
+
     -- ** ScalingActivity
     , ScalingActivity
     , scalingActivity
-    , saStatusMessage
-    , saEndTime
-    , saDetails
-    , saActivityId
-    , saServiceNamespace
-    , saResourceId
-    , saScalableDimension
-    , saDescription
-    , saCause
-    , saStartTime
-    , saStatusCode
+    , sStatusMessage
+    , sEndTime
+    , sDetails
+    , sActivityId
+    , sServiceNamespace
+    , sResourceId
+    , sScalableDimension
+    , sDescription
+    , sCause
+    , sStartTime
+    , sStatusCode
 
     -- ** ScalingPolicy
     , ScalingPolicy
@@ -186,6 +201,20 @@ module Network.AWS.ApplicationAutoScaling
     , spScalableDimension
     , spPolicyType
     , spCreationTime
+
+    -- ** ScheduledAction
+    , ScheduledAction
+    , scheduledAction
+    , saScalableDimension
+    , saStartTime
+    , saEndTime
+    , saScalableTargetAction
+    , saScheduledActionName
+    , saScheduledActionARN
+    , saServiceNamespace
+    , saSchedule
+    , saResourceId
+    , saCreationTime
 
     -- ** StepAdjustment
     , StepAdjustment
@@ -209,16 +238,20 @@ module Network.AWS.ApplicationAutoScaling
     , ttspcPredefinedMetricSpecification
     , ttspcScaleInCooldown
     , ttspcCustomizedMetricSpecification
+    , ttspcDisableScaleIn
     , ttspcScaleOutCooldown
     , ttspcTargetValue
     ) where
 
 import Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
+import Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
 import Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
 import Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
 import Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
 import Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
+import Network.AWS.ApplicationAutoScaling.DescribeScheduledActions
 import Network.AWS.ApplicationAutoScaling.PutScalingPolicy
+import Network.AWS.ApplicationAutoScaling.PutScheduledAction
 import Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
 import Network.AWS.ApplicationAutoScaling.Types
 import Network.AWS.ApplicationAutoScaling.Waiters

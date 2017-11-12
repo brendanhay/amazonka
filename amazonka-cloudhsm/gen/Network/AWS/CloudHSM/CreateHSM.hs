@@ -18,10 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
+--
+--
+-- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
+--
 -- Creates an uninitialized HSM instance.
 --
---
--- There is an upfront fee charged for each HSM instance that you create with the 'CreateHsm' operation. If you accidentally provision an HSM and want to request a refund, delete the instance using the 'DeleteHsm' operation, go to the <https://console.aws.amazon.com/support/home#/ AWS Support Center> , create a new case, and select __Account and Billing Support__ .
+-- There is an upfront fee charged for each HSM instance that you create with the @CreateHsm@ operation. If you accidentally provision an HSM and want to request a refund, delete the instance using the 'DeleteHsm' operation, go to the <https://console.aws.amazon.com/support/home AWS Support Center> , create a new case, and select __Account and Billing Support__ .
 --
 -- /Important:/ It can take up to 20 minutes to create and provision an HSM. You can monitor the status of the HSM with the 'DescribeHsm' operation. The HSM is ready to be initialized when the status changes to @RUNNING@ .
 --
@@ -55,7 +59,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the inputs for the 'CreateHsm' operation.
+-- | Contains the inputs for the @CreateHsm@ operation.
 --
 --
 --
@@ -80,7 +84,7 @@ data CreateHSM = CreateHSM'
 --
 -- * 'chSyslogIP' - The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
 --
--- * 'chExternalId' - The external ID from __IamRoleArn__ , if present.
+-- * 'chExternalId' - The external ID from @IamRoleArn@ , if present.
 --
 -- * 'chEniIP' - The IP address to assign to the HSM's ENI. If an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the subnet.
 --
@@ -118,7 +122,7 @@ chClientToken = lens _chClientToken (\ s a -> s{_chClientToken = a});
 chSyslogIP :: Lens' CreateHSM (Maybe Text)
 chSyslogIP = lens _chSyslogIP (\ s a -> s{_chSyslogIP = a});
 
--- | The external ID from __IamRoleArn__ , if present.
+-- | The external ID from @IamRoleArn@ , if present.
 chExternalId :: Lens' CreateHSM (Maybe Text)
 chExternalId = lens _chExternalId (\ s a -> s{_chExternalId = a});
 
@@ -183,7 +187,7 @@ instance ToPath CreateHSM where
 instance ToQuery CreateHSM where
         toQuery = const mempty
 
--- | Contains the output of the 'CreateHsm' operation.
+-- | Contains the output of the @CreateHsm@ operation.
 --
 --
 --

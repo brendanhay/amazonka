@@ -58,7 +58,7 @@ data UpdateAssociationStatus = UpdateAssociationStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uasName' - The name of the SSM document.
+-- * 'uasName' - The name of the Systems Manager document.
 --
 -- * 'uasInstanceId' - The ID of the instance.
 --
@@ -76,7 +76,7 @@ updateAssociationStatus pName_ pInstanceId_ pAssociationStatus_ =
   }
 
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 uasName :: Lens' UpdateAssociationStatus Text
 uasName = lens _uasName (\ s a -> s{_uasName = a});
 

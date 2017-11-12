@@ -358,23 +358,73 @@ instance Hashable ScalableTarget where
 
 instance NFData ScalableTarget where
 
+-- | Represents the minimum and maximum capacity for a scheduled action.
+--
+--
+--
+-- /See:/ 'scalableTargetAction' smart constructor.
+data ScalableTargetAction = ScalableTargetAction'
+  { _staMaxCapacity :: {-# NOUNPACK #-}!(Maybe Int)
+  , _staMinCapacity :: {-# NOUNPACK #-}!(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ScalableTargetAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'staMaxCapacity' - The maximum capacity.
+--
+-- * 'staMinCapacity' - The minimum capacity.
+scalableTargetAction
+    :: ScalableTargetAction
+scalableTargetAction =
+  ScalableTargetAction' {_staMaxCapacity = Nothing, _staMinCapacity = Nothing}
+
+
+-- | The maximum capacity.
+staMaxCapacity :: Lens' ScalableTargetAction (Maybe Int)
+staMaxCapacity = lens _staMaxCapacity (\ s a -> s{_staMaxCapacity = a});
+
+-- | The minimum capacity.
+staMinCapacity :: Lens' ScalableTargetAction (Maybe Int)
+staMinCapacity = lens _staMinCapacity (\ s a -> s{_staMinCapacity = a});
+
+instance FromJSON ScalableTargetAction where
+        parseJSON
+          = withObject "ScalableTargetAction"
+              (\ x ->
+                 ScalableTargetAction' <$>
+                   (x .:? "MaxCapacity") <*> (x .:? "MinCapacity"))
+
+instance Hashable ScalableTargetAction where
+
+instance NFData ScalableTargetAction where
+
+instance ToJSON ScalableTargetAction where
+        toJSON ScalableTargetAction'{..}
+          = object
+              (catMaybes
+                 [("MaxCapacity" .=) <$> _staMaxCapacity,
+                  ("MinCapacity" .=) <$> _staMinCapacity])
+
 -- | Represents a scaling activity.
 --
 --
 --
 -- /See:/ 'scalingActivity' smart constructor.
 data ScalingActivity = ScalingActivity'
-  { _saStatusMessage     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _saEndTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _saDetails           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _saActivityId        :: {-# NOUNPACK #-}!Text
-  , _saServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
-  , _saResourceId        :: {-# NOUNPACK #-}!Text
-  , _saScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
-  , _saDescription       :: {-# NOUNPACK #-}!Text
-  , _saCause             :: {-# NOUNPACK #-}!Text
-  , _saStartTime         :: {-# NOUNPACK #-}!POSIX
-  , _saStatusCode        :: {-# NOUNPACK #-}!ScalingActivityStatusCode
+  { _sStatusMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sEndTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _sDetails           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _sActivityId        :: {-# NOUNPACK #-}!Text
+  , _sServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
+  , _sResourceId        :: {-# NOUNPACK #-}!Text
+  , _sScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
+  , _sDescription       :: {-# NOUNPACK #-}!Text
+  , _sCause             :: {-# NOUNPACK #-}!Text
+  , _sStartTime         :: {-# NOUNPACK #-}!POSIX
+  , _sStatusCode        :: {-# NOUNPACK #-}!ScalingActivityStatusCode
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -382,96 +432,96 @@ data ScalingActivity = ScalingActivity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'saStatusMessage' - A simple message about the current status of the scaling activity.
+-- * 'sStatusMessage' - A simple message about the current status of the scaling activity.
 --
--- * 'saEndTime' - The Unix timestamp for when the scaling activity ended.
+-- * 'sEndTime' - The Unix timestamp for when the scaling activity ended.
 --
--- * 'saDetails' - The details about the scaling activity.
+-- * 'sDetails' - The details about the scaling activity.
 --
--- * 'saActivityId' - The unique identifier of the scaling activity.
+-- * 'sActivityId' - The unique identifier of the scaling activity.
 --
--- * 'saServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
+-- * 'sServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'saResourceId' - The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
+-- * 'sResourceId' - The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 --
--- * 'saScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
+-- * 'sScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 --
--- * 'saDescription' - A simple description of what action the scaling activity intends to accomplish.
+-- * 'sDescription' - A simple description of what action the scaling activity intends to accomplish.
 --
--- * 'saCause' - A simple description of what caused the scaling activity to happen.
+-- * 'sCause' - A simple description of what caused the scaling activity to happen.
 --
--- * 'saStartTime' - The Unix timestamp for when the scaling activity began.
+-- * 'sStartTime' - The Unix timestamp for when the scaling activity began.
 --
--- * 'saStatusCode' - Indicates the status of the scaling activity.
+-- * 'sStatusCode' - Indicates the status of the scaling activity.
 scalingActivity
-    :: Text -- ^ 'saActivityId'
-    -> ServiceNamespace -- ^ 'saServiceNamespace'
-    -> Text -- ^ 'saResourceId'
-    -> ScalableDimension -- ^ 'saScalableDimension'
-    -> Text -- ^ 'saDescription'
-    -> Text -- ^ 'saCause'
-    -> UTCTime -- ^ 'saStartTime'
-    -> ScalingActivityStatusCode -- ^ 'saStatusCode'
+    :: Text -- ^ 'sActivityId'
+    -> ServiceNamespace -- ^ 'sServiceNamespace'
+    -> Text -- ^ 'sResourceId'
+    -> ScalableDimension -- ^ 'sScalableDimension'
+    -> Text -- ^ 'sDescription'
+    -> Text -- ^ 'sCause'
+    -> UTCTime -- ^ 'sStartTime'
+    -> ScalingActivityStatusCode -- ^ 'sStatusCode'
     -> ScalingActivity
 scalingActivity pActivityId_ pServiceNamespace_ pResourceId_ pScalableDimension_ pDescription_ pCause_ pStartTime_ pStatusCode_ =
   ScalingActivity'
-  { _saStatusMessage = Nothing
-  , _saEndTime = Nothing
-  , _saDetails = Nothing
-  , _saActivityId = pActivityId_
-  , _saServiceNamespace = pServiceNamespace_
-  , _saResourceId = pResourceId_
-  , _saScalableDimension = pScalableDimension_
-  , _saDescription = pDescription_
-  , _saCause = pCause_
-  , _saStartTime = _Time # pStartTime_
-  , _saStatusCode = pStatusCode_
+  { _sStatusMessage = Nothing
+  , _sEndTime = Nothing
+  , _sDetails = Nothing
+  , _sActivityId = pActivityId_
+  , _sServiceNamespace = pServiceNamespace_
+  , _sResourceId = pResourceId_
+  , _sScalableDimension = pScalableDimension_
+  , _sDescription = pDescription_
+  , _sCause = pCause_
+  , _sStartTime = _Time # pStartTime_
+  , _sStatusCode = pStatusCode_
   }
 
 
 -- | A simple message about the current status of the scaling activity.
-saStatusMessage :: Lens' ScalingActivity (Maybe Text)
-saStatusMessage = lens _saStatusMessage (\ s a -> s{_saStatusMessage = a});
+sStatusMessage :: Lens' ScalingActivity (Maybe Text)
+sStatusMessage = lens _sStatusMessage (\ s a -> s{_sStatusMessage = a});
 
 -- | The Unix timestamp for when the scaling activity ended.
-saEndTime :: Lens' ScalingActivity (Maybe UTCTime)
-saEndTime = lens _saEndTime (\ s a -> s{_saEndTime = a}) . mapping _Time;
+sEndTime :: Lens' ScalingActivity (Maybe UTCTime)
+sEndTime = lens _sEndTime (\ s a -> s{_sEndTime = a}) . mapping _Time;
 
 -- | The details about the scaling activity.
-saDetails :: Lens' ScalingActivity (Maybe Text)
-saDetails = lens _saDetails (\ s a -> s{_saDetails = a});
+sDetails :: Lens' ScalingActivity (Maybe Text)
+sDetails = lens _sDetails (\ s a -> s{_sDetails = a});
 
 -- | The unique identifier of the scaling activity.
-saActivityId :: Lens' ScalingActivity Text
-saActivityId = lens _saActivityId (\ s a -> s{_saActivityId = a});
+sActivityId :: Lens' ScalingActivity Text
+sActivityId = lens _sActivityId (\ s a -> s{_sActivityId = a});
 
 -- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
-saServiceNamespace :: Lens' ScalingActivity ServiceNamespace
-saServiceNamespace = lens _saServiceNamespace (\ s a -> s{_saServiceNamespace = a});
+sServiceNamespace :: Lens' ScalingActivity ServiceNamespace
+sServiceNamespace = lens _sServiceNamespace (\ s a -> s{_sServiceNamespace = a});
 
 -- | The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
-saResourceId :: Lens' ScalingActivity Text
-saResourceId = lens _saResourceId (\ s a -> s{_saResourceId = a});
+sResourceId :: Lens' ScalingActivity Text
+sResourceId = lens _sResourceId (\ s a -> s{_sResourceId = a});
 
 -- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
-saScalableDimension :: Lens' ScalingActivity ScalableDimension
-saScalableDimension = lens _saScalableDimension (\ s a -> s{_saScalableDimension = a});
+sScalableDimension :: Lens' ScalingActivity ScalableDimension
+sScalableDimension = lens _sScalableDimension (\ s a -> s{_sScalableDimension = a});
 
 -- | A simple description of what action the scaling activity intends to accomplish.
-saDescription :: Lens' ScalingActivity Text
-saDescription = lens _saDescription (\ s a -> s{_saDescription = a});
+sDescription :: Lens' ScalingActivity Text
+sDescription = lens _sDescription (\ s a -> s{_sDescription = a});
 
 -- | A simple description of what caused the scaling activity to happen.
-saCause :: Lens' ScalingActivity Text
-saCause = lens _saCause (\ s a -> s{_saCause = a});
+sCause :: Lens' ScalingActivity Text
+sCause = lens _sCause (\ s a -> s{_sCause = a});
 
 -- | The Unix timestamp for when the scaling activity began.
-saStartTime :: Lens' ScalingActivity UTCTime
-saStartTime = lens _saStartTime (\ s a -> s{_saStartTime = a}) . _Time;
+sStartTime :: Lens' ScalingActivity UTCTime
+sStartTime = lens _sStartTime (\ s a -> s{_sStartTime = a}) . _Time;
 
 -- | Indicates the status of the scaling activity.
-saStatusCode :: Lens' ScalingActivity ScalingActivityStatusCode
-saStatusCode = lens _saStatusCode (\ s a -> s{_saStatusCode = a});
+sStatusCode :: Lens' ScalingActivity ScalingActivityStatusCode
+sStatusCode = lens _sStatusCode (\ s a -> s{_sStatusCode = a});
 
 instance FromJSON ScalingActivity where
         parseJSON
@@ -618,6 +668,130 @@ instance FromJSON ScalingPolicy where
 instance Hashable ScalingPolicy where
 
 instance NFData ScalingPolicy where
+
+-- | Represents a scheduled action.
+--
+--
+--
+-- /See:/ 'scheduledAction' smart constructor.
+data ScheduledAction = ScheduledAction'
+  { _saScalableDimension    :: {-# NOUNPACK #-}!(Maybe ScalableDimension)
+  , _saStartTime            :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _saEndTime              :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _saScalableTargetAction :: {-# NOUNPACK #-}!(Maybe ScalableTargetAction)
+  , _saScheduledActionName  :: {-# NOUNPACK #-}!Text
+  , _saScheduledActionARN   :: {-# NOUNPACK #-}!Text
+  , _saServiceNamespace     :: {-# NOUNPACK #-}!ServiceNamespace
+  , _saSchedule             :: {-# NOUNPACK #-}!Text
+  , _saResourceId           :: {-# NOUNPACK #-}!Text
+  , _saCreationTime         :: {-# NOUNPACK #-}!POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ScheduledAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'saScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
+--
+-- * 'saStartTime' - The date and time that the action is scheduled to begin.
+--
+-- * 'saEndTime' - The date and time that the action is scheduled to end.
+--
+-- * 'saScalableTargetAction' - The new minimum and maximum capacity. You can set both values or just one. During the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
+--
+-- * 'saScheduledActionName' - The name of the scheduled action.
+--
+-- * 'saScheduledActionARN' - The Amazon Resource Name (ARN) of the scheduled action.
+--
+-- * 'saServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
+--
+-- * 'saSchedule' - The schedule for this action. The following formats are supported:     * At expressions - @at(/yyyy/ -/mm/ -/dd/ T/hh/ :/mm/ :/ss/ )@      * Rate expressions - @rate(/value/ /unit/ )@      * Cron expressions - @cron(/fields/ )@  At expressions are useful for one-time schedules. Specify the time, in UTC. For rate expressions, /value/ is a positive integer and /unit/ is @minute@ | @minutes@ | @hour@ | @hours@ | @day@ | @days@ . For more information about cron expressions, see <https://en.wikipedia.org/wiki/Cron Cron> .
+--
+-- * 'saResourceId' - The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
+--
+-- * 'saCreationTime' - The date and time that the scheduled action was created.
+scheduledAction
+    :: Text -- ^ 'saScheduledActionName'
+    -> Text -- ^ 'saScheduledActionARN'
+    -> ServiceNamespace -- ^ 'saServiceNamespace'
+    -> Text -- ^ 'saSchedule'
+    -> Text -- ^ 'saResourceId'
+    -> UTCTime -- ^ 'saCreationTime'
+    -> ScheduledAction
+scheduledAction pScheduledActionName_ pScheduledActionARN_ pServiceNamespace_ pSchedule_ pResourceId_ pCreationTime_ =
+  ScheduledAction'
+  { _saScalableDimension = Nothing
+  , _saStartTime = Nothing
+  , _saEndTime = Nothing
+  , _saScalableTargetAction = Nothing
+  , _saScheduledActionName = pScheduledActionName_
+  , _saScheduledActionARN = pScheduledActionARN_
+  , _saServiceNamespace = pServiceNamespace_
+  , _saSchedule = pSchedule_
+  , _saResourceId = pResourceId_
+  , _saCreationTime = _Time # pCreationTime_
+  }
+
+
+-- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
+saScalableDimension :: Lens' ScheduledAction (Maybe ScalableDimension)
+saScalableDimension = lens _saScalableDimension (\ s a -> s{_saScalableDimension = a});
+
+-- | The date and time that the action is scheduled to begin.
+saStartTime :: Lens' ScheduledAction (Maybe UTCTime)
+saStartTime = lens _saStartTime (\ s a -> s{_saStartTime = a}) . mapping _Time;
+
+-- | The date and time that the action is scheduled to end.
+saEndTime :: Lens' ScheduledAction (Maybe UTCTime)
+saEndTime = lens _saEndTime (\ s a -> s{_saEndTime = a}) . mapping _Time;
+
+-- | The new minimum and maximum capacity. You can set both values or just one. During the scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling scales in to the maximum capacity.
+saScalableTargetAction :: Lens' ScheduledAction (Maybe ScalableTargetAction)
+saScalableTargetAction = lens _saScalableTargetAction (\ s a -> s{_saScalableTargetAction = a});
+
+-- | The name of the scheduled action.
+saScheduledActionName :: Lens' ScheduledAction Text
+saScheduledActionName = lens _saScheduledActionName (\ s a -> s{_saScheduledActionName = a});
+
+-- | The Amazon Resource Name (ARN) of the scheduled action.
+saScheduledActionARN :: Lens' ScheduledAction Text
+saScheduledActionARN = lens _saScheduledActionARN (\ s a -> s{_saScheduledActionARN = a});
+
+-- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
+saServiceNamespace :: Lens' ScheduledAction ServiceNamespace
+saServiceNamespace = lens _saServiceNamespace (\ s a -> s{_saServiceNamespace = a});
+
+-- | The schedule for this action. The following formats are supported:     * At expressions - @at(/yyyy/ -/mm/ -/dd/ T/hh/ :/mm/ :/ss/ )@      * Rate expressions - @rate(/value/ /unit/ )@      * Cron expressions - @cron(/fields/ )@  At expressions are useful for one-time schedules. Specify the time, in UTC. For rate expressions, /value/ is a positive integer and /unit/ is @minute@ | @minutes@ | @hour@ | @hours@ | @day@ | @days@ . For more information about cron expressions, see <https://en.wikipedia.org/wiki/Cron Cron> .
+saSchedule :: Lens' ScheduledAction Text
+saSchedule = lens _saSchedule (\ s a -> s{_saSchedule = a});
+
+-- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
+saResourceId :: Lens' ScheduledAction Text
+saResourceId = lens _saResourceId (\ s a -> s{_saResourceId = a});
+
+-- | The date and time that the scheduled action was created.
+saCreationTime :: Lens' ScheduledAction UTCTime
+saCreationTime = lens _saCreationTime (\ s a -> s{_saCreationTime = a}) . _Time;
+
+instance FromJSON ScheduledAction where
+        parseJSON
+          = withObject "ScheduledAction"
+              (\ x ->
+                 ScheduledAction' <$>
+                   (x .:? "ScalableDimension") <*> (x .:? "StartTime")
+                     <*> (x .:? "EndTime")
+                     <*> (x .:? "ScalableTargetAction")
+                     <*> (x .: "ScheduledActionName")
+                     <*> (x .: "ScheduledActionARN")
+                     <*> (x .: "ServiceNamespace")
+                     <*> (x .: "Schedule")
+                     <*> (x .: "ResourceId")
+                     <*> (x .: "CreationTime"))
+
+instance Hashable ScheduledAction where
+
+instance NFData ScheduledAction where
 
 -- | Represents a step adjustment for a 'StepScalingPolicyConfiguration' . Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
 --
@@ -803,6 +977,7 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
   { _ttspcPredefinedMetricSpecification :: {-# NOUNPACK #-}!(Maybe PredefinedMetricSpecification)
   , _ttspcScaleInCooldown :: {-# NOUNPACK #-}!(Maybe Int)
   , _ttspcCustomizedMetricSpecification :: {-# NOUNPACK #-}!(Maybe CustomizedMetricSpecification)
+  , _ttspcDisableScaleIn :: {-# NOUNPACK #-}!(Maybe Bool)
   , _ttspcScaleOutCooldown :: {-# NOUNPACK #-}!(Maybe Int)
   , _ttspcTargetValue :: {-# NOUNPACK #-}!Double
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -818,6 +993,8 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
 --
 -- * 'ttspcCustomizedMetricSpecification' - Reserved for future use.
 --
+-- * 'ttspcDisableScaleIn' - Indicates whether scale in by the target tracking policy is disabled. If the value is @true@ , scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is @false@ .
+--
 -- * 'ttspcScaleOutCooldown' - The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out.
 --
 -- * 'ttspcTargetValue' - The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
@@ -829,6 +1006,7 @@ targetTrackingScalingPolicyConfiguration pTargetValue_ =
   { _ttspcPredefinedMetricSpecification = Nothing
   , _ttspcScaleInCooldown = Nothing
   , _ttspcCustomizedMetricSpecification = Nothing
+  , _ttspcDisableScaleIn = Nothing
   , _ttspcScaleOutCooldown = Nothing
   , _ttspcTargetValue = pTargetValue_
   }
@@ -845,6 +1023,10 @@ ttspcScaleInCooldown = lens _ttspcScaleInCooldown (\ s a -> s{_ttspcScaleInCoold
 -- | Reserved for future use.
 ttspcCustomizedMetricSpecification :: Lens' TargetTrackingScalingPolicyConfiguration (Maybe CustomizedMetricSpecification)
 ttspcCustomizedMetricSpecification = lens _ttspcCustomizedMetricSpecification (\ s a -> s{_ttspcCustomizedMetricSpecification = a});
+
+-- | Indicates whether scale in by the target tracking policy is disabled. If the value is @true@ , scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is @false@ .
+ttspcDisableScaleIn :: Lens' TargetTrackingScalingPolicyConfiguration (Maybe Bool)
+ttspcDisableScaleIn = lens _ttspcDisableScaleIn (\ s a -> s{_ttspcDisableScaleIn = a});
 
 -- | The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out.
 ttspcScaleOutCooldown :: Lens' TargetTrackingScalingPolicyConfiguration (Maybe Int)
@@ -865,6 +1047,7 @@ instance FromJSON
                    (x .:? "PredefinedMetricSpecification") <*>
                      (x .:? "ScaleInCooldown")
                      <*> (x .:? "CustomizedMetricSpecification")
+                     <*> (x .:? "DisableScaleIn")
                      <*> (x .:? "ScaleOutCooldown")
                      <*> (x .: "TargetValue"))
 
@@ -887,5 +1070,6 @@ instance ToJSON
                   ("ScaleInCooldown" .=) <$> _ttspcScaleInCooldown,
                   ("CustomizedMetricSpecification" .=) <$>
                     _ttspcCustomizedMetricSpecification,
+                  ("DisableScaleIn" .=) <$> _ttspcDisableScaleIn,
                   ("ScaleOutCooldown" .=) <$> _ttspcScaleOutCooldown,
                   Just ("TargetValue" .= _ttspcTargetValue)])

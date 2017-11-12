@@ -39,24 +39,30 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.WAFRegional
         , Network.AWS.WAFRegional.AssociateWebACL
         , Network.AWS.WAFRegional.CreateByteMatchSet
+        , Network.AWS.WAFRegional.CreateGeoMatchSet
         , Network.AWS.WAFRegional.CreateIPSet
         , Network.AWS.WAFRegional.CreateRateBasedRule
+        , Network.AWS.WAFRegional.CreateRegexMatchSet
+        , Network.AWS.WAFRegional.CreateRegexPatternSet
         , Network.AWS.WAFRegional.CreateRule
         , Network.AWS.WAFRegional.CreateSizeConstraintSet
         , Network.AWS.WAFRegional.CreateSqlInjectionMatchSet
         , Network.AWS.WAFRegional.CreateWebACL
         , Network.AWS.WAFRegional.CreateXSSMatchSet
         , Network.AWS.WAFRegional.DeleteByteMatchSet
+        , Network.AWS.WAFRegional.DeleteGeoMatchSet
         , Network.AWS.WAFRegional.DeleteIPSet
         , Network.AWS.WAFRegional.DeleteRateBasedRule
+        , Network.AWS.WAFRegional.DeleteRegexMatchSet
+        , Network.AWS.WAFRegional.DeleteRegexPatternSet
         , Network.AWS.WAFRegional.DeleteRule
         , Network.AWS.WAFRegional.DeleteSizeConstraintSet
         , Network.AWS.WAFRegional.DeleteSqlInjectionMatchSet
@@ -66,9 +72,12 @@ library
         , Network.AWS.WAFRegional.GetByteMatchSet
         , Network.AWS.WAFRegional.GetChangeToken
         , Network.AWS.WAFRegional.GetChangeTokenStatus
+        , Network.AWS.WAFRegional.GetGeoMatchSet
         , Network.AWS.WAFRegional.GetIPSet
         , Network.AWS.WAFRegional.GetRateBasedRule
         , Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
+        , Network.AWS.WAFRegional.GetRegexMatchSet
+        , Network.AWS.WAFRegional.GetRegexPatternSet
         , Network.AWS.WAFRegional.GetRule
         , Network.AWS.WAFRegional.GetSampledRequests
         , Network.AWS.WAFRegional.GetSizeConstraintSet
@@ -77,8 +86,11 @@ library
         , Network.AWS.WAFRegional.GetWebACLForResource
         , Network.AWS.WAFRegional.GetXSSMatchSet
         , Network.AWS.WAFRegional.ListByteMatchSets
+        , Network.AWS.WAFRegional.ListGeoMatchSets
         , Network.AWS.WAFRegional.ListIPSets
         , Network.AWS.WAFRegional.ListRateBasedRules
+        , Network.AWS.WAFRegional.ListRegexMatchSets
+        , Network.AWS.WAFRegional.ListRegexPatternSets
         , Network.AWS.WAFRegional.ListResourcesForWebACL
         , Network.AWS.WAFRegional.ListRules
         , Network.AWS.WAFRegional.ListSizeConstraintSets
@@ -87,8 +99,11 @@ library
         , Network.AWS.WAFRegional.ListXSSMatchSets
         , Network.AWS.WAFRegional.Types
         , Network.AWS.WAFRegional.UpdateByteMatchSet
+        , Network.AWS.WAFRegional.UpdateGeoMatchSet
         , Network.AWS.WAFRegional.UpdateIPSet
         , Network.AWS.WAFRegional.UpdateRateBasedRule
+        , Network.AWS.WAFRegional.UpdateRegexMatchSet
+        , Network.AWS.WAFRegional.UpdateRegexPatternSet
         , Network.AWS.WAFRegional.UpdateRule
         , Network.AWS.WAFRegional.UpdateSizeConstraintSet
         , Network.AWS.WAFRegional.UpdateSqlInjectionMatchSet

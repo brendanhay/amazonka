@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables the Availability Zone for the specified subnets for the specified load balancer. The specified subnets replace the previously enabled subnets.
+-- Enables the Availability Zone for the specified subnets for the specified Application Load Balancer. The specified subnets replace the previously enabled subnets.
 --
+--
+-- Note that you can't change the subnets for a Network Load Balancer.
 --
 module Network.AWS.ELBv2.SetSubnets
     (
@@ -27,6 +29,7 @@ module Network.AWS.ELBv2.SetSubnets
       setSubnets
     , SetSubnets
     -- * Request Lenses
+    , ssSubnetMappings
     , ssLoadBalancerARN
     , ssSubnets
 
@@ -47,7 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'setSubnets' smart constructor.
 data SetSubnets = SetSubnets'
-  { _ssLoadBalancerARN :: {-# NOUNPACK #-}!Text
+  { _ssSubnetMappings  :: {-# NOUNPACK #-}!(Maybe [SubnetMapping])
+  , _ssLoadBalancerARN :: {-# NOUNPACK #-}!Text
   , _ssSubnets         :: {-# NOUNPACK #-}![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -56,21 +60,31 @@ data SetSubnets = SetSubnets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'ssSubnetMappings' - The IDs of the subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings. You cannot specify Elastic IP addresses for your subnets.
+--
 -- * 'ssLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'ssSubnets' - The IDs of the subnets. You must specify at least two subnets. You can add only one subnet per Availability Zone.
+-- * 'ssSubnets' - The IDs of the subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
 setSubnets
     :: Text -- ^ 'ssLoadBalancerARN'
     -> SetSubnets
 setSubnets pLoadBalancerARN_ =
-  SetSubnets' {_ssLoadBalancerARN = pLoadBalancerARN_, _ssSubnets = mempty}
+  SetSubnets'
+  { _ssSubnetMappings = Nothing
+  , _ssLoadBalancerARN = pLoadBalancerARN_
+  , _ssSubnets = mempty
+  }
 
+
+-- | The IDs of the subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings. You cannot specify Elastic IP addresses for your subnets.
+ssSubnetMappings :: Lens' SetSubnets [SubnetMapping]
+ssSubnetMappings = lens _ssSubnetMappings (\ s a -> s{_ssSubnetMappings = a}) . _Default . _Coerce;
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 ssLoadBalancerARN :: Lens' SetSubnets Text
 ssLoadBalancerARN = lens _ssLoadBalancerARN (\ s a -> s{_ssLoadBalancerARN = a});
 
--- | The IDs of the subnets. You must specify at least two subnets. You can add only one subnet per Availability Zone.
+-- | The IDs of the subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
 ssSubnets :: Lens' SetSubnets [Text]
 ssSubnets = lens _ssSubnets (\ s a -> s{_ssSubnets = a}) . _Coerce;
 
@@ -100,6 +114,8 @@ instance ToQuery SetSubnets where
           = mconcat
               ["Action" =: ("SetSubnets" :: ByteString),
                "Version" =: ("2015-12-01" :: ByteString),
+               "SubnetMappings" =:
+                 toQuery (toQueryList "member" <$> _ssSubnetMappings),
                "LoadBalancerArn" =: _ssLoadBalancerARN,
                "Subnets" =: toQueryList "member" _ssSubnets]
 

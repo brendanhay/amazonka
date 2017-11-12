@@ -14,11 +14,11 @@
 module Test.AWS.Gen.IoTDataPlane where
 
 import Data.Proxy
+import Network.AWS.IoTDataPlane
 import Test.AWS.Fixture
+import Test.AWS.IoTDataPlane.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.IoTDataPlane
-import Test.AWS.IoTDataPlane.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

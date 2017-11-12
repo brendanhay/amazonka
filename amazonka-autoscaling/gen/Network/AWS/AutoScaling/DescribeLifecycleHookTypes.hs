@@ -86,11 +86,7 @@ instance ToQuery DescribeLifecycleHookTypes where
                     ("DescribeLifecycleHookTypes" :: ByteString),
                   "Version" =: ("2011-01-01" :: ByteString)])
 
--- | Contains the output of DescribeLifecycleHookTypes.
---
---
---
--- /See:/ 'describeLifecycleHookTypesResponse' smart constructor.
+-- | /See:/ 'describeLifecycleHookTypesResponse' smart constructor.
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
   { _dlhtrsLifecycleHookTypes :: {-# NOUNPACK #-}!(Maybe [Text])
   , _dlhtrsResponseStatus     :: {-# NOUNPACK #-}!Int

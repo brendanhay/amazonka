@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more ingress rules from a security group. The values that you specify in the revoke request (for example, ports) must match the existing rule's values for the rule to be removed.
+-- Removes one or more ingress rules from a security group. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.
 --
 --
--- Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code.
+-- Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.
 --
 -- Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
 --
@@ -79,11 +79,11 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
 --
 -- * 'rsgiFromPort' - The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use @-1@ to specify all ICMP types.
 --
--- * 'rsgiIPPermissions' - A set of IP permissions. You can't specify a source security group and a CIDR IP address range.
+-- * 'rsgiIPPermissions' - One or more sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.
 --
 -- * 'rsgiIPProtocol' - The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ). Use @-1@ to specify all.
 --
--- * 'rsgiGroupId' - The ID of the security group. Required for a security group in a nondefault VPC.
+-- * 'rsgiGroupId' - The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 --
 -- * 'rsgiToPort' - The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use @-1@ to specify all ICMP codes for the ICMP type.
 --
@@ -91,7 +91,7 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
 --
 -- * 'rsgiSourceSecurityGroupOwnerId' - [EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
 --
--- * 'rsgiGroupName' - [EC2-Classic, default VPC] The name of the security group.
+-- * 'rsgiGroupName' - [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
 --
 -- * 'rsgiSourceSecurityGroupName' - [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
 --
@@ -117,7 +117,7 @@ revokeSecurityGroupIngress =
 rsgiFromPort :: Lens' RevokeSecurityGroupIngress (Maybe Int)
 rsgiFromPort = lens _rsgiFromPort (\ s a -> s{_rsgiFromPort = a});
 
--- | A set of IP permissions. You can't specify a source security group and a CIDR IP address range.
+-- | One or more sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.
 rsgiIPPermissions :: Lens' RevokeSecurityGroupIngress [IPPermission]
 rsgiIPPermissions = lens _rsgiIPPermissions (\ s a -> s{_rsgiIPPermissions = a}) . _Default . _Coerce;
 
@@ -125,7 +125,7 @@ rsgiIPPermissions = lens _rsgiIPPermissions (\ s a -> s{_rsgiIPPermissions = a})
 rsgiIPProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiIPProtocol = lens _rsgiIPProtocol (\ s a -> s{_rsgiIPProtocol = a});
 
--- | The ID of the security group. Required for a security group in a nondefault VPC.
+-- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 rsgiGroupId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiGroupId = lens _rsgiGroupId (\ s a -> s{_rsgiGroupId = a});
 
@@ -141,7 +141,7 @@ rsgiCidrIP = lens _rsgiCidrIP (\ s a -> s{_rsgiCidrIP = a});
 rsgiSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiSourceSecurityGroupOwnerId = lens _rsgiSourceSecurityGroupOwnerId (\ s a -> s{_rsgiSourceSecurityGroupOwnerId = a});
 
--- | [EC2-Classic, default VPC] The name of the security group.
+-- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
 rsgiGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiGroupName = lens _rsgiGroupName (\ s a -> s{_rsgiGroupName = a});
 

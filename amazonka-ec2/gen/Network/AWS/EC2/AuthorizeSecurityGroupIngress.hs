@@ -27,6 +27,8 @@
 --
 -- [EC2-VPC] This action gives one or more IPv4 or IPv6 CIDR address ranges permission to access a security group in your VPC, or gives one or more other security groups (called the /source groups/ ) permission to access a security group for your VPC. The security groups must all be for the same VPC or a peer VPC in a VPC peering connection. For more information about VPC security group limits, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Limits> .
 --
+-- You can optionally specify a description for the security group rule.
+--
 module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     (
     -- * Creating a Request
@@ -79,21 +81,21 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asgiFromPort' - The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. For the ICMP/ICMPv6 type number, use @-1@ to specify all types.
+-- * 'asgiFromPort' - The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. For the ICMP/ICMPv6 type number, use @-1@ to specify all types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 --
--- * 'asgiIPPermissions' - A set of IP permissions. Can be used to specify multiple rules in a single command.
+-- * 'asgiIPPermissions' - One or more sets of IP permissions. Can be used to specify multiple rules in a single command.
 --
 -- * 'asgiIPProtocol' - The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ). (VPC only) Use @-1@ to specify all protocols. If you specify @-1@ , or a protocol number other than @tcp@ , @udp@ , @icmp@ , or @58@ (ICMPv6), traffic on all ports is allowed, regardless of any ports you specify. For @tcp@ , @udp@ , and @icmp@ , you must specify a port range. For protocol @58@ (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed.
 --
--- * 'asgiGroupId' - The ID of the security group. Required for a nondefault VPC.
+-- * 'asgiGroupId' - The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 --
--- * 'asgiToPort' - The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code number. For the ICMP/ICMPv6 code number, use @-1@ to specify all codes.
+-- * 'asgiToPort' - The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code number. For the ICMP/ICMPv6 code number, use @-1@ to specify all codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 --
 -- * 'asgiCidrIP' - The CIDR IPv4 address range. You can't specify this parameter when specifying a source security group.
 --
--- * 'asgiSourceSecurityGroupOwnerId' - [EC2-Classic] The AWS account number for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
+-- * 'asgiSourceSecurityGroupOwnerId' - [EC2-Classic] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
 --
--- * 'asgiGroupName' - [EC2-Classic, default VPC] The name of the security group.
+-- * 'asgiGroupName' - [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
 --
 -- * 'asgiSourceSecurityGroupName' - [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
 --
@@ -115,11 +117,11 @@ authorizeSecurityGroupIngress =
   }
 
 
--- | The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. For the ICMP/ICMPv6 type number, use @-1@ to specify all types.
+-- | The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. For the ICMP/ICMPv6 type number, use @-1@ to specify all types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 asgiFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
 asgiFromPort = lens _asgiFromPort (\ s a -> s{_asgiFromPort = a});
 
--- | A set of IP permissions. Can be used to specify multiple rules in a single command.
+-- | One or more sets of IP permissions. Can be used to specify multiple rules in a single command.
 asgiIPPermissions :: Lens' AuthorizeSecurityGroupIngress [IPPermission]
 asgiIPPermissions = lens _asgiIPPermissions (\ s a -> s{_asgiIPPermissions = a}) . _Default . _Coerce;
 
@@ -127,11 +129,11 @@ asgiIPPermissions = lens _asgiIPPermissions (\ s a -> s{_asgiIPPermissions = a})
 asgiIPProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiIPProtocol = lens _asgiIPProtocol (\ s a -> s{_asgiIPProtocol = a});
 
--- | The ID of the security group. Required for a nondefault VPC.
+-- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 asgiGroupId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiGroupId = lens _asgiGroupId (\ s a -> s{_asgiGroupId = a});
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code number. For the ICMP/ICMPv6 code number, use @-1@ to specify all codes.
+-- | The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code number. For the ICMP/ICMPv6 code number, use @-1@ to specify all codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 asgiToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
 asgiToPort = lens _asgiToPort (\ s a -> s{_asgiToPort = a});
 
@@ -139,11 +141,11 @@ asgiToPort = lens _asgiToPort (\ s a -> s{_asgiToPort = a});
 asgiCidrIP :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiCidrIP = lens _asgiCidrIP (\ s a -> s{_asgiCidrIP = a});
 
--- | [EC2-Classic] The AWS account number for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
+-- | [EC2-Classic] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
 asgiSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupOwnerId = lens _asgiSourceSecurityGroupOwnerId (\ s a -> s{_asgiSourceSecurityGroupOwnerId = a});
 
--- | [EC2-Classic, default VPC] The name of the security group.
+-- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
 asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiGroupName = lens _asgiGroupName (\ s a -> s{_asgiGroupName = a});
 

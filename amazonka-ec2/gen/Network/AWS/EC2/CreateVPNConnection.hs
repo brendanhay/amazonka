@@ -29,7 +29,7 @@
 --
 -- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
 --
--- For more information about VPN connections, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html AWS Managed VPN Connections> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 module Network.AWS.EC2.CreateVPNConnection
     (
@@ -76,7 +76,7 @@ data CreateVPNConnection = CreateVPNConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvcOptions' - Indicates whether the VPN connection requires static routes. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Default: @false@
+-- * 'cvcOptions' - The options for the VPN connection.
 --
 -- * 'cvcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
@@ -100,7 +100,7 @@ createVPNConnection pCustomerGatewayId_ pType_ pVPNGatewayId_ =
   }
 
 
--- | Indicates whether the VPN connection requires static routes. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Default: @false@
+-- | The options for the VPN connection.
 cvcOptions :: Lens' CreateVPNConnection (Maybe VPNConnectionOptionsSpecification)
 cvcOptions = lens _cvcOptions (\ s a -> s{_cvcOptions = a});
 

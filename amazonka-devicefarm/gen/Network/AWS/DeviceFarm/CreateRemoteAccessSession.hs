@@ -27,7 +27,10 @@ module Network.AWS.DeviceFarm.CreateRemoteAccessSession
       createRemoteAccessSession
     , CreateRemoteAccessSession
     -- * Request Lenses
+    , crasClientId
+    , crasSshPublicKey
     , crasName
+    , crasRemoteDebugEnabled
     , crasConfiguration
     , crasProjectARN
     , crasDeviceARN
@@ -53,7 +56,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createRemoteAccessSession' smart constructor.
 data CreateRemoteAccessSession = CreateRemoteAccessSession'
-  { _crasName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _crasClientId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crasSshPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crasName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _crasRemoteDebugEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
   , _crasConfiguration :: {-# NOUNPACK #-}!(Maybe CreateRemoteAccessSessionConfiguration)
   , _crasProjectARN :: {-# NOUNPACK #-}!Text
   , _crasDeviceARN :: {-# NOUNPACK #-}!Text
@@ -64,7 +70,13 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'crasClientId' - Unique identifier for the client. If you want access to multiple devices on the same client, you should pass the same @clientId@ value in each call to @CreateRemoteAccessSession@ . This is required only if @remoteDebugEnabled@ is set to true @true@ .
+--
+-- * 'crasSshPublicKey' - The public key of the @ssh@ key pair you want to use for connecting to remote devices in your remote debugging session. This is only required if @remoteDebugEnabled@ is set to @true@ .
+--
 -- * 'crasName' - The name of the remote access session that you wish to create.
+--
+-- * 'crasRemoteDebugEnabled' - Set to @true@ if you want to access devices remotely for debugging in your remote access session.
 --
 -- * 'crasConfiguration' - The configuration information for the remote access session request.
 --
@@ -77,16 +89,31 @@ createRemoteAccessSession
     -> CreateRemoteAccessSession
 createRemoteAccessSession pProjectARN_ pDeviceARN_ =
   CreateRemoteAccessSession'
-  { _crasName = Nothing
+  { _crasClientId = Nothing
+  , _crasSshPublicKey = Nothing
+  , _crasName = Nothing
+  , _crasRemoteDebugEnabled = Nothing
   , _crasConfiguration = Nothing
   , _crasProjectARN = pProjectARN_
   , _crasDeviceARN = pDeviceARN_
   }
 
 
+-- | Unique identifier for the client. If you want access to multiple devices on the same client, you should pass the same @clientId@ value in each call to @CreateRemoteAccessSession@ . This is required only if @remoteDebugEnabled@ is set to true @true@ .
+crasClientId :: Lens' CreateRemoteAccessSession (Maybe Text)
+crasClientId = lens _crasClientId (\ s a -> s{_crasClientId = a});
+
+-- | The public key of the @ssh@ key pair you want to use for connecting to remote devices in your remote debugging session. This is only required if @remoteDebugEnabled@ is set to @true@ .
+crasSshPublicKey :: Lens' CreateRemoteAccessSession (Maybe Text)
+crasSshPublicKey = lens _crasSshPublicKey (\ s a -> s{_crasSshPublicKey = a});
+
 -- | The name of the remote access session that you wish to create.
 crasName :: Lens' CreateRemoteAccessSession (Maybe Text)
 crasName = lens _crasName (\ s a -> s{_crasName = a});
+
+-- | Set to @true@ if you want to access devices remotely for debugging in your remote access session.
+crasRemoteDebugEnabled :: Lens' CreateRemoteAccessSession (Maybe Bool)
+crasRemoteDebugEnabled = lens _crasRemoteDebugEnabled (\ s a -> s{_crasRemoteDebugEnabled = a});
 
 -- | The configuration information for the remote access session request.
 crasConfiguration :: Lens' CreateRemoteAccessSession (Maybe CreateRemoteAccessSessionConfiguration)
@@ -129,7 +156,11 @@ instance ToJSON CreateRemoteAccessSession where
         toJSON CreateRemoteAccessSession'{..}
           = object
               (catMaybes
-                 [("name" .=) <$> _crasName,
+                 [("clientId" .=) <$> _crasClientId,
+                  ("sshPublicKey" .=) <$> _crasSshPublicKey,
+                  ("name" .=) <$> _crasName,
+                  ("remoteDebugEnabled" .=) <$>
+                    _crasRemoteDebugEnabled,
                   ("configuration" .=) <$> _crasConfiguration,
                   Just ("projectArn" .= _crasProjectARN),
                   Just ("deviceArn" .= _crasDeviceARN)])

@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -104,6 +104,7 @@ library
         , Network.AWS.RDS.DescribeReservedDBInstances
         , Network.AWS.RDS.DescribeReservedDBInstancesOfferings
         , Network.AWS.RDS.DescribeSourceRegions
+        , Network.AWS.RDS.DescribeValidDBInstanceModifications
         , Network.AWS.RDS.DownloadDBLogFilePortion
         , Network.AWS.RDS.FailoverDBCluster
         , Network.AWS.RDS.ListTagsForResource

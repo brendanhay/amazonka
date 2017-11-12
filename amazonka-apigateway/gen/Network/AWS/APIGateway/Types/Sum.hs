@@ -43,26 +43,29 @@ instance ToHeader     APIKeysFormat
 instance ToJSON APIKeysFormat where
     toJSON = toJSONText
 
--- | The authorizer type. the current value is @TOKEN@ for a Lambda function or @COGNITO_USER_POOLS@ for an Amazon Cognito Your User Pool.
+-- | [Required] The authorizer type. Valid values are @TOKEN@ for a Lambda function using a single authorization token submitted in a custom header, @REQUEST@ for a Lambda function using incoming request parameters, and @COGNITO_USER_POOLS@ for using an Amazon Cognito user pool.
 --
 --
 data AuthorizerType
-  = CognitoUserPools
-  | Token
+  = AuthorizerCognitoUserPools
+  | AuthorizerRequest
+  | AuthorizerToken
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText AuthorizerType where
     parser = takeLowerText >>= \case
-        "cognito_user_pools" -> pure CognitoUserPools
-        "token" -> pure Token
+        "cognito_user_pools" -> pure AuthorizerCognitoUserPools
+        "request" -> pure AuthorizerRequest
+        "token" -> pure AuthorizerToken
         e -> fromTextError $ "Failure parsing AuthorizerType from value: '" <> e
-           <> "'. Accepted values: cognito_user_pools, token"
+           <> "'. Accepted values: cognito_user_pools, request, token"
 
 instance ToText AuthorizerType where
     toText = \case
-        CognitoUserPools -> "COGNITO_USER_POOLS"
-        Token -> "TOKEN"
+        AuthorizerCognitoUserPools -> "COGNITO_USER_POOLS"
+        AuthorizerRequest -> "REQUEST"
+        AuthorizerToken -> "TOKEN"
 
 instance Hashable     AuthorizerType
 instance NFData       AuthorizerType
@@ -255,6 +258,39 @@ instance ToJSON DocumentationPartType where
 
 instance FromJSON DocumentationPartType where
     parseJSON = parseJSONText "DocumentationPartType"
+
+-- | The endpoint type. The valid value is @EDGE@ for edge-optimized API setup, most suitable for mobile applications, @REGIONAL@ for regional API endpoint setup, most suitable for calling from AWS Region
+--
+--
+data EndpointType
+  = Edge
+  | Regional
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText EndpointType where
+    parser = takeLowerText >>= \case
+        "edge" -> pure Edge
+        "regional" -> pure Regional
+        e -> fromTextError $ "Failure parsing EndpointType from value: '" <> e
+           <> "'. Accepted values: edge, regional"
+
+instance ToText EndpointType where
+    toText = \case
+        Edge -> "EDGE"
+        Regional -> "REGIONAL"
+
+instance Hashable     EndpointType
+instance NFData       EndpointType
+instance ToByteString EndpointType
+instance ToQuery      EndpointType
+instance ToHeader     EndpointType
+
+instance ToJSON EndpointType where
+    toJSON = toJSONText
+
+instance FromJSON EndpointType where
+    parseJSON = parseJSONText "EndpointType"
 
 data GatewayResponseType
   = APIConfigurationError

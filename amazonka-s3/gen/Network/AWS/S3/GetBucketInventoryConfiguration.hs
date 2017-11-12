@@ -106,7 +106,7 @@ instance ToQuery GetBucketInventoryConfiguration
 data GetBucketInventoryConfigurationResponse = GetBucketInventoryConfigurationResponse'
   { _gbicrsInventoryConfiguration :: {-# NOUNPACK #-}!(Maybe InventoryConfiguration)
   , _gbicrsResponseStatus :: {-# NOUNPACK #-}!Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'GetBucketInventoryConfigurationResponse' with the minimum fields required to make a request.

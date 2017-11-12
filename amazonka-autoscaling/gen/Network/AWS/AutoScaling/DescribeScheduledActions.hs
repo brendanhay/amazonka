@@ -53,11 +53,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeScheduledActions.
---
---
---
--- /See:/ 'describeScheduledActions' smart constructor.
+-- | /See:/ 'describeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
   { _dsasStartTime            :: {-# NOUNPACK #-}!(Maybe ISO8601)
   , _dsasNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
@@ -166,11 +162,7 @@ instance ToQuery DescribeScheduledActions where
                  toQuery
                    (toQueryList "member" <$> _dsasScheduledActionNames)]
 
--- | Contains the output of DescribeScheduledActions.
---
---
---
--- /See:/ 'describeScheduledActionsResponse' smart constructor.
+-- | /See:/ 'describeScheduledActionsResponse' smart constructor.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
   { _dsarsScheduledUpdateGroupActions :: {-# NOUNPACK #-}!(Maybe [ScheduledUpdateGroupAction])
   , _dsarsNextToken :: {-# NOUNPACK #-}!(Maybe Text)

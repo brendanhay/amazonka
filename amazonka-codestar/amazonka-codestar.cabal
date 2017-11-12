@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -55,9 +55,12 @@ library
         , Network.AWS.CodeStar.DisassociateTeamMember
         , Network.AWS.CodeStar.ListProjects
         , Network.AWS.CodeStar.ListResources
+        , Network.AWS.CodeStar.ListTagsForProject
         , Network.AWS.CodeStar.ListTeamMembers
         , Network.AWS.CodeStar.ListUserProfiles
+        , Network.AWS.CodeStar.TagProject
         , Network.AWS.CodeStar.Types
+        , Network.AWS.CodeStar.UntagProject
         , Network.AWS.CodeStar.UpdateProject
         , Network.AWS.CodeStar.UpdateTeamMember
         , Network.AWS.CodeStar.UpdateUserProfile

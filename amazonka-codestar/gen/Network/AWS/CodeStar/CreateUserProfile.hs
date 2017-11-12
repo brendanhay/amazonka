@@ -57,8 +57,8 @@ data CreateUserProfile = CreateUserProfile'
   { _cupSshPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
   , _cupUserARN      :: {-# NOUNPACK #-}!Text
   , _cupDisplayName  :: {-# NOUNPACK #-}!Text
-  , _cupEmailAddress :: {-# NOUNPACK #-}!Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  , _cupEmailAddress :: {-# NOUNPACK #-}!(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateUserProfile' with the minimum fields required to make a request.
@@ -82,7 +82,7 @@ createUserProfile pUserARN_ pDisplayName_ pEmailAddress_ =
   { _cupSshPublicKey = Nothing
   , _cupUserARN = pUserARN_
   , _cupDisplayName = pDisplayName_
-  , _cupEmailAddress = pEmailAddress_
+  , _cupEmailAddress = _Sensitive # pEmailAddress_
   }
 
 
@@ -100,7 +100,7 @@ cupDisplayName = lens _cupDisplayName (\ s a -> s{_cupDisplayName = a});
 
 -- | The email address that will be displayed as part of the user's profile in AWS CodeStar.
 cupEmailAddress :: Lens' CreateUserProfile Text
-cupEmailAddress = lens _cupEmailAddress (\ s a -> s{_cupEmailAddress = a});
+cupEmailAddress = lens _cupEmailAddress (\ s a -> s{_cupEmailAddress = a}) . _Sensitive;
 
 instance AWSRequest CreateUserProfile where
         type Rs CreateUserProfile = CreateUserProfileResponse
@@ -150,12 +150,12 @@ instance ToQuery CreateUserProfile where
 data CreateUserProfileResponse = CreateUserProfileResponse'
   { _cuprsLastModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
   , _cuprsSshPublicKey          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cuprsEmailAddress          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _cuprsEmailAddress          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
   , _cuprsDisplayName           :: {-# NOUNPACK #-}!(Maybe Text)
   , _cuprsCreatedTimestamp      :: {-# NOUNPACK #-}!(Maybe POSIX)
   , _cuprsResponseStatus        :: {-# NOUNPACK #-}!Int
   , _cuprsUserARN               :: {-# NOUNPACK #-}!Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateUserProfileResponse' with the minimum fields required to make a request.
@@ -201,7 +201,7 @@ cuprsSshPublicKey = lens _cuprsSshPublicKey (\ s a -> s{_cuprsSshPublicKey = a})
 
 -- | The email address that is displayed as part of the user's profile in AWS CodeStar.
 cuprsEmailAddress :: Lens' CreateUserProfileResponse (Maybe Text)
-cuprsEmailAddress = lens _cuprsEmailAddress (\ s a -> s{_cuprsEmailAddress = a});
+cuprsEmailAddress = lens _cuprsEmailAddress (\ s a -> s{_cuprsEmailAddress = a}) . mapping _Sensitive;
 
 -- | The name that is displayed as the friendly name for the user in AWS CodeStar.
 cuprsDisplayName :: Lens' CreateUserProfileResponse (Maybe Text)

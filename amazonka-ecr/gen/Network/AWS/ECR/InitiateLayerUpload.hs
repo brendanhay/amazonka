@@ -57,9 +57,9 @@ data InitiateLayerUpload = InitiateLayerUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iluRegistryId' - The AWS account ID associated with the registry that you intend to upload layers to. If you do not specify a registry, the default registry is assumed.
+-- * 'iluRegistryId' - The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
 --
--- * 'iluRepositoryName' - The name of the repository that you intend to upload layers to.
+-- * 'iluRepositoryName' - The name of the repository to which you intend to upload layers.
 initiateLayerUpload
     :: Text -- ^ 'iluRepositoryName'
     -> InitiateLayerUpload
@@ -68,11 +68,11 @@ initiateLayerUpload pRepositoryName_ =
   {_iluRegistryId = Nothing, _iluRepositoryName = pRepositoryName_}
 
 
--- | The AWS account ID associated with the registry that you intend to upload layers to. If you do not specify a registry, the default registry is assumed.
+-- | The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
 iluRegistryId :: Lens' InitiateLayerUpload (Maybe Text)
 iluRegistryId = lens _iluRegistryId (\ s a -> s{_iluRegistryId = a});
 
--- | The name of the repository that you intend to upload layers to.
+-- | The name of the repository to which you intend to upload layers.
 iluRepositoryName :: Lens' InitiateLayerUpload Text
 iluRepositoryName = lens _iluRepositoryName (\ s a -> s{_iluRepositoryName = a});
 

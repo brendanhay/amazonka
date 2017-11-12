@@ -131,15 +131,15 @@ instance ToQuery GetBotChannelAssociation where
 
 -- | /See:/ 'getBotChannelAssociationResponse' smart constructor.
 data GetBotChannelAssociationResponse = GetBotChannelAssociationResponse'
-  { _gbcarsBotAlias         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbcarsBotName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbcarsBotConfiguration :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gbcarsCreatedDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gbcarsName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbcarsType             :: {-# NOUNPACK #-}!(Maybe ChannelType)
-  , _gbcarsDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbcarsResponseStatus   :: {-# NOUNPACK #-}!Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { _gbcarsBotAlias :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbcarsBotName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbcarsBotConfiguration :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text Text)))
+  , _gbcarsCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _gbcarsName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbcarsType :: {-# NOUNPACK #-}!(Maybe ChannelType)
+  , _gbcarsDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  , _gbcarsResponseStatus :: {-# NOUNPACK #-}!Int
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'GetBotChannelAssociationResponse' with the minimum fields required to make a request.
@@ -186,8 +186,8 @@ gbcarsBotName :: Lens' GetBotChannelAssociationResponse (Maybe Text)
 gbcarsBotName = lens _gbcarsBotName (\ s a -> s{_gbcarsBotName = a});
 
 -- | Provides information that the messaging platform needs to communicate with the Amazon Lex bot.
-gbcarsBotConfiguration :: Lens' GetBotChannelAssociationResponse (HashMap Text Text)
-gbcarsBotConfiguration = lens _gbcarsBotConfiguration (\ s a -> s{_gbcarsBotConfiguration = a}) . _Default . _Map;
+gbcarsBotConfiguration :: Lens' GetBotChannelAssociationResponse (Maybe (HashMap Text Text))
+gbcarsBotConfiguration = lens _gbcarsBotConfiguration (\ s a -> s{_gbcarsBotConfiguration = a}) . mapping (_Sensitive . _Map);
 
 -- | The date that the association between the bot and the channel was created.
 gbcarsCreatedDate :: Lens' GetBotChannelAssociationResponse (Maybe UTCTime)

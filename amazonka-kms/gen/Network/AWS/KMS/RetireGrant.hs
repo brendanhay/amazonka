@@ -65,7 +65,7 @@ data RetireGrant = RetireGrant'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rgKeyId' - The Amazon Resource Name of the CMK associated with the grant. Example:     * arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab
+-- * 'rgKeyId' - The Amazon Resource Name (ARN) of the CMK associated with the grant.  For example: @arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- * 'rgGrantId' - Unique identifier of the grant to retire. The grant ID is returned in the response to a @CreateGrant@ operation.     * Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123
 --
@@ -77,7 +77,7 @@ retireGrant =
   {_rgKeyId = Nothing, _rgGrantId = Nothing, _rgGrantToken = Nothing}
 
 
--- | The Amazon Resource Name of the CMK associated with the grant. Example:     * arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab
+-- | The Amazon Resource Name (ARN) of the CMK associated with the grant.  For example: @arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 rgKeyId :: Lens' RetireGrant (Maybe Text)
 rgKeyId = lens _rgKeyId (\ s a -> s{_rgKeyId = a});
 

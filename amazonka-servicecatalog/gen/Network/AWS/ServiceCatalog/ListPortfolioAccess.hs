@@ -57,7 +57,7 @@ data ListPortfolioAccess = ListPortfolioAccess'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'lAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'lPortfolioId' - The portfolio identifier.
 listPortfolioAccess
@@ -68,7 +68,7 @@ listPortfolioAccess pPortfolioId_ =
   {_lAcceptLanguage = Nothing, _lPortfolioId = pPortfolioId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lAcceptLanguage :: Lens' ListPortfolioAccess (Maybe Text)
 lAcceptLanguage = lens _lAcceptLanguage (\ s a -> s{_lAcceptLanguage = a});
 

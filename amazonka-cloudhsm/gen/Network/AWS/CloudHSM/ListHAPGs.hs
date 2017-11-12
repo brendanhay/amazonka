@@ -18,10 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
+--
+--
+-- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
+--
 -- Lists the high-availability partition groups for the account.
 --
---
--- This operation supports pagination with the use of the /NextToken/ member. If more results are available, the /NextToken/ member of the response contains a token that you pass in the next call to 'ListHapgs' to retrieve the next set of items.
+-- This operation supports pagination with the use of the @NextToken@ member. If more results are available, the @NextToken@ member of the response contains a token that you pass in the next call to @ListHapgs@ to retrieve the next set of items.
 --
 module Network.AWS.CloudHSM.ListHAPGs
     (
@@ -57,13 +61,13 @@ newtype ListHAPGs = ListHAPGs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lhNextToken' - The /NextToken/ value from a previous call to 'ListHapgs' . Pass null if this is the first call.
+-- * 'lhNextToken' - The @NextToken@ value from a previous call to @ListHapgs@ . Pass null if this is the first call.
 listHAPGs
     :: ListHAPGs
 listHAPGs = ListHAPGs' {_lhNextToken = Nothing}
 
 
--- | The /NextToken/ value from a previous call to 'ListHapgs' . Pass null if this is the first call.
+-- | The @NextToken@ value from a previous call to @ListHapgs@ . Pass null if this is the first call.
 lhNextToken :: Lens' ListHAPGs (Maybe Text)
 lhNextToken = lens _lhNextToken (\ s a -> s{_lhNextToken = a});
 
@@ -113,7 +117,7 @@ data ListHAPGsResponse = ListHAPGsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lhrsNextToken' - If not null, more results are available. Pass this value to 'ListHapgs' to retrieve the next set of items.
+-- * 'lhrsNextToken' - If not null, more results are available. Pass this value to @ListHapgs@ to retrieve the next set of items.
 --
 -- * 'lhrsResponseStatus' - -- | The response status code.
 --
@@ -129,7 +133,7 @@ listHAPGsResponse pResponseStatus_ =
   }
 
 
--- | If not null, more results are available. Pass this value to 'ListHapgs' to retrieve the next set of items.
+-- | If not null, more results are available. Pass this value to @ListHapgs@ to retrieve the next set of items.
 lhrsNextToken :: Lens' ListHAPGsResponse (Maybe Text)
 lhrsNextToken = lens _lhrsNextToken (\ s a -> s{_lhrsNextToken = a});
 

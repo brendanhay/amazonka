@@ -30,13 +30,13 @@
 --
 --     * <http://aws.amazon.com/sqs/ Amazon SQS Product Page>
 --
---     * /Amazon SQS Developer Guide/
+--     * /Amazon Simple Queue Service Developer Guide/
 --
 --     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html Making API Requests>
 --
 --     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html Using Amazon SQS Message Attributes>
 --
---     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Using Amazon SQS Dead Letter Queues>
+--     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Using Amazon SQS Dead-Letter Queues>
 --
 --
 --
@@ -137,6 +137,9 @@ module Network.AWS.SQS
     -- ** DeleteQueue
     , module Network.AWS.SQS.DeleteQueue
 
+    -- ** TagQueue
+    , module Network.AWS.SQS.TagQueue
+
     -- ** DeleteMessageBatch
     , module Network.AWS.SQS.DeleteMessageBatch
 
@@ -152,8 +155,14 @@ module Network.AWS.SQS
     -- ** DeleteMessage
     , module Network.AWS.SQS.DeleteMessage
 
+    -- ** ListQueueTags
+    , module Network.AWS.SQS.ListQueueTags
+
     -- ** CreateQueue
     , module Network.AWS.SQS.CreateQueue
+
+    -- ** UntagQueue
+    , module Network.AWS.SQS.UntagQueue
 
     -- ** SendMessageBatch
     , module Network.AWS.SQS.SendMessageBatch
@@ -251,13 +260,16 @@ import Network.AWS.SQS.GetQueueAttributes
 import Network.AWS.SQS.GetQueueURL
 import Network.AWS.SQS.ListDeadLetterSourceQueues
 import Network.AWS.SQS.ListQueues
+import Network.AWS.SQS.ListQueueTags
 import Network.AWS.SQS.PurgeQueue
 import Network.AWS.SQS.ReceiveMessage
 import Network.AWS.SQS.RemovePermission
 import Network.AWS.SQS.SendMessage
 import Network.AWS.SQS.SendMessageBatch
 import Network.AWS.SQS.SetQueueAttributes
+import Network.AWS.SQS.TagQueue
 import Network.AWS.SQS.Types
+import Network.AWS.SQS.UntagQueue
 import Network.AWS.SQS.Waiters
 
 {- $errors

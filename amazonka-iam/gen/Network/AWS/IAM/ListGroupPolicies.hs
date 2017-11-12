@@ -153,7 +153,7 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
 --
 -- * 'lgprsResponseStatus' - -- | The response status code.
 --
--- * 'lgprsPolicyNames' - A list of policy names.
+-- * 'lgprsPolicyNames' - A list of policy names. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
 listGroupPoliciesResponse
     :: Int -- ^ 'lgprsResponseStatus'
     -> ListGroupPoliciesResponse
@@ -178,7 +178,7 @@ lgprsIsTruncated = lens _lgprsIsTruncated (\ s a -> s{_lgprsIsTruncated = a});
 lgprsResponseStatus :: Lens' ListGroupPoliciesResponse Int
 lgprsResponseStatus = lens _lgprsResponseStatus (\ s a -> s{_lgprsResponseStatus = a});
 
--- | A list of policy names.
+-- | A list of policy names. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+
 lgprsPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
 lgprsPolicyNames = lens _lgprsPolicyNames (\ s a -> s{_lgprsPolicyNames = a}) . _Coerce;
 

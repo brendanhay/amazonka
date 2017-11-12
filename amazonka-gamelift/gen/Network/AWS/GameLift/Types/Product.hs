@@ -200,7 +200,7 @@ data AttributeValue = AttributeValue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'avSL' - For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurances of the the repeated value after the first of a repeated value are ignored.
+-- * 'avSL' - For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
 --
 -- * 'avSDM' - For a map of up to 10 type:value pairs. Maximum length for each string value is 100 characters.
 --
@@ -214,7 +214,7 @@ attributeValue =
   {_avSL = Nothing, _avSDM = Nothing, _avN = Nothing, _avS = Nothing}
 
 
--- | For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurances of the the repeated value after the first of a repeated value are ignored.
+-- | For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
 avSL :: Lens' AttributeValue [Text]
 avSL = lens _avSL (\ s a -> s{_avSL = a}) . _Default . _Coerce;
 
@@ -286,7 +286,7 @@ data Build = Build'
 --
 -- * 'bCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- * 'bStatus' - Current status of the build. Possible build statuses include the following:     * __INITIALIZED__ – A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.      * __READY__ – The game build has been successfully uploaded. You can now create new fleets for this build.     * __FAILED__ – The game build upload failed. You cannot create new fleets for this build.
+-- * 'bStatus' - Current status of the build. Possible build statuses include the following:     * __INITIALIZED__ -- A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.      * __READY__ -- The game build has been successfully uploaded. You can now create new fleets for this build.     * __FAILED__ -- The game build upload failed. You cannot create new fleets for this build.
 --
 -- * 'bOperatingSystem' - Operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build.
 --
@@ -315,7 +315,7 @@ build =
 bCreationTime :: Lens' Build (Maybe UTCTime)
 bCreationTime = lens _bCreationTime (\ s a -> s{_bCreationTime = a}) . mapping _Time;
 
--- | Current status of the build. Possible build statuses include the following:     * __INITIALIZED__ – A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.      * __READY__ – The game build has been successfully uploaded. You can now create new fleets for this build.     * __FAILED__ – The game build upload failed. You cannot create new fleets for this build.
+-- | Current status of the build. Possible build statuses include the following:     * __INITIALIZED__ -- A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.      * __READY__ -- The game build has been successfully uploaded. You can now create new fleets for this build.     * __FAILED__ -- The game build upload failed. You cannot create new fleets for this build.
 bStatus :: Lens' Build (Maybe BuildStatus)
 bStatus = lens _bStatus (\ s a -> s{_bStatus = a});
 
@@ -624,7 +624,7 @@ data Event = Event'
 --
 -- * 'eMessage' - Additional information related to the event.
 --
--- * 'eEventCode' - Type of event being logged. The following events are currently in use:     * General events:     * __GENERIC_EVENT__ – An unspecified event has occurred.     * Fleet creation events:     * __FLEET_CREATED__ – A fleet record was successfully created with a status of @NEW@ . Event messaging includes the fleet ID.     * __FLEET_STATE_DOWNLOADING__ – Fleet status changed from @NEW@ to @DOWNLOADING@ . The compressed build has started downloading to a fleet instance for installation.     * __FLEET_BINARY_DOWNLOAD_FAILED__ – The build failed to download to the fleet instance.     * __FLEET_CREATION_EXTRACTING_BUILD__ – The game server build was successfully downloaded to an instance, and the build files are now being extracted from the uploaded build and saved to an instance. Failure at this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage display a list of the files that are extracted and saved on the instance. Access the logs by using the URL in /PreSignedLogUrl/ .     * __FLEET_CREATION_RUNNING_INSTALLER__ – The game server build files were successfully extracted, and the Amazon GameLift is now running the build's install script (if one is included). Failure in this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage list the installation steps and whether or not the install completed successfully. Access the logs by using the URL in /PreSignedLogUrl/ .      * __FLEET_CREATION_VALIDATING_RUNTIME_CONFIG__ – The build process was successful, and the Amazon GameLift is now verifying that the game server launch paths, which are specified in the fleet's run-time configuration, exist. If any listed launch path exists, Amazon GameLift tries to launch a game server process and waits for the process to report ready. Failures in this stage prevent a fleet from moving to @ACTIVE@ status. Logs for this stage list the launch paths in the run-time configuration and indicate whether each is found. Access the logs by using the URL in /PreSignedLogUrl/ .      * __FLEET_STATE_VALIDATING__ – Fleet status changed from @DOWNLOADING@ to @VALIDATING@ .     * __FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND__ – Validation of the run-time configuration failed because the executable specified in a launch path does not exist on the instance.     * __FLEET_STATE_BUILDING__ – Fleet status changed from @VALIDATING@ to @BUILDING@ .     * __FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE__ – Validation of the run-time configuration failed because the executable specified in a launch path failed to run on the fleet instance.     * __FLEET_STATE_ACTIVATING__ – Fleet status changed from @BUILDING@ to @ACTIVATING@ .      * __FLEET_ACTIVATION_FAILED__ - The fleet failed to successfully complete one of the steps in the fleet activation process. This event code indicates that the game build was successfully downloaded to a fleet instance, built, and validated, but was not able to start a server process. A possible reason for failure is that the game server is not reporting "process ready" to the Amazon GameLift service.     * __FLEET_STATE_ACTIVE__ – The fleet's status changed from @ACTIVATING@ to @ACTIVE@ . The fleet is now ready to host game sessions.     * Other fleet events:     * __FLEET_SCALING_EVENT__ – A change was made to the fleet's capacity settings (desired instances, minimum/maximum scaling limits). Event messaging includes the new capacity settings.     * __FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED__ – A change was made to the fleet's game session protection policy setting. Event messaging includes both the old and new policy setting.      * __FLEET_DELETED__ – A request to delete a fleet was initiated.
+-- * 'eEventCode' - Type of event being logged. The following events are currently in use: __General events:__      * GENERIC_EVENT -- An unspecified event has occurred. __Fleet creation events:__      * FLEET_CREATED -- A fleet record was successfully created with a status of @NEW@ . Event messaging includes the fleet ID.     * FLEET_STATE_DOWNLOADING -- Fleet status changed from @NEW@ to @DOWNLOADING@ . The compressed build has started downloading to a fleet instance for installation.     * FLEET_BINARY_DOWNLOAD_FAILED -- The build failed to download to the fleet instance.     * FLEET_CREATION_EXTRACTING_BUILD – The game server build was successfully downloaded to an instance, and the build files are now being extracted from the uploaded build and saved to an instance. Failure at this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage display a list of the files that are extracted and saved on the instance. Access the logs by using the URL in /PreSignedLogUrl/ .     * FLEET_CREATION_RUNNING_INSTALLER – The game server build files were successfully extracted, and the Amazon GameLift is now running the build's install script (if one is included). Failure in this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage list the installation steps and whether or not the install completed successfully. Access the logs by using the URL in /PreSignedLogUrl/ .      * FLEET_CREATION_VALIDATING_RUNTIME_CONFIG -- The build process was successful, and the Amazon GameLift is now verifying that the game server launch paths, which are specified in the fleet's run-time configuration, exist. If any listed launch path exists, Amazon GameLift tries to launch a game server process and waits for the process to report ready. Failures in this stage prevent a fleet from moving to @ACTIVE@ status. Logs for this stage list the launch paths in the run-time configuration and indicate whether each is found. Access the logs by using the URL in /PreSignedLogUrl/ .      * FLEET_STATE_VALIDATING -- Fleet status changed from @DOWNLOADING@ to @VALIDATING@ .     * FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND -- Validation of the run-time configuration failed because the executable specified in a launch path does not exist on the instance.     * FLEET_STATE_BUILDING -- Fleet status changed from @VALIDATING@ to @BUILDING@ .     * FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE -- Validation of the run-time configuration failed because the executable specified in a launch path failed to run on the fleet instance.     * FLEET_STATE_ACTIVATING -- Fleet status changed from @BUILDING@ to @ACTIVATING@ .      * FLEET_ACTIVATION_FAILED - The fleet failed to successfully complete one of the steps in the fleet activation process. This event code indicates that the game build was successfully downloaded to a fleet instance, built, and validated, but was not able to start a server process. A possible reason for failure is that the game server is not reporting "process ready" to the Amazon GameLift service.     * FLEET_STATE_ACTIVE -- The fleet's status changed from @ACTIVATING@ to @ACTIVE@ . The fleet is now ready to host game sessions. __VPC peering events:__      * FLEET_VPC_PEERING_SUCCEEDED -- A VPC peering connection has been established between the VPC for an Amazon GameLift fleet and a VPC in your AWS account.     * FLEET_VPC_PEERING_FAILED -- A requested VPC peering connection has failed. Event details and status information (see 'DescribeVpcPeeringConnections' ) provide additional detail. A common reason for peering failure is that the two VPCs have overlapping CIDR blocks of IPv4 addresses. To resolve this, change the CIDR block for the VPC in your AWS account. For more information on VPC peering failures, see <http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/invalid-peering-configurations.html http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/invalid-peering-configurations.html>      * FLEET_VPC_PEERING_DELETED -- A VPC peering connection has been successfully deleted. __Other fleet events:__      * FLEET_SCALING_EVENT -- A change was made to the fleet's capacity settings (desired instances, minimum/maximum scaling limits). Event messaging includes the new capacity settings.     * FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED -- A change was made to the fleet's game session protection policy setting. Event messaging includes both the old and new policy setting.      * FLEET_DELETED -- A request to delete a fleet was initiated.
 --
 -- * 'eEventId' - Unique identifier for a fleet event.
 event
@@ -656,7 +656,7 @@ eEventTime = lens _eEventTime (\ s a -> s{_eEventTime = a}) . mapping _Time;
 eMessage :: Lens' Event (Maybe Text)
 eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
 
--- | Type of event being logged. The following events are currently in use:     * General events:     * __GENERIC_EVENT__ – An unspecified event has occurred.     * Fleet creation events:     * __FLEET_CREATED__ – A fleet record was successfully created with a status of @NEW@ . Event messaging includes the fleet ID.     * __FLEET_STATE_DOWNLOADING__ – Fleet status changed from @NEW@ to @DOWNLOADING@ . The compressed build has started downloading to a fleet instance for installation.     * __FLEET_BINARY_DOWNLOAD_FAILED__ – The build failed to download to the fleet instance.     * __FLEET_CREATION_EXTRACTING_BUILD__ – The game server build was successfully downloaded to an instance, and the build files are now being extracted from the uploaded build and saved to an instance. Failure at this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage display a list of the files that are extracted and saved on the instance. Access the logs by using the URL in /PreSignedLogUrl/ .     * __FLEET_CREATION_RUNNING_INSTALLER__ – The game server build files were successfully extracted, and the Amazon GameLift is now running the build's install script (if one is included). Failure in this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage list the installation steps and whether or not the install completed successfully. Access the logs by using the URL in /PreSignedLogUrl/ .      * __FLEET_CREATION_VALIDATING_RUNTIME_CONFIG__ – The build process was successful, and the Amazon GameLift is now verifying that the game server launch paths, which are specified in the fleet's run-time configuration, exist. If any listed launch path exists, Amazon GameLift tries to launch a game server process and waits for the process to report ready. Failures in this stage prevent a fleet from moving to @ACTIVE@ status. Logs for this stage list the launch paths in the run-time configuration and indicate whether each is found. Access the logs by using the URL in /PreSignedLogUrl/ .      * __FLEET_STATE_VALIDATING__ – Fleet status changed from @DOWNLOADING@ to @VALIDATING@ .     * __FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND__ – Validation of the run-time configuration failed because the executable specified in a launch path does not exist on the instance.     * __FLEET_STATE_BUILDING__ – Fleet status changed from @VALIDATING@ to @BUILDING@ .     * __FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE__ – Validation of the run-time configuration failed because the executable specified in a launch path failed to run on the fleet instance.     * __FLEET_STATE_ACTIVATING__ – Fleet status changed from @BUILDING@ to @ACTIVATING@ .      * __FLEET_ACTIVATION_FAILED__ - The fleet failed to successfully complete one of the steps in the fleet activation process. This event code indicates that the game build was successfully downloaded to a fleet instance, built, and validated, but was not able to start a server process. A possible reason for failure is that the game server is not reporting "process ready" to the Amazon GameLift service.     * __FLEET_STATE_ACTIVE__ – The fleet's status changed from @ACTIVATING@ to @ACTIVE@ . The fleet is now ready to host game sessions.     * Other fleet events:     * __FLEET_SCALING_EVENT__ – A change was made to the fleet's capacity settings (desired instances, minimum/maximum scaling limits). Event messaging includes the new capacity settings.     * __FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED__ – A change was made to the fleet's game session protection policy setting. Event messaging includes both the old and new policy setting.      * __FLEET_DELETED__ – A request to delete a fleet was initiated.
+-- | Type of event being logged. The following events are currently in use: __General events:__      * GENERIC_EVENT -- An unspecified event has occurred. __Fleet creation events:__      * FLEET_CREATED -- A fleet record was successfully created with a status of @NEW@ . Event messaging includes the fleet ID.     * FLEET_STATE_DOWNLOADING -- Fleet status changed from @NEW@ to @DOWNLOADING@ . The compressed build has started downloading to a fleet instance for installation.     * FLEET_BINARY_DOWNLOAD_FAILED -- The build failed to download to the fleet instance.     * FLEET_CREATION_EXTRACTING_BUILD – The game server build was successfully downloaded to an instance, and the build files are now being extracted from the uploaded build and saved to an instance. Failure at this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage display a list of the files that are extracted and saved on the instance. Access the logs by using the URL in /PreSignedLogUrl/ .     * FLEET_CREATION_RUNNING_INSTALLER – The game server build files were successfully extracted, and the Amazon GameLift is now running the build's install script (if one is included). Failure in this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage list the installation steps and whether or not the install completed successfully. Access the logs by using the URL in /PreSignedLogUrl/ .      * FLEET_CREATION_VALIDATING_RUNTIME_CONFIG -- The build process was successful, and the Amazon GameLift is now verifying that the game server launch paths, which are specified in the fleet's run-time configuration, exist. If any listed launch path exists, Amazon GameLift tries to launch a game server process and waits for the process to report ready. Failures in this stage prevent a fleet from moving to @ACTIVE@ status. Logs for this stage list the launch paths in the run-time configuration and indicate whether each is found. Access the logs by using the URL in /PreSignedLogUrl/ .      * FLEET_STATE_VALIDATING -- Fleet status changed from @DOWNLOADING@ to @VALIDATING@ .     * FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND -- Validation of the run-time configuration failed because the executable specified in a launch path does not exist on the instance.     * FLEET_STATE_BUILDING -- Fleet status changed from @VALIDATING@ to @BUILDING@ .     * FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE -- Validation of the run-time configuration failed because the executable specified in a launch path failed to run on the fleet instance.     * FLEET_STATE_ACTIVATING -- Fleet status changed from @BUILDING@ to @ACTIVATING@ .      * FLEET_ACTIVATION_FAILED - The fleet failed to successfully complete one of the steps in the fleet activation process. This event code indicates that the game build was successfully downloaded to a fleet instance, built, and validated, but was not able to start a server process. A possible reason for failure is that the game server is not reporting "process ready" to the Amazon GameLift service.     * FLEET_STATE_ACTIVE -- The fleet's status changed from @ACTIVATING@ to @ACTIVE@ . The fleet is now ready to host game sessions. __VPC peering events:__      * FLEET_VPC_PEERING_SUCCEEDED -- A VPC peering connection has been established between the VPC for an Amazon GameLift fleet and a VPC in your AWS account.     * FLEET_VPC_PEERING_FAILED -- A requested VPC peering connection has failed. Event details and status information (see 'DescribeVpcPeeringConnections' ) provide additional detail. A common reason for peering failure is that the two VPCs have overlapping CIDR blocks of IPv4 addresses. To resolve this, change the CIDR block for the VPC in your AWS account. For more information on VPC peering failures, see <http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/invalid-peering-configurations.html http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/invalid-peering-configurations.html>      * FLEET_VPC_PEERING_DELETED -- A VPC peering connection has been successfully deleted. __Other fleet events:__      * FLEET_SCALING_EVENT -- A change was made to the fleet's capacity settings (desired instances, minimum/maximum scaling limits). Event messaging includes the new capacity settings.     * FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED -- A change was made to the fleet's game session protection policy setting. Event messaging includes both the old and new policy setting.      * FLEET_DELETED -- A request to delete a fleet was initiated.
 eEventCode :: Lens' Event (Maybe EventCode)
 eEventCode = lens _eEventCode (\ s a -> s{_eEventCode = a});
 
@@ -761,7 +761,7 @@ data FleetAttributes = FleetAttributes'
 --
 -- * 'faCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- * 'faStatus' - Current status of the fleet. Possible fleet statuses include the following:     * __NEW__ – A new fleet has been defined and desired instances is set to 1.      * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ – Amazon GameLift is setting up the new fleet, creating new instances with the game build and starting server processes.     * __ACTIVE__ – Hosts can now accept game sessions.     * __ERROR__ – An error occurred when downloading, validating, building, or activating the fleet.     * __DELETING__ – Hosts are responding to a delete fleet request.     * __TERMINATED__ – The fleet no longer exists.
+-- * 'faStatus' - Current status of the fleet. Possible fleet statuses include the following:     * __NEW__ -- A new fleet has been defined and desired instances is set to 1.      * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ -- Amazon GameLift is setting up the new fleet, creating new instances with the game build and starting server processes.     * __ACTIVE__ -- Hosts can now accept game sessions.     * __ERROR__ -- An error occurred when downloading, validating, building, or activating the fleet.     * __DELETING__ -- Hosts are responding to a delete fleet request.     * __TERMINATED__ -- The fleet no longer exists.
 --
 -- * 'faServerLaunchParameters' - Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
 --
@@ -775,7 +775,7 @@ data FleetAttributes = FleetAttributes'
 --
 -- * 'faTerminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- * 'faNewGameSessionProtectionPolicy' - Type of game session protection to set for all new instances started in the fleet.     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+-- * 'faNewGameSessionProtectionPolicy' - Type of game session protection to set for all new instances started in the fleet.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 --
 -- * 'faName' - Descriptive label that is associated with a fleet. Fleet names do not need to be unique.
 --
@@ -814,7 +814,7 @@ fleetAttributes =
 faCreationTime :: Lens' FleetAttributes (Maybe UTCTime)
 faCreationTime = lens _faCreationTime (\ s a -> s{_faCreationTime = a}) . mapping _Time;
 
--- | Current status of the fleet. Possible fleet statuses include the following:     * __NEW__ – A new fleet has been defined and desired instances is set to 1.      * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ – Amazon GameLift is setting up the new fleet, creating new instances with the game build and starting server processes.     * __ACTIVE__ – Hosts can now accept game sessions.     * __ERROR__ – An error occurred when downloading, validating, building, or activating the fleet.     * __DELETING__ – Hosts are responding to a delete fleet request.     * __TERMINATED__ – The fleet no longer exists.
+-- | Current status of the fleet. Possible fleet statuses include the following:     * __NEW__ -- A new fleet has been defined and desired instances is set to 1.      * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ -- Amazon GameLift is setting up the new fleet, creating new instances with the game build and starting server processes.     * __ACTIVE__ -- Hosts can now accept game sessions.     * __ERROR__ -- An error occurred when downloading, validating, building, or activating the fleet.     * __DELETING__ -- Hosts are responding to a delete fleet request.     * __TERMINATED__ -- The fleet no longer exists.
 faStatus :: Lens' FleetAttributes (Maybe FleetStatus)
 faStatus = lens _faStatus (\ s a -> s{_faStatus = a});
 
@@ -842,7 +842,7 @@ faFleetARN = lens _faFleetARN (\ s a -> s{_faFleetARN = a});
 faTerminationTime :: Lens' FleetAttributes (Maybe UTCTime)
 faTerminationTime = lens _faTerminationTime (\ s a -> s{_faTerminationTime = a}) . mapping _Time;
 
--- | Type of game session protection to set for all new instances started in the fleet.     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+-- | Type of game session protection to set for all new instances started in the fleet.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 faNewGameSessionProtectionPolicy :: Lens' FleetAttributes (Maybe ProtectionPolicy)
 faNewGameSessionProtectionPolicy = lens _faNewGameSessionProtectionPolicy (\ s a -> s{_faNewGameSessionProtectionPolicy = a});
 
@@ -1238,7 +1238,7 @@ data GameSession = GameSession'
 --
 -- * 'gsIPAddress' - IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
 --
--- * 'gsGameSessionId' - Unique identifier for the game session. A game session ID has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .
+-- * 'gsGameSessionId' - Unique identifier for the game session. A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .
 --
 -- * 'gsMaximumPlayerSessionCount' - Maximum number of players that can be connected simultaneously to the game session.
 --
@@ -1252,7 +1252,7 @@ data GameSession = GameSession'
 --
 -- * 'gsGameSessionData' - Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 --
--- * 'gsFleetId' - Unique identifier for a fleet the game session is running on.
+-- * 'gsFleetId' - Unique identifier for a fleet that the game session is running on.
 --
 -- * 'gsCreatorId' - Unique identifier for a player. This ID is used to enforce a resource protection policy (if one exists), that limits the number of game sessions a player can create.
 --
@@ -1294,7 +1294,7 @@ gsGameProperties = lens _gsGameProperties (\ s a -> s{_gsGameProperties = a}) . 
 gsIPAddress :: Lens' GameSession (Maybe Text)
 gsIPAddress = lens _gsIPAddress (\ s a -> s{_gsIPAddress = a});
 
--- | Unique identifier for the game session. A game session ID has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .
+-- | Unique identifier for the game session. A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .
 gsGameSessionId :: Lens' GameSession (Maybe Text)
 gsGameSessionId = lens _gsGameSessionId (\ s a -> s{_gsGameSessionId = a});
 
@@ -1322,7 +1322,7 @@ gsCurrentPlayerSessionCount = lens _gsCurrentPlayerSessionCount (\ s a -> s{_gsC
 gsGameSessionData :: Lens' GameSession (Maybe Text)
 gsGameSessionData = lens _gsGameSessionData (\ s a -> s{_gsGameSessionData = a});
 
--- | Unique identifier for a fleet the game session is running on.
+-- | Unique identifier for a fleet that the game session is running on.
 gsFleetId :: Lens' GameSession (Maybe Text)
 gsFleetId = lens _gsFleetId (\ s a -> s{_gsFleetId = a});
 
@@ -1439,7 +1439,7 @@ data GameSessionDetail = GameSessionDetail'
 --
 -- * 'gsdGameSession' - Object that describes a game session.
 --
--- * 'gsdProtectionPolicy' - Current status of protection for the game session.     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+-- * 'gsdProtectionPolicy' - Current status of protection for the game session.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 gameSessionDetail
     :: GameSessionDetail
 gameSessionDetail =
@@ -1450,7 +1450,7 @@ gameSessionDetail =
 gsdGameSession :: Lens' GameSessionDetail (Maybe GameSession)
 gsdGameSession = lens _gsdGameSession (\ s a -> s{_gsdGameSession = a});
 
--- | Current status of protection for the game session.     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+-- | Current status of protection for the game session.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 gsdProtectionPolicy :: Lens' GameSessionDetail (Maybe ProtectionPolicy)
 gsdProtectionPolicy = lens _gsdProtectionPolicy (\ s a -> s{_gsdProtectionPolicy = a});
 
@@ -1504,7 +1504,7 @@ data GameSessionPlacement = GameSessionPlacement'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gspStatus' - Current status of the game session placement request.     * __PENDING__ – The placement request is currently in the queue waiting to be processed.     * __FULFILLED__ – A new game session and player sessions (if requested) have been successfully created. Values for /GameSessionArn/ and /GameSessionRegion/ are available.      * __CANCELLED__ – The placement request was canceled with a call to 'StopGameSessionPlacement' .     * __TIMED_OUT__ – A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.
+-- * 'gspStatus' - Current status of the game session placement request.     * __PENDING__ -- The placement request is currently in the queue waiting to be processed.     * __FULFILLED__ -- A new game session and player sessions (if requested) have been successfully created. Values for /GameSessionArn/ and /GameSessionRegion/ are available.      * __CANCELLED__ -- The placement request was canceled with a call to 'StopGameSessionPlacement' .     * __TIMED_OUT__ -- A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.
 --
 -- * 'gspPlacementId' - Unique identifier for a game session placement.
 --
@@ -1558,7 +1558,7 @@ gameSessionPlacement =
   }
 
 
--- | Current status of the game session placement request.     * __PENDING__ – The placement request is currently in the queue waiting to be processed.     * __FULFILLED__ – A new game session and player sessions (if requested) have been successfully created. Values for /GameSessionArn/ and /GameSessionRegion/ are available.      * __CANCELLED__ – The placement request was canceled with a call to 'StopGameSessionPlacement' .     * __TIMED_OUT__ – A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.
+-- | Current status of the game session placement request.     * __PENDING__ -- The placement request is currently in the queue waiting to be processed.     * __FULFILLED__ -- A new game session and player sessions (if requested) have been successfully created. Values for /GameSessionArn/ and /GameSessionRegion/ are available.      * __CANCELLED__ -- The placement request was canceled with a call to 'StopGameSessionPlacement' .     * __TIMED_OUT__ -- A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.
 gspStatus :: Lens' GameSessionPlacement (Maybe GameSessionPlacementState)
 gspStatus = lens _gspStatus (\ s a -> s{_gspStatus = a});
 
@@ -1896,7 +1896,7 @@ data Instance = Instance'
 --
 -- * 'iInstanceId' - Unique identifier for an instance.
 --
--- * 'iStatus' - Current status of the instance. Possible statuses include the following:     * __PENDING__ – The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.      * __ACTIVE__ – The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.      * __TERMINATING__ – The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
+-- * 'iStatus' - Current status of the instance. Possible statuses include the following:     * __PENDING__ -- The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.      * __ACTIVE__ -- The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.      * __TERMINATING__ -- The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
 --
 -- * 'iIPAddress' - IP address assigned to the instance.
 --
@@ -1927,7 +1927,7 @@ iCreationTime = lens _iCreationTime (\ s a -> s{_iCreationTime = a}) . mapping _
 iInstanceId :: Lens' Instance (Maybe Text)
 iInstanceId = lens _iInstanceId (\ s a -> s{_iInstanceId = a});
 
--- | Current status of the instance. Possible statuses include the following:     * __PENDING__ – The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.      * __ACTIVE__ – The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.      * __TERMINATING__ – The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
+-- | Current status of the instance. Possible statuses include the following:     * __PENDING__ -- The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.      * __ACTIVE__ -- The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.      * __TERMINATING__ -- The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
 iStatus :: Lens' Instance (Maybe InstanceStatus)
 iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
 
@@ -2079,7 +2079,7 @@ instance Hashable InstanceCredentials where
 
 instance NFData InstanceCredentials where
 
--- | New player session created as a result of a successful FlexMatch match. A successful match automatically creates new player sessions for every player ID in the original matchmaking request.
+-- | Represents a new player session that is created as a result of a successful FlexMatch match. A successful match automatically creates new player sessions for every player ID in the original matchmaking request.
 --
 --
 -- When players connect to the match's game session, they must include both player ID and player session ID in order to claim their assigned player slot.
@@ -2349,7 +2349,9 @@ data MatchmakingTicket = MatchmakingTicket'
   , _mtStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
   , _mtGameSessionConnectionInfo :: {-# NOUNPACK #-}!(Maybe GameSessionConnectionInfo)
   , _mtTicketId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtEstimatedWaitTime :: {-# NOUNPACK #-}!(Maybe Nat)
   , _mtStatusMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mtEndTime :: {-# NOUNPACK #-}!(Maybe POSIX)
   , _mtStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
   , _mtPlayers :: {-# NOUNPACK #-}!(Maybe [Player])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -2359,7 +2361,7 @@ data MatchmakingTicket = MatchmakingTicket'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mtStatus' - Current status of the matchmaking request.     * __QUEUED__ – The matchmaking request has been received and is currently waiting to be processed.     * __SEARCHING__ – The matchmaking request is currently being processed.      * __REQUIRES_ACCEPTANCE__ – A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.     * __PLACING__ – The FlexMatch engine has matched players and is in the process of placing a new game session for the match.     * __COMPLETED__ – Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.     * __FAILED__ – The matchmaking request was not completed. Tickets with players who fail to accept a proposed match are placed in @FAILED@ status; new matchmaking requests can be submitted for these players.     * __CANCELLED__ – The matchmaking request was canceled with a call to 'StopMatchmaking' .     * __TIMED_OUT__ – The matchmaking request was not completed within the duration specified in the matchmaking configuration. Matchmaking requests that time out can be resubmitted.
+-- * 'mtStatus' - Current status of the matchmaking request.     * __QUEUED__ -- The matchmaking request has been received and is currently waiting to be processed.     * __SEARCHING__ -- The matchmaking request is currently being processed.      * __REQUIRES_ACCEPTANCE__ -- A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.     * __PLACING__ -- The FlexMatch engine has matched players and is in the process of placing a new game session for the match.     * __COMPLETED__ -- Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.     * __FAILED__ -- The matchmaking request was not completed. Tickets with players who fail to accept a proposed match are placed in @FAILED@ status; new matchmaking requests can be submitted for these players.     * __CANCELLED__ -- The matchmaking request was canceled with a call to 'StopMatchmaking' .     * __TIMED_OUT__ -- The matchmaking request was not completed within the duration specified in the matchmaking configuration. Matchmaking requests that time out can be resubmitted.
 --
 -- * 'mtConfigurationName' - Name of the 'MatchmakingConfiguration' that is used with this ticket. Matchmaking configurations determine how players are grouped into a match and how a new game session is created for the match.
 --
@@ -2369,7 +2371,11 @@ data MatchmakingTicket = MatchmakingTicket'
 --
 -- * 'mtTicketId' - Unique identifier for a matchmaking ticket.
 --
+-- * 'mtEstimatedWaitTime' - Average amount of time (in seconds) that players are currently waiting for a match. If there is not enough recent data, this property may be empty.
+--
 -- * 'mtStatusMessage' - Additional information about the current status.
+--
+-- * 'mtEndTime' - Time stamp indicating when the matchmaking request stopped being processed due to successful completion, timeout, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
 -- * 'mtStatusReason' - Code to explain the current status. For example, a status reason may indicate when a ticket has returned to @SEARCHING@ status after a proposed match fails to receive player acceptances.
 --
@@ -2383,13 +2389,15 @@ matchmakingTicket =
   , _mtStartTime = Nothing
   , _mtGameSessionConnectionInfo = Nothing
   , _mtTicketId = Nothing
+  , _mtEstimatedWaitTime = Nothing
   , _mtStatusMessage = Nothing
+  , _mtEndTime = Nothing
   , _mtStatusReason = Nothing
   , _mtPlayers = Nothing
   }
 
 
--- | Current status of the matchmaking request.     * __QUEUED__ – The matchmaking request has been received and is currently waiting to be processed.     * __SEARCHING__ – The matchmaking request is currently being processed.      * __REQUIRES_ACCEPTANCE__ – A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.     * __PLACING__ – The FlexMatch engine has matched players and is in the process of placing a new game session for the match.     * __COMPLETED__ – Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.     * __FAILED__ – The matchmaking request was not completed. Tickets with players who fail to accept a proposed match are placed in @FAILED@ status; new matchmaking requests can be submitted for these players.     * __CANCELLED__ – The matchmaking request was canceled with a call to 'StopMatchmaking' .     * __TIMED_OUT__ – The matchmaking request was not completed within the duration specified in the matchmaking configuration. Matchmaking requests that time out can be resubmitted.
+-- | Current status of the matchmaking request.     * __QUEUED__ -- The matchmaking request has been received and is currently waiting to be processed.     * __SEARCHING__ -- The matchmaking request is currently being processed.      * __REQUIRES_ACCEPTANCE__ -- A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.     * __PLACING__ -- The FlexMatch engine has matched players and is in the process of placing a new game session for the match.     * __COMPLETED__ -- Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.     * __FAILED__ -- The matchmaking request was not completed. Tickets with players who fail to accept a proposed match are placed in @FAILED@ status; new matchmaking requests can be submitted for these players.     * __CANCELLED__ -- The matchmaking request was canceled with a call to 'StopMatchmaking' .     * __TIMED_OUT__ -- The matchmaking request was not completed within the duration specified in the matchmaking configuration. Matchmaking requests that time out can be resubmitted.
 mtStatus :: Lens' MatchmakingTicket (Maybe MatchmakingConfigurationStatus)
 mtStatus = lens _mtStatus (\ s a -> s{_mtStatus = a});
 
@@ -2409,9 +2417,17 @@ mtGameSessionConnectionInfo = lens _mtGameSessionConnectionInfo (\ s a -> s{_mtG
 mtTicketId :: Lens' MatchmakingTicket (Maybe Text)
 mtTicketId = lens _mtTicketId (\ s a -> s{_mtTicketId = a});
 
+-- | Average amount of time (in seconds) that players are currently waiting for a match. If there is not enough recent data, this property may be empty.
+mtEstimatedWaitTime :: Lens' MatchmakingTicket (Maybe Natural)
+mtEstimatedWaitTime = lens _mtEstimatedWaitTime (\ s a -> s{_mtEstimatedWaitTime = a}) . mapping _Nat;
+
 -- | Additional information about the current status.
 mtStatusMessage :: Lens' MatchmakingTicket (Maybe Text)
 mtStatusMessage = lens _mtStatusMessage (\ s a -> s{_mtStatusMessage = a});
+
+-- | Time stamp indicating when the matchmaking request stopped being processed due to successful completion, timeout, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+mtEndTime :: Lens' MatchmakingTicket (Maybe UTCTime)
+mtEndTime = lens _mtEndTime (\ s a -> s{_mtEndTime = a}) . mapping _Time;
 
 -- | Code to explain the current status. For example, a status reason may indicate when a ticket has returned to @SEARCHING@ status after a proposed match fails to receive player acceptances.
 mtStatusReason :: Lens' MatchmakingTicket (Maybe Text)
@@ -2430,7 +2446,9 @@ instance FromJSON MatchmakingTicket where
                      (x .:? "StartTime")
                      <*> (x .:? "GameSessionConnectionInfo")
                      <*> (x .:? "TicketId")
+                     <*> (x .:? "EstimatedWaitTime")
                      <*> (x .:? "StatusMessage")
+                     <*> (x .:? "EndTime")
                      <*> (x .:? "StatusReason")
                      <*> (x .:? "Players" .!= mempty))
 
@@ -2501,7 +2519,7 @@ instance Hashable PlacedPlayerSession where
 
 instance NFData PlacedPlayerSession where
 
--- | Object used in matchmaking to represent a player. When starting a matchmaking request, a player has a player ID and may have latency data. Team information is added after a match has been successfully completed.
+-- | Represents a player in matchmaking. When starting a matchmaking request, a player has a player ID, attributes, and may have latency data. Team information is added after a match has been successfully completed.
 --
 --
 --
@@ -2524,7 +2542,7 @@ data Player = Player'
 --
 -- * 'pPlayerId' - Unique identifier for a player
 --
--- * 'pLatencyInMs' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS regions. If this property is present, FlexMatch considers placing the match only in regions that are included in the object map. If not present (that is, null), FlexMatch ignores latency issues and may place the match in any region in the queue.
+-- * 'pLatencyInMs' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS regions. If this property is present, FlexMatch considers placing the match only in regions for which latency is reported.  If a matchmaker has a rule that evaluates player latency, players must report latency in order to be matched. If no latency is reported in this scenario, FlexMatch assumes that no regions are available to the player and the ticket is not matchable.
 player
     :: Player
 player =
@@ -2548,7 +2566,7 @@ pTeam = lens _pTeam (\ s a -> s{_pTeam = a});
 pPlayerId :: Lens' Player (Maybe Text)
 pPlayerId = lens _pPlayerId (\ s a -> s{_pPlayerId = a});
 
--- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS regions. If this property is present, FlexMatch considers placing the match only in regions that are included in the object map. If not present (that is, null), FlexMatch ignores latency issues and may place the match in any region in the queue.
+-- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS regions. If this property is present, FlexMatch considers placing the match only in regions for which latency is reported.  If a matchmaker has a rule that evaluates player latency, players must report latency in order to be matched. If no latency is reported in this scenario, FlexMatch assumes that no regions are available to the player and the ticket is not matchable.
 pLatencyInMs :: Lens' Player (HashMap Text Natural)
 pLatencyInMs = lens _pLatencyInMs (\ s a -> s{_pLatencyInMs = a}) . _Default . _Map;
 
@@ -2755,7 +2773,7 @@ data PlayerSession = PlayerSession'
 --
 -- * 'psCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- * 'psStatus' - Current status of the player session. Possible player session statuses include the following:     * __RESERVED__ – The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ – The player has been validated by the server process and is currently connected.     * __COMPLETED__ – The player connection has been dropped.     * __TIMEDOUT__ – A player session request was received, but the player did not connect and/or was not validated within the time-out limit (60 seconds).
+-- * 'psStatus' - Current status of the player session. Possible player session statuses include the following:     * __RESERVED__ -- The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ -- The player has been validated by the server process and is currently connected.     * __COMPLETED__ -- The player connection has been dropped.     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
 --
 -- * 'psIPAddress' - IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
 --
@@ -2793,7 +2811,7 @@ playerSession =
 psCreationTime :: Lens' PlayerSession (Maybe UTCTime)
 psCreationTime = lens _psCreationTime (\ s a -> s{_psCreationTime = a}) . mapping _Time;
 
--- | Current status of the player session. Possible player session statuses include the following:     * __RESERVED__ – The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ – The player has been validated by the server process and is currently connected.     * __COMPLETED__ – The player connection has been dropped.     * __TIMEDOUT__ – A player session request was received, but the player did not connect and/or was not validated within the time-out limit (60 seconds).
+-- | Current status of the player session. Possible player session statuses include the following:     * __RESERVED__ -- The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ -- The player has been validated by the server process and is currently connected.     * __COMPLETED__ -- The player connection has been dropped.     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
 psStatus :: Lens' PlayerSession (Maybe PlayerSessionStatus)
 psStatus = lens _psStatus (\ s a -> s{_psStatus = a});
 
@@ -2974,7 +2992,7 @@ data RoutingStrategy = RoutingStrategy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsType' - Type of routing strategy. Possible routing types include the following:     * __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.     * __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
+-- * 'rsType' - Type of routing strategy. Possible routing types include the following:     * __SIMPLE__ -- The alias resolves to one specific fleet. Use this type when routing to active fleets.     * __TERMINAL__ -- The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
 --
 -- * 'rsMessage' - Message text to be used with a terminal routing strategy.
 --
@@ -2986,7 +3004,7 @@ routingStrategy =
   {_rsType = Nothing, _rsMessage = Nothing, _rsFleetId = Nothing}
 
 
--- | Type of routing strategy. Possible routing types include the following:     * __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.     * __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
+-- | Type of routing strategy. Possible routing types include the following:     * __SIMPLE__ -- The alias resolves to one specific fleet. Use this type when routing to active fleets.     * __TERMINAL__ -- The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
 rsType :: Lens' RoutingStrategy (Maybe RoutingStrategyType)
 rsType = lens _rsType (\ s a -> s{_rsType = a});
 
@@ -3272,13 +3290,13 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spStatus' - Current status of the scaling policy. The scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ – The scaling policy is currently in force.     * __UPDATE_REQUESTED__ – A request to update the scaling policy has been received.     * __UPDATING__ – A change is being made to the scaling policy.     * __DELETE_REQUESTED__ – A request to delete the scaling policy has been received.     * __DELETING__ – The scaling policy is being deleted.     * __DELETED__ – The scaling policy has been deleted.     * __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
+-- * 'spStatus' - Current status of the scaling policy. The scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ -- The scaling policy is currently in force.     * __UPDATE_REQUESTED__ -- A request to update the scaling policy has been received.     * __UPDATING__ -- A change is being made to the scaling policy.     * __DELETE_REQUESTED__ -- A request to delete the scaling policy has been received.     * __DELETING__ -- The scaling policy is being deleted.     * __DELETED__ -- The scaling policy has been deleted.     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
 --
--- * 'spScalingAdjustmentType' - Type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):     * __ChangeInCapacity__ – add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.     * __ExactCapacity__ – set the instance count to the scaling adjustment value.     * __PercentChangeInCapacity__ – increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
+-- * 'spScalingAdjustmentType' - Type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
 --
 -- * 'spEvaluationPeriods' - Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
 --
--- * 'spMetricName' - Name of the Amazon GameLift-defined metric that is used to trigger an adjustment.     * __ActivatingGameSessions__ – number of game sessions in the process of being created (game session status = @ACTIVATING@ ).     * __ActiveGameSessions__ – number of game sessions currently running (game session status = @ACTIVE@ ).     * __CurrentPlayerSessions__ – number of active or reserved player sessions (player session status = @ACTIVE@ or @RESERVED@ ).      * __AvailablePlayerSessions__ – number of player session slots currently available in active game sessions across the fleet, calculated by subtracting a game session's current player session count from its maximum player session count. This number does include game sessions that are not currently accepting players (game session @PlayerSessionCreationPolicy@ = @DENY_ALL@ ).     * __ActiveInstances__ – number of instances currently running a game session.     * __IdleInstances__ – number of instances not currently running a game session.
+-- * 'spMetricName' - Name of the Amazon GameLift-defined metric that is used to trigger an adjustment.     * __ActivatingGameSessions__ -- number of game sessions in the process of being created (game session status = @ACTIVATING@ ).     * __ActiveGameSessions__ -- number of game sessions currently running (game session status = @ACTIVE@ ).     * __CurrentPlayerSessions__ -- number of active or reserved player sessions (player session status = @ACTIVE@ or @RESERVED@ ).      * __AvailablePlayerSessions__ -- number of player session slots currently available in active game sessions across the fleet, calculated by subtracting a game session's current player session count from its maximum player session count. This number does include game sessions that are not currently accepting players (game session @PlayerSessionCreationPolicy@ = @DENY_ALL@ ).     * __ActiveInstances__ -- number of instances currently running a game session.     * __IdleInstances__ -- number of instances not currently running a game session.
 --
 -- * 'spComparisonOperator' - Comparison operator to use when measuring a metric against the threshold value.
 --
@@ -3305,11 +3323,11 @@ scalingPolicy =
   }
 
 
--- | Current status of the scaling policy. The scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ – The scaling policy is currently in force.     * __UPDATE_REQUESTED__ – A request to update the scaling policy has been received.     * __UPDATING__ – A change is being made to the scaling policy.     * __DELETE_REQUESTED__ – A request to delete the scaling policy has been received.     * __DELETING__ – The scaling policy is being deleted.     * __DELETED__ – The scaling policy has been deleted.     * __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
+-- | Current status of the scaling policy. The scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ -- The scaling policy is currently in force.     * __UPDATE_REQUESTED__ -- A request to update the scaling policy has been received.     * __UPDATING__ -- A change is being made to the scaling policy.     * __DELETE_REQUESTED__ -- A request to delete the scaling policy has been received.     * __DELETING__ -- The scaling policy is being deleted.     * __DELETED__ -- The scaling policy has been deleted.     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
 spStatus :: Lens' ScalingPolicy (Maybe ScalingStatusType)
 spStatus = lens _spStatus (\ s a -> s{_spStatus = a});
 
--- | Type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):     * __ChangeInCapacity__ – add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.     * __ExactCapacity__ – set the instance count to the scaling adjustment value.     * __PercentChangeInCapacity__ – increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
+-- | Type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
 spScalingAdjustmentType :: Lens' ScalingPolicy (Maybe ScalingAdjustmentType)
 spScalingAdjustmentType = lens _spScalingAdjustmentType (\ s a -> s{_spScalingAdjustmentType = a});
 
@@ -3317,7 +3335,7 @@ spScalingAdjustmentType = lens _spScalingAdjustmentType (\ s a -> s{_spScalingAd
 spEvaluationPeriods :: Lens' ScalingPolicy (Maybe Natural)
 spEvaluationPeriods = lens _spEvaluationPeriods (\ s a -> s{_spEvaluationPeriods = a}) . mapping _Nat;
 
--- | Name of the Amazon GameLift-defined metric that is used to trigger an adjustment.     * __ActivatingGameSessions__ – number of game sessions in the process of being created (game session status = @ACTIVATING@ ).     * __ActiveGameSessions__ – number of game sessions currently running (game session status = @ACTIVE@ ).     * __CurrentPlayerSessions__ – number of active or reserved player sessions (player session status = @ACTIVE@ or @RESERVED@ ).      * __AvailablePlayerSessions__ – number of player session slots currently available in active game sessions across the fleet, calculated by subtracting a game session's current player session count from its maximum player session count. This number does include game sessions that are not currently accepting players (game session @PlayerSessionCreationPolicy@ = @DENY_ALL@ ).     * __ActiveInstances__ – number of instances currently running a game session.     * __IdleInstances__ – number of instances not currently running a game session.
+-- | Name of the Amazon GameLift-defined metric that is used to trigger an adjustment.     * __ActivatingGameSessions__ -- number of game sessions in the process of being created (game session status = @ACTIVATING@ ).     * __ActiveGameSessions__ -- number of game sessions currently running (game session status = @ACTIVE@ ).     * __CurrentPlayerSessions__ -- number of active or reserved player sessions (player session status = @ACTIVE@ or @RESERVED@ ).      * __AvailablePlayerSessions__ -- number of player session slots currently available in active game sessions across the fleet, calculated by subtracting a game session's current player session count from its maximum player session count. This number does include game sessions that are not currently accepting players (game session @PlayerSessionCreationPolicy@ = @DENY_ALL@ ).     * __ActiveInstances__ -- number of instances currently running a game session.     * __IdleInstances__ -- number of instances not currently running a game session.
 spMetricName :: Lens' ScalingPolicy (Maybe MetricName)
 spMetricName = lens _spMetricName (\ s a -> s{_spMetricName = a});
 
@@ -3424,3 +3442,233 @@ instance ToJSON ServerProcess where
                   Just ("LaunchPath" .= _spLaunchPath),
                   Just
                     ("ConcurrentExecutions" .= _spConcurrentExecutions)])
+
+-- | Represents an authorization for a VPC peering connection between the VPC for an Amazon GameLift fleet and another VPC on an account you have access to. This authorization must exist and be valid for the peering connection to be established. Authorizations are valid for 24 hours after they are issued.
+--
+--
+-- VPC peering connection operations include:
+--
+--     * 'CreateVpcPeeringAuthorization'
+--
+--     * 'DescribeVpcPeeringAuthorizations'
+--
+--     * 'DeleteVpcPeeringAuthorization'
+--
+--     * 'CreateVpcPeeringConnection'
+--
+--     * 'DescribeVpcPeeringConnections'
+--
+--     * 'DeleteVpcPeeringConnection'
+--
+--
+--
+--
+-- /See:/ 'vpcPeeringAuthorization' smart constructor.
+data VPCPeeringAuthorization = VPCPeeringAuthorization'
+  { _vpaCreationTime         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _vpaPeerVPCId            :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpaPeerVPCAWSAccountId  :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpaGameLiftAWSAccountId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpaExpirationTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'VPCPeeringAuthorization' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vpaCreationTime' - Time stamp indicating when this authorization was issued. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+--
+-- * 'vpaPeerVPCId' - Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
+--
+-- * 'vpaPeerVPCAWSAccountId' -
+--
+-- * 'vpaGameLiftAWSAccountId' - Unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
+--
+-- * 'vpaExpirationTime' - Time stamp indicating when this authorization expires (24 hours after issuance). Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+vpcPeeringAuthorization
+    :: VPCPeeringAuthorization
+vpcPeeringAuthorization =
+  VPCPeeringAuthorization'
+  { _vpaCreationTime = Nothing
+  , _vpaPeerVPCId = Nothing
+  , _vpaPeerVPCAWSAccountId = Nothing
+  , _vpaGameLiftAWSAccountId = Nothing
+  , _vpaExpirationTime = Nothing
+  }
+
+
+-- | Time stamp indicating when this authorization was issued. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+vpaCreationTime :: Lens' VPCPeeringAuthorization (Maybe UTCTime)
+vpaCreationTime = lens _vpaCreationTime (\ s a -> s{_vpaCreationTime = a}) . mapping _Time;
+
+-- | Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
+vpaPeerVPCId :: Lens' VPCPeeringAuthorization (Maybe Text)
+vpaPeerVPCId = lens _vpaPeerVPCId (\ s a -> s{_vpaPeerVPCId = a});
+
+-- |
+vpaPeerVPCAWSAccountId :: Lens' VPCPeeringAuthorization (Maybe Text)
+vpaPeerVPCAWSAccountId = lens _vpaPeerVPCAWSAccountId (\ s a -> s{_vpaPeerVPCAWSAccountId = a});
+
+-- | Unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
+vpaGameLiftAWSAccountId :: Lens' VPCPeeringAuthorization (Maybe Text)
+vpaGameLiftAWSAccountId = lens _vpaGameLiftAWSAccountId (\ s a -> s{_vpaGameLiftAWSAccountId = a});
+
+-- | Time stamp indicating when this authorization expires (24 hours after issuance). Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+vpaExpirationTime :: Lens' VPCPeeringAuthorization (Maybe UTCTime)
+vpaExpirationTime = lens _vpaExpirationTime (\ s a -> s{_vpaExpirationTime = a}) . mapping _Time;
+
+instance FromJSON VPCPeeringAuthorization where
+        parseJSON
+          = withObject "VPCPeeringAuthorization"
+              (\ x ->
+                 VPCPeeringAuthorization' <$>
+                   (x .:? "CreationTime") <*> (x .:? "PeerVpcId") <*>
+                     (x .:? "PeerVpcAwsAccountId")
+                     <*> (x .:? "GameLiftAwsAccountId")
+                     <*> (x .:? "ExpirationTime"))
+
+instance Hashable VPCPeeringAuthorization where
+
+instance NFData VPCPeeringAuthorization where
+
+-- | Represents a peering connection between a VPC on one of your AWS accounts and the VPC for your Amazon GameLift fleets. This record may be for an active peering connection or a pending connection that has not yet been established.
+--
+--
+-- VPC peering connection operations include:
+--
+--     * 'CreateVpcPeeringAuthorization'
+--
+--     * 'DescribeVpcPeeringAuthorizations'
+--
+--     * 'DeleteVpcPeeringAuthorization'
+--
+--     * 'CreateVpcPeeringConnection'
+--
+--     * 'DescribeVpcPeeringConnections'
+--
+--     * 'DeleteVpcPeeringConnection'
+--
+--
+--
+--
+-- /See:/ 'vpcPeeringConnection' smart constructor.
+data VPCPeeringConnection = VPCPeeringConnection'
+  { _vpcVPCPeeringConnectionId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpcStatus :: {-# NOUNPACK #-}!(Maybe VPCPeeringConnectionStatus)
+  , _vpcPeerVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpcIPV4CidrBlock :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpcGameLiftVPCId :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpcFleetId :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'VPCPeeringConnection' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vpcVPCPeeringConnectionId' - Unique identifier that is automatically assigned to the connection record. This ID is referenced in VPC peering connection events, and is used when deleting a connection with 'DeleteVpcPeeringConnection' .
+--
+-- * 'vpcStatus' - Object that contains status information about the connection. Status indicates if a connection is pending, successful, or failed.
+--
+-- * 'vpcPeerVPCId' - Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
+--
+-- * 'vpcIPV4CidrBlock' - CIDR block of IPv4 addresses assigned to the VPC peering connection for the GameLift VPC. The peered VPC also has an IPv4 CIDR block associated with it; these blocks cannot overlap or the peering connection cannot be created.
+--
+-- * 'vpcGameLiftVPCId' - Unique identifier for the VPC that contains the Amazon GameLift fleet for this connection. This VPC is managed by Amazon GameLift and does not appear in your AWS account.
+--
+-- * 'vpcFleetId' - Unique identifier for a fleet. This ID determines the ID of the Amazon GameLift VPC for your fleet.
+vpcPeeringConnection
+    :: VPCPeeringConnection
+vpcPeeringConnection =
+  VPCPeeringConnection'
+  { _vpcVPCPeeringConnectionId = Nothing
+  , _vpcStatus = Nothing
+  , _vpcPeerVPCId = Nothing
+  , _vpcIPV4CidrBlock = Nothing
+  , _vpcGameLiftVPCId = Nothing
+  , _vpcFleetId = Nothing
+  }
+
+
+-- | Unique identifier that is automatically assigned to the connection record. This ID is referenced in VPC peering connection events, and is used when deleting a connection with 'DeleteVpcPeeringConnection' .
+vpcVPCPeeringConnectionId :: Lens' VPCPeeringConnection (Maybe Text)
+vpcVPCPeeringConnectionId = lens _vpcVPCPeeringConnectionId (\ s a -> s{_vpcVPCPeeringConnectionId = a});
+
+-- | Object that contains status information about the connection. Status indicates if a connection is pending, successful, or failed.
+vpcStatus :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionStatus)
+vpcStatus = lens _vpcStatus (\ s a -> s{_vpcStatus = a});
+
+-- | Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
+vpcPeerVPCId :: Lens' VPCPeeringConnection (Maybe Text)
+vpcPeerVPCId = lens _vpcPeerVPCId (\ s a -> s{_vpcPeerVPCId = a});
+
+-- | CIDR block of IPv4 addresses assigned to the VPC peering connection for the GameLift VPC. The peered VPC also has an IPv4 CIDR block associated with it; these blocks cannot overlap or the peering connection cannot be created.
+vpcIPV4CidrBlock :: Lens' VPCPeeringConnection (Maybe Text)
+vpcIPV4CidrBlock = lens _vpcIPV4CidrBlock (\ s a -> s{_vpcIPV4CidrBlock = a});
+
+-- | Unique identifier for the VPC that contains the Amazon GameLift fleet for this connection. This VPC is managed by Amazon GameLift and does not appear in your AWS account.
+vpcGameLiftVPCId :: Lens' VPCPeeringConnection (Maybe Text)
+vpcGameLiftVPCId = lens _vpcGameLiftVPCId (\ s a -> s{_vpcGameLiftVPCId = a});
+
+-- | Unique identifier for a fleet. This ID determines the ID of the Amazon GameLift VPC for your fleet.
+vpcFleetId :: Lens' VPCPeeringConnection (Maybe Text)
+vpcFleetId = lens _vpcFleetId (\ s a -> s{_vpcFleetId = a});
+
+instance FromJSON VPCPeeringConnection where
+        parseJSON
+          = withObject "VPCPeeringConnection"
+              (\ x ->
+                 VPCPeeringConnection' <$>
+                   (x .:? "VpcPeeringConnectionId") <*> (x .:? "Status")
+                     <*> (x .:? "PeerVpcId")
+                     <*> (x .:? "IpV4CidrBlock")
+                     <*> (x .:? "GameLiftVpcId")
+                     <*> (x .:? "FleetId"))
+
+instance Hashable VPCPeeringConnection where
+
+instance NFData VPCPeeringConnection where
+
+-- | Represents status information for a VPC peering connection. Status is associated with a 'VpcPeeringConnection' object. Status codes and messages are provided from EC2 (<http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpcPeeringConnectionStateReason.html ).> Connection status information is also communicated as a fleet 'Event' .
+--
+--
+--
+-- /See:/ 'vpcPeeringConnectionStatus' smart constructor.
+data VPCPeeringConnectionStatus = VPCPeeringConnectionStatus'
+  { _vpcsCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  , _vpcsMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'VPCPeeringConnectionStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vpcsCode' - Code indicating the status of a VPC peering connection.
+--
+-- * 'vpcsMessage' - Additional messaging associated with the connection status.
+vpcPeeringConnectionStatus
+    :: VPCPeeringConnectionStatus
+vpcPeeringConnectionStatus =
+  VPCPeeringConnectionStatus' {_vpcsCode = Nothing, _vpcsMessage = Nothing}
+
+
+-- | Code indicating the status of a VPC peering connection.
+vpcsCode :: Lens' VPCPeeringConnectionStatus (Maybe Text)
+vpcsCode = lens _vpcsCode (\ s a -> s{_vpcsCode = a});
+
+-- | Additional messaging associated with the connection status.
+vpcsMessage :: Lens' VPCPeeringConnectionStatus (Maybe Text)
+vpcsMessage = lens _vpcsMessage (\ s a -> s{_vpcsMessage = a});
+
+instance FromJSON VPCPeeringConnectionStatus where
+        parseJSON
+          = withObject "VPCPeeringConnectionStatus"
+              (\ x ->
+                 VPCPeeringConnectionStatus' <$>
+                   (x .:? "Code") <*> (x .:? "Message"))
+
+instance Hashable VPCPeeringConnectionStatus where
+
+instance NFData VPCPeeringConnectionStatus where

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the attributes for the specified Application Load Balancer.
+-- Describes the attributes for the specified Application Load Balancer or Network Load Balancer.
 --
 --
 module Network.AWS.ELBv2.DescribeLoadBalancerAttributes

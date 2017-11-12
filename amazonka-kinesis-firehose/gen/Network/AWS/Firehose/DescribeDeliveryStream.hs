@@ -58,7 +58,7 @@ data DescribeDeliveryStream = DescribeDeliveryStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddsExclusiveStartDestinationId' - The ID of the destination to start returning the destination information. Currently Firehose supports one destination per delivery stream.
+-- * 'ddsExclusiveStartDestinationId' - The ID of the destination to start returning the destination information. Currently, Kinesis Firehose supports one destination per delivery stream.
 --
 -- * 'ddsLimit' - The limit on the number of destinations to return. Currently, you can have one destination per delivery stream.
 --
@@ -74,7 +74,7 @@ describeDeliveryStream pDeliveryStreamName_ =
   }
 
 
--- | The ID of the destination to start returning the destination information. Currently Firehose supports one destination per delivery stream.
+-- | The ID of the destination to start returning the destination information. Currently, Kinesis Firehose supports one destination per delivery stream.
 ddsExclusiveStartDestinationId :: Lens' DescribeDeliveryStream (Maybe Text)
 ddsExclusiveStartDestinationId = lens _ddsExclusiveStartDestinationId (\ s a -> s{_ddsExclusiveStartDestinationId = a});
 

@@ -27,12 +27,12 @@ module Network.AWS.ServiceCatalog.CreatePortfolio
       createPortfolio
     , CreatePortfolio
     -- * Request Lenses
-    , cAcceptLanguage
-    , cDescription
-    , cTags
-    , cDisplayName
-    , cProviderName
-    , cIdempotencyToken
+    , creAcceptLanguage
+    , creDescription
+    , creTags
+    , creDisplayName
+    , creProviderName
+    , creIdempotencyToken
 
     -- * Destructuring the Response
     , createPortfolioResponse
@@ -52,12 +52,12 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createPortfolio' smart constructor.
 data CreatePortfolio = CreatePortfolio'
-  { _cAcceptLanguage   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cDisplayName      :: {-# NOUNPACK #-}!Text
-  , _cProviderName     :: {-# NOUNPACK #-}!Text
-  , _cIdempotencyToken :: {-# NOUNPACK #-}!Text
+  { _creAcceptLanguage   :: {-# NOUNPACK #-}!(Maybe Text)
+  , _creDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _creTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _creDisplayName      :: {-# NOUNPACK #-}!Text
+  , _creProviderName     :: {-# NOUNPACK #-}!Text
+  , _creIdempotencyToken :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -65,56 +65,56 @@ data CreatePortfolio = CreatePortfolio'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'creAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'cDescription' - The text description of the portfolio.
+-- * 'creDescription' - The text description of the portfolio.
 --
--- * 'cTags' - Tags to associate with the new portfolio.
+-- * 'creTags' - Tags to associate with the new portfolio.
 --
--- * 'cDisplayName' - The name to use for display purposes.
+-- * 'creDisplayName' - The name to use for display purposes.
 --
--- * 'cProviderName' - The name of the portfolio provider.
+-- * 'creProviderName' - The name of the portfolio provider.
 --
--- * 'cIdempotencyToken' - A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+-- * 'creIdempotencyToken' - A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 createPortfolio
-    :: Text -- ^ 'cDisplayName'
-    -> Text -- ^ 'cProviderName'
-    -> Text -- ^ 'cIdempotencyToken'
+    :: Text -- ^ 'creDisplayName'
+    -> Text -- ^ 'creProviderName'
+    -> Text -- ^ 'creIdempotencyToken'
     -> CreatePortfolio
 createPortfolio pDisplayName_ pProviderName_ pIdempotencyToken_ =
   CreatePortfolio'
-  { _cAcceptLanguage = Nothing
-  , _cDescription = Nothing
-  , _cTags = Nothing
-  , _cDisplayName = pDisplayName_
-  , _cProviderName = pProviderName_
-  , _cIdempotencyToken = pIdempotencyToken_
+  { _creAcceptLanguage = Nothing
+  , _creDescription = Nothing
+  , _creTags = Nothing
+  , _creDisplayName = pDisplayName_
+  , _creProviderName = pProviderName_
+  , _creIdempotencyToken = pIdempotencyToken_
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
-cAcceptLanguage :: Lens' CreatePortfolio (Maybe Text)
-cAcceptLanguage = lens _cAcceptLanguage (\ s a -> s{_cAcceptLanguage = a});
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+creAcceptLanguage :: Lens' CreatePortfolio (Maybe Text)
+creAcceptLanguage = lens _creAcceptLanguage (\ s a -> s{_creAcceptLanguage = a});
 
 -- | The text description of the portfolio.
-cDescription :: Lens' CreatePortfolio (Maybe Text)
-cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
+creDescription :: Lens' CreatePortfolio (Maybe Text)
+creDescription = lens _creDescription (\ s a -> s{_creDescription = a});
 
 -- | Tags to associate with the new portfolio.
-cTags :: Lens' CreatePortfolio [Tag]
-cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
+creTags :: Lens' CreatePortfolio [Tag]
+creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default . _Coerce;
 
 -- | The name to use for display purposes.
-cDisplayName :: Lens' CreatePortfolio Text
-cDisplayName = lens _cDisplayName (\ s a -> s{_cDisplayName = a});
+creDisplayName :: Lens' CreatePortfolio Text
+creDisplayName = lens _creDisplayName (\ s a -> s{_creDisplayName = a});
 
 -- | The name of the portfolio provider.
-cProviderName :: Lens' CreatePortfolio Text
-cProviderName = lens _cProviderName (\ s a -> s{_cProviderName = a});
+creProviderName :: Lens' CreatePortfolio Text
+creProviderName = lens _creProviderName (\ s a -> s{_creProviderName = a});
 
--- | A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
-cIdempotencyToken :: Lens' CreatePortfolio Text
-cIdempotencyToken = lens _cIdempotencyToken (\ s a -> s{_cIdempotencyToken = a});
+-- | A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request.
+creIdempotencyToken :: Lens' CreatePortfolio Text
+creIdempotencyToken = lens _creIdempotencyToken (\ s a -> s{_creIdempotencyToken = a});
 
 instance AWSRequest CreatePortfolio where
         type Rs CreatePortfolio = CreatePortfolioResponse
@@ -145,12 +145,12 @@ instance ToJSON CreatePortfolio where
         toJSON CreatePortfolio'{..}
           = object
               (catMaybes
-                 [("AcceptLanguage" .=) <$> _cAcceptLanguage,
-                  ("Description" .=) <$> _cDescription,
-                  ("Tags" .=) <$> _cTags,
-                  Just ("DisplayName" .= _cDisplayName),
-                  Just ("ProviderName" .= _cProviderName),
-                  Just ("IdempotencyToken" .= _cIdempotencyToken)])
+                 [("AcceptLanguage" .=) <$> _creAcceptLanguage,
+                  ("Description" .=) <$> _creDescription,
+                  ("Tags" .=) <$> _creTags,
+                  Just ("DisplayName" .= _creDisplayName),
+                  Just ("ProviderName" .= _creProviderName),
+                  Just ("IdempotencyToken" .= _creIdempotencyToken)])
 
 instance ToPath CreatePortfolio where
         toPath = const "/"

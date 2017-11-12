@@ -21,8 +21,6 @@
 -- Lists the tags for the specified log group.
 --
 --
--- To add tags, use 'TagLogGroup' . To remove tags, use 'UntagLogGroup' .
---
 module Network.AWS.CloudWatchLogs.ListTagsLogGroup
     (
     -- * Creating a Request
@@ -113,7 +111,7 @@ data ListTagsLogGroupResponse = ListTagsLogGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltlgrsTags' - The tags.
+-- * 'ltlgrsTags' - The tags for the log group.
 --
 -- * 'ltlgrsResponseStatus' - -- | The response status code.
 listTagsLogGroupResponse
@@ -124,7 +122,7 @@ listTagsLogGroupResponse pResponseStatus_ =
   {_ltlgrsTags = Nothing, _ltlgrsResponseStatus = pResponseStatus_}
 
 
--- | The tags.
+-- | The tags for the log group.
 ltlgrsTags :: Lens' ListTagsLogGroupResponse (HashMap Text Text)
 ltlgrsTags = lens _ltlgrsTags (\ s a -> s{_ltlgrsTags = a}) . _Default . _Map;
 

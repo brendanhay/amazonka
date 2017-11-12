@@ -30,6 +30,7 @@ module Network.AWS.SSM.DescribeAssociation
     , daAssociationId
     , daInstanceId
     , daName
+    , daAssociationVersion
 
     -- * Destructuring the Response
     , describeAssociationResponse
@@ -48,9 +49,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeAssociation' smart constructor.
 data DescribeAssociation = DescribeAssociation'
-  { _daAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daInstanceId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daName          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _daAssociationId      :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daInstanceId         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daName               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _daAssociationVersion :: {-# NOUNPACK #-}!(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -62,12 +64,18 @@ data DescribeAssociation = DescribeAssociation'
 --
 -- * 'daInstanceId' - The instance ID.
 --
--- * 'daName' - The name of the SSM document.
+-- * 'daName' - The name of the Systems Manager document.
+--
+-- * 'daAssociationVersion' - Specify the association version to retrieve. To view the latest version, either specify @> LATEST@ for this parameter, or omit this parameter. To view a list of all associations for an instance, use ListInstanceAssociations. To get a list of versions for a specific association, use ListAssociationVersions.
 describeAssociation
     :: DescribeAssociation
 describeAssociation =
   DescribeAssociation'
-  {_daAssociationId = Nothing, _daInstanceId = Nothing, _daName = Nothing}
+  { _daAssociationId = Nothing
+  , _daInstanceId = Nothing
+  , _daName = Nothing
+  , _daAssociationVersion = Nothing
+  }
 
 
 -- | The association ID for which you want information.
@@ -78,9 +86,13 @@ daAssociationId = lens _daAssociationId (\ s a -> s{_daAssociationId = a});
 daInstanceId :: Lens' DescribeAssociation (Maybe Text)
 daInstanceId = lens _daInstanceId (\ s a -> s{_daInstanceId = a});
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 daName :: Lens' DescribeAssociation (Maybe Text)
 daName = lens _daName (\ s a -> s{_daName = a});
+
+-- | Specify the association version to retrieve. To view the latest version, either specify @> LATEST@ for this parameter, or omit this parameter. To view a list of all associations for an instance, use ListInstanceAssociations. To get a list of versions for a specific association, use ListAssociationVersions.
+daAssociationVersion :: Lens' DescribeAssociation (Maybe Text)
+daAssociationVersion = lens _daAssociationVersion (\ s a -> s{_daAssociationVersion = a});
 
 instance AWSRequest DescribeAssociation where
         type Rs DescribeAssociation =
@@ -112,7 +124,8 @@ instance ToJSON DescribeAssociation where
               (catMaybes
                  [("AssociationId" .=) <$> _daAssociationId,
                   ("InstanceId" .=) <$> _daInstanceId,
-                  ("Name" .=) <$> _daName])
+                  ("Name" .=) <$> _daName,
+                  ("AssociationVersion" .=) <$> _daAssociationVersion])
 
 instance ToPath DescribeAssociation where
         toPath = const "/"

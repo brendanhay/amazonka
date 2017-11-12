@@ -65,7 +65,7 @@ data CreateDeployment = CreateDeployment'
 --
 -- * 'cdAmznClientToken' - The client token used to request idempotent operations.
 --
--- * 'cdDeploymentType' - Type of deployment
+-- * 'cdDeploymentType' - Type of deployment. When used in CreateDeployment, only NewDeployment and Redeployment are valid.
 --
 -- * 'cdGroupVersionId' - Group Version you wish to deploy.
 --
@@ -91,7 +91,7 @@ cdDeploymentId = lens _cdDeploymentId (\ s a -> s{_cdDeploymentId = a});
 cdAmznClientToken :: Lens' CreateDeployment (Maybe Text)
 cdAmznClientToken = lens _cdAmznClientToken (\ s a -> s{_cdAmznClientToken = a});
 
--- | Type of deployment
+-- | Type of deployment. When used in CreateDeployment, only NewDeployment and Redeployment are valid.
 cdDeploymentType :: Lens' CreateDeployment (Maybe DeploymentType)
 cdDeploymentType = lens _cdDeploymentType (\ s a -> s{_cdDeploymentType = a});
 
@@ -153,9 +153,9 @@ data CreateDeploymentResponse = CreateDeploymentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsDeploymentId' - Id of the deployment.
+-- * 'cdrsDeploymentId' - The id of the deployment.
 --
--- * 'cdrsDeploymentARN' - Arn of the deployment.
+-- * 'cdrsDeploymentARN' - The arn of the deployment.
 --
 -- * 'cdrsResponseStatus' - -- | The response status code.
 createDeploymentResponse
@@ -169,11 +169,11 @@ createDeploymentResponse pResponseStatus_ =
   }
 
 
--- | Id of the deployment.
+-- | The id of the deployment.
 cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 
--- | Arn of the deployment.
+-- | The arn of the deployment.
 cdrsDeploymentARN :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrsDeploymentARN = lens _cdrsDeploymentARN (\ s a -> s{_cdrsDeploymentARN = a});
 

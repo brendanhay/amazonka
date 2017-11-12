@@ -17,6 +17,7 @@ module Network.AWS.CodeBuild.Types
 
     -- * Errors
     , _ResourceAlreadyExistsException
+    , _OAuthProviderException
     , _AccountLimitExceededException
     , _InvalidInputException
     , _ResourceNotFoundException
@@ -38,6 +39,9 @@ module Network.AWS.CodeBuild.Types
 
     -- * EnvironmentType
     , EnvironmentType (..)
+
+    -- * EnvironmentVariableType
+    , EnvironmentVariableType (..)
 
     -- * LanguageType
     , LanguageType (..)
@@ -87,6 +91,12 @@ module Network.AWS.CodeBuild.Types
     , baMd5sum
     , baSha256sum
 
+    -- * BuildNotDeleted
+    , BuildNotDeleted
+    , buildNotDeleted
+    , bndId
+    , bndStatusCode
+
     -- * BuildPhase
     , BuildPhase
     , buildPhase
@@ -118,6 +128,7 @@ module Network.AWS.CodeBuild.Types
     -- * EnvironmentVariable
     , EnvironmentVariable
     , environmentVariable
+    , evType
     , evName
     , evValue
 
@@ -145,6 +156,7 @@ module Network.AWS.CodeBuild.Types
     , pSource
     , pEncryptionKey
     , pLastModified
+    , pWebhook
     , pDescription
     , pServiceRole
     , pTags
@@ -188,6 +200,11 @@ module Network.AWS.CodeBuild.Types
     , tag
     , tagValue
     , tagKey
+
+    -- * Webhook
+    , Webhook
+    , webhook
+    , wUrl
     ) where
 
 import Network.AWS.CodeBuild.Types.Product
@@ -239,6 +256,13 @@ codeBuild =
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
   _MatchServiceError codeBuild "ResourceAlreadyExistsException"
+
+
+-- | There was a problem with the underlying OAuth provider.
+--
+--
+_OAuthProviderException :: AsError a => Getting (First ServiceError) a ServiceError
+_OAuthProviderException = _MatchServiceError codeBuild "OAuthProviderException"
 
 
 -- | An AWS service limit was exceeded for the calling AWS account.

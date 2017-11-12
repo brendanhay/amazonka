@@ -21,9 +21,9 @@
 -- Returns a set of DKIM tokens for a domain. DKIM /tokens/ are character strings that represent your domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain.
 --
 --
--- This action is throttled at one request per second.
+-- You can execute this operation no more than once per second.
 --
--- To enable or disable Easy DKIM signing for a domain, use the @SetIdentityDkimEnabled@ action.
+-- To enable or disable Easy DKIM signing for a domain, use the @SetIdentityDkimEnabled@ operation.
 --
 -- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide> .
 --

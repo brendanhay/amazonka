@@ -68,11 +68,11 @@ data ModifyListener = ModifyListener'
 --
 -- * 'mlSSLPolicy' - The security policy that defines which protocols and ciphers are supported. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security Policies> in the /Application Load Balancers Guide/ .
 --
--- * 'mlProtocol' - The protocol for connections from clients to the load balancer.
+-- * 'mlProtocol' - The protocol for connections from clients to the load balancer. Application Load Balancers support HTTP and HTTPS and Network Load Balancers support TCP.
 --
--- * 'mlDefaultActions' - The default actions.
+-- * 'mlDefaultActions' - The default action. For Application Load Balancers, the protocol of the specified target group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
 --
--- * 'mlCertificates' - The SSL server certificate.
+-- * 'mlCertificates' - The default SSL server certificate.
 --
 -- * 'mlPort' - The port for connections from clients to the load balancer.
 --
@@ -95,15 +95,15 @@ modifyListener pListenerARN_ =
 mlSSLPolicy :: Lens' ModifyListener (Maybe Text)
 mlSSLPolicy = lens _mlSSLPolicy (\ s a -> s{_mlSSLPolicy = a});
 
--- | The protocol for connections from clients to the load balancer.
+-- | The protocol for connections from clients to the load balancer. Application Load Balancers support HTTP and HTTPS and Network Load Balancers support TCP.
 mlProtocol :: Lens' ModifyListener (Maybe ProtocolEnum)
 mlProtocol = lens _mlProtocol (\ s a -> s{_mlProtocol = a});
 
--- | The default actions.
+-- | The default action. For Application Load Balancers, the protocol of the specified target group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
 mlDefaultActions :: Lens' ModifyListener [Action]
 mlDefaultActions = lens _mlDefaultActions (\ s a -> s{_mlDefaultActions = a}) . _Default . _Coerce;
 
--- | The SSL server certificate.
+-- | The default SSL server certificate.
 mlCertificates :: Lens' ModifyListener [Certificate]
 mlCertificates = lens _mlCertificates (\ s a -> s{_mlCertificates = a}) . _Default . _Coerce;
 

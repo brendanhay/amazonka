@@ -37,6 +37,7 @@ module Network.AWS.LexModels.GetSlotType
     , GetSlotTypeResponse
     -- * Response Lenses
     , getrsChecksum
+    , getrsValueSelectionStrategy
     , getrsCreatedDate
     , getrsName
     , getrsVersion
@@ -90,8 +91,10 @@ instance AWSRequest GetSlotType where
           = receiveJSON
               (\ s h x ->
                  GetSlotTypeResponse' <$>
-                   (x .?> "checksum") <*> (x .?> "createdDate") <*>
-                     (x .?> "name")
+                   (x .?> "checksum") <*>
+                     (x .?> "valueSelectionStrategy")
+                     <*> (x .?> "createdDate")
+                     <*> (x .?> "name")
                      <*> (x .?> "version")
                      <*> (x .?> "lastUpdatedDate")
                      <*> (x .?> "description")
@@ -120,14 +123,15 @@ instance ToQuery GetSlotType where
 
 -- | /See:/ 'getSlotTypeResponse' smart constructor.
 data GetSlotTypeResponse = GetSlotTypeResponse'
-  { _getrsChecksum          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _getrsCreatedDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _getrsName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _getrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _getrsLastUpdatedDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _getrsDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _getrsChecksum :: {-# NOUNPACK #-}!(Maybe Text)
+  , _getrsValueSelectionStrategy :: {-# NOUNPACK #-}!(Maybe SlotValueSelectionStrategy)
+  , _getrsCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _getrsName :: {-# NOUNPACK #-}!(Maybe Text)
+  , _getrsVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  , _getrsLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  , _getrsDescription :: {-# NOUNPACK #-}!(Maybe Text)
   , _getrsEnumerationValues :: {-# NOUNPACK #-}!(Maybe (List1 EnumerationValue))
-  , _getrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  , _getrsResponseStatus :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,6 +140,8 @@ data GetSlotTypeResponse = GetSlotTypeResponse'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'getrsChecksum' - Checksum of the @> LATEST@ version of the slot type.
+--
+-- * 'getrsValueSelectionStrategy' - The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
 --
 -- * 'getrsCreatedDate' - The date that the slot type was created.
 --
@@ -156,6 +162,7 @@ getSlotTypeResponse
 getSlotTypeResponse pResponseStatus_ =
   GetSlotTypeResponse'
   { _getrsChecksum = Nothing
+  , _getrsValueSelectionStrategy = Nothing
   , _getrsCreatedDate = Nothing
   , _getrsName = Nothing
   , _getrsVersion = Nothing
@@ -169,6 +176,10 @@ getSlotTypeResponse pResponseStatus_ =
 -- | Checksum of the @> LATEST@ version of the slot type.
 getrsChecksum :: Lens' GetSlotTypeResponse (Maybe Text)
 getrsChecksum = lens _getrsChecksum (\ s a -> s{_getrsChecksum = a});
+
+-- | The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
+getrsValueSelectionStrategy :: Lens' GetSlotTypeResponse (Maybe SlotValueSelectionStrategy)
+getrsValueSelectionStrategy = lens _getrsValueSelectionStrategy (\ s a -> s{_getrsValueSelectionStrategy = a});
 
 -- | The date that the slot type was created.
 getrsCreatedDate :: Lens' GetSlotTypeResponse (Maybe UTCTime)

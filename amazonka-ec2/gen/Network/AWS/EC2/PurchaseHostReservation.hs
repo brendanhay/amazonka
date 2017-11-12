@@ -121,7 +121,7 @@ instance AWSRequest PurchaseHostReservation where
                      <*> (x .@? "totalUpfrontPrice")
                      <*>
                      (x .@? "purchase" .!@ mempty >>=
-                        may (parseXMLList "member"))
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance Hashable PurchaseHostReservation where

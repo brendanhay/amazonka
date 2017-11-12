@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associate a fleet to a stack.
+-- Associates the specified fleet with the specified stack.
 --
 --
 module Network.AWS.AppStream.AssociateFleet
@@ -55,9 +55,9 @@ data AssociateFleet = AssociateFleet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'afFleetName' - The name of the fleet to associate.
+-- * 'afFleetName' - The name of the fleet.
 --
--- * 'afStackName' - The name of the stack to which the fleet is associated.
+-- * 'afStackName' - The name of the stack.
 associateFleet
     :: Text -- ^ 'afFleetName'
     -> Text -- ^ 'afStackName'
@@ -66,11 +66,11 @@ associateFleet pFleetName_ pStackName_ =
   AssociateFleet' {_afFleetName = pFleetName_, _afStackName = pStackName_}
 
 
--- | The name of the fleet to associate.
+-- | The name of the fleet.
 afFleetName :: Lens' AssociateFleet Text
 afFleetName = lens _afFleetName (\ s a -> s{_afFleetName = a});
 
--- | The name of the stack to which the fleet is associated.
+-- | The name of the stack.
 afStackName :: Lens' AssociateFleet Text
 afStackName = lens _afStackName (\ s a -> s{_afStackName = a});
 

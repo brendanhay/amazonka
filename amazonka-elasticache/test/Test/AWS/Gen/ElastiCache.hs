@@ -14,11 +14,11 @@
 module Test.AWS.Gen.ElastiCache where
 
 import Data.Proxy
+import Network.AWS.ElastiCache
+import Test.AWS.ElastiCache.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ElastiCache
-import Test.AWS.ElastiCache.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -105,6 +105,9 @@ import Test.AWS.ElastiCache.Internal
 --
 --         , requestListAllowedNodeTypeModifications $
 --             listAllowedNodeTypeModifications
+--
+--         , requestModifyReplicationGroupShardConfiguration $
+--             modifyReplicationGroupShardConfiguration
 --
 --         , requestDescribeSnapshots $
 --             describeSnapshots
@@ -225,6 +228,9 @@ import Test.AWS.ElastiCache.Internal
 --
 --         , responseListAllowedNodeTypeModifications $
 --             listAllowedNodeTypeModificationsResponse
+--
+--         , responseModifyReplicationGroupShardConfiguration $
+--             modifyReplicationGroupShardConfigurationResponse
 --
 --         , responseDescribeSnapshots $
 --             describeSnapshotsResponse
@@ -399,6 +405,11 @@ requestListAllowedNodeTypeModifications :: ListAllowedNodeTypeModifications -> T
 requestListAllowedNodeTypeModifications = req
     "ListAllowedNodeTypeModifications"
     "fixture/ListAllowedNodeTypeModifications.yaml"
+
+requestModifyReplicationGroupShardConfiguration :: ModifyReplicationGroupShardConfiguration -> TestTree
+requestModifyReplicationGroupShardConfiguration = req
+    "ModifyReplicationGroupShardConfiguration"
+    "fixture/ModifyReplicationGroupShardConfiguration.yaml"
 
 requestDescribeSnapshots :: DescribeSnapshots -> TestTree
 requestDescribeSnapshots = req
@@ -648,6 +659,13 @@ responseListAllowedNodeTypeModifications = res
     "fixture/ListAllowedNodeTypeModificationsResponse.proto"
     elastiCache
     (Proxy :: Proxy ListAllowedNodeTypeModifications)
+
+responseModifyReplicationGroupShardConfiguration :: ModifyReplicationGroupShardConfigurationResponse -> TestTree
+responseModifyReplicationGroupShardConfiguration = res
+    "ModifyReplicationGroupShardConfigurationResponse"
+    "fixture/ModifyReplicationGroupShardConfigurationResponse.proto"
+    elastiCache
+    (Proxy :: Proxy ModifyReplicationGroupShardConfiguration)
 
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
 responseDescribeSnapshots = res

@@ -166,6 +166,9 @@ module Network.AWS.Organizations
     -- ** ParentNotFoundException
     , _ParentNotFoundException
 
+    -- ** AccessDeniedForDependencyException
+    , _AccessDeniedForDependencyException
+
     -- ** AWSOrganizationsNotInUseException
     , _AWSOrganizationsNotInUseException
 

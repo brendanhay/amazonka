@@ -28,6 +28,9 @@ module Network.AWS.ElasticSearch.Types
     -- * ESPartitionInstanceType
     , ESPartitionInstanceType (..)
 
+    -- * LogType
+    , LogType (..)
+
     -- * OptionState
     , OptionState (..)
 
@@ -92,8 +95,10 @@ module Network.AWS.ElasticSearch.Types
     , elasticsearchDomainConfig
     , edcEBSOptions
     , edcAccessPolicies
+    , edcLogPublishingOptions
     , edcElasticsearchClusterConfig
     , edcSnapshotOptions
+    , edcVPCOptions
     , edcAdvancedOptions
     , edcElasticsearchVersion
 
@@ -102,9 +107,12 @@ module Network.AWS.ElasticSearch.Types
     , elasticsearchDomainStatus
     , edsEBSOptions
     , edsAccessPolicies
+    , edsLogPublishingOptions
     , edsCreated
     , edsSnapshotOptions
     , edsDeleted
+    , edsVPCOptions
+    , edsEndpoints
     , edsProcessing
     , edsEndpoint
     , edsAdvancedOptions
@@ -137,6 +145,18 @@ module Network.AWS.ElasticSearch.Types
     , lInstanceLimits
     , lAdditionalLimits
     , lStorageTypes
+
+    -- * LogPublishingOption
+    , LogPublishingOption
+    , logPublishingOption
+    , lpoEnabled
+    , lpoCloudWatchLogsLogGroupARN
+
+    -- * LogPublishingOptionsStatus
+    , LogPublishingOptionsStatus
+    , logPublishingOptionsStatus
+    , lposStatus
+    , lposOptions
 
     -- * OptionStatus
     , OptionStatus
@@ -176,6 +196,26 @@ module Network.AWS.ElasticSearch.Types
     , tag
     , tagKey
     , tagValue
+
+    -- * VPCDerivedInfo
+    , VPCDerivedInfo
+    , vpcDerivedInfo
+    , vdiSecurityGroupIds
+    , vdiSubnetIds
+    , vdiVPCId
+    , vdiAvailabilityZones
+
+    -- * VPCDerivedInfoStatus
+    , VPCDerivedInfoStatus
+    , vpcDerivedInfoStatus
+    , vdisOptions
+    , vdisStatus
+
+    -- * VPCOptions
+    , VPCOptions
+    , vpcOptions
+    , voSecurityGroupIds
+    , voSubnetIds
     ) where
 
 import Network.AWS.ElasticSearch.Types.Product

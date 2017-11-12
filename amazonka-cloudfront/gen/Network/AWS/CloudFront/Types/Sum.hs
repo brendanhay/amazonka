@@ -232,6 +232,9 @@ instance ToXML Method where
 data MinimumProtocolVersion
   = MPVSSLV3
   | MPVTLSV1
+  | MPVTLSV12016
+  | MPVTLSV1_12016
+  | MPVTLSV1_22018
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -239,13 +242,19 @@ instance FromText MinimumProtocolVersion where
     parser = takeLowerText >>= \case
         "sslv3" -> pure MPVSSLV3
         "tlsv1" -> pure MPVTLSV1
+        "tlsv1_2016" -> pure MPVTLSV12016
+        "tlsv1.1_2016" -> pure MPVTLSV1_12016
+        "tlsv1.2_2018" -> pure MPVTLSV1_22018
         e -> fromTextError $ "Failure parsing MinimumProtocolVersion from value: '" <> e
-           <> "'. Accepted values: sslv3, tlsv1"
+           <> "'. Accepted values: sslv3, tlsv1, tlsv1_2016, tlsv1.1_2016, tlsv1.2_2018"
 
 instance ToText MinimumProtocolVersion where
     toText = \case
         MPVSSLV3 -> "SSLv3"
         MPVTLSV1 -> "TLSv1"
+        MPVTLSV12016 -> "TLSv1_2016"
+        MPVTLSV1_12016 -> "TLSv1.1_2016"
+        MPVTLSV1_22018 -> "TLSv1.2_2018"
 
 instance Hashable     MinimumProtocolVersion
 instance NFData       MinimumProtocolVersion

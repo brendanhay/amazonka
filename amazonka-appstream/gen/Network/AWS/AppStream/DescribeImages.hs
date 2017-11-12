@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the images. If a list of names is not provided, all images in your account are returned. This operation does not return a paginated result.
+-- Describes the specified images or all images in the account.
 --
 --
 module Network.AWS.AppStream.DescribeImages
@@ -33,8 +33,8 @@ module Network.AWS.AppStream.DescribeImages
     , describeImagesResponse
     , DescribeImagesResponse
     -- * Response Lenses
-    , dirsImages
-    , dirsResponseStatus
+    , disrsImages
+    , disrsResponseStatus
     ) where
 
 import Network.AWS.AppStream.Types
@@ -54,13 +54,13 @@ newtype DescribeImages = DescribeImages'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diNames' - A specific list of images to describe.
+-- * 'diNames' - The names of the images to describe.
 describeImages
     :: DescribeImages
 describeImages = DescribeImages' {_diNames = Nothing}
 
 
--- | A specific list of images to describe.
+-- | The names of the images to describe.
 diNames :: Lens' DescribeImages [Text]
 diNames = lens _diNames (\ s a -> s{_diNames = a}) . _Default . _Coerce;
 
@@ -99,8 +99,8 @@ instance ToQuery DescribeImages where
 
 -- | /See:/ 'describeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-  { _dirsImages         :: {-# NOUNPACK #-}!(Maybe [Image])
-  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _disrsImages         :: {-# NOUNPACK #-}!(Maybe [Image])
+  , _disrsResponseStatus :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -108,23 +108,23 @@ data DescribeImagesResponse = DescribeImagesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsImages' - The list of images.
+-- * 'disrsImages' - Information about the images.
 --
--- * 'dirsResponseStatus' - -- | The response status code.
+-- * 'disrsResponseStatus' - -- | The response status code.
 describeImagesResponse
-    :: Int -- ^ 'dirsResponseStatus'
+    :: Int -- ^ 'disrsResponseStatus'
     -> DescribeImagesResponse
 describeImagesResponse pResponseStatus_ =
   DescribeImagesResponse'
-  {_dirsImages = Nothing, _dirsResponseStatus = pResponseStatus_}
+  {_disrsImages = Nothing, _disrsResponseStatus = pResponseStatus_}
 
 
--- | The list of images.
-dirsImages :: Lens' DescribeImagesResponse [Image]
-dirsImages = lens _dirsImages (\ s a -> s{_dirsImages = a}) . _Default . _Coerce;
+-- | Information about the images.
+disrsImages :: Lens' DescribeImagesResponse [Image]
+disrsImages = lens _disrsImages (\ s a -> s{_disrsImages = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.
-dirsResponseStatus :: Lens' DescribeImagesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
+disrsResponseStatus :: Lens' DescribeImagesResponse Int
+disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a});
 
 instance NFData DescribeImagesResponse where

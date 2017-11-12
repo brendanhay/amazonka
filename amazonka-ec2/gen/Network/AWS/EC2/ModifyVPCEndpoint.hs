@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies attributes of a specified VPC endpoint. You can modify the policy associated with the endpoint, and you can add and remove route tables associated with the endpoint.
+-- Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface or gateway). For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html VPC Endpoints> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 --
 module Network.AWS.EC2.ModifyVPCEndpoint
@@ -31,7 +31,12 @@ module Network.AWS.EC2.ModifyVPCEndpoint
     , mveRemoveRouteTableIds
     , mveResetPolicy
     , mveAddRouteTableIds
+    , mvePrivateDNSEnabled
+    , mveAddSubnetIds
+    , mveRemoveSubnetIds
+    , mveAddSecurityGroupIds
     , mveDryRun
+    , mveRemoveSecurityGroupIds
     , mveVPCEndpointId
 
     -- * Destructuring the Response
@@ -55,12 +60,17 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyVPCEndpoint' smart constructor.
 data ModifyVPCEndpoint = ModifyVPCEndpoint'
-  { _mvePolicyDocument      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mveRemoveRouteTableIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mveResetPolicy         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mveAddRouteTableIds    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mveDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mveVPCEndpointId       :: {-# NOUNPACK #-}!Text
+  { _mvePolicyDocument         :: {-# NOUNPACK #-}!(Maybe Text)
+  , _mveRemoveRouteTableIds    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mveResetPolicy            :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mveAddRouteTableIds       :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mvePrivateDNSEnabled      :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mveAddSubnetIds           :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mveRemoveSubnetIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mveAddSecurityGroupIds    :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mveDryRun                 :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _mveRemoveSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _mveVPCEndpointId          :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -68,15 +78,25 @@ data ModifyVPCEndpoint = ModifyVPCEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mvePolicyDocument' - A policy document to attach to the endpoint. The policy must be in valid JSON format.
+-- * 'mvePolicyDocument' - (Gateway endpoint) A policy document to attach to the endpoint. The policy must be in valid JSON format.
 --
--- * 'mveRemoveRouteTableIds' - One or more route table IDs to disassociate from the endpoint.
+-- * 'mveRemoveRouteTableIds' - (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.
 --
--- * 'mveResetPolicy' - Specify @true@ to reset the policy document to the default policy. The default policy allows access to the service.
+-- * 'mveResetPolicy' - (Gateway endpoint) Specify @true@ to reset the policy document to the default policy. The default policy allows full access to the service.
 --
--- * 'mveAddRouteTableIds' - One or more route tables IDs to associate with the endpoint.
+-- * 'mveAddRouteTableIds' - (Gateway endpoint) One or more route tables IDs to associate with the endpoint.
+--
+-- * 'mvePrivateDNSEnabled' - (Interface endpoint) Indicate whether a private hosted zone is associated with the VPC.
+--
+-- * 'mveAddSubnetIds' - (Interface endpoint) One or more subnet IDs in which to serve the endpoint.
+--
+-- * 'mveRemoveSubnetIds' - (Interface endpoint) One or more subnets IDs in which to remove the endpoint.
+--
+-- * 'mveAddSecurityGroupIds' - (Interface endpoint) One or more security group IDs to associate with the network interface.
 --
 -- * 'mveDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- * 'mveRemoveSecurityGroupIds' - (Interface endpoint) One or more security group IDs to disassociate from the network interface.
 --
 -- * 'mveVPCEndpointId' - The ID of the endpoint.
 modifyVPCEndpoint
@@ -88,30 +108,55 @@ modifyVPCEndpoint pVPCEndpointId_ =
   , _mveRemoveRouteTableIds = Nothing
   , _mveResetPolicy = Nothing
   , _mveAddRouteTableIds = Nothing
+  , _mvePrivateDNSEnabled = Nothing
+  , _mveAddSubnetIds = Nothing
+  , _mveRemoveSubnetIds = Nothing
+  , _mveAddSecurityGroupIds = Nothing
   , _mveDryRun = Nothing
+  , _mveRemoveSecurityGroupIds = Nothing
   , _mveVPCEndpointId = pVPCEndpointId_
   }
 
 
--- | A policy document to attach to the endpoint. The policy must be in valid JSON format.
+-- | (Gateway endpoint) A policy document to attach to the endpoint. The policy must be in valid JSON format.
 mvePolicyDocument :: Lens' ModifyVPCEndpoint (Maybe Text)
 mvePolicyDocument = lens _mvePolicyDocument (\ s a -> s{_mvePolicyDocument = a});
 
--- | One or more route table IDs to disassociate from the endpoint.
+-- | (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.
 mveRemoveRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
 mveRemoveRouteTableIds = lens _mveRemoveRouteTableIds (\ s a -> s{_mveRemoveRouteTableIds = a}) . _Default . _Coerce;
 
--- | Specify @true@ to reset the policy document to the default policy. The default policy allows access to the service.
+-- | (Gateway endpoint) Specify @true@ to reset the policy document to the default policy. The default policy allows full access to the service.
 mveResetPolicy :: Lens' ModifyVPCEndpoint (Maybe Bool)
 mveResetPolicy = lens _mveResetPolicy (\ s a -> s{_mveResetPolicy = a});
 
--- | One or more route tables IDs to associate with the endpoint.
+-- | (Gateway endpoint) One or more route tables IDs to associate with the endpoint.
 mveAddRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
 mveAddRouteTableIds = lens _mveAddRouteTableIds (\ s a -> s{_mveAddRouteTableIds = a}) . _Default . _Coerce;
+
+-- | (Interface endpoint) Indicate whether a private hosted zone is associated with the VPC.
+mvePrivateDNSEnabled :: Lens' ModifyVPCEndpoint (Maybe Bool)
+mvePrivateDNSEnabled = lens _mvePrivateDNSEnabled (\ s a -> s{_mvePrivateDNSEnabled = a});
+
+-- | (Interface endpoint) One or more subnet IDs in which to serve the endpoint.
+mveAddSubnetIds :: Lens' ModifyVPCEndpoint [Text]
+mveAddSubnetIds = lens _mveAddSubnetIds (\ s a -> s{_mveAddSubnetIds = a}) . _Default . _Coerce;
+
+-- | (Interface endpoint) One or more subnets IDs in which to remove the endpoint.
+mveRemoveSubnetIds :: Lens' ModifyVPCEndpoint [Text]
+mveRemoveSubnetIds = lens _mveRemoveSubnetIds (\ s a -> s{_mveRemoveSubnetIds = a}) . _Default . _Coerce;
+
+-- | (Interface endpoint) One or more security group IDs to associate with the network interface.
+mveAddSecurityGroupIds :: Lens' ModifyVPCEndpoint [Text]
+mveAddSecurityGroupIds = lens _mveAddSecurityGroupIds (\ s a -> s{_mveAddSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mveDryRun :: Lens' ModifyVPCEndpoint (Maybe Bool)
 mveDryRun = lens _mveDryRun (\ s a -> s{_mveDryRun = a});
+
+-- | (Interface endpoint) One or more security group IDs to disassociate from the network interface.
+mveRemoveSecurityGroupIds :: Lens' ModifyVPCEndpoint [Text]
+mveRemoveSecurityGroupIds = lens _mveRemoveSecurityGroupIds (\ s a -> s{_mveRemoveSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | The ID of the endpoint.
 mveVPCEndpointId :: Lens' ModifyVPCEndpoint Text
@@ -149,14 +194,22 @@ instance ToQuery ModifyVPCEndpoint where
                toQuery
                  (toQueryList "AddRouteTableId" <$>
                     _mveAddRouteTableIds),
+               "PrivateDnsEnabled" =: _mvePrivateDNSEnabled,
+               toQuery
+                 (toQueryList "AddSubnetId" <$> _mveAddSubnetIds),
+               toQuery
+                 (toQueryList "RemoveSubnetId" <$>
+                    _mveRemoveSubnetIds),
+               toQuery
+                 (toQueryList "AddSecurityGroupId" <$>
+                    _mveAddSecurityGroupIds),
                "DryRun" =: _mveDryRun,
+               toQuery
+                 (toQueryList "RemoveSecurityGroupId" <$>
+                    _mveRemoveSecurityGroupIds),
                "VpcEndpointId" =: _mveVPCEndpointId]
 
--- | Contains the output of ModifyVpcEndpoint.
---
---
---
--- /See:/ 'modifyVPCEndpointResponse' smart constructor.
+-- | /See:/ 'modifyVPCEndpointResponse' smart constructor.
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
   { _mversReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
   , _mversResponseStatus :: {-# NOUNPACK #-}!Int

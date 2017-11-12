@@ -59,7 +59,7 @@ data AssociatePrincipalWithPortfolio = AssociatePrincipalWithPortfolio'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'aAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'aPortfolioId' - The portfolio identifier.
 --
@@ -80,7 +80,7 @@ associatePrincipalWithPortfolio pPortfolioId_ pPrincipalARN_ pPrincipalType_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 aAcceptLanguage :: Lens' AssociatePrincipalWithPortfolio (Maybe Text)
 aAcceptLanguage = lens _aAcceptLanguage (\ s a -> s{_aAcceptLanguage = a});
 

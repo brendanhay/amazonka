@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or overwrites one or more tags for the specified resource. Tags are metadata that you assign to your managed instances, Maintenance Windows, or Parameter Store parameters. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test.
+-- Adds or overwrites one or more tags for the specified resource. Tags are metadata that you can assign to your documents, managed instances, Maintenance Windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test.
 --
 --
 -- Each resource can have a maximum of 10 tags.
@@ -65,7 +65,7 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- * 'attrResourceType' - Specifies the type of resource you are tagging.
 --
--- * 'attrResourceId' - The resource ID you want to tag.
+-- * 'attrResourceId' - The resource ID you want to tag. For the ManagedInstance, MaintenanceWindow, and PatchBaseline values, use the ID of the resource, such as mw-01234361858c9b57b for a Maintenance Window. For the Document and Parameter values, use the name of the resource.
 --
 -- * 'attrTags' - One or more tags. The value parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
 addTagsToResource
@@ -84,7 +84,7 @@ addTagsToResource pResourceType_ pResourceId_ =
 attrResourceType :: Lens' AddTagsToResource ResourceTypeForTagging
 attrResourceType = lens _attrResourceType (\ s a -> s{_attrResourceType = a});
 
--- | The resource ID you want to tag.
+-- | The resource ID you want to tag. For the ManagedInstance, MaintenanceWindow, and PatchBaseline values, use the ID of the resource, such as mw-01234361858c9b57b for a Maintenance Window. For the Document and Parameter values, use the name of the resource.
 attrResourceId :: Lens' AddTagsToResource Text
 attrResourceId = lens _attrResourceId (\ s a -> s{_attrResourceId = a});
 

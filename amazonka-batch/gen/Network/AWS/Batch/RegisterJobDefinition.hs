@@ -70,7 +70,7 @@ data RegisterJobDefinition = RegisterJobDefinition'
 --
 -- * 'rjdContainerProperties' - An object with various properties specific for container-based jobs. This parameter is required if the @type@ parameter is @container@ .
 --
--- * 'rjdJobDefinitionName' - The name of the job definition to register.
+-- * 'rjdJobDefinitionName' - The name of the job definition to register. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 --
 -- * 'rjdType' - The type of job definition.
 registerJobDefinition
@@ -99,7 +99,7 @@ rjdParameters = lens _rjdParameters (\ s a -> s{_rjdParameters = a}) . _Default 
 rjdContainerProperties :: Lens' RegisterJobDefinition (Maybe ContainerProperties)
 rjdContainerProperties = lens _rjdContainerProperties (\ s a -> s{_rjdContainerProperties = a});
 
--- | The name of the job definition to register.
+-- | The name of the job definition to register. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 rjdJobDefinitionName :: Lens' RegisterJobDefinition Text
 rjdJobDefinitionName = lens _rjdJobDefinitionName (\ s a -> s{_rjdJobDefinitionName = a});
 

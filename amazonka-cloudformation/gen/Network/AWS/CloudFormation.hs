@@ -21,170 +21,6 @@
 --
 -- Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product's technical documentation at <http://docs.aws.amazon.com/ docs.aws.amazon.com> .
 --
--- /APIs for stacks /
---
--- When you use AWS CloudFormation, you manage related resources as a single unit called a stack. You create, update, and delete a collection of resources by creating, updating, and deleting stacks. All the resources in a stack are defined by the stack's AWS CloudFormation template.
---
--- Actions
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html CancelUpdateStack>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ContinueUpdateRollback.html ContinueUpdateRollback>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html CreateStack>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStack.html DeleteStack>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html DescribeStackEvents>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html DescribeStackResource>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResources.html DescribeStackResources>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStacks.html DescribeStacks>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_EstimateTemplateCost.html EstimateTemplateCost>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetStackPolicy.html GetStackPolicy>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html GetTemplate>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplateSummary.html GetTemplateSummary>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListExports.html ListExports>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListImports.html ListImports>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackResources.html ListStackResources>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStacks.html ListStacks>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html SetStackPolicy>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html UpdateStack>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ValidateTemplate.html ValidateTemplate>
---
---
---
--- Data Types
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Export.html Export>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ParameterConstraints.html ParameterConstraints>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ParameterDeclaration.html ParameterDeclaration>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Stack.html Stack>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackEvent.html StackEvent>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackResource.html StackResource>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackResourceDetail.html StackResourceDetail>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackResourceSummary.html StackResourceSummary>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSummary.html StackSummary>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Tag.html Tag>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_TemplateParameter.html TemplateParameter>
---
---
---
--- /APIs for change sets/
---
--- If you need to make changes to the running resources in a stack, you update the stack. Before making changes to your resources, you can generate a change set, which is summary of your proposed changes. Change sets allow you to see how your changes might impact your running resources, especially for critical resources, before implementing them.
---
--- Actions
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html CreateChangeSet>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteChangeSet.html DeleteChangeSet>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeChangeSet.html DescribeChangeSet>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListChangeSets.html ListChangeSets>
---
---
---
--- Data Types
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Change.html Change>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ChangeSetSummary.html ChangeSetSummary>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ResourceChange.html ResourceChange>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ResourceChangeDetail.html ResourceChangeDetail>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ResourceTargetDefinition.html ResourceTargetDefinition>
---
---
---
--- /APIs for stack sets/
---
--- AWS CloudFormation StackSets lets you create a collection, or stack set, of stacks that can automatically and safely provision a common set of AWS resources across multiple AWS accounts and multiple AWS regions from a single AWS CloudFormation template. When you create a stack set, AWS CloudFormation provisions a stack in each of the specified accounts and regions by using the supplied AWS CloudFormation template and parameters. Stack sets let you manage a common set of AWS resources in a selection of accounts and regions in a single operation.
---
--- Actions
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html CreateStackInstances>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackSet.html CreateStackSet>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStackInstances.html DeleteStackInstances>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStackSet.html DeleteStackSet>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackInstance.html DescribeStackInstance>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackSet.html DescribeStackSet>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackSetOperation.html DescribeStackSetOperation>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackInstances.html ListStackInstances>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetOperationResults ListStackSetOperationResults>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetOperations ListStackSetOperations>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSets ListStackSets>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StopStackSetOperation.html StopStackSetOperation>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet>
---
---
---
--- Data Types
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackInstance.html.html StackInstance>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackInstanceSummary.html.html StackInstanceSummary>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSet.html StackSet>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSetOperation.html.html StackSetOperation>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSetOperationPreferences.html.html StackSetOperationPreferences>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSetOperationResultSummary.html.html StackSetOperationResultSummary>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSetOperationSummary.html.html StackSetOperationSummary>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSetSummary.html StackSetSummary>
---
---     * <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Tag.html Tag>
---
---
---
 module Network.AWS.CloudFormation
     (
     -- * Service Configuration
@@ -360,6 +196,9 @@ module Network.AWS.CloudFormation
 
     -- ** CreateStackSet
     , module Network.AWS.CloudFormation.CreateStackSet
+
+    -- ** UpdateTerminationProtection
+    , module Network.AWS.CloudFormation.UpdateTerminationProtection
 
     -- ** GetTemplate
     , module Network.AWS.CloudFormation.GetTemplate
@@ -541,21 +380,38 @@ module Network.AWS.CloudFormation
     , rtdRequiresRecreation
     , rtdName
 
+    -- ** RollbackConfiguration
+    , RollbackConfiguration
+    , rollbackConfiguration
+    , rcRollbackTriggers
+    , rcMonitoringTimeInMinutes
+
+    -- ** RollbackTrigger
+    , RollbackTrigger
+    , rollbackTrigger
+    , rtARN
+    , rtType
+
     -- ** Stack
     , Stack
     , stack
     , sDisableRollback
     , sLastUpdatedTime
+    , sRootId
     , sNotificationARNs
     , sStackStatusReason
+    , sEnableTerminationProtection
     , sChangeSetId
+    , sDeletionTime
     , sOutputs
     , sParameters
     , sStackId
     , sDescription
     , sCapabilities
+    , sRollbackConfiguration
     , sTags
     , sTimeoutInMinutes
+    , sParentId
     , sRoleARN
     , sStackName
     , sCreationTime
@@ -696,10 +552,12 @@ module Network.AWS.CloudFormation
     , StackSummary
     , stackSummary
     , ssLastUpdatedTime
+    , ssRootId
     , ssStackStatusReason
     , ssTemplateDescription
     , ssDeletionTime
     , ssStackId
+    , ssParentId
     , ssStackName
     , ssCreationTime
     , ssStackStatus
@@ -758,6 +616,7 @@ import Network.AWS.CloudFormation.StopStackSetOperation
 import Network.AWS.CloudFormation.Types
 import Network.AWS.CloudFormation.UpdateStack
 import Network.AWS.CloudFormation.UpdateStackSet
+import Network.AWS.CloudFormation.UpdateTerminationProtection
 import Network.AWS.CloudFormation.ValidateTemplate
 import Network.AWS.CloudFormation.Waiters
 

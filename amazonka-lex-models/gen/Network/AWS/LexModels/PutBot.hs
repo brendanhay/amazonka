@@ -75,7 +75,7 @@ import Network.AWS.Response
 -- | /See:/ 'putBot' smart constructor.
 data PutBot = PutBot'
   { _pbAbortStatement          :: {-# NOUNPACK #-}!(Maybe Statement)
-  , _pbIntents                 :: {-# NOUNPACK #-}!(Maybe (List1 Intent))
+  , _pbIntents                 :: {-# NOUNPACK #-}!(Maybe [Intent])
   , _pbChecksum                :: {-# NOUNPACK #-}!(Maybe Text)
   , _pbProcessBehavior         :: {-# NOUNPACK #-}!(Maybe ProcessBehavior)
   , _pbIdleSessionTTLInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
@@ -139,8 +139,8 @@ pbAbortStatement :: Lens' PutBot (Maybe Statement)
 pbAbortStatement = lens _pbAbortStatement (\ s a -> s{_pbAbortStatement = a});
 
 -- | An array of @Intent@ objects. Each intent represents a command that a user can express. For example, a pizza ordering bot might support an OrderPizza intent. For more information, see 'how-it-works' .
-pbIntents :: Lens' PutBot (Maybe (NonEmpty Intent))
-pbIntents = lens _pbIntents (\ s a -> s{_pbIntents = a}) . mapping _List1;
+pbIntents :: Lens' PutBot [Intent]
+pbIntents = lens _pbIntents (\ s a -> s{_pbIntents = a}) . _Default . _Coerce;
 
 -- | Identifies a specific revision of the @> LATEST@ version. When you create a new bot, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception. When you want to update a bot, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
 pbChecksum :: Lens' PutBot (Maybe Text)
@@ -187,7 +187,7 @@ instance AWSRequest PutBot where
                  PutBotResponse' <$>
                    (x .?> "failureReason") <*> (x .?> "status") <*>
                      (x .?> "abortStatement")
-                     <*> (x .?> "intents")
+                     <*> (x .?> "intents" .!@ mempty)
                      <*> (x .?> "checksum")
                      <*> (x .?> "locale")
                      <*> (x .?> "createdDate")
@@ -242,7 +242,7 @@ data PutBotResponse = PutBotResponse'
   { _pbrsFailureReason           :: {-# NOUNPACK #-}!(Maybe Text)
   , _pbrsStatus                  :: {-# NOUNPACK #-}!(Maybe LexStatus)
   , _pbrsAbortStatement          :: {-# NOUNPACK #-}!(Maybe Statement)
-  , _pbrsIntents                 :: {-# NOUNPACK #-}!(Maybe (List1 Intent))
+  , _pbrsIntents                 :: {-# NOUNPACK #-}!(Maybe [Intent])
   , _pbrsChecksum                :: {-# NOUNPACK #-}!(Maybe Text)
   , _pbrsLocale                  :: {-# NOUNPACK #-}!(Maybe Locale)
   , _pbrsCreatedDate             :: {-# NOUNPACK #-}!(Maybe POSIX)
@@ -330,8 +330,8 @@ pbrsAbortStatement :: Lens' PutBotResponse (Maybe Statement)
 pbrsAbortStatement = lens _pbrsAbortStatement (\ s a -> s{_pbrsAbortStatement = a});
 
 -- | An array of @Intent@ objects. For more information, see 'PutBot' .
-pbrsIntents :: Lens' PutBotResponse (Maybe (NonEmpty Intent))
-pbrsIntents = lens _pbrsIntents (\ s a -> s{_pbrsIntents = a}) . mapping _List1;
+pbrsIntents :: Lens' PutBotResponse [Intent]
+pbrsIntents = lens _pbrsIntents (\ s a -> s{_pbrsIntents = a}) . _Default . _Coerce;
 
 -- | Checksum of the bot that you created.
 pbrsChecksum :: Lens' PutBotResponse (Maybe Text)

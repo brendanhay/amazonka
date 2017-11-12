@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the custom MAIL FROM attributes for a list of identities (email addresses and/or domains).
+-- Returns the custom MAIL FROM attributes for a list of identities (email addresses : domains).
 --
 --
--- This action is throttled at one request per second and can only get custom MAIL FROM attributes for up to 100 identities at a time.
+-- This operation is throttled at one request per second and can only get custom MAIL FROM attributes for up to 100 identities at a time.
 --
 module Network.AWS.SES.GetIdentityMailFromDomainAttributes
     (

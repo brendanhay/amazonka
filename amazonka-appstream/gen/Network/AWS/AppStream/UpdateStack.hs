@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified fields in the stack with the specified name.
+-- Updates the specified stack.
 --
 --
 module Network.AWS.AppStream.UpdateStack
@@ -62,15 +62,15 @@ data UpdateStack = UpdateStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usDeleteStorageConnectors' - Remove all the storage connectors currently enabled for the stack.
+-- * 'usDeleteStorageConnectors' - Deletes the storage connectors currently enabled for the stack.
 --
--- * 'usStorageConnectors' - The storage connectors to be enabled for the stack.
+-- * 'usStorageConnectors' - The storage connectors to enable.
 --
--- * 'usDisplayName' - The name displayed to end users on the AppStream 2.0 portal.
+-- * 'usDisplayName' - The stack name displayed to end users.
 --
--- * 'usDescription' - The description displayed to end users on the AppStream 2.0 portal.
+-- * 'usDescription' - The description displayed to end users.
 --
--- * 'usName' - The name of the stack to update.
+-- * 'usName' - The name of the stack.
 updateStack
     :: Text -- ^ 'usName'
     -> UpdateStack
@@ -84,23 +84,23 @@ updateStack pName_ =
   }
 
 
--- | Remove all the storage connectors currently enabled for the stack.
+-- | Deletes the storage connectors currently enabled for the stack.
 usDeleteStorageConnectors :: Lens' UpdateStack (Maybe Bool)
 usDeleteStorageConnectors = lens _usDeleteStorageConnectors (\ s a -> s{_usDeleteStorageConnectors = a});
 
--- | The storage connectors to be enabled for the stack.
+-- | The storage connectors to enable.
 usStorageConnectors :: Lens' UpdateStack [StorageConnector]
 usStorageConnectors = lens _usStorageConnectors (\ s a -> s{_usStorageConnectors = a}) . _Default . _Coerce;
 
--- | The name displayed to end users on the AppStream 2.0 portal.
+-- | The stack name displayed to end users.
 usDisplayName :: Lens' UpdateStack (Maybe Text)
 usDisplayName = lens _usDisplayName (\ s a -> s{_usDisplayName = a});
 
--- | The description displayed to end users on the AppStream 2.0 portal.
+-- | The description displayed to end users.
 usDescription :: Lens' UpdateStack (Maybe Text)
 usDescription = lens _usDescription (\ s a -> s{_usDescription = a});
 
--- | The name of the stack to update.
+-- | The name of the stack.
 usName :: Lens' UpdateStack Text
 usName = lens _usName (\ s a -> s{_usName = a});
 
@@ -155,7 +155,7 @@ data UpdateStackResponse = UpdateStackResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usrsStack' - A list of stack details.
+-- * 'usrsStack' - Information about the stack.
 --
 -- * 'usrsResponseStatus' - -- | The response status code.
 updateStackResponse
@@ -166,7 +166,7 @@ updateStackResponse pResponseStatus_ =
   {_usrsStack = Nothing, _usrsResponseStatus = pResponseStatus_}
 
 
--- | A list of stack details.
+-- | Information about the stack.
 usrsStack :: Lens' UpdateStackResponse (Maybe Stack)
 usrsStack = lens _usrsStack (\ s a -> s{_usrsStack = a});
 

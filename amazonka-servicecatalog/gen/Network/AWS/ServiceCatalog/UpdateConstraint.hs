@@ -60,7 +60,7 @@ data UpdateConstraint = UpdateConstraint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'ucAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'ucDescription' - The updated text description of the constraint.
 --
@@ -73,7 +73,7 @@ updateConstraint pId_ =
   {_ucAcceptLanguage = Nothing, _ucDescription = Nothing, _ucId = pId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 ucAcceptLanguage :: Lens' UpdateConstraint (Maybe Text)
 ucAcceptLanguage = lens _ucAcceptLanguage (\ s a -> s{_ucAcceptLanguage = a});
 

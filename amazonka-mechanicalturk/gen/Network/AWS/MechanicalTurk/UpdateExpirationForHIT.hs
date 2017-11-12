@@ -27,8 +27,8 @@ module Network.AWS.MechanicalTurk.UpdateExpirationForHIT
       updateExpirationForHIT
     , UpdateExpirationForHIT
     -- * Request Lenses
-    , uefhitExpireAt
     , uefhitHITId
+    , uefhitExpireAt
 
     -- * Destructuring the Response
     , updateExpirationForHITResponse
@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateExpirationForHIT' smart constructor.
 data UpdateExpirationForHIT = UpdateExpirationForHIT'
-  { _uefhitExpireAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _uefhitHITId    :: {-# NOUNPACK #-}!Text
+  { _uefhitHITId    :: {-# NOUNPACK #-}!Text
+  , _uefhitExpireAt :: {-# NOUNPACK #-}!POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -55,23 +55,25 @@ data UpdateExpirationForHIT = UpdateExpirationForHIT'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uefhitExpireAt' - The date and time at which you want the HIT to expire
---
 -- * 'uefhitHITId' - The HIT to update.
+--
+-- * 'uefhitExpireAt' - The date and time at which you want the HIT to expire
 updateExpirationForHIT
     :: Text -- ^ 'uefhitHITId'
+    -> UTCTime -- ^ 'uefhitExpireAt'
     -> UpdateExpirationForHIT
-updateExpirationForHIT pHITId_ =
-  UpdateExpirationForHIT' {_uefhitExpireAt = Nothing, _uefhitHITId = pHITId_}
+updateExpirationForHIT pHITId_ pExpireAt_ =
+  UpdateExpirationForHIT'
+  {_uefhitHITId = pHITId_, _uefhitExpireAt = _Time # pExpireAt_}
 
-
--- | The date and time at which you want the HIT to expire
-uefhitExpireAt :: Lens' UpdateExpirationForHIT (Maybe UTCTime)
-uefhitExpireAt = lens _uefhitExpireAt (\ s a -> s{_uefhitExpireAt = a}) . mapping _Time;
 
 -- | The HIT to update.
 uefhitHITId :: Lens' UpdateExpirationForHIT Text
 uefhitHITId = lens _uefhitHITId (\ s a -> s{_uefhitHITId = a});
+
+-- | The date and time at which you want the HIT to expire
+uefhitExpireAt :: Lens' UpdateExpirationForHIT UTCTime
+uefhitExpireAt = lens _uefhitExpireAt (\ s a -> s{_uefhitExpireAt = a}) . _Time;
 
 instance AWSRequest UpdateExpirationForHIT where
         type Rs UpdateExpirationForHIT =
@@ -101,8 +103,8 @@ instance ToJSON UpdateExpirationForHIT where
         toJSON UpdateExpirationForHIT'{..}
           = object
               (catMaybes
-                 [("ExpireAt" .=) <$> _uefhitExpireAt,
-                  Just ("HITId" .= _uefhitHITId)])
+                 [Just ("HITId" .= _uefhitHITId),
+                  Just ("ExpireAt" .= _uefhitExpireAt)])
 
 instance ToPath UpdateExpirationForHIT where
         toPath = const "/"

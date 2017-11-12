@@ -74,7 +74,8 @@ instance FromJSON AccountStatus where
     parseJSON = parseJSONText "AccountStatus"
 
 data ActionType
-  = ApproveAllFeatures
+  = AddOrganizationsServiceLinkedRole
+  | ApproveAllFeatures
   | EnableAllFeatures
   | Invite
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -82,14 +83,16 @@ data ActionType
 
 instance FromText ActionType where
     parser = takeLowerText >>= \case
+        "add_organizations_service_linked_role" -> pure AddOrganizationsServiceLinkedRole
         "approve_all_features" -> pure ApproveAllFeatures
         "enable_all_features" -> pure EnableAllFeatures
         "invite" -> pure Invite
         e -> fromTextError $ "Failure parsing ActionType from value: '" <> e
-           <> "'. Accepted values: approve_all_features, enable_all_features, invite"
+           <> "'. Accepted values: add_organizations_service_linked_role, approve_all_features, enable_all_features, invite"
 
 instance ToText ActionType where
     toText = \case
+        AddOrganizationsServiceLinkedRole -> "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE"
         ApproveAllFeatures -> "APPROVE_ALL_FEATURES"
         EnableAllFeatures -> "ENABLE_ALL_FEATURES"
         Invite -> "INVITE"
@@ -138,6 +141,7 @@ instance FromJSON ChildType where
 
 data CreateAccountFailureReason
   = AccountLimitExceeded
+  | ConcurrentAccountModification
   | EmailAlreadyExists
   | InternalFailure
   | InvalidAddress
@@ -148,16 +152,18 @@ data CreateAccountFailureReason
 instance FromText CreateAccountFailureReason where
     parser = takeLowerText >>= \case
         "account_limit_exceeded" -> pure AccountLimitExceeded
+        "concurrent_account_modification" -> pure ConcurrentAccountModification
         "email_already_exists" -> pure EmailAlreadyExists
         "internal_failure" -> pure InternalFailure
         "invalid_address" -> pure InvalidAddress
         "invalid_email" -> pure InvalidEmail
         e -> fromTextError $ "Failure parsing CreateAccountFailureReason from value: '" <> e
-           <> "'. Accepted values: account_limit_exceeded, email_already_exists, internal_failure, invalid_address, invalid_email"
+           <> "'. Accepted values: account_limit_exceeded, concurrent_account_modification, email_already_exists, internal_failure, invalid_address, invalid_email"
 
 instance ToText CreateAccountFailureReason where
     toText = \case
         AccountLimitExceeded -> "ACCOUNT_LIMIT_EXCEEDED"
+        ConcurrentAccountModification -> "CONCURRENT_ACCOUNT_MODIFICATION"
         EmailAlreadyExists -> "EMAIL_ALREADY_EXISTS"
         InternalFailure -> "INTERNAL_FAILURE"
         InvalidAddress -> "INVALID_ADDRESS"

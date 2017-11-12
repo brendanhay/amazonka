@@ -222,6 +222,9 @@ module Network.AWS.DeviceFarm
     -- ** ExecutionResult
     , ExecutionResult (..)
 
+    -- ** ExecutionResultCode
+    , ExecutionResultCode (..)
+
     -- ** ExecutionStatus
     , ExecutionStatus (..)
 
@@ -295,6 +298,13 @@ module Network.AWS.DeviceFarm
     , createRemoteAccessSessionConfiguration
     , crascBillingMethod
 
+    -- ** CustomerArtifactPaths
+    , CustomerArtifactPaths
+    , customerArtifactPaths
+    , capAndroidPaths
+    , capDeviceHostPaths
+    , capIosPaths
+
     -- ** Device
     , Device
     , device
@@ -312,6 +322,7 @@ module Network.AWS.DeviceFarm
     , devOs
     , devName
     , devModel
+    , devRemoteDebugEnabled
     , devCpu
     , devHeapSize
     , devFleetName
@@ -471,6 +482,8 @@ module Network.AWS.DeviceFarm
     , RemoteAccessSession
     , remoteAccessSession
     , rasBillingMethod
+    , rasClientId
+    , rasDeviceUdid
     , rasStatus
     , rasArn
     , rasCreated
@@ -479,8 +492,10 @@ module Network.AWS.DeviceFarm
     , rasResult
     , rasName
     , rasDeviceMinutes
+    , rasRemoteDebugEnabled
     , rasEndpoint
     , rasMessage
+    , rasHostAddress
     , rasStarted
 
     -- ** Resolution
@@ -501,6 +516,7 @@ module Network.AWS.DeviceFarm
     , run
     , runBillingMethod
     , runStatus
+    , runCustomerArtifactPaths
     , runCounters
     , runPlatform
     , runArn
@@ -508,7 +524,9 @@ module Network.AWS.DeviceFarm
     , runStopped
     , runResult
     , runCompletedJobs
+    , runResultCode
     , runName
+    , runParsingResultURL
     , runNetworkProfile
     , runDeviceMinutes
     , runType
@@ -527,6 +545,7 @@ module Network.AWS.DeviceFarm
     , ScheduleRunConfiguration
     , scheduleRunConfiguration
     , srcBillingMethod
+    , srcCustomerArtifactPaths
     , srcRadios
     , srcLocation
     , srcLocale

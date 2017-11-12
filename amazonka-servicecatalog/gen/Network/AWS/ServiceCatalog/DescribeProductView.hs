@@ -59,7 +59,7 @@ data DescribeProductView = DescribeProductView'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpvAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dpvAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'dpvId' - The @ProductViewId@ of the product to describe.
 describeProductView
@@ -69,7 +69,7 @@ describeProductView pId_ =
   DescribeProductView' {_dpvAcceptLanguage = Nothing, _dpvId = pId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpvAcceptLanguage :: Lens' DescribeProductView (Maybe Text)
 dpvAcceptLanguage = lens _dpvAcceptLanguage (\ s a -> s{_dpvAcceptLanguage = a});
 

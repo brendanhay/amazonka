@@ -18,12 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Reboots some, or all, of the cache nodes within a provisioned cache cluster. This operation applies any modified cache parameter groups to the cache cluster. The reboot operation takes place as soon as possible, and results in a momentary outage to the cache cluster. During the reboot, the cache cluster status is set to REBOOTING.
+-- Reboots some, or all, of the cache nodes within a provisioned cluster. This operation applies any modified cache parameter groups to the cluster. The reboot operation takes place as soon as possible, and results in a momentary outage to the cluster. During the reboot, the cluster status is set to REBOOTING.
 --
 --
 -- The reboot causes the contents of the cache (for each cache node being rebooted) to be lost.
 --
--- When the reboot is complete, a cache cluster event is created.
+-- When the reboot is complete, a cluster event is created.
+--
+-- Rebooting a cluster is currently supported on Memcached and Redis (cluster mode disabled) clusters. Rebooting is not supported on Redis (cluster mode enabled) clusters.
+--
+-- If you make changes to parameters that require a Redis (cluster mode enabled) cluster reboot for the changes to be applied, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Rebooting.htm Rebooting a Cluster> for an alternate process.
 --
 module Network.AWS.ElastiCache.RebootCacheCluster
     (
@@ -64,9 +68,9 @@ data RebootCacheCluster = RebootCacheCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rccCacheClusterId' - The cache cluster identifier. This parameter is stored as a lowercase string.
+-- * 'rccCacheClusterId' - The cluster identifier. This parameter is stored as a lowercase string.
 --
--- * 'rccCacheNodeIdsToReboot' - A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cache cluster, specify all of the cache node IDs.
+-- * 'rccCacheNodeIdsToReboot' - A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cluster, specify all of the cache node IDs.
 rebootCacheCluster
     :: Text -- ^ 'rccCacheClusterId'
     -> RebootCacheCluster
@@ -75,11 +79,11 @@ rebootCacheCluster pCacheClusterId_ =
   {_rccCacheClusterId = pCacheClusterId_, _rccCacheNodeIdsToReboot = mempty}
 
 
--- | The cache cluster identifier. This parameter is stored as a lowercase string.
+-- | The cluster identifier. This parameter is stored as a lowercase string.
 rccCacheClusterId :: Lens' RebootCacheCluster Text
 rccCacheClusterId = lens _rccCacheClusterId (\ s a -> s{_rccCacheClusterId = a});
 
--- | A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cache cluster, specify all of the cache node IDs.
+-- | A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cluster, specify all of the cache node IDs.
 rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
 rccCacheNodeIdsToReboot = lens _rccCacheNodeIdsToReboot (\ s a -> s{_rccCacheNodeIdsToReboot = a}) . _Coerce;
 

@@ -140,6 +140,12 @@ data EC2InstanceType
   | R3_8XLarge
   | R3_Large
   | R3_XLarge
+  | R4_16XLarge
+  | R4_2XLarge
+  | R4_4XLarge
+  | R4_8XLarge
+  | R4_Large
+  | R4_XLarge
   | T2_Large
   | T2_Medium
   | T2_Micro
@@ -173,12 +179,18 @@ instance FromText EC2InstanceType where
         "r3.8xlarge" -> pure R3_8XLarge
         "r3.large" -> pure R3_Large
         "r3.xlarge" -> pure R3_XLarge
+        "r4.16xlarge" -> pure R4_16XLarge
+        "r4.2xlarge" -> pure R4_2XLarge
+        "r4.4xlarge" -> pure R4_4XLarge
+        "r4.8xlarge" -> pure R4_8XLarge
+        "r4.large" -> pure R4_Large
+        "r4.xlarge" -> pure R4_XLarge
         "t2.large" -> pure T2_Large
         "t2.medium" -> pure T2_Medium
         "t2.micro" -> pure T2_Micro
         "t2.small" -> pure T2_Small
         e -> fromTextError $ "Failure parsing EC2InstanceType from value: '" <> e
-           <> "'. Accepted values: c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t2.large, t2.medium, t2.micro, t2.small"
+           <> "'. Accepted values: c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, t2.large, t2.medium, t2.micro, t2.small"
 
 instance ToText EC2InstanceType where
     toText = \case
@@ -206,6 +218,12 @@ instance ToText EC2InstanceType where
         R3_8XLarge -> "r3.8xlarge"
         R3_Large -> "r3.large"
         R3_XLarge -> "r3.xlarge"
+        R4_16XLarge -> "r4.16xlarge"
+        R4_2XLarge -> "r4.2xlarge"
+        R4_4XLarge -> "r4.4xlarge"
+        R4_8XLarge -> "r4.8xlarge"
+        R4_Large -> "r4.large"
+        R4_XLarge -> "r4.xlarge"
         T2_Large -> "t2.large"
         T2_Medium -> "t2.medium"
         T2_Micro -> "t2.micro"
@@ -241,6 +259,9 @@ data EventCode
   | FleetStateDownloading
   | FleetStateError
   | FleetStateValidating
+  | FleetVPCPeeringDeleted
+  | FleetVPCPeeringFailed
+  | FleetVPCPeeringSucceeded
   | FleetValidationExecutableRuntimeFailure
   | FleetValidationLaunchPathNotFound
   | FleetValidationTimedOut
@@ -275,6 +296,9 @@ instance FromText EventCode where
         "fleet_state_downloading" -> pure FleetStateDownloading
         "fleet_state_error" -> pure FleetStateError
         "fleet_state_validating" -> pure FleetStateValidating
+        "fleet_vpc_peering_deleted" -> pure FleetVPCPeeringDeleted
+        "fleet_vpc_peering_failed" -> pure FleetVPCPeeringFailed
+        "fleet_vpc_peering_succeeded" -> pure FleetVPCPeeringSucceeded
         "fleet_validation_executable_runtime_failure" -> pure FleetValidationExecutableRuntimeFailure
         "fleet_validation_launch_path_not_found" -> pure FleetValidationLaunchPathNotFound
         "fleet_validation_timed_out" -> pure FleetValidationTimedOut
@@ -288,7 +312,7 @@ instance FromText EventCode where
         "server_process_sdk_initialization_timeout" -> pure ServerProcessSDKInitializationTimeout
         "server_process_terminated_unhealthy" -> pure ServerProcessTerminatedUnhealthy
         e -> fromTextError $ "Failure parsing EventCode from value: '" <> e
-           <> "'. Accepted values: fleet_activation_failed, fleet_activation_failed_no_instances, fleet_binary_download_failed, fleet_created, fleet_creation_extracting_build, fleet_creation_running_installer, fleet_creation_validating_runtime_config, fleet_deleted, fleet_initialization_failed, fleet_new_game_session_protection_policy_updated, fleet_scaling_event, fleet_state_activating, fleet_state_active, fleet_state_building, fleet_state_downloading, fleet_state_error, fleet_state_validating, fleet_validation_executable_runtime_failure, fleet_validation_launch_path_not_found, fleet_validation_timed_out, game_session_activation_timeout, generic_event, server_process_crashed, server_process_force_terminated, server_process_invalid_path, server_process_process_exit_timeout, server_process_process_ready_timeout, server_process_sdk_initialization_timeout, server_process_terminated_unhealthy"
+           <> "'. Accepted values: fleet_activation_failed, fleet_activation_failed_no_instances, fleet_binary_download_failed, fleet_created, fleet_creation_extracting_build, fleet_creation_running_installer, fleet_creation_validating_runtime_config, fleet_deleted, fleet_initialization_failed, fleet_new_game_session_protection_policy_updated, fleet_scaling_event, fleet_state_activating, fleet_state_active, fleet_state_building, fleet_state_downloading, fleet_state_error, fleet_state_validating, fleet_vpc_peering_deleted, fleet_vpc_peering_failed, fleet_vpc_peering_succeeded, fleet_validation_executable_runtime_failure, fleet_validation_launch_path_not_found, fleet_validation_timed_out, game_session_activation_timeout, generic_event, server_process_crashed, server_process_force_terminated, server_process_invalid_path, server_process_process_exit_timeout, server_process_process_ready_timeout, server_process_sdk_initialization_timeout, server_process_terminated_unhealthy"
 
 instance ToText EventCode where
     toText = \case
@@ -309,6 +333,9 @@ instance ToText EventCode where
         FleetStateDownloading -> "FLEET_STATE_DOWNLOADING"
         FleetStateError -> "FLEET_STATE_ERROR"
         FleetStateValidating -> "FLEET_STATE_VALIDATING"
+        FleetVPCPeeringDeleted -> "FLEET_VPC_PEERING_DELETED"
+        FleetVPCPeeringFailed -> "FLEET_VPC_PEERING_FAILED"
+        FleetVPCPeeringSucceeded -> "FLEET_VPC_PEERING_SUCCEEDED"
         FleetValidationExecutableRuntimeFailure -> "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE"
         FleetValidationLaunchPathNotFound -> "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND"
         FleetValidationTimedOut -> "FLEET_VALIDATION_TIMED_OUT"
@@ -509,8 +536,8 @@ instance FromJSON InstanceStatus where
     parseJSON = parseJSONText "InstanceStatus"
 
 data MatchmakingConfigurationStatus
-  = MCSCanceled
-  | MCSComplete
+  = MCSCancelled
+  | MCSCompleted
   | MCSFailed
   | MCSPlacing
   | MCSQueued
@@ -522,8 +549,8 @@ data MatchmakingConfigurationStatus
 
 instance FromText MatchmakingConfigurationStatus where
     parser = takeLowerText >>= \case
-        "canceled" -> pure MCSCanceled
-        "complete" -> pure MCSComplete
+        "cancelled" -> pure MCSCancelled
+        "completed" -> pure MCSCompleted
         "failed" -> pure MCSFailed
         "placing" -> pure MCSPlacing
         "queued" -> pure MCSQueued
@@ -531,12 +558,12 @@ instance FromText MatchmakingConfigurationStatus where
         "searching" -> pure MCSSearching
         "timed_out" -> pure MCSTimedOut
         e -> fromTextError $ "Failure parsing MatchmakingConfigurationStatus from value: '" <> e
-           <> "'. Accepted values: canceled, complete, failed, placing, queued, requires_acceptance, searching, timed_out"
+           <> "'. Accepted values: cancelled, completed, failed, placing, queued, requires_acceptance, searching, timed_out"
 
 instance ToText MatchmakingConfigurationStatus where
     toText = \case
-        MCSCanceled -> "CANCELED"
-        MCSComplete -> "COMPLETE"
+        MCSCancelled -> "CANCELLED"
+        MCSCompleted -> "COMPLETED"
         MCSFailed -> "FAILED"
         MCSPlacing -> "PLACING"
         MCSQueued -> "QUEUED"

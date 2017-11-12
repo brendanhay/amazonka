@@ -30,8 +30,8 @@ module Network.AWS.MechanicalTurk.CreateAdditionalAssignmentsForHIT
     , CreateAdditionalAssignmentsForHIT
     -- * Request Lenses
     , caafhitUniqueRequestToken
-    , caafhitNumberOfAdditionalAssignments
     , caafhitHITId
+    , caafhitNumberOfAdditionalAssignments
 
     -- * Destructuring the Response
     , createAdditionalAssignmentsForHITResponse
@@ -50,8 +50,8 @@ import Network.AWS.Response
 -- | /See:/ 'createAdditionalAssignmentsForHIT' smart constructor.
 data CreateAdditionalAssignmentsForHIT = CreateAdditionalAssignmentsForHIT'
   { _caafhitUniqueRequestToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caafhitNumberOfAdditionalAssignments :: {-# NOUNPACK #-}!(Maybe Int)
   , _caafhitHITId                         :: {-# NOUNPACK #-}!Text
+  , _caafhitNumberOfAdditionalAssignments :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -61,17 +61,18 @@ data CreateAdditionalAssignmentsForHIT = CreateAdditionalAssignmentsForHIT'
 --
 -- * 'caafhitUniqueRequestToken' - A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
 --
--- * 'caafhitNumberOfAdditionalAssignments' - The number of additional assignments to request for this HIT.
---
 -- * 'caafhitHITId' - The ID of the HIT to extend.
+--
+-- * 'caafhitNumberOfAdditionalAssignments' - The number of additional assignments to request for this HIT.
 createAdditionalAssignmentsForHIT
     :: Text -- ^ 'caafhitHITId'
+    -> Int -- ^ 'caafhitNumberOfAdditionalAssignments'
     -> CreateAdditionalAssignmentsForHIT
-createAdditionalAssignmentsForHIT pHITId_ =
+createAdditionalAssignmentsForHIT pHITId_ pNumberOfAdditionalAssignments_ =
   CreateAdditionalAssignmentsForHIT'
   { _caafhitUniqueRequestToken = Nothing
-  , _caafhitNumberOfAdditionalAssignments = Nothing
   , _caafhitHITId = pHITId_
+  , _caafhitNumberOfAdditionalAssignments = pNumberOfAdditionalAssignments_
   }
 
 
@@ -79,13 +80,13 @@ createAdditionalAssignmentsForHIT pHITId_ =
 caafhitUniqueRequestToken :: Lens' CreateAdditionalAssignmentsForHIT (Maybe Text)
 caafhitUniqueRequestToken = lens _caafhitUniqueRequestToken (\ s a -> s{_caafhitUniqueRequestToken = a});
 
--- | The number of additional assignments to request for this HIT.
-caafhitNumberOfAdditionalAssignments :: Lens' CreateAdditionalAssignmentsForHIT (Maybe Int)
-caafhitNumberOfAdditionalAssignments = lens _caafhitNumberOfAdditionalAssignments (\ s a -> s{_caafhitNumberOfAdditionalAssignments = a});
-
 -- | The ID of the HIT to extend.
 caafhitHITId :: Lens' CreateAdditionalAssignmentsForHIT Text
 caafhitHITId = lens _caafhitHITId (\ s a -> s{_caafhitHITId = a});
+
+-- | The number of additional assignments to request for this HIT.
+caafhitNumberOfAdditionalAssignments :: Lens' CreateAdditionalAssignmentsForHIT Int
+caafhitNumberOfAdditionalAssignments = lens _caafhitNumberOfAdditionalAssignments (\ s a -> s{_caafhitNumberOfAdditionalAssignments = a});
 
 instance AWSRequest CreateAdditionalAssignmentsForHIT
          where
@@ -122,9 +123,10 @@ instance ToJSON CreateAdditionalAssignmentsForHIT
               (catMaybes
                  [("UniqueRequestToken" .=) <$>
                     _caafhitUniqueRequestToken,
-                  ("NumberOfAdditionalAssignments" .=) <$>
-                    _caafhitNumberOfAdditionalAssignments,
-                  Just ("HITId" .= _caafhitHITId)])
+                  Just ("HITId" .= _caafhitHITId),
+                  Just
+                    ("NumberOfAdditionalAssignments" .=
+                       _caafhitNumberOfAdditionalAssignments)])
 
 instance ToPath CreateAdditionalAssignmentsForHIT
          where

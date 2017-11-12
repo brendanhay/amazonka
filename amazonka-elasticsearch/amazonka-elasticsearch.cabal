@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -48,6 +48,7 @@ library
         , Network.AWS.ElasticSearch.AddTags
         , Network.AWS.ElasticSearch.CreateElasticsearchDomain
         , Network.AWS.ElasticSearch.DeleteElasticsearchDomain
+        , Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
         , Network.AWS.ElasticSearch.DescribeElasticsearchDomain
         , Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
         , Network.AWS.ElasticSearch.DescribeElasticsearchDomains

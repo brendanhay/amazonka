@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for SetDesiredCapacity.
---
---
---
--- /See:/ 'setDesiredCapacity' smart constructor.
+-- | /See:/ 'setDesiredCapacity' smart constructor.
 data SetDesiredCapacity = SetDesiredCapacity'
   { _sdcHonorCooldown        :: {-# NOUNPACK #-}!(Maybe Bool)
   , _sdcAutoScalingGroupName :: {-# NOUNPACK #-}!Text

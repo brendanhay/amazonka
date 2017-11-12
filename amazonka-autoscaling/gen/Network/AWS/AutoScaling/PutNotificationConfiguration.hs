@@ -47,11 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for PutNotificationConfiguration.
---
---
---
--- /See:/ 'putNotificationConfiguration' smart constructor.
+-- | /See:/ 'putNotificationConfiguration' smart constructor.
 data PutNotificationConfiguration = PutNotificationConfiguration'
   { _pncAutoScalingGroupName :: {-# NOUNPACK #-}!Text
   , _pncTopicARN             :: {-# NOUNPACK #-}!Text

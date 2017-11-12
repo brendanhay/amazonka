@@ -62,11 +62,11 @@ data AcceptReservedInstancesExchangeQuote = AcceptReservedInstancesExchangeQuote
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arieqTargetConfigurations' - The configurations of the Convertible Reserved Instance offerings that you are purchasing in this exchange.
+-- * 'arieqTargetConfigurations' - The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
 --
 -- * 'arieqDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'arieqReservedInstanceIds' - The IDs of the Convertible Reserved Instances to exchange for other Convertible Reserved Instances of the same or higher value.
+-- * 'arieqReservedInstanceIds' - The IDs of the Convertible Reserved Instances to exchange for another Convertible Reserved Instance of the same or higher value.
 acceptReservedInstancesExchangeQuote
     :: AcceptReservedInstancesExchangeQuote
 acceptReservedInstancesExchangeQuote =
@@ -77,7 +77,7 @@ acceptReservedInstancesExchangeQuote =
   }
 
 
--- | The configurations of the Convertible Reserved Instance offerings that you are purchasing in this exchange.
+-- | The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
 arieqTargetConfigurations :: Lens' AcceptReservedInstancesExchangeQuote [TargetConfigurationRequest]
 arieqTargetConfigurations = lens _arieqTargetConfigurations (\ s a -> s{_arieqTargetConfigurations = a}) . _Default . _Coerce;
 
@@ -85,7 +85,7 @@ arieqTargetConfigurations = lens _arieqTargetConfigurations (\ s a -> s{_arieqTa
 arieqDryRun :: Lens' AcceptReservedInstancesExchangeQuote (Maybe Bool)
 arieqDryRun = lens _arieqDryRun (\ s a -> s{_arieqDryRun = a});
 
--- | The IDs of the Convertible Reserved Instances to exchange for other Convertible Reserved Instances of the same or higher value.
+-- | The IDs of the Convertible Reserved Instances to exchange for another Convertible Reserved Instance of the same or higher value.
 arieqReservedInstanceIds :: Lens' AcceptReservedInstancesExchangeQuote [Text]
 arieqReservedInstanceIds = lens _arieqReservedInstanceIds (\ s a -> s{_arieqReservedInstanceIds = a}) . _Coerce;
 

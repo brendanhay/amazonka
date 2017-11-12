@@ -574,11 +574,12 @@ instance ToJSON DestinationSchema where
 --
 -- /See:/ 'input' smart constructor.
 data Input = Input'
-  { _iInputParallelism     :: {-# NOUNPACK #-}!(Maybe InputParallelism)
-  , _iKinesisStreamsInput  :: {-# NOUNPACK #-}!(Maybe KinesisStreamsInput)
+  { _iInputParallelism :: {-# NOUNPACK #-}!(Maybe InputParallelism)
+  , _iInputProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe InputProcessingConfiguration)
+  , _iKinesisStreamsInput :: {-# NOUNPACK #-}!(Maybe KinesisStreamsInput)
   , _iKinesisFirehoseInput :: {-# NOUNPACK #-}!(Maybe KinesisFirehoseInput)
-  , _iNamePrefix           :: {-# NOUNPACK #-}!Text
-  , _iInputSchema          :: {-# NOUNPACK #-}!SourceSchema
+  , _iNamePrefix :: {-# NOUNPACK #-}!Text
+  , _iInputSchema :: {-# NOUNPACK #-}!SourceSchema
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -587,6 +588,8 @@ data Input = Input'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iInputParallelism' - Describes the number of in-application streams to create.  Data from your source will be routed to these in-application input streams. (see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
+--
+-- * 'iInputProcessingConfiguration' - The 'InputProcessingConfiguration' for the Input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is 'InputLambdaProcessor' .
 --
 -- * 'iKinesisStreamsInput' - If the streaming source is an Amazon Kinesis stream, identifies the stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf. Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is required.
 --
@@ -602,6 +605,7 @@ input
 input pNamePrefix_ pInputSchema_ =
   Input'
   { _iInputParallelism = Nothing
+  , _iInputProcessingConfiguration = Nothing
   , _iKinesisStreamsInput = Nothing
   , _iKinesisFirehoseInput = Nothing
   , _iNamePrefix = pNamePrefix_
@@ -612,6 +616,10 @@ input pNamePrefix_ pInputSchema_ =
 -- | Describes the number of in-application streams to create.  Data from your source will be routed to these in-application input streams. (see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
 iInputParallelism :: Lens' Input (Maybe InputParallelism)
 iInputParallelism = lens _iInputParallelism (\ s a -> s{_iInputParallelism = a});
+
+-- | The 'InputProcessingConfiguration' for the Input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is 'InputLambdaProcessor' .
+iInputProcessingConfiguration :: Lens' Input (Maybe InputProcessingConfiguration)
+iInputProcessingConfiguration = lens _iInputProcessingConfiguration (\ s a -> s{_iInputProcessingConfiguration = a});
 
 -- | If the streaming source is an Amazon Kinesis stream, identifies the stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf. Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is required.
 iKinesisStreamsInput :: Lens' Input (Maybe KinesisStreamsInput)
@@ -638,6 +646,8 @@ instance ToJSON Input where
           = object
               (catMaybes
                  [("InputParallelism" .=) <$> _iInputParallelism,
+                  ("InputProcessingConfiguration" .=) <$>
+                    _iInputProcessingConfiguration,
                   ("KinesisStreamsInput" .=) <$> _iKinesisStreamsInput,
                   ("KinesisFirehoseInput" .=) <$>
                     _iKinesisFirehoseInput,
@@ -708,6 +718,7 @@ data InputDescription = InputDescription'
   , _idInputSchema :: {-# NOUNPACK #-}!(Maybe SourceSchema)
   , _idKinesisStreamsInputDescription :: {-# NOUNPACK #-}!(Maybe KinesisStreamsInputDescription)
   , _idNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  , _idInputProcessingConfigurationDescription :: {-# NOUNPACK #-}!(Maybe InputProcessingConfigurationDescription)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -725,11 +736,13 @@ data InputDescription = InputDescription'
 --
 -- * 'idKinesisFirehoseInputDescription' - If an Amazon Kinesis Firehose delivery stream is configured as a streaming source, provides the Firehose delivery stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
 --
--- * 'idInputSchema' - Undocumented member.
+-- * 'idInputSchema' - Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
 --
 -- * 'idKinesisStreamsInputDescription' - If an Amazon Kinesis stream is configured as streaming source, provides Amazon Kinesis stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
 --
 -- * 'idNamePrefix' - In-application name prefix.
+--
+-- * 'idInputProcessingConfigurationDescription' - The description of the preprocessor that executes on records in this input before the application's code is run.
 inputDescription
     :: InputDescription
 inputDescription =
@@ -742,6 +755,7 @@ inputDescription =
   , _idInputSchema = Nothing
   , _idKinesisStreamsInputDescription = Nothing
   , _idNamePrefix = Nothing
+  , _idInputProcessingConfigurationDescription = Nothing
   }
 
 
@@ -765,7 +779,7 @@ idInAppStreamNames = lens _idInAppStreamNames (\ s a -> s{_idInAppStreamNames = 
 idKinesisFirehoseInputDescription :: Lens' InputDescription (Maybe KinesisFirehoseInputDescription)
 idKinesisFirehoseInputDescription = lens _idKinesisFirehoseInputDescription (\ s a -> s{_idKinesisFirehoseInputDescription = a});
 
--- | Undocumented member.
+-- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
 idInputSchema :: Lens' InputDescription (Maybe SourceSchema)
 idInputSchema = lens _idInputSchema (\ s a -> s{_idInputSchema = a});
 
@@ -776,6 +790,10 @@ idKinesisStreamsInputDescription = lens _idKinesisStreamsInputDescription (\ s a
 -- | In-application name prefix.
 idNamePrefix :: Lens' InputDescription (Maybe Text)
 idNamePrefix = lens _idNamePrefix (\ s a -> s{_idNamePrefix = a});
+
+-- | The description of the preprocessor that executes on records in this input before the application's code is run.
+idInputProcessingConfigurationDescription :: Lens' InputDescription (Maybe InputProcessingConfigurationDescription)
+idInputProcessingConfigurationDescription = lens _idInputProcessingConfigurationDescription (\ s a -> s{_idInputProcessingConfigurationDescription = a});
 
 instance FromJSON InputDescription where
         parseJSON
@@ -789,11 +807,149 @@ instance FromJSON InputDescription where
                      <*> (x .:? "KinesisFirehoseInputDescription")
                      <*> (x .:? "InputSchema")
                      <*> (x .:? "KinesisStreamsInputDescription")
-                     <*> (x .:? "NamePrefix"))
+                     <*> (x .:? "NamePrefix")
+                     <*>
+                     (x .:? "InputProcessingConfigurationDescription"))
 
 instance Hashable InputDescription where
 
 instance NFData InputDescription where
+
+-- | An object that contains the ARN of the <https://aws.amazon.com/documentation/lambda/ AWS Lambda> function that is used to preprocess records in the stream, and the ARN of the IAM role used to access the AWS Lambda function.
+--
+--
+--
+-- /See:/ 'inputLambdaProcessor' smart constructor.
+data InputLambdaProcessor = InputLambdaProcessor'
+  { _ilpResourceARN :: {-# NOUNPACK #-}!Text
+  , _ilpRoleARN     :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'InputLambdaProcessor' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ilpResourceARN' - The ARN of the <https://aws.amazon.com/documentation/lambda/ AWS Lambda> function that operates on records in the stream.
+--
+-- * 'ilpRoleARN' - The ARN of the IAM role used to access the AWS Lambda function.
+inputLambdaProcessor
+    :: Text -- ^ 'ilpResourceARN'
+    -> Text -- ^ 'ilpRoleARN'
+    -> InputLambdaProcessor
+inputLambdaProcessor pResourceARN_ pRoleARN_ =
+  InputLambdaProcessor'
+  {_ilpResourceARN = pResourceARN_, _ilpRoleARN = pRoleARN_}
+
+
+-- | The ARN of the <https://aws.amazon.com/documentation/lambda/ AWS Lambda> function that operates on records in the stream.
+ilpResourceARN :: Lens' InputLambdaProcessor Text
+ilpResourceARN = lens _ilpResourceARN (\ s a -> s{_ilpResourceARN = a});
+
+-- | The ARN of the IAM role used to access the AWS Lambda function.
+ilpRoleARN :: Lens' InputLambdaProcessor Text
+ilpRoleARN = lens _ilpRoleARN (\ s a -> s{_ilpRoleARN = a});
+
+instance Hashable InputLambdaProcessor where
+
+instance NFData InputLambdaProcessor where
+
+instance ToJSON InputLambdaProcessor where
+        toJSON InputLambdaProcessor'{..}
+          = object
+              (catMaybes
+                 [Just ("ResourceARN" .= _ilpResourceARN),
+                  Just ("RoleARN" .= _ilpRoleARN)])
+
+-- | An object that contains the ARN of the <https://aws.amazon.com/documentation/lambda/ AWS Lambda> function that is used to preprocess records in the stream, and the ARN of the IAM role used to access the AWS Lambda expression.
+--
+--
+--
+-- /See:/ 'inputLambdaProcessorDescription' smart constructor.
+data InputLambdaProcessorDescription = InputLambdaProcessorDescription'
+  { _ilpdResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ilpdRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'InputLambdaProcessorDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ilpdResourceARN' - The ARN of the <https://aws.amazon.com/documentation/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
+--
+-- * 'ilpdRoleARN' - The ARN of the IAM role used to access the AWS Lambda function.
+inputLambdaProcessorDescription
+    :: InputLambdaProcessorDescription
+inputLambdaProcessorDescription =
+  InputLambdaProcessorDescription'
+  {_ilpdResourceARN = Nothing, _ilpdRoleARN = Nothing}
+
+
+-- | The ARN of the <https://aws.amazon.com/documentation/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
+ilpdResourceARN :: Lens' InputLambdaProcessorDescription (Maybe Text)
+ilpdResourceARN = lens _ilpdResourceARN (\ s a -> s{_ilpdResourceARN = a});
+
+-- | The ARN of the IAM role used to access the AWS Lambda function.
+ilpdRoleARN :: Lens' InputLambdaProcessorDescription (Maybe Text)
+ilpdRoleARN = lens _ilpdRoleARN (\ s a -> s{_ilpdRoleARN = a});
+
+instance FromJSON InputLambdaProcessorDescription
+         where
+        parseJSON
+          = withObject "InputLambdaProcessorDescription"
+              (\ x ->
+                 InputLambdaProcessorDescription' <$>
+                   (x .:? "ResourceARN") <*> (x .:? "RoleARN"))
+
+instance Hashable InputLambdaProcessorDescription
+         where
+
+instance NFData InputLambdaProcessorDescription where
+
+-- | Represents an update to the 'InputLambdaProcessor' that is used to preprocess the records in the stream.
+--
+--
+--
+-- /See:/ 'inputLambdaProcessorUpdate' smart constructor.
+data InputLambdaProcessorUpdate = InputLambdaProcessorUpdate'
+  { _ilpuRoleARNUpdate     :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ilpuResourceARNUpdate :: {-# NOUNPACK #-}!(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'InputLambdaProcessorUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ilpuRoleARNUpdate' - The ARN of the new IAM role used to access the AWS Lambda function.
+--
+-- * 'ilpuResourceARNUpdate' - The ARN of the new <https://aws.amazon.com/documentation/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
+inputLambdaProcessorUpdate
+    :: InputLambdaProcessorUpdate
+inputLambdaProcessorUpdate =
+  InputLambdaProcessorUpdate'
+  {_ilpuRoleARNUpdate = Nothing, _ilpuResourceARNUpdate = Nothing}
+
+
+-- | The ARN of the new IAM role used to access the AWS Lambda function.
+ilpuRoleARNUpdate :: Lens' InputLambdaProcessorUpdate (Maybe Text)
+ilpuRoleARNUpdate = lens _ilpuRoleARNUpdate (\ s a -> s{_ilpuRoleARNUpdate = a});
+
+-- | The ARN of the new <https://aws.amazon.com/documentation/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
+ilpuResourceARNUpdate :: Lens' InputLambdaProcessorUpdate (Maybe Text)
+ilpuResourceARNUpdate = lens _ilpuResourceARNUpdate (\ s a -> s{_ilpuResourceARNUpdate = a});
+
+instance Hashable InputLambdaProcessorUpdate where
+
+instance NFData InputLambdaProcessorUpdate where
+
+instance ToJSON InputLambdaProcessorUpdate where
+        toJSON InputLambdaProcessorUpdate'{..}
+          = object
+              (catMaybes
+                 [("RoleARNUpdate" .=) <$> _ilpuRoleARNUpdate,
+                  ("ResourceARNUpdate" .=) <$> _ilpuResourceARNUpdate])
 
 -- | Describes the number of in-application streams to create for a given streaming source. For information about parallelism, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
 --
@@ -864,6 +1020,131 @@ instance ToJSON InputParallelismUpdate where
         toJSON InputParallelismUpdate'{..}
           = object
               (catMaybes [("CountUpdate" .=) <$> _ipuCountUpdate])
+
+-- | Provides a description of a processor that is used to preprocess the records in the stream prior to being processed by your application code. Currently, the only input processor available is <https://aws.amazon.com/documentation/lambda/ AWS Lambda> .
+--
+--
+--
+-- /See:/ 'inputProcessingConfiguration' smart constructor.
+newtype InputProcessingConfiguration = InputProcessingConfiguration'
+  { _ipcInputLambdaProcessor :: InputLambdaProcessor
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'InputProcessingConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ipcInputLambdaProcessor' - The 'InputLambdaProcessor' that is used to preprocess the records in the stream prior to being processed by your application code.
+inputProcessingConfiguration
+    :: InputLambdaProcessor -- ^ 'ipcInputLambdaProcessor'
+    -> InputProcessingConfiguration
+inputProcessingConfiguration pInputLambdaProcessor_ =
+  InputProcessingConfiguration'
+  {_ipcInputLambdaProcessor = pInputLambdaProcessor_}
+
+
+-- | The 'InputLambdaProcessor' that is used to preprocess the records in the stream prior to being processed by your application code.
+ipcInputLambdaProcessor :: Lens' InputProcessingConfiguration InputLambdaProcessor
+ipcInputLambdaProcessor = lens _ipcInputLambdaProcessor (\ s a -> s{_ipcInputLambdaProcessor = a});
+
+instance Hashable InputProcessingConfiguration where
+
+instance NFData InputProcessingConfiguration where
+
+instance ToJSON InputProcessingConfiguration where
+        toJSON InputProcessingConfiguration'{..}
+          = object
+              (catMaybes
+                 [Just
+                    ("InputLambdaProcessor" .=
+                       _ipcInputLambdaProcessor)])
+
+-- | Provides configuration information about an input processor. Currently, the only input processor available is <https://aws.amazon.com/documentation/lambda/ AWS Lambda> .
+--
+--
+--
+-- /See:/ 'inputProcessingConfigurationDescription' smart constructor.
+newtype InputProcessingConfigurationDescription = InputProcessingConfigurationDescription'
+  { _ipcdInputLambdaProcessorDescription :: Maybe InputLambdaProcessorDescription
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'InputProcessingConfigurationDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ipcdInputLambdaProcessorDescription' - Provides configuration information about the associated 'InputLambdaProcessorDescription' .
+inputProcessingConfigurationDescription
+    :: InputProcessingConfigurationDescription
+inputProcessingConfigurationDescription =
+  InputProcessingConfigurationDescription'
+  {_ipcdInputLambdaProcessorDescription = Nothing}
+
+
+-- | Provides configuration information about the associated 'InputLambdaProcessorDescription' .
+ipcdInputLambdaProcessorDescription :: Lens' InputProcessingConfigurationDescription (Maybe InputLambdaProcessorDescription)
+ipcdInputLambdaProcessorDescription = lens _ipcdInputLambdaProcessorDescription (\ s a -> s{_ipcdInputLambdaProcessorDescription = a});
+
+instance FromJSON
+           InputProcessingConfigurationDescription
+         where
+        parseJSON
+          = withObject
+              "InputProcessingConfigurationDescription"
+              (\ x ->
+                 InputProcessingConfigurationDescription' <$>
+                   (x .:? "InputLambdaProcessorDescription"))
+
+instance Hashable
+           InputProcessingConfigurationDescription
+         where
+
+instance NFData
+           InputProcessingConfigurationDescription
+         where
+
+-- | Describes updates to an 'InputProcessingConfiguration' .
+--
+--
+--
+-- /See:/ 'inputProcessingConfigurationUpdate' smart constructor.
+newtype InputProcessingConfigurationUpdate = InputProcessingConfigurationUpdate'
+  { _ipcuInputLambdaProcessorUpdate :: InputLambdaProcessorUpdate
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'InputProcessingConfigurationUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ipcuInputLambdaProcessorUpdate' - Provides update information for an 'InputLambdaProcessor' .
+inputProcessingConfigurationUpdate
+    :: InputLambdaProcessorUpdate -- ^ 'ipcuInputLambdaProcessorUpdate'
+    -> InputProcessingConfigurationUpdate
+inputProcessingConfigurationUpdate pInputLambdaProcessorUpdate_ =
+  InputProcessingConfigurationUpdate'
+  {_ipcuInputLambdaProcessorUpdate = pInputLambdaProcessorUpdate_}
+
+
+-- | Provides update information for an 'InputLambdaProcessor' .
+ipcuInputLambdaProcessorUpdate :: Lens' InputProcessingConfigurationUpdate InputLambdaProcessorUpdate
+ipcuInputLambdaProcessorUpdate = lens _ipcuInputLambdaProcessorUpdate (\ s a -> s{_ipcuInputLambdaProcessorUpdate = a});
+
+instance Hashable InputProcessingConfigurationUpdate
+         where
+
+instance NFData InputProcessingConfigurationUpdate
+         where
+
+instance ToJSON InputProcessingConfigurationUpdate
+         where
+        toJSON InputProcessingConfigurationUpdate'{..}
+          = object
+              (catMaybes
+                 [Just
+                    ("InputLambdaProcessorUpdate" .=
+                       _ipcuInputLambdaProcessorUpdate)])
 
 -- | Describes updates for the application's input schema.
 --
@@ -976,7 +1257,8 @@ instance ToJSON InputStartingPositionConfiguration
 --
 -- /See:/ 'inputUpdate' smart constructor.
 data InputUpdate = InputUpdate'
-  { _iuKinesisStreamsInputUpdate :: {-# NOUNPACK #-}!(Maybe KinesisStreamsInputUpdate)
+  { _iuInputProcessingConfigurationUpdate :: {-# NOUNPACK #-}!(Maybe InputProcessingConfigurationUpdate)
+  , _iuKinesisStreamsInputUpdate :: {-# NOUNPACK #-}!(Maybe KinesisStreamsInputUpdate)
   , _iuInputParallelismUpdate :: {-# NOUNPACK #-}!(Maybe InputParallelismUpdate)
   , _iuNamePrefixUpdate :: {-# NOUNPACK #-}!(Maybe Text)
   , _iuInputSchemaUpdate :: {-# NOUNPACK #-}!(Maybe InputSchemaUpdate)
@@ -988,6 +1270,8 @@ data InputUpdate = InputUpdate'
 -- | Creates a value of 'InputUpdate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iuInputProcessingConfigurationUpdate' - Describes updates for an input processing configuration.
 --
 -- * 'iuKinesisStreamsInputUpdate' - If a Amazon Kinesis stream is the streaming source to be updated, provides an updated stream ARN and IAM role ARN.
 --
@@ -1005,7 +1289,8 @@ inputUpdate
     -> InputUpdate
 inputUpdate pInputId_ =
   InputUpdate'
-  { _iuKinesisStreamsInputUpdate = Nothing
+  { _iuInputProcessingConfigurationUpdate = Nothing
+  , _iuKinesisStreamsInputUpdate = Nothing
   , _iuInputParallelismUpdate = Nothing
   , _iuNamePrefixUpdate = Nothing
   , _iuInputSchemaUpdate = Nothing
@@ -1013,6 +1298,10 @@ inputUpdate pInputId_ =
   , _iuInputId = pInputId_
   }
 
+
+-- | Describes updates for an input processing configuration.
+iuInputProcessingConfigurationUpdate :: Lens' InputUpdate (Maybe InputProcessingConfigurationUpdate)
+iuInputProcessingConfigurationUpdate = lens _iuInputProcessingConfigurationUpdate (\ s a -> s{_iuInputProcessingConfigurationUpdate = a});
 
 -- | If a Amazon Kinesis stream is the streaming source to be updated, provides an updated stream ARN and IAM role ARN.
 iuKinesisStreamsInputUpdate :: Lens' InputUpdate (Maybe KinesisStreamsInputUpdate)
@@ -1046,7 +1335,9 @@ instance ToJSON InputUpdate where
         toJSON InputUpdate'{..}
           = object
               (catMaybes
-                 [("KinesisStreamsInputUpdate" .=) <$>
+                 [("InputProcessingConfigurationUpdate" .=) <$>
+                    _iuInputProcessingConfigurationUpdate,
+                  ("KinesisStreamsInputUpdate" .=) <$>
                     _iuKinesisStreamsInputUpdate,
                   ("InputParallelismUpdate" .=) <$>
                     _iuInputParallelismUpdate,
@@ -2228,6 +2519,57 @@ instance ToJSON ReferenceDataSourceUpdate where
                   ("ReferenceSchemaUpdate" .=) <$>
                     _rdsuReferenceSchemaUpdate,
                   Just ("ReferenceId" .= _rdsuReferenceId)])
+
+-- | /See:/ 's3Configuration' smart constructor.
+data S3Configuration = S3Configuration'
+  { _scRoleARN   :: {-# NOUNPACK #-}!Text
+  , _scBucketARN :: {-# NOUNPACK #-}!Text
+  , _scFileKey   :: {-# NOUNPACK #-}!Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'S3Configuration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scRoleARN' - Undocumented member.
+--
+-- * 'scBucketARN' - Undocumented member.
+--
+-- * 'scFileKey' - Undocumented member.
+s3Configuration
+    :: Text -- ^ 'scRoleARN'
+    -> Text -- ^ 'scBucketARN'
+    -> Text -- ^ 'scFileKey'
+    -> S3Configuration
+s3Configuration pRoleARN_ pBucketARN_ pFileKey_ =
+  S3Configuration'
+  {_scRoleARN = pRoleARN_, _scBucketARN = pBucketARN_, _scFileKey = pFileKey_}
+
+
+-- | Undocumented member.
+scRoleARN :: Lens' S3Configuration Text
+scRoleARN = lens _scRoleARN (\ s a -> s{_scRoleARN = a});
+
+-- | Undocumented member.
+scBucketARN :: Lens' S3Configuration Text
+scBucketARN = lens _scBucketARN (\ s a -> s{_scBucketARN = a});
+
+-- | Undocumented member.
+scFileKey :: Lens' S3Configuration Text
+scFileKey = lens _scFileKey (\ s a -> s{_scFileKey = a});
+
+instance Hashable S3Configuration where
+
+instance NFData S3Configuration where
+
+instance ToJSON S3Configuration where
+        toJSON S3Configuration'{..}
+          = object
+              (catMaybes
+                 [Just ("RoleARN" .= _scRoleARN),
+                  Just ("BucketARN" .= _scBucketARN),
+                  Just ("FileKey" .= _scFileKey)])
 
 -- | Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf.
 --

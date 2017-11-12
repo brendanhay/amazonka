@@ -42,8 +42,8 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     , createReservedInstancesListingResponse
     , CreateReservedInstancesListingResponse
     -- * Response Lenses
-    , crersReservedInstancesListings
-    , crersResponseStatus
+    , crilrrsReservedInstancesListings
+    , crilrrsResponseStatus
     ) where
 
 import Network.AWS.EC2.Types
@@ -149,8 +149,8 @@ instance ToQuery CreateReservedInstancesListing where
 --
 -- /See:/ 'createReservedInstancesListingResponse' smart constructor.
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
-  { _crersReservedInstancesListings :: {-# NOUNPACK #-}!(Maybe [ReservedInstancesListing])
-  , _crersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crilrrsReservedInstancesListings :: {-# NOUNPACK #-}!(Maybe [ReservedInstancesListing])
+  , _crilrrsResponseStatus :: {-# NOUNPACK #-}!Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -158,26 +158,26 @@ data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crersReservedInstancesListings' - Information about the Standard Reserved Instance listing.
+-- * 'crilrrsReservedInstancesListings' - Information about the Standard Reserved Instance listing.
 --
--- * 'crersResponseStatus' - -- | The response status code.
+-- * 'crilrrsResponseStatus' - -- | The response status code.
 createReservedInstancesListingResponse
-    :: Int -- ^ 'crersResponseStatus'
+    :: Int -- ^ 'crilrrsResponseStatus'
     -> CreateReservedInstancesListingResponse
 createReservedInstancesListingResponse pResponseStatus_ =
   CreateReservedInstancesListingResponse'
-  { _crersReservedInstancesListings = Nothing
-  , _crersResponseStatus = pResponseStatus_
+  { _crilrrsReservedInstancesListings = Nothing
+  , _crilrrsResponseStatus = pResponseStatus_
   }
 
 
 -- | Information about the Standard Reserved Instance listing.
-crersReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
-crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> s{_crersReservedInstancesListings = a}) . _Default . _Coerce;
+crilrrsReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
+crilrrsReservedInstancesListings = lens _crilrrsReservedInstancesListings (\ s a -> s{_crilrrsReservedInstancesListings = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.
-crersResponseStatus :: Lens' CreateReservedInstancesListingResponse Int
-crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+crilrrsResponseStatus :: Lens' CreateReservedInstancesListingResponse Int
+crilrrsResponseStatus = lens _crilrrsResponseStatus (\ s a -> s{_crilrrsResponseStatus = a});
 
 instance NFData
            CreateReservedInstancesListingResponse

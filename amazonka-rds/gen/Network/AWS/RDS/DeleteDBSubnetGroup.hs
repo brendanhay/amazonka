@@ -55,7 +55,7 @@ newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbsgDBSubnetGroupName' - The name of the database subnet group to delete. Constraints: Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
+-- * 'ddbsgDBSubnetGroupName' - The name of the database subnet group to delete. Constraints: Constraints: Must match the name of an existing DBSubnetGroup. Must not be default. Example: @mySubnetgroup@
 deleteDBSubnetGroup
     :: Text -- ^ 'ddbsgDBSubnetGroupName'
     -> DeleteDBSubnetGroup
@@ -63,7 +63,7 @@ deleteDBSubnetGroup pDBSubnetGroupName_ =
   DeleteDBSubnetGroup' {_ddbsgDBSubnetGroupName = pDBSubnetGroupName_}
 
 
--- | The name of the database subnet group to delete. Constraints: Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
+-- | The name of the database subnet group to delete. Constraints: Constraints: Must match the name of an existing DBSubnetGroup. Must not be default. Example: @mySubnetgroup@
 ddbsgDBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
 ddbsgDBSubnetGroupName = lens _ddbsgDBSubnetGroupName (\ s a -> s{_ddbsgDBSubnetGroupName = a});
 

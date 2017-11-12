@@ -14,11 +14,11 @@
 module Test.AWS.Gen.ServiceCatalog where
 
 import Data.Proxy
+import Network.AWS.ServiceCatalog
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.ServiceCatalog
 import Test.AWS.ServiceCatalog.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -36,6 +36,9 @@ import Test.AWS.ServiceCatalog.Internal
 --
 --         , requestCreateProduct $
 --             createProduct
+--
+--         , requestDescribeCopyProductStatus $
+--             describeCopyProductStatus
 --
 --         , requestTerminateProvisionedProduct $
 --             terminateProvisionedProduct
@@ -163,6 +166,9 @@ import Test.AWS.ServiceCatalog.Internal
 --         , requestDescribeProvisionedProduct $
 --             describeProvisionedProduct
 --
+--         , requestCopyProduct $
+--             copyProduct
+--
 --         , requestUpdateProvisioningArtifact $
 --             updateProvisioningArtifact
 --
@@ -192,6 +198,9 @@ import Test.AWS.ServiceCatalog.Internal
 --
 --         , responseCreateProduct $
 --             createProductResponse
+--
+--         , responseDescribeCopyProductStatus $
+--             describeCopyProductStatusResponse
 --
 --         , responseTerminateProvisionedProduct $
 --             terminateProvisionedProductResponse
@@ -319,6 +328,9 @@ import Test.AWS.ServiceCatalog.Internal
 --         , responseDescribeProvisionedProduct $
 --             describeProvisionedProductResponse
 --
+--         , responseCopyProduct $
+--             copyProductResponse
+--
 --         , responseUpdateProvisioningArtifact $
 --             updateProvisioningArtifactResponse
 --
@@ -356,6 +368,11 @@ requestCreateProduct :: CreateProduct -> TestTree
 requestCreateProduct = req
     "CreateProduct"
     "fixture/CreateProduct.yaml"
+
+requestDescribeCopyProductStatus :: DescribeCopyProductStatus -> TestTree
+requestDescribeCopyProductStatus = req
+    "DescribeCopyProductStatus"
+    "fixture/DescribeCopyProductStatus.yaml"
 
 requestTerminateProvisionedProduct :: TerminateProvisionedProduct -> TestTree
 requestTerminateProvisionedProduct = req
@@ -567,6 +584,11 @@ requestDescribeProvisionedProduct = req
     "DescribeProvisionedProduct"
     "fixture/DescribeProvisionedProduct.yaml"
 
+requestCopyProduct :: CopyProduct -> TestTree
+requestCopyProduct = req
+    "CopyProduct"
+    "fixture/CopyProduct.yaml"
+
 requestUpdateProvisioningArtifact :: UpdateProvisioningArtifact -> TestTree
 requestUpdateProvisioningArtifact = req
     "UpdateProvisioningArtifact"
@@ -619,6 +641,13 @@ responseCreateProduct = res
     "fixture/CreateProductResponse.proto"
     serviceCatalog
     (Proxy :: Proxy CreateProduct)
+
+responseDescribeCopyProductStatus :: DescribeCopyProductStatusResponse -> TestTree
+responseDescribeCopyProductStatus = res
+    "DescribeCopyProductStatusResponse"
+    "fixture/DescribeCopyProductStatusResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DescribeCopyProductStatus)
 
 responseTerminateProvisionedProduct :: TerminateProvisionedProductResponse -> TestTree
 responseTerminateProvisionedProduct = res
@@ -913,6 +942,13 @@ responseDescribeProvisionedProduct = res
     "fixture/DescribeProvisionedProductResponse.proto"
     serviceCatalog
     (Proxy :: Proxy DescribeProvisionedProduct)
+
+responseCopyProduct :: CopyProductResponse -> TestTree
+responseCopyProduct = res
+    "CopyProductResponse"
+    "fixture/CopyProductResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy CopyProduct)
 
 responseUpdateProvisioningArtifact :: UpdateProvisioningArtifactResponse -> TestTree
 responseUpdateProvisioningArtifact = res

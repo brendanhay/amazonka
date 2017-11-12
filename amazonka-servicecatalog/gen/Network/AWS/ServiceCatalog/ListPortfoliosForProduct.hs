@@ -61,7 +61,7 @@ data ListPortfoliosForProduct = ListPortfoliosForProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lisAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'lisAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'lisPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
@@ -80,7 +80,7 @@ listPortfoliosForProduct pProductId_ =
   }
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lisAcceptLanguage :: Lens' ListPortfoliosForProduct (Maybe Text)
 lisAcceptLanguage = lens _lisAcceptLanguage (\ s a -> s{_lisAcceptLanguage = a});
 

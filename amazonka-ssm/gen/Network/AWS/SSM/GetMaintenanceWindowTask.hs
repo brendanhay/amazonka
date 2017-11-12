@@ -172,7 +172,7 @@ data GetMaintenanceWindowTaskResponse = GetMaintenanceWindowTaskResponse'
 --
 -- * 'gmwtrsTaskType' - The type of task to execute.
 --
--- * 'gmwtrsTaskARN' - TaskArn is the resource that the task used during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the SSM Document Name/ARN. For LAMBDA tasks, TaskArn is the Function Name/ARN. For STEP_FUNCTION tasks, the TaskArn is the State Machine ARN.
+-- * 'gmwtrsTaskARN' - The resource that the task used during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the Systems Manager Document name/ARN. For LAMBDA tasks, the value is the function name/ARN. For STEP_FUNCTION tasks, the value is the state machine ARN.
 --
 -- * 'gmwtrsMaxErrors' - The maximum number of errors allowed before the task stops being scheduled.
 --
@@ -182,7 +182,7 @@ data GetMaintenanceWindowTaskResponse = GetMaintenanceWindowTaskResponse'
 --
 -- * 'gmwtrsTargets' - The targets where the task should execute.
 --
--- * 'gmwtrsLoggingInfo' - The location in Amazon S3 where the task results will be logged.
+-- * 'gmwtrsLoggingInfo' - The location in Amazon S3 where the task results are logged.
 --
 -- * 'gmwtrsDescription' - The retrieved task description.
 --
@@ -234,7 +234,7 @@ gmwtrsPriority = lens _gmwtrsPriority (\ s a -> s{_gmwtrsPriority = a}) . mappin
 gmwtrsTaskType :: Lens' GetMaintenanceWindowTaskResponse (Maybe MaintenanceWindowTaskType)
 gmwtrsTaskType = lens _gmwtrsTaskType (\ s a -> s{_gmwtrsTaskType = a});
 
--- | TaskArn is the resource that the task used during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the SSM Document Name/ARN. For LAMBDA tasks, TaskArn is the Function Name/ARN. For STEP_FUNCTION tasks, the TaskArn is the State Machine ARN.
+-- | The resource that the task used during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the Systems Manager Document name/ARN. For LAMBDA tasks, the value is the function name/ARN. For STEP_FUNCTION tasks, the value is the state machine ARN.
 gmwtrsTaskARN :: Lens' GetMaintenanceWindowTaskResponse (Maybe Text)
 gmwtrsTaskARN = lens _gmwtrsTaskARN (\ s a -> s{_gmwtrsTaskARN = a});
 
@@ -254,7 +254,7 @@ gmwtrsName = lens _gmwtrsName (\ s a -> s{_gmwtrsName = a});
 gmwtrsTargets :: Lens' GetMaintenanceWindowTaskResponse [Target]
 gmwtrsTargets = lens _gmwtrsTargets (\ s a -> s{_gmwtrsTargets = a}) . _Default . _Coerce;
 
--- | The location in Amazon S3 where the task results will be logged.
+-- | The location in Amazon S3 where the task results are logged.
 gmwtrsLoggingInfo :: Lens' GetMaintenanceWindowTaskResponse (Maybe LoggingInfo)
 gmwtrsLoggingInfo = lens _gmwtrsLoggingInfo (\ s a -> s{_gmwtrsLoggingInfo = a});
 

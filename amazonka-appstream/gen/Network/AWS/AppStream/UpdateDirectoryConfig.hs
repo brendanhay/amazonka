@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the directory configuration with the given parameters.
+-- Updates the specified directory configuration.
 --
 --
 module Network.AWS.AppStream.UpdateDirectoryConfig
@@ -58,11 +58,11 @@ data UpdateDirectoryConfig = UpdateDirectoryConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udcServiceAccountCredentials' - The /AccountName/ and /AccountPassword/ values for the service account, which are used by the streaming instance to connect to the directory
+-- * 'udcServiceAccountCredentials' - The credentials for the service account used by the streaming instance to connect to the directory.
 --
--- * 'udcOrganizationalUnitDistinguishedNames' - The list of the distinguished names of organizational units to place computer accounts in.
+-- * 'udcOrganizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
 --
--- * 'udcDirectoryName' - The name of the existing directory configuration to be updated.
+-- * 'udcDirectoryName' - The name of the directory configuration.
 updateDirectoryConfig
     :: Text -- ^ 'udcDirectoryName'
     -> UpdateDirectoryConfig
@@ -74,15 +74,15 @@ updateDirectoryConfig pDirectoryName_ =
   }
 
 
--- | The /AccountName/ and /AccountPassword/ values for the service account, which are used by the streaming instance to connect to the directory
+-- | The credentials for the service account used by the streaming instance to connect to the directory.
 udcServiceAccountCredentials :: Lens' UpdateDirectoryConfig (Maybe ServiceAccountCredentials)
 udcServiceAccountCredentials = lens _udcServiceAccountCredentials (\ s a -> s{_udcServiceAccountCredentials = a});
 
--- | The list of the distinguished names of organizational units to place computer accounts in.
+-- | The distinguished names of the organizational units for computer accounts.
 udcOrganizationalUnitDistinguishedNames :: Lens' UpdateDirectoryConfig [Text]
 udcOrganizationalUnitDistinguishedNames = lens _udcOrganizationalUnitDistinguishedNames (\ s a -> s{_udcOrganizationalUnitDistinguishedNames = a}) . _Default . _Coerce;
 
--- | The name of the existing directory configuration to be updated.
+-- | The name of the directory configuration.
 udcDirectoryName :: Lens' UpdateDirectoryConfig Text
 udcDirectoryName = lens _udcDirectoryName (\ s a -> s{_udcDirectoryName = a});
 
@@ -137,7 +137,7 @@ data UpdateDirectoryConfigResponse = UpdateDirectoryConfigResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udcrsDirectoryConfig' - The updated directory configuration details.
+-- * 'udcrsDirectoryConfig' - Information about the directory configuration.
 --
 -- * 'udcrsResponseStatus' - -- | The response status code.
 updateDirectoryConfigResponse
@@ -148,7 +148,7 @@ updateDirectoryConfigResponse pResponseStatus_ =
   {_udcrsDirectoryConfig = Nothing, _udcrsResponseStatus = pResponseStatus_}
 
 
--- | The updated directory configuration details.
+-- | Information about the directory configuration.
 udcrsDirectoryConfig :: Lens' UpdateDirectoryConfigResponse (Maybe DirectoryConfig)
 udcrsDirectoryConfig = lens _udcrsDirectoryConfig (\ s a -> s{_udcrsDirectoryConfig = a});
 

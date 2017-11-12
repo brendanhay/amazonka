@@ -14,11 +14,11 @@
 module Test.AWS.Gen.DirectConnect where
 
 import Data.Proxy
+import Network.AWS.DirectConnect
+import Test.AWS.DirectConnect.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.DirectConnect
-import Test.AWS.DirectConnect.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -28,7 +28,10 @@ import Test.AWS.DirectConnect.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeInterconnects $
+--         [ requestDescribeDirectConnectGatewayAssociations $
+--             describeDirectConnectGatewayAssociations
+--
+--         , requestDescribeInterconnects $
 --             describeInterconnects
 --
 --         , requestDescribeTags $
@@ -46,6 +49,9 @@ import Test.AWS.DirectConnect.Internal
 --         , requestCreateConnection $
 --             createConnection
 --
+--         , requestDescribeDirectConnectGateways $
+--             describeDirectConnectGateways
+--
 --         , requestAssociateVirtualInterface $
 --             associateVirtualInterface
 --
@@ -58,8 +64,14 @@ import Test.AWS.DirectConnect.Internal
 --         , requestConfirmPrivateVirtualInterface $
 --             confirmPrivateVirtualInterface
 --
+--         , requestDeleteDirectConnectGatewayAssociation $
+--             deleteDirectConnectGatewayAssociation
+--
 --         , requestDescribeLocations $
 --             describeLocations
+--
+--         , requestCreateDirectConnectGatewayAssociation $
+--             createDirectConnectGatewayAssociation
 --
 --         , requestCreatePublicVirtualInterface $
 --             createPublicVirtualInterface
@@ -73,11 +85,20 @@ import Test.AWS.DirectConnect.Internal
 --         , requestConfirmConnection $
 --             confirmConnection
 --
+--         , requestDescribeDirectConnectGatewayAttachments $
+--             describeDirectConnectGatewayAttachments
+--
 --         , requestConfirmPublicVirtualInterface $
 --             confirmPublicVirtualInterface
 --
 --         , requestDescribeVirtualGateways $
 --             describeVirtualGateways
+--
+--         , requestCreateDirectConnectGateway $
+--             createDirectConnectGateway
+--
+--         , requestDeleteDirectConnectGateway $
+--             deleteDirectConnectGateway
 --
 --         , requestDescribeVirtualInterfaces $
 --             describeVirtualInterfaces
@@ -130,7 +151,10 @@ import Test.AWS.DirectConnect.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeInterconnects $
+--         [ responseDescribeDirectConnectGatewayAssociations $
+--             describeDirectConnectGatewayAssociationsResponse
+--
+--         , responseDescribeInterconnects $
 --             describeInterconnectsResponse
 --
 --         , responseDescribeTags $
@@ -148,6 +172,9 @@ import Test.AWS.DirectConnect.Internal
 --         , responseCreateConnection $
 --             connection
 --
+--         , responseDescribeDirectConnectGateways $
+--             describeDirectConnectGatewaysResponse
+--
 --         , responseAssociateVirtualInterface $
 --             virtualInterface
 --
@@ -160,8 +187,14 @@ import Test.AWS.DirectConnect.Internal
 --         , responseConfirmPrivateVirtualInterface $
 --             confirmPrivateVirtualInterfaceResponse
 --
+--         , responseDeleteDirectConnectGatewayAssociation $
+--             deleteDirectConnectGatewayAssociationResponse
+--
 --         , responseDescribeLocations $
 --             describeLocationsResponse
+--
+--         , responseCreateDirectConnectGatewayAssociation $
+--             createDirectConnectGatewayAssociationResponse
 --
 --         , responseCreatePublicVirtualInterface $
 --             virtualInterface
@@ -175,11 +208,20 @@ import Test.AWS.DirectConnect.Internal
 --         , responseConfirmConnection $
 --             confirmConnectionResponse
 --
+--         , responseDescribeDirectConnectGatewayAttachments $
+--             describeDirectConnectGatewayAttachmentsResponse
+--
 --         , responseConfirmPublicVirtualInterface $
 --             confirmPublicVirtualInterfaceResponse
 --
 --         , responseDescribeVirtualGateways $
 --             describeVirtualGatewaysResponse
+--
+--         , responseCreateDirectConnectGateway $
+--             createDirectConnectGatewayResponse
+--
+--         , responseDeleteDirectConnectGateway $
+--             deleteDirectConnectGatewayResponse
 --
 --         , responseDescribeVirtualInterfaces $
 --             describeVirtualInterfacesResponse
@@ -234,6 +276,11 @@ import Test.AWS.DirectConnect.Internal
 
 -- Requests
 
+requestDescribeDirectConnectGatewayAssociations :: DescribeDirectConnectGatewayAssociations -> TestTree
+requestDescribeDirectConnectGatewayAssociations = req
+    "DescribeDirectConnectGatewayAssociations"
+    "fixture/DescribeDirectConnectGatewayAssociations.yaml"
+
 requestDescribeInterconnects :: DescribeInterconnects -> TestTree
 requestDescribeInterconnects = req
     "DescribeInterconnects"
@@ -264,6 +311,11 @@ requestCreateConnection = req
     "CreateConnection"
     "fixture/CreateConnection.yaml"
 
+requestDescribeDirectConnectGateways :: DescribeDirectConnectGateways -> TestTree
+requestDescribeDirectConnectGateways = req
+    "DescribeDirectConnectGateways"
+    "fixture/DescribeDirectConnectGateways.yaml"
+
 requestAssociateVirtualInterface :: AssociateVirtualInterface -> TestTree
 requestAssociateVirtualInterface = req
     "AssociateVirtualInterface"
@@ -284,10 +336,20 @@ requestConfirmPrivateVirtualInterface = req
     "ConfirmPrivateVirtualInterface"
     "fixture/ConfirmPrivateVirtualInterface.yaml"
 
+requestDeleteDirectConnectGatewayAssociation :: DeleteDirectConnectGatewayAssociation -> TestTree
+requestDeleteDirectConnectGatewayAssociation = req
+    "DeleteDirectConnectGatewayAssociation"
+    "fixture/DeleteDirectConnectGatewayAssociation.yaml"
+
 requestDescribeLocations :: DescribeLocations -> TestTree
 requestDescribeLocations = req
     "DescribeLocations"
     "fixture/DescribeLocations.yaml"
+
+requestCreateDirectConnectGatewayAssociation :: CreateDirectConnectGatewayAssociation -> TestTree
+requestCreateDirectConnectGatewayAssociation = req
+    "CreateDirectConnectGatewayAssociation"
+    "fixture/CreateDirectConnectGatewayAssociation.yaml"
 
 requestCreatePublicVirtualInterface :: CreatePublicVirtualInterface -> TestTree
 requestCreatePublicVirtualInterface = req
@@ -309,6 +371,11 @@ requestConfirmConnection = req
     "ConfirmConnection"
     "fixture/ConfirmConnection.yaml"
 
+requestDescribeDirectConnectGatewayAttachments :: DescribeDirectConnectGatewayAttachments -> TestTree
+requestDescribeDirectConnectGatewayAttachments = req
+    "DescribeDirectConnectGatewayAttachments"
+    "fixture/DescribeDirectConnectGatewayAttachments.yaml"
+
 requestConfirmPublicVirtualInterface :: ConfirmPublicVirtualInterface -> TestTree
 requestConfirmPublicVirtualInterface = req
     "ConfirmPublicVirtualInterface"
@@ -318,6 +385,16 @@ requestDescribeVirtualGateways :: DescribeVirtualGateways -> TestTree
 requestDescribeVirtualGateways = req
     "DescribeVirtualGateways"
     "fixture/DescribeVirtualGateways.yaml"
+
+requestCreateDirectConnectGateway :: CreateDirectConnectGateway -> TestTree
+requestCreateDirectConnectGateway = req
+    "CreateDirectConnectGateway"
+    "fixture/CreateDirectConnectGateway.yaml"
+
+requestDeleteDirectConnectGateway :: DeleteDirectConnectGateway -> TestTree
+requestDeleteDirectConnectGateway = req
+    "DeleteDirectConnectGateway"
+    "fixture/DeleteDirectConnectGateway.yaml"
 
 requestDescribeVirtualInterfaces :: DescribeVirtualInterfaces -> TestTree
 requestDescribeVirtualInterfaces = req
@@ -401,6 +478,13 @@ requestDescribeHostedConnections = req
 
 -- Responses
 
+responseDescribeDirectConnectGatewayAssociations :: DescribeDirectConnectGatewayAssociationsResponse -> TestTree
+responseDescribeDirectConnectGatewayAssociations = res
+    "DescribeDirectConnectGatewayAssociationsResponse"
+    "fixture/DescribeDirectConnectGatewayAssociationsResponse.proto"
+    directConnect
+    (Proxy :: Proxy DescribeDirectConnectGatewayAssociations)
+
 responseDescribeInterconnects :: DescribeInterconnectsResponse -> TestTree
 responseDescribeInterconnects = res
     "DescribeInterconnectsResponse"
@@ -443,6 +527,13 @@ responseCreateConnection = res
     directConnect
     (Proxy :: Proxy CreateConnection)
 
+responseDescribeDirectConnectGateways :: DescribeDirectConnectGatewaysResponse -> TestTree
+responseDescribeDirectConnectGateways = res
+    "DescribeDirectConnectGatewaysResponse"
+    "fixture/DescribeDirectConnectGatewaysResponse.proto"
+    directConnect
+    (Proxy :: Proxy DescribeDirectConnectGateways)
+
 responseAssociateVirtualInterface :: VirtualInterface -> TestTree
 responseAssociateVirtualInterface = res
     "AssociateVirtualInterfaceResponse"
@@ -471,12 +562,26 @@ responseConfirmPrivateVirtualInterface = res
     directConnect
     (Proxy :: Proxy ConfirmPrivateVirtualInterface)
 
+responseDeleteDirectConnectGatewayAssociation :: DeleteDirectConnectGatewayAssociationResponse -> TestTree
+responseDeleteDirectConnectGatewayAssociation = res
+    "DeleteDirectConnectGatewayAssociationResponse"
+    "fixture/DeleteDirectConnectGatewayAssociationResponse.proto"
+    directConnect
+    (Proxy :: Proxy DeleteDirectConnectGatewayAssociation)
+
 responseDescribeLocations :: DescribeLocationsResponse -> TestTree
 responseDescribeLocations = res
     "DescribeLocationsResponse"
     "fixture/DescribeLocationsResponse.proto"
     directConnect
     (Proxy :: Proxy DescribeLocations)
+
+responseCreateDirectConnectGatewayAssociation :: CreateDirectConnectGatewayAssociationResponse -> TestTree
+responseCreateDirectConnectGatewayAssociation = res
+    "CreateDirectConnectGatewayAssociationResponse"
+    "fixture/CreateDirectConnectGatewayAssociationResponse.proto"
+    directConnect
+    (Proxy :: Proxy CreateDirectConnectGatewayAssociation)
 
 responseCreatePublicVirtualInterface :: VirtualInterface -> TestTree
 responseCreatePublicVirtualInterface = res
@@ -506,6 +611,13 @@ responseConfirmConnection = res
     directConnect
     (Proxy :: Proxy ConfirmConnection)
 
+responseDescribeDirectConnectGatewayAttachments :: DescribeDirectConnectGatewayAttachmentsResponse -> TestTree
+responseDescribeDirectConnectGatewayAttachments = res
+    "DescribeDirectConnectGatewayAttachmentsResponse"
+    "fixture/DescribeDirectConnectGatewayAttachmentsResponse.proto"
+    directConnect
+    (Proxy :: Proxy DescribeDirectConnectGatewayAttachments)
+
 responseConfirmPublicVirtualInterface :: ConfirmPublicVirtualInterfaceResponse -> TestTree
 responseConfirmPublicVirtualInterface = res
     "ConfirmPublicVirtualInterfaceResponse"
@@ -519,6 +631,20 @@ responseDescribeVirtualGateways = res
     "fixture/DescribeVirtualGatewaysResponse.proto"
     directConnect
     (Proxy :: Proxy DescribeVirtualGateways)
+
+responseCreateDirectConnectGateway :: CreateDirectConnectGatewayResponse -> TestTree
+responseCreateDirectConnectGateway = res
+    "CreateDirectConnectGatewayResponse"
+    "fixture/CreateDirectConnectGatewayResponse.proto"
+    directConnect
+    (Proxy :: Proxy CreateDirectConnectGateway)
+
+responseDeleteDirectConnectGateway :: DeleteDirectConnectGatewayResponse -> TestTree
+responseDeleteDirectConnectGateway = res
+    "DeleteDirectConnectGatewayResponse"
+    "fixture/DeleteDirectConnectGatewayResponse.proto"
+    directConnect
+    (Proxy :: Proxy DeleteDirectConnectGateway)
 
 responseDescribeVirtualInterfaces :: DescribeVirtualInterfacesResponse -> TestTree
 responseDescribeVirtualInterfaces = res

@@ -58,7 +58,7 @@ newtype PromoteReadReplicaDBCluster = PromoteReadReplicaDBCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prrdcDBClusterIdentifier' - The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster-replica1@
+-- * 'prrdcDBClusterIdentifier' - The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.  Constraints:     * Must match the identifier of an existing DBCluster Read Replica. Example: @my-cluster-replica1@
 promoteReadReplicaDBCluster
     :: Text -- ^ 'prrdcDBClusterIdentifier'
     -> PromoteReadReplicaDBCluster
@@ -67,7 +67,7 @@ promoteReadReplicaDBCluster pDBClusterIdentifier_ =
   {_prrdcDBClusterIdentifier = pDBClusterIdentifier_}
 
 
--- | The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster-replica1@
+-- | The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.  Constraints:     * Must match the identifier of an existing DBCluster Read Replica. Example: @my-cluster-replica1@
 prrdcDBClusterIdentifier :: Lens' PromoteReadReplicaDBCluster Text
 prrdcDBClusterIdentifier = lens _prrdcDBClusterIdentifier (\ s a -> s{_prrdcDBClusterIdentifier = a});
 

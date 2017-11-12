@@ -418,6 +418,9 @@ module Network.AWS.RDS
     -- ** DeleteDBClusterSnapshot
     , module Network.AWS.RDS.DeleteDBClusterSnapshot
 
+    -- ** DescribeValidDBInstanceModifications
+    , module Network.AWS.RDS.DescribeValidDBInstanceModifications
+
     -- ** DescribeOptionGroupOptions (Paginated)
     , module Network.AWS.RDS.DescribeOptionGroupOptions
 
@@ -748,11 +751,13 @@ module Network.AWS.RDS
     , diAvailabilityZone
     , diVPCSecurityGroups
     , diBackupRetentionPeriod
+    , diPerformanceInsightsKMSKeyId
     , diDBSubnetGroup
     , diMultiAZ
     , diOptionGroupMemberships
     , diEnhancedMonitoringResourceARN
     , diSecondaryAvailabilityZone
+    , diPerformanceInsightsEnabled
     , diAllocatedStorage
     , diDBiResourceId
     , diDBParameterGroups
@@ -880,6 +885,12 @@ module Network.AWS.RDS
     , dmDomain
     , dmIAMRoleName
 
+    -- ** DoubleRange
+    , DoubleRange
+    , doubleRange
+    , drTo
+    , drFrom
+
     -- ** EC2SecurityGroup
     , EC2SecurityGroup
     , ec2SecurityGroup
@@ -996,11 +1007,14 @@ module Network.AWS.RDS
     , ogoEngineName
     , ogoMajorEngineVersion
     , ogoName
+    , ogoSupportsOptionVersionDowngrade
     , ogoDefaultPort
     , ogoOptionGroupOptionSettings
+    , ogoRequiresAutoMinorEngineVersionUpgrade
     , ogoPortRequired
     , ogoDescription
     , ogoOptionsDependedOn
+    , ogoVPCOnly
 
     -- ** OptionGroupOptionSetting
     , OptionGroupOptionSetting
@@ -1035,17 +1049,24 @@ module Network.AWS.RDS
     , OrderableDBInstanceOption
     , orderableDBInstanceOption
     , odioEngineVersion
+    , odioMinIOPSPerGib
     , odioSupportsIAMDatabaseAuthentication
+    , odioMinIOPSPerDBInstance
     , odioMultiAZCapable
+    , odioMaxStorageSize
     , odioEngine
+    , odioMinStorageSize
     , odioSupportsIOPS
+    , odioSupportsPerformanceInsights
     , odioDBInstanceClass
     , odioLicenseModel
     , odioAvailabilityZones
     , odioSupportsStorageEncryption
     , odioReadReplicaCapable
+    , odioMaxIOPSPerGib
     , odioVPC
     , odioSupportsEnhancedMonitoring
+    , odioMaxIOPSPerDBInstance
     , odioStorageType
 
     -- ** Parameter
@@ -1088,6 +1109,13 @@ module Network.AWS.RDS
     , pmvAllocatedStorage
     , pmvPort
     , pmvStorageType
+
+    -- ** Range
+    , Range
+    , range
+    , rTo
+    , rFrom
+    , rStep
 
     -- ** RecurringCharge
     , RecurringCharge
@@ -1173,6 +1201,19 @@ module Network.AWS.RDS
     , vpcSecurityGroupMembership
     , vsgmStatus
     , vsgmVPCSecurityGroupId
+
+    -- ** ValidDBInstanceModificationsMessage
+    , ValidDBInstanceModificationsMessage
+    , validDBInstanceModificationsMessage
+    , vdimmStorage
+
+    -- ** ValidStorageOptions
+    , ValidStorageOptions
+    , validStorageOptions
+    , vsoStorageSize
+    , vsoProvisionedIOPS
+    , vsoIOPSToStorageRatio
+    , vsoStorageType
     ) where
 
 import Network.AWS.RDS.AddRoleToDBCluster
@@ -1234,6 +1275,7 @@ import Network.AWS.RDS.DescribePendingMaintenanceActions
 import Network.AWS.RDS.DescribeReservedDBInstances
 import Network.AWS.RDS.DescribeReservedDBInstancesOfferings
 import Network.AWS.RDS.DescribeSourceRegions
+import Network.AWS.RDS.DescribeValidDBInstanceModifications
 import Network.AWS.RDS.DownloadDBLogFilePortion
 import Network.AWS.RDS.FailoverDBCluster
 import Network.AWS.RDS.ListTagsForResource

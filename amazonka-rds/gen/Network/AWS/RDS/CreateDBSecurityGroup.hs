@@ -64,7 +64,7 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup'
 --
 -- * 'cdsgTags' - Undocumented member.
 --
--- * 'cdsgDBSecurityGroupName' - The name for the DB security group. This value is stored as a lowercase string. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Must not be "Default" Example: @mysecuritygroup@
+-- * 'cdsgDBSecurityGroupName' - The name for the DB security group. This value is stored as a lowercase string. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Must not be "Default" Example: @mysecuritygroup@
 --
 -- * 'cdsgDBSecurityGroupDescription' - The description for the DB security group.
 createDBSecurityGroup
@@ -83,7 +83,7 @@ createDBSecurityGroup pDBSecurityGroupName_ pDBSecurityGroupDescription_ =
 cdsgTags :: Lens' CreateDBSecurityGroup [Tag]
 cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default . _Coerce;
 
--- | The name for the DB security group. This value is stored as a lowercase string. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Must not be "Default" Example: @mysecuritygroup@
+-- | The name for the DB security group. This value is stored as a lowercase string. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Must not be "Default" Example: @mysecuritygroup@
 cdsgDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text
 cdsgDBSecurityGroupName = lens _cdsgDBSecurityGroupName (\ s a -> s{_cdsgDBSecurityGroupName = a});
 

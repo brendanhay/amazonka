@@ -61,7 +61,7 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
 --
 -- * 'apwpSourcePortfolioId' - The identifier of the source portfolio to use with this association.
 --
--- * 'apwpAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'apwpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'apwpProductId' - The product identifier.
 --
@@ -83,7 +83,7 @@ associateProductWithPortfolio pProductId_ pPortfolioId_ =
 apwpSourcePortfolioId :: Lens' AssociateProductWithPortfolio (Maybe Text)
 apwpSourcePortfolioId = lens _apwpSourcePortfolioId (\ s a -> s{_apwpSourcePortfolioId = a});
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 apwpAcceptLanguage :: Lens' AssociateProductWithPortfolio (Maybe Text)
 apwpAcceptLanguage = lens _apwpAcceptLanguage (\ s a -> s{_apwpAcceptLanguage = a});
 

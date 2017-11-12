@@ -14,11 +14,11 @@
 module Test.AWS.Gen.ElasticBeanstalk where
 
 import Data.Proxy
+import Network.AWS.ElasticBeanstalk
+import Test.AWS.ElasticBeanstalk.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ElasticBeanstalk
-import Test.AWS.ElasticBeanstalk.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -52,6 +52,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , requestRequestEnvironmentInfo $
 --             requestEnvironmentInfo
 --
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
 --         , requestRetrieveEnvironmentInfo $
 --             retrieveEnvironmentInfo
 --
@@ -81,6 +84,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --
 --         , requestUpdateConfigurationTemplate $
 --             updateConfigurationTemplate
+--
+--         , requestUpdateTagsForResource $
+--             updateTagsForResource
 --
 --         , requestDescribeEnvironmentResources $
 --             describeEnvironmentResources
@@ -178,6 +184,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , responseRequestEnvironmentInfo $
 --             requestEnvironmentInfoResponse
 --
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
+--
 --         , responseRetrieveEnvironmentInfo $
 --             retrieveEnvironmentInfoResponse
 --
@@ -207,6 +216,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --
 --         , responseUpdateConfigurationTemplate $
 --             configurationSettingsDescription
+--
+--         , responseUpdateTagsForResource $
+--             updateTagsForResourceResponse
 --
 --         , responseDescribeEnvironmentResources $
 --             describeEnvironmentResourcesResponse
@@ -322,6 +334,11 @@ requestRequestEnvironmentInfo = req
     "RequestEnvironmentInfo"
     "fixture/RequestEnvironmentInfo.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestRetrieveEnvironmentInfo :: RetrieveEnvironmentInfo -> TestTree
 requestRetrieveEnvironmentInfo = req
     "RetrieveEnvironmentInfo"
@@ -371,6 +388,11 @@ requestUpdateConfigurationTemplate :: UpdateConfigurationTemplate -> TestTree
 requestUpdateConfigurationTemplate = req
     "UpdateConfigurationTemplate"
     "fixture/UpdateConfigurationTemplate.yaml"
+
+requestUpdateTagsForResource :: UpdateTagsForResource -> TestTree
+requestUpdateTagsForResource = req
+    "UpdateTagsForResource"
+    "fixture/UpdateTagsForResource.yaml"
 
 requestDescribeEnvironmentResources :: DescribeEnvironmentResources -> TestTree
 requestDescribeEnvironmentResources = req
@@ -545,6 +567,13 @@ responseRequestEnvironmentInfo = res
     elasticBeanstalk
     (Proxy :: Proxy RequestEnvironmentInfo)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy ListTagsForResource)
+
 responseRetrieveEnvironmentInfo :: RetrieveEnvironmentInfoResponse -> TestTree
 responseRetrieveEnvironmentInfo = res
     "RetrieveEnvironmentInfoResponse"
@@ -614,6 +643,13 @@ responseUpdateConfigurationTemplate = res
     "fixture/UpdateConfigurationTemplateResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy UpdateConfigurationTemplate)
+
+responseUpdateTagsForResource :: UpdateTagsForResourceResponse -> TestTree
+responseUpdateTagsForResource = res
+    "UpdateTagsForResourceResponse"
+    "fixture/UpdateTagsForResourceResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy UpdateTagsForResource)
 
 responseDescribeEnvironmentResources :: DescribeEnvironmentResourcesResponse -> TestTree
 responseDescribeEnvironmentResources = res

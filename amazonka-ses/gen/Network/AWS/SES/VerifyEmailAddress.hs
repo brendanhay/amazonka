@@ -18,12 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Verifies an email address. This action causes a confirmation email message to be sent to the specified address.
+-- Deprecated. Use the @VerifyEmailIdentity@ operation to verify a new email address.
 --
---
--- /Important:/ The VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The VerifyEmailIdentity action is now preferred.
---
--- This action is throttled at one request per second.
 --
 module Network.AWS.SES.VerifyEmailAddress
     (

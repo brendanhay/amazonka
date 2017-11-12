@@ -57,7 +57,7 @@ data UpdateConnectivityInfo = UpdateConnectivityInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uciConnectivityInfo' - Connectivity info array
+-- * 'uciConnectivityInfo' - Connectivity info list
 --
 -- * 'uciThingName' - Thing Name
 updateConnectivityInfo
@@ -68,7 +68,7 @@ updateConnectivityInfo pThingName_ =
   {_uciConnectivityInfo = Nothing, _uciThingName = pThingName_}
 
 
--- | Connectivity info array
+-- | Connectivity info list
 uciConnectivityInfo :: Lens' UpdateConnectivityInfo [ConnectivityInfo]
 uciConnectivityInfo = lens _uciConnectivityInfo (\ s a -> s{_uciConnectivityInfo = a}) . _Default . _Coerce;
 

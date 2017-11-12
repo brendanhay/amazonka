@@ -41,6 +41,7 @@ module Network.AWS.APIGateway.ImportRestAPI
     , raName
     , raVersion
     , raId
+    , raEndpointConfiguration
     , raDescription
     ) where
 

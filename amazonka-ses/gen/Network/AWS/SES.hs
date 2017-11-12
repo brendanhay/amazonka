@@ -13,7 +13,7 @@
 --
 -- __Amazon Simple Email Service__
 --
--- This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation is intended to be used in conjunction with the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide> .
+-- This is the API Reference for <https://aws.amazon.com/ses/ Amazon Simple Email Service> (Amazon SES). This documentation is intended to be used in conjunction with the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide> .
 --
 module Network.AWS.SES
     (
@@ -29,6 +29,9 @@ module Network.AWS.SES
     -- ** InvalidSNSDestinationException
     , _InvalidSNSDestinationException
 
+    -- ** TemplateDoesNotExistException
+    , _TemplateDoesNotExistException
+
     -- ** CannotDeleteException
     , _CannotDeleteException
 
@@ -37,6 +40,12 @@ module Network.AWS.SES
 
     -- ** MessageRejected
     , _MessageRejected
+
+    -- ** InvalidRenderingParameterException
+    , _InvalidRenderingParameterException
+
+    -- ** MissingRenderingAttributeException
+    , _MissingRenderingAttributeException
 
     -- ** RuleSetDoesNotExistException
     , _RuleSetDoesNotExistException
@@ -50,6 +59,9 @@ module Network.AWS.SES
     -- ** ConfigurationSetAlreadyExistsException
     , _ConfigurationSetAlreadyExistsException
 
+    -- ** InvalidTrackingOptionsException
+    , _InvalidTrackingOptionsException
+
     -- ** EventDestinationDoesNotExistException
     , _EventDestinationDoesNotExistException
 
@@ -59,6 +71,12 @@ module Network.AWS.SES
     -- ** InvalidLambdaFunctionException
     , _InvalidLambdaFunctionException
 
+    -- ** TrackingOptionsDoesNotExistException
+    , _TrackingOptionsDoesNotExistException
+
+    -- ** InvalidTemplateException
+    , _InvalidTemplateException
+
     -- ** ConfigurationSetDoesNotExistException
     , _ConfigurationSetDoesNotExistException
 
@@ -67,6 +85,9 @@ module Network.AWS.SES
 
     -- ** InvalidS3ConfigurationException
     , _InvalidS3ConfigurationException
+
+    -- ** TrackingOptionsAlreadyExistsException
+    , _TrackingOptionsAlreadyExistsException
 
     -- ** InvalidSNSTopicException
     , _InvalidSNSTopicException
@@ -85,6 +106,15 @@ module Network.AWS.SES
 
     -- * Operations
     -- $operations
+
+    -- ** CreateTemplate
+    , module Network.AWS.SES.CreateTemplate
+
+    -- ** DeleteConfigurationSetTrackingOptions
+    , module Network.AWS.SES.DeleteConfigurationSetTrackingOptions
+
+    -- ** UpdateConfigurationSetTrackingOptions
+    , module Network.AWS.SES.UpdateConfigurationSetTrackingOptions
 
     -- ** CreateReceiptRuleSet
     , module Network.AWS.SES.CreateReceiptRuleSet
@@ -149,8 +179,17 @@ module Network.AWS.SES
     -- ** GetIdentityPolicies
     , module Network.AWS.SES.GetIdentityPolicies
 
+    -- ** ListTemplates
+    , module Network.AWS.SES.ListTemplates
+
     -- ** VerifyDomainIdentity
     , module Network.AWS.SES.VerifyDomainIdentity
+
+    -- ** UpdateTemplate
+    , module Network.AWS.SES.UpdateTemplate
+
+    -- ** DeleteTemplate
+    , module Network.AWS.SES.DeleteTemplate
 
     -- ** ReorderReceiptRuleSet
     , module Network.AWS.SES.ReorderReceiptRuleSet
@@ -170,8 +209,17 @@ module Network.AWS.SES
     -- ** GetIdentityDkimAttributes
     , module Network.AWS.SES.GetIdentityDkimAttributes
 
+    -- ** SendTemplatedEmail
+    , module Network.AWS.SES.SendTemplatedEmail
+
     -- ** VerifyDomainDkim
     , module Network.AWS.SES.VerifyDomainDkim
+
+    -- ** TestRenderTemplate
+    , module Network.AWS.SES.TestRenderTemplate
+
+    -- ** SendBulkTemplatedEmail
+    , module Network.AWS.SES.SendBulkTemplatedEmail
 
     -- ** SendRawEmail
     , module Network.AWS.SES.SendRawEmail
@@ -224,11 +272,17 @@ module Network.AWS.SES
     -- ** CreateReceiptRule
     , module Network.AWS.SES.CreateReceiptRule
 
+    -- ** GetTemplate
+    , module Network.AWS.SES.GetTemplate
+
     -- ** SetActiveReceiptRuleSet
     , module Network.AWS.SES.SetActiveReceiptRuleSet
 
     -- ** CreateConfigurationSet
     , module Network.AWS.SES.CreateConfigurationSet
+
+    -- ** CreateConfigurationSetTrackingOptions
+    , module Network.AWS.SES.CreateConfigurationSetTrackingOptions
 
     -- ** DescribeActiveReceiptRuleSet
     , module Network.AWS.SES.DescribeActiveReceiptRuleSet
@@ -240,6 +294,9 @@ module Network.AWS.SES
 
     -- ** BounceType
     , BounceType (..)
+
+    -- ** BulkEmailStatus
+    , BulkEmailStatus (..)
 
     -- ** ConfigurationSetAttribute
     , ConfigurationSetAttribute (..)
@@ -308,6 +365,20 @@ module Network.AWS.SES
     , briRecipientDsnFields
     , briRecipientARN
     , briRecipient
+
+    -- ** BulkEmailDestination
+    , BulkEmailDestination
+    , bulkEmailDestination
+    , bedReplacementTemplateData
+    , bedReplacementTags
+    , bedDestination
+
+    -- ** BulkEmailDestinationStatus
+    , BulkEmailDestinationStatus
+    , bulkEmailDestinationStatus
+    , bedsStatus
+    , bedsError
+    , bedsMessageId
 
     -- ** CloudWatchDestination
     , CloudWatchDestination
@@ -507,6 +578,25 @@ module Network.AWS.SES
     , sTopicARN
     , sScope
 
+    -- ** Template
+    , Template
+    , template
+    , tTextPart
+    , tSubjectPart
+    , tHTMLPart
+    , tTemplateName
+
+    -- ** TemplateMetadata
+    , TemplateMetadata
+    , templateMetadata
+    , tmName
+    , tmCreatedTimestamp
+
+    -- ** TrackingOptions
+    , TrackingOptions
+    , trackingOptions
+    , toCustomRedirectDomain
+
     -- ** WorkmailAction
     , WorkmailAction
     , workmailAction
@@ -517,16 +607,20 @@ module Network.AWS.SES
 import Network.AWS.SES.CloneReceiptRuleSet
 import Network.AWS.SES.CreateConfigurationSet
 import Network.AWS.SES.CreateConfigurationSetEventDestination
+import Network.AWS.SES.CreateConfigurationSetTrackingOptions
 import Network.AWS.SES.CreateReceiptFilter
 import Network.AWS.SES.CreateReceiptRule
 import Network.AWS.SES.CreateReceiptRuleSet
+import Network.AWS.SES.CreateTemplate
 import Network.AWS.SES.DeleteConfigurationSet
 import Network.AWS.SES.DeleteConfigurationSetEventDestination
+import Network.AWS.SES.DeleteConfigurationSetTrackingOptions
 import Network.AWS.SES.DeleteIdentity
 import Network.AWS.SES.DeleteIdentityPolicy
 import Network.AWS.SES.DeleteReceiptFilter
 import Network.AWS.SES.DeleteReceiptRule
 import Network.AWS.SES.DeleteReceiptRuleSet
+import Network.AWS.SES.DeleteTemplate
 import Network.AWS.SES.DeleteVerifiedEmailAddress
 import Network.AWS.SES.DescribeActiveReceiptRuleSet
 import Network.AWS.SES.DescribeConfigurationSet
@@ -539,17 +633,21 @@ import Network.AWS.SES.GetIdentityPolicies
 import Network.AWS.SES.GetIdentityVerificationAttributes
 import Network.AWS.SES.GetSendQuota
 import Network.AWS.SES.GetSendStatistics
+import Network.AWS.SES.GetTemplate
 import Network.AWS.SES.ListConfigurationSets
 import Network.AWS.SES.ListIdentities
 import Network.AWS.SES.ListIdentityPolicies
 import Network.AWS.SES.ListReceiptFilters
 import Network.AWS.SES.ListReceiptRuleSets
+import Network.AWS.SES.ListTemplates
 import Network.AWS.SES.ListVerifiedEmailAddresses
 import Network.AWS.SES.PutIdentityPolicy
 import Network.AWS.SES.ReorderReceiptRuleSet
 import Network.AWS.SES.SendBounce
+import Network.AWS.SES.SendBulkTemplatedEmail
 import Network.AWS.SES.SendEmail
 import Network.AWS.SES.SendRawEmail
+import Network.AWS.SES.SendTemplatedEmail
 import Network.AWS.SES.SetActiveReceiptRuleSet
 import Network.AWS.SES.SetIdentityDkimEnabled
 import Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
@@ -557,9 +655,12 @@ import Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
 import Network.AWS.SES.SetIdentityMailFromDomain
 import Network.AWS.SES.SetIdentityNotificationTopic
 import Network.AWS.SES.SetReceiptRulePosition
+import Network.AWS.SES.TestRenderTemplate
 import Network.AWS.SES.Types
 import Network.AWS.SES.UpdateConfigurationSetEventDestination
+import Network.AWS.SES.UpdateConfigurationSetTrackingOptions
 import Network.AWS.SES.UpdateReceiptRule
+import Network.AWS.SES.UpdateTemplate
 import Network.AWS.SES.VerifyDomainDkim
 import Network.AWS.SES.VerifyDomainIdentity
 import Network.AWS.SES.VerifyEmailAddress

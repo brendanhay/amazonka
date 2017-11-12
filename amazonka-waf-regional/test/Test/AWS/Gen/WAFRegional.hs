@@ -14,11 +14,11 @@
 module Test.AWS.Gen.WAFRegional where
 
 import Data.Proxy
+import Network.AWS.WAFRegional
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.WAFRegional
 import Test.AWS.WAFRegional.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -70,8 +70,20 @@ import Test.AWS.WAFRegional.Internal
 --         , requestCreateWebACL $
 --             createWebACL
 --
+--         , requestGetGeoMatchSet $
+--             getGeoMatchSet
+--
 --         , requestListByteMatchSets $
 --             listByteMatchSets
+--
+--         , requestListGeoMatchSets $
+--             listGeoMatchSets
+--
+--         , requestDeleteRegexMatchSet $
+--             deleteRegexMatchSet
+--
+--         , requestUpdateRegexMatchSet $
+--             updateRegexMatchSet
 --
 --         , requestGetIPSet $
 --             getIPSet
@@ -90,6 +102,9 @@ import Test.AWS.WAFRegional.Internal
 --
 --         , requestListXSSMatchSets $
 --             listXSSMatchSets
+--
+--         , requestCreateGeoMatchSet $
+--             createGeoMatchSet
 --
 --         , requestGetChangeToken $
 --             getChangeToken
@@ -133,6 +148,9 @@ import Test.AWS.WAFRegional.Internal
 --         , requestAssociateWebACL $
 --             associateWebACL
 --
+--         , requestGetRegexMatchSet $
+--             getRegexMatchSet
+--
 --         , requestDeleteIPSet $
 --             deleteIPSet
 --
@@ -142,14 +160,29 @@ import Test.AWS.WAFRegional.Internal
 --         , requestListIPSets $
 --             listIPSets
 --
+--         , requestListRegexMatchSets $
+--             listRegexMatchSets
+--
 --         , requestCreateXSSMatchSet $
 --             createXSSMatchSet
+--
+--         , requestDeleteGeoMatchSet $
+--             deleteGeoMatchSet
+--
+--         , requestUpdateGeoMatchSet $
+--             updateGeoMatchSet
 --
 --         , requestGetByteMatchSet $
 --             getByteMatchSet
 --
+--         , requestCreateRegexMatchSet $
+--             createRegexMatchSet
+--
 --         , requestGetRateBasedRule $
 --             getRateBasedRule
+--
+--         , requestCreateRegexPatternSet $
+--             createRegexPatternSet
 --
 --         , requestDeleteSizeConstraintSet $
 --             deleteSizeConstraintSet
@@ -157,11 +190,23 @@ import Test.AWS.WAFRegional.Internal
 --         , requestUpdateSizeConstraintSet $
 --             updateSizeConstraintSet
 --
+--         , requestDeleteRegexPatternSet $
+--             deleteRegexPatternSet
+--
+--         , requestUpdateRegexPatternSet $
+--             updateRegexPatternSet
+--
 --         , requestCreateSizeConstraintSet $
 --             createSizeConstraintSet
 --
+--         , requestListRegexPatternSets $
+--             listRegexPatternSets
+--
 --         , requestListSqlInjectionMatchSets $
 --             listSqlInjectionMatchSets
+--
+--         , requestGetRegexPatternSet $
+--             getRegexPatternSet
 --
 --         , requestCreateRateBasedRule $
 --             createRateBasedRule
@@ -217,8 +262,20 @@ import Test.AWS.WAFRegional.Internal
 --         , responseCreateWebACL $
 --             createWebACLResponse
 --
+--         , responseGetGeoMatchSet $
+--             getGeoMatchSetResponse
+--
 --         , responseListByteMatchSets $
 --             listByteMatchSetsResponse
+--
+--         , responseListGeoMatchSets $
+--             listGeoMatchSetsResponse
+--
+--         , responseDeleteRegexMatchSet $
+--             deleteRegexMatchSetResponse
+--
+--         , responseUpdateRegexMatchSet $
+--             updateRegexMatchSetResponse
 --
 --         , responseGetIPSet $
 --             getIPSetResponse
@@ -237,6 +294,9 @@ import Test.AWS.WAFRegional.Internal
 --
 --         , responseListXSSMatchSets $
 --             listXSSMatchSetsResponse
+--
+--         , responseCreateGeoMatchSet $
+--             createGeoMatchSetResponse
 --
 --         , responseGetChangeToken $
 --             getChangeTokenResponse
@@ -280,6 +340,9 @@ import Test.AWS.WAFRegional.Internal
 --         , responseAssociateWebACL $
 --             associateWebACLResponse
 --
+--         , responseGetRegexMatchSet $
+--             getRegexMatchSetResponse
+--
 --         , responseDeleteIPSet $
 --             deleteIPSetResponse
 --
@@ -289,14 +352,29 @@ import Test.AWS.WAFRegional.Internal
 --         , responseListIPSets $
 --             listIPSetsResponse
 --
+--         , responseListRegexMatchSets $
+--             listRegexMatchSetsResponse
+--
 --         , responseCreateXSSMatchSet $
 --             createXSSMatchSetResponse
+--
+--         , responseDeleteGeoMatchSet $
+--             deleteGeoMatchSetResponse
+--
+--         , responseUpdateGeoMatchSet $
+--             updateGeoMatchSetResponse
 --
 --         , responseGetByteMatchSet $
 --             getByteMatchSetResponse
 --
+--         , responseCreateRegexMatchSet $
+--             createRegexMatchSetResponse
+--
 --         , responseGetRateBasedRule $
 --             getRateBasedRuleResponse
+--
+--         , responseCreateRegexPatternSet $
+--             createRegexPatternSetResponse
 --
 --         , responseDeleteSizeConstraintSet $
 --             deleteSizeConstraintSetResponse
@@ -304,11 +382,23 @@ import Test.AWS.WAFRegional.Internal
 --         , responseUpdateSizeConstraintSet $
 --             updateSizeConstraintSetResponse
 --
+--         , responseDeleteRegexPatternSet $
+--             deleteRegexPatternSetResponse
+--
+--         , responseUpdateRegexPatternSet $
+--             updateRegexPatternSetResponse
+--
 --         , responseCreateSizeConstraintSet $
 --             createSizeConstraintSetResponse
 --
+--         , responseListRegexPatternSets $
+--             listRegexPatternSetsResponse
+--
 --         , responseListSqlInjectionMatchSets $
 --             listSqlInjectionMatchSetsResponse
+--
+--         , responseGetRegexPatternSet $
+--             getRegexPatternSetResponse
 --
 --         , responseCreateRateBasedRule $
 --             createRateBasedRuleResponse
@@ -394,10 +484,30 @@ requestCreateWebACL = req
     "CreateWebACL"
     "fixture/CreateWebACL.yaml"
 
+requestGetGeoMatchSet :: GetGeoMatchSet -> TestTree
+requestGetGeoMatchSet = req
+    "GetGeoMatchSet"
+    "fixture/GetGeoMatchSet.yaml"
+
 requestListByteMatchSets :: ListByteMatchSets -> TestTree
 requestListByteMatchSets = req
     "ListByteMatchSets"
     "fixture/ListByteMatchSets.yaml"
+
+requestListGeoMatchSets :: ListGeoMatchSets -> TestTree
+requestListGeoMatchSets = req
+    "ListGeoMatchSets"
+    "fixture/ListGeoMatchSets.yaml"
+
+requestDeleteRegexMatchSet :: DeleteRegexMatchSet -> TestTree
+requestDeleteRegexMatchSet = req
+    "DeleteRegexMatchSet"
+    "fixture/DeleteRegexMatchSet.yaml"
+
+requestUpdateRegexMatchSet :: UpdateRegexMatchSet -> TestTree
+requestUpdateRegexMatchSet = req
+    "UpdateRegexMatchSet"
+    "fixture/UpdateRegexMatchSet.yaml"
 
 requestGetIPSet :: GetIPSet -> TestTree
 requestGetIPSet = req
@@ -428,6 +538,11 @@ requestListXSSMatchSets :: ListXSSMatchSets -> TestTree
 requestListXSSMatchSets = req
     "ListXSSMatchSets"
     "fixture/ListXSSMatchSets.yaml"
+
+requestCreateGeoMatchSet :: CreateGeoMatchSet -> TestTree
+requestCreateGeoMatchSet = req
+    "CreateGeoMatchSet"
+    "fixture/CreateGeoMatchSet.yaml"
 
 requestGetChangeToken :: GetChangeToken -> TestTree
 requestGetChangeToken = req
@@ -499,6 +614,11 @@ requestAssociateWebACL = req
     "AssociateWebACL"
     "fixture/AssociateWebACL.yaml"
 
+requestGetRegexMatchSet :: GetRegexMatchSet -> TestTree
+requestGetRegexMatchSet = req
+    "GetRegexMatchSet"
+    "fixture/GetRegexMatchSet.yaml"
+
 requestDeleteIPSet :: DeleteIPSet -> TestTree
 requestDeleteIPSet = req
     "DeleteIPSet"
@@ -514,20 +634,45 @@ requestListIPSets = req
     "ListIPSets"
     "fixture/ListIPSets.yaml"
 
+requestListRegexMatchSets :: ListRegexMatchSets -> TestTree
+requestListRegexMatchSets = req
+    "ListRegexMatchSets"
+    "fixture/ListRegexMatchSets.yaml"
+
 requestCreateXSSMatchSet :: CreateXSSMatchSet -> TestTree
 requestCreateXSSMatchSet = req
     "CreateXSSMatchSet"
     "fixture/CreateXSSMatchSet.yaml"
+
+requestDeleteGeoMatchSet :: DeleteGeoMatchSet -> TestTree
+requestDeleteGeoMatchSet = req
+    "DeleteGeoMatchSet"
+    "fixture/DeleteGeoMatchSet.yaml"
+
+requestUpdateGeoMatchSet :: UpdateGeoMatchSet -> TestTree
+requestUpdateGeoMatchSet = req
+    "UpdateGeoMatchSet"
+    "fixture/UpdateGeoMatchSet.yaml"
 
 requestGetByteMatchSet :: GetByteMatchSet -> TestTree
 requestGetByteMatchSet = req
     "GetByteMatchSet"
     "fixture/GetByteMatchSet.yaml"
 
+requestCreateRegexMatchSet :: CreateRegexMatchSet -> TestTree
+requestCreateRegexMatchSet = req
+    "CreateRegexMatchSet"
+    "fixture/CreateRegexMatchSet.yaml"
+
 requestGetRateBasedRule :: GetRateBasedRule -> TestTree
 requestGetRateBasedRule = req
     "GetRateBasedRule"
     "fixture/GetRateBasedRule.yaml"
+
+requestCreateRegexPatternSet :: CreateRegexPatternSet -> TestTree
+requestCreateRegexPatternSet = req
+    "CreateRegexPatternSet"
+    "fixture/CreateRegexPatternSet.yaml"
 
 requestDeleteSizeConstraintSet :: DeleteSizeConstraintSet -> TestTree
 requestDeleteSizeConstraintSet = req
@@ -539,15 +684,35 @@ requestUpdateSizeConstraintSet = req
     "UpdateSizeConstraintSet"
     "fixture/UpdateSizeConstraintSet.yaml"
 
+requestDeleteRegexPatternSet :: DeleteRegexPatternSet -> TestTree
+requestDeleteRegexPatternSet = req
+    "DeleteRegexPatternSet"
+    "fixture/DeleteRegexPatternSet.yaml"
+
+requestUpdateRegexPatternSet :: UpdateRegexPatternSet -> TestTree
+requestUpdateRegexPatternSet = req
+    "UpdateRegexPatternSet"
+    "fixture/UpdateRegexPatternSet.yaml"
+
 requestCreateSizeConstraintSet :: CreateSizeConstraintSet -> TestTree
 requestCreateSizeConstraintSet = req
     "CreateSizeConstraintSet"
     "fixture/CreateSizeConstraintSet.yaml"
 
+requestListRegexPatternSets :: ListRegexPatternSets -> TestTree
+requestListRegexPatternSets = req
+    "ListRegexPatternSets"
+    "fixture/ListRegexPatternSets.yaml"
+
 requestListSqlInjectionMatchSets :: ListSqlInjectionMatchSets -> TestTree
 requestListSqlInjectionMatchSets = req
     "ListSqlInjectionMatchSets"
     "fixture/ListSqlInjectionMatchSets.yaml"
+
+requestGetRegexPatternSet :: GetRegexPatternSet -> TestTree
+requestGetRegexPatternSet = req
+    "GetRegexPatternSet"
+    "fixture/GetRegexPatternSet.yaml"
 
 requestCreateRateBasedRule :: CreateRateBasedRule -> TestTree
 requestCreateRateBasedRule = req
@@ -664,12 +829,40 @@ responseCreateWebACL = res
     wAFRegional
     (Proxy :: Proxy CreateWebACL)
 
+responseGetGeoMatchSet :: GetGeoMatchSetResponse -> TestTree
+responseGetGeoMatchSet = res
+    "GetGeoMatchSetResponse"
+    "fixture/GetGeoMatchSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy GetGeoMatchSet)
+
 responseListByteMatchSets :: ListByteMatchSetsResponse -> TestTree
 responseListByteMatchSets = res
     "ListByteMatchSetsResponse"
     "fixture/ListByteMatchSetsResponse.proto"
     wAFRegional
     (Proxy :: Proxy ListByteMatchSets)
+
+responseListGeoMatchSets :: ListGeoMatchSetsResponse -> TestTree
+responseListGeoMatchSets = res
+    "ListGeoMatchSetsResponse"
+    "fixture/ListGeoMatchSetsResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy ListGeoMatchSets)
+
+responseDeleteRegexMatchSet :: DeleteRegexMatchSetResponse -> TestTree
+responseDeleteRegexMatchSet = res
+    "DeleteRegexMatchSetResponse"
+    "fixture/DeleteRegexMatchSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy DeleteRegexMatchSet)
+
+responseUpdateRegexMatchSet :: UpdateRegexMatchSetResponse -> TestTree
+responseUpdateRegexMatchSet = res
+    "UpdateRegexMatchSetResponse"
+    "fixture/UpdateRegexMatchSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy UpdateRegexMatchSet)
 
 responseGetIPSet :: GetIPSetResponse -> TestTree
 responseGetIPSet = res
@@ -712,6 +905,13 @@ responseListXSSMatchSets = res
     "fixture/ListXSSMatchSetsResponse.proto"
     wAFRegional
     (Proxy :: Proxy ListXSSMatchSets)
+
+responseCreateGeoMatchSet :: CreateGeoMatchSetResponse -> TestTree
+responseCreateGeoMatchSet = res
+    "CreateGeoMatchSetResponse"
+    "fixture/CreateGeoMatchSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy CreateGeoMatchSet)
 
 responseGetChangeToken :: GetChangeTokenResponse -> TestTree
 responseGetChangeToken = res
@@ -811,6 +1011,13 @@ responseAssociateWebACL = res
     wAFRegional
     (Proxy :: Proxy AssociateWebACL)
 
+responseGetRegexMatchSet :: GetRegexMatchSetResponse -> TestTree
+responseGetRegexMatchSet = res
+    "GetRegexMatchSetResponse"
+    "fixture/GetRegexMatchSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy GetRegexMatchSet)
+
 responseDeleteIPSet :: DeleteIPSetResponse -> TestTree
 responseDeleteIPSet = res
     "DeleteIPSetResponse"
@@ -832,12 +1039,33 @@ responseListIPSets = res
     wAFRegional
     (Proxy :: Proxy ListIPSets)
 
+responseListRegexMatchSets :: ListRegexMatchSetsResponse -> TestTree
+responseListRegexMatchSets = res
+    "ListRegexMatchSetsResponse"
+    "fixture/ListRegexMatchSetsResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy ListRegexMatchSets)
+
 responseCreateXSSMatchSet :: CreateXSSMatchSetResponse -> TestTree
 responseCreateXSSMatchSet = res
     "CreateXSSMatchSetResponse"
     "fixture/CreateXSSMatchSetResponse.proto"
     wAFRegional
     (Proxy :: Proxy CreateXSSMatchSet)
+
+responseDeleteGeoMatchSet :: DeleteGeoMatchSetResponse -> TestTree
+responseDeleteGeoMatchSet = res
+    "DeleteGeoMatchSetResponse"
+    "fixture/DeleteGeoMatchSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy DeleteGeoMatchSet)
+
+responseUpdateGeoMatchSet :: UpdateGeoMatchSetResponse -> TestTree
+responseUpdateGeoMatchSet = res
+    "UpdateGeoMatchSetResponse"
+    "fixture/UpdateGeoMatchSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy UpdateGeoMatchSet)
 
 responseGetByteMatchSet :: GetByteMatchSetResponse -> TestTree
 responseGetByteMatchSet = res
@@ -846,12 +1074,26 @@ responseGetByteMatchSet = res
     wAFRegional
     (Proxy :: Proxy GetByteMatchSet)
 
+responseCreateRegexMatchSet :: CreateRegexMatchSetResponse -> TestTree
+responseCreateRegexMatchSet = res
+    "CreateRegexMatchSetResponse"
+    "fixture/CreateRegexMatchSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy CreateRegexMatchSet)
+
 responseGetRateBasedRule :: GetRateBasedRuleResponse -> TestTree
 responseGetRateBasedRule = res
     "GetRateBasedRuleResponse"
     "fixture/GetRateBasedRuleResponse.proto"
     wAFRegional
     (Proxy :: Proxy GetRateBasedRule)
+
+responseCreateRegexPatternSet :: CreateRegexPatternSetResponse -> TestTree
+responseCreateRegexPatternSet = res
+    "CreateRegexPatternSetResponse"
+    "fixture/CreateRegexPatternSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy CreateRegexPatternSet)
 
 responseDeleteSizeConstraintSet :: DeleteSizeConstraintSetResponse -> TestTree
 responseDeleteSizeConstraintSet = res
@@ -867,6 +1109,20 @@ responseUpdateSizeConstraintSet = res
     wAFRegional
     (Proxy :: Proxy UpdateSizeConstraintSet)
 
+responseDeleteRegexPatternSet :: DeleteRegexPatternSetResponse -> TestTree
+responseDeleteRegexPatternSet = res
+    "DeleteRegexPatternSetResponse"
+    "fixture/DeleteRegexPatternSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy DeleteRegexPatternSet)
+
+responseUpdateRegexPatternSet :: UpdateRegexPatternSetResponse -> TestTree
+responseUpdateRegexPatternSet = res
+    "UpdateRegexPatternSetResponse"
+    "fixture/UpdateRegexPatternSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy UpdateRegexPatternSet)
+
 responseCreateSizeConstraintSet :: CreateSizeConstraintSetResponse -> TestTree
 responseCreateSizeConstraintSet = res
     "CreateSizeConstraintSetResponse"
@@ -874,12 +1130,26 @@ responseCreateSizeConstraintSet = res
     wAFRegional
     (Proxy :: Proxy CreateSizeConstraintSet)
 
+responseListRegexPatternSets :: ListRegexPatternSetsResponse -> TestTree
+responseListRegexPatternSets = res
+    "ListRegexPatternSetsResponse"
+    "fixture/ListRegexPatternSetsResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy ListRegexPatternSets)
+
 responseListSqlInjectionMatchSets :: ListSqlInjectionMatchSetsResponse -> TestTree
 responseListSqlInjectionMatchSets = res
     "ListSqlInjectionMatchSetsResponse"
     "fixture/ListSqlInjectionMatchSetsResponse.proto"
     wAFRegional
     (Proxy :: Proxy ListSqlInjectionMatchSets)
+
+responseGetRegexPatternSet :: GetRegexPatternSetResponse -> TestTree
+responseGetRegexPatternSet = res
+    "GetRegexPatternSetResponse"
+    "fixture/GetRegexPatternSetResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy GetRegexPatternSet)
 
 responseCreateRateBasedRule :: CreateRateBasedRuleResponse -> TestTree
 responseCreateRateBasedRule = res

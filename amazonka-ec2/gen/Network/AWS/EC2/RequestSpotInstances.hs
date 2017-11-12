@@ -30,6 +30,7 @@ module Network.AWS.EC2.RequestSpotInstances
     , rsisBlockDurationMinutes
     , rsisClientToken
     , rsisInstanceCount
+    , rsisInstanceInterruptionBehavior
     , rsisLaunchSpecification
     , rsisAvailabilityZoneGroup
     , rsisValidUntil
@@ -63,6 +64,7 @@ data RequestSpotInstances = RequestSpotInstances'
   { _rsisBlockDurationMinutes :: {-# NOUNPACK #-}!(Maybe Int)
   , _rsisClientToken :: {-# NOUNPACK #-}!(Maybe Text)
   , _rsisInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  , _rsisInstanceInterruptionBehavior :: {-# NOUNPACK #-}!(Maybe InstanceInterruptionBehavior)
   , _rsisLaunchSpecification :: {-# NOUNPACK #-}!(Maybe RequestSpotLaunchSpecification)
   , _rsisAvailabilityZoneGroup :: {-# NOUNPACK #-}!(Maybe Text)
   , _rsisValidUntil :: {-# NOUNPACK #-}!(Maybe ISO8601)
@@ -83,6 +85,8 @@ data RequestSpotInstances = RequestSpotInstances'
 -- * 'rsisClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- * 'rsisInstanceCount' - The maximum number of Spot instances to launch. Default: 1
+--
+-- * 'rsisInstanceInterruptionBehavior' - Indicates whether a Spot instance stops or terminates when it is interrupted.
 --
 -- * 'rsisLaunchSpecification' - The launch specification.
 --
@@ -107,6 +111,7 @@ requestSpotInstances pSpotPrice_ =
   { _rsisBlockDurationMinutes = Nothing
   , _rsisClientToken = Nothing
   , _rsisInstanceCount = Nothing
+  , _rsisInstanceInterruptionBehavior = Nothing
   , _rsisLaunchSpecification = Nothing
   , _rsisAvailabilityZoneGroup = Nothing
   , _rsisValidUntil = Nothing
@@ -129,6 +134,10 @@ rsisClientToken = lens _rsisClientToken (\ s a -> s{_rsisClientToken = a});
 -- | The maximum number of Spot instances to launch. Default: 1
 rsisInstanceCount :: Lens' RequestSpotInstances (Maybe Int)
 rsisInstanceCount = lens _rsisInstanceCount (\ s a -> s{_rsisInstanceCount = a});
+
+-- | Indicates whether a Spot instance stops or terminates when it is interrupted.
+rsisInstanceInterruptionBehavior :: Lens' RequestSpotInstances (Maybe InstanceInterruptionBehavior)
+rsisInstanceInterruptionBehavior = lens _rsisInstanceInterruptionBehavior (\ s a -> s{_rsisInstanceInterruptionBehavior = a});
 
 -- | The launch specification.
 rsisLaunchSpecification :: Lens' RequestSpotInstances (Maybe RequestSpotLaunchSpecification)
@@ -192,6 +201,8 @@ instance ToQuery RequestSpotInstances where
                "BlockDurationMinutes" =: _rsisBlockDurationMinutes,
                "ClientToken" =: _rsisClientToken,
                "InstanceCount" =: _rsisInstanceCount,
+               "InstanceInterruptionBehavior" =:
+                 _rsisInstanceInterruptionBehavior,
                "LaunchSpecification" =: _rsisLaunchSpecification,
                "AvailabilityZoneGroup" =:
                  _rsisAvailabilityZoneGroup,

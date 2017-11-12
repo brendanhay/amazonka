@@ -23,17 +23,17 @@
 --
 -- The target from being an ID target to a Tag target, or a Tag target to an ID target.
 --
--- The IDs of an ID target.
+-- IDs for an ID target.
 --
--- The tags of a Tag target.
+-- Tags for a Tag target.
 --
--- The Owner.
+-- Owner.
 --
--- The Name.
+-- Name.
 --
--- The Description.
+-- Description.
 --
--- Also note that if a parameter is null, then the corresponding field is not modified.
+-- If a parameter is null, then the corresponding field is not modified.
 --
 module Network.AWS.SSM.UpdateMaintenanceWindowTarget
     (
@@ -85,19 +85,19 @@ data UpdateMaintenanceWindowTarget = UpdateMaintenanceWindowTarget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uReplace' - If you specify True, then all fields that are required by the RegisterTargetWithMaintenanceWindow API are also required for this API request. Optional fields that are not specified will be set to null.
+-- * 'uReplace' - If True, then all fields that are required by the RegisterTargetWithMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
 --
 -- * 'uOwnerInformation' - User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 --
 -- * 'uName' - A name for the update.
 --
--- * 'uTargets' - The targets that you want to add or replace.
+-- * 'uTargets' - The targets to add or replace.
 --
 -- * 'uDescription' - An optional description for the update.
 --
--- * 'uWindowId' - The Maintenance Window ID for which you want to modify the target.
+-- * 'uWindowId' - The Maintenance Window ID with which to modify the target.
 --
--- * 'uWindowTargetId' - The target ID that you want to modify.
+-- * 'uWindowTargetId' - The target ID to modify.
 updateMaintenanceWindowTarget
     :: Text -- ^ 'uWindowId'
     -> Text -- ^ 'uWindowTargetId'
@@ -114,7 +114,7 @@ updateMaintenanceWindowTarget pWindowId_ pWindowTargetId_ =
   }
 
 
--- | If you specify True, then all fields that are required by the RegisterTargetWithMaintenanceWindow API are also required for this API request. Optional fields that are not specified will be set to null.
+-- | If True, then all fields that are required by the RegisterTargetWithMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
 uReplace :: Lens' UpdateMaintenanceWindowTarget (Maybe Bool)
 uReplace = lens _uReplace (\ s a -> s{_uReplace = a});
 
@@ -126,7 +126,7 @@ uOwnerInformation = lens _uOwnerInformation (\ s a -> s{_uOwnerInformation = a})
 uName :: Lens' UpdateMaintenanceWindowTarget (Maybe Text)
 uName = lens _uName (\ s a -> s{_uName = a});
 
--- | The targets that you want to add or replace.
+-- | The targets to add or replace.
 uTargets :: Lens' UpdateMaintenanceWindowTarget [Target]
 uTargets = lens _uTargets (\ s a -> s{_uTargets = a}) . _Default . _Coerce;
 
@@ -134,11 +134,11 @@ uTargets = lens _uTargets (\ s a -> s{_uTargets = a}) . _Default . _Coerce;
 uDescription :: Lens' UpdateMaintenanceWindowTarget (Maybe Text)
 uDescription = lens _uDescription (\ s a -> s{_uDescription = a}) . mapping _Sensitive;
 
--- | The Maintenance Window ID for which you want to modify the target.
+-- | The Maintenance Window ID with which to modify the target.
 uWindowId :: Lens' UpdateMaintenanceWindowTarget Text
 uWindowId = lens _uWindowId (\ s a -> s{_uWindowId = a});
 
--- | The target ID that you want to modify.
+-- | The target ID to modify.
 uWindowTargetId :: Lens' UpdateMaintenanceWindowTarget Text
 uWindowTargetId = lens _uWindowTargetId (\ s a -> s{_uWindowTargetId = a});
 

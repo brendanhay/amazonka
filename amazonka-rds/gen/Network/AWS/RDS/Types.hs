@@ -280,11 +280,13 @@ module Network.AWS.RDS.Types
     , diAvailabilityZone
     , diVPCSecurityGroups
     , diBackupRetentionPeriod
+    , diPerformanceInsightsKMSKeyId
     , diDBSubnetGroup
     , diMultiAZ
     , diOptionGroupMemberships
     , diEnhancedMonitoringResourceARN
     , diSecondaryAvailabilityZone
+    , diPerformanceInsightsEnabled
     , diAllocatedStorage
     , diDBiResourceId
     , diDBParameterGroups
@@ -412,6 +414,12 @@ module Network.AWS.RDS.Types
     , dmDomain
     , dmIAMRoleName
 
+    -- * DoubleRange
+    , DoubleRange
+    , doubleRange
+    , drTo
+    , drFrom
+
     -- * EC2SecurityGroup
     , EC2SecurityGroup
     , ec2SecurityGroup
@@ -528,11 +536,14 @@ module Network.AWS.RDS.Types
     , ogoEngineName
     , ogoMajorEngineVersion
     , ogoName
+    , ogoSupportsOptionVersionDowngrade
     , ogoDefaultPort
     , ogoOptionGroupOptionSettings
+    , ogoRequiresAutoMinorEngineVersionUpgrade
     , ogoPortRequired
     , ogoDescription
     , ogoOptionsDependedOn
+    , ogoVPCOnly
 
     -- * OptionGroupOptionSetting
     , OptionGroupOptionSetting
@@ -567,17 +578,24 @@ module Network.AWS.RDS.Types
     , OrderableDBInstanceOption
     , orderableDBInstanceOption
     , odioEngineVersion
+    , odioMinIOPSPerGib
     , odioSupportsIAMDatabaseAuthentication
+    , odioMinIOPSPerDBInstance
     , odioMultiAZCapable
+    , odioMaxStorageSize
     , odioEngine
+    , odioMinStorageSize
     , odioSupportsIOPS
+    , odioSupportsPerformanceInsights
     , odioDBInstanceClass
     , odioLicenseModel
     , odioAvailabilityZones
     , odioSupportsStorageEncryption
     , odioReadReplicaCapable
+    , odioMaxIOPSPerGib
     , odioVPC
     , odioSupportsEnhancedMonitoring
+    , odioMaxIOPSPerDBInstance
     , odioStorageType
 
     -- * Parameter
@@ -620,6 +638,13 @@ module Network.AWS.RDS.Types
     , pmvAllocatedStorage
     , pmvPort
     , pmvStorageType
+
+    -- * Range
+    , Range
+    , range
+    , rTo
+    , rFrom
+    , rStep
 
     -- * RecurringCharge
     , RecurringCharge
@@ -705,6 +730,19 @@ module Network.AWS.RDS.Types
     , vpcSecurityGroupMembership
     , vsgmStatus
     , vsgmVPCSecurityGroupId
+
+    -- * ValidDBInstanceModificationsMessage
+    , ValidDBInstanceModificationsMessage
+    , validDBInstanceModificationsMessage
+    , vdimmStorage
+
+    -- * ValidStorageOptions
+    , ValidStorageOptions
+    , validStorageOptions
+    , vsoStorageSize
+    , vsoProvisionedIOPS
+    , vsoIOPSToStorageRatio
+    , vsoStorageType
     ) where
 
 import Network.AWS.Lens

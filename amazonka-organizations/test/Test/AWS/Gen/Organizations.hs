@@ -14,11 +14,11 @@
 module Test.AWS.Gen.Organizations where
 
 import Data.Proxy
+import Network.AWS.Organizations
 import Test.AWS.Fixture
+import Test.AWS.Organizations.Internal
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.Organizations
-import Test.AWS.Organizations.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

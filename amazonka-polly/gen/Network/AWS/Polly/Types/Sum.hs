@@ -270,6 +270,7 @@ data VoiceId
   | Maja
   | Marlene
   | Mathieu
+  | Matthew
   | Maxim
   | Miguel
   | Mizuki
@@ -281,6 +282,7 @@ data VoiceId
   | Ruben
   | Russell
   | Salli
+  | Takumi
   | Tatyana
   | Vicki
   | Vitoria
@@ -323,6 +325,7 @@ instance FromText VoiceId where
         "maja" -> pure Maja
         "marlene" -> pure Marlene
         "mathieu" -> pure Mathieu
+        "matthew" -> pure Matthew
         "maxim" -> pure Maxim
         "miguel" -> pure Miguel
         "mizuki" -> pure Mizuki
@@ -334,11 +337,12 @@ instance FromText VoiceId where
         "ruben" -> pure Ruben
         "russell" -> pure Russell
         "salli" -> pure Salli
+        "takumi" -> pure Takumi
         "tatyana" -> pure Tatyana
         "vicki" -> pure Vicki
         "vitoria" -> pure Vitoria
         e -> fromTextError $ "Failure parsing VoiceId from value: '" <> e
-           <> "'. Accepted values: amy, astrid, brian, carla, carmen, celine, chantal, conchita, cristiano, dora, emma, enrique, ewa, filiz, geraint, giorgio, gwyneth, hans, ines, ivy, jacek, jan, joanna, joey, justin, karl, kendra, kimberly, liv, lotte, mads, maja, marlene, mathieu, maxim, miguel, mizuki, naja, nicole, penelope, raveena, ricardo, ruben, russell, salli, tatyana, vicki, vitoria"
+           <> "'. Accepted values: amy, astrid, brian, carla, carmen, celine, chantal, conchita, cristiano, dora, emma, enrique, ewa, filiz, geraint, giorgio, gwyneth, hans, ines, ivy, jacek, jan, joanna, joey, justin, karl, kendra, kimberly, liv, lotte, mads, maja, marlene, mathieu, matthew, maxim, miguel, mizuki, naja, nicole, penelope, raveena, ricardo, ruben, russell, salli, takumi, tatyana, vicki, vitoria"
 
 instance ToText VoiceId where
     toText = \case
@@ -376,6 +380,7 @@ instance ToText VoiceId where
         Maja -> "Maja"
         Marlene -> "Marlene"
         Mathieu -> "Mathieu"
+        Matthew -> "Matthew"
         Maxim -> "Maxim"
         Miguel -> "Miguel"
         Mizuki -> "Mizuki"
@@ -387,6 +392,7 @@ instance ToText VoiceId where
         Ruben -> "Ruben"
         Russell -> "Russell"
         Salli -> "Salli"
+        Takumi -> "Takumi"
         Tatyana -> "Tatyana"
         Vicki -> "Vicki"
         Vitoria -> "Vitoria"

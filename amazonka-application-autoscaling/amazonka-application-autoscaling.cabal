@@ -39,18 +39,21 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.ApplicationAutoScaling
         , Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
+        , Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
         , Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
         , Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
         , Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
         , Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
+        , Network.AWS.ApplicationAutoScaling.DescribeScheduledActions
         , Network.AWS.ApplicationAutoScaling.PutScalingPolicy
+        , Network.AWS.ApplicationAutoScaling.PutScheduledAction
         , Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
         , Network.AWS.ApplicationAutoScaling.Types
         , Network.AWS.ApplicationAutoScaling.Waiters

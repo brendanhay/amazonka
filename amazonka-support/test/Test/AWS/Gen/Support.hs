@@ -14,11 +14,11 @@
 module Test.AWS.Gen.Support where
 
 import Data.Proxy
+import Network.AWS.Support
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.Support
 import Test.AWS.Support.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a list action types action.
+-- | Represents the input of a ListActionTypes action.
 --
 --
 --
@@ -115,7 +115,7 @@ instance ToPath ListActionTypes where
 instance ToQuery ListActionTypes where
         toQuery = const mempty
 
--- | Represents the output of a list action types action.
+-- | Represents the output of a ListActionTypes action.
 --
 --
 --

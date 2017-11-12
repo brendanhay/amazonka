@@ -122,6 +122,9 @@ module Network.AWS.LexModels
     -- ** GetSlotType
     , module Network.AWS.LexModels.GetSlotType
 
+    -- ** GetExport
+    , module Network.AWS.LexModels.GetExport
+
     -- ** CreateIntentVersion
     , module Network.AWS.LexModels.CreateIntentVersion
 
@@ -157,6 +160,12 @@ module Network.AWS.LexModels
     -- ** ContentType
     , ContentType (..)
 
+    -- ** ExportStatus
+    , ExportStatus (..)
+
+    -- ** ExportType
+    , ExportType (..)
+
     -- ** FulfillmentActivityType
     , FulfillmentActivityType (..)
 
@@ -169,8 +178,14 @@ module Network.AWS.LexModels
     -- ** ProcessBehavior
     , ProcessBehavior (..)
 
+    -- ** ResourceType
+    , ResourceType (..)
+
     -- ** SlotConstraint
     , SlotConstraint (..)
+
+    -- ** SlotValueSelectionStrategy
+    , SlotValueSelectionStrategy (..)
 
     -- ** StatusType
     , StatusType (..)
@@ -233,6 +248,7 @@ module Network.AWS.LexModels
     -- ** EnumerationValue
     , EnumerationValue
     , enumerationValue
+    , evSynonyms
     , evValue
 
     -- ** FollowUpPrompt
@@ -341,6 +357,7 @@ import Network.AWS.LexModels.GetBotVersions
 import Network.AWS.LexModels.GetBuiltinIntent
 import Network.AWS.LexModels.GetBuiltinIntents
 import Network.AWS.LexModels.GetBuiltinSlotTypes
+import Network.AWS.LexModels.GetExport
 import Network.AWS.LexModels.GetIntent
 import Network.AWS.LexModels.GetIntents
 import Network.AWS.LexModels.GetIntentVersions

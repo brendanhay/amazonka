@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -48,6 +48,7 @@ library
         , Network.AWS.Firehose.CreateDeliveryStream
         , Network.AWS.Firehose.DeleteDeliveryStream
         , Network.AWS.Firehose.DescribeDeliveryStream
+        , Network.AWS.Firehose.GetKinesisStream
         , Network.AWS.Firehose.ListDeliveryStreams
         , Network.AWS.Firehose.PutRecord
         , Network.AWS.Firehose.PutRecordBatch

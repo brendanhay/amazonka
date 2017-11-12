@@ -93,7 +93,8 @@ gqrQueryExecutionId = lens _gqrQueryExecutionId (\ s a -> s{_gqrQueryExecutionId
 instance AWSPager GetQueryResults where
         page rq rs
           | stop (rs ^. gqrrsNextToken) = Nothing
-          | stop (rs ^. gqrrsResultSet) = Nothing
+          | stop (rs ^? gqrrsResultSet . _Just . rsRows) =
+            Nothing
           | otherwise =
             Just $ rq & gqrNextToken .~ rs ^. gqrrsNextToken
 

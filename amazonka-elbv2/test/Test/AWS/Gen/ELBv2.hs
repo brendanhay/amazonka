@@ -14,11 +14,11 @@
 module Test.AWS.Gen.ELBv2 where
 
 import Data.Proxy
+import Network.AWS.ELBv2
+import Test.AWS.ELBv2.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
-import Network.AWS.ELBv2
-import Test.AWS.ELBv2.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -48,6 +48,9 @@ import Test.AWS.ELBv2.Internal
 --
 --         , requestCreateRule $
 --             createRule
+--
+--         , requestDescribeListenerCertificates $
+--             describeListenerCertificates
 --
 --         , requestSetSecurityGroups $
 --             setSecurityGroups
@@ -118,8 +121,14 @@ import Test.AWS.ELBv2.Internal
 --         , requestCreateLoadBalancer $
 --             createLoadBalancer
 --
+--         , requestRemoveListenerCertificates $
+--             removeListenerCertificates
+--
 --         , requestModifyRule $
 --             modifyRule
+--
+--         , requestAddListenerCertificates $
+--             addListenerCertificates
 --
 --           ]
 
@@ -144,6 +153,9 @@ import Test.AWS.ELBv2.Internal
 --
 --         , responseCreateRule $
 --             createRuleResponse
+--
+--         , responseDescribeListenerCertificates $
+--             describeListenerCertificatesResponse
 --
 --         , responseSetSecurityGroups $
 --             setSecurityGroupsResponse
@@ -214,8 +226,14 @@ import Test.AWS.ELBv2.Internal
 --         , responseCreateLoadBalancer $
 --             createLoadBalancerResponse
 --
+--         , responseRemoveListenerCertificates $
+--             removeListenerCertificatesResponse
+--
 --         , responseModifyRule $
 --             modifyRuleResponse
+--
+--         , responseAddListenerCertificates $
+--             addListenerCertificatesResponse
 --
 --           ]
 --     ]
@@ -256,6 +274,11 @@ requestCreateRule :: CreateRule -> TestTree
 requestCreateRule = req
     "CreateRule"
     "fixture/CreateRule.yaml"
+
+requestDescribeListenerCertificates :: DescribeListenerCertificates -> TestTree
+requestDescribeListenerCertificates = req
+    "DescribeListenerCertificates"
+    "fixture/DescribeListenerCertificates.yaml"
 
 requestSetSecurityGroups :: SetSecurityGroups -> TestTree
 requestSetSecurityGroups = req
@@ -372,10 +395,20 @@ requestCreateLoadBalancer = req
     "CreateLoadBalancer"
     "fixture/CreateLoadBalancer.yaml"
 
+requestRemoveListenerCertificates :: RemoveListenerCertificates -> TestTree
+requestRemoveListenerCertificates = req
+    "RemoveListenerCertificates"
+    "fixture/RemoveListenerCertificates.yaml"
+
 requestModifyRule :: ModifyRule -> TestTree
 requestModifyRule = req
     "ModifyRule"
     "fixture/ModifyRule.yaml"
+
+requestAddListenerCertificates :: AddListenerCertificates -> TestTree
+requestAddListenerCertificates = req
+    "AddListenerCertificates"
+    "fixture/AddListenerCertificates.yaml"
 
 -- Responses
 
@@ -427,6 +460,13 @@ responseCreateRule = res
     "fixture/CreateRuleResponse.proto"
     eLBv2
     (Proxy :: Proxy CreateRule)
+
+responseDescribeListenerCertificates :: DescribeListenerCertificatesResponse -> TestTree
+responseDescribeListenerCertificates = res
+    "DescribeListenerCertificatesResponse"
+    "fixture/DescribeListenerCertificatesResponse.proto"
+    eLBv2
+    (Proxy :: Proxy DescribeListenerCertificates)
 
 responseSetSecurityGroups :: SetSecurityGroupsResponse -> TestTree
 responseSetSecurityGroups = res
@@ -589,9 +629,23 @@ responseCreateLoadBalancer = res
     eLBv2
     (Proxy :: Proxy CreateLoadBalancer)
 
+responseRemoveListenerCertificates :: RemoveListenerCertificatesResponse -> TestTree
+responseRemoveListenerCertificates = res
+    "RemoveListenerCertificatesResponse"
+    "fixture/RemoveListenerCertificatesResponse.proto"
+    eLBv2
+    (Proxy :: Proxy RemoveListenerCertificates)
+
 responseModifyRule :: ModifyRuleResponse -> TestTree
 responseModifyRule = res
     "ModifyRuleResponse"
     "fixture/ModifyRuleResponse.proto"
     eLBv2
     (Proxy :: Proxy ModifyRule)
+
+responseAddListenerCertificates :: AddListenerCertificatesResponse -> TestTree
+responseAddListenerCertificates = res
+    "AddListenerCertificatesResponse"
+    "fixture/AddListenerCertificatesResponse.proto"
+    eLBv2
+    (Proxy :: Proxy AddListenerCertificates)

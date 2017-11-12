@@ -50,11 +50,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeAutoScalingInstances.
---
---
---
--- /See:/ 'describeAutoScalingInstances' smart constructor.
+-- | /See:/ 'describeAutoScalingInstances' smart constructor.
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
   { _dasiNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
   , _dasiInstanceIds :: {-# NOUNPACK #-}!(Maybe [Text])
@@ -136,11 +132,7 @@ instance ToQuery DescribeAutoScalingInstances where
                  toQuery (toQueryList "member" <$> _dasiInstanceIds),
                "MaxRecords" =: _dasiMaxRecords]
 
--- | Contains the output of DescribeAutoScalingInstances.
---
---
---
--- /See:/ 'describeAutoScalingInstancesResponse' smart constructor.
+-- | /See:/ 'describeAutoScalingInstancesResponse' smart constructor.
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
   { _dasirsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
   , _dasirsAutoScalingInstances :: {-# NOUNPACK #-}!(Maybe [AutoScalingInstanceDetails])

@@ -61,9 +61,9 @@ data InitializeCluster = InitializeCluster'
 --
 -- * 'icClusterId' - The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use 'DescribeClusters' .
 --
--- * 'icSignedCert' - The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format.
+-- * 'icSignedCert' - The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format and can contain a maximum of 5000 characters.
 --
--- * 'icTrustAnchor' - The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. This can be a root (self-signed) certificate or a certificate chain that begins with the certificate that issued the cluster certificate and ends with a root certificate. The certificate or certificate chain must be in PEM format.
+-- * 'icTrustAnchor' - The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. This can be a root (self-signed) certificate or a certificate chain that begins with the certificate that issued the cluster certificate and ends with a root certificate. The certificate or certificate chain must be in PEM format and can contain a maximum of 5000 characters.
 initializeCluster
     :: Text -- ^ 'icClusterId'
     -> Text -- ^ 'icSignedCert'
@@ -81,11 +81,11 @@ initializeCluster pClusterId_ pSignedCert_ pTrustAnchor_ =
 icClusterId :: Lens' InitializeCluster Text
 icClusterId = lens _icClusterId (\ s a -> s{_icClusterId = a});
 
--- | The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format.
+-- | The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format and can contain a maximum of 5000 characters.
 icSignedCert :: Lens' InitializeCluster Text
 icSignedCert = lens _icSignedCert (\ s a -> s{_icSignedCert = a});
 
--- | The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. This can be a root (self-signed) certificate or a certificate chain that begins with the certificate that issued the cluster certificate and ends with a root certificate. The certificate or certificate chain must be in PEM format.
+-- | The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. This can be a root (self-signed) certificate or a certificate chain that begins with the certificate that issued the cluster certificate and ends with a root certificate. The certificate or certificate chain must be in PEM format and can contain a maximum of 5000 characters.
 icTrustAnchor :: Lens' InitializeCluster Text
 icTrustAnchor = lens _icTrustAnchor (\ s a -> s{_icTrustAnchor = a});
 

@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes a grant. You can revoke a grant to actively deny operations that depend on it.
+-- Revokes the specified grant for the specified customer master key (CMK). You can revoke a grant to actively deny operations that depend on it.
 --
+--
+-- To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the KeyId parameter.
 --
 module Network.AWS.KMS.RevokeGrant
     (
@@ -53,7 +55,7 @@ data RevokeGrant = RevokeGrant'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rKeyId' - A unique identifier for the customer master key associated with the grant. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- * 'rKeyId' - A unique identifier for the customer master key associated with the grant. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- * 'rGrantId' - Identifier of the grant to be revoked.
 revokeGrant
@@ -64,7 +66,7 @@ revokeGrant pKeyId_ pGrantId_ =
   RevokeGrant' {_rKeyId = pKeyId_, _rGrantId = pGrantId_}
 
 
--- | A unique identifier for the customer master key associated with the grant. This value can be a globally unique identifier or the fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- | A unique identifier for the customer master key associated with the grant. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 rKeyId :: Lens' RevokeGrant Text
 rKeyId = lens _rKeyId (\ s a -> s{_rKeyId = a});
 

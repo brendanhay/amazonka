@@ -102,7 +102,7 @@ data RegisterImage = RegisterImage'
 --
 -- * 'riKernelId' - The ID of the kernel.
 --
--- * 'riRootDeviceName' - The name of the root device (for example, @/dev/sda1@ , or @/dev/xvda@ ).
+-- * 'riRootDeviceName' - The device name of the root device volume (for example, @/dev/sda1@ ).
 --
 -- * 'riSRIOVNetSupport' - Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI. There is no way to disable @sriovNetSupport@ at this time. This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 --
@@ -160,7 +160,7 @@ riRAMDiskId = lens _riRAMDiskId (\ s a -> s{_riRAMDiskId = a});
 riKernelId :: Lens' RegisterImage (Maybe Text)
 riKernelId = lens _riKernelId (\ s a -> s{_riKernelId = a});
 
--- | The name of the root device (for example, @/dev/sda1@ , or @/dev/xvda@ ).
+-- | The device name of the root device volume (for example, @/dev/sda1@ ).
 riRootDeviceName :: Lens' RegisterImage (Maybe Text)
 riRootDeviceName = lens _riRootDeviceName (\ s a -> s{_riRootDeviceName = a});
 

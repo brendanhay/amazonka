@@ -21,6 +21,8 @@
 -- Returns a list of all tags for the specified customer master key (CMK).
 --
 --
+-- You cannot perform this operation on a CMK in a different AWS account.
+--
 module Network.AWS.KMS.ListResourceTags
     (
     -- * Creating a Request
@@ -64,7 +66,7 @@ data ListResourceTags = ListResourceTags'
 --
 -- * 'lrtLimit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 50, inclusive. If you do not include a value, it defaults to 50.
 --
--- * 'lrtKeyId' - A unique identifier for the CMK whose tags you are listing. You can use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+-- * 'lrtKeyId' - A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 listResourceTags
     :: Text -- ^ 'lrtKeyId'
     -> ListResourceTags
@@ -81,7 +83,7 @@ lrtMarker = lens _lrtMarker (\ s a -> s{_lrtMarker = a});
 lrtLimit :: Lens' ListResourceTags (Maybe Natural)
 lrtLimit = lens _lrtLimit (\ s a -> s{_lrtLimit = a}) . mapping _Nat;
 
--- | A unique identifier for the CMK whose tags you are listing. You can use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+-- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 lrtKeyId :: Lens' ListResourceTags Text
 lrtKeyId = lens _lrtKeyId (\ s a -> s{_lrtKeyId = a});
 
@@ -136,7 +138,7 @@ data ListResourceTagsResponse = ListResourceTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrtrsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
+-- * 'lrtrsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 --
 -- * 'lrtrsNextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request. Do not assume or infer any information from this value.
 --
@@ -155,7 +157,7 @@ listResourceTagsResponse pResponseStatus_ =
   }
 
 
--- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 lrtrsTruncated :: Lens' ListResourceTagsResponse (Maybe Bool)
 lrtrsTruncated = lens _lrtrsTruncated (\ s a -> s{_lrtrsTruncated = a});
 

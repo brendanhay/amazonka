@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the stack. After this operation completes, the environment can no longer be activated, and any reservations made for the stack are released.
+-- Deletes the specified stack. After this operation completes, the environment can no longer be activated and any reservations made for the stack are released.
 --
 --
 module Network.AWS.AppStream.DeleteStack
@@ -53,14 +53,14 @@ newtype DeleteStack = DeleteStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsName' - The name of the stack to delete.
+-- * 'dsName' - The name of the stack.
 deleteStack
     :: Text -- ^ 'dsName'
     -> DeleteStack
 deleteStack pName_ = DeleteStack' {_dsName = pName_}
 
 
--- | The name of the stack to delete.
+-- | The name of the stack.
 dsName :: Lens' DeleteStack Text
 dsName = lens _dsName (\ s a -> s{_dsName = a});
 

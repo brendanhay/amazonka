@@ -14,11 +14,11 @@
 module Test.AWS.Gen.SSM where
 
 import Data.Proxy
+import Network.AWS.SSM
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.SSM
 import Test.AWS.SSM.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -210,6 +210,9 @@ import Test.AWS.SSM.Internal
 --
 --         , requestListResourceComplianceSummaries $
 --             listResourceComplianceSummaries
+--
+--         , requestListAssociationVersions $
+--             listAssociationVersions
 --
 --         , requestDescribeMaintenanceWindowTasks $
 --             describeMaintenanceWindowTasks
@@ -498,6 +501,9 @@ import Test.AWS.SSM.Internal
 --
 --         , responseListResourceComplianceSummaries $
 --             listResourceComplianceSummariesResponse
+--
+--         , responseListAssociationVersions $
+--             listAssociationVersionsResponse
 --
 --         , responseDescribeMaintenanceWindowTasks $
 --             describeMaintenanceWindowTasksResponse
@@ -910,6 +916,11 @@ requestListResourceComplianceSummaries :: ListResourceComplianceSummaries -> Tes
 requestListResourceComplianceSummaries = req
     "ListResourceComplianceSummaries"
     "fixture/ListResourceComplianceSummaries.yaml"
+
+requestListAssociationVersions :: ListAssociationVersions -> TestTree
+requestListAssociationVersions = req
+    "ListAssociationVersions"
+    "fixture/ListAssociationVersions.yaml"
 
 requestDescribeMaintenanceWindowTasks :: DescribeMaintenanceWindowTasks -> TestTree
 requestDescribeMaintenanceWindowTasks = req
@@ -1509,6 +1520,13 @@ responseListResourceComplianceSummaries = res
     "fixture/ListResourceComplianceSummariesResponse.proto"
     ssm
     (Proxy :: Proxy ListResourceComplianceSummaries)
+
+responseListAssociationVersions :: ListAssociationVersionsResponse -> TestTree
+responseListAssociationVersions = res
+    "ListAssociationVersionsResponse"
+    "fixture/ListAssociationVersionsResponse.proto"
+    ssm
+    (Proxy :: Proxy ListAssociationVersions)
 
 responseDescribeMaintenanceWindowTasks :: DescribeMaintenanceWindowTasksResponse -> TestTree
 responseDescribeMaintenanceWindowTasks = res

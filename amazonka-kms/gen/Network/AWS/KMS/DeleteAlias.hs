@@ -18,8 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified alias. To map an alias to a different key, call 'UpdateAlias' .
+-- Deletes the specified alias. You cannot perform this operation on an alias in a different AWS account.
 --
+--
+-- Because an alias is not a property of a CMK, you can delete and change the aliases of a CMK without affecting the CMK. Also, aliases do not appear in the response from the 'DescribeKey' operation. To get the aliases of all CMKs, use the 'ListAliases' operation.
+--
+-- Each CMK can have multiple aliases. To change the alias of a CMK, use 'DeleteAlias' to delete the current alias and 'CreateAlias' to create a new alias. To associate an existing alias with a different customer master key (CMK), call 'UpdateAlias' .
 --
 module Network.AWS.KMS.DeleteAlias
     (
@@ -51,14 +55,14 @@ newtype DeleteAlias = DeleteAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAliasName' - The alias to be deleted. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/AWS" are reserved.
+-- * 'daAliasName' - The alias to be deleted. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws" are reserved.
 deleteAlias
     :: Text -- ^ 'daAliasName'
     -> DeleteAlias
 deleteAlias pAliasName_ = DeleteAlias' {_daAliasName = pAliasName_}
 
 
--- | The alias to be deleted. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/AWS" are reserved.
+-- | The alias to be deleted. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws" are reserved.
 daAliasName :: Lens' DeleteAlias Text
 daAliasName = lens _daAliasName (\ s a -> s{_daAliasName = a});
 

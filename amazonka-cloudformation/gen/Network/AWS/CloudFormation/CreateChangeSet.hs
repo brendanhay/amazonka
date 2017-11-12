@@ -40,6 +40,7 @@ module Network.AWS.CloudFormation.CreateChangeSet
     , ccsTemplateURL
     , ccsDescription
     , ccsCapabilities
+    , ccsRollbackConfiguration
     , ccsResourceTypes
     , ccsTags
     , ccsRoleARN
@@ -68,20 +69,21 @@ import Network.AWS.Response
 --
 -- /See:/ 'createChangeSet' smart constructor.
 data CreateChangeSet = CreateChangeSet'
-  { _ccsChangeSetType       :: {-# NOUNPACK #-}!(Maybe ChangeSetType)
-  , _ccsUsePreviousTemplate :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccsClientToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsNotificationARNs    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccsParameters          :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _ccsTemplateBody        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsTemplateURL         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsDescription         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsCapabilities        :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _ccsResourceTypes       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccsTags                :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ccsRoleARN             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsStackName           :: {-# NOUNPACK #-}!Text
-  , _ccsChangeSetName       :: {-# NOUNPACK #-}!Text
+  { _ccsChangeSetType         :: {-# NOUNPACK #-}!(Maybe ChangeSetType)
+  , _ccsUsePreviousTemplate   :: {-# NOUNPACK #-}!(Maybe Bool)
+  , _ccsClientToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsNotificationARNs      :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ccsParameters            :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  , _ccsTemplateBody          :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsTemplateURL           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsDescription           :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsCapabilities          :: {-# NOUNPACK #-}!(Maybe [Capability])
+  , _ccsRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe RollbackConfiguration)
+  , _ccsResourceTypes         :: {-# NOUNPACK #-}!(Maybe [Text])
+  , _ccsTags                  :: {-# NOUNPACK #-}!(Maybe [Tag])
+  , _ccsRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  , _ccsStackName             :: {-# NOUNPACK #-}!Text
+  , _ccsChangeSetName         :: {-# NOUNPACK #-}!Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -107,6 +109,8 @@ data CreateChangeSet = CreateChangeSet'
 --
 -- * 'ccsCapabilities' - A list of values that you must specify before AWS CloudFormation can update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter. The only valid values are @CAPABILITY_IAM@ and @CAPABILITY_NAMED_IAM@ . The following resources require you to specify this parameter: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey> , <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group> , <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile> , <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html AWS::IAM::Policy> , <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role> , <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html AWS::IAM::User> , and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html AWS::IAM::UserToGroupAddition> . If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary. If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify @CAPABILITY_NAMED_IAM@ . If you don't specify this parameter, this action returns an @InsufficientCapabilities@ error. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
 --
+-- * 'ccsRollbackConfiguration' - The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
+--
 -- * 'ccsResourceTypes' - The template resource types that you have permissions to work with if you execute this change set, such as @AWS::EC2::Instance@ , @AWS::EC2::*@ , or @Custom::MyCustomInstance@ . If the list of resource types doesn't include a resource type that you're updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for condition keys in IAM policies for AWS CloudFormation. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with AWS Identity and Access Management> in the AWS CloudFormation User Guide.
 --
 -- * 'ccsTags' - Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to resources in the stack. You can specify a maximum of 50 tags.
@@ -131,6 +135,7 @@ createChangeSet pStackName_ pChangeSetName_ =
   , _ccsTemplateURL = Nothing
   , _ccsDescription = Nothing
   , _ccsCapabilities = Nothing
+  , _ccsRollbackConfiguration = Nothing
   , _ccsResourceTypes = Nothing
   , _ccsTags = Nothing
   , _ccsRoleARN = Nothing
@@ -174,6 +179,10 @@ ccsDescription = lens _ccsDescription (\ s a -> s{_ccsDescription = a});
 -- | A list of values that you must specify before AWS CloudFormation can update certain stacks. Some stack templates might include resources that can affect permissions in your AWS account, for example, by creating new AWS Identity and Access Management (IAM) users. For those stacks, you must explicitly acknowledge their capabilities by specifying this parameter. The only valid values are @CAPABILITY_IAM@ and @CAPABILITY_NAMED_IAM@ . The following resources require you to specify this parameter: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey> , <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group> , <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile> , <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html AWS::IAM::Policy> , <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role> , <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html AWS::IAM::User> , and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html AWS::IAM::UserToGroupAddition> . If your stack template contains these resources, we recommend that you review all permissions associated with them and edit their permissions if necessary. If you have IAM resources, you can specify either capability. If you have IAM resources with custom names, you must specify @CAPABILITY_NAMED_IAM@ . If you don't specify this parameter, this action returns an @InsufficientCapabilities@ error. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
 ccsCapabilities :: Lens' CreateChangeSet [Capability]
 ccsCapabilities = lens _ccsCapabilities (\ s a -> s{_ccsCapabilities = a}) . _Default . _Coerce;
+
+-- | The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
+ccsRollbackConfiguration :: Lens' CreateChangeSet (Maybe RollbackConfiguration)
+ccsRollbackConfiguration = lens _ccsRollbackConfiguration (\ s a -> s{_ccsRollbackConfiguration = a});
 
 -- | The template resource types that you have permissions to work with if you execute this change set, such as @AWS::EC2::Instance@ , @AWS::EC2::*@ , or @Custom::MyCustomInstance@ . If the list of resource types doesn't include a resource type that you're updating, the stack update fails. By default, AWS CloudFormation grants permissions to all resource types. AWS Identity and Access Management (IAM) uses this parameter for condition keys in IAM policies for AWS CloudFormation. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with AWS Identity and Access Management> in the AWS CloudFormation User Guide.
 ccsResourceTypes :: Lens' CreateChangeSet [Text]
@@ -233,6 +242,7 @@ instance ToQuery CreateChangeSet where
                "Description" =: _ccsDescription,
                "Capabilities" =:
                  toQuery (toQueryList "member" <$> _ccsCapabilities),
+               "RollbackConfiguration" =: _ccsRollbackConfiguration,
                "ResourceTypes" =:
                  toQuery (toQueryList "member" <$> _ccsResourceTypes),
                "Tags" =:

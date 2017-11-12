@@ -55,7 +55,7 @@ data DeletePortfolio = DeletePortfolio'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dppAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
 -- * 'dppId' - The identifier of the portfolio for the delete request.
 deletePortfolio
@@ -65,7 +65,7 @@ deletePortfolio pId_ =
   DeletePortfolio' {_dppAcceptLanguage = Nothing, _dppId = pId_}
 
 
--- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dppAcceptLanguage :: Lens' DeletePortfolio (Maybe Text)
 dppAcceptLanguage = lens _dppAcceptLanguage (\ s a -> s{_dppAcceptLanguage = a});
 

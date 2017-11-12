@@ -27,7 +27,7 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
       deleteVirtualInterface
     , DeleteVirtualInterface
     -- * Request Lenses
-    , dVirtualInterfaceId
+    , delVirtualInterfaceId
 
     -- * Destructuring the Response
     , deleteVirtualInterfaceResponse
@@ -50,7 +50,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteVirtualInterface' smart constructor.
 newtype DeleteVirtualInterface = DeleteVirtualInterface'
-  { _dVirtualInterfaceId :: Text
+  { _delVirtualInterfaceId :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -58,17 +58,17 @@ newtype DeleteVirtualInterface = DeleteVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dVirtualInterfaceId' - Undocumented member.
+-- * 'delVirtualInterfaceId' - Undocumented member.
 deleteVirtualInterface
-    :: Text -- ^ 'dVirtualInterfaceId'
+    :: Text -- ^ 'delVirtualInterfaceId'
     -> DeleteVirtualInterface
 deleteVirtualInterface pVirtualInterfaceId_ =
-  DeleteVirtualInterface' {_dVirtualInterfaceId = pVirtualInterfaceId_}
+  DeleteVirtualInterface' {_delVirtualInterfaceId = pVirtualInterfaceId_}
 
 
 -- | Undocumented member.
-dVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
-dVirtualInterfaceId = lens _dVirtualInterfaceId (\ s a -> s{_dVirtualInterfaceId = a});
+delVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
+delVirtualInterfaceId = lens _delVirtualInterfaceId (\ s a -> s{_delVirtualInterfaceId = a});
 
 instance AWSRequest DeleteVirtualInterface where
         type Rs DeleteVirtualInterface =
@@ -100,7 +100,7 @@ instance ToJSON DeleteVirtualInterface where
           = object
               (catMaybes
                  [Just
-                    ("virtualInterfaceId" .= _dVirtualInterfaceId)])
+                    ("virtualInterfaceId" .= _delVirtualInterfaceId)])
 
 instance ToPath DeleteVirtualInterface where
         toPath = const "/"

@@ -121,7 +121,11 @@ instance FromJSON HSMStatus where
 -- | Specifies the type of subscription for the HSM.
 --
 --
---     * __PRODUCTION__ - The HSM is being used in a production environment.    * __TRIAL__ - The HSM is being used in a product trial.
+--     * __PRODUCTION__ - The HSM is being used in a production environment.
+--
+--     * __TRIAL__ - The HSM is being used in a product trial.
+--
+--
 --
 data SubscriptionType =
   Production

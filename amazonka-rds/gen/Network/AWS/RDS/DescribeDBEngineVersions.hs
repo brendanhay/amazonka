@@ -84,7 +84,7 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions'
 --
 -- * 'ddevEngine' - The database engine to return.
 --
--- * 'ddevDBParameterGroupFamily' - The name of a specific DB parameter group family to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'ddevDBParameterGroupFamily' - The name of a specific DB parameter group family to return details for. Constraints:     * If supplied, must match an existing DBParameterGroupFamily.
 --
 -- * 'ddevListSupportedCharacterSets' - If this parameter is specified and the requested engine supports the @CharacterSetName@ parameter for @CreateDBInstance@ , the response includes a list of supported character sets for each engine version.
 --
@@ -127,7 +127,7 @@ ddevFilters = lens _ddevFilters (\ s a -> s{_ddevFilters = a}) . _Default . _Coe
 ddevEngine :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddevEngine = lens _ddevEngine (\ s a -> s{_ddevEngine = a});
 
--- | The name of a specific DB parameter group family to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The name of a specific DB parameter group family to return details for. Constraints:     * If supplied, must match an existing DBParameterGroupFamily.
 ddevDBParameterGroupFamily :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddevDBParameterGroupFamily = lens _ddevDBParameterGroupFamily (\ s a -> s{_ddevDBParameterGroupFamily = a});
 

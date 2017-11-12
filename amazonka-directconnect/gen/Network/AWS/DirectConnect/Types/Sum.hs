@@ -211,6 +211,144 @@ instance ToHeader     ConnectionState
 instance FromJSON ConnectionState where
     parseJSON = parseJSONText "ConnectionState"
 
+-- | State of the direct connect gateway association.
+--
+--
+--     * __Associating__ : The initial state after calling 'CreateDirectConnectGatewayAssociation' .
+--
+--     * __Associated__ : The direct connect gateway and virtual private gateway are successfully associated and ready to pass traffic.
+--
+--     * __Disassociating__ : The initial state after calling 'DeleteDirectConnectGatewayAssociation' .
+--
+--     * __Disassociated__ : The virtual private gateway is successfully disassociated from the direct connect gateway. Traffic flow between the direct connect gateway and virtual private gateway stops.
+--
+--
+--
+data DirectConnectGatewayAssociationState
+  = Associated
+  | Associating
+  | Disassociated
+  | Disassociating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DirectConnectGatewayAssociationState where
+    parser = takeLowerText >>= \case
+        "associated" -> pure Associated
+        "associating" -> pure Associating
+        "disassociated" -> pure Disassociated
+        "disassociating" -> pure Disassociating
+        e -> fromTextError $ "Failure parsing DirectConnectGatewayAssociationState from value: '" <> e
+           <> "'. Accepted values: associated, associating, disassociated, disassociating"
+
+instance ToText DirectConnectGatewayAssociationState where
+    toText = \case
+        Associated -> "associated"
+        Associating -> "associating"
+        Disassociated -> "disassociated"
+        Disassociating -> "disassociating"
+
+instance Hashable     DirectConnectGatewayAssociationState
+instance NFData       DirectConnectGatewayAssociationState
+instance ToByteString DirectConnectGatewayAssociationState
+instance ToQuery      DirectConnectGatewayAssociationState
+instance ToHeader     DirectConnectGatewayAssociationState
+
+instance FromJSON DirectConnectGatewayAssociationState where
+    parseJSON = parseJSONText "DirectConnectGatewayAssociationState"
+
+-- | State of the direct connect gateway attachment.
+--
+--
+--     * __Attaching__ : The initial state after a virtual interface is created using the direct connect gateway.
+--
+--     * __Attached__ : The direct connect gateway and virtual interface are successfully attached and ready to pass traffic.
+--
+--     * __Detaching__ : The initial state after calling 'DeleteVirtualInterface' on a virtual interface that is attached to a direct connect gateway.
+--
+--     * __Detached__ : The virtual interface is successfully detached from the direct connect gateway. Traffic flow between the direct connect gateway and virtual interface stops.
+--
+--
+--
+data DirectConnectGatewayAttachmentState
+  = Attached
+  | Attaching
+  | Detached
+  | Detaching
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DirectConnectGatewayAttachmentState where
+    parser = takeLowerText >>= \case
+        "attached" -> pure Attached
+        "attaching" -> pure Attaching
+        "detached" -> pure Detached
+        "detaching" -> pure Detaching
+        e -> fromTextError $ "Failure parsing DirectConnectGatewayAttachmentState from value: '" <> e
+           <> "'. Accepted values: attached, attaching, detached, detaching"
+
+instance ToText DirectConnectGatewayAttachmentState where
+    toText = \case
+        Attached -> "attached"
+        Attaching -> "attaching"
+        Detached -> "detached"
+        Detaching -> "detaching"
+
+instance Hashable     DirectConnectGatewayAttachmentState
+instance NFData       DirectConnectGatewayAttachmentState
+instance ToByteString DirectConnectGatewayAttachmentState
+instance ToQuery      DirectConnectGatewayAttachmentState
+instance ToHeader     DirectConnectGatewayAttachmentState
+
+instance FromJSON DirectConnectGatewayAttachmentState where
+    parseJSON = parseJSONText "DirectConnectGatewayAttachmentState"
+
+-- | State of the direct connect gateway.
+--
+--
+--     * __Pending__ : The initial state after calling 'CreateDirectConnectGateway' .
+--
+--     * __Available__ : The direct connect gateway is ready for use.
+--
+--     * __Deleting__ : The initial state after calling 'DeleteDirectConnectGateway' .
+--
+--     * __Deleted__ : The direct connect gateway is deleted and cannot pass traffic.
+--
+--
+--
+data DirectConnectGatewayState
+  = DCGSAvailable
+  | DCGSDeleted
+  | DCGSDeleting
+  | DCGSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DirectConnectGatewayState where
+    parser = takeLowerText >>= \case
+        "available" -> pure DCGSAvailable
+        "deleted" -> pure DCGSDeleted
+        "deleting" -> pure DCGSDeleting
+        "pending" -> pure DCGSPending
+        e -> fromTextError $ "Failure parsing DirectConnectGatewayState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, pending"
+
+instance ToText DirectConnectGatewayState where
+    toText = \case
+        DCGSAvailable -> "available"
+        DCGSDeleted -> "deleted"
+        DCGSDeleting -> "deleting"
+        DCGSPending -> "pending"
+
+instance Hashable     DirectConnectGatewayState
+instance NFData       DirectConnectGatewayState
+instance ToByteString DirectConnectGatewayState
+instance ToQuery      DirectConnectGatewayState
+instance ToHeader     DirectConnectGatewayState
+
+instance FromJSON DirectConnectGatewayState where
+    parseJSON = parseJSONText "DirectConnectGatewayState"
+
 -- | State of the interconnect.
 --
 --

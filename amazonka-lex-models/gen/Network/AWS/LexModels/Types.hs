@@ -30,6 +30,12 @@ module Network.AWS.LexModels.Types
     -- * ContentType
     , ContentType (..)
 
+    -- * ExportStatus
+    , ExportStatus (..)
+
+    -- * ExportType
+    , ExportType (..)
+
     -- * FulfillmentActivityType
     , FulfillmentActivityType (..)
 
@@ -42,8 +48,14 @@ module Network.AWS.LexModels.Types
     -- * ProcessBehavior
     , ProcessBehavior (..)
 
+    -- * ResourceType
+    , ResourceType (..)
+
     -- * SlotConstraint
     , SlotConstraint (..)
+
+    -- * SlotValueSelectionStrategy
+    , SlotValueSelectionStrategy (..)
 
     -- * StatusType
     , StatusType (..)
@@ -106,6 +118,7 @@ module Network.AWS.LexModels.Types
     -- * EnumerationValue
     , EnumerationValue
     , enumerationValue
+    , evSynonyms
     , evValue
 
     -- * FollowUpPrompt

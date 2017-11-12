@@ -50,11 +50,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeNotificationConfigurations.
---
---
---
--- /See:/ 'describeNotificationConfigurations' smart constructor.
+-- | /See:/ 'describeNotificationConfigurations' smart constructor.
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
   { _dncAutoScalingGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
   , _dncNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
@@ -144,11 +140,7 @@ instance ToQuery DescribeNotificationConfigurations
                "NextToken" =: _dncNextToken,
                "MaxRecords" =: _dncMaxRecords]
 
--- | Contains the output from DescribeNotificationConfigurations.
---
---
---
--- /See:/ 'describeNotificationConfigurationsResponse' smart constructor.
+-- | /See:/ 'describeNotificationConfigurationsResponse' smart constructor.
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
   { _dncrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
   , _dncrsResponseStatus :: {-# NOUNPACK #-}!Int

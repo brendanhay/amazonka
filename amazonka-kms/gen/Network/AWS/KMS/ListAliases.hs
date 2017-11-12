@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all of the key aliases in the account.
+-- Gets a list of all aliases in the caller's AWS account and region. You cannot list aliases in other accounts. For more information about aliases, see 'CreateAlias' .
 --
+--
+-- The response might include several aliases that do not have a @TargetKeyId@ field because they are not associated with a CMK. These are predefined aliases that are reserved for CMKs managed by AWS services. If an alias is not associated with a CMK, the alias does not count against the <http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit alias limit> for your account.
 --
 --
 -- This operation returns paginated results.
@@ -134,9 +136,9 @@ data ListAliasesResponse = ListAliasesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
+-- * 'larsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 --
--- * 'larsAliases' - A list of key aliases in the user's account.
+-- * 'larsAliases' - A list of aliases.
 --
 -- * 'larsNextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 --
@@ -153,11 +155,11 @@ listAliasesResponse pResponseStatus_ =
   }
 
 
--- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 larsTruncated :: Lens' ListAliasesResponse (Maybe Bool)
 larsTruncated = lens _larsTruncated (\ s a -> s{_larsTruncated = a});
 
--- | A list of key aliases in the user's account.
+-- | A list of aliases.
 larsAliases :: Lens' ListAliasesResponse [AliasListEntry]
 larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
 

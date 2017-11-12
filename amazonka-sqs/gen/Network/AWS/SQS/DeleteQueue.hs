@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the queue specified by the @QueueUrl@ , even if the queue is empty. If the specified queue doesn't exist, Amazon SQS returns a successful response.
+-- Deletes the queue specified by the @QueueUrl@ , regardless of the queue's contents. If the specified queue doesn't exist, Amazon SQS returns a successful response.
 --
 --
 -- /Important:/ Be careful with the @DeleteQueue@ action: When you delete a queue, any messages in the queue are no longer available.

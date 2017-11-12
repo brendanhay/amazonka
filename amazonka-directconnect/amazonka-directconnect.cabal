@@ -39,8 +39,8 @@ library
 
     ghc-options:
         -Wall
-        -Wincomplete-uni-patterns
-        -Wincomplete-record-updates
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updatesw
         -funbox-strict-fields
 
     exposed-modules:
@@ -56,16 +56,23 @@ library
         , Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
         , Network.AWS.DirectConnect.CreateBGPPeer
         , Network.AWS.DirectConnect.CreateConnection
+        , Network.AWS.DirectConnect.CreateDirectConnectGateway
+        , Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation
         , Network.AWS.DirectConnect.CreateInterconnect
         , Network.AWS.DirectConnect.CreateLag
         , Network.AWS.DirectConnect.CreatePrivateVirtualInterface
         , Network.AWS.DirectConnect.CreatePublicVirtualInterface
         , Network.AWS.DirectConnect.DeleteBGPPeer
         , Network.AWS.DirectConnect.DeleteConnection
+        , Network.AWS.DirectConnect.DeleteDirectConnectGateway
+        , Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociation
         , Network.AWS.DirectConnect.DeleteInterconnect
         , Network.AWS.DirectConnect.DeleteLag
         , Network.AWS.DirectConnect.DeleteVirtualInterface
         , Network.AWS.DirectConnect.DescribeConnections
+        , Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
+        , Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
+        , Network.AWS.DirectConnect.DescribeDirectConnectGateways
         , Network.AWS.DirectConnect.DescribeHostedConnections
         , Network.AWS.DirectConnect.DescribeInterconnects
         , Network.AWS.DirectConnect.DescribeLags

@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input of a list pipelines action.
+-- | Represents the input of a ListPipelines action.
 --
 --
 --
@@ -105,7 +105,7 @@ instance ToPath ListPipelines where
 instance ToQuery ListPipelines where
         toQuery = const mempty
 
--- | Represents the output of a list pipelines action.
+-- | Represents the output of a ListPipelines action.
 --
 --
 --

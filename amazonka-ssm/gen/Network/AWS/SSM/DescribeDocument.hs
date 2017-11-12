@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified SSM document.
+-- Describes the specified Systems Manager document.
 --
 --
 module Network.AWS.SSM.DescribeDocument
@@ -58,7 +58,7 @@ data DescribeDocument = DescribeDocument'
 --
 -- * 'ddDocumentVersion' - The document version for which you want information. Can be a specific version or the default version.
 --
--- * 'ddName' - The name of the SSM document.
+-- * 'ddName' - The name of the Systems Manager document.
 describeDocument
     :: Text -- ^ 'ddName'
     -> DescribeDocument
@@ -70,7 +70,7 @@ describeDocument pName_ =
 ddDocumentVersion :: Lens' DescribeDocument (Maybe Text)
 ddDocumentVersion = lens _ddDocumentVersion (\ s a -> s{_ddDocumentVersion = a});
 
--- | The name of the SSM document.
+-- | The name of the Systems Manager document.
 ddName :: Lens' DescribeDocument Text
 ddName = lens _ddName (\ s a -> s{_ddName = a});
 
@@ -120,7 +120,7 @@ data DescribeDocumentResponse = DescribeDocumentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsDocument' - Information about the SSM document.
+-- * 'desrsDocument' - Information about the Systems Manager document.
 --
 -- * 'desrsResponseStatus' - -- | The response status code.
 describeDocumentResponse
@@ -131,7 +131,7 @@ describeDocumentResponse pResponseStatus_ =
   {_desrsDocument = Nothing, _desrsResponseStatus = pResponseStatus_}
 
 
--- | Information about the SSM document.
+-- | Information about the Systems Manager document.
 desrsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
 desrsDocument = lens _desrsDocument (\ s a -> s{_desrsDocument = a});
 

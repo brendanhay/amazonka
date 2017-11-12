@@ -1,5 +1,5 @@
 name:                  amazonka-iam
-version:               1.4.5
+version:               1.5.0
 synopsis:              Amazon Identity and Access Management SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -175,7 +175,7 @@ library
         , Network.AWS.IAM.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.5.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-iam-test
@@ -195,9 +195,9 @@ test-suite amazonka-iam-test
         , Test.AWS.IAM.Internal
 
     build-depends:
-          amazonka-core == 1.4.5.*
-        , amazonka-test == 1.4.5.*
-        , amazonka-iam == 1.4.5.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-iam == 1.5.0.*
         , base
         , bytestring
         , tasty

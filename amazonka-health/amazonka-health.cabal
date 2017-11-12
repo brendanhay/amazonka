@@ -1,5 +1,5 @@
 name:                  amazonka-health
-version:               1.4.5
+version:               1.5.0
 synopsis:              Amazon Health APIs and Notifications SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -59,7 +59,7 @@ library
         , Network.AWS.AWSHealth.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.5.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-health-test
@@ -79,9 +79,9 @@ test-suite amazonka-health-test
         , Test.AWS.AWSHealth.Internal
 
     build-depends:
-          amazonka-core == 1.4.5.*
-        , amazonka-test == 1.4.5.*
-        , amazonka-health == 1.4.5.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-health == 1.5.0.*
         , base
         , bytestring
         , tasty

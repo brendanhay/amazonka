@@ -1,5 +1,5 @@
 name:                  amazonka-waf
-version:               1.4.5
+version:               1.5.0
 synopsis:              Amazon WAF SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -112,7 +112,7 @@ library
         , Network.AWS.WAF.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.5.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-waf-test
@@ -132,9 +132,9 @@ test-suite amazonka-waf-test
         , Test.AWS.WAF.Internal
 
     build-depends:
-          amazonka-core == 1.4.5.*
-        , amazonka-test == 1.4.5.*
-        , amazonka-waf == 1.4.5.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-waf == 1.5.0.*
         , base
         , bytestring
         , tasty

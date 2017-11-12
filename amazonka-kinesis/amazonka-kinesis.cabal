@@ -1,5 +1,5 @@
 name:                  amazonka-kinesis
-version:               1.4.5
+version:               1.5.0
 synopsis:              Amazon Kinesis SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -74,7 +74,7 @@ library
         , Network.AWS.Kinesis.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.5.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-kinesis-test
@@ -94,9 +94,9 @@ test-suite amazonka-kinesis-test
         , Test.AWS.Kinesis.Internal
 
     build-depends:
-          amazonka-core == 1.4.5.*
-        , amazonka-test == 1.4.5.*
-        , amazonka-kinesis == 1.4.5.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-kinesis == 1.5.0.*
         , base
         , bytestring
         , tasty

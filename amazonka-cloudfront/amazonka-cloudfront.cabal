@@ -1,5 +1,5 @@
 name:                  amazonka-cloudfront
-version:               1.4.5
+version:               1.5.0
 synopsis:              Amazon CloudFront SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -81,7 +81,7 @@ library
         , Network.AWS.CloudFront.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.5.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudfront-test
@@ -101,9 +101,9 @@ test-suite amazonka-cloudfront-test
         , Test.AWS.CloudFront.Internal
 
     build-depends:
-          amazonka-core == 1.4.5.*
-        , amazonka-test == 1.4.5.*
-        , amazonka-cloudfront == 1.4.5.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-cloudfront == 1.5.0.*
         , base
         , bytestring
         , tasty

@@ -1,5 +1,5 @@
 name:                  amazonka-cur
-version:               1.4.5
+version:               1.5.0
 synopsis:              Amazon Cost and Usage Report Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -56,7 +56,7 @@ library
         , Network.AWS.CostAndUsageReport.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.5.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cur-test
@@ -76,9 +76,9 @@ test-suite amazonka-cur-test
         , Test.AWS.CostAndUsageReport.Internal
 
     build-depends:
-          amazonka-core == 1.4.5.*
-        , amazonka-test == 1.4.5.*
-        , amazonka-cur == 1.4.5.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-cur == 1.5.0.*
         , base
         , bytestring
         , tasty

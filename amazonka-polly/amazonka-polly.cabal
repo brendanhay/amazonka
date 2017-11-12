@@ -1,5 +1,5 @@
 name:                  amazonka-polly
-version:               1.4.5
+version:               1.5.0
 synopsis:              Amazon Polly SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -59,7 +59,7 @@ library
         , Network.AWS.Polly.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.5.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-polly-test
@@ -79,9 +79,9 @@ test-suite amazonka-polly-test
         , Test.AWS.Polly.Internal
 
     build-depends:
-          amazonka-core == 1.4.5.*
-        , amazonka-test == 1.4.5.*
-        , amazonka-polly == 1.4.5.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-polly == 1.5.0.*
         , base
         , bytestring
         , tasty

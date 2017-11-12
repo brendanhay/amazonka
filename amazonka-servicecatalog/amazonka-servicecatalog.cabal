@@ -1,5 +1,5 @@
 name:                  amazonka-servicecatalog
-version:               1.4.5
+version:               1.5.0
 synopsis:              Amazon Service Catalog SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -106,7 +106,7 @@ library
         , Network.AWS.ServiceCatalog.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.5.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-servicecatalog-test
@@ -126,9 +126,9 @@ test-suite amazonka-servicecatalog-test
         , Test.AWS.ServiceCatalog.Internal
 
     build-depends:
-          amazonka-core == 1.4.5.*
-        , amazonka-test == 1.4.5.*
-        , amazonka-servicecatalog == 1.4.5.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-servicecatalog == 1.5.0.*
         , base
         , bytestring
         , tasty

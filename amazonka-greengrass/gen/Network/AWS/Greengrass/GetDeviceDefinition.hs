@@ -108,14 +108,14 @@ instance ToQuery GetDeviceDefinition where
 
 -- | /See:/ 'getDeviceDefinitionResponse' smart constructor.
 data GetDeviceDefinitionResponse = GetDeviceDefinitionResponse'
-  { _gddrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _gddrsLatestVersionARN     :: !(Maybe Text)
+  , _gddrsARN                  :: !(Maybe Text)
+  , _gddrsName                 :: !(Maybe Text)
+  , _gddrsCreationTimestamp    :: !(Maybe Text)
+  , _gddrsId                   :: !(Maybe Text)
+  , _gddrsLatestVersion        :: !(Maybe Text)
+  , _gddrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _gddrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

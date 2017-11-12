@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateGCMChannel' smart constructor.
 data UpdateGCMChannel = UpdateGCMChannel'
-  { _ugcApplicationId     :: {-# NOUNPACK #-}!Text
-  , _ugcGCMChannelRequest :: {-# NOUNPACK #-}!GCMChannelRequest
+  { _ugcApplicationId     :: !Text
+  , _ugcGCMChannelRequest :: !GCMChannelRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery UpdateGCMChannel where
 
 -- | /See:/ 'updateGCMChannelResponse' smart constructor.
 data UpdateGCMChannelResponse = UpdateGCMChannelResponse'
-  { _ugcrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _ugcrsGCMChannelResponse :: {-# NOUNPACK #-}!GCMChannelResponse
+  { _ugcrsResponseStatus     :: !Int
+  , _ugcrsGCMChannelResponse :: !GCMChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

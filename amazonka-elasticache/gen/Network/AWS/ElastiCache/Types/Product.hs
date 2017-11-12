@@ -58,31 +58,31 @@ instance NFData AvailabilityZone where
 --
 -- /See:/ 'cacheCluster' smart constructor.
 data CacheCluster = CacheCluster'
-  { _ccEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccCacheNodes :: {-# NOUNPACK #-}!(Maybe [CacheNode])
-  , _ccCacheClusterCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _ccAtRestEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccAutoMinorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccSecurityGroups :: {-# NOUNPACK #-}!(Maybe [SecurityGroupMembership])
-  , _ccNotificationConfiguration :: {-# NOUNPACK #-}!(Maybe NotificationConfiguration)
-  , _ccTransitEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccSnapshotWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccCacheClusterId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccConfigurationEndpoint :: {-# NOUNPACK #-}!(Maybe Endpoint)
-  , _ccEngine :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccCacheSecurityGroups :: {-# NOUNPACK #-}!(Maybe [CacheSecurityGroupMembership])
-  , _ccAuthTokenEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccClientDownloadLandingPage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccCacheSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccPreferredAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccCacheParameterGroup :: {-# NOUNPACK #-}!(Maybe CacheParameterGroupStatus)
-  , _ccCacheClusterStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccSnapshotRetentionLimit :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ccReplicationGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccPendingModifiedValues :: {-# NOUNPACK #-}!(Maybe PendingModifiedValues)
-  , _ccNumCacheNodes :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ccEngineVersion              :: !(Maybe Text)
+  , _ccCacheNodeType              :: !(Maybe Text)
+  , _ccCacheNodes                 :: !(Maybe [CacheNode])
+  , _ccCacheClusterCreateTime     :: !(Maybe ISO8601)
+  , _ccAtRestEncryptionEnabled    :: !(Maybe Bool)
+  , _ccAutoMinorVersionUpgrade    :: !(Maybe Bool)
+  , _ccSecurityGroups             :: !(Maybe [SecurityGroupMembership])
+  , _ccNotificationConfiguration  :: !(Maybe NotificationConfiguration)
+  , _ccTransitEncryptionEnabled   :: !(Maybe Bool)
+  , _ccSnapshotWindow             :: !(Maybe Text)
+  , _ccCacheClusterId             :: !(Maybe Text)
+  , _ccConfigurationEndpoint      :: !(Maybe Endpoint)
+  , _ccEngine                     :: !(Maybe Text)
+  , _ccCacheSecurityGroups        :: !(Maybe [CacheSecurityGroupMembership])
+  , _ccAuthTokenEnabled           :: !(Maybe Bool)
+  , _ccClientDownloadLandingPage  :: !(Maybe Text)
+  , _ccPreferredMaintenanceWindow :: !(Maybe Text)
+  , _ccCacheSubnetGroupName       :: !(Maybe Text)
+  , _ccPreferredAvailabilityZone  :: !(Maybe Text)
+  , _ccCacheParameterGroup        :: !(Maybe CacheParameterGroupStatus)
+  , _ccCacheClusterStatus         :: !(Maybe Text)
+  , _ccSnapshotRetentionLimit     :: !(Maybe Int)
+  , _ccReplicationGroupId         :: !(Maybe Text)
+  , _ccPendingModifiedValues      :: !(Maybe PendingModifiedValues)
+  , _ccNumCacheNodes              :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -315,11 +315,11 @@ instance NFData CacheCluster where
 --
 -- /See:/ 'cacheEngineVersion' smart constructor.
 data CacheEngineVersion = CacheEngineVersion'
-  { _cevEngineVersion                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cevCacheParameterGroupFamily     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cevCacheEngineDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cevEngine                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cevCacheEngineVersionDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cevEngineVersion                 :: !(Maybe Text)
+  , _cevCacheParameterGroupFamily     :: !(Maybe Text)
+  , _cevCacheEngineDescription        :: !(Maybe Text)
+  , _cevEngine                        :: !(Maybe Text)
+  , _cevCacheEngineVersionDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -443,13 +443,13 @@ instance NFData CacheEngineVersion where
 --
 -- /See:/ 'cacheNode' smart constructor.
 data CacheNode = CacheNode'
-  { _cnSourceCacheNodeId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnParameterGroupStatus     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnCacheNodeCreateTime      :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _cnCustomerAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnCacheNodeId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnCacheNodeStatus          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnEndpoint                 :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  { _cnSourceCacheNodeId        :: !(Maybe Text)
+  , _cnParameterGroupStatus     :: !(Maybe Text)
+  , _cnCacheNodeCreateTime      :: !(Maybe ISO8601)
+  , _cnCustomerAvailabilityZone :: !(Maybe Text)
+  , _cnCacheNodeId              :: !(Maybe Text)
+  , _cnCacheNodeStatus          :: !(Maybe Text)
+  , _cnEndpoint                 :: !(Maybe Endpoint)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -533,15 +533,15 @@ instance NFData CacheNode where
 --
 -- /See:/ 'cacheNodeTypeSpecificParameter' smart constructor.
 data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
-  { _cntspCacheNodeTypeSpecificValues :: {-# NOUNPACK #-}!(Maybe [CacheNodeTypeSpecificValue])
-  , _cntspMinimumEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cntspSource :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cntspIsModifiable :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cntspDataType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cntspAllowedValues :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cntspParameterName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cntspDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cntspChangeType :: {-# NOUNPACK #-}!(Maybe ChangeType)
+  { _cntspCacheNodeTypeSpecificValues :: !(Maybe [CacheNodeTypeSpecificValue])
+  , _cntspMinimumEngineVersion        :: !(Maybe Text)
+  , _cntspSource                      :: !(Maybe Text)
+  , _cntspIsModifiable                :: !(Maybe Bool)
+  , _cntspDataType                    :: !(Maybe Text)
+  , _cntspAllowedValues               :: !(Maybe Text)
+  , _cntspParameterName               :: !(Maybe Text)
+  , _cntspDescription                 :: !(Maybe Text)
+  , _cntspChangeType                  :: !(Maybe ChangeType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -643,8 +643,8 @@ instance NFData CacheNodeTypeSpecificParameter where
 --
 -- /See:/ 'cacheNodeTypeSpecificValue' smart constructor.
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'
-  { _cntsvCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cntsvValue         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cntsvCacheNodeType :: !(Maybe Text)
+  , _cntsvValue         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -685,9 +685,9 @@ instance NFData CacheNodeTypeSpecificValue where
 --
 -- /See:/ 'cacheParameterGroup' smart constructor.
 data CacheParameterGroup = CacheParameterGroup'
-  { _cpgCacheParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpgCacheParameterGroupName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpgDescription               :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cpgCacheParameterGroupFamily :: !(Maybe Text)
+  , _cpgCacheParameterGroupName   :: !(Maybe Text)
+  , _cpgDescription               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -780,9 +780,9 @@ instance NFData CacheParameterGroupNameMessage where
 --
 -- /See:/ 'cacheParameterGroupStatus' smart constructor.
 data CacheParameterGroupStatus = CacheParameterGroupStatus'
-  { _cpgsCacheParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpgsCacheNodeIdsToReboot    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cpgsParameterApplyStatus    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cpgsCacheParameterGroupName :: !(Maybe Text)
+  , _cpgsCacheNodeIdsToReboot    :: !(Maybe [Text])
+  , _cpgsParameterApplyStatus    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -843,10 +843,10 @@ instance NFData CacheParameterGroupStatus where
 --
 -- /See:/ 'cacheSecurityGroup' smart constructor.
 data CacheSecurityGroup = CacheSecurityGroup'
-  { _csgCacheSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csgOwnerId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csgEC2SecurityGroups      :: {-# NOUNPACK #-}!(Maybe [EC2SecurityGroup])
-  , _csgDescription            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csgCacheSecurityGroupName :: !(Maybe Text)
+  , _csgOwnerId                :: !(Maybe Text)
+  , _csgEC2SecurityGroups      :: !(Maybe [EC2SecurityGroup])
+  , _csgDescription            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -908,8 +908,8 @@ instance NFData CacheSecurityGroup where
 --
 -- /See:/ 'cacheSecurityGroupMembership' smart constructor.
 data CacheSecurityGroupMembership = CacheSecurityGroupMembership'
-  { _csgmStatus                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csgmCacheSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csgmStatus                 :: !(Maybe Text)
+  , _csgmCacheSecurityGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -956,10 +956,10 @@ instance NFData CacheSecurityGroupMembership where
 --
 -- /See:/ 'cacheSubnetGroup' smart constructor.
 data CacheSubnetGroup = CacheSubnetGroup'
-  { _csgVPCId                       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csgSubnets                     :: {-# NOUNPACK #-}!(Maybe [Subnet])
-  , _csgCacheSubnetGroupName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csgCacheSubnetGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csgVPCId                       :: !(Maybe Text)
+  , _csgSubnets                     :: !(Maybe [Subnet])
+  , _csgCacheSubnetGroupName        :: !(Maybe Text)
+  , _csgCacheSubnetGroupDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1020,9 +1020,9 @@ instance NFData CacheSubnetGroup where
 --
 -- /See:/ 'ec2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-  { _esgStatus                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esgEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esgEC2SecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _esgStatus                  :: !(Maybe Text)
+  , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
+  , _esgEC2SecurityGroupName    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1074,8 +1074,8 @@ instance NFData EC2SecurityGroup where
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-  { _eAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ePort    :: {-# NOUNPACK #-}!(Maybe Int)
+  { _eAddress :: !(Maybe Text)
+  , _ePort    :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1113,10 +1113,10 @@ instance NFData Endpoint where
 --
 -- /See:/ 'engineDefaults' smart constructor.
 data EngineDefaults = EngineDefaults'
-  { _edCacheParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edCacheNodeTypeSpecificParameters :: {-# NOUNPACK #-}!(Maybe [CacheNodeTypeSpecificParameter])
-  , _edMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edParameters :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  { _edCacheParameterGroupFamily :: !(Maybe Text)
+  , _edCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
+  , _edMarker :: !(Maybe Text)
+  , _edParameters :: !(Maybe [Parameter])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1180,10 +1180,10 @@ instance NFData EngineDefaults where
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-  { _eSourceType       :: {-# NOUNPACK #-}!(Maybe SourceType)
-  , _eSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eDate             :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _eMessage          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eSourceType       :: !(Maybe SourceType)
+  , _eSourceIdentifier :: !(Maybe Text)
+  , _eDate             :: !(Maybe ISO8601)
+  , _eMessage          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1242,11 +1242,11 @@ instance NFData Event where
 --
 -- /See:/ 'nodeGroup' smart constructor.
 data NodeGroup = NodeGroup'
-  { _ngStatus           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ngPrimaryEndpoint  :: {-# NOUNPACK #-}!(Maybe Endpoint)
-  , _ngSlots            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ngNodeGroupMembers :: {-# NOUNPACK #-}!(Maybe [NodeGroupMember])
-  , _ngNodeGroupId      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ngStatus           :: !(Maybe Text)
+  , _ngPrimaryEndpoint  :: !(Maybe Endpoint)
+  , _ngSlots            :: !(Maybe Text)
+  , _ngNodeGroupMembers :: !(Maybe [NodeGroupMember])
+  , _ngNodeGroupId      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1315,10 +1315,10 @@ instance NFData NodeGroup where
 --
 -- /See:/ 'nodeGroupConfiguration' smart constructor.
 data NodeGroupConfiguration = NodeGroupConfiguration'
-  { _ngcSlots                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ngcReplicaCount             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ngcPrimaryAvailabilityZone  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ngcReplicaAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _ngcSlots                    :: !(Maybe Text)
+  , _ngcReplicaCount             :: !(Maybe Int)
+  , _ngcPrimaryAvailabilityZone  :: !(Maybe Text)
+  , _ngcReplicaAvailabilityZones :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1391,11 +1391,11 @@ instance ToQuery NodeGroupConfiguration where
 --
 -- /See:/ 'nodeGroupMember' smart constructor.
 data NodeGroupMember = NodeGroupMember'
-  { _ngmCacheClusterId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ngmCacheNodeId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ngmPreferredAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ngmCurrentRole               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ngmReadEndpoint              :: {-# NOUNPACK #-}!(Maybe Endpoint)
+  { _ngmCacheClusterId            :: !(Maybe Text)
+  , _ngmCacheNodeId               :: !(Maybe Text)
+  , _ngmPreferredAvailabilityZone :: !(Maybe Text)
+  , _ngmCurrentRole               :: !(Maybe Text)
+  , _ngmReadEndpoint              :: !(Maybe Endpoint)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1462,13 +1462,13 @@ instance NFData NodeGroupMember where
 --
 -- /See:/ 'nodeSnapshot' smart constructor.
 data NodeSnapshot = NodeSnapshot'
-  { _nsNodeGroupConfiguration :: {-# NOUNPACK #-}!(Maybe NodeGroupConfiguration)
-  , _nsCacheNodeCreateTime    :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _nsCacheClusterId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nsCacheNodeId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nsNodeGroupId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nsSnapshotCreateTime     :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _nsCacheSize              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _nsNodeGroupConfiguration :: !(Maybe NodeGroupConfiguration)
+  , _nsCacheNodeCreateTime    :: !(Maybe ISO8601)
+  , _nsCacheClusterId         :: !(Maybe Text)
+  , _nsCacheNodeId            :: !(Maybe Text)
+  , _nsNodeGroupId            :: !(Maybe Text)
+  , _nsSnapshotCreateTime     :: !(Maybe ISO8601)
+  , _nsCacheSize              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1552,8 +1552,8 @@ instance NFData NodeSnapshot where
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { _ncTopicStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ncTopicARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ncTopicStatus :: !(Maybe Text)
+  , _ncTopicARN    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1593,15 +1593,15 @@ instance NFData NotificationConfiguration where
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-  { _pParameterValue       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pMinimumEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pSource               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pIsModifiable         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pDataType             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pAllowedValues        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pParameterName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pDescription          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pChangeType           :: {-# NOUNPACK #-}!(Maybe ChangeType)
+  { _pParameterValue       :: !(Maybe Text)
+  , _pMinimumEngineVersion :: !(Maybe Text)
+  , _pSource               :: !(Maybe Text)
+  , _pIsModifiable         :: !(Maybe Bool)
+  , _pDataType             :: !(Maybe Text)
+  , _pAllowedValues        :: !(Maybe Text)
+  , _pParameterName        :: !(Maybe Text)
+  , _pDescription          :: !(Maybe Text)
+  , _pChangeType           :: !(Maybe ChangeType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1701,8 +1701,8 @@ instance NFData Parameter where
 --
 -- /See:/ 'parameterNameValue' smart constructor.
 data ParameterNameValue = ParameterNameValue'
-  { _pnvParameterValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pnvParameterName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pnvParameterValue :: !(Maybe Text)
+  , _pnvParameterName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1744,10 +1744,10 @@ instance ToQuery ParameterNameValue where
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-  { _pmvEngineVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvCacheNodeType        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvCacheNodeIdsToRemove :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _pmvNumCacheNodes        :: {-# NOUNPACK #-}!(Maybe Int)
+  { _pmvEngineVersion        :: !(Maybe Text)
+  , _pmvCacheNodeType        :: !(Maybe Text)
+  , _pmvCacheNodeIdsToRemove :: !(Maybe [Text])
+  , _pmvNumCacheNodes        :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1808,8 +1808,8 @@ instance NFData PendingModifiedValues where
 --
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-  { _rcRecurringChargeFrequency :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcRecurringChargeAmount    :: {-# NOUNPACK #-}!(Maybe Double)
+  { _rcRecurringChargeFrequency :: !(Maybe Text)
+  , _rcRecurringChargeAmount    :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1851,22 +1851,22 @@ instance NFData RecurringCharge where
 --
 -- /See:/ 'replicationGroup' smart constructor.
 data ReplicationGroup = ReplicationGroup'
-  { _rgStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rgCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rgNodeGroups :: {-# NOUNPACK #-}!(Maybe [NodeGroup])
-  , _rgSnapshottingClusterId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rgClusterEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rgAtRestEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rgTransitEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rgSnapshotWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rgConfigurationEndpoint :: {-# NOUNPACK #-}!(Maybe Endpoint)
-  , _rgAuthTokenEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rgMemberClusters :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rgSnapshotRetentionLimit :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rgDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rgReplicationGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rgPendingModifiedValues :: {-# NOUNPACK #-}!(Maybe ReplicationGroupPendingModifiedValues)
-  , _rgAutomaticFailover :: {-# NOUNPACK #-}!(Maybe AutomaticFailoverStatus)
+  { _rgStatus :: !(Maybe Text)
+  , _rgCacheNodeType :: !(Maybe Text)
+  , _rgNodeGroups :: !(Maybe [NodeGroup])
+  , _rgSnapshottingClusterId :: !(Maybe Text)
+  , _rgClusterEnabled :: !(Maybe Bool)
+  , _rgAtRestEncryptionEnabled :: !(Maybe Bool)
+  , _rgTransitEncryptionEnabled :: !(Maybe Bool)
+  , _rgSnapshotWindow :: !(Maybe Text)
+  , _rgConfigurationEndpoint :: !(Maybe Endpoint)
+  , _rgAuthTokenEnabled :: !(Maybe Bool)
+  , _rgMemberClusters :: !(Maybe [Text])
+  , _rgSnapshotRetentionLimit :: !(Maybe Int)
+  , _rgDescription :: !(Maybe Text)
+  , _rgReplicationGroupId :: !(Maybe Text)
+  , _rgPendingModifiedValues :: !(Maybe ReplicationGroupPendingModifiedValues)
+  , _rgAutomaticFailover :: !(Maybe AutomaticFailoverStatus)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2024,9 +2024,9 @@ instance NFData ReplicationGroup where
 --
 -- /See:/ 'replicationGroupPendingModifiedValues' smart constructor.
 data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues'
-  { _rgpmvResharding :: {-# NOUNPACK #-}!(Maybe ReshardingStatus)
-  , _rgpmvPrimaryClusterId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rgpmvAutomaticFailoverStatus :: {-# NOUNPACK #-}!(Maybe PendingAutomaticFailoverStatus)
+  { _rgpmvResharding              :: !(Maybe ReshardingStatus)
+  , _rgpmvPrimaryClusterId        :: !(Maybe Text)
+  , _rgpmvAutomaticFailoverStatus :: !(Maybe PendingAutomaticFailoverStatus)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2082,18 +2082,18 @@ instance NFData ReplicationGroupPendingModifiedValues
 --
 -- /See:/ 'reservedCacheNode' smart constructor.
 data ReservedCacheNode = ReservedCacheNode'
-  { _rcnCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcnState :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcnStartTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _rcnProductDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcnCacheNodeCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rcnReservedCacheNodeId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcnRecurringCharges :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
-  , _rcnOfferingType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcnUsagePrice :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rcnFixedPrice :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rcnDuration :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rcnReservedCacheNodesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rcnCacheNodeType                :: !(Maybe Text)
+  , _rcnState                        :: !(Maybe Text)
+  , _rcnStartTime                    :: !(Maybe ISO8601)
+  , _rcnProductDescription           :: !(Maybe Text)
+  , _rcnCacheNodeCount               :: !(Maybe Int)
+  , _rcnReservedCacheNodeId          :: !(Maybe Text)
+  , _rcnRecurringCharges             :: !(Maybe [RecurringCharge])
+  , _rcnOfferingType                 :: !(Maybe Text)
+  , _rcnUsagePrice                   :: !(Maybe Double)
+  , _rcnFixedPrice                   :: !(Maybe Double)
+  , _rcnDuration                     :: !(Maybe Int)
+  , _rcnReservedCacheNodesOfferingId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2218,14 +2218,14 @@ instance NFData ReservedCacheNode where
 --
 -- /See:/ 'reservedCacheNodesOffering' smart constructor.
 data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
-  { _rcnoCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcnoProductDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcnoRecurringCharges :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
-  , _rcnoOfferingType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcnoUsagePrice :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rcnoFixedPrice :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rcnoDuration :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rcnoReservedCacheNodesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rcnoCacheNodeType                :: !(Maybe Text)
+  , _rcnoProductDescription           :: !(Maybe Text)
+  , _rcnoRecurringCharges             :: !(Maybe [RecurringCharge])
+  , _rcnoOfferingType                 :: !(Maybe Text)
+  , _rcnoUsagePrice                   :: !(Maybe Double)
+  , _rcnoFixedPrice                   :: !(Maybe Double)
+  , _rcnoDuration                     :: !(Maybe Int)
+  , _rcnoReservedCacheNodesOfferingId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2388,8 +2388,8 @@ instance NFData ReshardingStatus where
 --
 -- /See:/ 'securityGroupMembership' smart constructor.
 data SecurityGroupMembership = SecurityGroupMembership'
-  { _sgmStatus          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sgmSecurityGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sgmStatus          :: !(Maybe Text)
+  , _sgmSecurityGroupId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2461,30 +2461,30 @@ instance NFData SlotMigration where
 --
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
-  { _sEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCacheClusterCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _sAutoMinorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sCacheParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sReplicationGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSnapshotStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSnapshotWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCacheClusterId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEngine :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sTopicARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sNodeSnapshots :: {-# NOUNPACK #-}!(Maybe [NodeSnapshot])
-  , _sCacheSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sPreferredAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sNumNodeGroups :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sSnapshotRetentionLimit :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sSnapshotName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sReplicationGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sNumCacheNodes :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sPort :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sAutomaticFailover :: {-# NOUNPACK #-}!(Maybe AutomaticFailoverStatus)
-  , _sSnapshotSource :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sEngineVersion               :: !(Maybe Text)
+  , _sCacheNodeType               :: !(Maybe Text)
+  , _sCacheClusterCreateTime      :: !(Maybe ISO8601)
+  , _sAutoMinorVersionUpgrade     :: !(Maybe Bool)
+  , _sCacheParameterGroupName     :: !(Maybe Text)
+  , _sReplicationGroupDescription :: !(Maybe Text)
+  , _sVPCId                       :: !(Maybe Text)
+  , _sSnapshotStatus              :: !(Maybe Text)
+  , _sSnapshotWindow              :: !(Maybe Text)
+  , _sCacheClusterId              :: !(Maybe Text)
+  , _sEngine                      :: !(Maybe Text)
+  , _sPreferredMaintenanceWindow  :: !(Maybe Text)
+  , _sTopicARN                    :: !(Maybe Text)
+  , _sNodeSnapshots               :: !(Maybe [NodeSnapshot])
+  , _sCacheSubnetGroupName        :: !(Maybe Text)
+  , _sPreferredAvailabilityZone   :: !(Maybe Text)
+  , _sNumNodeGroups               :: !(Maybe Int)
+  , _sSnapshotRetentionLimit      :: !(Maybe Int)
+  , _sSnapshotName                :: !(Maybe Text)
+  , _sReplicationGroupId          :: !(Maybe Text)
+  , _sNumCacheNodes               :: !(Maybe Int)
+  , _sPort                        :: !(Maybe Int)
+  , _sAutomaticFailover           :: !(Maybe AutomaticFailoverStatus)
+  , _sSnapshotSource              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2705,8 +2705,8 @@ instance NFData Snapshot where
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
-  { _sSubnetIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSubnetAvailabilityZone :: {-# NOUNPACK #-}!(Maybe AvailabilityZone)
+  { _sSubnetIdentifier       :: !(Maybe Text)
+  , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2747,8 +2747,8 @@ instance NFData Subnet where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

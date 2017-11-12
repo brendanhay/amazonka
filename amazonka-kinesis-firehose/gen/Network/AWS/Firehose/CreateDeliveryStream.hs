@@ -74,13 +74,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDeliveryStream' smart constructor.
 data CreateDeliveryStream = CreateDeliveryStream'
-  { _cdsS3DestinationConfiguration :: {-# NOUNPACK #-}!(Maybe S3DestinationConfiguration)
-  , _cdsRedshiftDestinationConfiguration :: {-# NOUNPACK #-}!(Maybe RedshiftDestinationConfiguration)
-  , _cdsElasticsearchDestinationConfiguration :: {-# NOUNPACK #-}!(Maybe ElasticsearchDestinationConfiguration)
-  , _cdsExtendedS3DestinationConfiguration :: {-# NOUNPACK #-}!(Maybe ExtendedS3DestinationConfiguration)
-  , _cdsKinesisStreamSourceConfiguration :: {-# NOUNPACK #-}!(Maybe KinesisStreamSourceConfiguration)
-  , _cdsDeliveryStreamType :: {-# NOUNPACK #-}!(Maybe DeliveryStreamType)
-  , _cdsDeliveryStreamName :: {-# NOUNPACK #-}!Text
+  { _cdsS3DestinationConfiguration :: !(Maybe S3DestinationConfiguration)
+  , _cdsRedshiftDestinationConfiguration :: !(Maybe RedshiftDestinationConfiguration)
+  , _cdsElasticsearchDestinationConfiguration :: !(Maybe ElasticsearchDestinationConfiguration)
+  , _cdsExtendedS3DestinationConfiguration :: !(Maybe ExtendedS3DestinationConfiguration)
+  , _cdsKinesisStreamSourceConfiguration :: !(Maybe KinesisStreamSourceConfiguration)
+  , _cdsDeliveryStreamType :: !(Maybe DeliveryStreamType)
+  , _cdsDeliveryStreamName :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -194,8 +194,8 @@ instance ToQuery CreateDeliveryStream where
 
 -- | /See:/ 'createDeliveryStreamResponse' smart constructor.
 data CreateDeliveryStreamResponse = CreateDeliveryStreamResponse'
-  { _cdsrsDeliveryStreamARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _cdsrsDeliveryStreamARN :: !(Maybe Text)
+  , _cdsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

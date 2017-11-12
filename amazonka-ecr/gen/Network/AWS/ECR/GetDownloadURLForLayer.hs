@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getDownloadURLForLayer' smart constructor.
 data GetDownloadURLForLayer = GetDownloadURLForLayer'
-  { _gduflRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gduflRepositoryName :: {-# NOUNPACK #-}!Text
-  , _gduflLayerDigest    :: {-# NOUNPACK #-}!Text
+  { _gduflRegistryId     :: !(Maybe Text)
+  , _gduflRepositoryName :: !Text
+  , _gduflLayerDigest    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,9 +129,9 @@ instance ToQuery GetDownloadURLForLayer where
 
 -- | /See:/ 'getDownloadURLForLayerResponse' smart constructor.
 data GetDownloadURLForLayerResponse = GetDownloadURLForLayerResponse'
-  { _gduflrsLayerDigest    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gduflrsDownloadURL    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gduflrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gduflrsLayerDigest    :: !(Maybe Text)
+  , _gduflrsDownloadURL    :: !(Maybe Text)
+  , _gduflrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

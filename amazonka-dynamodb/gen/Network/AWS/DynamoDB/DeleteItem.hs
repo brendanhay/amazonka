@@ -67,16 +67,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteItem' smart constructor.
 data DeleteItem = DeleteItem'
-  { _diExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _diReturnValues :: {-# NOUNPACK #-}!(Maybe ReturnValue)
-  , _diExpressionAttributeValues :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _diReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
-  , _diReturnItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe ReturnItemCollectionMetrics)
-  , _diConditionExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diConditionalOperator :: {-# NOUNPACK #-}!(Maybe ConditionalOperator)
-  , _diExpected :: {-# NOUNPACK #-}!(Maybe (Map Text ExpectedAttributeValue))
-  , _diTableName :: {-# NOUNPACK #-}!Text
-  , _diKey :: {-# NOUNPACK #-}!(Map Text AttributeValue)
+  { _diExpressionAttributeNames    :: !(Maybe (Map Text Text))
+  , _diReturnValues                :: !(Maybe ReturnValue)
+  , _diExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+  , _diReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+  , _diReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+  , _diConditionExpression         :: !(Maybe Text)
+  , _diConditionalOperator         :: !(Maybe ConditionalOperator)
+  , _diExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+  , _diTableName                   :: !Text
+  , _diKey                         :: !(Map Text AttributeValue)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -219,10 +219,10 @@ instance ToQuery DeleteItem where
 --
 -- /See:/ 'deleteItemResponse' smart constructor.
 data DeleteItemResponse = DeleteItemResponse'
-  { _dirsItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe ItemCollectionMetrics)
-  , _dirsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ConsumedCapacity)
-  , _dirsAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+  , _dirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
+  , _dirsAttributes            :: !(Maybe (Map Text AttributeValue))
+  , _dirsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

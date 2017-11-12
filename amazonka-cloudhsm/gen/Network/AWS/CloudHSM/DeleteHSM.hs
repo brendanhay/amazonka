@@ -111,8 +111,8 @@ instance ToQuery DeleteHSM where
 --
 -- /See:/ 'deleteHSMResponse' smart constructor.
 data DeleteHSMResponse = DeleteHSMResponse'
-  { _dhsmrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dhsmrsStatus         :: {-# NOUNPACK #-}!Text
+  { _dhsmrsResponseStatus :: !Int
+  , _dhsmrsStatus         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

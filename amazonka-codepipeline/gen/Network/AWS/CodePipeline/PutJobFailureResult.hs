@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'putJobFailureResult' smart constructor.
 data PutJobFailureResult = PutJobFailureResult'
-  { _pjfrJobId          :: {-# NOUNPACK #-}!Text
-  , _pjfrFailureDetails :: {-# NOUNPACK #-}!FailureDetails
+  { _pjfrJobId          :: !Text
+  , _pjfrFailureDetails :: !FailureDetails
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

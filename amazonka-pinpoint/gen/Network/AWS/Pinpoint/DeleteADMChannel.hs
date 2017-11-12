@@ -95,8 +95,8 @@ instance ToQuery DeleteADMChannel where
 
 -- | /See:/ 'deleteADMChannelResponse' smart constructor.
 data DeleteADMChannelResponse = DeleteADMChannelResponse'
-  { _dadmcrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _dadmcrsADMChannelResponse :: {-# NOUNPACK #-}!ADMChannelResponse
+  { _dadmcrsResponseStatus     :: !Int
+  , _dadmcrsADMChannelResponse :: !ADMChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

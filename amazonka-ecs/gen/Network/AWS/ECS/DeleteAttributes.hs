@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteAttributes' smart constructor.
 data DeleteAttributes = DeleteAttributes'
-  { _daCluster    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daAttributes :: {-# NOUNPACK #-}![Attribute]
+  { _daCluster    :: !(Maybe Text)
+  , _daAttributes :: ![Attribute]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery DeleteAttributes where
 
 -- | /See:/ 'deleteAttributesResponse' smart constructor.
 data DeleteAttributesResponse = DeleteAttributesResponse'
-  { _darsAttributes     :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _darsAttributes     :: !(Maybe [Attribute])
+  , _darsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

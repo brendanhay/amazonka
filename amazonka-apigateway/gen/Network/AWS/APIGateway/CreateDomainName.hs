@@ -65,15 +65,15 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDomainName' smart constructor.
 data CreateDomainName = CreateDomainName'
-  { _cdnCertificateName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdnRegionalCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdnCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdnCertificatePrivateKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdnRegionalCertificateName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdnCertificateBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdnCertificateChain :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdnEndpointConfiguration :: {-# NOUNPACK #-}!(Maybe EndpointConfiguration)
-  , _cdnDomainName :: {-# NOUNPACK #-}!Text
+  { _cdnCertificateName         :: !(Maybe Text)
+  , _cdnRegionalCertificateARN  :: !(Maybe Text)
+  , _cdnCertificateARN          :: !(Maybe Text)
+  , _cdnCertificatePrivateKey   :: !(Maybe Text)
+  , _cdnRegionalCertificateName :: !(Maybe Text)
+  , _cdnCertificateBody         :: !(Maybe Text)
+  , _cdnCertificateChain        :: !(Maybe Text)
+  , _cdnEndpointConfiguration   :: !(Maybe EndpointConfiguration)
+  , _cdnDomainName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

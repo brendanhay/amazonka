@@ -58,8 +58,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getAPIKey' smart constructor.
 data GetAPIKey = GetAPIKey'
-  { _gakIncludeValue :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gakApiKey       :: {-# NOUNPACK #-}!Text
+  { _gakIncludeValue :: !(Maybe Bool)
+  , _gakApiKey       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

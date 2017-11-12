@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'resumeProcesses' smart constructor.
 data ResumeProcesses = ResumeProcesses'
-  { _rpScalingProcesses     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rpAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  { _rpScalingProcesses     :: !(Maybe [Text])
+  , _rpAutoScalingGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,10 +54,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeBackups' smart constructor.
 data DescribeBackups = DescribeBackups'
-  { _dServerName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dBackupId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dServerName :: !(Maybe Text)
+  , _dBackupId   :: !(Maybe Text)
+  , _dNextToken  :: !(Maybe Text)
+  , _dMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToQuery DescribeBackups where
 
 -- | /See:/ 'describeBackupsResponse' smart constructor.
 data DescribeBackupsResponse = DescribeBackupsResponse'
-  { _drsBackups        :: {-# NOUNPACK #-}!(Maybe [Backup])
-  , _drsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsBackups        :: !(Maybe [Backup])
+  , _drsNextToken      :: !(Maybe Text)
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

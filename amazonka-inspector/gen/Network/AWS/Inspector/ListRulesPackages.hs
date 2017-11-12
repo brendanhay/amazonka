@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listRulesPackages' smart constructor.
 data ListRulesPackages = ListRulesPackages'
-  { _lrpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrpMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _lrpNextToken  :: !(Maybe Text)
+  , _lrpMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,9 +112,9 @@ instance ToQuery ListRulesPackages where
 
 -- | /See:/ 'listRulesPackagesResponse' smart constructor.
 data ListRulesPackagesResponse = ListRulesPackagesResponse'
-  { _lrprsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrprsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _lrprsRulesPackageARNs :: {-# NOUNPACK #-}![Text]
+  { _lrprsNextToken        :: !(Maybe Text)
+  , _lrprsResponseStatus   :: !Int
+  , _lrprsRulesPackageARNs :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

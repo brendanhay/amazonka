@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteAlias' smart constructor.
 data DeleteAlias = DeleteAlias'
-  { _daFunctionName :: {-# NOUNPACK #-}!Text
-  , _daName         :: {-# NOUNPACK #-}!Text
+  { _daFunctionName :: !Text
+  , _daName         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

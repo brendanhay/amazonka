@@ -53,13 +53,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'listIncomingTypedLinks' smart constructor.
 data ListIncomingTypedLinks = ListIncomingTypedLinks'
-  { _litlFilterAttributeRanges :: {-# NOUNPACK #-}!(Maybe [TypedLinkAttributeRange])
-  , _litlConsistencyLevel :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
-  , _litlNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _litlFilterTypedLink :: {-# NOUNPACK #-}!(Maybe TypedLinkSchemaAndFacetName)
-  , _litlMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _litlDirectoryARN :: {-# NOUNPACK #-}!Text
-  , _litlObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _litlFilterAttributeRanges :: !(Maybe [TypedLinkAttributeRange])
+  , _litlConsistencyLevel      :: !(Maybe ConsistencyLevel)
+  , _litlNextToken             :: !(Maybe Text)
+  , _litlFilterTypedLink       :: !(Maybe TypedLinkSchemaAndFacetName)
+  , _litlMaxResults            :: !(Maybe Nat)
+  , _litlDirectoryARN          :: !Text
+  , _litlObjectReference       :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -167,9 +167,9 @@ instance ToQuery ListIncomingTypedLinks where
 
 -- | /See:/ 'listIncomingTypedLinksResponse' smart constructor.
 data ListIncomingTypedLinksResponse = ListIncomingTypedLinksResponse'
-  { _litlrsLinkSpecifiers :: {-# NOUNPACK #-}!(Maybe [TypedLinkSpecifier])
-  , _litlrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _litlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _litlrsLinkSpecifiers :: !(Maybe [TypedLinkSpecifier])
+  , _litlrsNextToken      :: !(Maybe Text)
+  , _litlrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

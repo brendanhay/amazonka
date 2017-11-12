@@ -43,9 +43,9 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketMetricsConfiguration' smart constructor.
 data PutBucketMetricsConfiguration = PutBucketMetricsConfiguration'
-  { _pbmcBucket               :: {-# NOUNPACK #-}!BucketName
-  , _pbmcId                   :: {-# NOUNPACK #-}!Text
-  , _pbmcMetricsConfiguration :: {-# NOUNPACK #-}!MetricsConfiguration
+  { _pbmcBucket               :: !BucketName
+  , _pbmcId                   :: !Text
+  , _pbmcMetricsConfiguration :: !MetricsConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

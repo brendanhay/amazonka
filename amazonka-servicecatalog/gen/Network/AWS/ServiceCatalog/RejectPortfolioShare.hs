@@ -46,8 +46,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'rejectPortfolioShare' smart constructor.
 data RejectPortfolioShare = RejectPortfolioShare'
-  { _rpsAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rpsPortfolioId    :: {-# NOUNPACK #-}!Text
+  { _rpsAcceptLanguage :: !(Maybe Text)
+  , _rpsPortfolioId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

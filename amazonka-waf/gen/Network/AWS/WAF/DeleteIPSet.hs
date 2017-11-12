@@ -59,8 +59,8 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'deleteIPSet' smart constructor.
 data DeleteIPSet = DeleteIPSet'
-  { _disIPSetId     :: {-# NOUNPACK #-}!Text
-  , _disChangeToken :: {-# NOUNPACK #-}!Text
+  { _disIPSetId     :: !Text
+  , _disChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery DeleteIPSet where
 
 -- | /See:/ 'deleteIPSetResponse' smart constructor.
 data DeleteIPSetResponse = DeleteIPSetResponse'
-  { _disrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _disrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _disrsChangeToken    :: !(Maybe Text)
+  , _disrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

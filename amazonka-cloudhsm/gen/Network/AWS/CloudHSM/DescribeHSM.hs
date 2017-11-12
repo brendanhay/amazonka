@@ -75,8 +75,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeHSM' smart constructor.
 data DescribeHSM = DescribeHSM'
-  { _dhsmHSMSerialNumber :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhsmHSMARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dhsmHSMSerialNumber :: !(Maybe Text)
+  , _dhsmHSMARN          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -163,28 +163,28 @@ instance ToQuery DescribeHSM where
 --
 -- /See:/ 'describeHSMResponse' smart constructor.
 data DescribeHSMResponse = DescribeHSMResponse'
-  { _desrsStatus                :: {-# NOUNPACK #-}!(Maybe HSMStatus)
-  , _desrsIAMRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsEniId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsVPCId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsSSHKeyLastUpdated     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsSubscriptionEndDate   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsServerCertURI         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsSubscriptionType      :: {-# NOUNPACK #-}!(Maybe SubscriptionType)
-  , _desrsSSHPublicKey          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsSubnetId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsStatusDetails         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsPartitions            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _desrsSubscriptionStartDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsAvailabilityZone      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsServerCertLastUpdated :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsSoftwareVersion       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsVendorName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsSerialNumber          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsHSMARN                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsEniIP                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsHSMType               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _desrsStatus                :: !(Maybe HSMStatus)
+  , _desrsIAMRoleARN            :: !(Maybe Text)
+  , _desrsEniId                 :: !(Maybe Text)
+  , _desrsVPCId                 :: !(Maybe Text)
+  , _desrsSSHKeyLastUpdated     :: !(Maybe Text)
+  , _desrsSubscriptionEndDate   :: !(Maybe Text)
+  , _desrsServerCertURI         :: !(Maybe Text)
+  , _desrsSubscriptionType      :: !(Maybe SubscriptionType)
+  , _desrsSSHPublicKey          :: !(Maybe Text)
+  , _desrsSubnetId              :: !(Maybe Text)
+  , _desrsStatusDetails         :: !(Maybe Text)
+  , _desrsPartitions            :: !(Maybe [Text])
+  , _desrsSubscriptionStartDate :: !(Maybe Text)
+  , _desrsAvailabilityZone      :: !(Maybe Text)
+  , _desrsServerCertLastUpdated :: !(Maybe Text)
+  , _desrsSoftwareVersion       :: !(Maybe Text)
+  , _desrsVendorName            :: !(Maybe Text)
+  , _desrsSerialNumber          :: !(Maybe Text)
+  , _desrsHSMARN                :: !(Maybe Text)
+  , _desrsEniIP                 :: !(Maybe Text)
+  , _desrsHSMType               :: !(Maybe Text)
+  , _desrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

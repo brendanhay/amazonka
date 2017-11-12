@@ -71,13 +71,13 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateMaintenanceWindowTarget' smart constructor.
 data UpdateMaintenanceWindowTarget = UpdateMaintenanceWindowTarget'
-  { _uReplace          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uOwnerInformation :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _uName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uTargets          :: {-# NOUNPACK #-}!(Maybe [Target])
-  , _uDescription      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _uWindowId         :: {-# NOUNPACK #-}!Text
-  , _uWindowTargetId   :: {-# NOUNPACK #-}!Text
+  { _uReplace          :: !(Maybe Bool)
+  , _uOwnerInformation :: !(Maybe (Sensitive Text))
+  , _uName             :: !(Maybe Text)
+  , _uTargets          :: !(Maybe [Target])
+  , _uDescription      :: !(Maybe (Sensitive Text))
+  , _uWindowId         :: !Text
+  , _uWindowTargetId   :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -193,13 +193,13 @@ instance ToQuery UpdateMaintenanceWindowTarget where
 
 -- | /See:/ 'updateMaintenanceWindowTargetResponse' smart constructor.
 data UpdateMaintenanceWindowTargetResponse = UpdateMaintenanceWindowTargetResponse'
-  { _ursOwnerInformation :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _ursWindowTargetId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ursName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ursTargets          :: {-# NOUNPACK #-}!(Maybe [Target])
-  , _ursDescription      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _ursWindowId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ursResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ursOwnerInformation :: !(Maybe (Sensitive Text))
+  , _ursWindowTargetId   :: !(Maybe Text)
+  , _ursName             :: !(Maybe Text)
+  , _ursTargets          :: !(Maybe [Target])
+  , _ursDescription      :: !(Maybe (Sensitive Text))
+  , _ursWindowId         :: !(Maybe Text)
+  , _ursResponseStatus   :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

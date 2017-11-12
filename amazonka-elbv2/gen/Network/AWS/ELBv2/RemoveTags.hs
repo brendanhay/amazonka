@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'removeTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { _rtResourceARNs :: {-# NOUNPACK #-}![Text]
-  , _rtTagKeys      :: {-# NOUNPACK #-}![Text]
+  { _rtResourceARNs :: ![Text]
+  , _rtTagKeys      :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

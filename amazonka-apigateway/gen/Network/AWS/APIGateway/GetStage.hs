@@ -61,8 +61,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getStage' smart constructor.
 data GetStage = GetStage'
-  { _gssRestAPIId :: {-# NOUNPACK #-}!Text
-  , _gssStageName :: {-# NOUNPACK #-}!Text
+  { _gssRestAPIId :: !Text
+  , _gssStageName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

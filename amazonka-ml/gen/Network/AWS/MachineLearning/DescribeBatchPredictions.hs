@@ -60,17 +60,17 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeBatchPredictions' smart constructor.
 data DescribeBatchPredictions = DescribeBatchPredictions'
-  { _dbpEQ             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbpGE             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbpPrefix         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbpGT             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbpNE             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbpNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbpSortOrder      :: {-# NOUNPACK #-}!(Maybe SortOrder)
-  , _dbpLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dbpLT             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbpFilterVariable :: {-# NOUNPACK #-}!(Maybe BatchPredictionFilterVariable)
-  , _dbpLE             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dbpEQ             :: !(Maybe Text)
+  , _dbpGE             :: !(Maybe Text)
+  , _dbpPrefix         :: !(Maybe Text)
+  , _dbpGT             :: !(Maybe Text)
+  , _dbpNE             :: !(Maybe Text)
+  , _dbpNextToken      :: !(Maybe Text)
+  , _dbpSortOrder      :: !(Maybe SortOrder)
+  , _dbpLimit          :: !(Maybe Nat)
+  , _dbpLT             :: !(Maybe Text)
+  , _dbpFilterVariable :: !(Maybe BatchPredictionFilterVariable)
+  , _dbpLE             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -218,9 +218,9 @@ instance ToQuery DescribeBatchPredictions where
 --
 -- /See:/ 'describeBatchPredictionsResponse' smart constructor.
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
-  { _dbpsrsResults        :: {-# NOUNPACK #-}!(Maybe [BatchPrediction])
-  , _dbpsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbpsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dbpsrsResults        :: !(Maybe [BatchPrediction])
+  , _dbpsrsNextToken      :: !(Maybe Text)
+  , _dbpsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

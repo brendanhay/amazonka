@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'rejectAssignment' smart constructor.
 data RejectAssignment = RejectAssignment'
-  { _raAssignmentId      :: {-# NOUNPACK #-}!Text
-  , _raRequesterFeedback :: {-# NOUNPACK #-}!Text
+  { _raAssignmentId      :: !Text
+  , _raRequesterFeedback :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

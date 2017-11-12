@@ -64,8 +64,8 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-  { _csVolumeARN           :: {-# NOUNPACK #-}!Text
-  , _csSnapshotDescription :: {-# NOUNPACK #-}!Text
+  { _csVolumeARN           :: !Text
+  , _csSnapshotDescription :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery CreateSnapshot where
 --
 -- /See:/ 'createSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
-  { _csrsVolumeARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csrsSnapshotId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csrsVolumeARN      :: !(Maybe Text)
+  , _csrsSnapshotId     :: !(Maybe Text)
+  , _csrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

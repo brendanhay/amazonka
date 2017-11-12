@@ -51,10 +51,10 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createNotificationSubscription' smart constructor.
 data CreateNotificationSubscription = CreateNotificationSubscription'
-  { _cnsOrganizationId   :: {-# NOUNPACK #-}!Text
-  , _cnsEndpoint         :: {-# NOUNPACK #-}!Text
-  , _cnsProtocol         :: {-# NOUNPACK #-}!SubscriptionProtocolType
-  , _cnsSubscriptionType :: {-# NOUNPACK #-}!SubscriptionType
+  { _cnsOrganizationId   :: !Text
+  , _cnsEndpoint         :: !Text
+  , _cnsProtocol         :: !SubscriptionProtocolType
+  , _cnsSubscriptionType :: !SubscriptionType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -143,8 +143,8 @@ instance ToQuery CreateNotificationSubscription where
 
 -- | /See:/ 'createNotificationSubscriptionResponse' smart constructor.
 data CreateNotificationSubscriptionResponse = CreateNotificationSubscriptionResponse'
-  { _cnsrsSubscription   :: {-# NOUNPACK #-}!(Maybe Subscription)
-  , _cnsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cnsrsSubscription   :: !(Maybe Subscription)
+  , _cnsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

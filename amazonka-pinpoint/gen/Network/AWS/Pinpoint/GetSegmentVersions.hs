@@ -47,10 +47,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'getSegmentVersions' smart constructor.
 data GetSegmentVersions = GetSegmentVersions'
-  { _gsvToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsvPageSize      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsvSegmentId     :: {-# NOUNPACK #-}!Text
-  , _gsvApplicationId :: {-# NOUNPACK #-}!Text
+  { _gsvToken         :: !(Maybe Text)
+  , _gsvPageSize      :: !(Maybe Text)
+  , _gsvSegmentId     :: !Text
+  , _gsvApplicationId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery GetSegmentVersions where
 
 -- | /See:/ 'getSegmentVersionsResponse' smart constructor.
 data GetSegmentVersionsResponse = GetSegmentVersionsResponse'
-  { _grsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _grsSegmentsResponse :: {-# NOUNPACK #-}!SegmentsResponse
+  { _grsResponseStatus   :: !Int
+  , _grsSegmentsResponse :: !SegmentsResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

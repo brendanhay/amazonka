@@ -88,8 +88,8 @@ instance ToQuery GetBucketLocation where
 
 -- | /See:/ 'getBucketLocationResponse' smart constructor.
 data GetBucketLocationResponse = GetBucketLocationResponse'
-  { _gblbrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _gblbrsLocationConstraint :: {-# NOUNPACK #-}!LocationConstraint
+  { _gblbrsResponseStatus     :: !Int
+  , _gblbrsLocationConstraint :: !LocationConstraint
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

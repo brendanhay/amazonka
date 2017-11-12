@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteIntentVersion' smart constructor.
 data DeleteIntentVersion = DeleteIntentVersion'
-  { _divName    :: {-# NOUNPACK #-}!Text
-  , _divVersion :: {-# NOUNPACK #-}!Text
+  { _divName    :: !Text
+  , _divVersion :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

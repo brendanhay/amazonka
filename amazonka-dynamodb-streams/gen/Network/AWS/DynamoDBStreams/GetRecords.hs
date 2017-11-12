@@ -54,8 +54,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getRecords' smart constructor.
 data GetRecords = GetRecords'
-  { _grLimit         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _grShardIterator :: {-# NOUNPACK #-}!Text
+  { _grLimit         :: !(Maybe Nat)
+  , _grShardIterator :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery GetRecords where
 --
 -- /See:/ 'getRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
-  { _grrsRecords           :: {-# NOUNPACK #-}!(Maybe [Record])
-  , _grrsNextShardIterator :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _grrsRecords           :: !(Maybe [Record])
+  , _grrsNextShardIterator :: !(Maybe Text)
+  , _grrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

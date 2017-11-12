@@ -48,8 +48,8 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'listRegexPatternSets' smart constructor.
 data ListRegexPatternSets = ListRegexPatternSets'
-  { _lrpsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrpsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lrpsNextMarker :: !(Maybe Text)
+  , _lrpsLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,9 +115,9 @@ instance ToQuery ListRegexPatternSets where
 
 -- | /See:/ 'listRegexPatternSetsResponse' smart constructor.
 data ListRegexPatternSetsResponse = ListRegexPatternSetsResponse'
-  { _lrpsrsRegexPatternSets :: {-# NOUNPACK #-}!(Maybe [RegexPatternSetSummary])
-  , _lrpsrsNextMarker       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrpsrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _lrpsrsRegexPatternSets :: !(Maybe [RegexPatternSetSummary])
+  , _lrpsrsNextMarker       :: !(Maybe Text)
+  , _lrpsrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

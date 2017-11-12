@@ -111,9 +111,9 @@ instance ToQuery GetHostnameSuggestion where
 --
 -- /See:/ 'getHostnameSuggestionResponse' smart constructor.
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
-  { _ghsrsHostname       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ghsrsLayerId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ghsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ghsrsHostname       :: !(Maybe Text)
+  , _ghsrsLayerId        :: !(Maybe Text)
+  , _ghsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

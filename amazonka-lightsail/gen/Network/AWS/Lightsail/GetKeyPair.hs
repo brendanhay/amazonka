@@ -100,8 +100,8 @@ instance ToQuery GetKeyPair where
 
 -- | /See:/ 'getKeyPairResponse' smart constructor.
 data GetKeyPairResponse = GetKeyPairResponse'
-  { _gkprsKeyPair        :: {-# NOUNPACK #-}!(Maybe KeyPair)
-  , _gkprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gkprsKeyPair        :: !(Maybe KeyPair)
+  , _gkprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

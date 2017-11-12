@@ -114,9 +114,9 @@ instance ToQuery GetOperations where
 
 -- | /See:/ 'getOperationsResponse' smart constructor.
 data GetOperationsResponse = GetOperationsResponse'
-  { _gosrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gosrsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _gosrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gosrsNextPageToken  :: !(Maybe Text)
+  , _gosrsOperations     :: !(Maybe [Operation])
+  , _gosrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

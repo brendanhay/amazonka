@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'getResources' smart constructor.
 data GetResources = GetResources'
-  { _grsEmbed     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _grsLimit     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _grsPosition  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grsRestAPIId :: {-# NOUNPACK #-}!Text
+  { _grsEmbed     :: !(Maybe [Text])
+  , _grsLimit     :: !(Maybe Int)
+  , _grsPosition  :: !(Maybe Text)
+  , _grsRestAPIId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery GetResources where
 --
 -- /See:/ 'getResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
-  { _grrsItems          :: {-# NOUNPACK #-}!(Maybe [Resource])
-  , _grrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grrsItems          :: !(Maybe [Resource])
+  , _grrsPosition       :: !(Maybe Text)
+  , _grrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -59,18 +59,18 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createProduct' smart constructor.
 data CreateProduct = CreateProduct'
-  { _cpSupportURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpDistributor :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpSupportEmail :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cpSupportDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpName :: {-# NOUNPACK #-}!Text
-  , _cpOwner :: {-# NOUNPACK #-}!Text
-  , _cpProductType :: {-# NOUNPACK #-}!ProductType
-  , _cpProvisioningArtifactParameters :: {-# NOUNPACK #-}!ProvisioningArtifactProperties
-  , _cpIdempotencyToken :: {-# NOUNPACK #-}!Text
+  { _cpSupportURL                     :: !(Maybe Text)
+  , _cpDistributor                    :: !(Maybe Text)
+  , _cpAcceptLanguage                 :: !(Maybe Text)
+  , _cpSupportEmail                   :: !(Maybe Text)
+  , _cpDescription                    :: !(Maybe Text)
+  , _cpTags                           :: !(Maybe [Tag])
+  , _cpSupportDescription             :: !(Maybe Text)
+  , _cpName                           :: !Text
+  , _cpOwner                          :: !Text
+  , _cpProductType                    :: !ProductType
+  , _cpProvisioningArtifactParameters :: !ProvisioningArtifactProperties
+  , _cpIdempotencyToken               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -225,10 +225,10 @@ instance ToQuery CreateProduct where
 
 -- | /See:/ 'createProductResponse' smart constructor.
 data CreateProductResponse = CreateProductResponse'
-  { _cprsProductViewDetail :: {-# NOUNPACK #-}!(Maybe ProductViewDetail)
-  , _cprsProvisioningArtifactDetail :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactDetail)
-  , _cprsTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cprsProductViewDetail          :: !(Maybe ProductViewDetail)
+  , _cprsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
+  , _cprsTags                       :: !(Maybe [Tag])
+  , _cprsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

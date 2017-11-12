@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'importKeyPair' smart constructor.
 data ImportKeyPair = ImportKeyPair'
-  { _ikpKeyPairName     :: {-# NOUNPACK #-}!Text
-  , _ikpPublicKeyBase64 :: {-# NOUNPACK #-}!Text
+  { _ikpKeyPairName     :: !Text
+  , _ikpPublicKeyBase64 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery ImportKeyPair where
 
 -- | /See:/ 'importKeyPairResponse' smart constructor.
 data ImportKeyPairResponse = ImportKeyPairResponse'
-  { _ikprsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _ikprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ikprsOperation      :: !(Maybe Operation)
+  , _ikprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -62,9 +62,9 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'updateBandwidthRateLimit' smart constructor.
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
-  { _ubrlAverageUploadRateLimitInBitsPerSec   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ubrlAverageDownloadRateLimitInBitsPerSec :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ubrlGatewayARN                           :: {-# NOUNPACK #-}!Text
+  { _ubrlAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
+  , _ubrlAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
+  , _ubrlGatewayARN                           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,8 +146,8 @@ instance ToQuery UpdateBandwidthRateLimit where
 --
 -- /See:/ 'updateBandwidthRateLimitResponse' smart constructor.
 data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
-  { _ubrlrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ubrlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ubrlrsGatewayARN     :: !(Maybe Text)
+  , _ubrlrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -64,17 +64,17 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'createNFSFileShare' smart constructor.
 data CreateNFSFileShare = CreateNFSFileShare'
-  { _cnfsfsKMSKey               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnfsfsKMSEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cnfsfsDefaultStorageClass  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnfsfsSquash               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnfsfsNFSFileShareDefaults :: {-# NOUNPACK #-}!(Maybe NFSFileShareDefaults)
-  , _cnfsfsClientList           :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _cnfsfsReadOnly             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cnfsfsClientToken          :: {-# NOUNPACK #-}!Text
-  , _cnfsfsGatewayARN           :: {-# NOUNPACK #-}!Text
-  , _cnfsfsRole                 :: {-# NOUNPACK #-}!Text
-  , _cnfsfsLocationARN          :: {-# NOUNPACK #-}!Text
+  { _cnfsfsKMSKey               :: !(Maybe Text)
+  , _cnfsfsKMSEncrypted         :: !(Maybe Bool)
+  , _cnfsfsDefaultStorageClass  :: !(Maybe Text)
+  , _cnfsfsSquash               :: !(Maybe Text)
+  , _cnfsfsNFSFileShareDefaults :: !(Maybe NFSFileShareDefaults)
+  , _cnfsfsClientList           :: !(Maybe (List1 Text))
+  , _cnfsfsReadOnly             :: !(Maybe Bool)
+  , _cnfsfsClientToken          :: !Text
+  , _cnfsfsGatewayARN           :: !Text
+  , _cnfsfsRole                 :: !Text
+  , _cnfsfsLocationARN          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -223,8 +223,8 @@ instance ToQuery CreateNFSFileShare where
 --
 -- /See:/ 'createNFSFileShareResponse' smart constructor.
 data CreateNFSFileShareResponse = CreateNFSFileShareResponse'
-  { _cnfsfsrsFileShareARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnfsfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cnfsfsrsFileShareARN   :: !(Maybe Text)
+  , _cnfsfsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

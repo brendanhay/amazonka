@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getCrawlers' smart constructor.
 data GetCrawlers = GetCrawlers'
-  { _gNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gNextToken  :: !(Maybe Text)
+  , _gMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -111,9 +111,9 @@ instance ToQuery GetCrawlers where
 
 -- | /See:/ 'getCrawlersResponse' smart constructor.
 data GetCrawlersResponse = GetCrawlersResponse'
-  { _grsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grsCrawlers       :: {-# NOUNPACK #-}!(Maybe [Crawler])
-  , _grsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grsNextToken      :: !(Maybe Text)
+  , _grsCrawlers       :: !(Maybe [Crawler])
+  , _grsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

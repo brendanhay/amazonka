@@ -70,9 +70,9 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'updateGeoMatchSet' smart constructor.
 data UpdateGeoMatchSet = UpdateGeoMatchSet'
-  { _ugmsGeoMatchSetId :: {-# NOUNPACK #-}!Text
-  , _ugmsChangeToken   :: {-# NOUNPACK #-}!Text
-  , _ugmsUpdates       :: {-# NOUNPACK #-}!(List1 GeoMatchSetUpdate)
+  { _ugmsGeoMatchSetId :: !Text
+  , _ugmsChangeToken   :: !Text
+  , _ugmsUpdates       :: !(List1 GeoMatchSetUpdate)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,8 +148,8 @@ instance ToQuery UpdateGeoMatchSet where
 
 -- | /See:/ 'updateGeoMatchSetResponse' smart constructor.
 data UpdateGeoMatchSetResponse = UpdateGeoMatchSetResponse'
-  { _ugmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ugmsrsChangeToken    :: !(Maybe Text)
+  , _ugmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

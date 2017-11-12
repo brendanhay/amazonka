@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deleteAssociation' smart constructor.
 data DeleteAssociation = DeleteAssociation'
-  { _daaAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daaInstanceId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daaName          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _daaAssociationId :: !(Maybe Text)
+  , _daaInstanceId    :: !(Maybe Text)
+  , _daaName          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

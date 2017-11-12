@@ -60,17 +60,17 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeMLModels' smart constructor.
 data DescribeMLModels = DescribeMLModels'
-  { _dmlmEQ             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmlmGE             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmlmPrefix         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmlmGT             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmlmNE             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmlmNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmlmSortOrder      :: {-# NOUNPACK #-}!(Maybe SortOrder)
-  , _dmlmLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dmlmLT             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmlmFilterVariable :: {-# NOUNPACK #-}!(Maybe MLModelFilterVariable)
-  , _dmlmLE             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dmlmEQ             :: !(Maybe Text)
+  , _dmlmGE             :: !(Maybe Text)
+  , _dmlmPrefix         :: !(Maybe Text)
+  , _dmlmGT             :: !(Maybe Text)
+  , _dmlmNE             :: !(Maybe Text)
+  , _dmlmNextToken      :: !(Maybe Text)
+  , _dmlmSortOrder      :: !(Maybe SortOrder)
+  , _dmlmLimit          :: !(Maybe Nat)
+  , _dmlmLT             :: !(Maybe Text)
+  , _dmlmFilterVariable :: !(Maybe MLModelFilterVariable)
+  , _dmlmLE             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -216,9 +216,9 @@ instance ToQuery DescribeMLModels where
 --
 -- /See:/ 'describeMLModelsResponse' smart constructor.
 data DescribeMLModelsResponse = DescribeMLModelsResponse'
-  { _dmlmsrsResults        :: {-# NOUNPACK #-}!(Maybe [MLModel])
-  , _dmlmsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmlmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmlmsrsResults        :: !(Maybe [MLModel])
+  , _dmlmsrsNextToken      :: !(Maybe Text)
+  , _dmlmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

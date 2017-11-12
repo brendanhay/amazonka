@@ -64,16 +64,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'authorizeSecurityGroupIngress' smart constructor.
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
-  { _asgiFromPort                   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _asgiIPPermissions              :: {-# NOUNPACK #-}!(Maybe [IPPermission])
-  , _asgiIPProtocol                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgiGroupId                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgiToPort                     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _asgiCidrIP                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgiSourceSecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgiGroupName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgiSourceSecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgiDryRun                     :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _asgiFromPort                   :: !(Maybe Int)
+  , _asgiIPPermissions              :: !(Maybe [IPPermission])
+  , _asgiIPProtocol                 :: !(Maybe Text)
+  , _asgiGroupId                    :: !(Maybe Text)
+  , _asgiToPort                     :: !(Maybe Int)
+  , _asgiCidrIP                     :: !(Maybe Text)
+  , _asgiSourceSecurityGroupOwnerId :: !(Maybe Text)
+  , _asgiGroupName                  :: !(Maybe Text)
+  , _asgiSourceSecurityGroupName    :: !(Maybe Text)
+  , _asgiDryRun                     :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,8 +52,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getContextKeysForPrincipalPolicy' smart constructor.
 data GetContextKeysForPrincipalPolicy = GetContextKeysForPrincipalPolicy'
-  { _gckfppPolicyInputList :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gckfppPolicySourceARN :: {-# NOUNPACK #-}!Text
+  { _gckfppPolicyInputList :: !(Maybe [Text])
+  , _gckfppPolicySourceARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

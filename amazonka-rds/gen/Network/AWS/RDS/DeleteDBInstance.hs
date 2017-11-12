@@ -66,9 +66,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteDBInstance' smart constructor.
 data DeleteDBInstance = DeleteDBInstance'
-  { _ddiFinalDBSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddiSkipFinalSnapshot         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ddiDBInstanceIdentifier      :: {-# NOUNPACK #-}!Text
+  { _ddiFinalDBSnapshotIdentifier :: !(Maybe Text)
+  , _ddiSkipFinalSnapshot         :: !(Maybe Bool)
+  , _ddiDBInstanceIdentifier      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,8 +135,8 @@ instance ToQuery DeleteDBInstance where
 
 -- | /See:/ 'deleteDBInstanceResponse' smart constructor.
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
-  { _ddirsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
-  , _ddirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddirsDBInstance     :: !(Maybe DBInstance)
+  , _ddirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

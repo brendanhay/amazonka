@@ -62,13 +62,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'createTable' smart constructor.
 data CreateTable = CreateTable'
-  { _ctGlobalSecondaryIndexes :: {-# NOUNPACK #-}!(Maybe [GlobalSecondaryIndex])
-  , _ctLocalSecondaryIndexes  :: {-# NOUNPACK #-}!(Maybe [LocalSecondaryIndex])
-  , _ctStreamSpecification    :: {-# NOUNPACK #-}!(Maybe StreamSpecification)
-  , _ctAttributeDefinitions   :: {-# NOUNPACK #-}![AttributeDefinition]
-  , _ctTableName              :: {-# NOUNPACK #-}!Text
-  , _ctKeySchema              :: {-# NOUNPACK #-}!(List1 KeySchemaElement)
-  , _ctProvisionedThroughput  :: {-# NOUNPACK #-}!ProvisionedThroughput
+  { _ctGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndex])
+  , _ctLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndex])
+  , _ctStreamSpecification    :: !(Maybe StreamSpecification)
+  , _ctAttributeDefinitions   :: ![AttributeDefinition]
+  , _ctTableName              :: !Text
+  , _ctKeySchema              :: !(List1 KeySchemaElement)
+  , _ctProvisionedThroughput  :: !ProvisionedThroughput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -186,8 +186,8 @@ instance ToQuery CreateTable where
 --
 -- /See:/ 'createTableResponse' smart constructor.
 data CreateTableResponse = CreateTableResponse'
-  { _ctrsTableDescription :: {-# NOUNPACK #-}!(Maybe TableDescription)
-  , _ctrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ctrsTableDescription :: !(Maybe TableDescription)
+  , _ctrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

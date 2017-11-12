@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'action' smart constructor.
 data Action = Action'
-  { _aType           :: {-# NOUNPACK #-}!ActionTypeEnum
-  , _aTargetGroupARN :: {-# NOUNPACK #-}!Text
+  { _aType           :: !ActionTypeEnum
+  , _aTargetGroupARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -76,9 +76,9 @@ instance ToQuery Action where
 --
 -- /See:/ 'availabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { _azSubnetId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _azZoneName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _azLoadBalancerAddresses :: {-# NOUNPACK #-}!(Maybe [LoadBalancerAddress])
+  { _azSubnetId              :: !(Maybe Text)
+  , _azZoneName              :: !(Maybe Text)
+  , _azLoadBalancerAddresses :: !(Maybe [LoadBalancerAddress])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,8 +130,8 @@ instance NFData AvailabilityZone where
 --
 -- /See:/ 'certificate' smart constructor.
 data Certificate = Certificate'
-  { _cCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cIsDefault      :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _cCertificateARN :: !(Maybe Text)
+  , _cIsDefault      :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -176,8 +176,8 @@ instance ToQuery Certificate where
 --
 -- /See:/ 'cipher' smart constructor.
 data Cipher = Cipher'
-  { _cPriority :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cName     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cPriority :: !(Maybe Int)
+  , _cName     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -215,8 +215,8 @@ instance NFData Cipher where
 --
 -- /See:/ 'limit' smart constructor.
 data Limit = Limit'
-  { _lMax  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lMax  :: !(Maybe Text)
+  , _lName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -254,13 +254,13 @@ instance NFData Limit where
 --
 -- /See:/ 'listener' smart constructor.
 data Listener = Listener'
-  { _lSSLPolicy       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lListenerARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lProtocol        :: {-# NOUNPACK #-}!(Maybe ProtocolEnum)
-  , _lDefaultActions  :: {-# NOUNPACK #-}!(Maybe [Action])
-  , _lCertificates    :: {-# NOUNPACK #-}!(Maybe [Certificate])
-  , _lLoadBalancerARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lPort            :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lSSLPolicy       :: !(Maybe Text)
+  , _lListenerARN     :: !(Maybe Text)
+  , _lProtocol        :: !(Maybe ProtocolEnum)
+  , _lDefaultActions  :: !(Maybe [Action])
+  , _lCertificates    :: !(Maybe [Certificate])
+  , _lLoadBalancerARN :: !(Maybe Text)
+  , _lPort            :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -347,18 +347,18 @@ instance NFData Listener where
 --
 -- /See:/ 'loadBalancer' smart constructor.
 data LoadBalancer = LoadBalancer'
-  { _lbState                 :: {-# NOUNPACK #-}!(Maybe LoadBalancerState)
-  , _lbSecurityGroups        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lbLoadBalancerName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbCreatedTime           :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _lbVPCId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbCanonicalHostedZoneId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbAvailabilityZones     :: {-# NOUNPACK #-}!(Maybe [AvailabilityZone])
-  , _lbLoadBalancerARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbIPAddressType         :: {-# NOUNPACK #-}!(Maybe IPAddressType)
-  , _lbScheme                :: {-# NOUNPACK #-}!(Maybe LoadBalancerSchemeEnum)
-  , _lbType                  :: {-# NOUNPACK #-}!(Maybe LoadBalancerTypeEnum)
-  , _lbDNSName               :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lbState                 :: !(Maybe LoadBalancerState)
+  , _lbSecurityGroups        :: !(Maybe [Text])
+  , _lbLoadBalancerName      :: !(Maybe Text)
+  , _lbCreatedTime           :: !(Maybe ISO8601)
+  , _lbVPCId                 :: !(Maybe Text)
+  , _lbCanonicalHostedZoneId :: !(Maybe Text)
+  , _lbAvailabilityZones     :: !(Maybe [AvailabilityZone])
+  , _lbLoadBalancerARN       :: !(Maybe Text)
+  , _lbIPAddressType         :: !(Maybe IPAddressType)
+  , _lbScheme                :: !(Maybe LoadBalancerSchemeEnum)
+  , _lbType                  :: !(Maybe LoadBalancerTypeEnum)
+  , _lbDNSName               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -485,8 +485,8 @@ instance NFData LoadBalancer where
 --
 -- /See:/ 'loadBalancerAddress' smart constructor.
 data LoadBalancerAddress = LoadBalancerAddress'
-  { _lbaIPAddress    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbaAllocationId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lbaIPAddress    :: !(Maybe Text)
+  , _lbaAllocationId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -526,8 +526,8 @@ instance NFData LoadBalancerAddress where
 --
 -- /See:/ 'loadBalancerAttribute' smart constructor.
 data LoadBalancerAttribute = LoadBalancerAttribute'
-  { _lbaValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbaKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lbaValue :: !(Maybe Text)
+  , _lbaKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -571,8 +571,8 @@ instance ToQuery LoadBalancerAttribute where
 --
 -- /See:/ 'loadBalancerState' smart constructor.
 data LoadBalancerState = LoadBalancerState'
-  { _lbsReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbsCode   :: {-# NOUNPACK #-}!(Maybe LoadBalancerStateEnum)
+  { _lbsReason :: !(Maybe Text)
+  , _lbsCode   :: !(Maybe LoadBalancerStateEnum)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -648,11 +648,11 @@ instance ToQuery Matcher where
 --
 -- /See:/ 'rule' smart constructor.
 data Rule = Rule'
-  { _rPriority   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rActions    :: {-# NOUNPACK #-}!(Maybe [Action])
-  , _rConditions :: {-# NOUNPACK #-}!(Maybe [RuleCondition])
-  , _rRuleARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rIsDefault  :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _rPriority   :: !(Maybe Text)
+  , _rActions    :: !(Maybe [Action])
+  , _rConditions :: !(Maybe [RuleCondition])
+  , _rRuleARN    :: !(Maybe Text)
+  , _rIsDefault  :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -723,8 +723,8 @@ instance NFData Rule where
 --
 -- /See:/ 'ruleCondition' smart constructor.
 data RuleCondition = RuleCondition'
-  { _rcField  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _rcField  :: !(Maybe Text)
+  , _rcValues :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -772,8 +772,8 @@ instance ToQuery RuleCondition where
 --
 -- /See:/ 'rulePriorityPair' smart constructor.
 data RulePriorityPair = RulePriorityPair'
-  { _rppPriority :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _rppRuleARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rppPriority :: !(Maybe Nat)
+  , _rppRuleARN  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -814,9 +814,9 @@ instance ToQuery RulePriorityPair where
 --
 -- /See:/ 'sslPolicy' smart constructor.
 data SSLPolicy = SSLPolicy'
-  { _spCiphers      :: {-# NOUNPACK #-}!(Maybe [Cipher])
-  , _spName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _spSSLProtocols :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _spCiphers      :: !(Maybe [Cipher])
+  , _spName         :: !(Maybe Text)
+  , _spSSLProtocols :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -868,8 +868,8 @@ instance NFData SSLPolicy where
 --
 -- /See:/ 'subnetMapping' smart constructor.
 data SubnetMapping = SubnetMapping'
-  { _smAllocationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smSubnetId     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _smAllocationId :: !(Maybe Text)
+  , _smSubnetId     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -910,8 +910,8 @@ instance ToQuery SubnetMapping where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!Text
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -954,8 +954,8 @@ instance ToQuery Tag where
 --
 -- /See:/ 'tagDescription' smart constructor.
 data TagDescription = TagDescription'
-  { _tdResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdTags        :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
+  { _tdResourceARN :: !(Maybe Text)
+  , _tdTags        :: !(Maybe (List1 Tag))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -996,9 +996,9 @@ instance NFData TagDescription where
 --
 -- /See:/ 'targetDescription' smart constructor.
 data TargetDescription = TargetDescription'
-  { _tdAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdPort             :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _tdId               :: {-# NOUNPACK #-}!Text
+  { _tdAvailabilityZone :: !(Maybe Text)
+  , _tdPort             :: !(Maybe Nat)
+  , _tdId               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1053,21 +1053,21 @@ instance ToQuery TargetDescription where
 --
 -- /See:/ 'targetGroup' smart constructor.
 data TargetGroup = TargetGroup'
-  { _tgMatcher                    :: {-# NOUNPACK #-}!(Maybe Matcher)
-  , _tgHealthCheckPath            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tgUnhealthyThresholdCount    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _tgVPCId                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tgTargetGroupARN             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tgProtocol                   :: {-# NOUNPACK #-}!(Maybe ProtocolEnum)
-  , _tgHealthCheckIntervalSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _tgTargetType                 :: {-# NOUNPACK #-}!(Maybe TargetTypeEnum)
-  , _tgHealthyThresholdCount      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _tgHealthCheckProtocol        :: {-# NOUNPACK #-}!(Maybe ProtocolEnum)
-  , _tgLoadBalancerARNs           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _tgHealthCheckTimeoutSeconds  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _tgHealthCheckPort            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tgTargetGroupName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tgPort                       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _tgMatcher                    :: !(Maybe Matcher)
+  , _tgHealthCheckPath            :: !(Maybe Text)
+  , _tgUnhealthyThresholdCount    :: !(Maybe Nat)
+  , _tgVPCId                      :: !(Maybe Text)
+  , _tgTargetGroupARN             :: !(Maybe Text)
+  , _tgProtocol                   :: !(Maybe ProtocolEnum)
+  , _tgHealthCheckIntervalSeconds :: !(Maybe Nat)
+  , _tgTargetType                 :: !(Maybe TargetTypeEnum)
+  , _tgHealthyThresholdCount      :: !(Maybe Nat)
+  , _tgHealthCheckProtocol        :: !(Maybe ProtocolEnum)
+  , _tgLoadBalancerARNs           :: !(Maybe [Text])
+  , _tgHealthCheckTimeoutSeconds  :: !(Maybe Nat)
+  , _tgHealthCheckPort            :: !(Maybe Text)
+  , _tgTargetGroupName            :: !(Maybe Text)
+  , _tgPort                       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1216,8 +1216,8 @@ instance NFData TargetGroup where
 --
 -- /See:/ 'targetGroupAttribute' smart constructor.
 data TargetGroupAttribute = TargetGroupAttribute'
-  { _tgaValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tgaKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tgaValue :: !(Maybe Text)
+  , _tgaKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1261,9 +1261,9 @@ instance ToQuery TargetGroupAttribute where
 --
 -- /See:/ 'targetHealth' smart constructor.
 data TargetHealth = TargetHealth'
-  { _thState       :: {-# NOUNPACK #-}!(Maybe TargetHealthStateEnum)
-  , _thReason      :: {-# NOUNPACK #-}!(Maybe TargetHealthReasonEnum)
-  , _thDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _thState       :: !(Maybe TargetHealthStateEnum)
+  , _thReason      :: !(Maybe TargetHealthReasonEnum)
+  , _thDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1311,9 +1311,9 @@ instance NFData TargetHealth where
 --
 -- /See:/ 'targetHealthDescription' smart constructor.
 data TargetHealthDescription = TargetHealthDescription'
-  { _thdTargetHealth    :: {-# NOUNPACK #-}!(Maybe TargetHealth)
-  , _thdHealthCheckPort :: {-# NOUNPACK #-}!(Maybe Text)
-  , _thdTarget          :: {-# NOUNPACK #-}!(Maybe TargetDescription)
+  { _thdTargetHealth    :: !(Maybe TargetHealth)
+  , _thdHealthCheckPort :: !(Maybe Text)
+  , _thdTarget          :: !(Maybe TargetDescription)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

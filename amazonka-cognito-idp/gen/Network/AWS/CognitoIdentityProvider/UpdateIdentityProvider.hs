@@ -50,11 +50,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateIdentityProvider' smart constructor.
 data UpdateIdentityProvider = UpdateIdentityProvider'
-  { _uipIdpIdentifiers   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uipAttributeMapping :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _uipProviderDetails  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _uipUserPoolId       :: {-# NOUNPACK #-}!Text
-  , _uipProviderName     :: {-# NOUNPACK #-}!Text
+  { _uipIdpIdentifiers   :: !(Maybe [Text])
+  , _uipAttributeMapping :: !(Maybe (Map Text Text))
+  , _uipProviderDetails  :: !(Maybe (Map Text Text))
+  , _uipUserPoolId       :: !Text
+  , _uipProviderName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,8 +147,8 @@ instance ToQuery UpdateIdentityProvider where
 
 -- | /See:/ 'updateIdentityProviderResponse' smart constructor.
 data UpdateIdentityProviderResponse = UpdateIdentityProviderResponse'
-  { _uiprsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _uiprsIdentityProvider :: {-# NOUNPACK #-}!IdentityProviderType
+  { _uiprsResponseStatus   :: !Int
+  , _uiprsIdentityProvider :: !IdentityProviderType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

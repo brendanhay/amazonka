@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'untagResource' smart constructor.
 data UntagResource = UntagResource'
-  { _urResource :: {-# NOUNPACK #-}!Text
-  , _urTagKeys  :: {-# NOUNPACK #-}!TagKeys
+  { _urResource :: !Text
+  , _urTagKeys  :: !TagKeys
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

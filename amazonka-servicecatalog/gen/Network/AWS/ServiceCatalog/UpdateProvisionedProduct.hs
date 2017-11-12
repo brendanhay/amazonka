@@ -55,14 +55,14 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updateProvisionedProduct' smart constructor.
 data UpdateProvisionedProduct = UpdateProvisionedProduct'
-  { _uppProvisionedProductName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uppProvisioningArtifactId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uppAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uppPathId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uppProvisioningParameters :: {-# NOUNPACK #-}!(Maybe [UpdateProvisioningParameter])
-  , _uppProvisionedProductId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uppProductId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uppUpdateToken :: {-# NOUNPACK #-}!Text
+  { _uppProvisionedProductName :: !(Maybe Text)
+  , _uppProvisioningArtifactId :: !(Maybe Text)
+  , _uppAcceptLanguage         :: !(Maybe Text)
+  , _uppPathId                 :: !(Maybe Text)
+  , _uppProvisioningParameters :: !(Maybe [UpdateProvisioningParameter])
+  , _uppProvisionedProductId   :: !(Maybe Text)
+  , _uppProductId              :: !(Maybe Text)
+  , _uppUpdateToken            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -182,8 +182,8 @@ instance ToQuery UpdateProvisionedProduct where
 
 -- | /See:/ 'updateProvisionedProductResponse' smart constructor.
 data UpdateProvisionedProductResponse = UpdateProvisionedProductResponse'
-  { _upprsRecordDetail   :: {-# NOUNPACK #-}!(Maybe RecordDetail)
-  , _upprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _upprsRecordDetail   :: !(Maybe RecordDetail)
+  , _upprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

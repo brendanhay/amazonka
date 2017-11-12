@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'putEvaluations' smart constructor.
 data PutEvaluations = PutEvaluations'
-  { _peEvaluations :: {-# NOUNPACK #-}!(Maybe [Evaluation])
-  , _peTestMode    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _peResultToken :: {-# NOUNPACK #-}!Text
+  { _peEvaluations :: !(Maybe [Evaluation])
+  , _peTestMode    :: !(Maybe Bool)
+  , _peResultToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,8 +133,8 @@ instance ToQuery PutEvaluations where
 --
 -- /See:/ 'putEvaluationsResponse' smart constructor.
 data PutEvaluationsResponse = PutEvaluationsResponse'
-  { _persFailedEvaluations :: {-# NOUNPACK #-}!(Maybe [Evaluation])
-  , _persResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _persFailedEvaluations :: !(Maybe [Evaluation])
+  , _persResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

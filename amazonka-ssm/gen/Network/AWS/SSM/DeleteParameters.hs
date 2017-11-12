@@ -102,9 +102,9 @@ instance ToQuery DeleteParameters where
 
 -- | /See:/ 'deleteParametersResponse' smart constructor.
 data DeleteParametersResponse = DeleteParametersResponse'
-  { _drsDeletedParameters :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _drsInvalidParameters :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _drsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _drsDeletedParameters :: !(Maybe (List1 Text))
+  , _drsInvalidParameters :: !(Maybe (List1 Text))
+  , _drsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

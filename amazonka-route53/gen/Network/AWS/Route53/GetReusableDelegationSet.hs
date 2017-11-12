@@ -100,8 +100,8 @@ instance ToQuery GetReusableDelegationSet where
 --
 -- /See:/ 'getReusableDelegationSetResponse' smart constructor.
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
-  { _grdsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _grdsrsDelegationSet  :: {-# NOUNPACK #-}!DelegationSet
+  { _grdsrsResponseStatus :: !Int
+  , _grdsrsDelegationSet  :: !DelegationSet
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

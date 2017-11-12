@@ -106,8 +106,8 @@ instance ToQuery StartWorkspaces where
 
 -- | /See:/ 'startWorkspacesResponse' smart constructor.
 data StartWorkspacesResponse = StartWorkspacesResponse'
-  { _swrsFailedRequests :: {-# NOUNPACK #-}!(Maybe [FailedWorkspaceChangeRequest])
-  , _swrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _swrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
+  , _swrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDBParameterGroup' smart constructor.
 data CreateDBParameterGroup = CreateDBParameterGroup'
-  { _cdbpgTags                   :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cdbpgDBParameterGroupName   :: {-# NOUNPACK #-}!Text
-  , _cdbpgDBParameterGroupFamily :: {-# NOUNPACK #-}!Text
-  , _cdbpgDescription            :: {-# NOUNPACK #-}!Text
+  { _cdbpgTags                   :: !(Maybe [Tag])
+  , _cdbpgDBParameterGroupName   :: !Text
+  , _cdbpgDBParameterGroupFamily :: !Text
+  , _cdbpgDescription            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,8 +139,8 @@ instance ToQuery CreateDBParameterGroup where
 
 -- | /See:/ 'createDBParameterGroupResponse' smart constructor.
 data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
-  { _cdpgrsDBParameterGroup :: {-# NOUNPACK #-}!(Maybe DBParameterGroup)
-  , _cdpgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _cdpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
+  , _cdpgrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

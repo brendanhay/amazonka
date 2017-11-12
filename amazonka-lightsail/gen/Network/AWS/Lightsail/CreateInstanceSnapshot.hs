@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createInstanceSnapshot' smart constructor.
 data CreateInstanceSnapshot = CreateInstanceSnapshot'
-  { _cisInstanceSnapshotName :: {-# NOUNPACK #-}!Text
-  , _cisInstanceName         :: {-# NOUNPACK #-}!Text
+  { _cisInstanceSnapshotName :: !Text
+  , _cisInstanceName         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,8 +119,8 @@ instance ToQuery CreateInstanceSnapshot where
 
 -- | /See:/ 'createInstanceSnapshotResponse' smart constructor.
 data CreateInstanceSnapshotResponse = CreateInstanceSnapshotResponse'
-  { _cisrsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _cisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cisrsOperations     :: !(Maybe [Operation])
+  , _cisrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

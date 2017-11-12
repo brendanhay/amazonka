@@ -100,8 +100,8 @@ instance ToQuery GetIPSet where
 
 -- | /See:/ 'getIPSetResponse' smart constructor.
 data GetIPSetResponse = GetIPSetResponse'
-  { _gisrsIPSet          :: {-# NOUNPACK #-}!(Maybe IPSet)
-  , _gisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gisrsIPSet          :: !(Maybe IPSet)
+  , _gisrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

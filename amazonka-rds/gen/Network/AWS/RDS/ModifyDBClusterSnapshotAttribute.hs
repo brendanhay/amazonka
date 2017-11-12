@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyDBClusterSnapshotAttribute' smart constructor.
 data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
-  { _mdcsaValuesToAdd                 :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mdcsaValuesToRemove              :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mdcsaDBClusterSnapshotIdentifier :: {-# NOUNPACK #-}!Text
-  , _mdcsaAttributeName               :: {-# NOUNPACK #-}!Text
+  { _mdcsaValuesToAdd                 :: !(Maybe [Text])
+  , _mdcsaValuesToRemove              :: !(Maybe [Text])
+  , _mdcsaDBClusterSnapshotIdentifier :: !Text
+  , _mdcsaAttributeName               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,8 +151,8 @@ instance ToQuery ModifyDBClusterSnapshotAttribute
 
 -- | /See:/ 'modifyDBClusterSnapshotAttributeResponse' smart constructor.
 data ModifyDBClusterSnapshotAttributeResponse = ModifyDBClusterSnapshotAttributeResponse'
-  { _mdcsarsDBClusterSnapshotAttributesResult :: {-# NOUNPACK #-}!(Maybe DBClusterSnapshotAttributesResult)
-  , _mdcsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mdcsarsDBClusterSnapshotAttributesResult :: !(Maybe DBClusterSnapshotAttributesResult)
+  , _mdcsarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

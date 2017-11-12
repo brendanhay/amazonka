@@ -163,8 +163,8 @@ instance ToQuery DescribeFleetPortSettings where
 --
 -- /See:/ 'describeFleetPortSettingsResponse' smart constructor.
 data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
-  { _dfpsrsInboundPermissions :: {-# NOUNPACK #-}!(Maybe [IPPermission])
-  , _dfpsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _dfpsrsInboundPermissions :: !(Maybe [IPPermission])
+  , _dfpsrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

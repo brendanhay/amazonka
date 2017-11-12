@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateTerminationProtection' smart constructor.
 data UpdateTerminationProtection = UpdateTerminationProtection'
-  { _utpEnableTerminationProtection :: {-# NOUNPACK #-}!Bool
-  , _utpStackName                   :: {-# NOUNPACK #-}!Text
+  { _utpEnableTerminationProtection :: !Bool
+  , _utpStackName                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery UpdateTerminationProtection where
 
 -- | /See:/ 'updateTerminationProtectionResponse' smart constructor.
 data UpdateTerminationProtectionResponse = UpdateTerminationProtectionResponse'
-  { _utprsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _utprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _utprsStackId        :: !(Maybe Text)
+  , _utprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

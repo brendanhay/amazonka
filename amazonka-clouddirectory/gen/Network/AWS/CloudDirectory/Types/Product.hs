@@ -27,9 +27,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'attributeKey' smart constructor.
 data AttributeKey = AttributeKey'
-  { _akSchemaARN :: {-# NOUNPACK #-}!Text
-  , _akFacetName :: {-# NOUNPACK #-}!Text
-  , _akName      :: {-# NOUNPACK #-}!Text
+  { _akSchemaARN :: !Text
+  , _akFacetName :: !Text
+  , _akName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -90,8 +90,8 @@ instance ToJSON AttributeKey where
 --
 -- /See:/ 'attributeKeyAndValue' smart constructor.
 data AttributeKeyAndValue = AttributeKeyAndValue'
-  { _akavKey   :: {-# NOUNPACK #-}!AttributeKey
-  , _akavValue :: {-# NOUNPACK #-}!TypedAttributeValue
+  { _akavKey   :: !AttributeKey
+  , _akavValue :: !TypedAttributeValue
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,8 +142,8 @@ instance ToJSON AttributeKeyAndValue where
 --
 -- /See:/ 'attributeNameAndValue' smart constructor.
 data AttributeNameAndValue = AttributeNameAndValue'
-  { _anavAttributeName :: {-# NOUNPACK #-}!Text
-  , _anavValue         :: {-# NOUNPACK #-}!TypedAttributeValue
+  { _anavAttributeName :: !Text
+  , _anavValue         :: !TypedAttributeValue
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -195,9 +195,9 @@ instance ToJSON AttributeNameAndValue where
 --
 -- /See:/ 'batchAddFacetToObject' smart constructor.
 data BatchAddFacetToObject = BatchAddFacetToObject'
-  { _baftoSchemaFacet         :: {-# NOUNPACK #-}!SchemaFacet
-  , _baftoObjectAttributeList :: {-# NOUNPACK #-}![AttributeKeyAndValue]
-  , _baftoObjectReference     :: {-# NOUNPACK #-}!ObjectReference
+  { _baftoSchemaFacet         :: !SchemaFacet
+  , _baftoObjectAttributeList :: ![AttributeKeyAndValue]
+  , _baftoObjectReference     :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -279,9 +279,9 @@ instance NFData BatchAddFacetToObjectResponse where
 --
 -- /See:/ 'batchAttachObject' smart constructor.
 data BatchAttachObject = BatchAttachObject'
-  { _baoParentReference :: {-# NOUNPACK #-}!ObjectReference
-  , _baoChildReference  :: {-# NOUNPACK #-}!ObjectReference
-  , _baoLinkName        :: {-# NOUNPACK #-}!Text
+  { _baoParentReference :: !ObjectReference
+  , _baoChildReference  :: !ObjectReference
+  , _baoLinkName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -373,8 +373,8 @@ instance NFData BatchAttachObjectResponse where
 --
 -- /See:/ 'batchAttachPolicy' smart constructor.
 data BatchAttachPolicy = BatchAttachPolicy'
-  { _bapPolicyReference :: {-# NOUNPACK #-}!ObjectReference
-  , _bapObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _bapPolicyReference :: !ObjectReference
+  , _bapObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -447,8 +447,8 @@ instance NFData BatchAttachPolicyResponse where
 --
 -- /See:/ 'batchAttachToIndex' smart constructor.
 data BatchAttachToIndex = BatchAttachToIndex'
-  { _batiIndexReference  :: {-# NOUNPACK #-}!ObjectReference
-  , _batiTargetReference :: {-# NOUNPACK #-}!ObjectReference
+  { _batiIndexReference  :: !ObjectReference
+  , _batiTargetReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -531,10 +531,10 @@ instance NFData BatchAttachToIndexResponse where
 --
 -- /See:/ 'batchAttachTypedLink' smart constructor.
 data BatchAttachTypedLink = BatchAttachTypedLink'
-  { _batlSourceObjectReference :: {-# NOUNPACK #-}!ObjectReference
-  , _batlTargetObjectReference :: {-# NOUNPACK #-}!ObjectReference
-  , _batlTypedLinkFacet        :: {-# NOUNPACK #-}!TypedLinkSchemaAndFacetName
-  , _batlAttributes            :: {-# NOUNPACK #-}![AttributeNameAndValue]
+  { _batlSourceObjectReference :: !ObjectReference
+  , _batlTargetObjectReference :: !ObjectReference
+  , _batlTypedLinkFacet        :: !TypedLinkSchemaAndFacetName
+  , _batlAttributes            :: ![AttributeNameAndValue]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -638,11 +638,11 @@ instance NFData BatchAttachTypedLinkResponse where
 --
 -- /See:/ 'batchCreateIndex' smart constructor.
 data BatchCreateIndex = BatchCreateIndex'
-  { _bciParentReference             :: {-# NOUNPACK #-}!(Maybe ObjectReference)
-  , _bciLinkName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bciBatchReferenceName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bciOrderedIndexedAttributeList :: {-# NOUNPACK #-}![AttributeKey]
-  , _bciIsUnique                    :: {-# NOUNPACK #-}!Bool
+  { _bciParentReference             :: !(Maybe ObjectReference)
+  , _bciLinkName                    :: !(Maybe Text)
+  , _bciBatchReferenceName          :: !(Maybe Text)
+  , _bciOrderedIndexedAttributeList :: ![AttributeKey]
+  , _bciIsUnique                    :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -750,11 +750,11 @@ instance NFData BatchCreateIndexResponse where
 --
 -- /See:/ 'batchCreateObject' smart constructor.
 data BatchCreateObject = BatchCreateObject'
-  { _bcoSchemaFacet         :: {-# NOUNPACK #-}![SchemaFacet]
-  , _bcoObjectAttributeList :: {-# NOUNPACK #-}![AttributeKeyAndValue]
-  , _bcoParentReference     :: {-# NOUNPACK #-}!ObjectReference
-  , _bcoLinkName            :: {-# NOUNPACK #-}!Text
-  , _bcoBatchReferenceName  :: {-# NOUNPACK #-}!Text
+  { _bcoSchemaFacet         :: ![SchemaFacet]
+  , _bcoObjectAttributeList :: ![AttributeKeyAndValue]
+  , _bcoParentReference     :: !ObjectReference
+  , _bcoLinkName            :: !Text
+  , _bcoBatchReferenceName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -926,8 +926,8 @@ instance NFData BatchDeleteObjectResponse where
 --
 -- /See:/ 'batchDetachFromIndex' smart constructor.
 data BatchDetachFromIndex = BatchDetachFromIndex'
-  { _bdfiIndexReference  :: {-# NOUNPACK #-}!ObjectReference
-  , _bdfiTargetReference :: {-# NOUNPACK #-}!ObjectReference
+  { _bdfiIndexReference  :: !ObjectReference
+  , _bdfiTargetReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1010,9 +1010,9 @@ instance NFData BatchDetachFromIndexResponse where
 --
 -- /See:/ 'batchDetachObject' smart constructor.
 data BatchDetachObject = BatchDetachObject'
-  { _bdoParentReference    :: {-# NOUNPACK #-}!ObjectReference
-  , _bdoLinkName           :: {-# NOUNPACK #-}!Text
-  , _bdoBatchReferenceName :: {-# NOUNPACK #-}!Text
+  { _bdoParentReference    :: !ObjectReference
+  , _bdoLinkName           :: !Text
+  , _bdoBatchReferenceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1105,8 +1105,8 @@ instance NFData BatchDetachObjectResponse where
 --
 -- /See:/ 'batchDetachPolicy' smart constructor.
 data BatchDetachPolicy = BatchDetachPolicy'
-  { _bdpPolicyReference :: {-# NOUNPACK #-}!ObjectReference
-  , _bdpObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _bdpPolicyReference :: !ObjectReference
+  , _bdpObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1278,8 +1278,8 @@ instance ToJSON BatchGetObjectInformation where
 --
 -- /See:/ 'batchGetObjectInformationResponse' smart constructor.
 data BatchGetObjectInformationResponse = BatchGetObjectInformationResponse'
-  { _bgoiObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bgoiSchemaFacets     :: {-# NOUNPACK #-}!(Maybe [SchemaFacet])
+  { _bgoiObjectIdentifier :: !(Maybe Text)
+  , _bgoiSchemaFacets     :: !(Maybe [SchemaFacet])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1326,9 +1326,9 @@ instance NFData BatchGetObjectInformationResponse
 --
 -- /See:/ 'batchListAttachedIndices' smart constructor.
 data BatchListAttachedIndices = BatchListAttachedIndices'
-  { _blaisNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _blaisMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _blaisTargetReference :: {-# NOUNPACK #-}!ObjectReference
+  { _blaisNextToken       :: !(Maybe Text)
+  , _blaisMaxResults      :: !(Maybe Nat)
+  , _blaisTargetReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1382,8 +1382,8 @@ instance ToJSON BatchListAttachedIndices where
 --
 -- /See:/ 'batchListAttachedIndicesResponse' smart constructor.
 data BatchListAttachedIndicesResponse = BatchListAttachedIndicesResponse'
-  { _blaiIndexAttachments :: {-# NOUNPACK #-}!(Maybe [IndexAttachment])
-  , _blaiNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _blaiIndexAttachments :: !(Maybe [IndexAttachment])
+  , _blaiNextToken        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1430,11 +1430,11 @@ instance NFData BatchListAttachedIndicesResponse
 --
 -- /See:/ 'batchListIncomingTypedLinks' smart constructor.
 data BatchListIncomingTypedLinks = BatchListIncomingTypedLinks'
-  { _blitlsFilterAttributeRanges :: {-# NOUNPACK #-}!(Maybe [TypedLinkAttributeRange])
-  , _blitlsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _blitlsFilterTypedLink :: {-# NOUNPACK #-}!(Maybe TypedLinkSchemaAndFacetName)
-  , _blitlsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _blitlsObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _blitlsFilterAttributeRanges :: !(Maybe [TypedLinkAttributeRange])
+  , _blitlsNextToken             :: !(Maybe Text)
+  , _blitlsFilterTypedLink       :: !(Maybe TypedLinkSchemaAndFacetName)
+  , _blitlsMaxResults            :: !(Maybe Nat)
+  , _blitlsObjectReference       :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1505,8 +1505,8 @@ instance ToJSON BatchListIncomingTypedLinks where
 --
 -- /See:/ 'batchListIncomingTypedLinksResponse' smart constructor.
 data BatchListIncomingTypedLinksResponse = BatchListIncomingTypedLinksResponse'
-  { _blitlLinkSpecifiers :: {-# NOUNPACK #-}!(Maybe [TypedLinkSpecifier])
-  , _blitlNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _blitlLinkSpecifiers :: !(Maybe [TypedLinkSpecifier])
+  , _blitlNextToken      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1553,10 +1553,10 @@ instance NFData BatchListIncomingTypedLinksResponse
 --
 -- /See:/ 'batchListIndex' smart constructor.
 data BatchListIndex = BatchListIndex'
-  { _batRangesOnIndexedValues :: {-# NOUNPACK #-}!(Maybe [ObjectAttributeRange])
-  , _batNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _batMaxResults            :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _batIndexReference        :: {-# NOUNPACK #-}!ObjectReference
+  { _batRangesOnIndexedValues :: !(Maybe [ObjectAttributeRange])
+  , _batNextToken             :: !(Maybe Text)
+  , _batMaxResults            :: !(Maybe Nat)
+  , _batIndexReference        :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1619,8 +1619,8 @@ instance ToJSON BatchListIndex where
 --
 -- /See:/ 'batchListIndexResponse' smart constructor.
 data BatchListIndexResponse = BatchListIndexResponse'
-  { _bliIndexAttachments :: {-# NOUNPACK #-}!(Maybe [IndexAttachment])
-  , _bliNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bliIndexAttachments :: !(Maybe [IndexAttachment])
+  , _bliNextToken        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1664,10 +1664,10 @@ instance NFData BatchListIndexResponse where
 --
 -- /See:/ 'batchListObjectAttributes' smart constructor.
 data BatchListObjectAttributes = BatchListObjectAttributes'
-  { _bloaFacetFilter     :: {-# NOUNPACK #-}!(Maybe SchemaFacet)
-  , _bloaNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bloaMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _bloaObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _bloaFacetFilter     :: !(Maybe SchemaFacet)
+  , _bloaNextToken       :: !(Maybe Text)
+  , _bloaMaxResults      :: !(Maybe Nat)
+  , _bloaObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1729,8 +1729,8 @@ instance ToJSON BatchListObjectAttributes where
 --
 -- /See:/ 'batchListObjectAttributesResponse' smart constructor.
 data BatchListObjectAttributesResponse = BatchListObjectAttributesResponse'
-  { _bNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bAttributes :: {-# NOUNPACK #-}!(Maybe [AttributeKeyAndValue])
+  { _bNextToken  :: !(Maybe Text)
+  , _bAttributes :: !(Maybe [AttributeKeyAndValue])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1777,9 +1777,9 @@ instance NFData BatchListObjectAttributesResponse
 --
 -- /See:/ 'batchListObjectChildren' smart constructor.
 data BatchListObjectChildren = BatchListObjectChildren'
-  { _bloclNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bloclMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _bloclObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _bloclNextToken       :: !(Maybe Text)
+  , _bloclMaxResults      :: !(Maybe Nat)
+  , _bloclObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1833,8 +1833,8 @@ instance ToJSON BatchListObjectChildren where
 --
 -- /See:/ 'batchListObjectChildrenResponse' smart constructor.
 data BatchListObjectChildrenResponse = BatchListObjectChildrenResponse'
-  { _blocChildren  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _blocNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  { _blocChildren  :: !(Maybe (Map Text Text))
+  , _blocNextToken :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1880,9 +1880,9 @@ instance NFData BatchListObjectChildrenResponse where
 --
 -- /See:/ 'batchListObjectParentPaths' smart constructor.
 data BatchListObjectParentPaths = BatchListObjectParentPaths'
-  { _bloppsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bloppsMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _bloppsObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _bloppsNextToken       :: !(Maybe Text)
+  , _bloppsMaxResults      :: !(Maybe Nat)
+  , _bloppsObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1936,8 +1936,8 @@ instance ToJSON BatchListObjectParentPaths where
 --
 -- /See:/ 'batchListObjectParentPathsResponse' smart constructor.
 data BatchListObjectParentPathsResponse = BatchListObjectParentPathsResponse'
-  { _bloppPathToObjectIdentifiersList :: {-# NOUNPACK #-}!(Maybe [PathToObjectIdentifiers])
-  , _bloppNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bloppPathToObjectIdentifiersList :: !(Maybe [PathToObjectIdentifiers])
+  , _bloppNextToken                   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1984,9 +1984,9 @@ instance NFData BatchListObjectParentPathsResponse
 --
 -- /See:/ 'batchListObjectPolicies' smart constructor.
 data BatchListObjectPolicies = BatchListObjectPolicies'
-  { _blopsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _blopsMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _blopsObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _blopsNextToken       :: !(Maybe Text)
+  , _blopsMaxResults      :: !(Maybe Nat)
+  , _blopsObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2040,8 +2040,8 @@ instance ToJSON BatchListObjectPolicies where
 --
 -- /See:/ 'batchListObjectPoliciesResponse' smart constructor.
 data BatchListObjectPoliciesResponse = BatchListObjectPoliciesResponse'
-  { _blopNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _blopAttachedPolicyIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _blopNextToken         :: !(Maybe Text)
+  , _blopAttachedPolicyIds :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2087,11 +2087,11 @@ instance NFData BatchListObjectPoliciesResponse where
 --
 -- /See:/ 'batchListOutgoingTypedLinks' smart constructor.
 data BatchListOutgoingTypedLinks = BatchListOutgoingTypedLinks'
-  { _blotlsFilterAttributeRanges :: {-# NOUNPACK #-}!(Maybe [TypedLinkAttributeRange])
-  , _blotlsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _blotlsFilterTypedLink :: {-# NOUNPACK #-}!(Maybe TypedLinkSchemaAndFacetName)
-  , _blotlsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _blotlsObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _blotlsFilterAttributeRanges :: !(Maybe [TypedLinkAttributeRange])
+  , _blotlsNextToken             :: !(Maybe Text)
+  , _blotlsFilterTypedLink       :: !(Maybe TypedLinkSchemaAndFacetName)
+  , _blotlsMaxResults            :: !(Maybe Nat)
+  , _blotlsObjectReference       :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2162,8 +2162,8 @@ instance ToJSON BatchListOutgoingTypedLinks where
 --
 -- /See:/ 'batchListOutgoingTypedLinksResponse' smart constructor.
 data BatchListOutgoingTypedLinksResponse = BatchListOutgoingTypedLinksResponse'
-  { _blotlTypedLinkSpecifiers :: {-# NOUNPACK #-}!(Maybe [TypedLinkSpecifier])
-  , _blotlNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _blotlTypedLinkSpecifiers :: !(Maybe [TypedLinkSpecifier])
+  , _blotlNextToken           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2210,9 +2210,9 @@ instance NFData BatchListOutgoingTypedLinksResponse
 --
 -- /See:/ 'batchListPolicyAttachments' smart constructor.
 data BatchListPolicyAttachments = BatchListPolicyAttachments'
-  { _blpasNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _blpasMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _blpasPolicyReference :: {-# NOUNPACK #-}!ObjectReference
+  { _blpasNextToken       :: !(Maybe Text)
+  , _blpasMaxResults      :: !(Maybe Nat)
+  , _blpasPolicyReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2266,8 +2266,8 @@ instance ToJSON BatchListPolicyAttachments where
 --
 -- /See:/ 'batchListPolicyAttachmentsResponse' smart constructor.
 data BatchListPolicyAttachmentsResponse = BatchListPolicyAttachmentsResponse'
-  { _blpaObjectIdentifiers :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _blpaNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _blpaObjectIdentifiers :: !(Maybe [Text])
+  , _blpaNextToken         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2314,9 +2314,9 @@ instance NFData BatchListPolicyAttachmentsResponse
 --
 -- /See:/ 'batchLookupPolicy' smart constructor.
 data BatchLookupPolicy = BatchLookupPolicy'
-  { _blplNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _blplMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _blplObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _blplNextToken       :: !(Maybe Text)
+  , _blplMaxResults      :: !(Maybe Nat)
+  , _blplObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2370,8 +2370,8 @@ instance ToJSON BatchLookupPolicy where
 --
 -- /See:/ 'batchLookupPolicyResponse' smart constructor.
 data BatchLookupPolicyResponse = BatchLookupPolicyResponse'
-  { _blpNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _blpPolicyToPathList :: {-# NOUNPACK #-}!(Maybe [PolicyToPath])
+  { _blpNextToken        :: !(Maybe Text)
+  , _blpPolicyToPathList :: !(Maybe [PolicyToPath])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2415,8 +2415,8 @@ instance NFData BatchLookupPolicyResponse where
 --
 -- /See:/ 'batchReadException' smart constructor.
 data BatchReadException = BatchReadException'
-  { _breType    :: {-# NOUNPACK #-}!(Maybe BatchReadExceptionType)
-  , _breMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _breType    :: !(Maybe BatchReadExceptionType)
+  , _breMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2458,17 +2458,17 @@ instance NFData BatchReadException where
 --
 -- /See:/ 'batchReadOperation' smart constructor.
 data BatchReadOperation = BatchReadOperation'
-  { _broListIndex :: {-# NOUNPACK #-}!(Maybe BatchListIndex)
-  , _broGetObjectInformation :: {-# NOUNPACK #-}!(Maybe BatchGetObjectInformation)
-  , _broListAttachedIndices :: {-# NOUNPACK #-}!(Maybe BatchListAttachedIndices)
-  , _broLookupPolicy :: {-# NOUNPACK #-}!(Maybe BatchLookupPolicy)
-  , _broListObjectParentPaths :: {-# NOUNPACK #-}!(Maybe BatchListObjectParentPaths)
-  , _broListObjectAttributes :: {-# NOUNPACK #-}!(Maybe BatchListObjectAttributes)
-  , _broListIncomingTypedLinks :: {-# NOUNPACK #-}!(Maybe BatchListIncomingTypedLinks)
-  , _broListObjectChildren :: {-# NOUNPACK #-}!(Maybe BatchListObjectChildren)
-  , _broListPolicyAttachments :: {-# NOUNPACK #-}!(Maybe BatchListPolicyAttachments)
-  , _broListOutgoingTypedLinks :: {-# NOUNPACK #-}!(Maybe BatchListOutgoingTypedLinks)
-  , _broListObjectPolicies :: {-# NOUNPACK #-}!(Maybe BatchListObjectPolicies)
+  { _broListIndex              :: !(Maybe BatchListIndex)
+  , _broGetObjectInformation   :: !(Maybe BatchGetObjectInformation)
+  , _broListAttachedIndices    :: !(Maybe BatchListAttachedIndices)
+  , _broLookupPolicy           :: !(Maybe BatchLookupPolicy)
+  , _broListObjectParentPaths  :: !(Maybe BatchListObjectParentPaths)
+  , _broListObjectAttributes   :: !(Maybe BatchListObjectAttributes)
+  , _broListIncomingTypedLinks :: !(Maybe BatchListIncomingTypedLinks)
+  , _broListObjectChildren     :: !(Maybe BatchListObjectChildren)
+  , _broListPolicyAttachments  :: !(Maybe BatchListPolicyAttachments)
+  , _broListOutgoingTypedLinks :: !(Maybe BatchListOutgoingTypedLinks)
+  , _broListObjectPolicies     :: !(Maybe BatchListObjectPolicies)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2593,8 +2593,8 @@ instance ToJSON BatchReadOperation where
 --
 -- /See:/ 'batchReadOperationResponse' smart constructor.
 data BatchReadOperationResponse = BatchReadOperationResponse'
-  { _broExceptionResponse :: {-# NOUNPACK #-}!(Maybe BatchReadException)
-  , _broSuccessfulResponse :: {-# NOUNPACK #-}!(Maybe BatchReadSuccessfulResponse)
+  { _broExceptionResponse  :: !(Maybe BatchReadException)
+  , _broSuccessfulResponse :: !(Maybe BatchReadSuccessfulResponse)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2638,17 +2638,17 @@ instance NFData BatchReadOperationResponse where
 --
 -- /See:/ 'batchReadSuccessfulResponse' smart constructor.
 data BatchReadSuccessfulResponse = BatchReadSuccessfulResponse'
-  { _brsListIndex :: {-# NOUNPACK #-}!(Maybe BatchListIndexResponse)
-  , _brsGetObjectInformation :: {-# NOUNPACK #-}!(Maybe BatchGetObjectInformationResponse)
-  , _brsListAttachedIndices :: {-# NOUNPACK #-}!(Maybe BatchListAttachedIndicesResponse)
-  , _brsLookupPolicy :: {-# NOUNPACK #-}!(Maybe BatchLookupPolicyResponse)
-  , _brsListObjectParentPaths :: {-# NOUNPACK #-}!(Maybe BatchListObjectParentPathsResponse)
-  , _brsListObjectAttributes :: {-# NOUNPACK #-}!(Maybe BatchListObjectAttributesResponse)
-  , _brsListIncomingTypedLinks :: {-# NOUNPACK #-}!(Maybe BatchListIncomingTypedLinksResponse)
-  , _brsListObjectChildren :: {-# NOUNPACK #-}!(Maybe BatchListObjectChildrenResponse)
-  , _brsListPolicyAttachments :: {-# NOUNPACK #-}!(Maybe BatchListPolicyAttachmentsResponse)
-  , _brsListOutgoingTypedLinks :: {-# NOUNPACK #-}!(Maybe BatchListOutgoingTypedLinksResponse)
-  , _brsListObjectPolicies :: {-# NOUNPACK #-}!(Maybe BatchListObjectPoliciesResponse)
+  { _brsListIndex              :: !(Maybe BatchListIndexResponse)
+  , _brsGetObjectInformation   :: !(Maybe BatchGetObjectInformationResponse)
+  , _brsListAttachedIndices    :: !(Maybe BatchListAttachedIndicesResponse)
+  , _brsLookupPolicy           :: !(Maybe BatchLookupPolicyResponse)
+  , _brsListObjectParentPaths  :: !(Maybe BatchListObjectParentPathsResponse)
+  , _brsListObjectAttributes   :: !(Maybe BatchListObjectAttributesResponse)
+  , _brsListIncomingTypedLinks :: !(Maybe BatchListIncomingTypedLinksResponse)
+  , _brsListObjectChildren     :: !(Maybe BatchListObjectChildrenResponse)
+  , _brsListPolicyAttachments  :: !(Maybe BatchListPolicyAttachmentsResponse)
+  , _brsListOutgoingTypedLinks :: !(Maybe BatchListOutgoingTypedLinksResponse)
+  , _brsListObjectPolicies     :: !(Maybe BatchListObjectPoliciesResponse)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2766,8 +2766,8 @@ instance NFData BatchReadSuccessfulResponse where
 --
 -- /See:/ 'batchRemoveFacetFromObject' smart constructor.
 data BatchRemoveFacetFromObject = BatchRemoveFacetFromObject'
-  { _brffoSchemaFacet     :: {-# NOUNPACK #-}!SchemaFacet
-  , _brffoObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _brffoSchemaFacet     :: !SchemaFacet
+  , _brffoObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2841,8 +2841,8 @@ instance NFData BatchRemoveFacetFromObjectResponse
 --
 -- /See:/ 'batchUpdateObjectAttributes' smart constructor.
 data BatchUpdateObjectAttributes = BatchUpdateObjectAttributes'
-  { _buoaObjectReference  :: {-# NOUNPACK #-}!ObjectReference
-  , _buoaAttributeUpdates :: {-# NOUNPACK #-}![ObjectAttributeUpdate]
+  { _buoaObjectReference  :: !ObjectReference
+  , _buoaAttributeUpdates :: ![ObjectAttributeUpdate]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2925,20 +2925,20 @@ instance NFData BatchUpdateObjectAttributesResponse
 --
 -- /See:/ 'batchWriteOperation' smart constructor.
 data BatchWriteOperation = BatchWriteOperation'
-  { _bDeleteObject :: {-# NOUNPACK #-}!(Maybe BatchDeleteObject)
-  , _bDetachFromIndex :: {-# NOUNPACK #-}!(Maybe BatchDetachFromIndex)
-  , _bRemoveFacetFromObject :: {-# NOUNPACK #-}!(Maybe BatchRemoveFacetFromObject)
-  , _bAttachObject :: {-# NOUNPACK #-}!(Maybe BatchAttachObject)
-  , _bCreateObject :: {-# NOUNPACK #-}!(Maybe BatchCreateObject)
-  , _bAttachTypedLink :: {-# NOUNPACK #-}!(Maybe BatchAttachTypedLink)
-  , _bDetachPolicy :: {-# NOUNPACK #-}!(Maybe BatchDetachPolicy)
-  , _bCreateIndex :: {-# NOUNPACK #-}!(Maybe BatchCreateIndex)
-  , _bDetachObject :: {-# NOUNPACK #-}!(Maybe BatchDetachObject)
-  , _bAddFacetToObject :: {-# NOUNPACK #-}!(Maybe BatchAddFacetToObject)
-  , _bDetachTypedLink :: {-# NOUNPACK #-}!(Maybe BatchDetachTypedLink)
-  , _bUpdateObjectAttributes :: {-# NOUNPACK #-}!(Maybe BatchUpdateObjectAttributes)
-  , _bAttachPolicy :: {-# NOUNPACK #-}!(Maybe BatchAttachPolicy)
-  , _bAttachToIndex :: {-# NOUNPACK #-}!(Maybe BatchAttachToIndex)
+  { _bDeleteObject           :: !(Maybe BatchDeleteObject)
+  , _bDetachFromIndex        :: !(Maybe BatchDetachFromIndex)
+  , _bRemoveFacetFromObject  :: !(Maybe BatchRemoveFacetFromObject)
+  , _bAttachObject           :: !(Maybe BatchAttachObject)
+  , _bCreateObject           :: !(Maybe BatchCreateObject)
+  , _bAttachTypedLink        :: !(Maybe BatchAttachTypedLink)
+  , _bDetachPolicy           :: !(Maybe BatchDetachPolicy)
+  , _bCreateIndex            :: !(Maybe BatchCreateIndex)
+  , _bDetachObject           :: !(Maybe BatchDetachObject)
+  , _bAddFacetToObject       :: !(Maybe BatchAddFacetToObject)
+  , _bDetachTypedLink        :: !(Maybe BatchDetachTypedLink)
+  , _bUpdateObjectAttributes :: !(Maybe BatchUpdateObjectAttributes)
+  , _bAttachPolicy           :: !(Maybe BatchAttachPolicy)
+  , _bAttachToIndex          :: !(Maybe BatchAttachToIndex)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3081,20 +3081,20 @@ instance ToJSON BatchWriteOperation where
 --
 -- /See:/ 'batchWriteOperationResponse' smart constructor.
 data BatchWriteOperationResponse = BatchWriteOperationResponse'
-  { _bwoDeleteObject :: {-# NOUNPACK #-}!(Maybe BatchDeleteObjectResponse)
-  , _bwoDetachFromIndex :: {-# NOUNPACK #-}!(Maybe BatchDetachFromIndexResponse)
-  , _bwoRemoveFacetFromObject :: {-# NOUNPACK #-}!(Maybe BatchRemoveFacetFromObjectResponse)
-  , _bwoAttachObject :: {-# NOUNPACK #-}!(Maybe BatchAttachObjectResponse)
-  , _bwoCreateObject :: {-# NOUNPACK #-}!(Maybe BatchCreateObjectResponse)
-  , _bwoAttachTypedLink :: {-# NOUNPACK #-}!(Maybe BatchAttachTypedLinkResponse)
-  , _bwoDetachPolicy :: {-# NOUNPACK #-}!(Maybe BatchDetachPolicyResponse)
-  , _bwoCreateIndex :: {-# NOUNPACK #-}!(Maybe BatchCreateIndexResponse)
-  , _bwoDetachObject :: {-# NOUNPACK #-}!(Maybe BatchDetachObjectResponse)
-  , _bwoAddFacetToObject :: {-# NOUNPACK #-}!(Maybe BatchAddFacetToObjectResponse)
-  , _bwoDetachTypedLink :: {-# NOUNPACK #-}!(Maybe BatchDetachTypedLinkResponse)
-  , _bwoUpdateObjectAttributes :: {-# NOUNPACK #-}!(Maybe BatchUpdateObjectAttributesResponse)
-  , _bwoAttachPolicy :: {-# NOUNPACK #-}!(Maybe BatchAttachPolicyResponse)
-  , _bwoAttachToIndex :: {-# NOUNPACK #-}!(Maybe BatchAttachToIndexResponse)
+  { _bwoDeleteObject           :: !(Maybe BatchDeleteObjectResponse)
+  , _bwoDetachFromIndex        :: !(Maybe BatchDetachFromIndexResponse)
+  , _bwoRemoveFacetFromObject  :: !(Maybe BatchRemoveFacetFromObjectResponse)
+  , _bwoAttachObject           :: !(Maybe BatchAttachObjectResponse)
+  , _bwoCreateObject           :: !(Maybe BatchCreateObjectResponse)
+  , _bwoAttachTypedLink        :: !(Maybe BatchAttachTypedLinkResponse)
+  , _bwoDetachPolicy           :: !(Maybe BatchDetachPolicyResponse)
+  , _bwoCreateIndex            :: !(Maybe BatchCreateIndexResponse)
+  , _bwoDetachObject           :: !(Maybe BatchDetachObjectResponse)
+  , _bwoAddFacetToObject       :: !(Maybe BatchAddFacetToObjectResponse)
+  , _bwoDetachTypedLink        :: !(Maybe BatchDetachTypedLinkResponse)
+  , _bwoUpdateObjectAttributes :: !(Maybe BatchUpdateObjectAttributesResponse)
+  , _bwoAttachPolicy           :: !(Maybe BatchAttachPolicyResponse)
+  , _bwoAttachToIndex          :: !(Maybe BatchAttachToIndexResponse)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3235,10 +3235,10 @@ instance NFData BatchWriteOperationResponse where
 --
 -- /See:/ 'directory' smart constructor.
 data Directory = Directory'
-  { _dDirectoryARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dState            :: {-# NOUNPACK #-}!(Maybe DirectoryState)
-  , _dName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _dDirectoryARN     :: !(Maybe Text)
+  , _dState            :: !(Maybe DirectoryState)
+  , _dName             :: !(Maybe Text)
+  , _dCreationDateTime :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3299,8 +3299,8 @@ instance NFData Directory where
 --
 -- /See:/ 'facet' smart constructor.
 data Facet = Facet'
-  { _fObjectType :: {-# NOUNPACK #-}!(Maybe ObjectType)
-  , _fName       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fObjectType :: !(Maybe ObjectType)
+  , _fName       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3340,10 +3340,10 @@ instance NFData Facet where
 --
 -- /See:/ 'facetAttribute' smart constructor.
 data FacetAttribute = FacetAttribute'
-  { _faAttributeReference  :: {-# NOUNPACK #-}!(Maybe FacetAttributeReference)
-  , _faAttributeDefinition :: {-# NOUNPACK #-}!(Maybe FacetAttributeDefinition)
-  , _faRequiredBehavior    :: {-# NOUNPACK #-}!(Maybe RequiredAttributeBehavior)
-  , _faName                :: {-# NOUNPACK #-}!Text
+  { _faAttributeReference  :: !(Maybe FacetAttributeReference)
+  , _faAttributeDefinition :: !(Maybe FacetAttributeDefinition)
+  , _faRequiredBehavior    :: !(Maybe RequiredAttributeBehavior)
+  , _faName                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3416,10 +3416,10 @@ instance ToJSON FacetAttribute where
 --
 -- /See:/ 'facetAttributeDefinition' smart constructor.
 data FacetAttributeDefinition = FacetAttributeDefinition'
-  { _fadRules        :: {-# NOUNPACK #-}!(Maybe (Map Text Rule))
-  , _fadDefaultValue :: {-# NOUNPACK #-}!(Maybe TypedAttributeValue)
-  , _fadIsImmutable  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _fadType         :: {-# NOUNPACK #-}!FacetAttributeType
+  { _fadRules        :: !(Maybe (Map Text Rule))
+  , _fadDefaultValue :: !(Maybe TypedAttributeValue)
+  , _fadIsImmutable  :: !(Maybe Bool)
+  , _fadType         :: !FacetAttributeType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3490,8 +3490,8 @@ instance ToJSON FacetAttributeDefinition where
 --
 -- /See:/ 'facetAttributeReference' smart constructor.
 data FacetAttributeReference = FacetAttributeReference'
-  { _farTargetFacetName     :: {-# NOUNPACK #-}!Text
-  , _farTargetAttributeName :: {-# NOUNPACK #-}!Text
+  { _farTargetFacetName     :: !Text
+  , _farTargetAttributeName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3547,8 +3547,8 @@ instance ToJSON FacetAttributeReference where
 --
 -- /See:/ 'facetAttributeUpdate' smart constructor.
 data FacetAttributeUpdate = FacetAttributeUpdate'
-  { _fauAttribute :: {-# NOUNPACK #-}!(Maybe FacetAttribute)
-  , _fauAction    :: {-# NOUNPACK #-}!(Maybe UpdateActionType)
+  { _fauAttribute :: !(Maybe FacetAttribute)
+  , _fauAction    :: !(Maybe UpdateActionType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3590,8 +3590,8 @@ instance ToJSON FacetAttributeUpdate where
 --
 -- /See:/ 'indexAttachment' smart constructor.
 data IndexAttachment = IndexAttachment'
-  { _iaIndexedAttributes :: {-# NOUNPACK #-}!(Maybe [AttributeKeyAndValue])
-  , _iaObjectIdentifier  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iaIndexedAttributes :: !(Maybe [AttributeKeyAndValue])
+  , _iaObjectIdentifier  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3635,8 +3635,8 @@ instance NFData IndexAttachment where
 --
 -- /See:/ 'objectAttributeAction' smart constructor.
 data ObjectAttributeAction = ObjectAttributeAction'
-  { _oaaObjectAttributeActionType :: {-# NOUNPACK #-}!(Maybe UpdateActionType)
-  , _oaaObjectAttributeUpdateValue :: {-# NOUNPACK #-}!(Maybe TypedAttributeValue)
+  { _oaaObjectAttributeActionType  :: !(Maybe UpdateActionType)
+  , _oaaObjectAttributeUpdateValue :: !(Maybe TypedAttributeValue)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3683,8 +3683,8 @@ instance ToJSON ObjectAttributeAction where
 --
 -- /See:/ 'objectAttributeRange' smart constructor.
 data ObjectAttributeRange = ObjectAttributeRange'
-  { _oarRange        :: {-# NOUNPACK #-}!(Maybe TypedAttributeValueRange)
-  , _oarAttributeKey :: {-# NOUNPACK #-}!(Maybe AttributeKey)
+  { _oarRange        :: !(Maybe TypedAttributeValueRange)
+  , _oarAttributeKey :: !(Maybe AttributeKey)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3726,8 +3726,8 @@ instance ToJSON ObjectAttributeRange where
 --
 -- /See:/ 'objectAttributeUpdate' smart constructor.
 data ObjectAttributeUpdate = ObjectAttributeUpdate'
-  { _oauObjectAttributeAction :: {-# NOUNPACK #-}!(Maybe ObjectAttributeAction)
-  , _oauObjectAttributeKey    :: {-# NOUNPACK #-}!(Maybe AttributeKey)
+  { _oauObjectAttributeAction :: !(Maybe ObjectAttributeAction)
+  , _oauObjectAttributeKey    :: !(Maybe AttributeKey)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3810,8 +3810,8 @@ instance ToJSON ObjectReference where
 --
 -- /See:/ 'pathToObjectIdentifiers' smart constructor.
 data PathToObjectIdentifiers = PathToObjectIdentifiers'
-  { _ptoiObjectIdentifiers :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ptoiPath              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ptoiObjectIdentifiers :: !(Maybe [Text])
+  , _ptoiPath              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3855,9 +3855,9 @@ instance NFData PathToObjectIdentifiers where
 --
 -- /See:/ 'policyAttachment' smart constructor.
 data PolicyAttachment = PolicyAttachment'
-  { _paPolicyId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _paPolicyType       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _paObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  { _paPolicyId         :: !(Maybe Text)
+  , _paPolicyType       :: !(Maybe Text)
+  , _paObjectIdentifier :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3910,8 +3910,8 @@ instance NFData PolicyAttachment where
 --
 -- /See:/ 'policyToPath' smart constructor.
 data PolicyToPath = PolicyToPath'
-  { _ptpPath     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ptpPolicies :: {-# NOUNPACK #-}!(Maybe [PolicyAttachment])
+  { _ptpPath     :: !(Maybe Text)
+  , _ptpPolicies :: !(Maybe [PolicyAttachment])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3952,8 +3952,8 @@ instance NFData PolicyToPath where
 --
 -- /See:/ 'rule' smart constructor.
 data Rule = Rule'
-  { _rParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _rType       :: {-# NOUNPACK #-}!(Maybe RuleType)
+  { _rParameters :: !(Maybe (Map Text Text))
+  , _rType       :: !(Maybe RuleType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4001,8 +4001,8 @@ instance ToJSON Rule where
 --
 -- /See:/ 'schemaFacet' smart constructor.
 data SchemaFacet = SchemaFacet'
-  { _sfFacetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sfSchemaARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sfFacetName :: !(Maybe Text)
+  , _sfSchemaARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4050,8 +4050,8 @@ instance ToJSON SchemaFacet where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4096,11 +4096,11 @@ instance ToJSON Tag where
 --
 -- /See:/ 'typedAttributeValue' smart constructor.
 data TypedAttributeValue = TypedAttributeValue'
-  { _tavBinaryValue   :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _tavDatetimeValue :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tavNumberValue   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tavStringValue   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tavBooleanValue  :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _tavBinaryValue   :: !(Maybe Base64)
+  , _tavDatetimeValue :: !(Maybe POSIX)
+  , _tavNumberValue   :: !(Maybe Text)
+  , _tavStringValue   :: !(Maybe Text)
+  , _tavBooleanValue  :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4179,10 +4179,10 @@ instance ToJSON TypedAttributeValue where
 --
 -- /See:/ 'typedAttributeValueRange' smart constructor.
 data TypedAttributeValueRange = TypedAttributeValueRange'
-  { _tavrEndValue   :: {-# NOUNPACK #-}!(Maybe TypedAttributeValue)
-  , _tavrStartValue :: {-# NOUNPACK #-}!(Maybe TypedAttributeValue)
-  , _tavrStartMode  :: {-# NOUNPACK #-}!RangeMode
-  , _tavrEndMode    :: {-# NOUNPACK #-}!RangeMode
+  { _tavrEndValue   :: !(Maybe TypedAttributeValue)
+  , _tavrStartValue :: !(Maybe TypedAttributeValue)
+  , _tavrStartMode  :: !RangeMode
+  , _tavrEndMode    :: !RangeMode
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4245,12 +4245,12 @@ instance ToJSON TypedAttributeValueRange where
 --
 -- /See:/ 'typedLinkAttributeDefinition' smart constructor.
 data TypedLinkAttributeDefinition = TypedLinkAttributeDefinition'
-  { _tladRules            :: {-# NOUNPACK #-}!(Maybe (Map Text Rule))
-  , _tladDefaultValue     :: {-# NOUNPACK #-}!(Maybe TypedAttributeValue)
-  , _tladIsImmutable      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tladName             :: {-# NOUNPACK #-}!Text
-  , _tladType             :: {-# NOUNPACK #-}!FacetAttributeType
-  , _tladRequiredBehavior :: {-# NOUNPACK #-}!RequiredAttributeBehavior
+  { _tladRules            :: !(Maybe (Map Text Rule))
+  , _tladDefaultValue     :: !(Maybe TypedAttributeValue)
+  , _tladIsImmutable      :: !(Maybe Bool)
+  , _tladName             :: !Text
+  , _tladType             :: !FacetAttributeType
+  , _tladRequiredBehavior :: !RequiredAttributeBehavior
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4341,8 +4341,8 @@ instance ToJSON TypedLinkAttributeDefinition where
 --
 -- /See:/ 'typedLinkAttributeRange' smart constructor.
 data TypedLinkAttributeRange = TypedLinkAttributeRange'
-  { _tlarAttributeName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tlarRange         :: {-# NOUNPACK #-}!TypedAttributeValueRange
+  { _tlarAttributeName :: !(Maybe Text)
+  , _tlarRange         :: !TypedAttributeValueRange
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4385,9 +4385,9 @@ instance ToJSON TypedLinkAttributeRange where
 --
 -- /See:/ 'typedLinkFacet' smart constructor.
 data TypedLinkFacet = TypedLinkFacet'
-  { _tlfName :: {-# NOUNPACK #-}!Text
-  , _tlfAttributes :: {-# NOUNPACK #-}![TypedLinkAttributeDefinition]
-  , _tlfIdentityAttributeOrder :: {-# NOUNPACK #-}![Text]
+  { _tlfName                   :: !Text
+  , _tlfAttributes             :: ![TypedLinkAttributeDefinition]
+  , _tlfIdentityAttributeOrder :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4443,8 +4443,8 @@ instance ToJSON TypedLinkFacet where
 --
 -- /See:/ 'typedLinkFacetAttributeUpdate' smart constructor.
 data TypedLinkFacetAttributeUpdate = TypedLinkFacetAttributeUpdate'
-  { _tlfauAttribute :: {-# NOUNPACK #-}!TypedLinkAttributeDefinition
-  , _tlfauAction    :: {-# NOUNPACK #-}!UpdateActionType
+  { _tlfauAttribute :: !TypedLinkAttributeDefinition
+  , _tlfauAction    :: !UpdateActionType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4489,8 +4489,8 @@ instance ToJSON TypedLinkFacetAttributeUpdate where
 --
 -- /See:/ 'typedLinkSchemaAndFacetName' smart constructor.
 data TypedLinkSchemaAndFacetName = TypedLinkSchemaAndFacetName'
-  { _tlsafnSchemaARN     :: {-# NOUNPACK #-}!Text
-  , _tlsafnTypedLinkName :: {-# NOUNPACK #-}!Text
+  { _tlsafnSchemaARN     :: !Text
+  , _tlsafnTypedLinkName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4542,10 +4542,10 @@ instance ToJSON TypedLinkSchemaAndFacetName where
 --
 -- /See:/ 'typedLinkSpecifier' smart constructor.
 data TypedLinkSpecifier = TypedLinkSpecifier'
-  { _tlsTypedLinkFacet          :: {-# NOUNPACK #-}!TypedLinkSchemaAndFacetName
-  , _tlsSourceObjectReference   :: {-# NOUNPACK #-}!ObjectReference
-  , _tlsTargetObjectReference   :: {-# NOUNPACK #-}!ObjectReference
-  , _tlsIdentityAttributeValues :: {-# NOUNPACK #-}![AttributeNameAndValue]
+  { _tlsTypedLinkFacet          :: !TypedLinkSchemaAndFacetName
+  , _tlsSourceObjectReference   :: !ObjectReference
+  , _tlsTargetObjectReference   :: !ObjectReference
+  , _tlsIdentityAttributeValues :: ![AttributeNameAndValue]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

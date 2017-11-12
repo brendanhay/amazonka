@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyClusterIAMRoles' smart constructor.
 data ModifyClusterIAMRoles = ModifyClusterIAMRoles'
-  { _mcirRemoveIAMRoles    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mcirAddIAMRoles       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mcirClusterIdentifier :: {-# NOUNPACK #-}!Text
+  { _mcirRemoveIAMRoles    :: !(Maybe [Text])
+  , _mcirAddIAMRoles       :: !(Maybe [Text])
+  , _mcirClusterIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery ModifyClusterIAMRoles where
 
 -- | /See:/ 'modifyClusterIAMRolesResponse' smart constructor.
 data ModifyClusterIAMRolesResponse = ModifyClusterIAMRolesResponse'
-  { _mcirrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
-  , _mcirrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mcirrsCluster        :: !(Maybe Cluster)
+  , _mcirrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -104,8 +104,8 @@ instance ToQuery StopDataCollectionByAgentIds where
 
 -- | /See:/ 'stopDataCollectionByAgentIdsResponse' smart constructor.
 data StopDataCollectionByAgentIdsResponse = StopDataCollectionByAgentIdsResponse'
-  { _sdcbairsAgentsConfigurationStatus :: {-# NOUNPACK #-}!(Maybe [AgentConfigurationStatus])
-  , _sdcbairsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sdcbairsAgentsConfigurationStatus :: !(Maybe [AgentConfigurationStatus])
+  , _sdcbairsResponseStatus            :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

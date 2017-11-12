@@ -65,22 +65,22 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateDeploymentGroup' smart constructor.
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
-  { _udgServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udgEc2TagSet :: {-# NOUNPACK #-}!(Maybe EC2TagSet)
-  , _udgDeploymentConfigName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udgOnPremisesTagSet :: {-# NOUNPACK #-}!(Maybe OnPremisesTagSet)
-  , _udgNewDeploymentGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udgEc2TagFilters :: {-# NOUNPACK #-}!(Maybe [EC2TagFilter])
-  , _udgBlueGreenDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe BlueGreenDeploymentConfiguration)
-  , _udgLoadBalancerInfo :: {-# NOUNPACK #-}!(Maybe LoadBalancerInfo)
-  , _udgOnPremisesInstanceTagFilters :: {-# NOUNPACK #-}!(Maybe [TagFilter])
-  , _udgAlarmConfiguration :: {-# NOUNPACK #-}!(Maybe AlarmConfiguration)
-  , _udgTriggerConfigurations :: {-# NOUNPACK #-}!(Maybe [TriggerConfig])
-  , _udgAutoScalingGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _udgDeploymentStyle :: {-# NOUNPACK #-}!(Maybe DeploymentStyle)
-  , _udgAutoRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe AutoRollbackConfiguration)
-  , _udgApplicationName :: {-# NOUNPACK #-}!Text
-  , _udgCurrentDeploymentGroupName :: {-# NOUNPACK #-}!Text
+  { _udgServiceRoleARN :: !(Maybe Text)
+  , _udgEc2TagSet :: !(Maybe EC2TagSet)
+  , _udgDeploymentConfigName :: !(Maybe Text)
+  , _udgOnPremisesTagSet :: !(Maybe OnPremisesTagSet)
+  , _udgNewDeploymentGroupName :: !(Maybe Text)
+  , _udgEc2TagFilters :: !(Maybe [EC2TagFilter])
+  , _udgBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
+  , _udgLoadBalancerInfo :: !(Maybe LoadBalancerInfo)
+  , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+  , _udgAlarmConfiguration :: !(Maybe AlarmConfiguration)
+  , _udgTriggerConfigurations :: !(Maybe [TriggerConfig])
+  , _udgAutoScalingGroups :: !(Maybe [Text])
+  , _udgDeploymentStyle :: !(Maybe DeploymentStyle)
+  , _udgAutoRollbackConfiguration :: !(Maybe AutoRollbackConfiguration)
+  , _udgApplicationName :: !Text
+  , _udgCurrentDeploymentGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -274,8 +274,8 @@ instance ToQuery UpdateDeploymentGroup where
 --
 -- /See:/ 'updateDeploymentGroupResponse' smart constructor.
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
-  { _udgrsHooksNotCleanedUp :: {-# NOUNPACK #-}!(Maybe [AutoScalingGroup])
-  , _udgrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _udgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
+  , _udgrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

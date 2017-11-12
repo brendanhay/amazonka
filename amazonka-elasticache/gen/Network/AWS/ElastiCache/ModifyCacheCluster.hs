@@ -66,23 +66,23 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyCacheCluster' smart constructor.
 data ModifyCacheCluster = ModifyCacheCluster'
-  { _mccEngineVersion              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mccCacheNodeType              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mccSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mccAutoMinorVersionUpgrade    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mccCacheParameterGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mccSnapshotWindow             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mccNewAvailabilityZones       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mccPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mccCacheNodeIdsToRemove       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mccSnapshotRetentionLimit     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _mccNotificationTopicStatus    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mccAZMode                     :: {-# NOUNPACK #-}!(Maybe AZMode)
-  , _mccApplyImmediately           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mccNotificationTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mccNumCacheNodes              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _mccCacheSecurityGroupNames    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mccCacheClusterId             :: {-# NOUNPACK #-}!Text
+  { _mccEngineVersion              :: !(Maybe Text)
+  , _mccCacheNodeType              :: !(Maybe Text)
+  , _mccSecurityGroupIds           :: !(Maybe [Text])
+  , _mccAutoMinorVersionUpgrade    :: !(Maybe Bool)
+  , _mccCacheParameterGroupName    :: !(Maybe Text)
+  , _mccSnapshotWindow             :: !(Maybe Text)
+  , _mccNewAvailabilityZones       :: !(Maybe [Text])
+  , _mccPreferredMaintenanceWindow :: !(Maybe Text)
+  , _mccCacheNodeIdsToRemove       :: !(Maybe [Text])
+  , _mccSnapshotRetentionLimit     :: !(Maybe Int)
+  , _mccNotificationTopicStatus    :: !(Maybe Text)
+  , _mccAZMode                     :: !(Maybe AZMode)
+  , _mccApplyImmediately           :: !(Maybe Bool)
+  , _mccNotificationTopicARN       :: !(Maybe Text)
+  , _mccNumCacheNodes              :: !(Maybe Int)
+  , _mccCacheSecurityGroupNames    :: !(Maybe [Text])
+  , _mccCacheClusterId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -278,8 +278,8 @@ instance ToQuery ModifyCacheCluster where
 
 -- | /See:/ 'modifyCacheClusterResponse' smart constructor.
 data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
-  { _mccrsCacheCluster   :: {-# NOUNPACK #-}!(Maybe CacheCluster)
-  , _mccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mccrsCacheCluster   :: !(Maybe CacheCluster)
+  , _mccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

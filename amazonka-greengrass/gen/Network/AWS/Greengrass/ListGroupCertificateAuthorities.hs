@@ -101,8 +101,8 @@ instance ToQuery ListGroupCertificateAuthorities
 
 -- | /See:/ 'listGroupCertificateAuthoritiesResponse' smart constructor.
 data ListGroupCertificateAuthoritiesResponse = ListGroupCertificateAuthoritiesResponse'
-  { _lgcarsGroupCertificateAuthorities :: {-# NOUNPACK #-}!(Maybe [GroupCertificateAuthorityProperties])
-  , _lgcarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lgcarsGroupCertificateAuthorities :: !(Maybe [GroupCertificateAuthorityProperties])
+  , _lgcarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

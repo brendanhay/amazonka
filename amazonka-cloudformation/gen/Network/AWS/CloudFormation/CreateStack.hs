@@ -66,23 +66,23 @@ import Network.AWS.Response
 --
 -- /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
-  { _csDisableRollback :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _csNotificationARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _csEnableTerminationProtection :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _csStackPolicyBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csParameters :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _csStackPolicyURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csTemplateBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csTemplateURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csCapabilities :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _csRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe RollbackConfiguration)
-  , _csOnFailure :: {-# NOUNPACK #-}!(Maybe OnFailure)
-  , _csResourceTypes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _csTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _csTimeoutInMinutes :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _csRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csStackName :: {-# NOUNPACK #-}!Text
+  { _csDisableRollback             :: !(Maybe Bool)
+  , _csNotificationARNs            :: !(Maybe [Text])
+  , _csEnableTerminationProtection :: !(Maybe Bool)
+  , _csStackPolicyBody             :: !(Maybe Text)
+  , _csParameters                  :: !(Maybe [Parameter])
+  , _csStackPolicyURL              :: !(Maybe Text)
+  , _csTemplateBody                :: !(Maybe Text)
+  , _csTemplateURL                 :: !(Maybe Text)
+  , _csClientRequestToken          :: !(Maybe Text)
+  , _csCapabilities                :: !(Maybe [Capability])
+  , _csRollbackConfiguration       :: !(Maybe RollbackConfiguration)
+  , _csOnFailure                   :: !(Maybe OnFailure)
+  , _csResourceTypes               :: !(Maybe [Text])
+  , _csTags                        :: !(Maybe [Tag])
+  , _csTimeoutInMinutes            :: !(Maybe Nat)
+  , _csRoleARN                     :: !(Maybe Text)
+  , _csStackName                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -269,8 +269,8 @@ instance ToQuery CreateStack where
 --
 -- /See:/ 'createStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'
-  { _csrsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csrsStackId        :: !(Maybe Text)
+  , _csrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

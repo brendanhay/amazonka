@@ -120,8 +120,8 @@ instance ToQuery TerminateWorkspaces where
 --
 -- /See:/ 'terminateWorkspacesResponse' smart constructor.
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
-  { _twrsFailedRequests :: {-# NOUNPACK #-}!(Maybe [FailedWorkspaceChangeRequest])
-  , _twrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _twrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
+  , _twrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

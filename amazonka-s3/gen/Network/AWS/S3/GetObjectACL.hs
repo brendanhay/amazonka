@@ -49,10 +49,10 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getObjectACL' smart constructor.
 data GetObjectACL = GetObjectACL'
-  { _goaVersionId    :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _goaRequestPayer :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _goaBucket       :: {-# NOUNPACK #-}!BucketName
-  , _goaKey          :: {-# NOUNPACK #-}!ObjectKey
+  { _goaVersionId    :: !(Maybe ObjectVersionId)
+  , _goaRequestPayer :: !(Maybe RequestPayer)
+  , _goaBucket       :: !BucketName
+  , _goaKey          :: !ObjectKey
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,10 +127,10 @@ instance ToQuery GetObjectACL where
 
 -- | /See:/ 'getObjectACLResponse' smart constructor.
 data GetObjectACLResponse = GetObjectACLResponse'
-  { _goarsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _goarsGrants         :: {-# NOUNPACK #-}!(Maybe [Grant])
-  , _goarsOwner          :: {-# NOUNPACK #-}!(Maybe Owner)
-  , _goarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _goarsRequestCharged :: !(Maybe RequestCharged)
+  , _goarsGrants         :: !(Maybe [Grant])
+  , _goarsOwner          :: !(Maybe Owner)
+  , _goarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

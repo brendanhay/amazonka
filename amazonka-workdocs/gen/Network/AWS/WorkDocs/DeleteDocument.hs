@@ -44,8 +44,8 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteDocument' smart constructor.
 data DeleteDocument = DeleteDocument'
-  { _ddAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _ddDocumentId          :: {-# NOUNPACK #-}!Text
+  { _ddAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _ddDocumentId          :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

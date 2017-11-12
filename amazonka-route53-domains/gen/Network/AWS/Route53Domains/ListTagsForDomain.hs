@@ -112,8 +112,8 @@ instance ToQuery ListTagsForDomain where
 --
 -- /See:/ 'listTagsForDomainResponse' smart constructor.
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
-  { _ltfdrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ltfdrsTagList        :: {-# NOUNPACK #-}![Tag]
+  { _ltfdrsResponseStatus :: !Int
+  , _ltfdrsTagList        :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,14 +53,14 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createComment' smart constructor.
 data CreateComment = CreateComment'
-  { _ccNotifyCollaborators :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _ccVisibility          :: {-# NOUNPACK #-}!(Maybe CommentVisibilityType)
-  , _ccThreadId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccParentId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccDocumentId          :: {-# NOUNPACK #-}!Text
-  , _ccVersionId           :: {-# NOUNPACK #-}!Text
-  , _ccText                :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _ccNotifyCollaborators :: !(Maybe Bool)
+  , _ccAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _ccVisibility          :: !(Maybe CommentVisibilityType)
+  , _ccThreadId            :: !(Maybe Text)
+  , _ccParentId            :: !(Maybe Text)
+  , _ccDocumentId          :: !Text
+  , _ccVersionId           :: !Text
+  , _ccText                :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -175,8 +175,8 @@ instance ToQuery CreateComment where
 
 -- | /See:/ 'createCommentResponse' smart constructor.
 data CreateCommentResponse = CreateCommentResponse'
-  { _ccrsComment        :: {-# NOUNPACK #-}!(Maybe Comment)
-  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ccrsComment        :: !(Maybe Comment)
+  , _ccrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

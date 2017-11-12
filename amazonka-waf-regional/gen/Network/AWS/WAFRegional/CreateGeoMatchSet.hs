@@ -62,8 +62,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'createGeoMatchSet' smart constructor.
 data CreateGeoMatchSet = CreateGeoMatchSet'
-  { _cgmsName        :: {-# NOUNPACK #-}!Text
-  , _cgmsChangeToken :: {-# NOUNPACK #-}!Text
+  { _cgmsName        :: !Text
+  , _cgmsChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,9 +129,9 @@ instance ToQuery CreateGeoMatchSet where
 
 -- | /See:/ 'createGeoMatchSetResponse' smart constructor.
 data CreateGeoMatchSetResponse = CreateGeoMatchSetResponse'
-  { _cgmsrsGeoMatchSet    :: {-# NOUNPACK #-}!(Maybe GeoMatchSet)
-  , _cgmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cgmsrsGeoMatchSet    :: !(Maybe GeoMatchSet)
+  , _cgmsrsChangeToken    :: !(Maybe Text)
+  , _cgmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

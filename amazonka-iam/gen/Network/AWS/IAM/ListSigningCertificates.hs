@@ -57,9 +57,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listSigningCertificates' smart constructor.
 data ListSigningCertificates = ListSigningCertificates'
-  { _lUserName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lUserName :: !(Maybe Text)
+  , _lMarker   :: !(Maybe Text)
+  , _lMaxItems :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,10 +136,10 @@ instance ToQuery ListSigningCertificates where
 --
 -- /See:/ 'listSigningCertificatesResponse' smart constructor.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
-  { _lrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lrsCertificates   :: {-# NOUNPACK #-}![SigningCertificate]
+  { _lrsMarker         :: !(Maybe Text)
+  , _lrsIsTruncated    :: !(Maybe Bool)
+  , _lrsResponseStatus :: !Int
+  , _lrsCertificates   :: ![SigningCertificate]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

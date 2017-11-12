@@ -54,8 +54,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'reorderReceiptRuleSet' smart constructor.
 data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
-  { _rrrsRuleSetName :: {-# NOUNPACK #-}!Text
-  , _rrrsRuleNames   :: {-# NOUNPACK #-}![Text]
+  { _rrrsRuleSetName :: !Text
+  , _rrrsRuleNames   :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

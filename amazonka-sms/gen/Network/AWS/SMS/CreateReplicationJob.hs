@@ -49,12 +49,12 @@ import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'createReplicationJob' smart constructor.
 data CreateReplicationJob = CreateReplicationJob'
-  { _crjLicenseType         :: {-# NOUNPACK #-}!(Maybe LicenseType)
-  , _crjRoleName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crjDescription         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crjServerId            :: {-# NOUNPACK #-}!Text
-  , _crjSeedReplicationTime :: {-# NOUNPACK #-}!POSIX
-  , _crjFrequency           :: {-# NOUNPACK #-}!Int
+  { _crjLicenseType         :: !(Maybe LicenseType)
+  , _crjRoleName            :: !(Maybe Text)
+  , _crjDescription         :: !(Maybe Text)
+  , _crjServerId            :: !Text
+  , _crjSeedReplicationTime :: !POSIX
+  , _crjFrequency           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -157,8 +157,8 @@ instance ToQuery CreateReplicationJob where
 
 -- | /See:/ 'createReplicationJobResponse' smart constructor.
 data CreateReplicationJobResponse = CreateReplicationJobResponse'
-  { _crjrsReplicationJobId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crjrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _crjrsReplicationJobId :: !(Maybe Text)
+  , _crjrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

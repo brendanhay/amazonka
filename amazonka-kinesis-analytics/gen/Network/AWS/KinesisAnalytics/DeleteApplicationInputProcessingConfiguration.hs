@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteApplicationInputProcessingConfiguration' smart constructor.
 data DeleteApplicationInputProcessingConfiguration = DeleteApplicationInputProcessingConfiguration'
-  { _daipcApplicationName             :: {-# NOUNPACK #-}!Text
-  , _daipcCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
-  , _daipcInputId                     :: {-# NOUNPACK #-}!Text
+  { _daipcApplicationName             :: !Text
+  , _daipcCurrentApplicationVersionId :: !Nat
+  , _daipcInputId                     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

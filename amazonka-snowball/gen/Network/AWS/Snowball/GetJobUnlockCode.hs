@@ -104,8 +104,8 @@ instance ToQuery GetJobUnlockCode where
 
 -- | /See:/ 'getJobUnlockCodeResponse' smart constructor.
 data GetJobUnlockCodeResponse = GetJobUnlockCodeResponse'
-  { _gjucrsUnlockCode     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjucrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gjucrsUnlockCode     :: !(Maybe Text)
+  , _gjucrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

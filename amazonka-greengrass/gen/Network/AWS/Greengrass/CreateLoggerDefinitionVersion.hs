@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createLoggerDefinitionVersion' smart constructor.
 data CreateLoggerDefinitionVersion = CreateLoggerDefinitionVersion'
-  { _cldvLoggers            :: {-# NOUNPACK #-}!(Maybe [GreengrassLogger])
-  , _cldvAmznClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldvLoggerDefinitionId :: {-# NOUNPACK #-}!Text
+  { _cldvLoggers            :: !(Maybe [GreengrassLogger])
+  , _cldvAmznClientToken    :: !(Maybe Text)
+  , _cldvLoggerDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,11 +129,11 @@ instance ToQuery CreateLoggerDefinitionVersion where
 
 -- | /See:/ 'createLoggerDefinitionVersionResponse' smart constructor.
 data CreateLoggerDefinitionVersionResponse = CreateLoggerDefinitionVersionResponse'
-  { _cldvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _cldvrsARN               :: !(Maybe Text)
+  , _cldvrsCreationTimestamp :: !(Maybe Text)
+  , _cldvrsVersion           :: !(Maybe Text)
+  , _cldvrsId                :: !(Maybe Text)
+  , _cldvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

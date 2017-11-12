@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAssociatedStacks' smart constructor.
 data ListAssociatedStacks = ListAssociatedStacks'
-  { _lasNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lasFleetName :: {-# NOUNPACK #-}!Text
+  { _lasNextToken :: !(Maybe Text)
+  , _lasFleetName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,9 +115,9 @@ instance ToQuery ListAssociatedStacks where
 
 -- | /See:/ 'listAssociatedStacksResponse' smart constructor.
 data ListAssociatedStacksResponse = ListAssociatedStacksResponse'
-  { _lasrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lasrsNames          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lasrsNextToken      :: !(Maybe Text)
+  , _lasrsNames          :: !(Maybe [Text])
+  , _lasrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

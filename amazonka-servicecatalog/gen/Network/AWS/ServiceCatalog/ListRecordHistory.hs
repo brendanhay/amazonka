@@ -51,11 +51,11 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listRecordHistory' smart constructor.
 data ListRecordHistory = ListRecordHistory'
-  { _lrhSearchFilter :: {-# NOUNPACK #-}!(Maybe ListRecordHistorySearchFilter)
-  , _lrhAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrhAccessLevelFilter :: {-# NOUNPACK #-}!(Maybe AccessLevelFilter)
-  , _lrhPageToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrhPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lrhSearchFilter      :: !(Maybe ListRecordHistorySearchFilter)
+  , _lrhAcceptLanguage    :: !(Maybe Text)
+  , _lrhAccessLevelFilter :: !(Maybe AccessLevelFilter)
+  , _lrhPageToken         :: !(Maybe Text)
+  , _lrhPageSize          :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,9 +147,9 @@ instance ToQuery ListRecordHistory where
 
 -- | /See:/ 'listRecordHistoryResponse' smart constructor.
 data ListRecordHistoryResponse = ListRecordHistoryResponse'
-  { _lrhrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrhrsRecordDetails  :: {-# NOUNPACK #-}!(Maybe [RecordDetail])
-  , _lrhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrhrsNextPageToken  :: !(Maybe Text)
+  , _lrhrsRecordDetails  :: !(Maybe [RecordDetail])
+  , _lrhrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

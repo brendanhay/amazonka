@@ -62,8 +62,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'createByteMatchSet' smart constructor.
 data CreateByteMatchSet = CreateByteMatchSet'
-  { _cbmsName        :: {-# NOUNPACK #-}!Text
-  , _cbmsChangeToken :: {-# NOUNPACK #-}!Text
+  { _cbmsName        :: !Text
+  , _cbmsChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance ToQuery CreateByteMatchSet where
 
 -- | /See:/ 'createByteMatchSetResponse' smart constructor.
 data CreateByteMatchSetResponse = CreateByteMatchSetResponse'
-  { _cbmsrsByteMatchSet   :: {-# NOUNPACK #-}!(Maybe ByteMatchSet)
-  , _cbmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cbmsrsByteMatchSet   :: !(Maybe ByteMatchSet)
+  , _cbmsrsChangeToken    :: !(Maybe Text)
+  , _cbmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

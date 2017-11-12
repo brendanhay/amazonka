@@ -52,12 +52,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'listObjectAttributes' smart constructor.
 data ListObjectAttributes = ListObjectAttributes'
-  { _loaFacetFilter      :: {-# NOUNPACK #-}!(Maybe SchemaFacet)
-  , _loaConsistencyLevel :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
-  , _loaNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _loaMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _loaDirectoryARN     :: {-# NOUNPACK #-}!Text
-  , _loaObjectReference  :: {-# NOUNPACK #-}!ObjectReference
+  { _loaFacetFilter      :: !(Maybe SchemaFacet)
+  , _loaConsistencyLevel :: !(Maybe ConsistencyLevel)
+  , _loaNextToken        :: !(Maybe Text)
+  , _loaMaxResults       :: !(Maybe Nat)
+  , _loaDirectoryARN     :: !Text
+  , _loaObjectReference  :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,9 +156,9 @@ instance ToQuery ListObjectAttributes where
 
 -- | /See:/ 'listObjectAttributesResponse' smart constructor.
 data ListObjectAttributesResponse = ListObjectAttributesResponse'
-  { _loarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _loarsAttributes     :: {-# NOUNPACK #-}!(Maybe [AttributeKeyAndValue])
-  , _loarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _loarsNextToken      :: !(Maybe Text)
+  , _loarsAttributes     :: !(Maybe [AttributeKeyAndValue])
+  , _loarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

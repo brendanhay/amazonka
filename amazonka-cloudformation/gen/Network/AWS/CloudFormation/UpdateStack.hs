@@ -69,22 +69,22 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
-  { _usUsePreviousTemplate :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _usNotificationARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _usStackPolicyBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usStackPolicyDuringUpdateBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usStackPolicyDuringUpdateURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usParameters :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _usStackPolicyURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usTemplateBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usTemplateURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usCapabilities :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _usRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe RollbackConfiguration)
-  , _usResourceTypes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _usTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _usRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usStackName :: {-# NOUNPACK #-}!Text
+  { _usUsePreviousTemplate         :: !(Maybe Bool)
+  , _usNotificationARNs            :: !(Maybe [Text])
+  , _usStackPolicyBody             :: !(Maybe Text)
+  , _usStackPolicyDuringUpdateBody :: !(Maybe Text)
+  , _usStackPolicyDuringUpdateURL  :: !(Maybe Text)
+  , _usParameters                  :: !(Maybe [Parameter])
+  , _usStackPolicyURL              :: !(Maybe Text)
+  , _usTemplateBody                :: !(Maybe Text)
+  , _usTemplateURL                 :: !(Maybe Text)
+  , _usClientRequestToken          :: !(Maybe Text)
+  , _usCapabilities                :: !(Maybe [Capability])
+  , _usRollbackConfiguration       :: !(Maybe RollbackConfiguration)
+  , _usResourceTypes               :: !(Maybe [Text])
+  , _usTags                        :: !(Maybe [Tag])
+  , _usRoleARN                     :: !(Maybe Text)
+  , _usStackName                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -264,8 +264,8 @@ instance ToQuery UpdateStack where
 --
 -- /See:/ 'updateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'
-  { _usrsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _usrsStackId        :: !(Maybe Text)
+  , _usrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

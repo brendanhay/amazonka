@@ -103,8 +103,8 @@ instance ToQuery BuildSuggesters where
 --
 -- /See:/ 'buildSuggestersResponse' smart constructor.
 data BuildSuggestersResponse = BuildSuggestersResponse'
-  { _bsrsFieldNames     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _bsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bsrsFieldNames     :: !(Maybe [Text])
+  , _bsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

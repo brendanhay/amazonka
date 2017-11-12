@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEnvironmentManagedActions' smart constructor.
 data DescribeEnvironmentManagedActions = DescribeEnvironmentManagedActions'
-  { _demaStatus          :: {-# NOUNPACK #-}!(Maybe ActionStatus)
-  , _demaEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _demaEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _demaStatus          :: !(Maybe ActionStatus)
+  , _demaEnvironmentName :: !(Maybe Text)
+  , _demaEnvironmentId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery DescribeEnvironmentManagedActions
 --
 -- /See:/ 'describeEnvironmentManagedActionsResponse' smart constructor.
 data DescribeEnvironmentManagedActionsResponse = DescribeEnvironmentManagedActionsResponse'
-  { _demarsManagedActions :: {-# NOUNPACK #-}!(Maybe (List1 ManagedAction))
-  , _demarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _demarsManagedActions :: !(Maybe (List1 ManagedAction))
+  , _demarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -103,9 +103,9 @@ instance ToQuery ListSecurityConfigurations where
 
 -- | /See:/ 'listSecurityConfigurationsResponse' smart constructor.
 data ListSecurityConfigurationsResponse = ListSecurityConfigurationsResponse'
-  { _lscrsSecurityConfigurations :: {-# NOUNPACK #-}!(Maybe [SecurityConfigurationSummary])
-  , _lscrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lscrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lscrsSecurityConfigurations :: !(Maybe [SecurityConfigurationSummary])
+  , _lscrsMarker                 :: !(Maybe Text)
+  , _lscrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

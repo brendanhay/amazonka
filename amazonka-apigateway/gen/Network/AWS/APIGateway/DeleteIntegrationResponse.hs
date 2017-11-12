@@ -50,10 +50,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteIntegrationResponse' smart constructor.
 data DeleteIntegrationResponse = DeleteIntegrationResponse'
-  { _diRestAPIId  :: {-# NOUNPACK #-}!Text
-  , _diResourceId :: {-# NOUNPACK #-}!Text
-  , _diHttpMethod :: {-# NOUNPACK #-}!Text
-  , _diStatusCode :: {-# NOUNPACK #-}!Text
+  { _diRestAPIId  :: !Text
+  , _diResourceId :: !Text
+  , _diHttpMethod :: !Text
+  , _diStatusCode :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

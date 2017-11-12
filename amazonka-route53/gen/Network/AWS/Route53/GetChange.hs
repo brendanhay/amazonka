@@ -104,8 +104,8 @@ instance ToQuery GetChange where
 --
 -- /See:/ 'getChangeResponse' smart constructor.
 data GetChangeResponse = GetChangeResponse'
-  { _gcrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gcrsChangeInfo     :: {-# NOUNPACK #-}!ChangeInfo
+  { _gcrsResponseStatus :: !Int
+  , _gcrsChangeInfo     :: !ChangeInfo
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

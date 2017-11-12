@@ -27,9 +27,9 @@ import Network.AWS.XRay.Types.Sum
 --
 -- /See:/ 'alias' smart constructor.
 data Alias = Alias'
-  { _aNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _aName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aType  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aNames :: !(Maybe [Text])
+  , _aName  :: !(Maybe Text)
+  , _aType  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -77,9 +77,9 @@ instance NFData Alias where
 --
 -- /See:/ 'annotationValue' smart constructor.
 data AnnotationValue = AnnotationValue'
-  { _avNumberValue  :: {-# NOUNPACK #-}!(Maybe Double)
-  , _avStringValue  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avBooleanValue :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _avNumberValue  :: !(Maybe Double)
+  , _avStringValue  :: !(Maybe Text)
+  , _avBooleanValue :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,12 +132,12 @@ instance NFData AnnotationValue where
 --
 -- /See:/ 'backendConnectionErrors' smart constructor.
 data BackendConnectionErrors = BackendConnectionErrors'
-  { _bceOtherCount             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _bceTimeoutCount           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _bceHTTPCode5XXCount       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _bceConnectionRefusedCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _bceHTTPCode4XXCount       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _bceUnknownHostCount       :: {-# NOUNPACK #-}!(Maybe Int)
+  { _bceOtherCount             :: !(Maybe Int)
+  , _bceTimeoutCount           :: !(Maybe Int)
+  , _bceHTTPCode5XXCount       :: !(Maybe Int)
+  , _bceConnectionRefusedCount :: !(Maybe Int)
+  , _bceHTTPCode4XXCount       :: !(Maybe Int)
+  , _bceUnknownHostCount       :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -215,12 +215,12 @@ instance ToJSON BackendConnectionErrors where
 --
 -- /See:/ 'edge' smart constructor.
 data Edge = Edge'
-  { _eStartTime             :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _eAliases               :: {-# NOUNPACK #-}!(Maybe [Alias])
-  , _eResponseTimeHistogram :: {-# NOUNPACK #-}!(Maybe [HistogramEntry])
-  , _eReferenceId           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _eEndTime               :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _eSummaryStatistics     :: {-# NOUNPACK #-}!(Maybe EdgeStatistics)
+  { _eStartTime             :: !(Maybe POSIX)
+  , _eAliases               :: !(Maybe [Alias])
+  , _eResponseTimeHistogram :: !(Maybe [HistogramEntry])
+  , _eReferenceId           :: !(Maybe Int)
+  , _eEndTime               :: !(Maybe POSIX)
+  , _eSummaryStatistics     :: !(Maybe EdgeStatistics)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -297,11 +297,11 @@ instance NFData Edge where
 --
 -- /See:/ 'edgeStatistics' smart constructor.
 data EdgeStatistics = EdgeStatistics'
-  { _esFaultStatistics   :: {-# NOUNPACK #-}!(Maybe FaultStatistics)
-  , _esOKCount           :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _esTotalResponseTime :: {-# NOUNPACK #-}!(Maybe Double)
-  , _esErrorStatistics   :: {-# NOUNPACK #-}!(Maybe ErrorStatistics)
-  , _esTotalCount        :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _esFaultStatistics   :: !(Maybe FaultStatistics)
+  , _esOKCount           :: !(Maybe Integer)
+  , _esTotalResponseTime :: !(Maybe Double)
+  , _esErrorStatistics   :: !(Maybe ErrorStatistics)
+  , _esTotalCount        :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -370,9 +370,9 @@ instance NFData EdgeStatistics where
 --
 -- /See:/ 'errorStatistics' smart constructor.
 data ErrorStatistics = ErrorStatistics'
-  { _eOtherCount    :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _eThrottleCount :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _eTotalCount    :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _eOtherCount    :: !(Maybe Integer)
+  , _eThrottleCount :: !(Maybe Integer)
+  , _eTotalCount    :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -422,8 +422,8 @@ instance NFData ErrorStatistics where
 --
 -- /See:/ 'faultStatistics' smart constructor.
 data FaultStatistics = FaultStatistics'
-  { _fsOtherCount :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _fsTotalCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _fsOtherCount :: !(Maybe Integer)
+  , _fsTotalCount :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -465,11 +465,11 @@ instance NFData FaultStatistics where
 --
 -- /See:/ 'hTTP' smart constructor.
 data HTTP = HTTP'
-  { _httpHTTPMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _httpHTTPStatus :: {-# NOUNPACK #-}!(Maybe Int)
-  , _httpClientIP   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _httpUserAgent  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _httpHTTPURL    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _httpHTTPMethod :: !(Maybe Text)
+  , _httpHTTPStatus :: !(Maybe Int)
+  , _httpClientIP   :: !(Maybe Text)
+  , _httpUserAgent  :: !(Maybe Text)
+  , _httpHTTPURL    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -538,8 +538,8 @@ instance NFData HTTP where
 --
 -- /See:/ 'histogramEntry' smart constructor.
 data HistogramEntry = HistogramEntry'
-  { _heCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _heValue :: {-# NOUNPACK #-}!(Maybe Double)
+  { _heCount :: !(Maybe Int)
+  , _heValue :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -580,8 +580,8 @@ instance NFData HistogramEntry where
 --
 -- /See:/ 'segment' smart constructor.
 data Segment = Segment'
-  { _sDocument :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sId       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sDocument :: !(Maybe Text)
+  , _sId       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -621,10 +621,10 @@ instance NFData Segment where
 --
 -- /See:/ 'serviceId' smart constructor.
 data ServiceId = ServiceId'
-  { _siAccountId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _siNames     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _siName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _siType      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _siAccountId :: !(Maybe Text)
+  , _siNames     :: !(Maybe [Text])
+  , _siName      :: !(Maybe Text)
+  , _siType      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -685,19 +685,19 @@ instance NFData ServiceId where
 --
 -- /See:/ 'serviceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-  { _sState                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sStartTime             :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _sRoot                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sResponseTimeHistogram :: {-# NOUNPACK #-}!(Maybe [HistogramEntry])
-  , _sDurationHistogram     :: {-# NOUNPACK #-}!(Maybe [HistogramEntry])
-  , _sReferenceId           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sAccountId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sNames                 :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEndTime               :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _sType                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEdges                 :: {-# NOUNPACK #-}!(Maybe [Edge])
-  , _sSummaryStatistics     :: {-# NOUNPACK #-}!(Maybe ServiceStatistics)
+  { _sState                 :: !(Maybe Text)
+  , _sStartTime             :: !(Maybe POSIX)
+  , _sRoot                  :: !(Maybe Bool)
+  , _sResponseTimeHistogram :: !(Maybe [HistogramEntry])
+  , _sDurationHistogram     :: !(Maybe [HistogramEntry])
+  , _sReferenceId           :: !(Maybe Int)
+  , _sAccountId             :: !(Maybe Text)
+  , _sNames                 :: !(Maybe [Text])
+  , _sName                  :: !(Maybe Text)
+  , _sEndTime               :: !(Maybe POSIX)
+  , _sType                  :: !(Maybe Text)
+  , _sEdges                 :: !(Maybe [Edge])
+  , _sSummaryStatistics     :: !(Maybe ServiceStatistics)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -830,11 +830,11 @@ instance NFData ServiceInfo where
 --
 -- /See:/ 'serviceStatistics' smart constructor.
 data ServiceStatistics = ServiceStatistics'
-  { _ssFaultStatistics   :: {-# NOUNPACK #-}!(Maybe FaultStatistics)
-  , _ssOKCount           :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _ssTotalResponseTime :: {-# NOUNPACK #-}!(Maybe Double)
-  , _ssErrorStatistics   :: {-# NOUNPACK #-}!(Maybe ErrorStatistics)
-  , _ssTotalCount        :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _ssFaultStatistics   :: !(Maybe FaultStatistics)
+  , _ssOKCount           :: !(Maybe Integer)
+  , _ssTotalResponseTime :: !(Maybe Double)
+  , _ssErrorStatistics   :: !(Maybe ErrorStatistics)
+  , _ssTotalCount        :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -903,12 +903,12 @@ instance NFData ServiceStatistics where
 --
 -- /See:/ 'telemetryRecord' smart constructor.
 data TelemetryRecord = TelemetryRecord'
-  { _trSegmentsReceivedCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _trSegmentsSentCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _trSegmentsSpilloverCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _trSegmentsRejectedCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _trTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _trBackendConnectionErrors :: {-# NOUNPACK #-}!(Maybe BackendConnectionErrors)
+  { _trSegmentsReceivedCount   :: !(Maybe Int)
+  , _trSegmentsSentCount       :: !(Maybe Int)
+  , _trSegmentsSpilloverCount  :: !(Maybe Int)
+  , _trSegmentsRejectedCount   :: !(Maybe Int)
+  , _trTimestamp               :: !(Maybe POSIX)
+  , _trBackendConnectionErrors :: !(Maybe BackendConnectionErrors)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -989,9 +989,9 @@ instance ToJSON TelemetryRecord where
 --
 -- /See:/ 'trace' smart constructor.
 data Trace = Trace'
-  { _tId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tSegments :: {-# NOUNPACK #-}!(Maybe [Segment])
-  , _tDuration :: {-# NOUNPACK #-}!(Maybe Double)
+  { _tId       :: !(Maybe Text)
+  , _tSegments :: !(Maybe [Segment])
+  , _tDuration :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1039,17 +1039,17 @@ instance NFData Trace where
 --
 -- /See:/ 'traceSummary' smart constructor.
 data TraceSummary = TraceSummary'
-  { _tsAnnotations  :: {-# NOUNPACK #-}!(Maybe (Map Text [ValueWithServiceIds]))
-  , _tsHasThrottle  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tsUsers        :: {-# NOUNPACK #-}!(Maybe [TraceUser])
-  , _tsHasFault     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tsServiceIds   :: {-# NOUNPACK #-}!(Maybe [ServiceId])
-  , _tsIsPartial    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tsHasError     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tsId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tsHTTP         :: {-# NOUNPACK #-}!(Maybe HTTP)
-  , _tsDuration     :: {-# NOUNPACK #-}!(Maybe Double)
-  , _tsResponseTime :: {-# NOUNPACK #-}!(Maybe Double)
+  { _tsAnnotations  :: !(Maybe (Map Text [ValueWithServiceIds]))
+  , _tsHasThrottle  :: !(Maybe Bool)
+  , _tsUsers        :: !(Maybe [TraceUser])
+  , _tsHasFault     :: !(Maybe Bool)
+  , _tsServiceIds   :: !(Maybe [ServiceId])
+  , _tsIsPartial    :: !(Maybe Bool)
+  , _tsHasError     :: !(Maybe Bool)
+  , _tsId           :: !(Maybe Text)
+  , _tsHTTP         :: !(Maybe HTTP)
+  , _tsDuration     :: !(Maybe Double)
+  , _tsResponseTime :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1167,8 +1167,8 @@ instance NFData TraceSummary where
 --
 -- /See:/ 'traceUser' smart constructor.
 data TraceUser = TraceUser'
-  { _tuServiceIds :: {-# NOUNPACK #-}!(Maybe [ServiceId])
-  , _tuUserName   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tuServiceIds :: !(Maybe [ServiceId])
+  , _tuUserName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1210,9 +1210,9 @@ instance NFData TraceUser where
 --
 -- /See:/ 'unprocessedTraceSegment' smart constructor.
 data UnprocessedTraceSegment = UnprocessedTraceSegment'
-  { _utsErrorCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _utsId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _utsMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _utsErrorCode :: !(Maybe Text)
+  , _utsId        :: !(Maybe Text)
+  , _utsMessage   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1262,8 +1262,8 @@ instance NFData UnprocessedTraceSegment where
 --
 -- /See:/ 'valueWithServiceIds' smart constructor.
 data ValueWithServiceIds = ValueWithServiceIds'
-  { _vwsiServiceIds      :: {-# NOUNPACK #-}!(Maybe [ServiceId])
-  , _vwsiAnnotationValue :: {-# NOUNPACK #-}!(Maybe AnnotationValue)
+  { _vwsiServiceIds      :: !(Maybe [ServiceId])
+  , _vwsiAnnotationValue :: !(Maybe AnnotationValue)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

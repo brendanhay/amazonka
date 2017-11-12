@@ -66,9 +66,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateBuild' smart constructor.
 data UpdateBuild = UpdateBuild'
-  { _ubName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ubVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ubBuildId :: {-# NOUNPACK #-}!Text
+  { _ubName    :: !(Maybe Text)
+  , _ubVersion :: !(Maybe Text)
+  , _ubBuildId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,8 +142,8 @@ instance ToQuery UpdateBuild where
 --
 -- /See:/ 'updateBuildResponse' smart constructor.
 data UpdateBuildResponse = UpdateBuildResponse'
-  { _ubrsBuild          :: {-# NOUNPACK #-}!(Maybe Build)
-  , _ubrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ubrsBuild          :: !(Maybe Build)
+  , _ubrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

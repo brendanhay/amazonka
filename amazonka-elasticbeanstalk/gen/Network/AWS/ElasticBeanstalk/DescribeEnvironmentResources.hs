@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEnvironmentResources' smart constructor.
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
-  { _derEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _derEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _derEnvironmentName :: !(Maybe Text)
+  , _derEnvironmentId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,8 +116,8 @@ instance ToQuery DescribeEnvironmentResources where
 --
 -- /See:/ 'describeEnvironmentResourcesResponse' smart constructor.
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
-  { _derrsEnvironmentResources :: {-# NOUNPACK #-}!(Maybe EnvironmentResourceDescription)
-  , _derrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _derrsEnvironmentResources :: !(Maybe EnvironmentResourceDescription)
+  , _derrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

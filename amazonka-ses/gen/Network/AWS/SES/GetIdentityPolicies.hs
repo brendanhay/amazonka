@@ -55,8 +55,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'getIdentityPolicies' smart constructor.
 data GetIdentityPolicies = GetIdentityPolicies'
-  { _gipIdentity    :: {-# NOUNPACK #-}!Text
-  , _gipPolicyNames :: {-# NOUNPACK #-}![Text]
+  { _gipIdentity    :: !Text
+  , _gipPolicyNames :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,8 +119,8 @@ instance ToQuery GetIdentityPolicies where
 --
 -- /See:/ 'getIdentityPoliciesResponse' smart constructor.
 data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
-  { _giprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _giprsPolicies       :: {-# NOUNPACK #-}!(Map Text Text)
+  { _giprsResponseStatus :: !Int
+  , _giprsPolicies       :: !(Map Text Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

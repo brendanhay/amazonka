@@ -59,8 +59,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'deleteSizeConstraintSet' smart constructor.
 data DeleteSizeConstraintSet = DeleteSizeConstraintSet'
-  { _dscsSizeConstraintSetId :: {-# NOUNPACK #-}!Text
-  , _dscsChangeToken         :: {-# NOUNPACK #-}!Text
+  { _dscsSizeConstraintSetId :: !Text
+  , _dscsChangeToken         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,8 +130,8 @@ instance ToQuery DeleteSizeConstraintSet where
 
 -- | /See:/ 'deleteSizeConstraintSetResponse' smart constructor.
 data DeleteSizeConstraintSetResponse = DeleteSizeConstraintSetResponse'
-  { _dscsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dscsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dscsrsChangeToken    :: !(Maybe Text)
+  , _dscsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

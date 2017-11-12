@@ -61,10 +61,10 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'updateMaintenanceStartTime' smart constructor.
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
-  { _umstGatewayARN   :: {-# NOUNPACK #-}!Text
-  , _umstHourOfDay    :: {-# NOUNPACK #-}!Nat
-  , _umstMinuteOfHour :: {-# NOUNPACK #-}!Nat
-  , _umstDayOfWeek    :: {-# NOUNPACK #-}!Nat
+  { _umstGatewayARN   :: !Text
+  , _umstHourOfDay    :: !Nat
+  , _umstMinuteOfHour :: !Nat
+  , _umstDayOfWeek    :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -155,8 +155,8 @@ instance ToQuery UpdateMaintenanceStartTime where
 --
 -- /See:/ 'updateMaintenanceStartTimeResponse' smart constructor.
 data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
-  { _umstrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umstrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _umstrsGatewayARN     :: !(Maybe Text)
+  , _umstrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

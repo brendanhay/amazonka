@@ -52,12 +52,12 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createPortfolio' smart constructor.
 data CreatePortfolio = CreatePortfolio'
-  { _creAcceptLanguage   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _creDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _creTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _creDisplayName      :: {-# NOUNPACK #-}!Text
-  , _creProviderName     :: {-# NOUNPACK #-}!Text
-  , _creIdempotencyToken :: {-# NOUNPACK #-}!Text
+  { _creAcceptLanguage   :: !(Maybe Text)
+  , _creDescription      :: !(Maybe Text)
+  , _creTags             :: !(Maybe [Tag])
+  , _creDisplayName      :: !Text
+  , _creProviderName     :: !Text
+  , _creIdempotencyToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,9 +160,9 @@ instance ToQuery CreatePortfolio where
 
 -- | /See:/ 'createPortfolioResponse' smart constructor.
 data CreatePortfolioResponse = CreatePortfolioResponse'
-  { _crsPortfolioDetail :: {-# NOUNPACK #-}!(Maybe PortfolioDetail)
-  , _crsTags            :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _crsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _crsPortfolioDetail :: !(Maybe PortfolioDetail)
+  , _crsTags            :: !(Maybe [Tag])
+  , _crsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -55,11 +55,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createComputeEnvironment' smart constructor.
 data CreateComputeEnvironment = CreateComputeEnvironment'
-  { _cceState                  :: {-# NOUNPACK #-}!(Maybe CEState)
-  , _cceComputeResources       :: {-# NOUNPACK #-}!(Maybe ComputeResource)
-  , _cceComputeEnvironmentName :: {-# NOUNPACK #-}!Text
-  , _cceType                   :: {-# NOUNPACK #-}!CEType
-  , _cceServiceRole            :: {-# NOUNPACK #-}!Text
+  { _cceState                  :: !(Maybe CEState)
+  , _cceComputeResources       :: !(Maybe ComputeResource)
+  , _cceComputeEnvironmentName :: !Text
+  , _cceType                   :: !CEType
+  , _cceServiceRole            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,9 +154,9 @@ instance ToQuery CreateComputeEnvironment where
 
 -- | /See:/ 'createComputeEnvironmentResponse' smart constructor.
 data CreateComputeEnvironmentResponse = CreateComputeEnvironmentResponse'
-  { _ccersComputeEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccersComputeEnvironmentARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccersResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _ccersComputeEnvironmentName :: !(Maybe Text)
+  , _ccersComputeEnvironmentARN  :: !(Maybe Text)
+  , _ccersResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

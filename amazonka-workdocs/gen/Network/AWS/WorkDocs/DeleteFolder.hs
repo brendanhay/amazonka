@@ -44,8 +44,8 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteFolder' smart constructor.
 data DeleteFolder = DeleteFolder'
-  { _dfAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _dfFolderId            :: {-# NOUNPACK #-}!Text
+  { _dfAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _dfFolderId            :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

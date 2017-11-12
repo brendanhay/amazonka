@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeIndexFields' smart constructor.
 data DescribeIndexFields = DescribeIndexFields'
-  { _difDeployed   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _difFieldNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _difDomainName :: {-# NOUNPACK #-}!Text
+  { _difDeployed   :: !(Maybe Bool)
+  , _difFieldNames :: !(Maybe [Text])
+  , _difDomainName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery DescribeIndexFields where
 --
 -- /See:/ 'describeIndexFieldsResponse' smart constructor.
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
-  { _difsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _difsrsIndexFields    :: {-# NOUNPACK #-}![IndexFieldStatus]
+  { _difsrsResponseStatus :: !Int
+  , _difsrsIndexFields    :: ![IndexFieldStatus]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

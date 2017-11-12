@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateJobQueue' smart constructor.
 data UpdateJobQueue = UpdateJobQueue'
-  { _ujqState :: {-# NOUNPACK #-}!(Maybe JQState)
-  , _ujqPriority :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ujqComputeEnvironmentOrder :: {-# NOUNPACK #-}!(Maybe [ComputeEnvironmentOrder])
-  , _ujqJobQueue :: {-# NOUNPACK #-}!Text
+  { _ujqState                   :: !(Maybe JQState)
+  , _ujqPriority                :: !(Maybe Int)
+  , _ujqComputeEnvironmentOrder :: !(Maybe [ComputeEnvironmentOrder])
+  , _ujqJobQueue                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery UpdateJobQueue where
 
 -- | /See:/ 'updateJobQueueResponse' smart constructor.
 data UpdateJobQueueResponse = UpdateJobQueueResponse'
-  { _ujqrsJobQueueARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ujqrsJobQueueName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ujqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ujqrsJobQueueARN    :: !(Maybe Text)
+  , _ujqrsJobQueueName   :: !(Maybe Text)
+  , _ujqrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'unassignIPv6Addresses' smart constructor.
 data UnassignIPv6Addresses = UnassignIPv6Addresses'
-  { _uiaIPv6Addresses      :: {-# NOUNPACK #-}![Text]
-  , _uiaNetworkInterfaceId :: {-# NOUNPACK #-}!Text
+  { _uiaIPv6Addresses      :: ![Text]
+  , _uiaNetworkInterfaceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,9 +109,9 @@ instance ToQuery UnassignIPv6Addresses where
 
 -- | /See:/ 'unassignIPv6AddressesResponse' smart constructor.
 data UnassignIPv6AddressesResponse = UnassignIPv6AddressesResponse'
-  { _uiarsNetworkInterfaceId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uiarsUnassignedIPv6Addresses :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uiarsResponseStatus          :: {-# NOUNPACK #-}!Int
+  { _uiarsNetworkInterfaceId      :: !(Maybe Text)
+  , _uiarsUnassignedIPv6Addresses :: !(Maybe [Text])
+  , _uiarsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

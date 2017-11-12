@@ -53,13 +53,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'createGroupVersion' smart constructor.
 data CreateGroupVersion = CreateGroupVersion'
-  { _cgvAmznClientToken                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgvSubscriptionDefinitionVersionARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgvCoreDefinitionVersionARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgvDeviceDefinitionVersionARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgvFunctionDefinitionVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgvLoggerDefinitionVersionARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgvGroupId                          :: {-# NOUNPACK #-}!Text
+  { _cgvAmznClientToken                  :: !(Maybe Text)
+  , _cgvSubscriptionDefinitionVersionARN :: !(Maybe Text)
+  , _cgvCoreDefinitionVersionARN         :: !(Maybe Text)
+  , _cgvDeviceDefinitionVersionARN       :: !(Maybe Text)
+  , _cgvFunctionDefinitionVersionARN     :: !(Maybe Text)
+  , _cgvLoggerDefinitionVersionARN       :: !(Maybe Text)
+  , _cgvGroupId                          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -173,11 +173,11 @@ instance ToQuery CreateGroupVersion where
 
 -- | /See:/ 'createGroupVersionResponse' smart constructor.
 data CreateGroupVersionResponse = CreateGroupVersionResponse'
-  { _cgvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _cgvrsARN               :: !(Maybe Text)
+  , _cgvrsCreationTimestamp :: !(Maybe Text)
+  , _cgvrsVersion           :: !(Maybe Text)
+  , _cgvrsId                :: !(Maybe Text)
+  , _cgvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

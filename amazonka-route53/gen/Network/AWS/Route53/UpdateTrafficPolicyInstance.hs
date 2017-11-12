@@ -63,10 +63,10 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'updateTrafficPolicyInstance' smart constructor.
 data UpdateTrafficPolicyInstance = UpdateTrafficPolicyInstance'
-  { _utpiId                   :: {-# NOUNPACK #-}!Text
-  , _utpiTTL                  :: {-# NOUNPACK #-}!Nat
-  , _utpiTrafficPolicyId      :: {-# NOUNPACK #-}!Text
-  , _utpiTrafficPolicyVersion :: {-# NOUNPACK #-}!Nat
+  { _utpiId                   :: !Text
+  , _utpiTTL                  :: !Nat
+  , _utpiTrafficPolicyId      :: !Text
+  , _utpiTrafficPolicyVersion :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,8 +156,8 @@ instance ToXML UpdateTrafficPolicyInstance where
 --
 -- /See:/ 'updateTrafficPolicyInstanceResponse' smart constructor.
 data UpdateTrafficPolicyInstanceResponse = UpdateTrafficPolicyInstanceResponse'
-  { _utpirsResponseStatus        :: {-# NOUNPACK #-}!Int
-  , _utpirsTrafficPolicyInstance :: {-# NOUNPACK #-}!TrafficPolicyInstance
+  { _utpirsResponseStatus        :: !Int
+  , _utpirsTrafficPolicyInstance :: !TrafficPolicyInstance
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

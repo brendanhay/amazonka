@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'acceptQualificationRequest' smart constructor.
 data AcceptQualificationRequest = AcceptQualificationRequest'
-  { _aqrIntegerValue           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _aqrQualificationRequestId :: {-# NOUNPACK #-}!Text
+  { _aqrIntegerValue           :: !(Maybe Int)
+  , _aqrQualificationRequestId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

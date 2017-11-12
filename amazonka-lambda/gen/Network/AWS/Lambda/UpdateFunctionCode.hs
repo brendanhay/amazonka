@@ -76,13 +76,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateFunctionCode' smart constructor.
 data UpdateFunctionCode = UpdateFunctionCode'
-  { _uS3ObjectVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uS3Key           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uZipFile         :: {-# NOUNPACK #-}!(Maybe (Sensitive Base64))
-  , _uS3Bucket        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uDryRun          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uPublish         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uFunctionName    :: {-# NOUNPACK #-}!Text
+  { _uS3ObjectVersion :: !(Maybe Text)
+  , _uS3Key           :: !(Maybe Text)
+  , _uZipFile         :: !(Maybe (Sensitive Base64))
+  , _uS3Bucket        :: !(Maybe Text)
+  , _uDryRun          :: !(Maybe Bool)
+  , _uPublish         :: !(Maybe Bool)
+  , _uFunctionName    :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

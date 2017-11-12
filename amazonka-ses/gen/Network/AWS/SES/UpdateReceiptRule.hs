@@ -54,8 +54,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'updateReceiptRule' smart constructor.
 data UpdateReceiptRule = UpdateReceiptRule'
-  { _urrRuleSetName :: {-# NOUNPACK #-}!Text
-  , _urrRule        :: {-# NOUNPACK #-}!ReceiptRule
+  { _urrRuleSetName :: !Text
+  , _urrRule        :: !ReceiptRule
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

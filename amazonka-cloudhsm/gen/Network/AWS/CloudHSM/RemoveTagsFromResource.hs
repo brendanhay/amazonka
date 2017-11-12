@@ -53,8 +53,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'removeTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-  { _rtfrResourceARN :: {-# NOUNPACK #-}!Text
-  , _rtfrTagKeyList  :: {-# NOUNPACK #-}![Text]
+  { _rtfrResourceARN :: !Text
+  , _rtfrTagKeyList  :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,8 +120,8 @@ instance ToQuery RemoveTagsFromResource where
 
 -- | /See:/ 'removeTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-  { _rtfrrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _rtfrrsStatus         :: {-# NOUNPACK #-}!Text
+  { _rtfrrsResponseStatus :: !Int
+  , _rtfrrsStatus         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

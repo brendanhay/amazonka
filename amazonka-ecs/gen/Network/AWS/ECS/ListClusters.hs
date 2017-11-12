@@ -51,8 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listClusters' smart constructor.
 data ListClusters = ListClusters'
-  { _lcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _lcNextToken  :: !(Maybe Text)
+  , _lcMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery ListClusters where
 
 -- | /See:/ 'listClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
-  { _lcrsClusterARNs    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcrsClusterARNs    :: !(Maybe [Text])
+  , _lcrsNextToken      :: !(Maybe Text)
+  , _lcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

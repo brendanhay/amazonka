@@ -88,8 +88,8 @@ instance ToQuery IsVPCPeered where
 
 -- | /See:/ 'isVPCPeeredResponse' smart constructor.
 data IsVPCPeeredResponse = IsVPCPeeredResponse'
-  { _ivprsIsPeered       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ivprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ivprsIsPeered       :: !(Maybe Bool)
+  , _ivprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

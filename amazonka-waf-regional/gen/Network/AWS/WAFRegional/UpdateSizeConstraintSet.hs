@@ -74,9 +74,9 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'updateSizeConstraintSet' smart constructor.
 data UpdateSizeConstraintSet = UpdateSizeConstraintSet'
-  { _uscsSizeConstraintSetId :: {-# NOUNPACK #-}!Text
-  , _uscsChangeToken         :: {-# NOUNPACK #-}!Text
-  , _uscsUpdates             :: {-# NOUNPACK #-}!(List1 SizeConstraintSetUpdate)
+  { _uscsSizeConstraintSetId :: !Text
+  , _uscsChangeToken         :: !Text
+  , _uscsUpdates             :: !(List1 SizeConstraintSetUpdate)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -155,8 +155,8 @@ instance ToQuery UpdateSizeConstraintSet where
 
 -- | /See:/ 'updateSizeConstraintSetResponse' smart constructor.
 data UpdateSizeConstraintSetResponse = UpdateSizeConstraintSetResponse'
-  { _uscsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uscsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uscsrsChangeToken    :: !(Maybe Text)
+  , _uscsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -51,8 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listInstanceFleets' smart constructor.
 data ListInstanceFleets = ListInstanceFleets'
-  { _lifMarker    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lifClusterId :: {-# NOUNPACK #-}!Text
+  { _lifMarker    :: !(Maybe Text)
+  , _lifClusterId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,9 +126,9 @@ instance ToQuery ListInstanceFleets where
 
 -- | /See:/ 'listInstanceFleetsResponse' smart constructor.
 data ListInstanceFleetsResponse = ListInstanceFleetsResponse'
-  { _lifrsInstanceFleets :: {-# NOUNPACK #-}!(Maybe [InstanceFleet])
-  , _lifrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lifrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lifrsInstanceFleets :: !(Maybe [InstanceFleet])
+  , _lifrsMarker         :: !(Maybe Text)
+  , _lifrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

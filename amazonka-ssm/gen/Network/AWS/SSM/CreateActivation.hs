@@ -51,11 +51,11 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createActivation' smart constructor.
 data CreateActivation = CreateActivation'
-  { _caDefaultInstanceName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caRegistrationLimit   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _caExpirationDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _caDescription         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caIAMRole             :: {-# NOUNPACK #-}!Text
+  { _caDefaultInstanceName :: !(Maybe Text)
+  , _caRegistrationLimit   :: !(Maybe Nat)
+  , _caExpirationDate      :: !(Maybe POSIX)
+  , _caDescription         :: !(Maybe Text)
+  , _caIAMRole             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,9 +147,9 @@ instance ToQuery CreateActivation where
 
 -- | /See:/ 'createActivationResponse' smart constructor.
 data CreateActivationResponse = CreateActivationResponse'
-  { _carsActivationId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _carsActivationCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _carsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _carsActivationId   :: !(Maybe Text)
+  , _carsActivationCode :: !(Maybe Text)
+  , _carsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,11 +52,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'registerJobDefinition' smart constructor.
 data RegisterJobDefinition = RegisterJobDefinition'
-  { _rjdRetryStrategy       :: {-# NOUNPACK #-}!(Maybe RetryStrategy)
-  , _rjdParameters          :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _rjdContainerProperties :: {-# NOUNPACK #-}!(Maybe ContainerProperties)
-  , _rjdJobDefinitionName   :: {-# NOUNPACK #-}!Text
-  , _rjdType                :: {-# NOUNPACK #-}!JobDefinitionType
+  { _rjdRetryStrategy       :: !(Maybe RetryStrategy)
+  , _rjdParameters          :: !(Maybe (Map Text Text))
+  , _rjdContainerProperties :: !(Maybe ContainerProperties)
+  , _rjdJobDefinitionName   :: !Text
+  , _rjdType                :: !JobDefinitionType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,10 +149,10 @@ instance ToQuery RegisterJobDefinition where
 
 -- | /See:/ 'registerJobDefinitionResponse' smart constructor.
 data RegisterJobDefinitionResponse = RegisterJobDefinitionResponse'
-  { _rjdrsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _rjdrsJobDefinitionName :: {-# NOUNPACK #-}!Text
-  , _rjdrsJobDefinitionARN  :: {-# NOUNPACK #-}!Text
-  , _rjdrsRevision          :: {-# NOUNPACK #-}!Int
+  { _rjdrsResponseStatus    :: !Int
+  , _rjdrsJobDefinitionName :: !Text
+  , _rjdrsJobDefinitionARN  :: !Text
+  , _rjdrsRevision          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

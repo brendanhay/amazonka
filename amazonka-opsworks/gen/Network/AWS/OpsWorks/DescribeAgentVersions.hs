@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeAgentVersions' smart constructor.
 data DescribeAgentVersions = DescribeAgentVersions'
-  { _davConfigurationManager :: {-# NOUNPACK #-}!(Maybe StackConfigurationManager)
-  , _davStackId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _davConfigurationManager :: !(Maybe StackConfigurationManager)
+  , _davStackId              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,8 +119,8 @@ instance ToQuery DescribeAgentVersions where
 --
 -- /See:/ 'describeAgentVersionsResponse' smart constructor.
 data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
-  { _davrsAgentVersions  :: {-# NOUNPACK #-}!(Maybe [AgentVersion])
-  , _davrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _davrsAgentVersions  :: !(Maybe [AgentVersion])
+  , _davrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -59,8 +59,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeVault' smart constructor.
 data DescribeVault = DescribeVault'
-  { _dvAccountId :: {-# NOUNPACK #-}!Text
-  , _dvVaultName :: {-# NOUNPACK #-}!Text
+  { _dvAccountId :: !Text
+  , _dvVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

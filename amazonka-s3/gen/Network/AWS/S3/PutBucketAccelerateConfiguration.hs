@@ -42,8 +42,8 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketAccelerateConfiguration' smart constructor.
 data PutBucketAccelerateConfiguration = PutBucketAccelerateConfiguration'
-  { _pbacBucket                  :: {-# NOUNPACK #-}!BucketName
-  , _pbacAccelerateConfiguration :: {-# NOUNPACK #-}!AccelerateConfiguration
+  { _pbacBucket                  :: !BucketName
+  , _pbacAccelerateConfiguration :: !AccelerateConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

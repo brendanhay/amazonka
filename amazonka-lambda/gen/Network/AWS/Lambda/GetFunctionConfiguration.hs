@@ -71,8 +71,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getFunctionConfiguration' smart constructor.
 data GetFunctionConfiguration = GetFunctionConfiguration'
-  { _gfcQualifier    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfcFunctionName :: {-# NOUNPACK #-}!Text
+  { _gfcQualifier    :: !(Maybe Text)
+  , _gfcFunctionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

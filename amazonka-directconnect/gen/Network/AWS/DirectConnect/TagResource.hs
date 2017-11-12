@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'tagResource' smart constructor.
 data TagResource = TagResource'
-  { _trResourceARN :: {-# NOUNPACK #-}!Text
-  , _trTags        :: {-# NOUNPACK #-}!(List1 Tag)
+  { _trResourceARN :: !Text
+  , _trTags        :: !(List1 Tag)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

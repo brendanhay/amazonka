@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getAssessmentReport' smart constructor.
 data GetAssessmentReport = GetAssessmentReport'
-  { _garAssessmentRunARN :: {-# NOUNPACK #-}!Text
-  , _garReportFileFormat :: {-# NOUNPACK #-}!ReportFileFormat
-  , _garReportType       :: {-# NOUNPACK #-}!ReportType
+  { _garAssessmentRunARN :: !Text
+  , _garReportFileFormat :: !ReportFileFormat
+  , _garReportType       :: !ReportType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance ToQuery GetAssessmentReport where
 
 -- | /See:/ 'getAssessmentReportResponse' smart constructor.
 data GetAssessmentReportResponse = GetAssessmentReportResponse'
-  { _garrsUrl            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _garrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _garrsStatus         :: {-# NOUNPACK #-}!ReportStatus
+  { _garrsUrl            :: !(Maybe Text)
+  , _garrsResponseStatus :: !Int
+  , _garrsStatus         :: !ReportStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

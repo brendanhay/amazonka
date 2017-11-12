@@ -57,9 +57,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAccessKeys' smart constructor.
 data ListAccessKeys = ListAccessKeys'
-  { _lakUserName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lakMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lakMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lakUserName :: !(Maybe Text)
+  , _lakMarker   :: !(Maybe Text)
+  , _lakMaxItems :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,10 +135,10 @@ instance ToQuery ListAccessKeys where
 --
 -- /See:/ 'listAccessKeysResponse' smart constructor.
 data ListAccessKeysResponse = ListAccessKeysResponse'
-  { _lakrsMarker            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lakrsIsTruncated       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lakrsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _lakrsAccessKeyMetadata :: {-# NOUNPACK #-}![AccessKeyMetadata]
+  { _lakrsMarker            :: !(Maybe Text)
+  , _lakrsIsTruncated       :: !(Maybe Bool)
+  , _lakrsResponseStatus    :: !Int
+  , _lakrsAccessKeyMetadata :: ![AccessKeyMetadata]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

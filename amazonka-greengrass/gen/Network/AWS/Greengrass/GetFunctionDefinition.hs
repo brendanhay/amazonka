@@ -108,14 +108,14 @@ instance ToQuery GetFunctionDefinition where
 
 -- | /See:/ 'getFunctionDefinitionResponse' smart constructor.
 data GetFunctionDefinitionResponse = GetFunctionDefinitionResponse'
-  { _gfdrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfdrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfdrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfdrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfdrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfdrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfdrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfdrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _gfdrsLatestVersionARN     :: !(Maybe Text)
+  , _gfdrsARN                  :: !(Maybe Text)
+  , _gfdrsName                 :: !(Maybe Text)
+  , _gfdrsCreationTimestamp    :: !(Maybe Text)
+  , _gfdrsId                   :: !(Maybe Text)
+  , _gfdrsLatestVersion        :: !(Maybe Text)
+  , _gfdrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _gfdrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

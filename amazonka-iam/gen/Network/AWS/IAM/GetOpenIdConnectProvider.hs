@@ -111,11 +111,11 @@ instance ToQuery GetOpenIdConnectProvider where
 --
 -- /See:/ 'getOpenIdConnectProviderResponse' smart constructor.
 data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
-  { _goicprsCreateDate     :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _goicprsURL            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _goicprsThumbprintList :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _goicprsClientIdList   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _goicprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _goicprsCreateDate     :: !(Maybe ISO8601)
+  , _goicprsURL            :: !(Maybe Text)
+  , _goicprsThumbprintList :: !(Maybe [Text])
+  , _goicprsClientIdList   :: !(Maybe [Text])
+  , _goicprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

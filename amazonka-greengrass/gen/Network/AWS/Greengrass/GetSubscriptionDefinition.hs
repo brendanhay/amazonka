@@ -109,14 +109,14 @@ instance ToQuery GetSubscriptionDefinition where
 
 -- | /See:/ 'getSubscriptionDefinitionResponse' smart constructor.
 data GetSubscriptionDefinitionResponse = GetSubscriptionDefinitionResponse'
-  { _gsdrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _gsdrsLatestVersionARN     :: !(Maybe Text)
+  , _gsdrsARN                  :: !(Maybe Text)
+  , _gsdrsName                 :: !(Maybe Text)
+  , _gsdrsCreationTimestamp    :: !(Maybe Text)
+  , _gsdrsId                   :: !(Maybe Text)
+  , _gsdrsLatestVersion        :: !(Maybe Text)
+  , _gsdrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _gsdrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

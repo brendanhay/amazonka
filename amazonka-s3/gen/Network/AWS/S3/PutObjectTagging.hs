@@ -48,11 +48,11 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObjectTagging' smart constructor.
 data PutObjectTagging = PutObjectTagging'
-  { _potVersionId  :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _potContentMD5 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _potBucket     :: {-# NOUNPACK #-}!BucketName
-  , _potKey        :: {-# NOUNPACK #-}!ObjectKey
-  , _potTagging    :: {-# NOUNPACK #-}!Tagging
+  { _potVersionId  :: !(Maybe ObjectVersionId)
+  , _potContentMD5 :: !(Maybe Text)
+  , _potBucket     :: !BucketName
+  , _potKey        :: !ObjectKey
+  , _potTagging    :: !Tagging
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery PutObjectTagging where
 
 -- | /See:/ 'putObjectTaggingResponse' smart constructor.
 data PutObjectTaggingResponse = PutObjectTaggingResponse'
-  { _potrsVersionId      :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _potrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _potrsVersionId      :: !(Maybe ObjectVersionId)
+  , _potrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

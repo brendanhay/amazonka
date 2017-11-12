@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateEvaluation' smart constructor.
 data UpdateEvaluation = UpdateEvaluation'
-  { _ueEvaluationId   :: {-# NOUNPACK #-}!Text
-  , _ueEvaluationName :: {-# NOUNPACK #-}!Text
+  { _ueEvaluationId   :: !Text
+  , _ueEvaluationName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery UpdateEvaluation where
 --
 -- /See:/ 'updateEvaluationResponse' smart constructor.
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
-  { _uersEvaluationId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uersEvaluationId   :: !(Maybe Text)
+  , _uersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeContainerInstances' smart constructor.
 data DescribeContainerInstances = DescribeContainerInstances'
-  { _dciCluster            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dciContainerInstances :: {-# NOUNPACK #-}![Text]
+  { _dciCluster            :: !(Maybe Text)
+  , _dciContainerInstances :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,9 +117,9 @@ instance ToQuery DescribeContainerInstances where
 
 -- | /See:/ 'describeContainerInstancesResponse' smart constructor.
 data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
-  { _dcisrsFailures           :: {-# NOUNPACK #-}!(Maybe [Failure])
-  , _dcisrsContainerInstances :: {-# NOUNPACK #-}!(Maybe [ContainerInstance])
-  , _dcisrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _dcisrsFailures           :: !(Maybe [Failure])
+  , _dcisrsContainerInstances :: !(Maybe [ContainerInstance])
+  , _dcisrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

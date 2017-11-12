@@ -48,8 +48,8 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'listGeoMatchSets' smart constructor.
 data ListGeoMatchSets = ListGeoMatchSets'
-  { _lgmsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgmsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lgmsNextMarker :: !(Maybe Text)
+  , _lgmsLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,9 +113,9 @@ instance ToQuery ListGeoMatchSets where
 
 -- | /See:/ 'listGeoMatchSetsResponse' smart constructor.
 data ListGeoMatchSetsResponse = ListGeoMatchSetsResponse'
-  { _lgmsrsGeoMatchSets   :: {-# NOUNPACK #-}!(Maybe [GeoMatchSetSummary])
-  , _lgmsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lgmsrsGeoMatchSets   :: !(Maybe [GeoMatchSetSummary])
+  , _lgmsrsNextMarker     :: !(Maybe Text)
+  , _lgmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

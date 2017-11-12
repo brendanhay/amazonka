@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'abortVaultLock' smart constructor.
 data AbortVaultLock = AbortVaultLock'
-  { _avlAccountId :: {-# NOUNPACK #-}!Text
-  , _avlVaultName :: {-# NOUNPACK #-}!Text
+  { _avlAccountId :: !Text
+  , _avlVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

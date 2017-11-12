@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'modifyHAPG' smart constructor.
 data ModifyHAPG = ModifyHAPG'
-  { _mhPartitionSerialList :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mhLabel               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mhHAPGARN             :: {-# NOUNPACK #-}!Text
+  { _mhPartitionSerialList :: !(Maybe [Text])
+  , _mhLabel               :: !(Maybe Text)
+  , _mhHAPGARN             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery ModifyHAPG where
 
 -- | /See:/ 'modifyHAPGResponse' smart constructor.
 data ModifyHAPGResponse = ModifyHAPGResponse'
-  { _mhrsHAPGARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mhrsHAPGARN        :: !(Maybe Text)
+  , _mhrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'changePassword' smart constructor.
 data ChangePassword = ChangePassword'
-  { _cpOldPassword :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _cpNewPassword :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _cpOldPassword :: !(Sensitive Text)
+  , _cpNewPassword :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

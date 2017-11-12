@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { _ugName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugGroupId :: {-# NOUNPACK #-}!Text
+  { _ugName    :: !(Maybe Text)
+  , _ugGroupId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'detectModerationLabels' smart constructor.
 data DetectModerationLabels = DetectModerationLabels'
-  { _dmlMinConfidence :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dmlImage         :: {-# NOUNPACK #-}!Image
+  { _dmlMinConfidence :: !(Maybe Double)
+  , _dmlImage         :: !Image
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,8 +116,8 @@ instance ToQuery DetectModerationLabels where
 
 -- | /See:/ 'detectModerationLabelsResponse' smart constructor.
 data DetectModerationLabelsResponse = DetectModerationLabelsResponse'
-  { _dmlrsModerationLabels :: {-# NOUNPACK #-}!(Maybe [ModerationLabel])
-  , _dmlrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _dmlrsModerationLabels :: !(Maybe [ModerationLabel])
+  , _dmlrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

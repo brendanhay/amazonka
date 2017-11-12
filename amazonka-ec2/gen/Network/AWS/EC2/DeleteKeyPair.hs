@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteKeyPair' smart constructor.
 data DeleteKeyPair = DeleteKeyPair'
-  { _dkpDryRun  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dkpKeyName :: {-# NOUNPACK #-}!Text
+  { _dkpDryRun  :: !(Maybe Bool)
+  , _dkpKeyName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

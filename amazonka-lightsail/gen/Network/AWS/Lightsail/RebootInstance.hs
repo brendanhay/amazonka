@@ -103,8 +103,8 @@ instance ToQuery RebootInstance where
 
 -- | /See:/ 'rebootInstanceResponse' smart constructor.
 data RebootInstanceResponse = RebootInstanceResponse'
-  { _rirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _rirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rirsOperations     :: !(Maybe [Operation])
+  , _rirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

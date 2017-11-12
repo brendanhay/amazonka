@@ -100,8 +100,8 @@ instance ToQuery CreateDomain where
 
 -- | /See:/ 'createDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-  { _cdrsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _cdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdrsOperation      :: !(Maybe Operation)
+  , _cdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

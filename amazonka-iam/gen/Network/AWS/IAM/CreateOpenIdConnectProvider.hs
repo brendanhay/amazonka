@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createOpenIdConnectProvider' smart constructor.
 data CreateOpenIdConnectProvider = CreateOpenIdConnectProvider'
-  { _coicpClientIdList   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _coicpURL            :: {-# NOUNPACK #-}!Text
-  , _coicpThumbprintList :: {-# NOUNPACK #-}![Text]
+  { _coicpClientIdList   :: !(Maybe [Text])
+  , _coicpURL            :: !Text
+  , _coicpThumbprintList :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance ToQuery CreateOpenIdConnectProvider where
 --
 -- /See:/ 'createOpenIdConnectProviderResponse' smart constructor.
 data CreateOpenIdConnectProviderResponse = CreateOpenIdConnectProviderResponse'
-  { _coicprsOpenIdConnectProviderARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _coicprsResponseStatus           :: {-# NOUNPACK #-}!Int
+  { _coicprsOpenIdConnectProviderARN :: !(Maybe Text)
+  , _coicprsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

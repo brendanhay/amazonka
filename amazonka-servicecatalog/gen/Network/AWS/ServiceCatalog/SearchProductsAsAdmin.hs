@@ -54,14 +54,14 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'searchProductsAsAdmin' smart constructor.
 data SearchProductsAsAdmin = SearchProductsAsAdmin'
-  { _spaaPortfolioId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _spaaFilters :: {-# NOUNPACK #-}!(Maybe (Map ProductViewFilterBy [Text]))
-  , _spaaSortOrder :: {-# NOUNPACK #-}!(Maybe SortOrder)
-  , _spaaAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _spaaPageToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _spaaPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _spaaProductSource :: {-# NOUNPACK #-}!(Maybe ProductSource)
-  , _spaaSortBy :: {-# NOUNPACK #-}!(Maybe ProductViewSortBy)
+  { _spaaPortfolioId    :: !(Maybe Text)
+  , _spaaFilters        :: !(Maybe (Map ProductViewFilterBy [Text]))
+  , _spaaSortOrder      :: !(Maybe SortOrder)
+  , _spaaAcceptLanguage :: !(Maybe Text)
+  , _spaaPageToken      :: !(Maybe Text)
+  , _spaaPageSize       :: !(Maybe Nat)
+  , _spaaProductSource  :: !(Maybe ProductSource)
+  , _spaaSortBy         :: !(Maybe ProductViewSortBy)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -178,9 +178,9 @@ instance ToQuery SearchProductsAsAdmin where
 
 -- | /See:/ 'searchProductsAsAdminResponse' smart constructor.
 data SearchProductsAsAdminResponse = SearchProductsAsAdminResponse'
-  { _spaarsNextPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _spaarsProductViewDetails :: {-# NOUNPACK #-}!(Maybe [ProductViewDetail])
-  , _spaarsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _spaarsNextPageToken      :: !(Maybe Text)
+  , _spaarsProductViewDetails :: !(Maybe [ProductViewDetail])
+  , _spaarsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

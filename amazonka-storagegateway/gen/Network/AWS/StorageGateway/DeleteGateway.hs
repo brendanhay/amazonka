@@ -113,8 +113,8 @@ instance ToQuery DeleteGateway where
 --
 -- /See:/ 'deleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
-  { _dgrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dgrsGatewayARN     :: !(Maybe Text)
+  , _dgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

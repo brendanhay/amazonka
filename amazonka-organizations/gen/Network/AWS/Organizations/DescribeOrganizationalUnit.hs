@@ -109,8 +109,8 @@ instance ToQuery DescribeOrganizationalUnit where
 
 -- | /See:/ 'describeOrganizationalUnitResponse' smart constructor.
 data DescribeOrganizationalUnitResponse = DescribeOrganizationalUnitResponse'
-  { _doursOrganizationalUnit :: {-# NOUNPACK #-}!(Maybe OrganizationalUnit)
-  , _doursResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _doursOrganizationalUnit :: !(Maybe OrganizationalUnit)
+  , _doursResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

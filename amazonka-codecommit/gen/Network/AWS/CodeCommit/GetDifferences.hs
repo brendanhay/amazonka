@@ -53,13 +53,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'getDifferences' smart constructor.
 data GetDifferences = GetDifferences'
-  { _gdAfterPath             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdBeforeCommitSpecifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdBeforePath            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdMaxResults            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gdRepositoryName        :: {-# NOUNPACK #-}!Text
-  , _gdAfterCommitSpecifier  :: {-# NOUNPACK #-}!Text
+  { _gdAfterPath             :: !(Maybe Text)
+  , _gdNextToken             :: !(Maybe Text)
+  , _gdBeforeCommitSpecifier :: !(Maybe Text)
+  , _gdBeforePath            :: !(Maybe Text)
+  , _gdMaxResults            :: !(Maybe Int)
+  , _gdRepositoryName        :: !Text
+  , _gdAfterCommitSpecifier  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -170,9 +170,9 @@ instance ToQuery GetDifferences where
 
 -- | /See:/ 'getDifferencesResponse' smart constructor.
 data GetDifferencesResponse = GetDifferencesResponse'
-  { _gdrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdrsDifferences    :: {-# NOUNPACK #-}!(Maybe [Difference])
-  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdrsNextToken      :: !(Maybe Text)
+  , _gdrsDifferences    :: !(Maybe [Difference])
+  , _gdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

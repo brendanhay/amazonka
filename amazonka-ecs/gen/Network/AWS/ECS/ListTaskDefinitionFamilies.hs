@@ -55,10 +55,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listTaskDefinitionFamilies' smart constructor.
 data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
-  { _ltdfStatus       :: {-# NOUNPACK #-}!(Maybe TaskDefinitionFamilyStatus)
-  , _ltdfFamilyPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltdfNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltdfMaxResults   :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ltdfStatus       :: !(Maybe TaskDefinitionFamilyStatus)
+  , _ltdfFamilyPrefix :: !(Maybe Text)
+  , _ltdfNextToken    :: !(Maybe Text)
+  , _ltdfMaxResults   :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery ListTaskDefinitionFamilies where
 
 -- | /See:/ 'listTaskDefinitionFamiliesResponse' smart constructor.
 data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
-  { _ltdfrsFamilies       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ltdfrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltdfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltdfrsFamilies       :: !(Maybe [Text])
+  , _ltdfrsNextToken      :: !(Maybe Text)
+  , _ltdfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

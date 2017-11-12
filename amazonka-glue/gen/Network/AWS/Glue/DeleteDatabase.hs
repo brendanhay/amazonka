@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteDatabase' smart constructor.
 data DeleteDatabase = DeleteDatabase'
-  { _ddCatalogId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddName      :: {-# NOUNPACK #-}!Text
+  { _ddCatalogId :: !(Maybe Text)
+  , _ddName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

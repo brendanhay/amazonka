@@ -100,9 +100,9 @@ instance ToQuery ReadPipeline where
 --
 -- /See:/ 'readPipelineResponse' smart constructor.
 data ReadPipelineResponse = ReadPipelineResponse'
-  { _rrsWarnings       :: {-# NOUNPACK #-}!(Maybe [Warning])
-  , _rrsPipeline       :: {-# NOUNPACK #-}!(Maybe Pipeline)
-  , _rrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rrsWarnings       :: !(Maybe [Warning])
+  , _rrsPipeline       :: !(Maybe Pipeline)
+  , _rrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

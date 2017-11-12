@@ -27,8 +27,8 @@ import Network.AWS.ServiceCatalog.Types.Sum
 --
 -- /See:/ 'accessLevelFilter' smart constructor.
 data AccessLevelFilter = AccessLevelFilter'
-  { _alfValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _alfKey   :: {-# NOUNPACK #-}!(Maybe AccessLevelFilterKey)
+  { _alfValue :: !(Maybe Text)
+  , _alfKey   :: !(Maybe AccessLevelFilterKey)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -68,10 +68,10 @@ instance ToJSON AccessLevelFilter where
 --
 -- /See:/ 'constraintDetail' smart constructor.
 data ConstraintDetail = ConstraintDetail'
-  { _cdConstraintId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdOwner        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdType         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cdConstraintId :: !(Maybe Text)
+  , _cdOwner        :: !(Maybe Text)
+  , _cdType         :: !(Maybe Text)
+  , _cdDescription  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,8 +132,8 @@ instance NFData ConstraintDetail where
 --
 -- /See:/ 'constraintSummary' smart constructor.
 data ConstraintSummary = ConstraintSummary'
-  { _csType        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csType        :: !(Maybe Text)
+  , _csDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -175,10 +175,10 @@ instance NFData ConstraintSummary where
 --
 -- /See:/ 'launchPathSummary' smart constructor.
 data LaunchPathSummary = LaunchPathSummary'
-  { _lpsConstraintSummaries :: {-# NOUNPACK #-}!(Maybe [ConstraintSummary])
-  , _lpsName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpsId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpsTags                :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _lpsConstraintSummaries :: !(Maybe [ConstraintSummary])
+  , _lpsName                :: !(Maybe Text)
+  , _lpsId                  :: !(Maybe Text)
+  , _lpsTags                :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -240,8 +240,8 @@ instance NFData LaunchPathSummary where
 --
 -- /See:/ 'listRecordHistorySearchFilter' smart constructor.
 data ListRecordHistorySearchFilter = ListRecordHistorySearchFilter'
-  { _lrhsfValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrhsfKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lrhsfValue :: !(Maybe Text)
+  , _lrhsfKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -283,9 +283,9 @@ instance ToJSON ListRecordHistorySearchFilter where
 --
 -- /See:/ 'listTagOptionsFilters' smart constructor.
 data ListTagOptionsFilters = ListTagOptionsFilters'
-  { _ltofValue  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltofActive :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ltofKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ltofValue  :: !(Maybe Text)
+  , _ltofActive :: !(Maybe Bool)
+  , _ltofKey    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -370,12 +370,12 @@ instance NFData ParameterConstraints where
 --
 -- /See:/ 'portfolioDetail' smart constructor.
 data PortfolioDetail = PortfolioDetail'
-  { _pdARN          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdCreatedTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pdId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdDisplayName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdDescription  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdProviderName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pdARN          :: !(Maybe Text)
+  , _pdCreatedTime  :: !(Maybe POSIX)
+  , _pdId           :: !(Maybe Text)
+  , _pdDisplayName  :: !(Maybe Text)
+  , _pdDescription  :: !(Maybe Text)
+  , _pdProviderName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -452,8 +452,8 @@ instance NFData PortfolioDetail where
 --
 -- /See:/ 'principal' smart constructor.
 data Principal = Principal'
-  { _pPrincipalType :: {-# NOUNPACK #-}!(Maybe PrincipalType)
-  , _pPrincipalARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pPrincipalType :: !(Maybe PrincipalType)
+  , _pPrincipalARN  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -494,8 +494,8 @@ instance NFData Principal where
 --
 -- /See:/ 'productViewAggregationValue' smart constructor.
 data ProductViewAggregationValue = ProductViewAggregationValue'
-  { _pvavValue            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvavApproximateCount :: {-# NOUNPACK #-}!(Maybe Int)
+  { _pvavValue            :: !(Maybe Text)
+  , _pvavApproximateCount :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -538,10 +538,10 @@ instance NFData ProductViewAggregationValue where
 --
 -- /See:/ 'productViewDetail' smart constructor.
 data ProductViewDetail = ProductViewDetail'
-  { _pvdStatus             :: {-# NOUNPACK #-}!(Maybe RequestStatus)
-  , _pvdProductViewSummary :: {-# NOUNPACK #-}!(Maybe ProductViewSummary)
-  , _pvdCreatedTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pvdProductARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pvdStatus             :: !(Maybe RequestStatus)
+  , _pvdProductViewSummary :: !(Maybe ProductViewSummary)
+  , _pvdCreatedTime        :: !(Maybe POSIX)
+  , _pvdProductARN         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -602,17 +602,17 @@ instance NFData ProductViewDetail where
 --
 -- /See:/ 'productViewSummary' smart constructor.
 data ProductViewSummary = ProductViewSummary'
-  { _pvsOwner              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvsSupportURL         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvsShortDescription   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvsHasDefaultPath     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pvsDistributor        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvsName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvsId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvsType               :: {-# NOUNPACK #-}!(Maybe ProductType)
-  , _pvsSupportEmail       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvsProductId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvsSupportDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pvsOwner              :: !(Maybe Text)
+  , _pvsSupportURL         :: !(Maybe Text)
+  , _pvsShortDescription   :: !(Maybe Text)
+  , _pvsHasDefaultPath     :: !(Maybe Bool)
+  , _pvsDistributor        :: !(Maybe Text)
+  , _pvsName               :: !(Maybe Text)
+  , _pvsId                 :: !(Maybe Text)
+  , _pvsType               :: !(Maybe ProductType)
+  , _pvsSupportEmail       :: !(Maybe Text)
+  , _pvsProductId          :: !(Maybe Text)
+  , _pvsSupportDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -729,15 +729,15 @@ instance NFData ProductViewSummary where
 --
 -- /See:/ 'provisionedProductDetail' smart constructor.
 data ProvisionedProductDetail = ProvisionedProductDetail'
-  { _ppdIdempotencyToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppdStatus           :: {-# NOUNPACK #-}!(Maybe ProvisionedProductStatus)
-  , _ppdARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppdCreatedTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ppdStatusMessage    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppdName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppdLastRecordId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppdId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppdType             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ppdIdempotencyToken :: !(Maybe Text)
+  , _ppdStatus           :: !(Maybe ProvisionedProductStatus)
+  , _ppdARN              :: !(Maybe Text)
+  , _ppdCreatedTime      :: !(Maybe POSIX)
+  , _ppdStatusMessage    :: !(Maybe Text)
+  , _ppdName             :: !(Maybe Text)
+  , _ppdLastRecordId     :: !(Maybe Text)
+  , _ppdId               :: !(Maybe Text)
+  , _ppdType             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -838,10 +838,10 @@ instance NFData ProvisionedProductDetail where
 --
 -- /See:/ 'provisioningArtifact' smart constructor.
 data ProvisioningArtifact = ProvisioningArtifact'
-  { _paCreatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _paName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _paId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _paDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _paCreatedTime :: !(Maybe POSIX)
+  , _paName        :: !(Maybe Text)
+  , _paId          :: !(Maybe Text)
+  , _paDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -902,11 +902,11 @@ instance NFData ProvisioningArtifact where
 --
 -- /See:/ 'provisioningArtifactDetail' smart constructor.
 data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
-  { _padCreatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _padName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _padId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _padType        :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactType)
-  , _padDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _padCreatedTime :: !(Maybe POSIX)
+  , _padName        :: !(Maybe Text)
+  , _padId          :: !(Maybe Text)
+  , _padType        :: !(Maybe ProvisioningArtifactType)
+  , _padDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -975,12 +975,12 @@ instance NFData ProvisioningArtifactDetail where
 --
 -- /See:/ 'provisioningArtifactParameter' smart constructor.
 data ProvisioningArtifactParameter = ProvisioningArtifactParameter'
-  { _pIsNoEcho             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pParameterKey         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pParameterType        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pParameterConstraints :: {-# NOUNPACK #-}!(Maybe ParameterConstraints)
-  , _pDefaultValue         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pIsNoEcho             :: !(Maybe Bool)
+  , _pParameterKey         :: !(Maybe Text)
+  , _pParameterType        :: !(Maybe Text)
+  , _pParameterConstraints :: !(Maybe ParameterConstraints)
+  , _pDefaultValue         :: !(Maybe Text)
+  , _pDescription          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1057,10 +1057,10 @@ instance NFData ProvisioningArtifactParameter where
 --
 -- /See:/ 'provisioningArtifactProperties' smart constructor.
 data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
-  { _papName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _papType        :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactType)
-  , _papDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _papInfo        :: {-# NOUNPACK #-}!(Map Text Text)
+  { _papName        :: !(Maybe Text)
+  , _papType        :: !(Maybe ProvisioningArtifactType)
+  , _papDescription :: !(Maybe Text)
+  , _papInfo        :: !(Map Text Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1121,11 +1121,11 @@ instance ToJSON ProvisioningArtifactProperties where
 --
 -- /See:/ 'provisioningArtifactSummary' smart constructor.
 data ProvisioningArtifactSummary = ProvisioningArtifactSummary'
-  { _pasProvisioningArtifactMetadata :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _pasCreatedTime                  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pasName                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pasId                           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pasDescription                  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pasProvisioningArtifactMetadata :: !(Maybe (Map Text Text))
+  , _pasCreatedTime                  :: !(Maybe POSIX)
+  , _pasName                         :: !(Maybe Text)
+  , _pasId                           :: !(Maybe Text)
+  , _pasDescription                  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1195,8 +1195,8 @@ instance NFData ProvisioningArtifactSummary where
 --
 -- /See:/ 'provisioningParameter' smart constructor.
 data ProvisioningParameter = ProvisioningParameter'
-  { _ppValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ppValue :: !(Maybe Text)
+  , _ppKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1237,19 +1237,19 @@ instance ToJSON ProvisioningParameter where
 --
 -- /See:/ 'recordDetail' smart constructor.
 data RecordDetail = RecordDetail'
-  { _rdStatus                 :: {-# NOUNPACK #-}!(Maybe RecordStatus)
-  , _rdRecordTags             :: {-# NOUNPACK #-}!(Maybe [RecordTag])
-  , _rdProvisionedProductName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdProvisioningArtifactId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdCreatedTime            :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rdRecordType             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdRecordId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdProvisionedProductType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdUpdatedTime            :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rdPathId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdProvisionedProductId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdRecordErrors           :: {-# NOUNPACK #-}!(Maybe [RecordError])
-  , _rdProductId              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rdStatus                 :: !(Maybe RecordStatus)
+  , _rdRecordTags             :: !(Maybe [RecordTag])
+  , _rdProvisionedProductName :: !(Maybe Text)
+  , _rdProvisioningArtifactId :: !(Maybe Text)
+  , _rdCreatedTime            :: !(Maybe POSIX)
+  , _rdRecordType             :: !(Maybe Text)
+  , _rdRecordId               :: !(Maybe Text)
+  , _rdProvisionedProductType :: !(Maybe Text)
+  , _rdUpdatedTime            :: !(Maybe POSIX)
+  , _rdPathId                 :: !(Maybe Text)
+  , _rdProvisionedProductId   :: !(Maybe Text)
+  , _rdRecordErrors           :: !(Maybe [RecordError])
+  , _rdProductId              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1382,8 +1382,8 @@ instance NFData RecordDetail where
 --
 -- /See:/ 'recordError' smart constructor.
 data RecordError = RecordError'
-  { _reCode        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _reDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _reCode        :: !(Maybe Text)
+  , _reDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1424,9 +1424,9 @@ instance NFData RecordError where
 --
 -- /See:/ 'recordOutput' smart constructor.
 data RecordOutput = RecordOutput'
-  { _roOutputValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _roOutputKey   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _roDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _roOutputValue :: !(Maybe Text)
+  , _roOutputKey   :: !(Maybe Text)
+  , _roDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1476,8 +1476,8 @@ instance NFData RecordOutput where
 --
 -- /See:/ 'recordTag' smart constructor.
 data RecordTag = RecordTag'
-  { _rtValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rtValue :: !(Maybe Text)
+  , _rtKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1517,11 +1517,11 @@ instance NFData RecordTag where
 --
 -- /See:/ 'resourceDetail' smart constructor.
 data ResourceDetail = ResourceDetail'
-  { _rARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rCreatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rARN         :: !(Maybe Text)
+  , _rCreatedTime :: !(Maybe POSIX)
+  , _rName        :: !(Maybe Text)
+  , _rId          :: !(Maybe Text)
+  , _rDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1590,8 +1590,8 @@ instance NFData ResourceDetail where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!Text
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1639,10 +1639,10 @@ instance ToJSON Tag where
 --
 -- /See:/ 'tagOptionDetail' smart constructor.
 data TagOptionDetail = TagOptionDetail'
-  { _todValue  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _todActive :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _todKey    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _todId     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _todValue  :: !(Maybe Text)
+  , _todActive :: !(Maybe Bool)
+  , _todKey    :: !(Maybe Text)
+  , _todId     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1703,8 +1703,8 @@ instance NFData TagOptionDetail where
 --
 -- /See:/ 'tagOptionSummary' smart constructor.
 data TagOptionSummary = TagOptionSummary'
-  { _tosValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _tosKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tosValues :: !(Maybe [Text])
+  , _tosKey    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1745,9 +1745,9 @@ instance NFData TagOptionSummary where
 --
 -- /See:/ 'updateProvisioningParameter' smart constructor.
 data UpdateProvisioningParameter = UpdateProvisioningParameter'
-  { _uppValue            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uppKey              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uppUsePreviousValue :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _uppValue            :: !(Maybe Text)
+  , _uppKey              :: !(Maybe Text)
+  , _uppUsePreviousValue :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1796,8 +1796,8 @@ instance ToJSON UpdateProvisioningParameter where
 --
 -- /See:/ 'usageInstruction' smart constructor.
 data UsageInstruction = UsageInstruction'
-  { _uiValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uiType  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _uiValue :: !(Maybe Text)
+  , _uiType  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAssessmentTemplates' smart constructor.
 data ListAssessmentTemplates = ListAssessmentTemplates'
-  { _latNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _latFilter :: {-# NOUNPACK #-}!(Maybe AssessmentTemplateFilter)
-  , _latMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
-  , _latAssessmentTargetARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _latNextToken            :: !(Maybe Text)
+  , _latFilter               :: !(Maybe AssessmentTemplateFilter)
+  , _latMaxResults           :: !(Maybe Int)
+  , _latAssessmentTargetARNs :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery ListAssessmentTemplates where
 
 -- | /See:/ 'listAssessmentTemplatesResponse' smart constructor.
 data ListAssessmentTemplatesResponse = ListAssessmentTemplatesResponse'
-  { _latrsNextToken              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _latrsResponseStatus         :: {-# NOUNPACK #-}!Int
-  , _latrsAssessmentTemplateARNs :: {-# NOUNPACK #-}![Text]
+  { _latrsNextToken              :: !(Maybe Text)
+  , _latrsResponseStatus         :: !Int
+  , _latrsAssessmentTemplateARNs :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

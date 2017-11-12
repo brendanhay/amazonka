@@ -50,10 +50,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'disableStageTransition' smart constructor.
 data DisableStageTransition = DisableStageTransition'
-  { _dstPipelineName   :: {-# NOUNPACK #-}!Text
-  , _dstStageName      :: {-# NOUNPACK #-}!Text
-  , _dstTransitionType :: {-# NOUNPACK #-}!StageTransitionType
-  , _dstReason         :: {-# NOUNPACK #-}!Text
+  { _dstPipelineName   :: !Text
+  , _dstStageName      :: !Text
+  , _dstTransitionType :: !StageTransitionType
+  , _dstReason         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

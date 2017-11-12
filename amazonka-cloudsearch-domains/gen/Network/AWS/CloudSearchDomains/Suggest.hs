@@ -57,9 +57,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'suggest' smart constructor.
 data Suggest = Suggest'
-  { _sSize      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _sQuery     :: {-# NOUNPACK #-}!Text
-  , _sSuggester :: {-# NOUNPACK #-}!Text
+  { _sSize      :: !(Maybe Integer)
+  , _sQuery     :: !Text
+  , _sSuggester :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery Suggest where
 --
 -- /See:/ 'suggestResponse' smart constructor.
 data SuggestResponse = SuggestResponse'
-  { _srsSuggest        :: {-# NOUNPACK #-}!(Maybe SuggestModel)
-  , _srsStatus         :: {-# NOUNPACK #-}!(Maybe SuggestStatus)
-  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _srsSuggest        :: !(Maybe SuggestModel)
+  , _srsStatus         :: !(Maybe SuggestStatus)
+  , _srsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

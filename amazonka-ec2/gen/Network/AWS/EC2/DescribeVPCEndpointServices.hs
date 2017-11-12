@@ -56,11 +56,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeVPCEndpointServices' smart constructor.
 data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
-  { _dvesFilters      :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dvesServiceNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvesNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvesDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dvesMaxResults   :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dvesFilters      :: !(Maybe [Filter])
+  , _dvesServiceNames :: !(Maybe [Text])
+  , _dvesNextToken    :: !(Maybe Text)
+  , _dvesDryRun       :: !(Maybe Bool)
+  , _dvesMaxResults   :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,10 +154,10 @@ instance ToQuery DescribeVPCEndpointServices where
 --
 -- /See:/ 'describeVPCEndpointServicesResponse' smart constructor.
 data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
-  { _dvesrsServiceDetails :: {-# NOUNPACK #-}!(Maybe [ServiceDetail])
-  , _dvesrsServiceNames   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvesrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvesrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvesrsServiceDetails :: !(Maybe [ServiceDetail])
+  , _dvesrsServiceNames   :: !(Maybe [Text])
+  , _dvesrsNextToken      :: !(Maybe Text)
+  , _dvesrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

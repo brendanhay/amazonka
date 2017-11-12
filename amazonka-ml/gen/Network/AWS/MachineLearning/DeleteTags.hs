@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { _dTagKeys      :: {-# NOUNPACK #-}![Text]
-  , _dResourceId   :: {-# NOUNPACK #-}!Text
-  , _dResourceType :: {-# NOUNPACK #-}!TaggableResourceType
+  { _dTagKeys      :: ![Text]
+  , _dResourceId   :: !Text
+  , _dResourceType :: !TaggableResourceType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,9 +133,9 @@ instance ToQuery DeleteTags where
 --
 -- /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
-  { _drsResourceId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsResourceType   :: {-# NOUNPACK #-}!(Maybe TaggableResourceType)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsResourceId     :: !(Maybe Text)
+  , _drsResourceType   :: !(Maybe TaggableResourceType)
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

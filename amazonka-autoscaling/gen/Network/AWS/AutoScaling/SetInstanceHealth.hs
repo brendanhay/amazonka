@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'setInstanceHealth' smart constructor.
 data SetInstanceHealth = SetInstanceHealth'
-  { _sihShouldRespectGracePeriod :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sihInstanceId               :: {-# NOUNPACK #-}!Text
-  , _sihHealthStatus             :: {-# NOUNPACK #-}!Text
+  { _sihShouldRespectGracePeriod :: !(Maybe Bool)
+  , _sihInstanceId               :: !Text
+  , _sihHealthStatus             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

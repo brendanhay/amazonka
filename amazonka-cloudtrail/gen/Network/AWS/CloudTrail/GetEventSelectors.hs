@@ -114,9 +114,9 @@ instance ToQuery GetEventSelectors where
 
 -- | /See:/ 'getEventSelectorsResponse' smart constructor.
 data GetEventSelectorsResponse = GetEventSelectorsResponse'
-  { _gesrsTrailARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gesrsEventSelectors :: {-# NOUNPACK #-}!(Maybe [EventSelector])
-  , _gesrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gesrsTrailARN       :: !(Maybe Text)
+  , _gesrsEventSelectors :: !(Maybe [EventSelector])
+  , _gesrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

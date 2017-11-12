@@ -60,13 +60,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDBLogFiles' smart constructor.
 data DescribeDBLogFiles = DescribeDBLogFiles'
-  { _ddlfFilenameContains     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddlfFilters              :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _ddlfFileSize             :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _ddlfFileLastWritten      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _ddlfMarker               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddlfMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ddlfDBInstanceIdentifier :: {-# NOUNPACK #-}!Text
+  { _ddlfFilenameContains     :: !(Maybe Text)
+  , _ddlfFilters              :: !(Maybe [Filter])
+  , _ddlfFileSize             :: !(Maybe Integer)
+  , _ddlfFileLastWritten      :: !(Maybe Integer)
+  , _ddlfMarker               :: !(Maybe Text)
+  , _ddlfMaxRecords           :: !(Maybe Int)
+  , _ddlfDBInstanceIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -180,9 +180,9 @@ instance ToQuery DescribeDBLogFiles where
 --
 -- /See:/ 'describeDBLogFilesResponse' smart constructor.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
-  { _ddlfrsDescribeDBLogFiles :: {-# NOUNPACK #-}!(Maybe [DescribeDBLogFilesDetails])
-  , _ddlfrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddlfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddlfrsDescribeDBLogFiles :: !(Maybe [DescribeDBLogFilesDetails])
+  , _ddlfrsMarker             :: !(Maybe Text)
+  , _ddlfrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

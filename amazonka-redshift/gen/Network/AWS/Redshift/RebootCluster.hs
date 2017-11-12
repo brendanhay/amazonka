@@ -98,8 +98,8 @@ instance ToQuery RebootCluster where
 
 -- | /See:/ 'rebootClusterResponse' smart constructor.
 data RebootClusterResponse = RebootClusterResponse'
-  { _rcrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
-  , _rcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rcrsCluster        :: !(Maybe Cluster)
+  , _rcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

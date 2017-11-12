@@ -54,15 +54,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'createProject' smart constructor.
 data CreateProject = CreateProject'
-  { _cpEncryptionKey    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpServiceRole      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cpTimeoutInMinutes :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cpName             :: {-# NOUNPACK #-}!Text
-  , _cpSource           :: {-# NOUNPACK #-}!ProjectSource
-  , _cpArtifacts        :: {-# NOUNPACK #-}!ProjectArtifacts
-  , _cpEnvironment      :: {-# NOUNPACK #-}!ProjectEnvironment
+  { _cpEncryptionKey    :: !(Maybe Text)
+  , _cpDescription      :: !(Maybe Text)
+  , _cpServiceRole      :: !(Maybe Text)
+  , _cpTags             :: !(Maybe [Tag])
+  , _cpTimeoutInMinutes :: !(Maybe Nat)
+  , _cpName             :: !Text
+  , _cpSource           :: !ProjectSource
+  , _cpArtifacts        :: !ProjectArtifacts
+  , _cpEnvironment      :: !ProjectEnvironment
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -187,8 +187,8 @@ instance ToQuery CreateProject where
 
 -- | /See:/ 'createProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-  { _cprsProject        :: {-# NOUNPACK #-}!(Maybe Project)
-  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cprsProject        :: !(Maybe Project)
+  , _cprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

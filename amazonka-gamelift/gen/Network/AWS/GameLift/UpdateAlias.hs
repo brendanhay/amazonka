@@ -69,10 +69,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-  { _uaRoutingStrategy :: {-# NOUNPACK #-}!(Maybe RoutingStrategy)
-  , _uaName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaAliasId         :: {-# NOUNPACK #-}!Text
+  { _uaRoutingStrategy :: !(Maybe RoutingStrategy)
+  , _uaName            :: !(Maybe Text)
+  , _uaDescription     :: !(Maybe Text)
+  , _uaAliasId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -158,8 +158,8 @@ instance ToQuery UpdateAlias where
 --
 -- /See:/ 'updateAliasResponse' smart constructor.
 data UpdateAliasResponse = UpdateAliasResponse'
-  { _uarsAlias          :: {-# NOUNPACK #-}!(Maybe Alias)
-  , _uarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uarsAlias          :: !(Maybe Alias)
+  , _uarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

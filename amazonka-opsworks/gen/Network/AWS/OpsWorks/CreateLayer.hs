@@ -65,24 +65,24 @@ import Network.AWS.Response
 
 -- | /See:/ 'createLayer' smart constructor.
 data CreateLayer = CreateLayer'
-  { _clCustomInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clCustomSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _clInstallUpdatesOnBoot :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _clCloudWatchLogsConfiguration :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsConfiguration)
-  , _clLifecycleEventConfiguration :: {-# NOUNPACK #-}!(Maybe LifecycleEventConfiguration)
-  , _clCustomRecipes :: {-# NOUNPACK #-}!(Maybe Recipes)
-  , _clCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clVolumeConfigurations :: {-# NOUNPACK #-}!(Maybe [VolumeConfiguration])
-  , _clEnableAutoHealing :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _clPackages :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _clAttributes :: {-# NOUNPACK #-}!(Maybe (Map LayerAttributesKeys Text))
-  , _clAutoAssignPublicIPs :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _clUseEBSOptimizedInstances :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _clAutoAssignElasticIPs :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _clStackId :: {-# NOUNPACK #-}!Text
-  , _clType :: {-# NOUNPACK #-}!LayerType
-  , _clName :: {-# NOUNPACK #-}!Text
-  , _clShortname :: {-# NOUNPACK #-}!Text
+  { _clCustomInstanceProfileARN :: !(Maybe Text)
+  , _clCustomSecurityGroupIds :: !(Maybe [Text])
+  , _clInstallUpdatesOnBoot :: !(Maybe Bool)
+  , _clCloudWatchLogsConfiguration :: !(Maybe CloudWatchLogsConfiguration)
+  , _clLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+  , _clCustomRecipes :: !(Maybe Recipes)
+  , _clCustomJSON :: !(Maybe Text)
+  , _clVolumeConfigurations :: !(Maybe [VolumeConfiguration])
+  , _clEnableAutoHealing :: !(Maybe Bool)
+  , _clPackages :: !(Maybe [Text])
+  , _clAttributes :: !(Maybe (Map LayerAttributesKeys (Maybe Text)))
+  , _clAutoAssignPublicIPs :: !(Maybe Bool)
+  , _clUseEBSOptimizedInstances :: !(Maybe Bool)
+  , _clAutoAssignElasticIPs :: !(Maybe Bool)
+  , _clStackId :: !Text
+  , _clType :: !LayerType
+  , _clName :: !Text
+  , _clShortname :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -195,7 +195,7 @@ clPackages :: Lens' CreateLayer [Text]
 clPackages = lens _clPackages (\ s a -> s{_clPackages = a}) . _Default . _Coerce;
 
 -- | One or more user-defined key-value pairs to be added to the stack attributes. To create a cluster layer, set the @EcsClusterArn@ attribute to the cluster's ARN.
-clAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys Text)
+clAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys (Maybe Text))
 clAttributes = lens _clAttributes (\ s a -> s{_clAttributes = a}) . _Default . _Map;
 
 -- | For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
@@ -291,8 +291,8 @@ instance ToQuery CreateLayer where
 --
 -- /See:/ 'createLayerResponse' smart constructor.
 data CreateLayerResponse = CreateLayerResponse'
-  { _clrsLayerId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _clrsLayerId        :: !(Maybe Text)
+  , _clrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

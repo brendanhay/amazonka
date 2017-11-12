@@ -60,10 +60,10 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listTrafficPolicyInstances' smart constructor.
 data ListTrafficPolicyInstances = ListTrafficPolicyInstances'
-  { _ltpiTrafficPolicyInstanceTypeMarker :: {-# NOUNPACK #-}!(Maybe RecordType)
-  , _ltpiMaxItems                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltpiHostedZoneIdMarker              :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _ltpiTrafficPolicyInstanceNameMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ltpiTrafficPolicyInstanceTypeMarker :: !(Maybe RecordType)
+  , _ltpiMaxItems                        :: !(Maybe Text)
+  , _ltpiHostedZoneIdMarker              :: !(Maybe ResourceId)
+  , _ltpiTrafficPolicyInstanceNameMarker :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,13 +149,13 @@ instance ToQuery ListTrafficPolicyInstances where
 --
 -- /See:/ 'listTrafficPolicyInstancesResponse' smart constructor.
 data ListTrafficPolicyInstancesResponse = ListTrafficPolicyInstancesResponse'
-  { _ltpirsTrafficPolicyInstanceTypeMarker :: {-# NOUNPACK #-}!(Maybe RecordType)
-  , _ltpirsHostedZoneIdMarker :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _ltpirsTrafficPolicyInstanceNameMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltpirsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ltpirsTrafficPolicyInstances :: {-# NOUNPACK #-}![TrafficPolicyInstance]
-  , _ltpirsIsTruncated :: {-# NOUNPACK #-}!Bool
-  , _ltpirsMaxItems :: {-# NOUNPACK #-}!Text
+  { _ltpirsTrafficPolicyInstanceTypeMarker :: !(Maybe RecordType)
+  , _ltpirsHostedZoneIdMarker              :: !(Maybe ResourceId)
+  , _ltpirsTrafficPolicyInstanceNameMarker :: !(Maybe Text)
+  , _ltpirsResponseStatus                  :: !Int
+  , _ltpirsTrafficPolicyInstances          :: ![TrafficPolicyInstance]
+  , _ltpirsIsTruncated                     :: !Bool
+  , _ltpirsMaxItems                        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

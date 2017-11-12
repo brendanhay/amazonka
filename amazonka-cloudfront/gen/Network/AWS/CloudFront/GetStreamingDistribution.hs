@@ -102,9 +102,9 @@ instance ToQuery GetStreamingDistribution where
 --
 -- /See:/ 'getStreamingDistributionResponse' smart constructor.
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
-  { _gsdrsETag :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdrsStreamingDistribution :: {-# NOUNPACK #-}!(Maybe StreamingDistribution)
-  , _gsdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsdrsETag                  :: !(Maybe Text)
+  , _gsdrsStreamingDistribution :: !(Maybe StreamingDistribution)
+  , _gsdrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

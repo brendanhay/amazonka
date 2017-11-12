@@ -59,11 +59,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'adminInitiateAuth' smart constructor.
 data AdminInitiateAuth = AdminInitiateAuth'
-  { _aiaClientMetadata :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _aiaAuthParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _aiaUserPoolId     :: {-# NOUNPACK #-}!Text
-  , _aiaClientId       :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _aiaAuthFlow       :: {-# NOUNPACK #-}!AuthFlowType
+  { _aiaClientMetadata :: !(Maybe (Map Text Text))
+  , _aiaAuthParameters :: !(Maybe (Map Text Text))
+  , _aiaUserPoolId     :: !Text
+  , _aiaClientId       :: !(Sensitive Text)
+  , _aiaAuthFlow       :: !AuthFlowType
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -164,11 +164,11 @@ instance ToQuery AdminInitiateAuth where
 --
 -- /See:/ 'adminInitiateAuthResponse' smart constructor.
 data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
-  { _aiarsChallengeName :: {-# NOUNPACK #-}!(Maybe ChallengeNameType)
-  , _aiarsChallengeParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _aiarsAuthenticationResult :: {-# NOUNPACK #-}!(Maybe AuthenticationResultType)
-  , _aiarsSession :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aiarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _aiarsChallengeName        :: !(Maybe ChallengeNameType)
+  , _aiarsChallengeParameters  :: !(Maybe (Map Text Text))
+  , _aiarsAuthenticationResult :: !(Maybe AuthenticationResultType)
+  , _aiarsSession              :: !(Maybe Text)
+  , _aiarsResponseStatus       :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

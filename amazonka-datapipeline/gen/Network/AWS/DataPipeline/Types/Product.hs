@@ -27,9 +27,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'field' smart constructor.
 data Field = Field'
-  { _fRefValue    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fStringValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fKey         :: {-# NOUNPACK #-}!Text
+  { _fRefValue    :: !(Maybe Text)
+  , _fStringValue :: !(Maybe Text)
+  , _fKey         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -89,8 +89,8 @@ instance ToJSON Field where
 --
 -- /See:/ 'instanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
-  { _iiSignature :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iiDocument  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iiSignature :: !(Maybe Text)
+  , _iiDocument  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,8 +132,8 @@ instance ToJSON InstanceIdentity where
 --
 -- /See:/ 'operator' smart constructor.
 data Operator = Operator'
-  { _oValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _oType   :: {-# NOUNPACK #-}!(Maybe OperatorType)
+  { _oValues :: !(Maybe [Text])
+  , _oType   :: !(Maybe OperatorType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -173,8 +173,8 @@ instance ToJSON Operator where
 --
 -- /See:/ 'parameterAttribute' smart constructor.
 data ParameterAttribute = ParameterAttribute'
-  { _paKey         :: {-# NOUNPACK #-}!Text
-  , _paStringValue :: {-# NOUNPACK #-}!Text
+  { _paKey         :: !Text
+  , _paStringValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -225,8 +225,8 @@ instance ToJSON ParameterAttribute where
 --
 -- /See:/ 'parameterObject' smart constructor.
 data ParameterObject = ParameterObject'
-  { _poId         :: {-# NOUNPACK #-}!Text
-  , _poAttributes :: {-# NOUNPACK #-}![ParameterAttribute]
+  { _poId         :: !Text
+  , _poAttributes :: ![ParameterAttribute]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -275,8 +275,8 @@ instance ToJSON ParameterObject where
 --
 -- /See:/ 'parameterValue' smart constructor.
 data ParameterValue = ParameterValue'
-  { _pvId          :: {-# NOUNPACK #-}!Text
-  , _pvStringValue :: {-# NOUNPACK #-}!Text
+  { _pvId          :: !Text
+  , _pvStringValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -327,11 +327,11 @@ instance ToJSON ParameterValue where
 --
 -- /See:/ 'pipelineDescription' smart constructor.
 data PipelineDescription = PipelineDescription'
-  { _pdDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdTags        :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _pdPipelineId  :: {-# NOUNPACK #-}!Text
-  , _pdName        :: {-# NOUNPACK #-}!Text
-  , _pdFields      :: {-# NOUNPACK #-}![Field]
+  { _pdDescription :: !(Maybe Text)
+  , _pdTags        :: !(Maybe [Tag])
+  , _pdPipelineId  :: !Text
+  , _pdName        :: !Text
+  , _pdFields      :: ![Field]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -402,8 +402,8 @@ instance NFData PipelineDescription where
 --
 -- /See:/ 'pipelineIdName' smart constructor.
 data PipelineIdName = PipelineIdName'
-  { _pinName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pinId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pinName :: !(Maybe Text)
+  , _pinId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -443,9 +443,9 @@ instance NFData PipelineIdName where
 --
 -- /See:/ 'pipelineObject' smart constructor.
 data PipelineObject = PipelineObject'
-  { _pId     :: {-# NOUNPACK #-}!Text
-  , _pName   :: {-# NOUNPACK #-}!Text
-  , _pFields :: {-# NOUNPACK #-}![Field]
+  { _pId     :: !Text
+  , _pName   :: !Text
+  , _pFields :: ![Field]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -536,8 +536,8 @@ instance ToJSON Query where
 --
 -- /See:/ 'selector' smart constructor.
 data Selector = Selector'
-  { _sOperator  :: {-# NOUNPACK #-}!(Maybe Operator)
-  , _sFieldName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sOperator  :: !(Maybe Operator)
+  , _sFieldName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -578,8 +578,8 @@ instance ToJSON Selector where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!Text
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -627,10 +627,10 @@ instance ToJSON Tag where
 --
 -- /See:/ 'taskObject' smart constructor.
 data TaskObject = TaskObject'
-  { _toPipelineId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _toAttemptId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _toTaskId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _toObjects    :: {-# NOUNPACK #-}!(Maybe (Map Text PipelineObject))
+  { _toPipelineId :: !(Maybe Text)
+  , _toAttemptId  :: !(Maybe Text)
+  , _toTaskId     :: !(Maybe Text)
+  , _toObjects    :: !(Maybe (Map Text PipelineObject))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -691,8 +691,8 @@ instance NFData TaskObject where
 --
 -- /See:/ 'validationError' smart constructor.
 data ValidationError = ValidationError'
-  { _veId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _veErrors :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _veId     :: !(Maybe Text)
+  , _veErrors :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -733,8 +733,8 @@ instance NFData ValidationError where
 --
 -- /See:/ 'validationWarning' smart constructor.
 data ValidationWarning = ValidationWarning'
-  { _vwWarnings :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _vwId       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vwWarnings :: !(Maybe [Text])
+  , _vwId       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

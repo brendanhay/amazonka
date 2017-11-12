@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listUserImportJobs' smart constructor.
 data ListUserImportJobs = ListUserImportJobs'
-  { _luijPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luijUserPoolId      :: {-# NOUNPACK #-}!Text
-  , _luijMaxResults      :: {-# NOUNPACK #-}!Nat
+  { _luijPaginationToken :: !(Maybe Text)
+  , _luijUserPoolId      :: !Text
+  , _luijMaxResults      :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery ListUserImportJobs where
 --
 -- /See:/ 'listUserImportJobsResponse' smart constructor.
 data ListUserImportJobsResponse = ListUserImportJobsResponse'
-  { _luijrsPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luijrsUserImportJobs  :: {-# NOUNPACK #-}!(Maybe (List1 UserImportJobType))
-  , _luijrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _luijrsPaginationToken :: !(Maybe Text)
+  , _luijrsUserImportJobs  :: !(Maybe (List1 UserImportJobType))
+  , _luijrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

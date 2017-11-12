@@ -67,9 +67,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'splitShard' smart constructor.
 data SplitShard = SplitShard'
-  { _ssStreamName         :: {-# NOUNPACK #-}!Text
-  , _ssShardToSplit       :: {-# NOUNPACK #-}!Text
-  , _ssNewStartingHashKey :: {-# NOUNPACK #-}!Text
+  { _ssStreamName         :: !Text
+  , _ssShardToSplit       :: !Text
+  , _ssNewStartingHashKey :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

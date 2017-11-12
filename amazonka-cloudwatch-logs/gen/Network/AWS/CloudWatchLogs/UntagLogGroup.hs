@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'untagLogGroup' smart constructor.
 data UntagLogGroup = UntagLogGroup'
-  { _ulgLogGroupName :: {-# NOUNPACK #-}!Text
-  , _ulgTags         :: {-# NOUNPACK #-}!(List1 Text)
+  { _ulgLogGroupName :: !Text
+  , _ulgTags         :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

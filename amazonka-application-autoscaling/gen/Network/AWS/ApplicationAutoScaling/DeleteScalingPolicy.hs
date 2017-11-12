@@ -52,10 +52,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
-  { _dspPolicyName        :: {-# NOUNPACK #-}!Text
-  , _dspServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
-  , _dspResourceId        :: {-# NOUNPACK #-}!Text
-  , _dspScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
+  { _dspPolicyName        :: !Text
+  , _dspServiceNamespace  :: !ServiceNamespace
+  , _dspResourceId        :: !Text
+  , _dspScalableDimension :: !ScalableDimension
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

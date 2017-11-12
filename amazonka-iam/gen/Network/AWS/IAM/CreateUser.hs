@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createUser' smart constructor.
 data CreateUser = CreateUser'
-  { _cuPath     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cuUserName :: {-# NOUNPACK #-}!Text
+  { _cuPath     :: !(Maybe Text)
+  , _cuUserName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -108,8 +108,8 @@ instance ToQuery CreateUser where
 --
 -- /See:/ 'createUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-  { _cursUser           :: {-# NOUNPACK #-}!(Maybe User)
-  , _cursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cursUser           :: !(Maybe User)
+  , _cursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

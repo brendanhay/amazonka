@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeVirtualInterfaces' smart constructor.
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
-  { _dviConnectionId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dviVirtualInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dviConnectionId       :: !(Maybe Text)
+  , _dviVirtualInterfaceId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToQuery DescribeVirtualInterfaces where
 --
 -- /See:/ 'describeVirtualInterfacesResponse' smart constructor.
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
-  { _dvisrsVirtualInterfaces :: {-# NOUNPACK #-}!(Maybe [VirtualInterface])
-  , _dvisrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dvisrsVirtualInterfaces :: !(Maybe [VirtualInterface])
+  , _dvisrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

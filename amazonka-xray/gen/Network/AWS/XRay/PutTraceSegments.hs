@@ -127,8 +127,8 @@ instance ToQuery PutTraceSegments where
 
 -- | /See:/ 'putTraceSegmentsResponse' smart constructor.
 data PutTraceSegmentsResponse = PutTraceSegmentsResponse'
-  { _ptsrsUnprocessedTraceSegments :: {-# NOUNPACK #-}!(Maybe [UnprocessedTraceSegment])
-  , _ptsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ptsrsUnprocessedTraceSegments :: !(Maybe [UnprocessedTraceSegment])
+  , _ptsrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

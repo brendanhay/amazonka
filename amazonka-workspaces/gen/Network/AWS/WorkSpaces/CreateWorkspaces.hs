@@ -112,9 +112,9 @@ instance ToQuery CreateWorkspaces where
 --
 -- /See:/ 'createWorkspacesResponse' smart constructor.
 data CreateWorkspacesResponse = CreateWorkspacesResponse'
-  { _cwrsFailedRequests :: {-# NOUNPACK #-}!(Maybe [FailedCreateWorkspaceRequest])
-  , _cwrsPendingRequests :: {-# NOUNPACK #-}!(Maybe [Workspace])
-  , _cwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cwrsFailedRequests  :: !(Maybe [FailedCreateWorkspaceRequest])
+  , _cwrsPendingRequests :: !(Maybe [Workspace])
+  , _cwrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

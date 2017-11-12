@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeEffectiveInstanceAssociations' smart constructor.
 data DescribeEffectiveInstanceAssociations = DescribeEffectiveInstanceAssociations'
-  { _deiaNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deiaMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _deiaInstanceId :: {-# NOUNPACK #-}!Text
+  { _deiaNextToken  :: !(Maybe Text)
+  , _deiaMaxResults :: !(Maybe Nat)
+  , _deiaInstanceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToQuery
 
 -- | /See:/ 'describeEffectiveInstanceAssociationsResponse' smart constructor.
 data DescribeEffectiveInstanceAssociationsResponse = DescribeEffectiveInstanceAssociationsResponse'
-  { _deiarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deiarsAssociations   :: {-# NOUNPACK #-}!(Maybe [InstanceAssociation])
-  , _deiarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _deiarsNextToken      :: !(Maybe Text)
+  , _deiarsAssociations   :: !(Maybe [InstanceAssociation])
+  , _deiarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

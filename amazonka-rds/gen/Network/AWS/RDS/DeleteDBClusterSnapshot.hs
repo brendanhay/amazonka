@@ -104,8 +104,8 @@ instance ToQuery DeleteDBClusterSnapshot where
 
 -- | /See:/ 'deleteDBClusterSnapshotResponse' smart constructor.
 data DeleteDBClusterSnapshotResponse = DeleteDBClusterSnapshotResponse'
-  { _ddcsrsDBClusterSnapshot :: {-# NOUNPACK #-}!(Maybe DBClusterSnapshot)
-  , _ddcsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _ddcsrsDBClusterSnapshot :: !(Maybe DBClusterSnapshot)
+  , _ddcsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -87,8 +87,8 @@ instance ToQuery DescribeEndpoint where
 --
 -- /See:/ 'describeEndpointResponse' smart constructor.
 data DescribeEndpointResponse = DescribeEndpointResponse'
-  { _dersEndpointAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dersResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dersEndpointAddress :: !(Maybe Text)
+  , _dersResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

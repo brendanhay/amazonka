@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putInstancePublicPorts' smart constructor.
 data PutInstancePublicPorts = PutInstancePublicPorts'
-  { _pippPortInfos    :: {-# NOUNPACK #-}![PortInfo]
-  , _pippInstanceName :: {-# NOUNPACK #-}!Text
+  { _pippPortInfos    :: ![PortInfo]
+  , _pippInstanceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery PutInstancePublicPorts where
 
 -- | /See:/ 'putInstancePublicPortsResponse' smart constructor.
 data PutInstancePublicPortsResponse = PutInstancePublicPortsResponse'
-  { _pipprsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _pipprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pipprsOperation      :: !(Maybe Operation)
+  , _pipprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

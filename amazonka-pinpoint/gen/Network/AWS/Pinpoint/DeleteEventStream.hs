@@ -96,8 +96,8 @@ instance ToQuery DeleteEventStream where
 
 -- | /See:/ 'deleteEventStreamResponse' smart constructor.
 data DeleteEventStreamResponse = DeleteEventStreamResponse'
-  { _desrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _desrsEventStream    :: {-# NOUNPACK #-}!EventStream
+  { _desrsResponseStatus :: !Int
+  , _desrsEventStream    :: !EventStream
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

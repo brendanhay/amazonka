@@ -35,10 +35,10 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'application' smart constructor.
 data Application = Application'
-  { _aArgs           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _aAdditionalInfo :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _aName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aVersion        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aArgs           :: !(Maybe [Text])
+  , _aAdditionalInfo :: !(Maybe (Map Text Text))
+  , _aName           :: !(Maybe Text)
+  , _aVersion        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,8 +109,8 @@ instance ToJSON Application where
 --
 -- /See:/ 'autoScalingPolicy' smart constructor.
 data AutoScalingPolicy = AutoScalingPolicy'
-  { _aspConstraints :: {-# NOUNPACK #-}!ScalingConstraints
-  , _aspRules       :: {-# NOUNPACK #-}![ScalingRule]
+  { _aspConstraints :: !ScalingConstraints
+  , _aspRules       :: ![ScalingRule]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -153,9 +153,9 @@ instance ToJSON AutoScalingPolicy where
 --
 -- /See:/ 'autoScalingPolicyDescription' smart constructor.
 data AutoScalingPolicyDescription = AutoScalingPolicyDescription'
-  { _aspdStatus      :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicyStatus)
-  , _aspdRules       :: {-# NOUNPACK #-}!(Maybe [ScalingRule])
-  , _aspdConstraints :: {-# NOUNPACK #-}!(Maybe ScalingConstraints)
+  { _aspdStatus      :: !(Maybe AutoScalingPolicyStatus)
+  , _aspdRules       :: !(Maybe [ScalingRule])
+  , _aspdConstraints :: !(Maybe ScalingConstraints)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -205,8 +205,8 @@ instance NFData AutoScalingPolicyDescription where
 --
 -- /See:/ 'autoScalingPolicyStateChangeReason' smart constructor.
 data AutoScalingPolicyStateChangeReason = AutoScalingPolicyStateChangeReason'
-  { _aspscrCode :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicyStateChangeReasonCode)
-  , _aspscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aspscrCode    :: !(Maybe AutoScalingPolicyStateChangeReasonCode)
+  , _aspscrMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -252,8 +252,8 @@ instance NFData AutoScalingPolicyStateChangeReason
 --
 -- /See:/ 'autoScalingPolicyStatus' smart constructor.
 data AutoScalingPolicyStatus = AutoScalingPolicyStatus'
-  { _aspsState :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicyState)
-  , _aspsStateChangeReason :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicyStateChangeReason)
+  { _aspsState             :: !(Maybe AutoScalingPolicyState)
+  , _aspsStateChangeReason :: !(Maybe AutoScalingPolicyStateChangeReason)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -296,8 +296,8 @@ instance NFData AutoScalingPolicyStatus where
 --
 -- /See:/ 'bootstrapActionConfig' smart constructor.
 data BootstrapActionConfig = BootstrapActionConfig'
-  { _bacName                  :: {-# NOUNPACK #-}!Text
-  , _bacScriptBootstrapAction :: {-# NOUNPACK #-}!ScriptBootstrapActionConfig
+  { _bacName                  :: !Text
+  , _bacScriptBootstrapAction :: !ScriptBootstrapActionConfig
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -344,9 +344,9 @@ instance ToJSON BootstrapActionConfig where
 --
 -- /See:/ 'cancelStepsInfo' smart constructor.
 data CancelStepsInfo = CancelStepsInfo'
-  { _csiStatus :: {-# NOUNPACK #-}!(Maybe CancelStepsRequestStatus)
-  , _csiStepId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csiReason :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csiStatus :: !(Maybe CancelStepsRequestStatus)
+  , _csiStepId :: !(Maybe Text)
+  , _csiReason :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -396,15 +396,15 @@ instance NFData CancelStepsInfo where
 --
 -- /See:/ 'cloudWatchAlarmDefinition' smart constructor.
 data CloudWatchAlarmDefinition = CloudWatchAlarmDefinition'
-  { _cwadEvaluationPeriods  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cwadNamespace          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwadDimensions         :: {-# NOUNPACK #-}!(Maybe [MetricDimension])
-  , _cwadUnit               :: {-# NOUNPACK #-}!(Maybe Unit)
-  , _cwadStatistic          :: {-# NOUNPACK #-}!(Maybe Statistic)
-  , _cwadComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
-  , _cwadMetricName         :: {-# NOUNPACK #-}!Text
-  , _cwadPeriod             :: {-# NOUNPACK #-}!Int
-  , _cwadThreshold          :: {-# NOUNPACK #-}!Double
+  { _cwadEvaluationPeriods  :: !(Maybe Int)
+  , _cwadNamespace          :: !(Maybe Text)
+  , _cwadDimensions         :: !(Maybe [MetricDimension])
+  , _cwadUnit               :: !(Maybe Unit)
+  , _cwadStatistic          :: !(Maybe Statistic)
+  , _cwadComparisonOperator :: !ComparisonOperator
+  , _cwadMetricName         :: !Text
+  , _cwadPeriod             :: !Int
+  , _cwadThreshold          :: !Double
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -524,30 +524,30 @@ instance ToJSON CloudWatchAlarmDefinition where
 --
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
-  { _cluRequestedAMIVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluEBSRootVolumeSize :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cluEC2InstanceAttributes :: {-# NOUNPACK #-}!(Maybe EC2InstanceAttributes)
-  , _cluNormalizedInstanceHours :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cluConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
-  , _cluCustomAMIId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluAutoScalingRole :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluSecurityConfiguration :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluScaleDownBehavior :: {-# NOUNPACK #-}!(Maybe ScaleDownBehavior)
-  , _cluInstanceCollectionType :: {-# NOUNPACK #-}!(Maybe InstanceCollectionType)
-  , _cluReleaseLabel :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluRepoUpgradeOnBoot :: {-# NOUNPACK #-}!(Maybe RepoUpgradeOnBoot)
-  , _cluLogURI :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluRunningAMIVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluMasterPublicDNSName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluTerminationProtected :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cluVisibleToAllUsers :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cluAutoTerminate :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cluApplications :: {-# NOUNPACK #-}!(Maybe [Application])
-  , _cluTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cluServiceRole :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluId :: {-# NOUNPACK #-}!Text
-  , _cluName :: {-# NOUNPACK #-}!Text
-  , _cluStatus :: {-# NOUNPACK #-}!ClusterStatus
+  { _cluRequestedAMIVersion     :: !(Maybe Text)
+  , _cluEBSRootVolumeSize       :: !(Maybe Int)
+  , _cluEC2InstanceAttributes   :: !(Maybe EC2InstanceAttributes)
+  , _cluNormalizedInstanceHours :: !(Maybe Int)
+  , _cluConfigurations          :: !(Maybe [Configuration])
+  , _cluCustomAMIId             :: !(Maybe Text)
+  , _cluAutoScalingRole         :: !(Maybe Text)
+  , _cluSecurityConfiguration   :: !(Maybe Text)
+  , _cluScaleDownBehavior       :: !(Maybe ScaleDownBehavior)
+  , _cluInstanceCollectionType  :: !(Maybe InstanceCollectionType)
+  , _cluReleaseLabel            :: !(Maybe Text)
+  , _cluRepoUpgradeOnBoot       :: !(Maybe RepoUpgradeOnBoot)
+  , _cluLogURI                  :: !(Maybe Text)
+  , _cluRunningAMIVersion       :: !(Maybe Text)
+  , _cluMasterPublicDNSName     :: !(Maybe Text)
+  , _cluTerminationProtected    :: !(Maybe Bool)
+  , _cluVisibleToAllUsers       :: !(Maybe Bool)
+  , _cluAutoTerminate           :: !(Maybe Bool)
+  , _cluApplications            :: !(Maybe [Application])
+  , _cluTags                    :: !(Maybe [Tag])
+  , _cluServiceRole             :: !(Maybe Text)
+  , _cluId                      :: !Text
+  , _cluName                    :: !Text
+  , _cluStatus                  :: !ClusterStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -772,8 +772,8 @@ instance NFData Cluster where
 --
 -- /See:/ 'clusterStateChangeReason' smart constructor.
 data ClusterStateChangeReason = ClusterStateChangeReason'
-  { _cscrCode    :: {-# NOUNPACK #-}!(Maybe ClusterStateChangeReasonCode)
-  , _cscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cscrCode    :: !(Maybe ClusterStateChangeReasonCode)
+  , _cscrMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -815,9 +815,9 @@ instance NFData ClusterStateChangeReason where
 --
 -- /See:/ 'clusterStatus' smart constructor.
 data ClusterStatus = ClusterStatus'
-  { _csState             :: {-# NOUNPACK #-}!(Maybe ClusterState)
-  , _csStateChangeReason :: {-# NOUNPACK #-}!(Maybe ClusterStateChangeReason)
-  , _csTimeline          :: {-# NOUNPACK #-}!(Maybe ClusterTimeline)
+  { _csState             :: !(Maybe ClusterState)
+  , _csStateChangeReason :: !(Maybe ClusterStateChangeReason)
+  , _csTimeline          :: !(Maybe ClusterTimeline)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -867,10 +867,10 @@ instance NFData ClusterStatus where
 --
 -- /See:/ 'clusterSummary' smart constructor.
 data ClusterSummary = ClusterSummary'
-  { _csStatus                  :: {-# NOUNPACK #-}!(Maybe ClusterStatus)
-  , _csNormalizedInstanceHours :: {-# NOUNPACK #-}!(Maybe Int)
-  , _csName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csId                      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csStatus                  :: !(Maybe ClusterStatus)
+  , _csNormalizedInstanceHours :: !(Maybe Int)
+  , _csName                    :: !(Maybe Text)
+  , _csId                      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -932,9 +932,9 @@ instance NFData ClusterSummary where
 --
 -- /See:/ 'clusterTimeline' smart constructor.
 data ClusterTimeline = ClusterTimeline'
-  { _ctReadyDateTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ctCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ctEndDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _ctReadyDateTime    :: !(Maybe POSIX)
+  , _ctCreationDateTime :: !(Maybe POSIX)
+  , _ctEndDateTime      :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -988,9 +988,9 @@ instance NFData ClusterTimeline where
 --
 -- /See:/ 'command' smart constructor.
 data Command = Command'
-  { _cArgs       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cScriptPath :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cName       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cArgs       :: !(Maybe [Text])
+  , _cScriptPath :: !(Maybe Text)
+  , _cName       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1038,9 +1038,9 @@ instance NFData Command where
 --
 -- /See:/ 'configuration' smart constructor.
 data Configuration = Configuration'
-  { _cConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
-  , _cClassification :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cProperties     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  { _cConfigurations :: !(Maybe [Configuration])
+  , _cClassification :: !(Maybe Text)
+  , _cProperties     :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1102,8 +1102,8 @@ instance ToJSON Configuration where
 --
 -- /See:/ 'ebsBlockDevice' smart constructor.
 data EBSBlockDevice = EBSBlockDevice'
-  { _ebdDevice              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ebdVolumeSpecification :: {-# NOUNPACK #-}!(Maybe VolumeSpecification)
+  { _ebdDevice              :: !(Maybe Text)
+  , _ebdVolumeSpecification :: !(Maybe VolumeSpecification)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1145,8 +1145,8 @@ instance NFData EBSBlockDevice where
 --
 -- /See:/ 'ebsBlockDeviceConfig' smart constructor.
 data EBSBlockDeviceConfig = EBSBlockDeviceConfig'
-  { _ebdcVolumesPerInstance  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ebdcVolumeSpecification :: {-# NOUNPACK #-}!VolumeSpecification
+  { _ebdcVolumesPerInstance  :: !(Maybe Int)
+  , _ebdcVolumeSpecification :: !VolumeSpecification
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1194,8 +1194,8 @@ instance ToJSON EBSBlockDeviceConfig where
 --
 -- /See:/ 'ebsConfiguration' smart constructor.
 data EBSConfiguration = EBSConfiguration'
-  { _ecEBSOptimized          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ecEBSBlockDeviceConfigs :: {-# NOUNPACK #-}!(Maybe [EBSBlockDeviceConfig])
+  { _ecEBSOptimized          :: !(Maybe Bool)
+  , _ecEBSBlockDeviceConfigs :: !(Maybe [EBSBlockDeviceConfig])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1239,8 +1239,8 @@ instance ToJSON EBSConfiguration where
 --
 -- /See:/ 'ebsVolume' smart constructor.
 data EBSVolume = EBSVolume'
-  { _evDevice   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _evVolumeId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _evDevice   :: !(Maybe Text)
+  , _evVolumeId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1281,17 +1281,17 @@ instance NFData EBSVolume where
 --
 -- /See:/ 'ec2InstanceAttributes' smart constructor.
 data EC2InstanceAttributes = EC2InstanceAttributes'
-  { _eiaEC2KeyName                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eiaEmrManagedSlaveSecurityGroup   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eiaAdditionalSlaveSecurityGroups  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _eiaRequestedEC2SubnetIds          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _eiaAdditionalMasterSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _eiaIAMInstanceProfile             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eiaEmrManagedMasterSecurityGroup  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eiaEC2SubnetId                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eiaRequestedEC2AvailabilityZones  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _eiaServiceAccessSecurityGroup     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eiaEC2AvailabilityZone            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eiaEC2KeyName                     :: !(Maybe Text)
+  , _eiaEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
+  , _eiaAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
+  , _eiaRequestedEC2SubnetIds          :: !(Maybe [Text])
+  , _eiaAdditionalMasterSecurityGroups :: !(Maybe [Text])
+  , _eiaIAMInstanceProfile             :: !(Maybe Text)
+  , _eiaEmrManagedMasterSecurityGroup  :: !(Maybe Text)
+  , _eiaEC2SubnetId                    :: !(Maybe Text)
+  , _eiaRequestedEC2AvailabilityZones  :: !(Maybe [Text])
+  , _eiaServiceAccessSecurityGroup     :: !(Maybe Text)
+  , _eiaEC2AvailabilityZone            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1412,9 +1412,9 @@ instance NFData EC2InstanceAttributes where
 --
 -- /See:/ 'failureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-  { _fdLogFile :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fdReason  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fdMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fdLogFile :: !(Maybe Text)
+  , _fdReason  :: !(Maybe Text)
+  , _fdMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1464,10 +1464,10 @@ instance NFData FailureDetails where
 --
 -- /See:/ 'hadoopJARStepConfig' smart constructor.
 data HadoopJARStepConfig = HadoopJARStepConfig'
-  { _hjscArgs       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _hjscMainClass  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hjscProperties :: {-# NOUNPACK #-}!(Maybe [KeyValue])
-  , _hjscJAR        :: {-# NOUNPACK #-}!Text
+  { _hjscArgs       :: !(Maybe [Text])
+  , _hjscMainClass  :: !(Maybe Text)
+  , _hjscProperties :: !(Maybe [KeyValue])
+  , _hjscJAR        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1529,10 +1529,10 @@ instance ToJSON HadoopJARStepConfig where
 --
 -- /See:/ 'hadoopStepConfig' smart constructor.
 data HadoopStepConfig = HadoopStepConfig'
-  { _hscArgs       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _hscJAR        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hscMainClass  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hscProperties :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  { _hscArgs       :: !(Maybe [Text])
+  , _hscJAR        :: !(Maybe Text)
+  , _hscMainClass  :: !(Maybe Text)
+  , _hscProperties :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1593,18 +1593,18 @@ instance NFData HadoopStepConfig where
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-  { _iStatus           :: {-# NOUNPACK #-}!(Maybe InstanceStatus)
-  , _iPublicDNSName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iEBSVolumes       :: {-# NOUNPACK #-}!(Maybe [EBSVolume])
-  , _iEC2InstanceId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iInstanceType     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iMarket           :: {-# NOUNPACK #-}!(Maybe MarketType)
-  , _iPrivateIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iInstanceFleetId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iInstanceGroupId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iPrivateDNSName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iPublicIPAddress  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iStatus           :: !(Maybe InstanceStatus)
+  , _iPublicDNSName    :: !(Maybe Text)
+  , _iEBSVolumes       :: !(Maybe [EBSVolume])
+  , _iEC2InstanceId    :: !(Maybe Text)
+  , _iInstanceType     :: !(Maybe Text)
+  , _iMarket           :: !(Maybe MarketType)
+  , _iPrivateIPAddress :: !(Maybe Text)
+  , _iInstanceFleetId  :: !(Maybe Text)
+  , _iId               :: !(Maybe Text)
+  , _iInstanceGroupId  :: !(Maybe Text)
+  , _iPrivateDNSName   :: !(Maybe Text)
+  , _iPublicIPAddress  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1729,16 +1729,16 @@ instance NFData Instance where
 --
 -- /See:/ 'instanceFleet' smart constructor.
 data InstanceFleet = InstanceFleet'
-  { _ifProvisionedSpotCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ifStatus :: {-# NOUNPACK #-}!(Maybe InstanceFleetStatus)
-  , _ifTargetOnDemandCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ifInstanceFleetType :: {-# NOUNPACK #-}!(Maybe InstanceFleetType)
-  , _ifInstanceTypeSpecifications :: {-# NOUNPACK #-}!(Maybe [InstanceTypeSpecification])
-  , _ifName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ifProvisionedOnDemandCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ifTargetSpotCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ifId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ifLaunchSpecifications :: {-# NOUNPACK #-}!(Maybe InstanceFleetProvisioningSpecifications)
+  { _ifProvisionedSpotCapacity :: !(Maybe Nat)
+  , _ifStatus :: !(Maybe InstanceFleetStatus)
+  , _ifTargetOnDemandCapacity :: !(Maybe Nat)
+  , _ifInstanceFleetType :: !(Maybe InstanceFleetType)
+  , _ifInstanceTypeSpecifications :: !(Maybe [InstanceTypeSpecification])
+  , _ifName :: !(Maybe Text)
+  , _ifProvisionedOnDemandCapacity :: !(Maybe Nat)
+  , _ifTargetSpotCapacity :: !(Maybe Nat)
+  , _ifId :: !(Maybe Text)
+  , _ifLaunchSpecifications :: !(Maybe InstanceFleetProvisioningSpecifications)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1848,12 +1848,12 @@ instance NFData InstanceFleet where
 --
 -- /See:/ 'instanceFleetConfig' smart constructor.
 data InstanceFleetConfig = InstanceFleetConfig'
-  { _ifcInstanceTypeConfigs :: {-# NOUNPACK #-}!(Maybe [InstanceTypeConfig])
-  , _ifcTargetOnDemandCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ifcName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ifcTargetSpotCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ifcLaunchSpecifications :: {-# NOUNPACK #-}!(Maybe InstanceFleetProvisioningSpecifications)
-  , _ifcInstanceFleetType :: {-# NOUNPACK #-}!InstanceFleetType
+  { _ifcInstanceTypeConfigs :: !(Maybe [InstanceTypeConfig])
+  , _ifcTargetOnDemandCapacity :: !(Maybe Nat)
+  , _ifcName :: !(Maybe Text)
+  , _ifcTargetSpotCapacity :: !(Maybe Nat)
+  , _ifcLaunchSpecifications :: !(Maybe InstanceFleetProvisioningSpecifications)
+  , _ifcInstanceFleetType :: !InstanceFleetType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1934,9 +1934,9 @@ instance ToJSON InstanceFleetConfig where
 --
 -- /See:/ 'instanceFleetModifyConfig' smart constructor.
 data InstanceFleetModifyConfig = InstanceFleetModifyConfig'
-  { _ifmcTargetOnDemandCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ifmcTargetSpotCapacity     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ifmcInstanceFleetId        :: {-# NOUNPACK #-}!Text
+  { _ifmcTargetOnDemandCapacity :: !(Maybe Nat)
+  , _ifmcTargetSpotCapacity     :: !(Maybe Nat)
+  , _ifmcInstanceFleetId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2046,8 +2046,8 @@ instance ToJSON
 --
 -- /See:/ 'instanceFleetStateChangeReason' smart constructor.
 data InstanceFleetStateChangeReason = InstanceFleetStateChangeReason'
-  { _ifscrCode    :: {-# NOUNPACK #-}!(Maybe InstanceFleetStateChangeReasonCode)
-  , _ifscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ifscrCode    :: !(Maybe InstanceFleetStateChangeReasonCode)
+  , _ifscrMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2092,9 +2092,9 @@ instance NFData InstanceFleetStateChangeReason where
 --
 -- /See:/ 'instanceFleetStatus' smart constructor.
 data InstanceFleetStatus = InstanceFleetStatus'
-  { _ifsState :: {-# NOUNPACK #-}!(Maybe InstanceFleetState)
-  , _ifsStateChangeReason :: {-# NOUNPACK #-}!(Maybe InstanceFleetStateChangeReason)
-  , _ifsTimeline :: {-# NOUNPACK #-}!(Maybe InstanceFleetTimeline)
+  { _ifsState             :: !(Maybe InstanceFleetState)
+  , _ifsStateChangeReason :: !(Maybe InstanceFleetStateChangeReason)
+  , _ifsTimeline          :: !(Maybe InstanceFleetTimeline)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2144,9 +2144,9 @@ instance NFData InstanceFleetStatus where
 --
 -- /See:/ 'instanceFleetTimeline' smart constructor.
 data InstanceFleetTimeline = InstanceFleetTimeline'
-  { _iftReadyDateTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _iftCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _iftEndDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _iftReadyDateTime    :: !(Maybe POSIX)
+  , _iftCreationDateTime :: !(Maybe POSIX)
+  , _iftEndDateTime      :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2200,20 +2200,20 @@ instance NFData InstanceFleetTimeline where
 --
 -- /See:/ 'instanceGroup' smart constructor.
 data InstanceGroup = InstanceGroup'
-  { _igStatus :: {-# NOUNPACK #-}!(Maybe InstanceGroupStatus)
-  , _igBidPrice :: {-# NOUNPACK #-}!(Maybe Text)
-  , _igRequestedInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _igRunningInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _igConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
-  , _igInstanceGroupType :: {-# NOUNPACK #-}!(Maybe InstanceGroupType)
-  , _igEBSBlockDevices :: {-# NOUNPACK #-}!(Maybe [EBSBlockDevice])
-  , _igInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _igEBSOptimized :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _igMarket :: {-# NOUNPACK #-}!(Maybe MarketType)
-  , _igName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _igAutoScalingPolicy :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicyDescription)
-  , _igShrinkPolicy :: {-# NOUNPACK #-}!(Maybe ShrinkPolicy)
-  , _igId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _igStatus                 :: !(Maybe InstanceGroupStatus)
+  , _igBidPrice               :: !(Maybe Text)
+  , _igRequestedInstanceCount :: !(Maybe Int)
+  , _igRunningInstanceCount   :: !(Maybe Int)
+  , _igConfigurations         :: !(Maybe [Configuration])
+  , _igInstanceGroupType      :: !(Maybe InstanceGroupType)
+  , _igEBSBlockDevices        :: !(Maybe [EBSBlockDevice])
+  , _igInstanceType           :: !(Maybe Text)
+  , _igEBSOptimized           :: !(Maybe Bool)
+  , _igMarket                 :: !(Maybe MarketType)
+  , _igName                   :: !(Maybe Text)
+  , _igAutoScalingPolicy      :: !(Maybe AutoScalingPolicyDescription)
+  , _igShrinkPolicy           :: !(Maybe ShrinkPolicy)
+  , _igId                     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2354,15 +2354,15 @@ instance NFData InstanceGroup where
 --
 -- /See:/ 'instanceGroupConfig' smart constructor.
 data InstanceGroupConfig = InstanceGroupConfig'
-  { _igcEBSConfiguration  :: {-# NOUNPACK #-}!(Maybe EBSConfiguration)
-  , _igcBidPrice          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _igcConfigurations    :: {-# NOUNPACK #-}!(Maybe [Configuration])
-  , _igcMarket            :: {-# NOUNPACK #-}!(Maybe MarketType)
-  , _igcName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _igcAutoScalingPolicy :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicy)
-  , _igcInstanceRole      :: {-# NOUNPACK #-}!InstanceRoleType
-  , _igcInstanceType      :: {-# NOUNPACK #-}!Text
-  , _igcInstanceCount     :: {-# NOUNPACK #-}!Int
+  { _igcEBSConfiguration  :: !(Maybe EBSConfiguration)
+  , _igcBidPrice          :: !(Maybe Text)
+  , _igcConfigurations    :: !(Maybe [Configuration])
+  , _igcMarket            :: !(Maybe MarketType)
+  , _igcName              :: !(Maybe Text)
+  , _igcAutoScalingPolicy :: !(Maybe AutoScalingPolicy)
+  , _igcInstanceRole      :: !InstanceRoleType
+  , _igcInstanceType      :: !Text
+  , _igcInstanceCount     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2466,10 +2466,10 @@ instance ToJSON InstanceGroupConfig where
 --
 -- /See:/ 'instanceGroupModifyConfig' smart constructor.
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
-  { _igmcInstanceCount             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _igmcEC2InstanceIdsToTerminate :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _igmcShrinkPolicy              :: {-# NOUNPACK #-}!(Maybe ShrinkPolicy)
-  , _igmcInstanceGroupId           :: {-# NOUNPACK #-}!Text
+  { _igmcInstanceCount             :: !(Maybe Int)
+  , _igmcEC2InstanceIdsToTerminate :: !(Maybe [Text])
+  , _igmcShrinkPolicy              :: !(Maybe ShrinkPolicy)
+  , _igmcInstanceGroupId           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2532,8 +2532,8 @@ instance ToJSON InstanceGroupModifyConfig where
 --
 -- /See:/ 'instanceGroupStateChangeReason' smart constructor.
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
-  { _igscrCode    :: {-# NOUNPACK #-}!(Maybe InstanceGroupStateChangeReasonCode)
-  , _igscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _igscrCode    :: !(Maybe InstanceGroupStateChangeReasonCode)
+  , _igscrMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2578,9 +2578,9 @@ instance NFData InstanceGroupStateChangeReason where
 --
 -- /See:/ 'instanceGroupStatus' smart constructor.
 data InstanceGroupStatus = InstanceGroupStatus'
-  { _igsState :: {-# NOUNPACK #-}!(Maybe InstanceGroupState)
-  , _igsStateChangeReason :: {-# NOUNPACK #-}!(Maybe InstanceGroupStateChangeReason)
-  , _igsTimeline :: {-# NOUNPACK #-}!(Maybe InstanceGroupTimeline)
+  { _igsState             :: !(Maybe InstanceGroupState)
+  , _igsStateChangeReason :: !(Maybe InstanceGroupStateChangeReason)
+  , _igsTimeline          :: !(Maybe InstanceGroupTimeline)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2630,9 +2630,9 @@ instance NFData InstanceGroupStatus where
 --
 -- /See:/ 'instanceGroupTimeline' smart constructor.
 data InstanceGroupTimeline = InstanceGroupTimeline'
-  { _igtReadyDateTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _igtCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _igtEndDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _igtReadyDateTime    :: !(Maybe POSIX)
+  , _igtCreationDateTime :: !(Maybe POSIX)
+  , _igtEndDateTime      :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2686,9 +2686,9 @@ instance NFData InstanceGroupTimeline where
 --
 -- /See:/ 'instanceResizePolicy' smart constructor.
 data InstanceResizePolicy = InstanceResizePolicy'
-  { _irpInstancesToProtect         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _irpInstancesToTerminate       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _irpInstanceTerminationTimeout :: {-# NOUNPACK #-}!(Maybe Int)
+  { _irpInstancesToProtect         :: !(Maybe [Text])
+  , _irpInstancesToTerminate       :: !(Maybe [Text])
+  , _irpInstanceTerminationTimeout :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2753,8 +2753,8 @@ instance ToJSON InstanceResizePolicy where
 --
 -- /See:/ 'instanceStateChangeReason' smart constructor.
 data InstanceStateChangeReason = InstanceStateChangeReason'
-  { _iscrCode    :: {-# NOUNPACK #-}!(Maybe InstanceStateChangeReasonCode)
-  , _iscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iscrCode    :: !(Maybe InstanceStateChangeReasonCode)
+  , _iscrMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2796,9 +2796,9 @@ instance NFData InstanceStateChangeReason where
 --
 -- /See:/ 'instanceStatus' smart constructor.
 data InstanceStatus = InstanceStatus'
-  { _isState             :: {-# NOUNPACK #-}!(Maybe InstanceState)
-  , _isStateChangeReason :: {-# NOUNPACK #-}!(Maybe InstanceStateChangeReason)
-  , _isTimeline          :: {-# NOUNPACK #-}!(Maybe InstanceTimeline)
+  { _isState             :: !(Maybe InstanceState)
+  , _isStateChangeReason :: !(Maybe InstanceStateChangeReason)
+  , _isTimeline          :: !(Maybe InstanceTimeline)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2848,9 +2848,9 @@ instance NFData InstanceStatus where
 --
 -- /See:/ 'instanceTimeline' smart constructor.
 data InstanceTimeline = InstanceTimeline'
-  { _itReadyDateTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _itCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _itEndDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _itReadyDateTime    :: !(Maybe POSIX)
+  , _itCreationDateTime :: !(Maybe POSIX)
+  , _itEndDateTime      :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2904,12 +2904,12 @@ instance NFData InstanceTimeline where
 --
 -- /See:/ 'instanceTypeConfig' smart constructor.
 data InstanceTypeConfig = InstanceTypeConfig'
-  { _itcEBSConfiguration :: {-# NOUNPACK #-}!(Maybe EBSConfiguration)
-  , _itcBidPrice :: {-# NOUNPACK #-}!(Maybe Text)
-  , _itcWeightedCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _itcConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
-  , _itcBidPriceAsPercentageOfOnDemandPrice :: {-# NOUNPACK #-}!(Maybe Double)
-  , _itcInstanceType :: {-# NOUNPACK #-}!Text
+  { _itcEBSConfiguration                    :: !(Maybe EBSConfiguration)
+  , _itcBidPrice                            :: !(Maybe Text)
+  , _itcWeightedCapacity                    :: !(Maybe Nat)
+  , _itcConfigurations                      :: !(Maybe [Configuration])
+  , _itcBidPriceAsPercentageOfOnDemandPrice :: !(Maybe Double)
+  , _itcInstanceType                        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2988,13 +2988,13 @@ instance ToJSON InstanceTypeConfig where
 --
 -- /See:/ 'instanceTypeSpecification' smart constructor.
 data InstanceTypeSpecification = InstanceTypeSpecification'
-  { _itsBidPrice :: {-# NOUNPACK #-}!(Maybe Text)
-  , _itsWeightedCapacity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _itsConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
-  , _itsEBSBlockDevices :: {-# NOUNPACK #-}!(Maybe [EBSBlockDevice])
-  , _itsInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _itsEBSOptimized :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _itsBidPriceAsPercentageOfOnDemandPrice :: {-# NOUNPACK #-}!(Maybe Double)
+  { _itsBidPrice                            :: !(Maybe Text)
+  , _itsWeightedCapacity                    :: !(Maybe Nat)
+  , _itsConfigurations                      :: !(Maybe [Configuration])
+  , _itsEBSBlockDevices                     :: !(Maybe [EBSBlockDevice])
+  , _itsInstanceType                        :: !(Maybe Text)
+  , _itsEBSOptimized                        :: !(Maybe Bool)
+  , _itsBidPriceAsPercentageOfOnDemandPrice :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3079,23 +3079,23 @@ instance NFData InstanceTypeSpecification where
 --
 -- /See:/ 'jobFlowInstancesConfig' smart constructor.
 data JobFlowInstancesConfig = JobFlowInstancesConfig'
-  { _jficInstanceFleets :: {-# NOUNPACK #-}!(Maybe [InstanceFleetConfig])
-  , _jficEC2KeyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jficSlaveInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jficInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _jficEmrManagedSlaveSecurityGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jficAdditionalSlaveSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _jficEC2SubnetIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _jficHadoopVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jficAdditionalMasterSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _jficEmrManagedMasterSecurityGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jficEC2SubnetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jficMasterInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jficInstanceGroups :: {-# NOUNPACK #-}!(Maybe [InstanceGroupConfig])
-  , _jficKeepJobFlowAliveWhenNoSteps :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _jficServiceAccessSecurityGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jficTerminationProtected :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _jficPlacement :: {-# NOUNPACK #-}!(Maybe PlacementType)
+  { _jficInstanceFleets                 :: !(Maybe [InstanceFleetConfig])
+  , _jficEC2KeyName                     :: !(Maybe Text)
+  , _jficSlaveInstanceType              :: !(Maybe Text)
+  , _jficInstanceCount                  :: !(Maybe Int)
+  , _jficEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
+  , _jficAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
+  , _jficEC2SubnetIds                   :: !(Maybe [Text])
+  , _jficHadoopVersion                  :: !(Maybe Text)
+  , _jficAdditionalMasterSecurityGroups :: !(Maybe [Text])
+  , _jficEmrManagedMasterSecurityGroup  :: !(Maybe Text)
+  , _jficEC2SubnetId                    :: !(Maybe Text)
+  , _jficMasterInstanceType             :: !(Maybe Text)
+  , _jficInstanceGroups                 :: !(Maybe [InstanceGroupConfig])
+  , _jficKeepJobFlowAliveWhenNoSteps    :: !(Maybe Bool)
+  , _jficServiceAccessSecurityGroup     :: !(Maybe Text)
+  , _jficTerminationProtected           :: !(Maybe Bool)
+  , _jficPlacement                      :: !(Maybe PlacementType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3268,8 +3268,8 @@ instance ToJSON JobFlowInstancesConfig where
 --
 -- /See:/ 'keyValue' smart constructor.
 data KeyValue = KeyValue'
-  { _kvValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kvKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _kvValue :: !(Maybe Text)
+  , _kvKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3309,8 +3309,8 @@ instance ToJSON KeyValue where
 --
 -- /See:/ 'metricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-  { _mdValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mdKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _mdValue :: !(Maybe Text)
+  , _mdKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3357,8 +3357,8 @@ instance ToJSON MetricDimension where
 --
 -- /See:/ 'placementType' smart constructor.
 data PlacementType = PlacementType'
-  { _ptAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ptAvailabilityZone  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ptAvailabilityZones :: !(Maybe [Text])
+  , _ptAvailabilityZone  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3400,8 +3400,8 @@ instance ToJSON PlacementType where
 --
 -- /See:/ 'scalingAction' smart constructor.
 data ScalingAction = ScalingAction'
-  { _saMarket :: {-# NOUNPACK #-}!(Maybe MarketType)
-  , _saSimpleScalingPolicyConfiguration :: {-# NOUNPACK #-}!SimpleScalingPolicyConfiguration
+  { _saMarket                           :: !(Maybe MarketType)
+  , _saSimpleScalingPolicyConfiguration :: !SimpleScalingPolicyConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3457,8 +3457,8 @@ instance ToJSON ScalingAction where
 --
 -- /See:/ 'scalingConstraints' smart constructor.
 data ScalingConstraints = ScalingConstraints'
-  { _scMinCapacity :: {-# NOUNPACK #-}!Int
-  , _scMaxCapacity :: {-# NOUNPACK #-}!Int
+  { _scMinCapacity :: !Int
+  , _scMaxCapacity :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3510,10 +3510,10 @@ instance ToJSON ScalingConstraints where
 --
 -- /See:/ 'scalingRule' smart constructor.
 data ScalingRule = ScalingRule'
-  { _srDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srName        :: {-# NOUNPACK #-}!Text
-  , _srAction      :: {-# NOUNPACK #-}!ScalingAction
-  , _srTrigger     :: {-# NOUNPACK #-}!ScalingTrigger
+  { _srDescription :: !(Maybe Text)
+  , _srName        :: !Text
+  , _srAction      :: !ScalingAction
+  , _srTrigger     :: !ScalingTrigger
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3631,8 +3631,8 @@ instance ToJSON ScalingTrigger where
 --
 -- /See:/ 'scriptBootstrapActionConfig' smart constructor.
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
-  { _sbacArgs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sbacPath :: {-# NOUNPACK #-}!Text
+  { _sbacArgs :: !(Maybe [Text])
+  , _sbacPath :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3675,8 +3675,8 @@ instance ToJSON ScriptBootstrapActionConfig where
 --
 -- /See:/ 'securityConfigurationSummary' smart constructor.
 data SecurityConfigurationSummary = SecurityConfigurationSummary'
-  { _scsName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scsCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _scsName             :: !(Maybe Text)
+  , _scsCreationDateTime :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3719,8 +3719,8 @@ instance NFData SecurityConfigurationSummary where
 --
 -- /See:/ 'shrinkPolicy' smart constructor.
 data ShrinkPolicy = ShrinkPolicy'
-  { _spDecommissionTimeout  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _spInstanceResizePolicy :: {-# NOUNPACK #-}!(Maybe InstanceResizePolicy)
+  { _spDecommissionTimeout  :: !(Maybe Int)
+  , _spInstanceResizePolicy :: !(Maybe InstanceResizePolicy)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3773,9 +3773,9 @@ instance ToJSON ShrinkPolicy where
 --
 -- /See:/ 'simpleScalingPolicyConfiguration' smart constructor.
 data SimpleScalingPolicyConfiguration = SimpleScalingPolicyConfiguration'
-  { _sspcAdjustmentType    :: {-# NOUNPACK #-}!(Maybe AdjustmentType)
-  , _sspcCoolDown          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sspcScalingAdjustment :: {-# NOUNPACK #-}!Int
+  { _sspcAdjustmentType    :: !(Maybe AdjustmentType)
+  , _sspcCoolDown          :: !(Maybe Int)
+  , _sspcScalingAdjustment :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3842,9 +3842,9 @@ instance ToJSON SimpleScalingPolicyConfiguration
 --
 -- /See:/ 'spotProvisioningSpecification' smart constructor.
 data SpotProvisioningSpecification = SpotProvisioningSpecification'
-  { _spsBlockDurationMinutes   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _spsTimeoutDurationMinutes :: {-# NOUNPACK #-}!Nat
-  , _spsTimeoutAction          :: {-# NOUNPACK #-}!SpotProvisioningTimeoutAction
+  { _spsBlockDurationMinutes   :: !(Maybe Nat)
+  , _spsTimeoutDurationMinutes :: !Nat
+  , _spsTimeoutAction          :: !SpotProvisioningTimeoutAction
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3911,11 +3911,11 @@ instance ToJSON SpotProvisioningSpecification where
 --
 -- /See:/ 'step' smart constructor.
 data Step = Step'
-  { _sStatus          :: {-# NOUNPACK #-}!(Maybe StepStatus)
-  , _sActionOnFailure :: {-# NOUNPACK #-}!(Maybe ActionOnFailure)
-  , _sConfig          :: {-# NOUNPACK #-}!(Maybe HadoopStepConfig)
-  , _sName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sId              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sStatus          :: !(Maybe StepStatus)
+  , _sActionOnFailure :: !(Maybe ActionOnFailure)
+  , _sConfig          :: !(Maybe HadoopStepConfig)
+  , _sName            :: !(Maybe Text)
+  , _sId              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3984,9 +3984,9 @@ instance NFData Step where
 --
 -- /See:/ 'stepConfig' smart constructor.
 data StepConfig = StepConfig'
-  { _scActionOnFailure :: {-# NOUNPACK #-}!(Maybe ActionOnFailure)
-  , _scName            :: {-# NOUNPACK #-}!Text
-  , _scHadoopJARStep   :: {-# NOUNPACK #-}!HadoopJARStepConfig
+  { _scActionOnFailure :: !(Maybe ActionOnFailure)
+  , _scName            :: !Text
+  , _scHadoopJARStep   :: !HadoopJARStepConfig
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4041,8 +4041,8 @@ instance ToJSON StepConfig where
 --
 -- /See:/ 'stepStateChangeReason' smart constructor.
 data StepStateChangeReason = StepStateChangeReason'
-  { _sscrCode    :: {-# NOUNPACK #-}!(Maybe StepStateChangeReasonCode)
-  , _sscrMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sscrCode    :: !(Maybe StepStateChangeReasonCode)
+  , _sscrMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4084,10 +4084,10 @@ instance NFData StepStateChangeReason where
 --
 -- /See:/ 'stepStatus' smart constructor.
 data StepStatus = StepStatus'
-  { _ssState             :: {-# NOUNPACK #-}!(Maybe StepState)
-  , _ssFailureDetails    :: {-# NOUNPACK #-}!(Maybe FailureDetails)
-  , _ssStateChangeReason :: {-# NOUNPACK #-}!(Maybe StepStateChangeReason)
-  , _ssTimeline          :: {-# NOUNPACK #-}!(Maybe StepTimeline)
+  { _ssState             :: !(Maybe StepState)
+  , _ssFailureDetails    :: !(Maybe FailureDetails)
+  , _ssStateChangeReason :: !(Maybe StepStateChangeReason)
+  , _ssTimeline          :: !(Maybe StepTimeline)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4148,11 +4148,11 @@ instance NFData StepStatus where
 --
 -- /See:/ 'stepSummary' smart constructor.
 data StepSummary = StepSummary'
-  { _ssStatus          :: {-# NOUNPACK #-}!(Maybe StepStatus)
-  , _ssActionOnFailure :: {-# NOUNPACK #-}!(Maybe ActionOnFailure)
-  , _ssConfig          :: {-# NOUNPACK #-}!(Maybe HadoopStepConfig)
-  , _ssName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssId              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ssStatus          :: !(Maybe StepStatus)
+  , _ssActionOnFailure :: !(Maybe ActionOnFailure)
+  , _ssConfig          :: !(Maybe HadoopStepConfig)
+  , _ssName            :: !(Maybe Text)
+  , _ssId              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4221,9 +4221,9 @@ instance NFData StepSummary where
 --
 -- /See:/ 'stepTimeline' smart constructor.
 data StepTimeline = StepTimeline'
-  { _stCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _stEndDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _stStartDateTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _stCreationDateTime :: !(Maybe POSIX)
+  , _stEndDateTime      :: !(Maybe POSIX)
+  , _stStartDateTime    :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4276,8 +4276,8 @@ instance NFData StepTimeline where
 --
 -- /See:/ 'supportedProductConfig' smart constructor.
 data SupportedProductConfig = SupportedProductConfig'
-  { _spcArgs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _spcName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _spcArgs :: !(Maybe [Text])
+  , _spcName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4318,8 +4318,8 @@ instance ToJSON SupportedProductConfig where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4364,9 +4364,9 @@ instance ToJSON Tag where
 --
 -- /See:/ 'volumeSpecification' smart constructor.
 data VolumeSpecification = VolumeSpecification'
-  { _vsIOPS       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _vsVolumeType :: {-# NOUNPACK #-}!Text
-  , _vsSizeInGB   :: {-# NOUNPACK #-}!Int
+  { _vsIOPS       :: !(Maybe Int)
+  , _vsVolumeType :: !Text
+  , _vsSizeInGB   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

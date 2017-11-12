@@ -104,8 +104,8 @@ instance ToQuery DescribeEventCategories where
 --
 -- /See:/ 'describeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-  { _decrsEventCategoriesMapList :: {-# NOUNPACK #-}!(Maybe [EventCategoriesMap])
-  , _decrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
+  , _decrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

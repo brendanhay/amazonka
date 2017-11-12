@@ -55,10 +55,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { _deLocale     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deFilter     :: {-# NOUNPACK #-}!(Maybe EventFilter)
-  , _deMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _deLocale     :: !(Maybe Text)
+  , _deNextToken  :: !(Maybe Text)
+  , _deFilter     :: !(Maybe EventFilter)
+  , _deMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,9 +147,9 @@ instance ToQuery DescribeEvents where
 
 -- | /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { _dersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dersEvents         :: {-# NOUNPACK #-}!(Maybe [Event])
-  , _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dersNextToken      :: !(Maybe Text)
+  , _dersEvents         :: !(Maybe [Event])
+  , _dersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

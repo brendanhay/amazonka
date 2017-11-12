@@ -121,9 +121,9 @@ instance ToQuery ListApplications where
 --
 -- /See:/ 'listApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
-  { _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larsApplications   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _larsNextToken      :: !(Maybe Text)
+  , _larsApplications   :: !(Maybe [Text])
+  , _larsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

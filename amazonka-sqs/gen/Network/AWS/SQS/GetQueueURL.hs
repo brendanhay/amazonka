@@ -53,8 +53,8 @@ import Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'getQueueURL' smart constructor.
 data GetQueueURL = GetQueueURL'
-  { _gquQueueOwnerAWSAccountId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gquQueueName              :: {-# NOUNPACK #-}!Text
+  { _gquQueueOwnerAWSAccountId :: !(Maybe Text)
+  , _gquQueueName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery GetQueueURL where
 --
 -- /See:/ 'getQueueURLResponse' smart constructor.
 data GetQueueURLResponse = GetQueueURLResponse'
-  { _gqursResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gqursQueueURL       :: {-# NOUNPACK #-}!Text
+  { _gqursResponseStatus :: !Int
+  , _gqursQueueURL       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

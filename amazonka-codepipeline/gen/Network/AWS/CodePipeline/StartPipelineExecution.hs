@@ -110,8 +110,8 @@ instance ToQuery StartPipelineExecution where
 --
 -- /See:/ 'startPipelineExecutionResponse' smart constructor.
 data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
-  { _spersPipelineExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _spersResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _spersPipelineExecutionId :: !(Maybe Text)
+  , _spersResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

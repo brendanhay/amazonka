@@ -51,8 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getAlias' smart constructor.
 data GetAlias = GetAlias'
-  { _gaFunctionName :: {-# NOUNPACK #-}!Text
-  , _gaName         :: {-# NOUNPACK #-}!Text
+  { _gaFunctionName :: !Text
+  , _gaName         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listProjects' smart constructor.
 data ListProjects = ListProjects'
-  { _lpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _lpNextToken  :: !(Maybe Text)
+  , _lpMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,9 +113,9 @@ instance ToQuery ListProjects where
 --
 -- /See:/ 'listProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { _lprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lprsProjects       :: {-# NOUNPACK #-}!(Maybe [ProjectSummary])
-  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lprsNextToken      :: !(Maybe Text)
+  , _lprsProjects       :: !(Maybe [ProjectSummary])
+  , _lprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

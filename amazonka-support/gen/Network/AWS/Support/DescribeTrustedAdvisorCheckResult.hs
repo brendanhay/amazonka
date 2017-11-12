@@ -71,8 +71,8 @@ import Network.AWS.Support.Types.Product
 --
 -- /See:/ 'describeTrustedAdvisorCheckResult' smart constructor.
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
-  { _dtacrLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtacrCheckId  :: {-# NOUNPACK #-}!Text
+  { _dtacrLanguage :: !(Maybe Text)
+  , _dtacrCheckId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,8 +149,8 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
 --
 -- /See:/ 'describeTrustedAdvisorCheckResultResponse' smart constructor.
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
-  { _dtacrrsResult         :: {-# NOUNPACK #-}!(Maybe TrustedAdvisorCheckResult)
-  , _dtacrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dtacrrsResult         :: !(Maybe TrustedAdvisorCheckResult)
+  , _dtacrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -112,8 +112,8 @@ instance ToQuery GetOnPremisesInstance where
 --
 -- /See:/ 'getOnPremisesInstanceResponse' smart constructor.
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
-  { _gopirsInstanceInfo   :: {-# NOUNPACK #-}!(Maybe InstanceInfo)
-  , _gopirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gopirsInstanceInfo   :: !(Maybe InstanceInfo)
+  , _gopirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

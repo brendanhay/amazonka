@@ -110,8 +110,8 @@ instance ToQuery DescribeCreateAccountStatus where
 
 -- | /See:/ 'describeCreateAccountStatusResponse' smart constructor.
 data DescribeCreateAccountStatusResponse = DescribeCreateAccountStatusResponse'
-  { _dcasrsCreateAccountStatus :: {-# NOUNPACK #-}!(Maybe CreateAccountStatus)
-  , _dcasrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _dcasrsCreateAccountStatus :: !(Maybe CreateAccountStatus)
+  , _dcasrsResponseStatus      :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

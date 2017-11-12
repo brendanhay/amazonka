@@ -61,12 +61,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'createKey' smart constructor.
 data CreateKey = CreateKey'
-  { _ckOrigin                         :: {-# NOUNPACK #-}!(Maybe OriginType)
-  , _ckKeyUsage                       :: {-# NOUNPACK #-}!(Maybe KeyUsageType)
-  , _ckBypassPolicyLockoutSafetyCheck :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ckPolicy                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ckDescription                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ckTags                           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _ckOrigin                         :: !(Maybe OriginType)
+  , _ckKeyUsage                       :: !(Maybe KeyUsageType)
+  , _ckBypassPolicyLockoutSafetyCheck :: !(Maybe Bool)
+  , _ckPolicy                         :: !(Maybe Text)
+  , _ckDescription                    :: !(Maybe Text)
+  , _ckTags                           :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -164,8 +164,8 @@ instance ToQuery CreateKey where
 
 -- | /See:/ 'createKeyResponse' smart constructor.
 data CreateKeyResponse = CreateKeyResponse'
-  { _ckrsKeyMetadata    :: {-# NOUNPACK #-}!(Maybe KeyMetadata)
-  , _ckrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ckrsKeyMetadata    :: !(Maybe KeyMetadata)
+  , _ckrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -100,8 +100,8 @@ instance ToQuery DeleteServiceLinkedRole where
 
 -- | /See:/ 'deleteServiceLinkedRoleResponse' smart constructor.
 data DeleteServiceLinkedRoleResponse = DeleteServiceLinkedRoleResponse'
-  { _dslrrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dslrrsDeletionTaskId :: {-# NOUNPACK #-}!Text
+  { _dslrrsResponseStatus :: !Int
+  , _dslrrsDeletionTaskId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

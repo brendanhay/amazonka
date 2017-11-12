@@ -88,8 +88,8 @@ instance ToQuery GetRegistrationCode where
 --
 -- /See:/ 'getRegistrationCodeResponse' smart constructor.
 data GetRegistrationCodeResponse = GetRegistrationCodeResponse'
-  { _grcrsRegistrationCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grcrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _grcrsRegistrationCode :: !(Maybe Text)
+  , _grcrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

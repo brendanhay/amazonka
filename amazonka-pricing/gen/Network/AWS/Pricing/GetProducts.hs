@@ -52,11 +52,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'getProducts' smart constructor.
 data GetProducts = GetProducts'
-  { _gpFilters       :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _gpFormatVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpServiceCode   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpMaxResults    :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gpFilters       :: !(Maybe [Filter])
+  , _gpFormatVersion :: !(Maybe Text)
+  , _gpNextToken     :: !(Maybe Text)
+  , _gpServiceCode   :: !(Maybe Text)
+  , _gpMaxResults    :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,10 +147,10 @@ instance ToQuery GetProducts where
 
 -- | /See:/ 'getProductsResponse' smart constructor.
 data GetProductsResponse = GetProductsResponse'
-  { _gprsFormatVersion  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gprsPriceList      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gprsFormatVersion  :: !(Maybe Text)
+  , _gprsNextToken      :: !(Maybe Text)
+  , _gprsPriceList      :: !(Maybe [Text])
+  , _gprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

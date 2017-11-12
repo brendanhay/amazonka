@@ -104,8 +104,8 @@ instance ToQuery DescribeScalingParameters where
 --
 -- /See:/ 'describeScalingParametersResponse' smart constructor.
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
-  { _dsprsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _dsprsScalingParameters :: {-# NOUNPACK #-}!ScalingParametersStatus
+  { _dsprsResponseStatus    :: !Int
+  , _dsprsScalingParameters :: !ScalingParametersStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

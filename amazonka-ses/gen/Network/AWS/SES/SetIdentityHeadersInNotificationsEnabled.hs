@@ -55,9 +55,9 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'setIdentityHeadersInNotificationsEnabled' smart constructor.
 data SetIdentityHeadersInNotificationsEnabled = SetIdentityHeadersInNotificationsEnabled'
-  { _sihineIdentity         :: {-# NOUNPACK #-}!Text
-  , _sihineNotificationType :: {-# NOUNPACK #-}!NotificationType
-  , _sihineEnabled          :: {-# NOUNPACK #-}!Bool
+  { _sihineIdentity         :: !Text
+  , _sihineNotificationType :: !NotificationType
+  , _sihineEnabled          :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

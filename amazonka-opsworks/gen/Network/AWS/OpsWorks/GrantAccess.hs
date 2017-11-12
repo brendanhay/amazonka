@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'grantAccess' smart constructor.
 data GrantAccess = GrantAccess'
-  { _gaValidForInMinutes :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gaInstanceId        :: {-# NOUNPACK #-}!Text
+  { _gaValidForInMinutes :: !(Maybe Nat)
+  , _gaInstanceId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,8 +116,8 @@ instance ToQuery GrantAccess where
 --
 -- /See:/ 'grantAccessResponse' smart constructor.
 data GrantAccessResponse = GrantAccessResponse'
-  { _garsTemporaryCredential :: {-# NOUNPACK #-}!(Maybe TemporaryCredential)
-  , _garsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _garsTemporaryCredential :: !(Maybe TemporaryCredential)
+  , _garsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

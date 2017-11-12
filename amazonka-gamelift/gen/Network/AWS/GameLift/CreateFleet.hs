@@ -147,20 +147,20 @@ import Network.AWS.Response
 --
 -- /See:/ 'createFleet' smart constructor.
 data CreateFleet = CreateFleet'
-  { _cfServerLaunchParameters :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfLogPaths :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cfPeerVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfPeerVPCAWSAccountId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfEC2InboundPermissions :: {-# NOUNPACK #-}!(Maybe [IPPermission])
-  , _cfRuntimeConfiguration :: {-# NOUNPACK #-}!(Maybe RuntimeConfiguration)
-  , _cfNewGameSessionProtectionPolicy :: {-# NOUNPACK #-}!(Maybe ProtectionPolicy)
-  , _cfServerLaunchPath :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfMetricGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cfDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfResourceCreationLimitPolicy :: {-# NOUNPACK #-}!(Maybe ResourceCreationLimitPolicy)
-  , _cfName :: {-# NOUNPACK #-}!Text
-  , _cfBuildId :: {-# NOUNPACK #-}!Text
-  , _cfEC2InstanceType :: {-# NOUNPACK #-}!EC2InstanceType
+  { _cfServerLaunchParameters         :: !(Maybe Text)
+  , _cfLogPaths                       :: !(Maybe [Text])
+  , _cfPeerVPCId                      :: !(Maybe Text)
+  , _cfPeerVPCAWSAccountId            :: !(Maybe Text)
+  , _cfEC2InboundPermissions          :: !(Maybe [IPPermission])
+  , _cfRuntimeConfiguration           :: !(Maybe RuntimeConfiguration)
+  , _cfNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
+  , _cfServerLaunchPath               :: !(Maybe Text)
+  , _cfMetricGroups                   :: !(Maybe [Text])
+  , _cfDescription                    :: !(Maybe Text)
+  , _cfResourceCreationLimitPolicy    :: !(Maybe ResourceCreationLimitPolicy)
+  , _cfName                           :: !Text
+  , _cfBuildId                        :: !Text
+  , _cfEC2InstanceType                :: !EC2InstanceType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -334,8 +334,8 @@ instance ToQuery CreateFleet where
 --
 -- /See:/ 'createFleetResponse' smart constructor.
 data CreateFleetResponse = CreateFleetResponse'
-  { _cfrsFleetAttributes :: {-# NOUNPACK #-}!(Maybe FleetAttributes)
-  , _cfrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _cfrsFleetAttributes :: !(Maybe FleetAttributes)
+  , _cfrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

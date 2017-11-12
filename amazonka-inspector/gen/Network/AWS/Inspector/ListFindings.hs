@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listFindings' smart constructor.
 data ListFindings = ListFindings'
-  { _lfAssessmentRunARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lfNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfFilter            :: {-# NOUNPACK #-}!(Maybe FindingFilter)
-  , _lfMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
+  { _lfAssessmentRunARNs :: !(Maybe [Text])
+  , _lfNextToken         :: !(Maybe Text)
+  , _lfFilter            :: !(Maybe FindingFilter)
+  , _lfMaxResults        :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery ListFindings where
 
 -- | /See:/ 'listFindingsResponse' smart constructor.
 data ListFindingsResponse = ListFindingsResponse'
-  { _lfrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lfrsFindingARNs    :: {-# NOUNPACK #-}![Text]
+  { _lfrsNextToken      :: !(Maybe Text)
+  , _lfrsResponseStatus :: !Int
+  , _lfrsFindingARNs    :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

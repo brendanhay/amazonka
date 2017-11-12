@@ -74,17 +74,17 @@ import Network.AWS.Response
 
 -- | /See:/ 'putBot' smart constructor.
 data PutBot = PutBot'
-  { _pbAbortStatement          :: {-# NOUNPACK #-}!(Maybe Statement)
-  , _pbIntents                 :: {-# NOUNPACK #-}!(Maybe [Intent])
-  , _pbChecksum                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbProcessBehavior         :: {-# NOUNPACK #-}!(Maybe ProcessBehavior)
-  , _pbIdleSessionTTLInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _pbClarificationPrompt     :: {-# NOUNPACK #-}!(Maybe Prompt)
-  , _pbVoiceId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbDescription             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbName                    :: {-# NOUNPACK #-}!Text
-  , _pbLocale                  :: {-# NOUNPACK #-}!Locale
-  , _pbChildDirected           :: {-# NOUNPACK #-}!Bool
+  { _pbAbortStatement          :: !(Maybe Statement)
+  , _pbIntents                 :: !(Maybe [Intent])
+  , _pbChecksum                :: !(Maybe Text)
+  , _pbProcessBehavior         :: !(Maybe ProcessBehavior)
+  , _pbIdleSessionTTLInSeconds :: !(Maybe Nat)
+  , _pbClarificationPrompt     :: !(Maybe Prompt)
+  , _pbVoiceId                 :: !(Maybe Text)
+  , _pbDescription             :: !(Maybe Text)
+  , _pbName                    :: !Text
+  , _pbLocale                  :: !Locale
+  , _pbChildDirected           :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -239,22 +239,22 @@ instance ToQuery PutBot where
 
 -- | /See:/ 'putBotResponse' smart constructor.
 data PutBotResponse = PutBotResponse'
-  { _pbrsFailureReason           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbrsStatus                  :: {-# NOUNPACK #-}!(Maybe LexStatus)
-  , _pbrsAbortStatement          :: {-# NOUNPACK #-}!(Maybe Statement)
-  , _pbrsIntents                 :: {-# NOUNPACK #-}!(Maybe [Intent])
-  , _pbrsChecksum                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbrsLocale                  :: {-# NOUNPACK #-}!(Maybe Locale)
-  , _pbrsCreatedDate             :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pbrsName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbrsVersion                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbrsIdleSessionTTLInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _pbrsClarificationPrompt     :: {-# NOUNPACK #-}!(Maybe Prompt)
-  , _pbrsVoiceId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbrsLastUpdatedDate         :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pbrsChildDirected           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pbrsDescription             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbrsResponseStatus          :: {-# NOUNPACK #-}!Int
+  { _pbrsFailureReason           :: !(Maybe Text)
+  , _pbrsStatus                  :: !(Maybe LexStatus)
+  , _pbrsAbortStatement          :: !(Maybe Statement)
+  , _pbrsIntents                 :: !(Maybe [Intent])
+  , _pbrsChecksum                :: !(Maybe Text)
+  , _pbrsLocale                  :: !(Maybe Locale)
+  , _pbrsCreatedDate             :: !(Maybe POSIX)
+  , _pbrsName                    :: !(Maybe Text)
+  , _pbrsVersion                 :: !(Maybe Text)
+  , _pbrsIdleSessionTTLInSeconds :: !(Maybe Nat)
+  , _pbrsClarificationPrompt     :: !(Maybe Prompt)
+  , _pbrsVoiceId                 :: !(Maybe Text)
+  , _pbrsLastUpdatedDate         :: !(Maybe POSIX)
+  , _pbrsChildDirected           :: !(Maybe Bool)
+  , _pbrsDescription             :: !(Maybe Text)
+  , _pbrsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

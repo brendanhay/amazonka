@@ -52,9 +52,9 @@ import Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'confirmSubscription' smart constructor.
 data ConfirmSubscription = ConfirmSubscription'
-  { _csAuthenticateOnUnsubscribe :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csTopicARN                  :: {-# NOUNPACK #-}!Text
-  , _csToken                     :: {-# NOUNPACK #-}!Text
+  { _csAuthenticateOnUnsubscribe :: !(Maybe Text)
+  , _csTopicARN                  :: !Text
+  , _csToken                     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery ConfirmSubscription where
 --
 -- /See:/ 'confirmSubscriptionResponse' smart constructor.
 data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
-  { _csrsSubscriptionARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _csrsSubscriptionARN :: !(Maybe Text)
+  , _csrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

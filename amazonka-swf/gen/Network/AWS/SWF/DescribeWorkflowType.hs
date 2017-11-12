@@ -68,8 +68,8 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeWorkflowType' smart constructor.
 data DescribeWorkflowType = DescribeWorkflowType'
-  { _dwtDomain       :: {-# NOUNPACK #-}!Text
-  , _dwtWorkflowType :: {-# NOUNPACK #-}!WorkflowType
+  { _dwtDomain       :: !Text
+  , _dwtWorkflowType :: !WorkflowType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery DescribeWorkflowType where
 --
 -- /See:/ 'describeWorkflowTypeResponse' smart constructor.
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
-  { _dwtrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dwtrsTypeInfo       :: {-# NOUNPACK #-}!WorkflowTypeInfo
-  , _dwtrsConfiguration  :: {-# NOUNPACK #-}!WorkflowTypeConfiguration
+  { _dwtrsResponseStatus :: !Int
+  , _dwtrsTypeInfo       :: !WorkflowTypeInfo
+  , _dwtrsConfiguration  :: !WorkflowTypeConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

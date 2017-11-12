@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listTypedLinkFacetNames' smart constructor.
 data ListTypedLinkFacetNames = ListTypedLinkFacetNames'
-  { _ltlfnNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltlfnMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ltlfnSchemaARN  :: {-# NOUNPACK #-}!Text
+  { _ltlfnNextToken  :: !(Maybe Text)
+  , _ltlfnMaxResults :: !(Maybe Nat)
+  , _ltlfnSchemaARN  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery ListTypedLinkFacetNames where
 
 -- | /See:/ 'listTypedLinkFacetNamesResponse' smart constructor.
 data ListTypedLinkFacetNamesResponse = ListTypedLinkFacetNamesResponse'
-  { _ltlfnrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltlfnrsFacetNames     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ltlfnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltlfnrsNextToken      :: !(Maybe Text)
+  , _ltlfnrsFacetNames     :: !(Maybe [Text])
+  , _ltlfnrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

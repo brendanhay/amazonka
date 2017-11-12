@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteFunction' smart constructor.
 data DeleteFunction = DeleteFunction'
-  { _dfQualifier    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfFunctionName :: {-# NOUNPACK #-}!Text
+  { _dfQualifier    :: !(Maybe Text)
+  , _dfFunctionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

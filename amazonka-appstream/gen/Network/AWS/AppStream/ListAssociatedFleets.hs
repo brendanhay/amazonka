@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAssociatedFleets' smart constructor.
 data ListAssociatedFleets = ListAssociatedFleets'
-  { _lafNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lafStackName :: {-# NOUNPACK #-}!Text
+  { _lafNextToken :: !(Maybe Text)
+  , _lafStackName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,9 +115,9 @@ instance ToQuery ListAssociatedFleets where
 
 -- | /See:/ 'listAssociatedFleetsResponse' smart constructor.
 data ListAssociatedFleetsResponse = ListAssociatedFleetsResponse'
-  { _lafrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lafrsNames          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lafrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lafrsNextToken      :: !(Maybe Text)
+  , _lafrsNames          :: !(Maybe [Text])
+  , _lafrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

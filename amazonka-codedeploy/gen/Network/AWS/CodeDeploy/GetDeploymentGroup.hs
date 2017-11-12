@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDeploymentGroup' smart constructor.
 data GetDeploymentGroup = GetDeploymentGroup'
-  { _gdgApplicationName     :: {-# NOUNPACK #-}!Text
-  , _gdgDeploymentGroupName :: {-# NOUNPACK #-}!Text
+  { _gdgApplicationName     :: !Text
+  , _gdgDeploymentGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery GetDeploymentGroup where
 --
 -- /See:/ 'getDeploymentGroupResponse' smart constructor.
 data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
-  { _gdgrsDeploymentGroupInfo :: {-# NOUNPACK #-}!(Maybe DeploymentGroupInfo)
-  , _gdgrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _gdgrsDeploymentGroupInfo :: !(Maybe DeploymentGroupInfo)
+  , _gdgrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

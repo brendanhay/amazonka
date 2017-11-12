@@ -98,8 +98,8 @@ instance ToQuery ListReceiptFilters where
 --
 -- /See:/ 'listReceiptFiltersResponse' smart constructor.
 data ListReceiptFiltersResponse = ListReceiptFiltersResponse'
-  { _lrfrsFilters        :: {-# NOUNPACK #-}!(Maybe [ReceiptFilter])
-  , _lrfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrfrsFilters        :: !(Maybe [ReceiptFilter])
+  , _lrfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

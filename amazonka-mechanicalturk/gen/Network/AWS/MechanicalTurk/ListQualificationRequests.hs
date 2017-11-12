@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listQualificationRequests' smart constructor.
 data ListQualificationRequests = ListQualificationRequests'
-  { _lqrNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lqrQualificationTypeId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lqrMaxResults          :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lqrNextToken           :: !(Maybe Text)
+  , _lqrQualificationTypeId :: !(Maybe Text)
+  , _lqrMaxResults          :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,10 +131,10 @@ instance ToQuery ListQualificationRequests where
 
 -- | /See:/ 'listQualificationRequestsResponse' smart constructor.
 data ListQualificationRequestsResponse = ListQualificationRequestsResponse'
-  { _lqrrsQualificationRequests :: {-# NOUNPACK #-}!(Maybe [QualificationRequest])
-  , _lqrrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lqrrsNumResults :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lqrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lqrrsQualificationRequests :: !(Maybe [QualificationRequest])
+  , _lqrrsNextToken             :: !(Maybe Text)
+  , _lqrrsNumResults            :: !(Maybe Int)
+  , _lqrrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'accessPoliciesStatus' smart constructor.
 data AccessPoliciesStatus = AccessPoliciesStatus'
-  { _apsOptions :: {-# NOUNPACK #-}!Text
-  , _apsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _apsOptions :: !Text
+  , _apsStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -72,8 +72,8 @@ instance NFData AccessPoliciesStatus where
 --
 -- /See:/ 'additionalLimit' smart constructor.
 data AdditionalLimit = AdditionalLimit'
-  { _alLimitName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _alLimitValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _alLimitName   :: !(Maybe Text)
+  , _alLimitValues :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,8 +120,8 @@ instance NFData AdditionalLimit where
 --
 -- /See:/ 'advancedOptionsStatus' smart constructor.
 data AdvancedOptionsStatus = AdvancedOptionsStatus'
-  { _aosOptions :: {-# NOUNPACK #-}!(Map Text Text)
-  , _aosStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _aosOptions :: !(Map Text Text)
+  , _aosStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -193,10 +193,10 @@ instance NFData DomainInfo where
 --
 -- /See:/ 'ebsOptions' smart constructor.
 data EBSOptions = EBSOptions'
-  { _eoVolumeSize :: {-# NOUNPACK #-}!(Maybe Int)
-  , _eoIOPS       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _eoVolumeType :: {-# NOUNPACK #-}!(Maybe VolumeType)
-  , _eoEBSEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _eoVolumeSize :: !(Maybe Int)
+  , _eoIOPS       :: !(Maybe Int)
+  , _eoVolumeType :: !(Maybe VolumeType)
+  , _eoEBSEnabled :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -266,8 +266,8 @@ instance ToJSON EBSOptions where
 --
 -- /See:/ 'ebsOptionsStatus' smart constructor.
 data EBSOptionsStatus = EBSOptionsStatus'
-  { _eosOptions :: {-# NOUNPACK #-}!EBSOptions
-  , _eosStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _eosOptions :: !EBSOptions
+  , _eosStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -311,12 +311,12 @@ instance NFData EBSOptionsStatus where
 --
 -- /See:/ 'elasticsearchClusterConfig' smart constructor.
 data ElasticsearchClusterConfig = ElasticsearchClusterConfig'
-  { _eccDedicatedMasterCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _eccDedicatedMasterType :: {-# NOUNPACK #-}!(Maybe ESPartitionInstanceType)
-  , _eccDedicatedMasterEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _eccInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _eccZoneAwarenessEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _eccInstanceType :: {-# NOUNPACK #-}!(Maybe ESPartitionInstanceType)
+  { _eccDedicatedMasterCount   :: !(Maybe Int)
+  , _eccDedicatedMasterType    :: !(Maybe ESPartitionInstanceType)
+  , _eccDedicatedMasterEnabled :: !(Maybe Bool)
+  , _eccInstanceCount          :: !(Maybe Int)
+  , _eccZoneAwarenessEnabled   :: !(Maybe Bool)
+  , _eccInstanceType           :: !(Maybe ESPartitionInstanceType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -409,8 +409,8 @@ instance ToJSON ElasticsearchClusterConfig where
 --
 -- /See:/ 'elasticsearchClusterConfigStatus' smart constructor.
 data ElasticsearchClusterConfigStatus = ElasticsearchClusterConfigStatus'
-  { _eccsOptions :: {-# NOUNPACK #-}!ElasticsearchClusterConfig
-  , _eccsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _eccsOptions :: !ElasticsearchClusterConfig
+  , _eccsStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -458,14 +458,14 @@ instance NFData ElasticsearchClusterConfigStatus
 --
 -- /See:/ 'elasticsearchDomainConfig' smart constructor.
 data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
-  { _edcEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptionsStatus)
-  , _edcAccessPolicies :: {-# NOUNPACK #-}!(Maybe AccessPoliciesStatus)
-  , _edcLogPublishingOptions :: {-# NOUNPACK #-}!(Maybe LogPublishingOptionsStatus)
-  , _edcElasticsearchClusterConfig :: {-# NOUNPACK #-}!(Maybe ElasticsearchClusterConfigStatus)
-  , _edcSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptionsStatus)
-  , _edcVPCOptions :: {-# NOUNPACK #-}!(Maybe VPCDerivedInfoStatus)
-  , _edcAdvancedOptions :: {-# NOUNPACK #-}!(Maybe AdvancedOptionsStatus)
-  , _edcElasticsearchVersion :: {-# NOUNPACK #-}!(Maybe ElasticsearchVersionStatus)
+  { _edcEBSOptions                 :: !(Maybe EBSOptionsStatus)
+  , _edcAccessPolicies             :: !(Maybe AccessPoliciesStatus)
+  , _edcLogPublishingOptions       :: !(Maybe LogPublishingOptionsStatus)
+  , _edcElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfigStatus)
+  , _edcSnapshotOptions            :: !(Maybe SnapshotOptionsStatus)
+  , _edcVPCOptions                 :: !(Maybe VPCDerivedInfoStatus)
+  , _edcAdvancedOptions            :: !(Maybe AdvancedOptionsStatus)
+  , _edcElasticsearchVersion       :: !(Maybe ElasticsearchVersionStatus)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -558,22 +558,22 @@ instance NFData ElasticsearchDomainConfig where
 --
 -- /See:/ 'elasticsearchDomainStatus' smart constructor.
 data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
-  { _edsEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptions)
-  , _edsAccessPolicies :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edsLogPublishingOptions :: {-# NOUNPACK #-}!(Maybe (Map LogType LogPublishingOption))
-  , _edsCreated :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _edsSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptions)
-  , _edsDeleted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _edsVPCOptions :: {-# NOUNPACK #-}!(Maybe VPCDerivedInfo)
-  , _edsEndpoints :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _edsProcessing :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _edsEndpoint :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edsAdvancedOptions :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _edsElasticsearchVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edsDomainId :: {-# NOUNPACK #-}!Text
-  , _edsDomainName :: {-# NOUNPACK #-}!Text
-  , _edsARN :: {-# NOUNPACK #-}!Text
-  , _edsElasticsearchClusterConfig :: {-# NOUNPACK #-}!ElasticsearchClusterConfig
+  { _edsEBSOptions                 :: !(Maybe EBSOptions)
+  , _edsAccessPolicies             :: !(Maybe Text)
+  , _edsLogPublishingOptions       :: !(Maybe (Map LogType LogPublishingOption))
+  , _edsCreated                    :: !(Maybe Bool)
+  , _edsSnapshotOptions            :: !(Maybe SnapshotOptions)
+  , _edsDeleted                    :: !(Maybe Bool)
+  , _edsVPCOptions                 :: !(Maybe VPCDerivedInfo)
+  , _edsEndpoints                  :: !(Maybe (Map Text Text))
+  , _edsProcessing                 :: !(Maybe Bool)
+  , _edsEndpoint                   :: !(Maybe Text)
+  , _edsAdvancedOptions            :: !(Maybe (Map Text Text))
+  , _edsElasticsearchVersion       :: !(Maybe Text)
+  , _edsDomainId                   :: !Text
+  , _edsDomainName                 :: !Text
+  , _edsARN                        :: !Text
+  , _edsElasticsearchClusterConfig :: !ElasticsearchClusterConfig
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -734,8 +734,8 @@ instance NFData ElasticsearchDomainStatus where
 --
 -- /See:/ 'elasticsearchVersionStatus' smart constructor.
 data ElasticsearchVersionStatus = ElasticsearchVersionStatus'
-  { _evsOptions :: {-# NOUNPACK #-}!Text
-  , _evsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _evsOptions :: !Text
+  , _evsStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -779,8 +779,8 @@ instance NFData ElasticsearchVersionStatus where
 --
 -- /See:/ 'instanceCountLimits' smart constructor.
 data InstanceCountLimits = InstanceCountLimits'
-  { _iclMaximumInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _iclMinimumInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
+  { _iclMaximumInstanceCount :: !(Maybe Int)
+  , _iclMinimumInstanceCount :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -859,9 +859,9 @@ instance NFData InstanceLimits where
 --
 -- /See:/ 'limits' smart constructor.
 data Limits = Limits'
-  { _lInstanceLimits   :: {-# NOUNPACK #-}!(Maybe InstanceLimits)
-  , _lAdditionalLimits :: {-# NOUNPACK #-}!(Maybe [AdditionalLimit])
-  , _lStorageTypes     :: {-# NOUNPACK #-}!(Maybe [StorageType])
+  { _lInstanceLimits   :: !(Maybe InstanceLimits)
+  , _lAdditionalLimits :: !(Maybe [AdditionalLimit])
+  , _lStorageTypes     :: !(Maybe [StorageType])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -918,8 +918,8 @@ instance NFData Limits where
 --
 -- /See:/ 'logPublishingOption' smart constructor.
 data LogPublishingOption = LogPublishingOption'
-  { _lpoEnabled                   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lpoCloudWatchLogsLogGroupARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lpoEnabled                   :: !(Maybe Bool)
+  , _lpoCloudWatchLogsLogGroupARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -971,8 +971,8 @@ instance ToJSON LogPublishingOption where
 --
 -- /See:/ 'logPublishingOptionsStatus' smart constructor.
 data LogPublishingOptionsStatus = LogPublishingOptionsStatus'
-  { _lposStatus  :: {-# NOUNPACK #-}!(Maybe OptionStatus)
-  , _lposOptions :: {-# NOUNPACK #-}!(Maybe (Map LogType LogPublishingOption))
+  { _lposStatus  :: !(Maybe OptionStatus)
+  , _lposOptions :: !(Maybe (Map LogType LogPublishingOption))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1014,11 +1014,11 @@ instance NFData LogPublishingOptionsStatus where
 --
 -- /See:/ 'optionStatus' smart constructor.
 data OptionStatus = OptionStatus'
-  { _osPendingDeletion :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _osUpdateVersion   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _osCreationDate    :: {-# NOUNPACK #-}!POSIX
-  , _osUpdateDate      :: {-# NOUNPACK #-}!POSIX
-  , _osState           :: {-# NOUNPACK #-}!OptionState
+  { _osPendingDeletion :: !(Maybe Bool)
+  , _osUpdateVersion   :: !(Maybe Nat)
+  , _osCreationDate    :: !POSIX
+  , _osUpdateDate      :: !POSIX
+  , _osState           :: !OptionState
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1132,8 +1132,8 @@ instance ToJSON SnapshotOptions where
 --
 -- /See:/ 'snapshotOptionsStatus' smart constructor.
 data SnapshotOptionsStatus = SnapshotOptionsStatus'
-  { _sosOptions :: {-# NOUNPACK #-}!SnapshotOptions
-  , _sosStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _sosOptions :: !SnapshotOptions
+  , _sosStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1177,9 +1177,9 @@ instance NFData SnapshotOptionsStatus where
 --
 -- /See:/ 'storageType' smart constructor.
 data StorageType = StorageType'
-  { _stStorageTypeLimits  :: {-# NOUNPACK #-}!(Maybe [StorageTypeLimit])
-  , _stStorageSubTypeName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stStorageTypeName    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _stStorageTypeLimits  :: !(Maybe [StorageTypeLimit])
+  , _stStorageSubTypeName :: !(Maybe Text)
+  , _stStorageTypeName    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1233,8 +1233,8 @@ instance NFData StorageType where
 --
 -- /See:/ 'storageTypeLimit' smart constructor.
 data StorageTypeLimit = StorageTypeLimit'
-  { _stlLimitName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stlLimitValues :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _stlLimitName   :: !(Maybe Text)
+  , _stlLimitValues :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1277,8 +1277,8 @@ instance NFData StorageTypeLimit where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!Text
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1326,10 +1326,10 @@ instance ToJSON Tag where
 --
 -- /See:/ 'vpcDerivedInfo' smart constructor.
 data VPCDerivedInfo = VPCDerivedInfo'
-  { _vdiSecurityGroupIds  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _vdiSubnetIds         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _vdiVPCId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vdiAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _vdiSecurityGroupIds  :: !(Maybe [Text])
+  , _vdiSubnetIds         :: !(Maybe [Text])
+  , _vdiVPCId             :: !(Maybe Text)
+  , _vdiAvailabilityZones :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1391,8 +1391,8 @@ instance NFData VPCDerivedInfo where
 --
 -- /See:/ 'vpcDerivedInfoStatus' smart constructor.
 data VPCDerivedInfoStatus = VPCDerivedInfoStatus'
-  { _vdisOptions :: {-# NOUNPACK #-}!VPCDerivedInfo
-  , _vdisStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _vdisOptions :: !VPCDerivedInfo
+  , _vdisStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1436,8 +1436,8 @@ instance NFData VPCDerivedInfoStatus where
 --
 -- /See:/ 'vpcOptions' smart constructor.
 data VPCOptions = VPCOptions'
-  { _voSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _voSubnetIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _voSecurityGroupIds :: !(Maybe [Text])
+  , _voSubnetIds        :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

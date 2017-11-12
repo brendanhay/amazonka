@@ -63,20 +63,20 @@ import Network.AWS.Response
 --
 -- /See:/ 'createUserPoolClient' smart constructor.
 data CreateUserPoolClient = CreateUserPoolClient'
-  { _cupcRefreshTokenValidity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cupcExplicitAuthFlows :: {-# NOUNPACK #-}!(Maybe [ExplicitAuthFlowsType])
-  , _cupcSupportedIdentityProviders :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cupcLogoutURLs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cupcAllowedOAuthFlowsUserPoolClient :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cupcGenerateSecret :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cupcDefaultRedirectURI :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cupcWriteAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cupcReadAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cupcAllowedOAuthScopes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cupcAllowedOAuthFlows :: {-# NOUNPACK #-}!(Maybe [OAuthFlowType])
-  , _cupcCallbackURLs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cupcUserPoolId :: {-# NOUNPACK #-}!Text
-  , _cupcClientName :: {-# NOUNPACK #-}!Text
+  { _cupcRefreshTokenValidity            :: !(Maybe Nat)
+  , _cupcExplicitAuthFlows               :: !(Maybe [ExplicitAuthFlowsType])
+  , _cupcSupportedIdentityProviders      :: !(Maybe [Text])
+  , _cupcLogoutURLs                      :: !(Maybe [Text])
+  , _cupcAllowedOAuthFlowsUserPoolClient :: !(Maybe Bool)
+  , _cupcGenerateSecret                  :: !(Maybe Bool)
+  , _cupcDefaultRedirectURI              :: !(Maybe Text)
+  , _cupcWriteAttributes                 :: !(Maybe [Text])
+  , _cupcReadAttributes                  :: !(Maybe [Text])
+  , _cupcAllowedOAuthScopes              :: !(Maybe [Text])
+  , _cupcAllowedOAuthFlows               :: !(Maybe [OAuthFlowType])
+  , _cupcCallbackURLs                    :: !(Maybe [Text])
+  , _cupcUserPoolId                      :: !Text
+  , _cupcClientName                      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -250,8 +250,8 @@ instance ToQuery CreateUserPoolClient where
 --
 -- /See:/ 'createUserPoolClientResponse' smart constructor.
 data CreateUserPoolClientResponse = CreateUserPoolClientResponse'
-  { _cupcrsUserPoolClient :: {-# NOUNPACK #-}!(Maybe UserPoolClientType)
-  , _cupcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cupcrsUserPoolClient :: !(Maybe UserPoolClientType)
+  , _cupcrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

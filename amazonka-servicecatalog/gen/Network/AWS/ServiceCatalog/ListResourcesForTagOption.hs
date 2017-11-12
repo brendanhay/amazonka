@@ -50,10 +50,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listResourcesForTagOption' smart constructor.
 data ListResourcesForTagOption = ListResourcesForTagOption'
-  { _lrftoResourceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrftoPageToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrftoPageSize     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lrftoTagOptionId  :: {-# NOUNPACK #-}!Text
+  { _lrftoResourceType :: !(Maybe Text)
+  , _lrftoPageToken    :: !(Maybe Text)
+  , _lrftoPageSize     :: !(Maybe Nat)
+  , _lrftoTagOptionId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery ListResourcesForTagOption where
 
 -- | /See:/ 'listResourcesForTagOptionResponse' smart constructor.
 data ListResourcesForTagOptionResponse = ListResourcesForTagOptionResponse'
-  { _lrftorsResourceDetails :: {-# NOUNPACK #-}!(Maybe [ResourceDetail])
-  , _lrftorsPageToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrftorsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _lrftorsResourceDetails :: !(Maybe [ResourceDetail])
+  , _lrftorsPageToken       :: !(Maybe Text)
+  , _lrftorsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

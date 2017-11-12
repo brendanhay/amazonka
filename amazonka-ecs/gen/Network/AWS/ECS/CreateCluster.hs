@@ -100,8 +100,8 @@ instance ToQuery CreateCluster where
 
 -- | /See:/ 'createClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-  { _ccrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
-  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ccrsCluster        :: !(Maybe Cluster)
+  , _ccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

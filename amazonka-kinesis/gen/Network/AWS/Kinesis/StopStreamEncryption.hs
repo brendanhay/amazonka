@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'stopStreamEncryption' smart constructor.
 data StopStreamEncryption = StopStreamEncryption'
-  { _sseStreamName     :: {-# NOUNPACK #-}!Text
-  , _sseEncryptionType :: {-# NOUNPACK #-}!EncryptionType
-  , _sseKeyId          :: {-# NOUNPACK #-}!Text
+  { _sseStreamName     :: !Text
+  , _sseEncryptionType :: !EncryptionType
+  , _sseKeyId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -112,9 +112,9 @@ instance ToQuery GetDomains where
 
 -- | /See:/ 'getDomainsResponse' smart constructor.
 data GetDomainsResponse = GetDomainsResponse'
-  { _gdsrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsDomains        :: {-# NOUNPACK #-}!(Maybe [Domain])
-  , _gdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdsrsNextPageToken  :: !(Maybe Text)
+  , _gdsrsDomains        :: !(Maybe [Domain])
+  , _gdsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

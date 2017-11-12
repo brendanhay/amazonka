@@ -48,10 +48,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createSubscriber' smart constructor.
 data CreateSubscriber = CreateSubscriber'
-  { _csAccountId    :: {-# NOUNPACK #-}!Text
-  , _csBudgetName   :: {-# NOUNPACK #-}!Text
-  , _csNotification :: {-# NOUNPACK #-}!Notification
-  , _csSubscriber   :: {-# NOUNPACK #-}!Subscriber
+  { _csAccountId    :: !Text
+  , _csBudgetName   :: !Text
+  , _csNotification :: !Notification
+  , _csSubscriber   :: !Subscriber
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeVPNConnections' smart constructor.
 data DescribeVPNConnections = DescribeVPNConnections'
-  { _dvpncFilters          :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dvpncVPNConnectionIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvpncDryRun           :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dvpncFilters          :: !(Maybe [Filter])
+  , _dvpncVPNConnectionIds :: !(Maybe [Text])
+  , _dvpncDryRun           :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance ToQuery DescribeVPNConnections where
 --
 -- /See:/ 'describeVPNConnectionsResponse' smart constructor.
 data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
-  { _dvcrsVPNConnections :: {-# NOUNPACK #-}!(Maybe [VPNConnection])
-  , _dvcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvcrsVPNConnections :: !(Maybe [VPNConnection])
+  , _dvcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

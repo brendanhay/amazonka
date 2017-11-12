@@ -74,9 +74,9 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'updateRule' smart constructor.
 data UpdateRule = UpdateRule'
-  { _urRuleId      :: {-# NOUNPACK #-}!Text
-  , _urChangeToken :: {-# NOUNPACK #-}!Text
-  , _urUpdates     :: {-# NOUNPACK #-}![RuleUpdate]
+  { _urRuleId      :: !Text
+  , _urChangeToken :: !Text
+  , _urUpdates     :: ![RuleUpdate]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,8 +149,8 @@ instance ToQuery UpdateRule where
 
 -- | /See:/ 'updateRuleResponse' smart constructor.
 data UpdateRuleResponse = UpdateRuleResponse'
-  { _urrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _urrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _urrsChangeToken    :: !(Maybe Text)
+  , _urrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

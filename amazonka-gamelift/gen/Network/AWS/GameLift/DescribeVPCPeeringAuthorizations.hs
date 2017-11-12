@@ -114,8 +114,8 @@ instance ToQuery DescribeVPCPeeringAuthorizations
 
 -- | /See:/ 'describeVPCPeeringAuthorizationsResponse' smart constructor.
 data DescribeVPCPeeringAuthorizationsResponse = DescribeVPCPeeringAuthorizationsResponse'
-  { _dvpcparsVPCPeeringAuthorizations :: {-# NOUNPACK #-}!(Maybe [VPCPeeringAuthorization])
-  , _dvpcparsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvpcparsVPCPeeringAuthorizations :: !(Maybe [VPCPeeringAuthorization])
+  , _dvpcparsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

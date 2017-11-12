@@ -69,16 +69,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'importImage' smart constructor.
 data ImportImage = ImportImage'
-  { _impHypervisor     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _impPlatform       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _impClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _impLicenseType    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _impRoleName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _impArchitecture   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _impDescription    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _impDryRun         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _impClientData     :: {-# NOUNPACK #-}!(Maybe ClientData)
-  , _impDiskContainers :: {-# NOUNPACK #-}!(Maybe [ImageDiskContainer])
+  { _impHypervisor     :: !(Maybe Text)
+  , _impPlatform       :: !(Maybe Text)
+  , _impClientToken    :: !(Maybe Text)
+  , _impLicenseType    :: !(Maybe Text)
+  , _impRoleName       :: !(Maybe Text)
+  , _impArchitecture   :: !(Maybe Text)
+  , _impDescription    :: !(Maybe Text)
+  , _impDryRun         :: !(Maybe Bool)
+  , _impClientData     :: !(Maybe ClientData)
+  , _impDiskContainers :: !(Maybe [ImageDiskContainer])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -216,18 +216,18 @@ instance ToQuery ImportImage where
 --
 -- /See:/ 'importImageResponse' smart constructor.
 data ImportImageResponse = ImportImageResponse'
-  { _irsStatus          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsHypervisor      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsPlatform        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsProgress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsLicenseType     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsSnapshotDetails :: {-# NOUNPACK #-}!(Maybe [SnapshotDetail])
-  , _irsStatusMessage   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsImageId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsImportTaskId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsArchitecture    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _irsStatus          :: !(Maybe Text)
+  , _irsHypervisor      :: !(Maybe Text)
+  , _irsPlatform        :: !(Maybe Text)
+  , _irsProgress        :: !(Maybe Text)
+  , _irsLicenseType     :: !(Maybe Text)
+  , _irsSnapshotDetails :: !(Maybe [SnapshotDetail])
+  , _irsStatusMessage   :: !(Maybe Text)
+  , _irsImageId         :: !(Maybe Text)
+  , _irsImportTaskId    :: !(Maybe Text)
+  , _irsArchitecture    :: !(Maybe Text)
+  , _irsDescription     :: !(Maybe Text)
+  , _irsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

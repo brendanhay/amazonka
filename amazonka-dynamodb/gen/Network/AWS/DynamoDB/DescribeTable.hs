@@ -108,8 +108,8 @@ instance ToQuery DescribeTable where
 --
 -- /See:/ 'describeTableResponse' smart constructor.
 data DescribeTableResponse = DescribeTableResponse'
-  { _drsTable          :: {-# NOUNPACK #-}!(Maybe TableDescription)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsTable          :: !(Maybe TableDescription)
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

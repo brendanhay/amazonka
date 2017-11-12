@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateAvailabilityOptions' smart constructor.
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
-  { _uaoDomainName :: {-# NOUNPACK #-}!Text
-  , _uaoMultiAZ    :: {-# NOUNPACK #-}!Bool
+  { _uaoDomainName :: !Text
+  , _uaoMultiAZ    :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,8 +116,8 @@ instance ToQuery UpdateAvailabilityOptions where
 --
 -- /See:/ 'updateAvailabilityOptionsResponse' smart constructor.
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
-  { _uaorsAvailabilityOptions :: {-# NOUNPACK #-}!(Maybe AvailabilityOptionsStatus)
-  , _uaorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uaorsAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
+  , _uaorsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

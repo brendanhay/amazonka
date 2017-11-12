@@ -51,8 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'addListenerCertificates' smart constructor.
 data AddListenerCertificates = AddListenerCertificates'
-  { _alcListenerARN  :: {-# NOUNPACK #-}!Text
-  , _alcCertificates :: {-# NOUNPACK #-}![Certificate]
+  { _alcListenerARN  :: !Text
+  , _alcCertificates :: ![Certificate]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery AddListenerCertificates where
 
 -- | /See:/ 'addListenerCertificatesResponse' smart constructor.
 data AddListenerCertificatesResponse = AddListenerCertificatesResponse'
-  { _alcrsCertificates   :: {-# NOUNPACK #-}!(Maybe [Certificate])
-  , _alcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _alcrsCertificates   :: !(Maybe [Certificate])
+  , _alcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -59,13 +59,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'getItem' smart constructor.
 data GetItem = GetItem'
-  { _giProjectionExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giAttributesToGet :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _giExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _giConsistentRead :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _giReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
-  , _giTableName :: {-# NOUNPACK #-}!Text
-  , _giKey :: {-# NOUNPACK #-}!(Map Text AttributeValue)
+  { _giProjectionExpression     :: !(Maybe Text)
+  , _giAttributesToGet          :: !(Maybe (List1 Text))
+  , _giExpressionAttributeNames :: !(Maybe (Map Text Text))
+  , _giConsistentRead           :: !(Maybe Bool)
+  , _giReturnConsumedCapacity   :: !(Maybe ReturnConsumedCapacity)
+  , _giTableName                :: !Text
+  , _giKey                      :: !(Map Text AttributeValue)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -180,9 +180,9 @@ instance ToQuery GetItem where
 --
 -- /See:/ 'getItemResponse' smart constructor.
 data GetItemResponse = GetItemResponse'
-  { _girsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ConsumedCapacity)
-  , _girsItem             :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _girsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _girsConsumedCapacity :: !(Maybe ConsumedCapacity)
+  , _girsItem             :: !(Maybe (Map Text AttributeValue))
+  , _girsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

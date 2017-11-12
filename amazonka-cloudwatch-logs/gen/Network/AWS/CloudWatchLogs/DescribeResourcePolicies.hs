@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeResourcePolicies' smart constructor.
 data DescribeResourcePolicies = DescribeResourcePolicies'
-  { _drpNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drpLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _drpNextToken :: !(Maybe Text)
+  , _drpLimit     :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,9 +115,9 @@ instance ToQuery DescribeResourcePolicies where
 
 -- | /See:/ 'describeResourcePoliciesResponse' smart constructor.
 data DescribeResourcePoliciesResponse = DescribeResourcePoliciesResponse'
-  { _drprsResourcePolicies :: {-# NOUNPACK #-}!(Maybe [ResourcePolicy])
-  , _drprsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _drprsResourcePolicies :: !(Maybe [ResourcePolicy])
+  , _drprsNextToken        :: !(Maybe Text)
+  , _drprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

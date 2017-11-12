@@ -127,16 +127,16 @@ instance ToQuery DescribeGatewayInformation where
 --
 -- /See:/ 'describeGatewayInformationResponse' smart constructor.
 data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
-  { _dgirsGatewayState :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgirsGatewayARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgirsGatewayNetworkInterfaces :: {-# NOUNPACK #-}!(Maybe [NetworkInterface])
-  , _dgirsNextUpdateAvailabilityDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgirsLastSoftwareUpdate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgirsGatewayName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgirsGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgirsGatewayType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgirsGatewayTimezone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dgirsGatewayState               :: !(Maybe Text)
+  , _dgirsGatewayARN                 :: !(Maybe Text)
+  , _dgirsGatewayNetworkInterfaces   :: !(Maybe [NetworkInterface])
+  , _dgirsNextUpdateAvailabilityDate :: !(Maybe Text)
+  , _dgirsLastSoftwareUpdate         :: !(Maybe Text)
+  , _dgirsGatewayName                :: !(Maybe Text)
+  , _dgirsGatewayId                  :: !(Maybe Text)
+  , _dgirsGatewayType                :: !(Maybe Text)
+  , _dgirsGatewayTimezone            :: !(Maybe Text)
+  , _dgirsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

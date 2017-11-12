@@ -51,12 +51,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'createTrigger' smart constructor.
 data CreateTrigger = CreateTrigger'
-  { _ctSchedule    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctPredicate   :: {-# NOUNPACK #-}!(Maybe Predicate)
-  , _ctDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctName        :: {-# NOUNPACK #-}!Text
-  , _ctType        :: {-# NOUNPACK #-}!TriggerType
-  , _ctActions     :: {-# NOUNPACK #-}![Action]
+  { _ctSchedule    :: !(Maybe Text)
+  , _ctPredicate   :: !(Maybe Predicate)
+  , _ctDescription :: !(Maybe Text)
+  , _ctName        :: !Text
+  , _ctType        :: !TriggerType
+  , _ctActions     :: ![Action]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,8 +154,8 @@ instance ToQuery CreateTrigger where
 
 -- | /See:/ 'createTriggerResponse' smart constructor.
 data CreateTriggerResponse = CreateTriggerResponse'
-  { _ctrsName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ctrsName           :: !(Maybe Text)
+  , _ctrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -95,8 +95,8 @@ instance ToQuery DescribeTags where
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { _dtrsTagDescriptions :: {-# NOUNPACK #-}!(Maybe [TagDescription])
-  , _dtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dtrsTagDescriptions :: !(Maybe [TagDescription])
+  , _dtrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

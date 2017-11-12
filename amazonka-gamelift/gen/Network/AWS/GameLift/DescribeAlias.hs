@@ -125,8 +125,8 @@ instance ToQuery DescribeAlias where
 --
 -- /See:/ 'describeAliasResponse' smart constructor.
 data DescribeAliasResponse = DescribeAliasResponse'
-  { _darsAlias          :: {-# NOUNPACK #-}!(Maybe Alias)
-  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _darsAlias          :: !(Maybe Alias)
+  , _darsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

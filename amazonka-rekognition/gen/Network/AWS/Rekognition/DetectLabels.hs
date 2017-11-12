@@ -73,9 +73,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'detectLabels' smart constructor.
 data DetectLabels = DetectLabels'
-  { _dlMinConfidence :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dlMaxLabels     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dlImage         :: {-# NOUNPACK #-}!Image
+  { _dlMinConfidence :: !(Maybe Double)
+  , _dlMaxLabels     :: !(Maybe Nat)
+  , _dlImage         :: !Image
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,9 +148,9 @@ instance ToQuery DetectLabels where
 
 -- | /See:/ 'detectLabelsResponse' smart constructor.
 data DetectLabelsResponse = DetectLabelsResponse'
-  { _dlrsLabels                :: {-# NOUNPACK #-}!(Maybe [Label])
-  , _dlrsOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
-  , _dlrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _dlrsLabels                :: !(Maybe [Label])
+  , _dlrsOrientationCorrection :: !(Maybe OrientationCorrection)
+  , _dlrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

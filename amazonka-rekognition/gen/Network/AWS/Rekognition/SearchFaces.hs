@@ -56,10 +56,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'searchFaces' smart constructor.
 data SearchFaces = SearchFaces'
-  { _sfFaceMatchThreshold :: {-# NOUNPACK #-}!(Maybe Double)
-  , _sfMaxFaces           :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _sfCollectionId       :: {-# NOUNPACK #-}!Text
-  , _sfFaceId             :: {-# NOUNPACK #-}!Text
+  { _sfFaceMatchThreshold :: !(Maybe Double)
+  , _sfMaxFaces           :: !(Maybe Nat)
+  , _sfCollectionId       :: !Text
+  , _sfFaceId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,9 +144,9 @@ instance ToQuery SearchFaces where
 
 -- | /See:/ 'searchFacesResponse' smart constructor.
 data SearchFacesResponse = SearchFacesResponse'
-  { _sfrsFaceMatches    :: {-# NOUNPACK #-}!(Maybe [FaceMatch])
-  , _sfrsSearchedFaceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sfrsFaceMatches    :: !(Maybe [FaceMatch])
+  , _sfrsSearchedFaceId :: !(Maybe Text)
+  , _sfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

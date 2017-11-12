@@ -56,8 +56,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createLogStream' smart constructor.
 data CreateLogStream = CreateLogStream'
-  { _clsLogGroupName  :: {-# NOUNPACK #-}!Text
-  , _clsLogStreamName :: {-# NOUNPACK #-}!Text
+  { _clsLogGroupName  :: !Text
+  , _clsLogStreamName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeTableRestoreStatus' smart constructor.
 data DescribeTableRestoreStatus = DescribeTableRestoreStatus'
-  { _dtrssTableRestoreRequestId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtrssClusterIdentifier     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtrssMarker                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtrssMaxRecords            :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dtrssTableRestoreRequestId :: !(Maybe Text)
+  , _dtrssClusterIdentifier     :: !(Maybe Text)
+  , _dtrssMarker                :: !(Maybe Text)
+  , _dtrssMaxRecords            :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery DescribeTableRestoreStatus where
 --
 -- /See:/ 'describeTableRestoreStatusResponse' smart constructor.
 data DescribeTableRestoreStatusResponse = DescribeTableRestoreStatusResponse'
-  { _dtrsrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtrsrsTableRestoreStatusDetails :: {-# NOUNPACK #-}!(Maybe [TableRestoreStatus])
-  , _dtrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dtrsrsMarker                    :: !(Maybe Text)
+  , _dtrsrsTableRestoreStatusDetails :: !(Maybe [TableRestoreStatus])
+  , _dtrsrsResponseStatus            :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

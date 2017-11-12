@@ -48,8 +48,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listPortfolioAccess' smart constructor.
 data ListPortfolioAccess = ListPortfolioAccess'
-  { _lAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lPortfolioId    :: {-# NOUNPACK #-}!Text
+  { _lAcceptLanguage :: !(Maybe Text)
+  , _lPortfolioId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,9 +117,9 @@ instance ToQuery ListPortfolioAccess where
 
 -- | /See:/ 'listPortfolioAccessResponse' smart constructor.
 data ListPortfolioAccessResponse = ListPortfolioAccessResponse'
-  { _lparsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lparsAccountIds     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lparsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lparsNextPageToken  :: !(Maybe Text)
+  , _lparsAccountIds     :: !(Maybe [Text])
+  , _lparsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

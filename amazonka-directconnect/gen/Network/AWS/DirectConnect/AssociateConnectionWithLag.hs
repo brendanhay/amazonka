@@ -65,8 +65,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'associateConnectionWithLag' smart constructor.
 data AssociateConnectionWithLag = AssociateConnectionWithLag'
-  { _acwlConnectionId :: {-# NOUNPACK #-}!Text
-  , _acwlLagId        :: {-# NOUNPACK #-}!Text
+  { _acwlConnectionId :: !Text
+  , _acwlLagId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

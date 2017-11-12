@@ -56,8 +56,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listApplications' smart constructor.
 data ListApplications = ListApplications'
-  { _laLimit                         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _laExclusiveStartApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _laLimit                         :: !(Maybe Nat)
+  , _laExclusiveStartApplicationName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery ListApplications where
 --
 -- /See:/ 'listApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
-  { _larsResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _larsApplicationSummaries :: {-# NOUNPACK #-}![ApplicationSummary]
-  , _larsHasMoreApplications  :: {-# NOUNPACK #-}!Bool
+  { _larsResponseStatus       :: !Int
+  , _larsApplicationSummaries :: ![ApplicationSummary]
+  , _larsHasMoreApplications  :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

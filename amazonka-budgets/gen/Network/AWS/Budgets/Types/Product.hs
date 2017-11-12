@@ -25,14 +25,14 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'budget' smart constructor.
 data Budget = Budget'
-  { _bCalculatedSpend :: {-# NOUNPACK #-}!(Maybe CalculatedSpend)
-  , _bCostFilters     :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _bBudgetName      :: {-# NOUNPACK #-}!Text
-  , _bBudgetLimit     :: {-# NOUNPACK #-}!Spend
-  , _bCostTypes       :: {-# NOUNPACK #-}!CostTypes
-  , _bTimeUnit        :: {-# NOUNPACK #-}!TimeUnit
-  , _bTimePeriod      :: {-# NOUNPACK #-}!TimePeriod
-  , _bBudgetType      :: {-# NOUNPACK #-}!BudgetType
+  { _bCalculatedSpend :: !(Maybe CalculatedSpend)
+  , _bCostFilters     :: !(Maybe (Map Text [Text]))
+  , _bBudgetName      :: !Text
+  , _bBudgetLimit     :: !Spend
+  , _bCostTypes       :: !CostTypes
+  , _bTimeUnit        :: !TimeUnit
+  , _bTimePeriod      :: !TimePeriod
+  , _bBudgetType      :: !BudgetType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -143,8 +143,8 @@ instance ToJSON Budget where
 --
 -- /See:/ 'calculatedSpend' smart constructor.
 data CalculatedSpend = CalculatedSpend'
-  { _csForecastedSpend :: {-# NOUNPACK #-}!(Maybe Spend)
-  , _csActualSpend     :: {-# NOUNPACK #-}!Spend
+  { _csForecastedSpend :: !(Maybe Spend)
+  , _csActualSpend     :: !Spend
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -193,9 +193,9 @@ instance ToJSON CalculatedSpend where
 --
 -- /See:/ 'costTypes' smart constructor.
 data CostTypes = CostTypes'
-  { _ctIncludeTax          :: {-# NOUNPACK #-}!Bool
-  , _ctIncludeSubscription :: {-# NOUNPACK #-}!Bool
-  , _ctUseBlended          :: {-# NOUNPACK #-}!Bool
+  { _ctIncludeTax          :: !Bool
+  , _ctIncludeSubscription :: !Bool
+  , _ctUseBlended          :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -258,10 +258,10 @@ instance ToJSON CostTypes where
 --
 -- /See:/ 'notification' smart constructor.
 data Notification = Notification'
-  { _nThresholdType      :: {-# NOUNPACK #-}!(Maybe ThresholdType)
-  , _nNotificationType   :: {-# NOUNPACK #-}!NotificationType
-  , _nComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
-  , _nThreshold          :: {-# NOUNPACK #-}!Double
+  { _nThresholdType      :: !(Maybe ThresholdType)
+  , _nNotificationType   :: !NotificationType
+  , _nComparisonOperator :: !ComparisonOperator
+  , _nThreshold          :: !Double
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -332,8 +332,8 @@ instance ToJSON Notification where
 --
 -- /See:/ 'notificationWithSubscribers' smart constructor.
 data NotificationWithSubscribers = NotificationWithSubscribers'
-  { _nwsNotification :: {-# NOUNPACK #-}!Notification
-  , _nwsSubscribers  :: {-# NOUNPACK #-}!(List1 Subscriber)
+  { _nwsNotification :: !Notification
+  , _nwsSubscribers  :: !(List1 Subscriber)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -376,8 +376,8 @@ instance ToJSON NotificationWithSubscribers where
 --
 -- /See:/ 'spend' smart constructor.
 data Spend = Spend'
-  { _sAmount :: {-# NOUNPACK #-}!Text
-  , _sUnit   :: {-# NOUNPACK #-}!Text
+  { _sAmount :: !Text
+  , _sUnit   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -423,8 +423,8 @@ instance ToJSON Spend where
 --
 -- /See:/ 'subscriber' smart constructor.
 data Subscriber = Subscriber'
-  { _sSubscriptionType :: {-# NOUNPACK #-}!SubscriptionType
-  , _sAddress          :: {-# NOUNPACK #-}!Text
+  { _sSubscriptionType :: !SubscriptionType
+  , _sAddress          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -473,8 +473,8 @@ instance ToJSON Subscriber where
 --
 -- /See:/ 'timePeriod' smart constructor.
 data TimePeriod = TimePeriod'
-  { _tpStart :: {-# NOUNPACK #-}!POSIX
-  , _tpEnd   :: {-# NOUNPACK #-}!POSIX
+  { _tpStart :: !POSIX
+  , _tpEnd   :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

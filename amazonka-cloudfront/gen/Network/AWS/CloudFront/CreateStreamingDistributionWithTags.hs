@@ -123,10 +123,10 @@ instance ToQuery CreateStreamingDistributionWithTags
 --
 -- /See:/ 'createStreamingDistributionWithTagsResponse' smart constructor.
 data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWithTagsResponse'
-  { _csdwtrsETag :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdwtrsLocation :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdwtrsStreamingDistribution :: {-# NOUNPACK #-}!(Maybe StreamingDistribution)
-  , _csdwtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csdwtrsETag                  :: !(Maybe Text)
+  , _csdwtrsLocation              :: !(Maybe Text)
+  , _csdwtrsStreamingDistribution :: !(Maybe StreamingDistribution)
+  , _csdwtrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

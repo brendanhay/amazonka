@@ -96,8 +96,8 @@ instance ToQuery DeleteEmailChannel where
 
 -- | /See:/ 'deleteEmailChannelResponse' smart constructor.
 data DeleteEmailChannelResponse = DeleteEmailChannelResponse'
-  { _decrsResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _decrsEmailChannelResponse :: {-# NOUNPACK #-}!EmailChannelResponse
+  { _decrsResponseStatus       :: !Int
+  , _decrsEmailChannelResponse :: !EmailChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'reloadTables' smart constructor.
 data ReloadTables = ReloadTables'
-  { _rtReplicationTaskARN :: {-# NOUNPACK #-}!Text
-  , _rtTablesToReload     :: {-# NOUNPACK #-}![TableToReload]
+  { _rtReplicationTaskARN :: !Text
+  , _rtTablesToReload     :: ![TableToReload]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery ReloadTables where
 
 -- | /See:/ 'reloadTablesResponse' smart constructor.
 data ReloadTablesResponse = ReloadTablesResponse'
-  { _rtrsReplicationTaskARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _rtrsReplicationTaskARN :: !(Maybe Text)
+  , _rtrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

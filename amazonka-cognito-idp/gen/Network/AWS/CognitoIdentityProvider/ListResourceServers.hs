@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listResourceServers' smart constructor.
 data ListResourceServers = ListResourceServers'
-  { _lrsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lrsUserPoolId :: {-# NOUNPACK #-}!Text
+  { _lrsNextToken  :: !(Maybe Text)
+  , _lrsMaxResults :: !(Maybe Nat)
+  , _lrsUserPoolId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery ListResourceServers where
 
 -- | /See:/ 'listResourceServersResponse' smart constructor.
 data ListResourceServersResponse = ListResourceServersResponse'
-  { _lrsrsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _lrsrsResourceServers :: {-# NOUNPACK #-}![ResourceServerType]
+  { _lrsrsNextToken       :: !(Maybe Text)
+  , _lrsrsResponseStatus  :: !Int
+  , _lrsrsResourceServers :: ![ResourceServerType]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

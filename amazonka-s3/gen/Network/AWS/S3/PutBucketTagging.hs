@@ -43,9 +43,9 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketTagging' smart constructor.
 data PutBucketTagging = PutBucketTagging'
-  { _pbtContentMD5 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbtBucket     :: {-# NOUNPACK #-}!BucketName
-  , _pbtTagging    :: {-# NOUNPACK #-}!Tagging
+  { _pbtContentMD5 :: !(Maybe Text)
+  , _pbtBucket     :: !BucketName
+  , _pbtTagging    :: !Tagging
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

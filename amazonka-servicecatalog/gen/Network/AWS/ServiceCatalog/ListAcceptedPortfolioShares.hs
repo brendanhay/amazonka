@@ -49,9 +49,9 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listAcceptedPortfolioShares' smart constructor.
 data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
-  { _lapsAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lapsPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lapsPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lapsAcceptLanguage :: !(Maybe Text)
+  , _lapsPageToken      :: !(Maybe Text)
+  , _lapsPageSize       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery ListAcceptedPortfolioShares where
 
 -- | /See:/ 'listAcceptedPortfolioSharesResponse' smart constructor.
 data ListAcceptedPortfolioSharesResponse = ListAcceptedPortfolioSharesResponse'
-  { _lapsrsNextPageToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lapsrsPortfolioDetails :: {-# NOUNPACK #-}!(Maybe [PortfolioDetail])
-  , _lapsrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _lapsrsNextPageToken    :: !(Maybe Text)
+  , _lapsrsPortfolioDetails :: !(Maybe [PortfolioDetail])
+  , _lapsrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

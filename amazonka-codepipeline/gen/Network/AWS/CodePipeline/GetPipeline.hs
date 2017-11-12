@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getPipeline' smart constructor.
 data GetPipeline = GetPipeline'
-  { _gpVersion :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gpName    :: {-# NOUNPACK #-}!Text
+  { _gpVersion :: !(Maybe Nat)
+  , _gpName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,9 +120,9 @@ instance ToQuery GetPipeline where
 --
 -- /See:/ 'getPipelineResponse' smart constructor.
 data GetPipelineResponse = GetPipelineResponse'
-  { _gprsPipeline       :: {-# NOUNPACK #-}!(Maybe PipelineDeclaration)
-  , _gprsMetadata       :: {-# NOUNPACK #-}!(Maybe PipelineMetadata)
-  , _gprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gprsPipeline       :: !(Maybe PipelineDeclaration)
+  , _gprsMetadata       :: !(Maybe PipelineMetadata)
+  , _gprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

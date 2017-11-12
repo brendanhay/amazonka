@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putEventStream' smart constructor.
 data PutEventStream = PutEventStream'
-  { _pesApplicationId    :: {-# NOUNPACK #-}!Text
-  , _pesWriteEventStream :: {-# NOUNPACK #-}!WriteEventStream
+  { _pesApplicationId    :: !Text
+  , _pesWriteEventStream :: !WriteEventStream
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery PutEventStream where
 
 -- | /See:/ 'putEventStreamResponse' smart constructor.
 data PutEventStreamResponse = PutEventStreamResponse'
-  { _pesrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _pesrsEventStream    :: {-# NOUNPACK #-}!EventStream
+  { _pesrsResponseStatus :: !Int
+  , _pesrsEventStream    :: !EventStream
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

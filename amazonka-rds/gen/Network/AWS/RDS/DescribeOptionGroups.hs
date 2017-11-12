@@ -59,12 +59,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeOptionGroups' smart constructor.
 data DescribeOptionGroups = DescribeOptionGroups'
-  { _dogFilters            :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dogEngineName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dogMajorEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dogMarker             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dogMaxRecords         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dogOptionGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dogFilters            :: !(Maybe [Filter])
+  , _dogEngineName         :: !(Maybe Text)
+  , _dogMajorEngineVersion :: !(Maybe Text)
+  , _dogMarker             :: !(Maybe Text)
+  , _dogMaxRecords         :: !(Maybe Int)
+  , _dogOptionGroupName    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -169,9 +169,9 @@ instance ToQuery DescribeOptionGroups where
 --
 -- /See:/ 'describeOptionGroupsResponse' smart constructor.
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
-  { _dogrsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dogrsOptionGroupsList :: {-# NOUNPACK #-}!(Maybe [OptionGroup])
-  , _dogrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _dogrsMarker           :: !(Maybe Text)
+  , _dogrsOptionGroupsList :: !(Maybe [OptionGroup])
+  , _dogrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

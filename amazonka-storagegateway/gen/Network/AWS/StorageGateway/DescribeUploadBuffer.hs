@@ -112,11 +112,11 @@ instance ToQuery DescribeUploadBuffer where
 
 -- | /See:/ 'describeUploadBufferResponse' smart constructor.
 data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
-  { _dubrsUploadBufferAllocatedInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dubrsGatewayARN                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dubrsDiskIds                      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dubrsUploadBufferUsedInBytes      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dubrsResponseStatus               :: {-# NOUNPACK #-}!Int
+  { _dubrsUploadBufferAllocatedInBytes :: !(Maybe Integer)
+  , _dubrsGatewayARN                   :: !(Maybe Text)
+  , _dubrsDiskIds                      :: !(Maybe [Text])
+  , _dubrsUploadBufferUsedInBytes      :: !(Maybe Integer)
+  , _dubrsResponseStatus               :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

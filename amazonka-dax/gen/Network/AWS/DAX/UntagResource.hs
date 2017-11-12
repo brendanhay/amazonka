@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'untagResource' smart constructor.
 data UntagResource = UntagResource'
-  { _urResourceName :: {-# NOUNPACK #-}!Text
-  , _urTagKeys      :: {-# NOUNPACK #-}![Text]
+  { _urResourceName :: !Text
+  , _urTagKeys      :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -111,8 +111,8 @@ instance ToQuery UntagResource where
 
 -- | /See:/ 'untagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
-  { _urrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _urrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _urrsTags           :: !(Maybe [Tag])
+  , _urrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

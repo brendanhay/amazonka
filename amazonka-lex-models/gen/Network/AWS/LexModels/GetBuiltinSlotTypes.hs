@@ -54,10 +54,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'getBuiltinSlotTypes' smart constructor.
 data GetBuiltinSlotTypes = GetBuiltinSlotTypes'
-  { _gbstLocale            :: {-# NOUNPACK #-}!(Maybe Locale)
-  , _gbstNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbstSignatureContains :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbstMaxResults        :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gbstLocale            :: !(Maybe Locale)
+  , _gbstNextToken         :: !(Maybe Text)
+  , _gbstSignatureContains :: !(Maybe Text)
+  , _gbstMaxResults        :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery GetBuiltinSlotTypes where
 
 -- | /See:/ 'getBuiltinSlotTypesResponse' smart constructor.
 data GetBuiltinSlotTypesResponse = GetBuiltinSlotTypesResponse'
-  { _gbstrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbstrsSlotTypes      :: {-# NOUNPACK #-}!(Maybe [BuiltinSlotTypeMetadata])
-  , _gbstrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbstrsNextToken      :: !(Maybe Text)
+  , _gbstrsSlotTypes      :: !(Maybe [BuiltinSlotTypeMetadata])
+  , _gbstrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

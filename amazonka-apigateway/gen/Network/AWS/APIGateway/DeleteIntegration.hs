@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteIntegration' smart constructor.
 data DeleteIntegration = DeleteIntegration'
-  { _delRestAPIId  :: {-# NOUNPACK #-}!Text
-  , _delResourceId :: {-# NOUNPACK #-}!Text
-  , _delHttpMethod :: {-# NOUNPACK #-}!Text
+  { _delRestAPIId  :: !Text
+  , _delResourceId :: !Text
+  , _delHttpMethod :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

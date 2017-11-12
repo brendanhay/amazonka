@@ -56,11 +56,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeReservedInstances' smart constructor.
 data DescribeReservedInstances = DescribeReservedInstances'
-  { _driFilters              :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _driReservedInstancesIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _driOfferingType         :: {-# NOUNPACK #-}!(Maybe OfferingTypeValues)
-  , _driOfferingClass        :: {-# NOUNPACK #-}!(Maybe OfferingClassType)
-  , _driDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _driFilters              :: !(Maybe [Filter])
+  , _driReservedInstancesIds :: !(Maybe [Text])
+  , _driOfferingType         :: !(Maybe OfferingTypeValues)
+  , _driOfferingClass        :: !(Maybe OfferingClassType)
+  , _driDryRun               :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,8 +151,8 @@ instance ToQuery DescribeReservedInstances where
 --
 -- /See:/ 'describeReservedInstancesResponse' smart constructor.
 data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
-  { _drirsReservedInstances :: {-# NOUNPACK #-}!(Maybe [ReservedInstances])
-  , _drirsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _drirsReservedInstances :: !(Maybe [ReservedInstances])
+  , _drirsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

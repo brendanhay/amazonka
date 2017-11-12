@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteMetricFilter' smart constructor.
 data DeleteMetricFilter = DeleteMetricFilter'
-  { _delLogGroupName :: {-# NOUNPACK #-}!Text
-  , _delFilterName   :: {-# NOUNPACK #-}!Text
+  { _delLogGroupName :: !Text
+  , _delFilterName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

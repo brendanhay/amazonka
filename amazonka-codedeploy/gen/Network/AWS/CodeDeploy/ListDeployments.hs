@@ -58,11 +58,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'listDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { _ldCreateTimeRange     :: {-# NOUNPACK #-}!(Maybe TimeRange)
-  , _ldNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldIncludeOnlyStatuses :: {-# NOUNPACK #-}!(Maybe [DeploymentStatus])
-  , _ldApplicationName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldDeploymentGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ldCreateTimeRange     :: !(Maybe TimeRange)
+  , _ldNextToken           :: !(Maybe Text)
+  , _ldIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
+  , _ldApplicationName     :: !(Maybe Text)
+  , _ldDeploymentGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -167,9 +167,9 @@ instance ToQuery ListDeployments where
 --
 -- /See:/ 'listDeploymentsResponse' smart constructor.
 data ListDeploymentsResponse = ListDeploymentsResponse'
-  { _ldrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrsDeployments    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ldrsNextToken      :: !(Maybe Text)
+  , _ldrsDeployments    :: !(Maybe [Text])
+  , _ldrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -107,9 +107,9 @@ instance ToQuery ListHAPGs where
 
 -- | /See:/ 'listHAPGsResponse' smart constructor.
 data ListHAPGsResponse = ListHAPGsResponse'
-  { _lhrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lhrsHAPGList       :: {-# NOUNPACK #-}![Text]
+  { _lhrsNextToken      :: !(Maybe Text)
+  , _lhrsResponseStatus :: !Int
+  , _lhrsHAPGList       :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

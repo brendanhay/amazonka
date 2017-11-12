@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { _upName        :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _upDescription :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _upId          :: {-# NOUNPACK #-}!Text
+  { _upName        :: !(Maybe (Sensitive Text))
+  , _upDescription :: !(Maybe (Sensitive Text))
+  , _upId          :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

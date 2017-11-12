@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listPublishedSchemaARNs' smart constructor.
 data ListPublishedSchemaARNs = ListPublishedSchemaARNs'
-  { _lpsaNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpsaMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lpsaNextToken  :: !(Maybe Text)
+  , _lpsaMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,9 +110,9 @@ instance ToQuery ListPublishedSchemaARNs where
 
 -- | /See:/ 'listPublishedSchemaARNsResponse' smart constructor.
 data ListPublishedSchemaARNsResponse = ListPublishedSchemaARNsResponse'
-  { _lpsarsSchemaARNs     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lpsarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lpsarsSchemaARNs     :: !(Maybe [Text])
+  , _lpsarsNextToken      :: !(Maybe Text)
+  , _lpsarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -100,8 +100,8 @@ instance ToQuery DeleteUserProfile where
 
 -- | /See:/ 'deleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
-  { _delrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _delrsUserARN        :: {-# NOUNPACK #-}!Text
+  { _delrsResponseStatus :: !Int
+  , _delrsUserARN        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

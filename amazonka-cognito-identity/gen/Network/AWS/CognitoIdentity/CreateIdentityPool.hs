@@ -76,13 +76,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'createIdentityPool' smart constructor.
 data CreateIdentityPool = CreateIdentityPool'
-  { _cipSamlProviderARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cipSupportedLoginProviders :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cipDeveloperProviderName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cipOpenIdConnectProviderARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cipCognitoIdentityProviders :: {-# NOUNPACK #-}!(Maybe [CognitoIdentityProvider])
-  , _cipIdentityPoolName :: {-# NOUNPACK #-}!Text
-  , _cipAllowUnauthenticatedIdentities :: {-# NOUNPACK #-}!Bool
+  { _cipSamlProviderARNs               :: !(Maybe [Text])
+  , _cipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+  , _cipDeveloperProviderName          :: !(Maybe Text)
+  , _cipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+  , _cipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
+  , _cipIdentityPoolName               :: !Text
+  , _cipAllowUnauthenticatedIdentities :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

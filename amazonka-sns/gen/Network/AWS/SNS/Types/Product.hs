@@ -27,8 +27,8 @@ import Network.AWS.SNS.Types.Sum
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-  { _eAttributes  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _eEndpointARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eAttributes  :: !(Maybe (Map Text Text))
+  , _eEndpointARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -71,9 +71,9 @@ instance NFData Endpoint where
 --
 -- /See:/ 'messageAttributeValue' smart constructor.
 data MessageAttributeValue = MessageAttributeValue'
-  { _mavBinaryValue :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _mavStringValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mavDataType    :: {-# NOUNPACK #-}!Text
+  { _mavBinaryValue :: !(Maybe Base64)
+  , _mavStringValue :: !(Maybe Text)
+  , _mavDataType    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery MessageAttributeValue where
 --
 -- /See:/ 'platformApplication' smart constructor.
 data PlatformApplication = PlatformApplication'
-  { _paPlatformApplicationARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _paAttributes             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  { _paPlatformApplicationARN :: !(Maybe Text)
+  , _paAttributes             :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -170,11 +170,11 @@ instance NFData PlatformApplication where
 --
 -- /See:/ 'subscription' smart constructor.
 data Subscription = Subscription'
-  { _sProtocol        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sOwner           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sTopicARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEndpoint        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSubscriptionARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sProtocol        :: !(Maybe Text)
+  , _sOwner           :: !(Maybe Text)
+  , _sTopicARN        :: !(Maybe Text)
+  , _sEndpoint        :: !(Maybe Text)
+  , _sSubscriptionARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

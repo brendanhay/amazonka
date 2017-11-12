@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'openInstancePublicPorts' smart constructor.
 data OpenInstancePublicPorts = OpenInstancePublicPorts'
-  { _oippPortInfo     :: {-# NOUNPACK #-}!PortInfo
-  , _oippInstanceName :: {-# NOUNPACK #-}!Text
+  { _oippPortInfo     :: !PortInfo
+  , _oippInstanceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery OpenInstancePublicPorts where
 
 -- | /See:/ 'openInstancePublicPortsResponse' smart constructor.
 data OpenInstancePublicPortsResponse = OpenInstancePublicPortsResponse'
-  { _oipprsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _oipprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _oipprsOperation      :: !(Maybe Operation)
+  , _oipprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

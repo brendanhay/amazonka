@@ -67,10 +67,10 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'updateSnapshotSchedule' smart constructor.
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
-  { _ussDescription       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ussVolumeARN         :: {-# NOUNPACK #-}!Text
-  , _ussStartAt           :: {-# NOUNPACK #-}!Nat
-  , _ussRecurrenceInHours :: {-# NOUNPACK #-}!Nat
+  { _ussDescription       :: !(Maybe Text)
+  , _ussVolumeARN         :: !Text
+  , _ussStartAt           :: !Nat
+  , _ussRecurrenceInHours :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,8 +160,8 @@ instance ToQuery UpdateSnapshotSchedule where
 --
 -- /See:/ 'updateSnapshotScheduleResponse' smart constructor.
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
-  { _ussrsVolumeARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ussrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ussrsVolumeARN      :: !(Maybe Text)
+  , _ussrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

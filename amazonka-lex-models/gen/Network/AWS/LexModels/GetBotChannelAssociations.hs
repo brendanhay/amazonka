@@ -53,11 +53,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'getBotChannelAssociations' smart constructor.
 data GetBotChannelAssociations = GetBotChannelAssociations'
-  { _gbcaNameContains :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbcaNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbcaMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gbcaBotName      :: {-# NOUNPACK #-}!Text
-  , _gbcaBotAlias     :: {-# NOUNPACK #-}!Text
+  { _gbcaNameContains :: !(Maybe Text)
+  , _gbcaNextToken    :: !(Maybe Text)
+  , _gbcaMaxResults   :: !(Maybe Nat)
+  , _gbcaBotName      :: !Text
+  , _gbcaBotAlias     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,9 +146,9 @@ instance ToQuery GetBotChannelAssociations where
 
 -- | /See:/ 'getBotChannelAssociationsResponse' smart constructor.
 data GetBotChannelAssociationsResponse = GetBotChannelAssociationsResponse'
-  { _gbcasrsBotChannelAssociations :: {-# NOUNPACK #-}!(Maybe [BotChannelAssociation])
-  , _gbcasrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbcasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbcasrsBotChannelAssociations :: !(Maybe [BotChannelAssociation])
+  , _gbcasrsNextToken              :: !(Maybe Text)
+  , _gbcasrsResponseStatus         :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

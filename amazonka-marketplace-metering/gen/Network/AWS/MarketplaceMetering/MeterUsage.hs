@@ -52,11 +52,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'meterUsage' smart constructor.
 data MeterUsage = MeterUsage'
-  { _muProductCode    :: {-# NOUNPACK #-}!Text
-  , _muTimestamp      :: {-# NOUNPACK #-}!POSIX
-  , _muUsageDimension :: {-# NOUNPACK #-}!Text
-  , _muUsageQuantity  :: {-# NOUNPACK #-}!Nat
-  , _muDryRun         :: {-# NOUNPACK #-}!Bool
+  { _muProductCode    :: !Text
+  , _muTimestamp      :: !POSIX
+  , _muUsageDimension :: !Text
+  , _muUsageQuantity  :: !Nat
+  , _muDryRun         :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,8 +150,8 @@ instance ToQuery MeterUsage where
 
 -- | /See:/ 'meterUsageResponse' smart constructor.
 data MeterUsageResponse = MeterUsageResponse'
-  { _mursMeteringRecordId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mursResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _mursMeteringRecordId :: !(Maybe Text)
+  , _mursResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

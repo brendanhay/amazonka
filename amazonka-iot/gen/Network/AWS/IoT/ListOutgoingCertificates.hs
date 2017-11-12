@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listOutgoingCertificates' smart constructor.
 data ListOutgoingCertificates = ListOutgoingCertificates'
-  { _locMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _locAscendingOrder :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _locPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _locMarker         :: !(Maybe Text)
+  , _locAscendingOrder :: !(Maybe Bool)
+  , _locPageSize       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,9 +132,9 @@ instance ToQuery ListOutgoingCertificates where
 --
 -- /See:/ 'listOutgoingCertificatesResponse' smart constructor.
 data ListOutgoingCertificatesResponse = ListOutgoingCertificatesResponse'
-  { _locrsNextMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _locrsOutgoingCertificates :: {-# NOUNPACK #-}!(Maybe [OutgoingCertificate])
-  , _locrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _locrsNextMarker           :: !(Maybe Text)
+  , _locrsOutgoingCertificates :: !(Maybe [OutgoingCertificate])
+  , _locrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'disassociateNode' smart constructor.
 data DisassociateNode = DisassociateNode'
-  { _dnEngineAttributes :: {-# NOUNPACK #-}!(Maybe [EngineAttribute])
-  , _dnServerName       :: {-# NOUNPACK #-}!Text
-  , _dnNodeName         :: {-# NOUNPACK #-}!Text
+  { _dnEngineAttributes :: !(Maybe [EngineAttribute])
+  , _dnServerName       :: !Text
+  , _dnNodeName         :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -129,8 +129,8 @@ instance ToQuery DisassociateNode where
 
 -- | /See:/ 'disassociateNodeResponse' smart constructor.
 data DisassociateNodeResponse = DisassociateNodeResponse'
-  { _dnrsNodeAssociationStatusToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnrsResponseStatus             :: {-# NOUNPACK #-}!Int
+  { _dnrsNodeAssociationStatusToken :: !(Maybe Text)
+  , _dnrsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

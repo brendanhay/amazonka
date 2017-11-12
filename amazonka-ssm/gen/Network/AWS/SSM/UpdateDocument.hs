@@ -48,9 +48,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-  { _udDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udContent         :: {-# NOUNPACK #-}!Text
-  , _udName            :: {-# NOUNPACK #-}!Text
+  { _udDocumentVersion :: !(Maybe Text)
+  , _udContent         :: !Text
+  , _udName            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery UpdateDocument where
 
 -- | /See:/ 'updateDocumentResponse' smart constructor.
 data UpdateDocumentResponse = UpdateDocumentResponse'
-  { _udrsDocumentDescription :: {-# NOUNPACK #-}!(Maybe DocumentDescription)
-  , _udrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _udrsDocumentDescription :: !(Maybe DocumentDescription)
+  , _udrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

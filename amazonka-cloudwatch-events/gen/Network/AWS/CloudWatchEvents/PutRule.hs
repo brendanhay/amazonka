@@ -57,12 +57,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'putRule' smart constructor.
 data PutRule = PutRule'
-  { _prEventPattern       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prState              :: {-# NOUNPACK #-}!(Maybe RuleState)
-  , _prScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prName               :: {-# NOUNPACK #-}!Text
+  { _prEventPattern       :: !(Maybe Text)
+  , _prState              :: !(Maybe RuleState)
+  , _prScheduleExpression :: !(Maybe Text)
+  , _prDescription        :: !(Maybe Text)
+  , _prRoleARN            :: !(Maybe Text)
+  , _prName               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,8 +160,8 @@ instance ToQuery PutRule where
 
 -- | /See:/ 'putRuleResponse' smart constructor.
 data PutRuleResponse = PutRuleResponse'
-  { _prrsRuleARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _prrsRuleARN        :: !(Maybe Text)
+  , _prrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

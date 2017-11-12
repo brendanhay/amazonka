@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'pollForJobs' smart constructor.
 data PollForJobs = PollForJobs'
-  { _pfjMaxBatchSize :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _pfjQueryParam   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _pfjActionTypeId :: {-# NOUNPACK #-}!ActionTypeId
+  { _pfjMaxBatchSize :: !(Maybe Nat)
+  , _pfjQueryParam   :: !(Maybe (Map Text Text))
+  , _pfjActionTypeId :: !ActionTypeId
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery PollForJobs where
 --
 -- /See:/ 'pollForJobsResponse' smart constructor.
 data PollForJobsResponse = PollForJobsResponse'
-  { _pfjrsJobs           :: {-# NOUNPACK #-}!(Maybe [Job])
-  , _pfjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pfjrsJobs           :: !(Maybe [Job])
+  , _pfjrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

@@ -55,10 +55,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeAffectedEntities' smart constructor.
 data DescribeAffectedEntities = DescribeAffectedEntities'
-  { _daeLocale     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daeNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daeMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _daeFilter     :: {-# NOUNPACK #-}!EntityFilter
+  { _daeLocale     :: !(Maybe Text)
+  , _daeNextToken  :: !(Maybe Text)
+  , _daeMaxResults :: !(Maybe Nat)
+  , _daeFilter     :: !EntityFilter
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery DescribeAffectedEntities where
 
 -- | /See:/ 'describeAffectedEntitiesResponse' smart constructor.
 data DescribeAffectedEntitiesResponse = DescribeAffectedEntitiesResponse'
-  { _daersEntities       :: {-# NOUNPACK #-}!(Maybe [AffectedEntity])
-  , _daersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _daersEntities       :: !(Maybe [AffectedEntity])
+  , _daersNextToken      :: !(Maybe Text)
+  , _daersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

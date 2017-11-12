@@ -52,10 +52,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'getBotAliases' smart constructor.
 data GetBotAliases = GetBotAliases'
-  { _gbaNameContains :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbaNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbaMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gbaBotName      :: {-# NOUNPACK #-}!Text
+  { _gbaNameContains :: !(Maybe Text)
+  , _gbaNextToken    :: !(Maybe Text)
+  , _gbaMaxResults   :: !(Maybe Nat)
+  , _gbaBotName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,9 +133,9 @@ instance ToQuery GetBotAliases where
 
 -- | /See:/ 'getBotAliasesResponse' smart constructor.
 data GetBotAliasesResponse = GetBotAliasesResponse'
-  { _gbarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbarsBotAliases     :: {-# NOUNPACK #-}!(Maybe [BotAliasMetadata])
-  , _gbarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbarsNextToken      :: !(Maybe Text)
+  , _gbarsBotAliases     :: !(Maybe [BotAliasMetadata])
+  , _gbarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

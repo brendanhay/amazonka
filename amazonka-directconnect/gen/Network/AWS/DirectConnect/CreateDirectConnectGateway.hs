@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDirectConnectGateway' smart constructor.
 data CreateDirectConnectGateway = CreateDirectConnectGateway'
-  { _cdcgAmazonSideASN            :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cdcgDirectConnectGatewayName :: {-# NOUNPACK #-}!Text
+  { _cdcgAmazonSideASN            :: !(Maybe Integer)
+  , _cdcgDirectConnectGatewayName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery CreateDirectConnectGateway where
 --
 -- /See:/ 'createDirectConnectGatewayResponse' smart constructor.
 data CreateDirectConnectGatewayResponse = CreateDirectConnectGatewayResponse'
-  { _cdcgrsDirectConnectGateway :: {-# NOUNPACK #-}!(Maybe DirectConnectGateway)
-  , _cdcgrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _cdcgrsDirectConnectGateway :: !(Maybe DirectConnectGateway)
+  , _cdcgrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

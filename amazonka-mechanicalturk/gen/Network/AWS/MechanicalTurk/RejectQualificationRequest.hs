@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'rejectQualificationRequest' smart constructor.
 data RejectQualificationRequest = RejectQualificationRequest'
-  { _rqrReason                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rqrQualificationRequestId :: {-# NOUNPACK #-}!Text
+  { _rqrReason                 :: !(Maybe Text)
+  , _rqrQualificationRequestId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

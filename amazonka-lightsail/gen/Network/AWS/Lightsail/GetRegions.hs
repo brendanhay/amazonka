@@ -101,8 +101,8 @@ instance ToQuery GetRegions where
 
 -- | /See:/ 'getRegionsResponse' smart constructor.
 data GetRegionsResponse = GetRegionsResponse'
-  { _grrsRegions        :: {-# NOUNPACK #-}!(Maybe [RegionInfo])
-  , _grrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grrsRegions        :: !(Maybe [RegionInfo])
+  , _grrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

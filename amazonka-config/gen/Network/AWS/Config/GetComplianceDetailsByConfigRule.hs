@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'getComplianceDetailsByConfigRule' smart constructor.
 data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
-  { _gcdbcrComplianceTypes :: {-# NOUNPACK #-}!(Maybe [ComplianceType])
-  , _gcdbcrNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdbcrLimit           :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gcdbcrConfigRuleName  :: {-# NOUNPACK #-}!Text
+  { _gcdbcrComplianceTypes :: !(Maybe [ComplianceType])
+  , _gcdbcrNextToken       :: !(Maybe Text)
+  , _gcdbcrLimit           :: !(Maybe Nat)
+  , _gcdbcrConfigRuleName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -166,9 +166,9 @@ instance ToQuery GetComplianceDetailsByConfigRule
 --
 -- /See:/ 'getComplianceDetailsByConfigRuleResponse' smart constructor.
 data GetComplianceDetailsByConfigRuleResponse = GetComplianceDetailsByConfigRuleResponse'
-  { _gcdbcrrsEvaluationResults :: {-# NOUNPACK #-}!(Maybe [EvaluationResult])
-  , _gcdbcrrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdbcrrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gcdbcrrsEvaluationResults :: !(Maybe [EvaluationResult])
+  , _gcdbcrrsNextToken         :: !(Maybe Text)
+  , _gcdbcrrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

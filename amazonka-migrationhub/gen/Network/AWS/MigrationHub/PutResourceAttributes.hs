@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'putResourceAttributes' smart constructor.
 data PutResourceAttributes = PutResourceAttributes'
-  { _praDryRun                :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _praProgressUpdateStream  :: {-# NOUNPACK #-}!Text
-  , _praMigrationTaskName     :: {-# NOUNPACK #-}!Text
-  , _praResourceAttributeList :: {-# NOUNPACK #-}!(List1 ResourceAttribute)
+  { _praDryRun                :: !(Maybe Bool)
+  , _praProgressUpdateStream  :: !Text
+  , _praMigrationTaskName     :: !Text
+  , _praResourceAttributeList :: !(List1 ResourceAttribute)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

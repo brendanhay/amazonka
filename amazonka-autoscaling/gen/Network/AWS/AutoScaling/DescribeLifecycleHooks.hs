@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeLifecycleHooks' smart constructor.
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
-  { _dlhLifecycleHookNames   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dlhAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  { _dlhLifecycleHookNames   :: !(Maybe [Text])
+  , _dlhAutoScalingGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery DescribeLifecycleHooks where
 
 -- | /See:/ 'describeLifecycleHooksResponse' smart constructor.
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
-  { _dlhrsLifecycleHooks :: {-# NOUNPACK #-}!(Maybe [LifecycleHook])
-  , _dlhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dlhrsLifecycleHooks :: !(Maybe [LifecycleHook])
+  , _dlhrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

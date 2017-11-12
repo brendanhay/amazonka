@@ -95,8 +95,8 @@ instance ToQuery DescribePlatformVersion where
 
 -- | /See:/ 'describePlatformVersionResponse' smart constructor.
 data DescribePlatformVersionResponse = DescribePlatformVersionResponse'
-  { _drsPlatformDescription :: {-# NOUNPACK #-}!(Maybe PlatformDescription)
-  , _drsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _drsPlatformDescription :: !(Maybe PlatformDescription)
+  , _drsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

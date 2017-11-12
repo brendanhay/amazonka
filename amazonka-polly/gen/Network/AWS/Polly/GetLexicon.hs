@@ -92,9 +92,9 @@ instance ToQuery GetLexicon where
 
 -- | /See:/ 'getLexiconResponse' smart constructor.
 data GetLexiconResponse = GetLexiconResponse'
-  { _glrsLexiconAttributes :: {-# NOUNPACK #-}!(Maybe LexiconAttributes)
-  , _glrsLexicon           :: {-# NOUNPACK #-}!(Maybe Lexicon)
-  , _glrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _glrsLexiconAttributes :: !(Maybe LexiconAttributes)
+  , _glrsLexicon           :: !(Maybe Lexicon)
+  , _glrsResponseStatus    :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

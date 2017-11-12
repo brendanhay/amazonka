@@ -54,11 +54,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'listContainerInstances' smart constructor.
 data ListContainerInstances = ListContainerInstances'
-  { _lciStatus     :: {-# NOUNPACK #-}!(Maybe ContainerInstanceStatus)
-  , _lciCluster    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lciNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lciFilter     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lciMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _lciStatus     :: !(Maybe ContainerInstanceStatus)
+  , _lciCluster    :: !(Maybe Text)
+  , _lciNextToken  :: !(Maybe Text)
+  , _lciFilter     :: !(Maybe Text)
+  , _lciMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -158,9 +158,9 @@ instance ToQuery ListContainerInstances where
 
 -- | /See:/ 'listContainerInstancesResponse' smart constructor.
 data ListContainerInstancesResponse = ListContainerInstancesResponse'
-  { _lcirsContainerInstanceARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lcirsNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcirsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _lcirsContainerInstanceARNs :: !(Maybe [Text])
+  , _lcirsNextToken             :: !(Maybe Text)
+  , _lcirsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

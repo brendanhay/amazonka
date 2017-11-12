@@ -102,8 +102,8 @@ instance ToQuery GetNamedQuery where
 
 -- | /See:/ 'getNamedQueryResponse' smart constructor.
 data GetNamedQueryResponse = GetNamedQueryResponse'
-  { _gnqrsNamedQuery     :: {-# NOUNPACK #-}!(Maybe NamedQuery)
-  , _gnqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gnqrsNamedQuery     :: !(Maybe NamedQuery)
+  , _gnqrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

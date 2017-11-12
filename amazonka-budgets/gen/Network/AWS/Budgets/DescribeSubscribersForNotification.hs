@@ -51,11 +51,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeSubscribersForNotification' smart constructor.
 data DescribeSubscribersForNotification = DescribeSubscribersForNotification'
-  { _dsfnNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsfnMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dsfnAccountId    :: {-# NOUNPACK #-}!Text
-  , _dsfnBudgetName   :: {-# NOUNPACK #-}!Text
-  , _dsfnNotification :: {-# NOUNPACK #-}!Notification
+  { _dsfnNextToken    :: !(Maybe Text)
+  , _dsfnMaxResults   :: !(Maybe Nat)
+  , _dsfnAccountId    :: !Text
+  , _dsfnBudgetName   :: !Text
+  , _dsfnNotification :: !Notification
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,9 +160,9 @@ instance ToQuery DescribeSubscribersForNotification
 --
 -- /See:/ 'describeSubscribersForNotificationResponse' smart constructor.
 data DescribeSubscribersForNotificationResponse = DescribeSubscribersForNotificationResponse'
-  { _dsfnrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsfnrsSubscribers    :: {-# NOUNPACK #-}!(Maybe (List1 Subscriber))
-  , _dsfnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsfnrsNextToken      :: !(Maybe Text)
+  , _dsfnrsSubscribers    :: !(Maybe (List1 Subscriber))
+  , _dsfnrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

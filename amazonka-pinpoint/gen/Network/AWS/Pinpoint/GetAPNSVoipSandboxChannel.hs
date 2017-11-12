@@ -96,8 +96,8 @@ instance ToQuery GetAPNSVoipSandboxChannel where
 
 -- | /See:/ 'getAPNSVoipSandboxChannelResponse' smart constructor.
 data GetAPNSVoipSandboxChannelResponse = GetAPNSVoipSandboxChannelResponse'
-  { _gavscrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gavscrsAPNSVoipSandboxChannelResponse :: {-# NOUNPACK #-}!APNSVoipSandboxChannelResponse
+  { _gavscrsResponseStatus                 :: !Int
+  , _gavscrsAPNSVoipSandboxChannelResponse :: !APNSVoipSandboxChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

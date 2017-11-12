@@ -57,10 +57,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'searchFacesByImage' smart constructor.
 data SearchFacesByImage = SearchFacesByImage'
-  { _sfbiFaceMatchThreshold :: {-# NOUNPACK #-}!(Maybe Double)
-  , _sfbiMaxFaces           :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _sfbiCollectionId       :: {-# NOUNPACK #-}!Text
-  , _sfbiImage              :: {-# NOUNPACK #-}!Image
+  { _sfbiFaceMatchThreshold :: !(Maybe Double)
+  , _sfbiMaxFaces           :: !(Maybe Nat)
+  , _sfbiCollectionId       :: !Text
+  , _sfbiImage              :: !Image
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,10 +149,10 @@ instance ToQuery SearchFacesByImage where
 
 -- | /See:/ 'searchFacesByImageResponse' smart constructor.
 data SearchFacesByImageResponse = SearchFacesByImageResponse'
-  { _sfbirsFaceMatches             :: {-# NOUNPACK #-}!(Maybe [FaceMatch])
-  , _sfbirsSearchedFaceBoundingBox :: {-# NOUNPACK #-}!(Maybe BoundingBox)
-  , _sfbirsSearchedFaceConfidence  :: {-# NOUNPACK #-}!(Maybe Double)
-  , _sfbirsResponseStatus          :: {-# NOUNPACK #-}!Int
+  { _sfbirsFaceMatches             :: !(Maybe [FaceMatch])
+  , _sfbirsSearchedFaceBoundingBox :: !(Maybe BoundingBox)
+  , _sfbirsSearchedFaceConfidence  :: !(Maybe Double)
+  , _sfbirsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

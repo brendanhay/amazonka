@@ -55,8 +55,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getRolePolicy' smart constructor.
 data GetRolePolicy = GetRolePolicy'
-  { _grpRoleName   :: {-# NOUNPACK #-}!Text
-  , _grpPolicyName :: {-# NOUNPACK #-}!Text
+  { _grpRoleName   :: !Text
+  , _grpPolicyName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,10 +118,10 @@ instance ToQuery GetRolePolicy where
 --
 -- /See:/ 'getRolePolicyResponse' smart constructor.
 data GetRolePolicyResponse = GetRolePolicyResponse'
-  { _grprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _grprsRoleName       :: {-# NOUNPACK #-}!Text
-  , _grprsPolicyName     :: {-# NOUNPACK #-}!Text
-  , _grprsPolicyDocument :: {-# NOUNPACK #-}!Text
+  { _grprsResponseStatus :: !Int
+  , _grprsRoleName       :: !Text
+  , _grprsPolicyName     :: !Text
+  , _grprsPolicyDocument :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -56,13 +56,13 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'copyProduct' smart constructor.
 data CopyProduct = CopyProduct'
-  { _cTargetProductId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cSourceProvisioningArtifactIdentifiers :: {-# NOUNPACK #-}!(Maybe [Map ProvisioningArtifactPropertyName Text])
-  , _cTargetProductName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCopyOptions :: {-# NOUNPACK #-}!(Maybe [CopyOption])
-  , _cAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cSourceProductARN :: {-# NOUNPACK #-}!Text
-  , _cIdempotencyToken :: {-# NOUNPACK #-}!Text
+  { _cTargetProductId :: !(Maybe Text)
+  , _cSourceProvisioningArtifactIdentifiers :: !(Maybe [Map ProvisioningArtifactPropertyName Text])
+  , _cTargetProductName :: !(Maybe Text)
+  , _cCopyOptions :: !(Maybe [CopyOption])
+  , _cAcceptLanguage :: !(Maybe Text)
+  , _cSourceProductARN :: !Text
+  , _cIdempotencyToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -171,8 +171,8 @@ instance ToQuery CopyProduct where
 
 -- | /See:/ 'copyProductResponse' smart constructor.
 data CopyProductResponse = CopyProductResponse'
-  { _coprsCopyProductToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _coprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _coprsCopyProductToken :: !(Maybe Text)
+  , _coprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

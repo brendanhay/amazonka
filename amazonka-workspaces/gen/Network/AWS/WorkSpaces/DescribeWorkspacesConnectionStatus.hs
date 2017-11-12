@@ -48,8 +48,8 @@ import Network.AWS.WorkSpaces.Types.Product
 
 -- | /See:/ 'describeWorkspacesConnectionStatus' smart constructor.
 data DescribeWorkspacesConnectionStatus = DescribeWorkspacesConnectionStatus'
-  { _dwcsWorkspaceIds :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _dwcsNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dwcsWorkspaceIds :: !(Maybe (List1 Text))
+  , _dwcsNextToken    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery DescribeWorkspacesConnectionStatus
 
 -- | /See:/ 'describeWorkspacesConnectionStatusResponse' smart constructor.
 data DescribeWorkspacesConnectionStatusResponse = DescribeWorkspacesConnectionStatusResponse'
-  { _dwcsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwcsrsWorkspacesConnectionStatus :: {-# NOUNPACK #-}!(Maybe [WorkspaceConnectionStatus])
-  , _dwcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dwcsrsNextToken                  :: !(Maybe Text)
+  , _dwcsrsWorkspacesConnectionStatus :: !(Maybe [WorkspaceConnectionStatus])
+  , _dwcsrsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

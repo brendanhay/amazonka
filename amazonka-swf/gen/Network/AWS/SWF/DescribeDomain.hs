@@ -120,9 +120,9 @@ instance ToQuery DescribeDomain where
 --
 -- /See:/ 'describeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
-  { _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ddrsDomainInfo     :: {-# NOUNPACK #-}!DomainInfo
-  , _ddrsConfiguration  :: {-# NOUNPACK #-}!DomainConfiguration
+  { _ddrsResponseStatus :: !Int
+  , _ddrsDomainInfo     :: !DomainInfo
+  , _ddrsConfiguration  :: !DomainConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

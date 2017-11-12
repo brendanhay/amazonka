@@ -47,10 +47,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'getSegmentImportJobs' smart constructor.
 data GetSegmentImportJobs = GetSegmentImportJobs'
-  { _gsijToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsijPageSize      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsijSegmentId     :: {-# NOUNPACK #-}!Text
-  , _gsijApplicationId :: {-# NOUNPACK #-}!Text
+  { _gsijToken         :: !(Maybe Text)
+  , _gsijPageSize      :: !(Maybe Text)
+  , _gsijSegmentId     :: !Text
+  , _gsijApplicationId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery GetSegmentImportJobs where
 
 -- | /See:/ 'getSegmentImportJobsResponse' smart constructor.
 data GetSegmentImportJobsResponse = GetSegmentImportJobsResponse'
-  { _gsijrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _gsijrsImportJobsResponse :: {-# NOUNPACK #-}!ImportJobsResponse
+  { _gsijrsResponseStatus     :: !Int
+  , _gsijrsImportJobsResponse :: !ImportJobsResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

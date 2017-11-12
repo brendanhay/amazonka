@@ -51,10 +51,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeServices' smart constructor.
 data DescribeServices = DescribeServices'
-  { _dsFormatVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsServiceCode   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsMaxResults    :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dsFormatVersion :: !(Maybe Text)
+  , _dsNextToken     :: !(Maybe Text)
+  , _dsServiceCode   :: !(Maybe Text)
+  , _dsMaxResults    :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,10 +138,10 @@ instance ToQuery DescribeServices where
 
 -- | /See:/ 'describeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { _dsrsFormatVersion  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsrsServices       :: {-# NOUNPACK #-}!(Maybe [Service])
-  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsrsFormatVersion  :: !(Maybe Text)
+  , _dsrsNextToken      :: !(Maybe Text)
+  , _dsrsServices       :: !(Maybe [Service])
+  , _dsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

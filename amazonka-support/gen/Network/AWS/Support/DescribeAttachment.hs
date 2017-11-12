@@ -108,8 +108,8 @@ instance ToQuery DescribeAttachment where
 --
 -- /See:/ 'describeAttachmentResponse' smart constructor.
 data DescribeAttachmentResponse = DescribeAttachmentResponse'
-  { _darsAttachment     :: {-# NOUNPACK #-}!(Maybe Attachment)
-  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _darsAttachment     :: !(Maybe Attachment)
+  , _darsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,8 +50,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listResourceDataSync' smart constructor.
 data ListResourceDataSync = ListResourceDataSync'
-  { _lrdsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrdsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lrdsNextToken  :: !(Maybe Text)
+  , _lrdsMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,9 +116,9 @@ instance ToQuery ListResourceDataSync where
 
 -- | /See:/ 'listResourceDataSyncResponse' smart constructor.
 data ListResourceDataSyncResponse = ListResourceDataSyncResponse'
-  { _lrdsrsResourceDataSyncItems :: {-# NOUNPACK #-}!(Maybe [ResourceDataSyncItem])
-  , _lrdsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrdsrsResourceDataSyncItems :: !(Maybe [ResourceDataSyncItem])
+  , _lrdsrsNextToken             :: !(Maybe Text)
+  , _lrdsrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

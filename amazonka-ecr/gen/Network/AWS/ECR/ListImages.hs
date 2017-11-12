@@ -56,11 +56,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'listImages' smart constructor.
 data ListImages = ListImages'
-  { _liRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liFilter         :: {-# NOUNPACK #-}!(Maybe ListImagesFilter)
-  , _liMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _liRepositoryName :: {-# NOUNPACK #-}!Text
+  { _liRegistryId     :: !(Maybe Text)
+  , _liNextToken      :: !(Maybe Text)
+  , _liFilter         :: !(Maybe ListImagesFilter)
+  , _liMaxResults     :: !(Maybe Nat)
+  , _liRepositoryName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -159,9 +159,9 @@ instance ToQuery ListImages where
 
 -- | /See:/ 'listImagesResponse' smart constructor.
 data ListImagesResponse = ListImagesResponse'
-  { _lirsImageIds       :: {-# NOUNPACK #-}!(Maybe [ImageIdentifier])
-  , _lirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lirsImageIds       :: !(Maybe [ImageIdentifier])
+  , _lirsNextToken      :: !(Maybe Text)
+  , _lirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

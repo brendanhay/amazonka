@@ -53,13 +53,13 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updatePortfolio' smart constructor.
 data UpdatePortfolio = UpdatePortfolio'
-  { _uRemoveTags     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uDisplayName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uAddTags        :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _uDescription    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uProviderName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uId             :: {-# NOUNPACK #-}!Text
+  { _uRemoveTags     :: !(Maybe [Text])
+  , _uAcceptLanguage :: !(Maybe Text)
+  , _uDisplayName    :: !(Maybe Text)
+  , _uAddTags        :: !(Maybe [Tag])
+  , _uDescription    :: !(Maybe Text)
+  , _uProviderName   :: !(Maybe Text)
+  , _uId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -168,9 +168,9 @@ instance ToQuery UpdatePortfolio where
 
 -- | /See:/ 'updatePortfolioResponse' smart constructor.
 data UpdatePortfolioResponse = UpdatePortfolioResponse'
-  { _uprsPortfolioDetail :: {-# NOUNPACK #-}!(Maybe PortfolioDetail)
-  , _uprsTags            :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _uprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _uprsPortfolioDetail :: !(Maybe PortfolioDetail)
+  , _uprsTags            :: !(Maybe [Tag])
+  , _uprsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

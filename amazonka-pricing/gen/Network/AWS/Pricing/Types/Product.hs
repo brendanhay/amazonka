@@ -60,9 +60,9 @@ instance NFData AttributeValue where
 --
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
-  { _fType  :: {-# NOUNPACK #-}!FilterType
-  , _fField :: {-# NOUNPACK #-}!Text
-  , _fValue :: {-# NOUNPACK #-}!Text
+  { _fType  :: !FilterType
+  , _fField :: !Text
+  , _fValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToJSON Filter where
 --
 -- /See:/ 'service' smart constructor.
 data Service = Service'
-  { _sAttributeNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sServiceCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sAttributeNames :: !(Maybe [Text])
+  , _sServiceCode    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

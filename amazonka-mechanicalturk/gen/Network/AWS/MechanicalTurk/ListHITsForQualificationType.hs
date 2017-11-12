@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listHITsForQualificationType' smart constructor.
 data ListHITsForQualificationType = ListHITsForQualificationType'
-  { _lhitfqtNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhitfqtMaxResults          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lhitfqtQualificationTypeId :: {-# NOUNPACK #-}!Text
+  { _lhitfqtNextToken           :: !(Maybe Text)
+  , _lhitfqtMaxResults          :: !(Maybe Nat)
+  , _lhitfqtQualificationTypeId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,10 +133,10 @@ instance ToQuery ListHITsForQualificationType where
 
 -- | /See:/ 'listHITsForQualificationTypeResponse' smart constructor.
 data ListHITsForQualificationTypeResponse = ListHITsForQualificationTypeResponse'
-  { _lhitfqtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhitfqtrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lhitfqtrsHITs           :: {-# NOUNPACK #-}!(Maybe [HIT])
-  , _lhitfqtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lhitfqtrsNextToken      :: !(Maybe Text)
+  , _lhitfqtrsNumResults     :: !(Maybe Int)
+  , _lhitfqtrsHITs           :: !(Maybe [HIT])
+  , _lhitfqtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

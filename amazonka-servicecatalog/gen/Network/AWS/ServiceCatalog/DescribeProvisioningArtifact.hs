@@ -51,10 +51,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProvisioningArtifact' smart constructor.
 data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
-  { _dpaVerbose                :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dpaAcceptLanguage         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpaProvisioningArtifactId :: {-# NOUNPACK #-}!Text
-  , _dpaProductId              :: {-# NOUNPACK #-}!Text
+  { _dpaVerbose                :: !(Maybe Bool)
+  , _dpaAcceptLanguage         :: !(Maybe Text)
+  , _dpaProvisioningArtifactId :: !Text
+  , _dpaProductId              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,10 +144,10 @@ instance ToQuery DescribeProvisioningArtifact where
 
 -- | /See:/ 'describeProvisioningArtifactResponse' smart constructor.
 data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse'
-  { _dpaprsStatus :: {-# NOUNPACK #-}!(Maybe RequestStatus)
-  , _dpaprsInfo :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _dpaprsProvisioningArtifactDetail :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactDetail)
-  , _dpaprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dpaprsStatus                     :: !(Maybe RequestStatus)
+  , _dpaprsInfo                       :: !(Maybe (Map Text Text))
+  , _dpaprsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
+  , _dpaprsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

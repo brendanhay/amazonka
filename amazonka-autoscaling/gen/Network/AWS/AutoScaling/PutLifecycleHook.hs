@@ -72,14 +72,14 @@ import Network.AWS.Response
 
 -- | /See:/ 'putLifecycleHook' smart constructor.
 data PutLifecycleHook = PutLifecycleHook'
-  { _plhDefaultResult         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _plhHeartbeatTimeout      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _plhNotificationMetadata  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _plhNotificationTargetARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _plhLifecycleTransition   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _plhRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _plhLifecycleHookName     :: {-# NOUNPACK #-}!Text
-  , _plhAutoScalingGroupName  :: {-# NOUNPACK #-}!Text
+  { _plhDefaultResult         :: !(Maybe Text)
+  , _plhHeartbeatTimeout      :: !(Maybe Int)
+  , _plhNotificationMetadata  :: !(Maybe Text)
+  , _plhNotificationTargetARN :: !(Maybe Text)
+  , _plhLifecycleTransition   :: !(Maybe Text)
+  , _plhRoleARN               :: !(Maybe Text)
+  , _plhLifecycleHookName     :: !Text
+  , _plhAutoScalingGroupName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

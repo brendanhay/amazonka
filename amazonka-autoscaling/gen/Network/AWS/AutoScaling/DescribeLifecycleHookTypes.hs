@@ -88,8 +88,8 @@ instance ToQuery DescribeLifecycleHookTypes where
 
 -- | /See:/ 'describeLifecycleHookTypesResponse' smart constructor.
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
-  { _dlhtrsLifecycleHookTypes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dlhtrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _dlhtrsLifecycleHookTypes :: !(Maybe [Text])
+  , _dlhtrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

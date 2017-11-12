@@ -59,9 +59,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { _dtMarker       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtMaxItems     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dtFileSystemId :: {-# NOUNPACK #-}!Text
+  { _dtMarker       :: !(Maybe Text)
+  , _dtMaxItems     :: !(Maybe Nat)
+  , _dtFileSystemId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,10 +135,10 @@ instance ToQuery DescribeTags where
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { _dtrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dtrsTags           :: {-# NOUNPACK #-}![Tag]
+  { _dtrsMarker         :: !(Maybe Text)
+  , _dtrsNextMarker     :: !(Maybe Text)
+  , _dtrsResponseStatus :: !Int
+  , _dtrsTags           :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

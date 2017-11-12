@@ -47,11 +47,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'executePolicy' smart constructor.
 data ExecutePolicy = ExecutePolicy'
-  { _epHonorCooldown        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _epMetricValue          :: {-# NOUNPACK #-}!(Maybe Double)
-  , _epAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _epBreachThreshold      :: {-# NOUNPACK #-}!(Maybe Double)
-  , _epPolicyName           :: {-# NOUNPACK #-}!Text
+  { _epHonorCooldown        :: !(Maybe Bool)
+  , _epMetricValue          :: !(Maybe Double)
+  , _epAutoScalingGroupName :: !(Maybe Text)
+  , _epBreachThreshold      :: !(Maybe Double)
+  , _epPolicyName           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

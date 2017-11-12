@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteUtterances' smart constructor.
 data DeleteUtterances = DeleteUtterances'
-  { _duBotName :: {-# NOUNPACK #-}!Text
-  , _duUserId  :: {-# NOUNPACK #-}!Text
+  { _duBotName :: !Text
+  , _duUserId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

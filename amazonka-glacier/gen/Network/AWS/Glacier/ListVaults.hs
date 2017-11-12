@@ -62,9 +62,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listVaults' smart constructor.
 data ListVaults = ListVaults'
-  { _lvMarker    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lvLimit     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lvAccountId :: {-# NOUNPACK #-}!Text
+  { _lvMarker    :: !(Maybe Text)
+  , _lvLimit     :: !(Maybe Text)
+  , _lvAccountId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,9 +136,9 @@ instance ToQuery ListVaults where
 --
 -- /See:/ 'listVaultsResponse' smart constructor.
 data ListVaultsResponse = ListVaultsResponse'
-  { _lvrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lvrsVaultList      :: {-# NOUNPACK #-}!(Maybe [DescribeVaultOutput])
-  , _lvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lvrsMarker         :: !(Maybe Text)
+  , _lvrsVaultList      :: !(Maybe [DescribeVaultOutput])
+  , _lvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

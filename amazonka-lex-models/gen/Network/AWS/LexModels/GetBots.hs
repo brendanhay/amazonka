@@ -57,9 +57,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getBots' smart constructor.
 data GetBots = GetBots'
-  { _gbNameContains :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gbNameContains :: !(Maybe Text)
+  , _gbNextToken    :: !(Maybe Text)
+  , _gbMaxResults   :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery GetBots where
 
 -- | /See:/ 'getBotsResponse' smart constructor.
 data GetBotsResponse = GetBotsResponse'
-  { _gbsrsBots           :: {-# NOUNPACK #-}!(Maybe [BotMetadata])
-  , _gbsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbsrsBots           :: !(Maybe [BotMetadata])
+  , _gbsrsNextToken      :: !(Maybe Text)
+  , _gbsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

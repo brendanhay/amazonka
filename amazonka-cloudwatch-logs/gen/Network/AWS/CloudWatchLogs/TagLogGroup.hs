@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'tagLogGroup' smart constructor.
 data TagLogGroup = TagLogGroup'
-  { _tlgLogGroupName :: {-# NOUNPACK #-}!Text
-  , _tlgTags         :: {-# NOUNPACK #-}!(Map Text Text)
+  { _tlgLogGroupName :: !Text
+  , _tlgTags         :: !(Map Text Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

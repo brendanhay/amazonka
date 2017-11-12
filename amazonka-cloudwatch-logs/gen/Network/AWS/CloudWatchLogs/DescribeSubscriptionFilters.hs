@@ -53,10 +53,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeSubscriptionFilters' smart constructor.
 data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
-  { _dsfFilterNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsfNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsfLimit            :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dsfLogGroupName     :: {-# NOUNPACK #-}!Text
+  { _dsfFilterNamePrefix :: !(Maybe Text)
+  , _dsfNextToken        :: !(Maybe Text)
+  , _dsfLimit            :: !(Maybe Nat)
+  , _dsfLogGroupName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery DescribeSubscriptionFilters where
 
 -- | /See:/ 'describeSubscriptionFiltersResponse' smart constructor.
 data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
-  { _dsfrsSubscriptionFilters :: {-# NOUNPACK #-}!(Maybe [SubscriptionFilter])
-  , _dsfrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsfrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _dsfrsSubscriptionFilters :: !(Maybe [SubscriptionFilter])
+  , _dsfrsNextToken           :: !(Maybe Text)
+  , _dsfrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

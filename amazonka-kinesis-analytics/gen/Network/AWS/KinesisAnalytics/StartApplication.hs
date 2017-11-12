@@ -58,8 +58,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'startApplication' smart constructor.
 data StartApplication = StartApplication'
-  { _saApplicationName     :: {-# NOUNPACK #-}!Text
-  , _saInputConfigurations :: {-# NOUNPACK #-}![InputConfiguration]
+  { _saApplicationName     :: !Text
+  , _saInputConfigurations :: ![InputConfiguration]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,9 +49,9 @@ import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'listClusterJobs' smart constructor.
 data ListClusterJobs = ListClusterJobs'
-  { _lcjNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcjMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lcjClusterId  :: {-# NOUNPACK #-}!Text
+  { _lcjNextToken  :: !(Maybe Text)
+  , _lcjMaxResults :: !(Maybe Nat)
+  , _lcjClusterId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery ListClusterJobs where
 
 -- | /See:/ 'listClusterJobsResponse' smart constructor.
 data ListClusterJobsResponse = ListClusterJobsResponse'
-  { _lcjrsJobListEntries :: {-# NOUNPACK #-}!(Maybe [JobListEntry])
-  , _lcjrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcjrsJobListEntries :: !(Maybe [JobListEntry])
+  , _lcjrsNextToken      :: !(Maybe Text)
+  , _lcjrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

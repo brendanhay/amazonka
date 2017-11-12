@@ -52,12 +52,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAttributes' smart constructor.
 data ListAttributes = ListAttributes'
-  { _laAttributeValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laCluster        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laMaxResults     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _laTargetType     :: {-# NOUNPACK #-}!TargetType
+  { _laAttributeValue :: !(Maybe Text)
+  , _laCluster        :: !(Maybe Text)
+  , _laNextToken      :: !(Maybe Text)
+  , _laAttributeName  :: !(Maybe Text)
+  , _laMaxResults     :: !(Maybe Int)
+  , _laTargetType     :: !TargetType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -158,9 +158,9 @@ instance ToQuery ListAttributes where
 
 -- | /See:/ 'listAttributesResponse' smart constructor.
 data ListAttributesResponse = ListAttributesResponse'
-  { _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larsAttributes     :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _larsNextToken      :: !(Maybe Text)
+  , _larsAttributes     :: !(Maybe [Attribute])
+  , _larsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

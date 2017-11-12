@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'sendTestEventNotification' smart constructor.
 data SendTestEventNotification = SendTestEventNotification'
-  { _stenNotification  :: {-# NOUNPACK #-}!NotificationSpecification
-  , _stenTestEventType :: {-# NOUNPACK #-}!EventType
+  { _stenNotification  :: !NotificationSpecification
+  , _stenTestEventType :: !EventType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

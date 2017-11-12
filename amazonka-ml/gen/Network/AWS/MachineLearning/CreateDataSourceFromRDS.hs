@@ -54,11 +54,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromRDS' smart constructor.
 data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
-  { _cdsfrdsDataSourceName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdsfrdsComputeStatistics :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdsfrdsDataSourceId      :: {-# NOUNPACK #-}!Text
-  , _cdsfrdsRDSData           :: {-# NOUNPACK #-}!RDSDataSpec
-  , _cdsfrdsRoleARN           :: {-# NOUNPACK #-}!Text
+  { _cdsfrdsDataSourceName    :: !(Maybe Text)
+  , _cdsfrdsComputeStatistics :: !(Maybe Bool)
+  , _cdsfrdsDataSourceId      :: !Text
+  , _cdsfrdsRDSData           :: !RDSDataSpec
+  , _cdsfrdsRoleARN           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -159,8 +159,8 @@ instance ToQuery CreateDataSourceFromRDS where
 --
 -- /See:/ 'createDataSourceFromRDSResponse' smart constructor.
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
-  { _cdsfrdsrsDataSourceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdsfrdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdsfrdsrsDataSourceId   :: !(Maybe Text)
+  , _cdsfrdsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

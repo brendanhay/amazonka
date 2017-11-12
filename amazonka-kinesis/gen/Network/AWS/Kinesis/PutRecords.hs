@@ -73,8 +73,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'putRecords' smart constructor.
 data PutRecords = PutRecords'
-  { _pRecordEntries :: {-# NOUNPACK #-}!(List1 PutRecordsRequestEntry)
-  , _pStreamName    :: {-# NOUNPACK #-}!Text
+  { _pRecordEntries :: !(List1 PutRecordsRequestEntry)
+  , _pStreamName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,10 +146,10 @@ instance ToQuery PutRecords where
 --
 -- /See:/ 'putRecordsResponse' smart constructor.
 data PutRecordsResponse = PutRecordsResponse'
-  { _prsEncryptionType    :: {-# NOUNPACK #-}!(Maybe EncryptionType)
-  , _prsFailedRecordCount :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _prsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _prsRecords           :: {-# NOUNPACK #-}!(List1 PutRecordsResultEntry)
+  { _prsEncryptionType    :: !(Maybe EncryptionType)
+  , _prsFailedRecordCount :: !(Maybe Nat)
+  , _prsResponseStatus    :: !Int
+  , _prsRecords           :: !(List1 PutRecordsResultEntry)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

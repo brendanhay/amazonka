@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putRetentionPolicy' smart constructor.
 data PutRetentionPolicy = PutRetentionPolicy'
-  { _prpLogGroupName    :: {-# NOUNPACK #-}!Text
-  , _prpRetentionInDays :: {-# NOUNPACK #-}!Int
+  { _prpLogGroupName    :: !Text
+  , _prpRetentionInDays :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

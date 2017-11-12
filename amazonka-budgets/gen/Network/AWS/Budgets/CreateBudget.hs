@@ -47,9 +47,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createBudget' smart constructor.
 data CreateBudget = CreateBudget'
-  { _cbNotificationsWithSubscribers :: {-# NOUNPACK #-}!(Maybe [NotificationWithSubscribers])
-  , _cbAccountId :: {-# NOUNPACK #-}!Text
-  , _cbBudget :: {-# NOUNPACK #-}!Budget
+  { _cbNotificationsWithSubscribers :: !(Maybe [NotificationWithSubscribers])
+  , _cbAccountId                    :: !Text
+  , _cbBudget                       :: !Budget
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

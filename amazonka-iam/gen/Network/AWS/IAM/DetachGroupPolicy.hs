@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'detachGroupPolicy' smart constructor.
 data DetachGroupPolicy = DetachGroupPolicy'
-  { _dgpGroupName :: {-# NOUNPACK #-}!Text
-  , _dgpPolicyARN :: {-# NOUNPACK #-}!Text
+  { _dgpGroupName :: !Text
+  , _dgpPolicyARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

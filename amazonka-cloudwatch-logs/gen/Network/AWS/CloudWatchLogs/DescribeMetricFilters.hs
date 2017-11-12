@@ -55,12 +55,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeMetricFilters' smart constructor.
 data DescribeMetricFilters = DescribeMetricFilters'
-  { _dmfFilterNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmfMetricName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmfLogGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmfNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmfMetricNamespace  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmfLimit            :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dmfFilterNamePrefix :: !(Maybe Text)
+  , _dmfMetricName       :: !(Maybe Text)
+  , _dmfLogGroupName     :: !(Maybe Text)
+  , _dmfNextToken        :: !(Maybe Text)
+  , _dmfMetricNamespace  :: !(Maybe Text)
+  , _dmfLimit            :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -168,9 +168,9 @@ instance ToQuery DescribeMetricFilters where
 
 -- | /See:/ 'describeMetricFiltersResponse' smart constructor.
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
-  { _dmfrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmfrsMetricFilters  :: {-# NOUNPACK #-}!(Maybe [MetricFilter])
-  , _dmfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmfrsNextToken      :: !(Maybe Text)
+  , _dmfrsMetricFilters  :: !(Maybe [MetricFilter])
+  , _dmfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

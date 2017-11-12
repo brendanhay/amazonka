@@ -56,13 +56,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'createRemoteAccessSession' smart constructor.
 data CreateRemoteAccessSession = CreateRemoteAccessSession'
-  { _crasClientId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crasSshPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crasName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crasRemoteDebugEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _crasConfiguration :: {-# NOUNPACK #-}!(Maybe CreateRemoteAccessSessionConfiguration)
-  , _crasProjectARN :: {-# NOUNPACK #-}!Text
-  , _crasDeviceARN :: {-# NOUNPACK #-}!Text
+  { _crasClientId           :: !(Maybe Text)
+  , _crasSshPublicKey       :: !(Maybe Text)
+  , _crasName               :: !(Maybe Text)
+  , _crasRemoteDebugEnabled :: !(Maybe Bool)
+  , _crasConfiguration      :: !(Maybe CreateRemoteAccessSessionConfiguration)
+  , _crasProjectARN         :: !Text
+  , _crasDeviceARN          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -177,8 +177,8 @@ instance ToQuery CreateRemoteAccessSession where
 --
 -- /See:/ 'createRemoteAccessSessionResponse' smart constructor.
 data CreateRemoteAccessSessionResponse = CreateRemoteAccessSessionResponse'
-  { _crasrsRemoteAccessSession :: {-# NOUNPACK #-}!(Maybe RemoteAccessSession)
-  , _crasrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _crasrsRemoteAccessSession :: !(Maybe RemoteAccessSession)
+  , _crasrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

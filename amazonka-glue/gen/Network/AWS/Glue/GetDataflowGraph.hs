@@ -103,9 +103,9 @@ instance ToQuery GetDataflowGraph where
 
 -- | /See:/ 'getDataflowGraphResponse' smart constructor.
 data GetDataflowGraphResponse = GetDataflowGraphResponse'
-  { _gdgrsDagEdges       :: {-# NOUNPACK #-}!(Maybe [CodeGenEdge])
-  , _gdgrsDagNodes       :: {-# NOUNPACK #-}!(Maybe [CodeGenNode])
-  , _gdgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdgrsDagEdges       :: !(Maybe [CodeGenEdge])
+  , _gdgrsDagNodes       :: !(Maybe [CodeGenNode])
+  , _gdgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

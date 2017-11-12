@@ -27,16 +27,16 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'activity' smart constructor.
 data Activity = Activity'
-  { _aProgress             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _aStatusMessage        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aEndTime              :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _aDetails              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aDescription          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aActivityId           :: {-# NOUNPACK #-}!Text
-  , _aAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _aCause                :: {-# NOUNPACK #-}!Text
-  , _aStartTime            :: {-# NOUNPACK #-}!ISO8601
-  , _aStatusCode           :: {-# NOUNPACK #-}!ScalingActivityStatusCode
+  { _aProgress             :: !(Maybe Int)
+  , _aStatusMessage        :: !(Maybe Text)
+  , _aEndTime              :: !(Maybe ISO8601)
+  , _aDetails              :: !(Maybe Text)
+  , _aDescription          :: !(Maybe Text)
+  , _aActivityId           :: !Text
+  , _aAutoScalingGroupName :: !Text
+  , _aCause                :: !Text
+  , _aStartTime            :: !ISO8601
+  , _aStatusCode           :: !ScalingActivityStatusCode
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -182,8 +182,8 @@ instance NFData AdjustmentType where
 --
 -- /See:/ 'alarm' smart constructor.
 data Alarm = Alarm'
-  { _aAlarmName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aAlarmARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aAlarmName :: !(Maybe Text)
+  , _aAlarmARN  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -222,28 +222,28 @@ instance NFData Alarm where
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
-  { _asgStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgTerminationPolicies :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _asgHealthCheckGracePeriod :: {-# NOUNPACK #-}!(Maybe Int)
-  , _asgNewInstancesProtectedFromScaleIn :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _asgVPCZoneIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgTargetGroupARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _asgEnabledMetrics :: {-# NOUNPACK #-}!(Maybe [EnabledMetric])
-  , _asgLaunchConfigurationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgInstances :: {-# NOUNPACK #-}!(Maybe [Instance])
-  , _asgAutoScalingGroupARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgPlacementGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgSuspendedProcesses :: {-# NOUNPACK #-}!(Maybe [SuspendedProcess])
-  , _asgLoadBalancerNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _asgTags :: {-# NOUNPACK #-}!(Maybe [TagDescription])
-  , _asgAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _asgMinSize :: {-# NOUNPACK #-}!Int
-  , _asgMaxSize :: {-# NOUNPACK #-}!Int
-  , _asgDesiredCapacity :: {-# NOUNPACK #-}!Int
-  , _asgDefaultCooldown :: {-# NOUNPACK #-}!Int
-  , _asgAvailabilityZones :: {-# NOUNPACK #-}!(List1 Text)
-  , _asgHealthCheckType :: {-# NOUNPACK #-}!Text
-  , _asgCreatedTime :: {-# NOUNPACK #-}!ISO8601
+  { _asgStatus                           :: !(Maybe Text)
+  , _asgTerminationPolicies              :: !(Maybe [Text])
+  , _asgHealthCheckGracePeriod           :: !(Maybe Int)
+  , _asgNewInstancesProtectedFromScaleIn :: !(Maybe Bool)
+  , _asgVPCZoneIdentifier                :: !(Maybe Text)
+  , _asgTargetGroupARNs                  :: !(Maybe [Text])
+  , _asgEnabledMetrics                   :: !(Maybe [EnabledMetric])
+  , _asgLaunchConfigurationName          :: !(Maybe Text)
+  , _asgInstances                        :: !(Maybe [Instance])
+  , _asgAutoScalingGroupARN              :: !(Maybe Text)
+  , _asgPlacementGroup                   :: !(Maybe Text)
+  , _asgSuspendedProcesses               :: !(Maybe [SuspendedProcess])
+  , _asgLoadBalancerNames                :: !(Maybe [Text])
+  , _asgTags                             :: !(Maybe [TagDescription])
+  , _asgAutoScalingGroupName             :: !Text
+  , _asgMinSize                          :: !Int
+  , _asgMaxSize                          :: !Int
+  , _asgDesiredCapacity                  :: !Int
+  , _asgDefaultCooldown                  :: !Int
+  , _asgAvailabilityZones                :: !(List1 Text)
+  , _asgHealthCheckType                  :: !Text
+  , _asgCreatedTime                      :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -470,13 +470,13 @@ instance NFData AutoScalingGroup where
 --
 -- /See:/ 'autoScalingInstanceDetails' smart constructor.
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
-  { _asidLaunchConfigurationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asidInstanceId              :: {-# NOUNPACK #-}!Text
-  , _asidAutoScalingGroupName    :: {-# NOUNPACK #-}!Text
-  , _asidAvailabilityZone        :: {-# NOUNPACK #-}!Text
-  , _asidLifecycleState          :: {-# NOUNPACK #-}!Text
-  , _asidHealthStatus            :: {-# NOUNPACK #-}!Text
-  , _asidProtectedFromScaleIn    :: {-# NOUNPACK #-}!Bool
+  { _asidLaunchConfigurationName :: !(Maybe Text)
+  , _asidInstanceId              :: !Text
+  , _asidAutoScalingGroupName    :: !Text
+  , _asidAvailabilityZone        :: !Text
+  , _asidLifecycleState          :: !Text
+  , _asidHealthStatus            :: !Text
+  , _asidProtectedFromScaleIn    :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -566,10 +566,10 @@ instance NFData AutoScalingInstanceDetails where
 --
 -- /See:/ 'blockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-  { _bdmVirtualName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bdmNoDevice    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _bdmEBS         :: {-# NOUNPACK #-}!(Maybe EBS)
-  , _bdmDeviceName  :: {-# NOUNPACK #-}!Text
+  { _bdmVirtualName :: !(Maybe Text)
+  , _bdmNoDevice    :: !(Maybe Bool)
+  , _bdmEBS         :: !(Maybe EBS)
+  , _bdmDeviceName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -636,11 +636,11 @@ instance ToQuery BlockDeviceMapping where
 --
 -- /See:/ 'customizedMetricSpecification' smart constructor.
 data CustomizedMetricSpecification = CustomizedMetricSpecification'
-  { _cmsDimensions :: {-# NOUNPACK #-}!(Maybe [MetricDimension])
-  , _cmsUnit       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmsMetricName :: {-# NOUNPACK #-}!Text
-  , _cmsNamespace  :: {-# NOUNPACK #-}!Text
-  , _cmsStatistic  :: {-# NOUNPACK #-}!MetricStatistic
+  { _cmsDimensions :: !(Maybe [MetricDimension])
+  , _cmsUnit       :: !(Maybe Text)
+  , _cmsMetricName :: !Text
+  , _cmsNamespace  :: !Text
+  , _cmsStatistic  :: !MetricStatistic
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -721,12 +721,12 @@ instance ToQuery CustomizedMetricSpecification where
 --
 -- /See:/ 'ebs' smart constructor.
 data EBS = EBS'
-  { _ebsDeleteOnTermination :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ebsVolumeSize          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ebsIOPS                :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ebsEncrypted           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ebsVolumeType          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ebsSnapshotId          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ebsDeleteOnTermination :: !(Maybe Bool)
+  , _ebsVolumeSize          :: !(Maybe Nat)
+  , _ebsIOPS                :: !(Maybe Nat)
+  , _ebsEncrypted           :: !(Maybe Bool)
+  , _ebsVolumeType          :: !(Maybe Text)
+  , _ebsSnapshotId          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -811,8 +811,8 @@ instance ToQuery EBS where
 --
 -- /See:/ 'enabledMetric' smart constructor.
 data EnabledMetric = EnabledMetric'
-  { _emGranularity :: {-# NOUNPACK #-}!(Maybe Text)
-  , _emMetric      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _emGranularity :: !(Maybe Text)
+  , _emMetric      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -851,8 +851,8 @@ instance NFData EnabledMetric where
 --
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
-  { _fValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _fName   :: {-# NOUNPACK #-}!Text
+  { _fValues :: !(Maybe [Text])
+  , _fName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -894,12 +894,12 @@ instance ToQuery Filter where
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-  { _iLaunchConfigurationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iInstanceId              :: {-# NOUNPACK #-}!Text
-  , _iAvailabilityZone        :: {-# NOUNPACK #-}!Text
-  , _iLifecycleState          :: {-# NOUNPACK #-}!LifecycleState
-  , _iHealthStatus            :: {-# NOUNPACK #-}!Text
-  , _iProtectedFromScaleIn    :: {-# NOUNPACK #-}!Bool
+  { _iLaunchConfigurationName :: !(Maybe Text)
+  , _iInstanceId              :: !Text
+  , _iAvailabilityZone        :: !Text
+  , _iLifecycleState          :: !LifecycleState
+  , _iHealthStatus            :: !Text
+  , _iProtectedFromScaleIn    :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1016,25 +1016,25 @@ instance ToQuery InstanceMonitoring where
 --
 -- /See:/ 'launchConfiguration' smart constructor.
 data LaunchConfiguration = LaunchConfiguration'
-  { _lcAssociatePublicIPAddress :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lcSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lcSpotPrice :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcInstanceMonitoring :: {-# NOUNPACK #-}!(Maybe InstanceMonitoring)
-  , _lcKeyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcClassicLinkVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lcRAMDiskId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcKernelId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcEBSOptimized :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lcUserData :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcClassicLinkVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcIAMInstanceProfile :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcLaunchConfigurationARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcPlacementTenancy :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
-  , _lcLaunchConfigurationName :: {-# NOUNPACK #-}!Text
-  , _lcImageId :: {-# NOUNPACK #-}!Text
-  , _lcInstanceType :: {-# NOUNPACK #-}!Text
-  , _lcCreatedTime :: {-# NOUNPACK #-}!ISO8601
+  { _lcAssociatePublicIPAddress     :: !(Maybe Bool)
+  , _lcSecurityGroups               :: !(Maybe [Text])
+  , _lcSpotPrice                    :: !(Maybe Text)
+  , _lcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
+  , _lcKeyName                      :: !(Maybe Text)
+  , _lcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
+  , _lcRAMDiskId                    :: !(Maybe Text)
+  , _lcKernelId                     :: !(Maybe Text)
+  , _lcEBSOptimized                 :: !(Maybe Bool)
+  , _lcUserData                     :: !(Maybe Text)
+  , _lcClassicLinkVPCId             :: !(Maybe Text)
+  , _lcIAMInstanceProfile           :: !(Maybe Text)
+  , _lcLaunchConfigurationARN       :: !(Maybe Text)
+  , _lcPlacementTenancy             :: !(Maybe Text)
+  , _lcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
+  , _lcLaunchConfigurationName      :: !Text
+  , _lcImageId                      :: !Text
+  , _lcInstanceType                 :: !Text
+  , _lcCreatedTime                  :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1225,15 +1225,15 @@ instance NFData LaunchConfiguration where
 --
 -- /See:/ 'lifecycleHook' smart constructor.
 data LifecycleHook = LifecycleHook'
-  { _lhDefaultResult         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhLifecycleHookName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhHeartbeatTimeout      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lhAutoScalingGroupName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhNotificationMetadata  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhGlobalTimeout         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lhNotificationTargetARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhLifecycleTransition   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lhDefaultResult         :: !(Maybe Text)
+  , _lhLifecycleHookName     :: !(Maybe Text)
+  , _lhHeartbeatTimeout      :: !(Maybe Int)
+  , _lhAutoScalingGroupName  :: !(Maybe Text)
+  , _lhNotificationMetadata  :: !(Maybe Text)
+  , _lhGlobalTimeout         :: !(Maybe Int)
+  , _lhNotificationTargetARN :: !(Maybe Text)
+  , _lhLifecycleTransition   :: !(Maybe Text)
+  , _lhRoleARN               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1335,13 +1335,13 @@ instance NFData LifecycleHook where
 --
 -- /See:/ 'lifecycleHookSpecification' smart constructor.
 data LifecycleHookSpecification = LifecycleHookSpecification'
-  { _lhsDefaultResult         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhsHeartbeatTimeout      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lhsNotificationMetadata  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhsNotificationTargetARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhsLifecycleTransition   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhsRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhsLifecycleHookName     :: {-# NOUNPACK #-}!Text
+  { _lhsDefaultResult         :: !(Maybe Text)
+  , _lhsHeartbeatTimeout      :: !(Maybe Int)
+  , _lhsNotificationMetadata  :: !(Maybe Text)
+  , _lhsNotificationTargetARN :: !(Maybe Text)
+  , _lhsLifecycleTransition   :: !(Maybe Text)
+  , _lhsRoleARN               :: !(Maybe Text)
+  , _lhsLifecycleHookName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1430,8 +1430,8 @@ instance ToQuery LifecycleHookSpecification where
 --
 -- /See:/ 'loadBalancerState' smart constructor.
 data LoadBalancerState = LoadBalancerState'
-  { _lbsState            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbsLoadBalancerName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lbsState            :: !(Maybe Text)
+  , _lbsLoadBalancerName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1473,8 +1473,8 @@ instance NFData LoadBalancerState where
 --
 -- /See:/ 'loadBalancerTargetGroupState' smart constructor.
 data LoadBalancerTargetGroupState = LoadBalancerTargetGroupState'
-  { _lbtgsState                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbtgsLoadBalancerTargetGroupARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lbtgsState                      :: !(Maybe Text)
+  , _lbtgsLoadBalancerTargetGroupARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1548,8 +1548,8 @@ instance NFData MetricCollectionType where
 --
 -- /See:/ 'metricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-  { _mdName  :: {-# NOUNPACK #-}!Text
-  , _mdValue :: {-# NOUNPACK #-}!Text
+  { _mdName  :: !Text
+  , _mdValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1627,9 +1627,9 @@ instance NFData MetricGranularityType where
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { _ncTopicARN             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ncAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ncNotificationType     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ncTopicARN             :: !(Maybe Text)
+  , _ncAutoScalingGroupName :: !(Maybe Text)
+  , _ncNotificationType     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1680,8 +1680,8 @@ instance NFData NotificationConfiguration where
 --
 -- /See:/ 'predefinedMetricSpecification' smart constructor.
 data PredefinedMetricSpecification = PredefinedMetricSpecification'
-  { _pmsResourceLabel        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmsPredefinedMetricType :: {-# NOUNPACK #-}!MetricType
+  { _pmsResourceLabel        :: !(Maybe Text)
+  , _pmsPredefinedMetricType :: !MetricType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1766,20 +1766,20 @@ instance NFData ProcessType where
 --
 -- /See:/ 'scalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-  { _sMinAdjustmentStep :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sEstimatedInstanceWarmup :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sPolicyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sPolicyType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sStepAdjustments :: {-# NOUNPACK #-}!(Maybe [StepAdjustment])
-  , _sTargetTrackingConfiguration :: {-# NOUNPACK #-}!(Maybe TargetTrackingConfiguration)
-  , _sAdjustmentType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sScalingAdjustment :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sCooldown :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sPolicyARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sAlarms :: {-# NOUNPACK #-}!(Maybe [Alarm])
-  , _sMetricAggregationType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sMinAdjustmentMagnitude :: {-# NOUNPACK #-}!(Maybe Int)
+  { _sMinAdjustmentStep           :: !(Maybe Int)
+  , _sEstimatedInstanceWarmup     :: !(Maybe Int)
+  , _sPolicyName                  :: !(Maybe Text)
+  , _sPolicyType                  :: !(Maybe Text)
+  , _sStepAdjustments             :: !(Maybe [StepAdjustment])
+  , _sTargetTrackingConfiguration :: !(Maybe TargetTrackingConfiguration)
+  , _sAdjustmentType              :: !(Maybe Text)
+  , _sAutoScalingGroupName        :: !(Maybe Text)
+  , _sScalingAdjustment           :: !(Maybe Int)
+  , _sCooldown                    :: !(Maybe Int)
+  , _sPolicyARN                   :: !(Maybe Text)
+  , _sAlarms                      :: !(Maybe [Alarm])
+  , _sMetricAggregationType       :: !(Maybe Text)
+  , _sMinAdjustmentMagnitude      :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1919,8 +1919,8 @@ instance NFData ScalingPolicy where
 
 -- | /See:/ 'scalingProcessQuery' smart constructor.
 data ScalingProcessQuery = ScalingProcessQuery'
-  { _spqScalingProcesses     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _spqAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  { _spqScalingProcesses     :: !(Maybe [Text])
+  , _spqAutoScalingGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1967,16 +1967,16 @@ instance ToQuery ScalingProcessQuery where
 --
 -- /See:/ 'scheduledUpdateGroupAction' smart constructor.
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
-  { _sugaScheduledActionARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sugaStartTime            :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _sugaTime                 :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _sugaScheduledActionName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sugaMaxSize              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sugaRecurrence           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sugaDesiredCapacity      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sugaMinSize              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sugaAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sugaEndTime              :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  { _sugaScheduledActionARN   :: !(Maybe Text)
+  , _sugaStartTime            :: !(Maybe ISO8601)
+  , _sugaTime                 :: !(Maybe ISO8601)
+  , _sugaScheduledActionName  :: !(Maybe Text)
+  , _sugaMaxSize              :: !(Maybe Int)
+  , _sugaRecurrence           :: !(Maybe Text)
+  , _sugaDesiredCapacity      :: !(Maybe Int)
+  , _sugaMinSize              :: !(Maybe Int)
+  , _sugaAutoScalingGroupName :: !(Maybe Text)
+  , _sugaEndTime              :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2103,9 +2103,9 @@ instance NFData ScheduledUpdateGroupAction where
 --
 -- /See:/ 'stepAdjustment' smart constructor.
 data StepAdjustment = StepAdjustment'
-  { _saMetricIntervalLowerBound :: {-# NOUNPACK #-}!(Maybe Double)
-  , _saMetricIntervalUpperBound :: {-# NOUNPACK #-}!(Maybe Double)
-  , _saScalingAdjustment        :: {-# NOUNPACK #-}!Int
+  { _saMetricIntervalLowerBound :: !(Maybe Double)
+  , _saMetricIntervalUpperBound :: !(Maybe Double)
+  , _saScalingAdjustment        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2167,8 +2167,8 @@ instance ToQuery StepAdjustment where
 --
 -- /See:/ 'suspendedProcess' smart constructor.
 data SuspendedProcess = SuspendedProcess'
-  { _spProcessName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _spSuspensionReason :: {-# NOUNPACK #-}!(Maybe Text)
+  { _spProcessName      :: !(Maybe Text)
+  , _spSuspensionReason :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2208,11 +2208,11 @@ instance NFData SuspendedProcess where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey               :: {-# NOUNPACK #-}!Text
-  , _tagResourceId        :: {-# NOUNPACK #-}!Text
-  , _tagResourceType      :: {-# NOUNPACK #-}!Text
-  , _tagPropagateAtLaunch :: {-# NOUNPACK #-}!Bool
-  , _tagValue             :: {-# NOUNPACK #-}!Text
+  { _tagKey               :: !Text
+  , _tagResourceId        :: !Text
+  , _tagResourceType      :: !Text
+  , _tagPropagateAtLaunch :: !Bool
+  , _tagValue             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2284,11 +2284,11 @@ instance ToQuery Tag where
 --
 -- /See:/ 'tagDescription' smart constructor.
 data TagDescription = TagDescription'
-  { _tdResourceId        :: {-# NOUNPACK #-}!Text
-  , _tdResourceType      :: {-# NOUNPACK #-}!Text
-  , _tdKey               :: {-# NOUNPACK #-}!Text
-  , _tdPropagateAtLaunch :: {-# NOUNPACK #-}!Bool
-  , _tdValue             :: {-# NOUNPACK #-}!Text
+  { _tdResourceId        :: !Text
+  , _tdResourceType      :: !Text
+  , _tdKey               :: !Text
+  , _tdPropagateAtLaunch :: !Bool
+  , _tdValue             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2360,10 +2360,10 @@ instance NFData TagDescription where
 --
 -- /See:/ 'targetTrackingConfiguration' smart constructor.
 data TargetTrackingConfiguration = TargetTrackingConfiguration'
-  { _ttcPredefinedMetricSpecification :: {-# NOUNPACK #-}!(Maybe PredefinedMetricSpecification)
-  , _ttcCustomizedMetricSpecification :: {-# NOUNPACK #-}!(Maybe CustomizedMetricSpecification)
-  , _ttcDisableScaleIn :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ttcTargetValue :: {-# NOUNPACK #-}!Double
+  { _ttcPredefinedMetricSpecification :: !(Maybe PredefinedMetricSpecification)
+  , _ttcCustomizedMetricSpecification :: !(Maybe CustomizedMetricSpecification)
+  , _ttcDisableScaleIn                :: !(Maybe Bool)
+  , _ttcTargetValue                   :: !Double
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -86,11 +86,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateService' smart constructor.
 data UpdateService = UpdateService'
-  { _usCluster :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usDesiredCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _usTaskDefinition :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe DeploymentConfiguration)
-  , _usService :: {-# NOUNPACK #-}!Text
+  { _usCluster                 :: !(Maybe Text)
+  , _usDesiredCount            :: !(Maybe Int)
+  , _usTaskDefinition          :: !(Maybe Text)
+  , _usDeploymentConfiguration :: !(Maybe DeploymentConfiguration)
+  , _usService                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -182,8 +182,8 @@ instance ToQuery UpdateService where
 
 -- | /See:/ 'updateServiceResponse' smart constructor.
 data UpdateServiceResponse = UpdateServiceResponse'
-  { _usrsService        :: {-# NOUNPACK #-}!(Maybe ContainerService)
-  , _usrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _usrsService        :: !(Maybe ContainerService)
+  , _usrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

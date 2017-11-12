@@ -58,12 +58,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'notifyMigrationTaskState' smart constructor.
 data NotifyMigrationTaskState = NotifyMigrationTaskState'
-  { _nmtsDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _nmtsProgressUpdateStream :: {-# NOUNPACK #-}!Text
-  , _nmtsMigrationTaskName    :: {-# NOUNPACK #-}!Text
-  , _nmtsTask                 :: {-# NOUNPACK #-}!Task
-  , _nmtsUpdateDateTime       :: {-# NOUNPACK #-}!POSIX
-  , _nmtsNextUpdateSeconds    :: {-# NOUNPACK #-}!Nat
+  { _nmtsDryRun               :: !(Maybe Bool)
+  , _nmtsProgressUpdateStream :: !Text
+  , _nmtsMigrationTaskName    :: !Text
+  , _nmtsTask                 :: !Task
+  , _nmtsUpdateDateTime       :: !POSIX
+  , _nmtsNextUpdateSeconds    :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

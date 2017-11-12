@@ -59,12 +59,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'createImage' smart constructor.
 data CreateImage = CreateImage'
-  { _ciiNoReboot            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ciiDescription         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciiBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
-  , _ciiDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ciiInstanceId          :: {-# NOUNPACK #-}!Text
-  , _ciiName                :: {-# NOUNPACK #-}!Text
+  { _ciiNoReboot            :: !(Maybe Bool)
+  , _ciiDescription         :: !(Maybe Text)
+  , _ciiBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+  , _ciiDryRun              :: !(Maybe Bool)
+  , _ciiInstanceId          :: !Text
+  , _ciiName                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,8 +160,8 @@ instance ToQuery CreateImage where
 --
 -- /See:/ 'createImageResponse' smart constructor.
 data CreateImageResponse = CreateImageResponse'
-  { _cirsImageId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cirsImageId        :: !(Maybe Text)
+  , _cirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'cancelJob' smart constructor.
 data CancelJob = CancelJob'
-  { _cjJobId  :: {-# NOUNPACK #-}!Text
-  , _cjReason :: {-# NOUNPACK #-}!Text
+  { _cjJobId  :: !Text
+  , _cjReason :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

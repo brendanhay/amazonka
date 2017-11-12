@@ -101,8 +101,8 @@ instance ToQuery GetTrafficPolicyInstance where
 --
 -- /See:/ 'getTrafficPolicyInstanceResponse' smart constructor.
 data GetTrafficPolicyInstanceResponse = GetTrafficPolicyInstanceResponse'
-  { _gtpirsResponseStatus        :: {-# NOUNPACK #-}!Int
-  , _gtpirsTrafficPolicyInstance :: {-# NOUNPACK #-}!TrafficPolicyInstance
+  { _gtpirsResponseStatus        :: !Int
+  , _gtpirsTrafficPolicyInstance :: !TrafficPolicyInstance
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

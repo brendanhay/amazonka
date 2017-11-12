@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDeploymentInstance' smart constructor.
 data GetDeploymentInstance = GetDeploymentInstance'
-  { _gdiDeploymentId :: {-# NOUNPACK #-}!Text
-  , _gdiInstanceId   :: {-# NOUNPACK #-}!Text
+  { _gdiDeploymentId :: !Text
+  , _gdiInstanceId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery GetDeploymentInstance where
 --
 -- /See:/ 'getDeploymentInstanceResponse' smart constructor.
 data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
-  { _gdirsInstanceSummary :: {-# NOUNPACK #-}!(Maybe InstanceSummary)
-  , _gdirsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gdirsInstanceSummary :: !(Maybe InstanceSummary)
+  , _gdirsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

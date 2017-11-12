@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'batchDeletePartition' smart constructor.
 data BatchDeletePartition = BatchDeletePartition'
-  { _bdpCatalogId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bdpDatabaseName       :: {-# NOUNPACK #-}!Text
-  , _bdpTableName          :: {-# NOUNPACK #-}!Text
-  , _bdpPartitionsToDelete :: {-# NOUNPACK #-}![PartitionValueList]
+  { _bdpCatalogId          :: !(Maybe Text)
+  , _bdpDatabaseName       :: !Text
+  , _bdpTableName          :: !Text
+  , _bdpPartitionsToDelete :: ![PartitionValueList]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,8 +137,8 @@ instance ToQuery BatchDeletePartition where
 
 -- | /See:/ 'batchDeletePartitionResponse' smart constructor.
 data BatchDeletePartitionResponse = BatchDeletePartitionResponse'
-  { _bdprsErrors         :: {-# NOUNPACK #-}!(Maybe [PartitionError])
-  , _bdprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bdprsErrors         :: !(Maybe [PartitionError])
+  , _bdprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

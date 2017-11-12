@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'composeEnvironments' smart constructor.
 data ComposeEnvironments = ComposeEnvironments'
-  { _ceVersionLabels   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ceApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ceGroupName       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ceVersionLabels   :: !(Maybe [Text])
+  , _ceApplicationName :: !(Maybe Text)
+  , _ceGroupName       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

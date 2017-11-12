@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'increaseStreamRetentionPeriod' smart constructor.
 data IncreaseStreamRetentionPeriod = IncreaseStreamRetentionPeriod'
-  { _isrpStreamName           :: {-# NOUNPACK #-}!Text
-  , _isrpRetentionPeriodHours :: {-# NOUNPACK #-}!Nat
+  { _isrpStreamName           :: !Text
+  , _isrpRetentionPeriodHours :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

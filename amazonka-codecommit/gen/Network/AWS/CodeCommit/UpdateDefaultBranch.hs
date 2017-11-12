@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateDefaultBranch' smart constructor.
 data UpdateDefaultBranch = UpdateDefaultBranch'
-  { _udbRepositoryName    :: {-# NOUNPACK #-}!Text
-  , _udbDefaultBranchName :: {-# NOUNPACK #-}!Text
+  { _udbRepositoryName    :: !Text
+  , _udbDefaultBranchName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

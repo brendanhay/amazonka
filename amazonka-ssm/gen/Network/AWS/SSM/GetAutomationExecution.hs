@@ -106,8 +106,8 @@ instance ToQuery GetAutomationExecution where
 
 -- | /See:/ 'getAutomationExecutionResponse' smart constructor.
 data GetAutomationExecutionResponse = GetAutomationExecutionResponse'
-  { _gaersAutomationExecution :: {-# NOUNPACK #-}!(Maybe AutomationExecution)
-  , _gaersResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _gaersAutomationExecution :: !(Maybe AutomationExecution)
+  , _gaersResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

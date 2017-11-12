@@ -29,8 +29,8 @@ import Network.AWS.SES.Types.Sum
 --
 -- /See:/ 'addHeaderAction' smart constructor.
 data AddHeaderAction = AddHeaderAction'
-  { _ahaHeaderName  :: {-# NOUNPACK #-}!Text
-  , _ahaHeaderValue :: {-# NOUNPACK #-}!Text
+  { _ahaHeaderName  :: !Text
+  , _ahaHeaderValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -79,8 +79,8 @@ instance ToQuery AddHeaderAction where
 --
 -- /See:/ 'body' smart constructor.
 data Body = Body'
-  { _bText :: {-# NOUNPACK #-}!(Maybe Content)
-  , _bHTML :: {-# NOUNPACK #-}!(Maybe Content)
+  { _bText :: !(Maybe Content)
+  , _bHTML :: !(Maybe Content)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,11 +120,11 @@ instance ToQuery Body where
 --
 -- /See:/ 'bounceAction' smart constructor.
 data BounceAction = BounceAction'
-  { _baTopicARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _baStatusCode    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _baSmtpReplyCode :: {-# NOUNPACK #-}!Text
-  , _baMessage       :: {-# NOUNPACK #-}!Text
-  , _baSender        :: {-# NOUNPACK #-}!Text
+  { _baTopicARN      :: !(Maybe Text)
+  , _baStatusCode    :: !(Maybe Text)
+  , _baSmtpReplyCode :: !Text
+  , _baMessage       :: !Text
+  , _baSender        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -204,10 +204,10 @@ instance ToQuery BounceAction where
 --
 -- /See:/ 'bouncedRecipientInfo' smart constructor.
 data BouncedRecipientInfo = BouncedRecipientInfo'
-  { _briBounceType         :: {-# NOUNPACK #-}!(Maybe BounceType)
-  , _briRecipientDsnFields :: {-# NOUNPACK #-}!(Maybe RecipientDsnFields)
-  , _briRecipientARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _briRecipient          :: {-# NOUNPACK #-}!Text
+  { _briBounceType         :: !(Maybe BounceType)
+  , _briRecipientDsnFields :: !(Maybe RecipientDsnFields)
+  , _briRecipientARN       :: !(Maybe Text)
+  , _briRecipient          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -268,9 +268,9 @@ instance ToQuery BouncedRecipientInfo where
 --
 -- /See:/ 'bulkEmailDestination' smart constructor.
 data BulkEmailDestination = BulkEmailDestination'
-  { _bedReplacementTemplateData :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bedReplacementTags         :: {-# NOUNPACK #-}!(Maybe [MessageTag])
-  , _bedDestination             :: {-# NOUNPACK #-}!Destination
+  { _bedReplacementTemplateData :: !(Maybe Text)
+  , _bedReplacementTags         :: !(Maybe [MessageTag])
+  , _bedDestination             :: !Destination
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -326,9 +326,9 @@ instance ToQuery BulkEmailDestination where
 --
 -- /See:/ 'bulkEmailDestinationStatus' smart constructor.
 data BulkEmailDestinationStatus = BulkEmailDestinationStatus'
-  { _bedsStatus    :: {-# NOUNPACK #-}!(Maybe BulkEmailStatus)
-  , _bedsError     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bedsMessageId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bedsStatus    :: !(Maybe BulkEmailStatus)
+  , _bedsError     :: !(Maybe Text)
+  , _bedsMessageId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -421,9 +421,9 @@ instance ToQuery CloudWatchDestination where
 --
 -- /See:/ 'cloudWatchDimensionConfiguration' smart constructor.
 data CloudWatchDimensionConfiguration = CloudWatchDimensionConfiguration'
-  { _cwdcDimensionName         :: {-# NOUNPACK #-}!Text
-  , _cwdcDimensionValueSource  :: {-# NOUNPACK #-}!DimensionValueSource
-  , _cwdcDefaultDimensionValue :: {-# NOUNPACK #-}!Text
+  { _cwdcDimensionName         :: !Text
+  , _cwdcDimensionValueSource  :: !DimensionValueSource
+  , _cwdcDefaultDimensionValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -530,8 +530,8 @@ instance ToQuery ConfigurationSet where
 --
 -- /See:/ 'content' smart constructor.
 data Content = Content'
-  { _cCharset :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cData    :: {-# NOUNPACK #-}!Text
+  { _cCharset :: !(Maybe Text)
+  , _cData    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -572,9 +572,9 @@ instance ToQuery Content where
 --
 -- /See:/ 'destination' smart constructor.
 data Destination = Destination'
-  { _dBCCAddresses :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dCCAddresses  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dToAddresses  :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dBCCAddresses :: !(Maybe [Text])
+  , _dCCAddresses  :: !(Maybe [Text])
+  , _dToAddresses  :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -628,12 +628,12 @@ instance ToQuery Destination where
 --
 -- /See:/ 'eventDestination' smart constructor.
 data EventDestination = EventDestination'
-  { _edEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _edKinesisFirehoseDestination :: {-# NOUNPACK #-}!(Maybe KinesisFirehoseDestination)
-  , _edCloudWatchDestination :: {-# NOUNPACK #-}!(Maybe CloudWatchDestination)
-  , _edSNSDestination :: {-# NOUNPACK #-}!(Maybe SNSDestination)
-  , _edName :: {-# NOUNPACK #-}!Text
-  , _edMatchingEventTypes :: {-# NOUNPACK #-}![EventType]
+  { _edEnabled                    :: !(Maybe Bool)
+  , _edKinesisFirehoseDestination :: !(Maybe KinesisFirehoseDestination)
+  , _edCloudWatchDestination      :: !(Maybe CloudWatchDestination)
+  , _edSNSDestination             :: !(Maybe SNSDestination)
+  , _edName                       :: !Text
+  , _edMatchingEventTypes         :: ![EventType]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -726,8 +726,8 @@ instance ToQuery EventDestination where
 --
 -- /See:/ 'extensionField' smart constructor.
 data ExtensionField = ExtensionField'
-  { _efName  :: {-# NOUNPACK #-}!Text
-  , _efValue :: {-# NOUNPACK #-}!Text
+  { _efName  :: !Text
+  , _efValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -768,9 +768,9 @@ instance ToQuery ExtensionField where
 --
 -- /See:/ 'identityDkimAttributes' smart constructor.
 data IdentityDkimAttributes = IdentityDkimAttributes'
-  { _idaDkimTokens             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _idaDkimEnabled            :: {-# NOUNPACK #-}!Bool
-  , _idaDkimVerificationStatus :: {-# NOUNPACK #-}!VerificationStatus
+  { _idaDkimTokens             :: !(Maybe [Text])
+  , _idaDkimEnabled            :: !Bool
+  , _idaDkimVerificationStatus :: !VerificationStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -825,9 +825,9 @@ instance NFData IdentityDkimAttributes where
 --
 -- /See:/ 'identityMailFromDomainAttributes' smart constructor.
 data IdentityMailFromDomainAttributes = IdentityMailFromDomainAttributes'
-  { _imfdaMailFromDomain       :: {-# NOUNPACK #-}!Text
-  , _imfdaMailFromDomainStatus :: {-# NOUNPACK #-}!CustomMailFromStatus
-  , _imfdaBehaviorOnMXFailure  :: {-# NOUNPACK #-}!BehaviorOnMXFailure
+  { _imfdaMailFromDomain       :: !Text
+  , _imfdaMailFromDomainStatus :: !CustomMailFromStatus
+  , _imfdaBehaviorOnMXFailure  :: !BehaviorOnMXFailure
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -885,13 +885,13 @@ instance NFData IdentityMailFromDomainAttributes
 --
 -- /See:/ 'identityNotificationAttributes' smart constructor.
 data IdentityNotificationAttributes = IdentityNotificationAttributes'
-  { _inaHeadersInDeliveryNotificationsEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _inaHeadersInComplaintNotificationsEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _inaHeadersInBounceNotificationsEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _inaBounceTopic                            :: {-# NOUNPACK #-}!Text
-  , _inaComplaintTopic                         :: {-# NOUNPACK #-}!Text
-  , _inaDeliveryTopic                          :: {-# NOUNPACK #-}!Text
-  , _inaForwardingEnabled                      :: {-# NOUNPACK #-}!Bool
+  { _inaHeadersInDeliveryNotificationsEnabled  :: !(Maybe Bool)
+  , _inaHeadersInComplaintNotificationsEnabled :: !(Maybe Bool)
+  , _inaHeadersInBounceNotificationsEnabled    :: !(Maybe Bool)
+  , _inaBounceTopic                            :: !Text
+  , _inaComplaintTopic                         :: !Text
+  , _inaDeliveryTopic                          :: !Text
+  , _inaForwardingEnabled                      :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -980,8 +980,8 @@ instance NFData IdentityNotificationAttributes where
 --
 -- /See:/ 'identityVerificationAttributes' smart constructor.
 data IdentityVerificationAttributes = IdentityVerificationAttributes'
-  { _ivaVerificationToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ivaVerificationStatus :: {-# NOUNPACK #-}!VerificationStatus
+  { _ivaVerificationToken  :: !(Maybe Text)
+  , _ivaVerificationStatus :: !VerificationStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1029,8 +1029,8 @@ instance NFData IdentityVerificationAttributes where
 --
 -- /See:/ 'kinesisFirehoseDestination' smart constructor.
 data KinesisFirehoseDestination = KinesisFirehoseDestination'
-  { _kfdIAMRoleARN        :: {-# NOUNPACK #-}!Text
-  , _kfdDeliveryStreamARN :: {-# NOUNPACK #-}!Text
+  { _kfdIAMRoleARN        :: !Text
+  , _kfdDeliveryStreamARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1083,9 +1083,9 @@ instance ToQuery KinesisFirehoseDestination where
 --
 -- /See:/ 'lambdaAction' smart constructor.
 data LambdaAction = LambdaAction'
-  { _laInvocationType :: {-# NOUNPACK #-}!(Maybe InvocationType)
-  , _laTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laFunctionARN    :: {-# NOUNPACK #-}!Text
+  { _laInvocationType :: !(Maybe InvocationType)
+  , _laTopicARN       :: !(Maybe Text)
+  , _laFunctionARN    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1144,8 +1144,8 @@ instance ToQuery LambdaAction where
 --
 -- /See:/ 'message' smart constructor.
 data Message = Message'
-  { _mSubject :: {-# NOUNPACK #-}!Content
-  , _mBody    :: {-# NOUNPACK #-}!Body
+  { _mSubject :: !Content
+  , _mBody    :: !Body
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1187,9 +1187,9 @@ instance ToQuery Message where
 --
 -- /See:/ 'messageDsn' smart constructor.
 data MessageDsn = MessageDsn'
-  { _mdArrivalDate     :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _mdExtensionFields :: {-# NOUNPACK #-}!(Maybe [ExtensionField])
-  , _mdReportingMta    :: {-# NOUNPACK #-}!Text
+  { _mdArrivalDate     :: !(Maybe ISO8601)
+  , _mdExtensionFields :: !(Maybe [ExtensionField])
+  , _mdReportingMta    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1246,8 +1246,8 @@ instance ToQuery MessageDsn where
 --
 -- /See:/ 'messageTag' smart constructor.
 data MessageTag = MessageTag'
-  { _mtName  :: {-# NOUNPACK #-}!Text
-  , _mtValue :: {-# NOUNPACK #-}!Text
+  { _mtName  :: !Text
+  , _mtValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1321,13 +1321,13 @@ instance ToQuery RawMessage where
 --
 -- /See:/ 'receiptAction' smart constructor.
 data ReceiptAction = ReceiptAction'
-  { _raAddHeaderAction :: {-# NOUNPACK #-}!(Maybe AddHeaderAction)
-  , _raSNSAction       :: {-# NOUNPACK #-}!(Maybe SNSAction)
-  , _raWorkmailAction  :: {-# NOUNPACK #-}!(Maybe WorkmailAction)
-  , _raBounceAction    :: {-# NOUNPACK #-}!(Maybe BounceAction)
-  , _raLambdaAction    :: {-# NOUNPACK #-}!(Maybe LambdaAction)
-  , _raStopAction      :: {-# NOUNPACK #-}!(Maybe StopAction)
-  , _raS3Action        :: {-# NOUNPACK #-}!(Maybe S3Action)
+  { _raAddHeaderAction :: !(Maybe AddHeaderAction)
+  , _raSNSAction       :: !(Maybe SNSAction)
+  , _raWorkmailAction  :: !(Maybe WorkmailAction)
+  , _raBounceAction    :: !(Maybe BounceAction)
+  , _raLambdaAction    :: !(Maybe LambdaAction)
+  , _raStopAction      :: !(Maybe StopAction)
+  , _raS3Action        :: !(Maybe S3Action)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1423,8 +1423,8 @@ instance ToQuery ReceiptAction where
 --
 -- /See:/ 'receiptFilter' smart constructor.
 data ReceiptFilter = ReceiptFilter'
-  { _rfName     :: {-# NOUNPACK #-}!Text
-  , _rfIPFilter :: {-# NOUNPACK #-}!ReceiptIPFilter
+  { _rfName     :: !Text
+  , _rfIPFilter :: !ReceiptIPFilter
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1473,8 +1473,8 @@ instance ToQuery ReceiptFilter where
 --
 -- /See:/ 'receiptIPFilter' smart constructor.
 data ReceiptIPFilter = ReceiptIPFilter'
-  { _rifPolicy :: {-# NOUNPACK #-}!ReceiptFilterPolicy
-  , _rifCidr   :: {-# NOUNPACK #-}!Text
+  { _rifPolicy :: !ReceiptFilterPolicy
+  , _rifCidr   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1525,12 +1525,12 @@ instance ToQuery ReceiptIPFilter where
 --
 -- /See:/ 'receiptRule' smart constructor.
 data ReceiptRule = ReceiptRule'
-  { _rrScanEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rrEnabled     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rrActions     :: {-# NOUNPACK #-}!(Maybe [ReceiptAction])
-  , _rrRecipients  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rrTLSPolicy   :: {-# NOUNPACK #-}!(Maybe TLSPolicy)
-  , _rrName        :: {-# NOUNPACK #-}!Text
+  { _rrScanEnabled :: !(Maybe Bool)
+  , _rrEnabled     :: !(Maybe Bool)
+  , _rrActions     :: !(Maybe [ReceiptAction])
+  , _rrRecipients  :: !(Maybe [Text])
+  , _rrTLSPolicy   :: !(Maybe TLSPolicy)
+  , _rrName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1624,8 +1624,8 @@ instance ToQuery ReceiptRule where
 --
 -- /See:/ 'receiptRuleSetMetadata' smart constructor.
 data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
-  { _rrsmName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrsmCreatedTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  { _rrsmName             :: !(Maybe Text)
+  , _rrsmCreatedTimestamp :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1667,13 +1667,13 @@ instance NFData ReceiptRuleSetMetadata where
 --
 -- /See:/ 'recipientDsnFields' smart constructor.
 data RecipientDsnFields = RecipientDsnFields'
-  { _rdfDiagnosticCode  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdfRemoteMta       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdfFinalRecipient  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdfExtensionFields :: {-# NOUNPACK #-}!(Maybe [ExtensionField])
-  , _rdfLastAttemptDate :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _rdfAction          :: {-# NOUNPACK #-}!DsnAction
-  , _rdfStatus          :: {-# NOUNPACK #-}!Text
+  { _rdfDiagnosticCode  :: !(Maybe Text)
+  , _rdfRemoteMta       :: !(Maybe Text)
+  , _rdfFinalRecipient  :: !(Maybe Text)
+  , _rdfExtensionFields :: !(Maybe [ExtensionField])
+  , _rdfLastAttemptDate :: !(Maybe ISO8601)
+  , _rdfAction          :: !DsnAction
+  , _rdfStatus          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1764,10 +1764,10 @@ instance ToQuery RecipientDsnFields where
 --
 -- /See:/ 's3Action' smart constructor.
 data S3Action = S3Action'
-  { _s3KMSKeyARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _s3TopicARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _s3ObjectKeyPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _s3BucketName      :: {-# NOUNPACK #-}!Text
+  { _s3KMSKeyARN       :: !(Maybe Text)
+  , _s3TopicARN        :: !(Maybe Text)
+  , _s3ObjectKeyPrefix :: !(Maybe Text)
+  , _s3BucketName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1841,8 +1841,8 @@ instance ToQuery S3Action where
 --
 -- /See:/ 'snsAction' smart constructor.
 data SNSAction = SNSAction'
-  { _saEncoding :: {-# NOUNPACK #-}!(Maybe SNSActionEncoding)
-  , _saTopicARN :: {-# NOUNPACK #-}!Text
+  { _saEncoding :: !(Maybe SNSActionEncoding)
+  , _saTopicARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1927,11 +1927,11 @@ instance ToQuery SNSDestination where
 --
 -- /See:/ 'sendDataPoint' smart constructor.
 data SendDataPoint = SendDataPoint'
-  { _sdpRejects          :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _sdpComplaints       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _sdpDeliveryAttempts :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _sdpBounces          :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _sdpTimestamp        :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  { _sdpRejects          :: !(Maybe Integer)
+  , _sdpComplaints       :: !(Maybe Integer)
+  , _sdpDeliveryAttempts :: !(Maybe Integer)
+  , _sdpBounces          :: !(Maybe Integer)
+  , _sdpTimestamp        :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2000,8 +2000,8 @@ instance NFData SendDataPoint where
 --
 -- /See:/ 'stopAction' smart constructor.
 data StopAction = StopAction'
-  { _sTopicARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sScope    :: {-# NOUNPACK #-}!StopScope
+  { _sTopicARN :: !(Maybe Text)
+  , _sScope    :: !StopScope
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2046,10 +2046,10 @@ instance ToQuery StopAction where
 --
 -- /See:/ 'template' smart constructor.
 data Template = Template'
-  { _tTextPart     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tSubjectPart  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tHTMLPart     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tTemplateName :: {-# NOUNPACK #-}!Text
+  { _tTextPart     :: !(Maybe Text)
+  , _tSubjectPart  :: !(Maybe Text)
+  , _tHTMLPart     :: !(Maybe Text)
+  , _tTemplateName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2117,8 +2117,8 @@ instance ToQuery Template where
 --
 -- /See:/ 'templateMetadata' smart constructor.
 data TemplateMetadata = TemplateMetadata'
-  { _tmName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tmCreatedTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  { _tmName             :: !(Maybe Text)
+  , _tmCreatedTimestamp :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2199,8 +2199,8 @@ instance ToQuery TrackingOptions where
 --
 -- /See:/ 'workmailAction' smart constructor.
 data WorkmailAction = WorkmailAction'
-  { _waTopicARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _waOrganizationARN :: {-# NOUNPACK #-}!Text
+  { _waTopicARN        :: !(Maybe Text)
+  , _waOrganizationARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

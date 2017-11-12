@@ -66,23 +66,23 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'uploadPartCopy' smart constructor.
 data UploadPartCopy = UploadPartCopy'
-  { _upcCopySourceIfModifiedSince :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _upcCopySourceIfUnmodifiedSince :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _upcCopySourceRange :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upcCopySourceSSECustomerKeyMD5 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upcCopySourceIfNoneMatch :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upcSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upcSSECustomerKey :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _upcRequestPayer :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _upcCopySourceIfMatch :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upcSSECustomerKeyMD5 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upcCopySourceSSECustomerKey :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _upcCopySourceSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upcBucket :: {-# NOUNPACK #-}!BucketName
-  , _upcCopySource :: {-# NOUNPACK #-}!Text
-  , _upcKey :: {-# NOUNPACK #-}!ObjectKey
-  , _upcPartNumber :: {-# NOUNPACK #-}!Int
-  , _upcUploadId :: {-# NOUNPACK #-}!Text
+  { _upcCopySourceIfModifiedSince      :: !(Maybe RFC822)
+  , _upcCopySourceIfUnmodifiedSince    :: !(Maybe RFC822)
+  , _upcCopySourceRange                :: !(Maybe Text)
+  , _upcCopySourceSSECustomerKeyMD5    :: !(Maybe Text)
+  , _upcCopySourceIfNoneMatch          :: !(Maybe Text)
+  , _upcSSECustomerAlgorithm           :: !(Maybe Text)
+  , _upcSSECustomerKey                 :: !(Maybe (Sensitive Text))
+  , _upcRequestPayer                   :: !(Maybe RequestPayer)
+  , _upcCopySourceIfMatch              :: !(Maybe Text)
+  , _upcSSECustomerKeyMD5              :: !(Maybe Text)
+  , _upcCopySourceSSECustomerKey       :: !(Maybe (Sensitive Text))
+  , _upcCopySourceSSECustomerAlgorithm :: !(Maybe Text)
+  , _upcBucket                         :: !BucketName
+  , _upcCopySource                     :: !Text
+  , _upcKey                            :: !ObjectKey
+  , _upcPartNumber                     :: !Int
+  , _upcUploadId                       :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -282,14 +282,14 @@ instance ToQuery UploadPartCopy where
 
 -- | /See:/ 'uploadPartCopyResponse' smart constructor.
 data UploadPartCopyResponse = UploadPartCopyResponse'
-  { _upcrsRequestCharged       :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _upcrsCopyPartResult       :: {-# NOUNPACK #-}!(Maybe CopyPartResult)
-  , _upcrsSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upcrsCopySourceVersionId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upcrsSSECustomerKeyMD5    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upcrsSSEKMSKeyId          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _upcrsServerSideEncryption :: {-# NOUNPACK #-}!(Maybe ServerSideEncryption)
-  , _upcrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _upcrsRequestCharged       :: !(Maybe RequestCharged)
+  , _upcrsCopyPartResult       :: !(Maybe CopyPartResult)
+  , _upcrsSSECustomerAlgorithm :: !(Maybe Text)
+  , _upcrsCopySourceVersionId  :: !(Maybe Text)
+  , _upcrsSSECustomerKeyMD5    :: !(Maybe Text)
+  , _upcrsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+  , _upcrsServerSideEncryption :: !(Maybe ServerSideEncryption)
+  , _upcrsResponseStatus       :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

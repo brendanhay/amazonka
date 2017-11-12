@@ -57,12 +57,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeLogStreams' smart constructor.
 data DescribeLogStreams = DescribeLogStreams'
-  { _dlssOrderBy             :: {-# NOUNPACK #-}!(Maybe OrderBy)
-  , _dlssDescending          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dlssNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlssLogStreamNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlssLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dlssLogGroupName        :: {-# NOUNPACK #-}!Text
+  { _dlssOrderBy             :: !(Maybe OrderBy)
+  , _dlssDescending          :: !(Maybe Bool)
+  , _dlssNextToken           :: !(Maybe Text)
+  , _dlssLogStreamNamePrefix :: !(Maybe Text)
+  , _dlssLimit               :: !(Maybe Nat)
+  , _dlssLogGroupName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -171,9 +171,9 @@ instance ToQuery DescribeLogStreams where
 
 -- | /See:/ 'describeLogStreamsResponse' smart constructor.
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
-  { _dlsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlsrsLogStreams     :: {-# NOUNPACK #-}!(Maybe [LogStream])
-  , _dlsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dlsrsNextToken      :: !(Maybe Text)
+  , _dlsrsLogStreams     :: !(Maybe [LogStream])
+  , _dlsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

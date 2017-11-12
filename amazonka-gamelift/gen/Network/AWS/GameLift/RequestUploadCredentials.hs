@@ -113,9 +113,9 @@ instance ToQuery RequestUploadCredentials where
 --
 -- /See:/ 'requestUploadCredentialsResponse' smart constructor.
 data RequestUploadCredentialsResponse = RequestUploadCredentialsResponse'
-  { _rucrsStorageLocation :: {-# NOUNPACK #-}!(Maybe S3Location)
-  , _rucrsUploadCredentials :: {-# NOUNPACK #-}!(Maybe (Sensitive AWSCredentials))
-  , _rucrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rucrsStorageLocation   :: !(Maybe S3Location)
+  , _rucrsUploadCredentials :: !(Maybe (Sensitive AWSCredentials))
+  , _rucrsResponseStatus    :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

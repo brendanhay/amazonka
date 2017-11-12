@@ -99,8 +99,8 @@ instance ToQuery DeleteTrigger where
 
 -- | /See:/ 'deleteTriggerResponse' smart constructor.
 data DeleteTriggerResponse = DeleteTriggerResponse'
-  { _delrsName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _delrsName           :: !(Maybe Text)
+  , _delrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

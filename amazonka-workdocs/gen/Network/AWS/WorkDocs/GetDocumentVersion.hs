@@ -51,11 +51,11 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getDocumentVersion' smart constructor.
 data GetDocumentVersion = GetDocumentVersion'
-  { _gdvAuthenticationToken   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _gdvIncludeCustomMetadata :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gdvFields                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdvDocumentId            :: {-# NOUNPACK #-}!Text
-  , _gdvVersionId             :: {-# NOUNPACK #-}!Text
+  { _gdvAuthenticationToken   :: !(Maybe (Sensitive Text))
+  , _gdvIncludeCustomMetadata :: !(Maybe Bool)
+  , _gdvFields                :: !(Maybe Text)
+  , _gdvDocumentId            :: !Text
+  , _gdvVersionId             :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -144,9 +144,9 @@ instance ToQuery GetDocumentVersion where
 
 -- | /See:/ 'getDocumentVersionResponse' smart constructor.
 data GetDocumentVersionResponse = GetDocumentVersionResponse'
-  { _gdvrsCustomMetadata :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gdvrsMetadata       :: {-# NOUNPACK #-}!(Maybe DocumentVersionMetadata)
-  , _gdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdvrsCustomMetadata :: !(Maybe (Map Text Text))
+  , _gdvrsMetadata       :: !(Maybe DocumentVersionMetadata)
+  , _gdvrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

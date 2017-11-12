@@ -56,9 +56,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'detachInstances' smart constructor.
 data DetachInstances = DetachInstances'
-  { _diInstanceIds                    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _diAutoScalingGroupName           :: {-# NOUNPACK #-}!Text
-  , _diShouldDecrementDesiredCapacity :: {-# NOUNPACK #-}!Bool
+  { _diInstanceIds                    :: !(Maybe [Text])
+  , _diAutoScalingGroupName           :: !Text
+  , _diShouldDecrementDesiredCapacity :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,8 +129,8 @@ instance ToQuery DetachInstances where
 
 -- | /See:/ 'detachInstancesResponse' smart constructor.
 data DetachInstancesResponse = DetachInstancesResponse'
-  { _dirsActivities     :: {-# NOUNPACK #-}!(Maybe [Activity])
-  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dirsActivities     :: !(Maybe [Activity])
+  , _dirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

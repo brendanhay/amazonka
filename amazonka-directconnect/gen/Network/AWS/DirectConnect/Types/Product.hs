@@ -27,13 +27,13 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'bgpPeer' smart constructor.
 data BGPPeer = BGPPeer'
-  { _bpCustomerAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpAmazonAddress   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpAddressFamily   :: {-# NOUNPACK #-}!(Maybe AddressFamily)
-  , _bpBgpStatus       :: {-# NOUNPACK #-}!(Maybe BGPStatus)
-  , _bpAsn             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _bpAuthKey         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpBgpPeerState    :: {-# NOUNPACK #-}!(Maybe BGPPeerState)
+  { _bpCustomerAddress :: !(Maybe Text)
+  , _bpAmazonAddress   :: !(Maybe Text)
+  , _bpAddressFamily   :: !(Maybe AddressFamily)
+  , _bpBgpStatus       :: !(Maybe BGPStatus)
+  , _bpAsn             :: !(Maybe Int)
+  , _bpAuthKey         :: !(Maybe Text)
+  , _bpBgpPeerState    :: !(Maybe BGPPeerState)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,18 +118,18 @@ instance NFData BGPPeer where
 --
 -- /See:/ 'connection' smart constructor.
 data Connection = Connection'
-  { _cLagId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cVlan            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cLocation        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cAwsDevice       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cConnectionId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cLoaIssueTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cPartnerName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cConnectionName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cBandwidth       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cOwnerAccount    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cRegion          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cConnectionState :: {-# NOUNPACK #-}!(Maybe ConnectionState)
+  { _cLagId           :: !(Maybe Text)
+  , _cVlan            :: !(Maybe Int)
+  , _cLocation        :: !(Maybe Text)
+  , _cAwsDevice       :: !(Maybe Text)
+  , _cConnectionId    :: !(Maybe Text)
+  , _cLoaIssueTime    :: !(Maybe POSIX)
+  , _cPartnerName     :: !(Maybe Text)
+  , _cConnectionName  :: !(Maybe Text)
+  , _cBandwidth       :: !(Maybe Text)
+  , _cOwnerAccount    :: !(Maybe Text)
+  , _cRegion          :: !(Maybe Text)
+  , _cConnectionState :: !(Maybe ConnectionState)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -288,12 +288,12 @@ instance NFData Connections where
 --
 -- /See:/ 'directConnectGateway' smart constructor.
 data DirectConnectGateway = DirectConnectGateway'
-  { _dcgDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcgStateChangeError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcgAmazonSideASN :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dcgDirectConnectGatewayName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcgDirectConnectGatewayState :: {-# NOUNPACK #-}!(Maybe DirectConnectGatewayState)
-  , _dcgOwnerAccount :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dcgDirectConnectGatewayId    :: !(Maybe Text)
+  , _dcgStateChangeError          :: !(Maybe Text)
+  , _dcgAmazonSideASN             :: !(Maybe Integer)
+  , _dcgDirectConnectGatewayName  :: !(Maybe Text)
+  , _dcgDirectConnectGatewayState :: !(Maybe DirectConnectGatewayState)
+  , _dcgOwnerAccount              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -371,12 +371,12 @@ instance NFData DirectConnectGateway where
 --
 -- /See:/ 'directConnectGatewayAssociation' smart constructor.
 data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
-  { _dcgaVirtualGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcgaDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcgaVirtualGatewayOwnerAccount :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcgaStateChangeError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcgaVirtualGatewayRegion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcgaAssociationState :: {-# NOUNPACK #-}!(Maybe DirectConnectGatewayAssociationState)
+  { _dcgaVirtualGatewayId :: !(Maybe Text)
+  , _dcgaDirectConnectGatewayId :: !(Maybe Text)
+  , _dcgaVirtualGatewayOwnerAccount :: !(Maybe Text)
+  , _dcgaStateChangeError :: !(Maybe Text)
+  , _dcgaVirtualGatewayRegion :: !(Maybe Text)
+  , _dcgaAssociationState :: !(Maybe DirectConnectGatewayAssociationState)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -456,12 +456,12 @@ instance NFData DirectConnectGatewayAssociation where
 --
 -- /See:/ 'directConnectGatewayAttachment' smart constructor.
 data DirectConnectGatewayAttachment = DirectConnectGatewayAttachment'
-  { _dDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dAttachmentState :: {-# NOUNPACK #-}!(Maybe DirectConnectGatewayAttachmentState)
-  , _dStateChangeError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dVirtualInterfaceRegion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dVirtualInterfaceOwnerAccount :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dVirtualInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dDirectConnectGatewayId :: !(Maybe Text)
+  , _dAttachmentState :: !(Maybe DirectConnectGatewayAttachmentState)
+  , _dStateChangeError :: !(Maybe Text)
+  , _dVirtualInterfaceRegion :: !(Maybe Text)
+  , _dVirtualInterfaceOwnerAccount :: !(Maybe Text)
+  , _dVirtualInterfaceId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -545,15 +545,15 @@ instance NFData DirectConnectGatewayAttachment where
 --
 -- /See:/ 'interconnect' smart constructor.
 data Interconnect = Interconnect'
-  { _iLagId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iInterconnectId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iLocation          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iInterconnectName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iAwsDevice         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iLoaIssueTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _iBandwidth         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iInterconnectState :: {-# NOUNPACK #-}!(Maybe InterconnectState)
-  , _iRegion            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iLagId             :: !(Maybe Text)
+  , _iInterconnectId    :: !(Maybe Text)
+  , _iLocation          :: !(Maybe Text)
+  , _iInterconnectName  :: !(Maybe Text)
+  , _iAwsDevice         :: !(Maybe Text)
+  , _iLoaIssueTime      :: !(Maybe POSIX)
+  , _iBandwidth         :: !(Maybe Text)
+  , _iInterconnectState :: !(Maybe InterconnectState)
+  , _iRegion            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -654,18 +654,18 @@ instance NFData Interconnect where
 --
 -- /See:/ 'lag' smart constructor.
 data Lag = Lag'
-  { _lagLagId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lagConnectionsBandwidth    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lagMinimumLinks            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lagLagName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lagLocation                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lagConnections             :: {-# NOUNPACK #-}!(Maybe [Connection])
-  , _lagAwsDevice               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lagAllowsHostedConnections :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lagNumberOfConnections     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lagLagState                :: {-# NOUNPACK #-}!(Maybe LagState)
-  , _lagOwnerAccount            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lagRegion                  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lagLagId                   :: !(Maybe Text)
+  , _lagConnectionsBandwidth    :: !(Maybe Text)
+  , _lagMinimumLinks            :: !(Maybe Int)
+  , _lagLagName                 :: !(Maybe Text)
+  , _lagLocation                :: !(Maybe Text)
+  , _lagConnections             :: !(Maybe [Connection])
+  , _lagAwsDevice               :: !(Maybe Text)
+  , _lagAllowsHostedConnections :: !(Maybe Bool)
+  , _lagNumberOfConnections     :: !(Maybe Int)
+  , _lagLagState                :: !(Maybe LagState)
+  , _lagOwnerAccount            :: !(Maybe Text)
+  , _lagRegion                  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -790,8 +790,8 @@ instance NFData Lag where
 --
 -- /See:/ 'location' smart constructor.
 data Location = Location'
-  { _lLocationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lLocationCode :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lLocationName :: !(Maybe Text)
+  , _lLocationCode :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -832,11 +832,11 @@ instance NFData Location where
 --
 -- /See:/ 'newBGPPeer' smart constructor.
 data NewBGPPeer = NewBGPPeer'
-  { _nbpCustomerAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nbpAmazonAddress   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nbpAddressFamily   :: {-# NOUNPACK #-}!(Maybe AddressFamily)
-  , _nbpAsn             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _nbpAuthKey         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _nbpCustomerAddress :: !(Maybe Text)
+  , _nbpAmazonAddress   :: !(Maybe Text)
+  , _nbpAddressFamily   :: !(Maybe AddressFamily)
+  , _nbpAsn             :: !(Maybe Int)
+  , _nbpAuthKey         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -905,15 +905,15 @@ instance ToJSON NewBGPPeer where
 --
 -- /See:/ 'newPrivateVirtualInterface' smart constructor.
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
-  { _nVirtualGatewayId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nCustomerAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nAmazonAddress          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nAddressFamily          :: {-# NOUNPACK #-}!(Maybe AddressFamily)
-  , _nDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nAuthKey                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nVirtualInterfaceName   :: {-# NOUNPACK #-}!Text
-  , _nVlan                   :: {-# NOUNPACK #-}!Int
-  , _nAsn                    :: {-# NOUNPACK #-}!Int
+  { _nVirtualGatewayId       :: !(Maybe Text)
+  , _nCustomerAddress        :: !(Maybe Text)
+  , _nAmazonAddress          :: !(Maybe Text)
+  , _nAddressFamily          :: !(Maybe AddressFamily)
+  , _nDirectConnectGatewayId :: !(Maybe Text)
+  , _nAuthKey                :: !(Maybe Text)
+  , _nVirtualInterfaceName   :: !Text
+  , _nVlan                   :: !Int
+  , _nAsn                    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1018,13 +1018,13 @@ instance ToJSON NewPrivateVirtualInterface where
 --
 -- /See:/ 'newPrivateVirtualInterfaceAllocation' smart constructor.
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
-  { _npviaCustomerAddress      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _npviaAmazonAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _npviaAddressFamily        :: {-# NOUNPACK #-}!(Maybe AddressFamily)
-  , _npviaAuthKey              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _npviaVirtualInterfaceName :: {-# NOUNPACK #-}!Text
-  , _npviaVlan                 :: {-# NOUNPACK #-}!Int
-  , _npviaAsn                  :: {-# NOUNPACK #-}!Int
+  { _npviaCustomerAddress      :: !(Maybe Text)
+  , _npviaAmazonAddress        :: !(Maybe Text)
+  , _npviaAddressFamily        :: !(Maybe AddressFamily)
+  , _npviaAuthKey              :: !(Maybe Text)
+  , _npviaVirtualInterfaceName :: !Text
+  , _npviaVlan                 :: !Int
+  , _npviaAsn                  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1118,14 +1118,14 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 --
 -- /See:/ 'newPublicVirtualInterface' smart constructor.
 data NewPublicVirtualInterface = NewPublicVirtualInterface'
-  { _npviRouteFilterPrefixes  :: {-# NOUNPACK #-}!(Maybe [RouteFilterPrefix])
-  , _npviCustomerAddress      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _npviAmazonAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _npviAddressFamily        :: {-# NOUNPACK #-}!(Maybe AddressFamily)
-  , _npviAuthKey              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _npviVirtualInterfaceName :: {-# NOUNPACK #-}!Text
-  , _npviVlan                 :: {-# NOUNPACK #-}!Int
-  , _npviAsn                  :: {-# NOUNPACK #-}!Int
+  { _npviRouteFilterPrefixes  :: !(Maybe [RouteFilterPrefix])
+  , _npviCustomerAddress      :: !(Maybe Text)
+  , _npviAmazonAddress        :: !(Maybe Text)
+  , _npviAddressFamily        :: !(Maybe AddressFamily)
+  , _npviAuthKey              :: !(Maybe Text)
+  , _npviVirtualInterfaceName :: !Text
+  , _npviVlan                 :: !Int
+  , _npviAsn                  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1224,14 +1224,14 @@ instance ToJSON NewPublicVirtualInterface where
 --
 -- /See:/ 'newPublicVirtualInterfaceAllocation' smart constructor.
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
-  { _newRouteFilterPrefixes  :: {-# NOUNPACK #-}!(Maybe [RouteFilterPrefix])
-  , _newCustomerAddress      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _newAmazonAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _newAddressFamily        :: {-# NOUNPACK #-}!(Maybe AddressFamily)
-  , _newAuthKey              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _newVirtualInterfaceName :: {-# NOUNPACK #-}!Text
-  , _newVlan                 :: {-# NOUNPACK #-}!Int
-  , _newAsn                  :: {-# NOUNPACK #-}!Int
+  { _newRouteFilterPrefixes  :: !(Maybe [RouteFilterPrefix])
+  , _newCustomerAddress      :: !(Maybe Text)
+  , _newAmazonAddress        :: !(Maybe Text)
+  , _newAddressFamily        :: !(Maybe AddressFamily)
+  , _newAuthKey              :: !(Maybe Text)
+  , _newVirtualInterfaceName :: !Text
+  , _newVlan                 :: !Int
+  , _newAsn                  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1331,8 +1331,8 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
 --
 -- /See:/ 'resourceTag' smart constructor.
 data ResourceTag = ResourceTag'
-  { _rtResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtTags        :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
+  { _rtResourceARN :: !(Maybe Text)
+  , _rtTags        :: !(Maybe (List1 Tag))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1410,8 +1410,8 @@ instance ToJSON RouteFilterPrefix where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!Text
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1460,8 +1460,8 @@ instance ToJSON Tag where
 --
 -- /See:/ 'virtualGateway' smart constructor.
 data VirtualGateway = VirtualGateway'
-  { _vgVirtualGatewayId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vgVirtualGatewayState :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vgVirtualGatewayId    :: !(Maybe Text)
+  , _vgVirtualGatewayState :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1505,25 +1505,25 @@ instance NFData VirtualGateway where
 --
 -- /See:/ 'virtualInterface' smart constructor.
 data VirtualInterface = VirtualInterface'
-  { _viBgpPeers               :: {-# NOUNPACK #-}!(Maybe [BGPPeer])
-  , _viVirtualGatewayId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viRouteFilterPrefixes    :: {-# NOUNPACK #-}!(Maybe [RouteFilterPrefix])
-  , _viCustomerAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viVlan                   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _viLocation               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viAmazonAddress          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viAddressFamily          :: {-# NOUNPACK #-}!(Maybe AddressFamily)
-  , _viVirtualInterfaceState  :: {-# NOUNPACK #-}!(Maybe VirtualInterfaceState)
-  , _viConnectionId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viAmazonSideASN          :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _viVirtualInterfaceType   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viAsn                    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _viAuthKey                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viCustomerRouterConfig   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viOwnerAccount           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viVirtualInterfaceName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viVirtualInterfaceId     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _viBgpPeers               :: !(Maybe [BGPPeer])
+  , _viVirtualGatewayId       :: !(Maybe Text)
+  , _viRouteFilterPrefixes    :: !(Maybe [RouteFilterPrefix])
+  , _viCustomerAddress        :: !(Maybe Text)
+  , _viVlan                   :: !(Maybe Int)
+  , _viLocation               :: !(Maybe Text)
+  , _viAmazonAddress          :: !(Maybe Text)
+  , _viAddressFamily          :: !(Maybe AddressFamily)
+  , _viVirtualInterfaceState  :: !(Maybe VirtualInterfaceState)
+  , _viConnectionId           :: !(Maybe Text)
+  , _viDirectConnectGatewayId :: !(Maybe Text)
+  , _viAmazonSideASN          :: !(Maybe Integer)
+  , _viVirtualInterfaceType   :: !(Maybe Text)
+  , _viAsn                    :: !(Maybe Int)
+  , _viAuthKey                :: !(Maybe Text)
+  , _viCustomerRouterConfig   :: !(Maybe Text)
+  , _viOwnerAccount           :: !(Maybe Text)
+  , _viVirtualInterfaceName   :: !(Maybe Text)
+  , _viVirtualInterfaceId     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -97,8 +97,8 @@ instance ToQuery ListTags where
 --
 -- /See:/ 'listTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { _ltrsTagList        :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltrsTagList        :: !(Maybe [Tag])
+  , _ltrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

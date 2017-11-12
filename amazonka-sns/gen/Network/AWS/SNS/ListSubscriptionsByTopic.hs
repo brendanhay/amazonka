@@ -55,8 +55,8 @@ import Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'listSubscriptionsByTopic' smart constructor.
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
-  { _lsbtNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsbtTopicARN  :: {-# NOUNPACK #-}!Text
+  { _lsbtNextToken :: !(Maybe Text)
+  , _lsbtTopicARN  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery ListSubscriptionsByTopic where
 --
 -- /See:/ 'listSubscriptionsByTopicResponse' smart constructor.
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
-  { _lsbtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsbtrsSubscriptions  :: {-# NOUNPACK #-}!(Maybe [Subscription])
-  , _lsbtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lsbtrsNextToken      :: !(Maybe Text)
+  , _lsbtrsSubscriptions  :: !(Maybe [Subscription])
+  , _lsbtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

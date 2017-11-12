@@ -66,10 +66,10 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'updateChapCredentials' smart constructor.
 data UpdateChapCredentials = UpdateChapCredentials'
-  { _uccSecretToAuthenticateTarget    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uccTargetARN                     :: {-# NOUNPACK #-}!Text
-  , _uccSecretToAuthenticateInitiator :: {-# NOUNPACK #-}!Text
-  , _uccInitiatorName                 :: {-# NOUNPACK #-}!Text
+  { _uccSecretToAuthenticateTarget    :: !(Maybe Text)
+  , _uccTargetARN                     :: !Text
+  , _uccSecretToAuthenticateInitiator :: !Text
+  , _uccInitiatorName                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -163,9 +163,9 @@ instance ToQuery UpdateChapCredentials where
 --
 -- /See:/ 'updateChapCredentialsResponse' smart constructor.
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
-  { _uccrsTargetARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uccrsInitiatorName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uccrsTargetARN      :: !(Maybe Text)
+  , _uccrsInitiatorName  :: !(Maybe Text)
+  , _uccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteMethod' smart constructor.
 data DeleteMethod = DeleteMethod'
-  { _dmmRestAPIId  :: {-# NOUNPACK #-}!Text
-  , _dmmResourceId :: {-# NOUNPACK #-}!Text
-  , _dmmHttpMethod :: {-# NOUNPACK #-}!Text
+  { _dmmRestAPIId  :: !Text
+  , _dmmResourceId :: !Text
+  , _dmmHttpMethod :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

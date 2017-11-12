@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createInvalidation' smart constructor.
 data CreateInvalidation = CreateInvalidation'
-  { _ciDistributionId    :: {-# NOUNPACK #-}!Text
-  , _ciInvalidationBatch :: {-# NOUNPACK #-}!InvalidationBatch
+  { _ciDistributionId    :: !Text
+  , _ciInvalidationBatch :: !InvalidationBatch
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery CreateInvalidation where
 --
 -- /See:/ 'createInvalidationResponse' smart constructor.
 data CreateInvalidationResponse = CreateInvalidationResponse'
-  { _cirsInvalidation   :: {-# NOUNPACK #-}!(Maybe Invalidation)
-  , _cirsLocation       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cirsInvalidation   :: !(Maybe Invalidation)
+  , _cirsLocation       :: !(Maybe Text)
+  , _cirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -137,8 +137,8 @@ instance ToQuery StopGameSessionPlacement where
 --
 -- /See:/ 'stopGameSessionPlacementResponse' smart constructor.
 data StopGameSessionPlacementResponse = StopGameSessionPlacementResponse'
-  { _storsGameSessionPlacement :: {-# NOUNPACK #-}!(Maybe GameSessionPlacement)
-  , _storsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _storsGameSessionPlacement :: !(Maybe GameSessionPlacement)
+  , _storsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'setTimeBasedAutoScaling' smart constructor.
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
-  { _stbasAutoScalingSchedule :: {-# NOUNPACK #-}!(Maybe WeeklyAutoScalingSchedule)
-  , _stbasInstanceId :: {-# NOUNPACK #-}!Text
+  { _stbasAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
+  , _stbasInstanceId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

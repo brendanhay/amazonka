@@ -105,8 +105,8 @@ instance ToQuery GetEndpointAttributes where
 --
 -- /See:/ 'getEndpointAttributesResponse' smart constructor.
 data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
-  { _gearsAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gearsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gearsAttributes     :: !(Maybe (Map Text Text))
+  , _gearsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

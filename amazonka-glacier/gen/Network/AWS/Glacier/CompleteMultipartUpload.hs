@@ -65,11 +65,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'completeMultipartUpload' smart constructor.
 data CompleteMultipartUpload = CompleteMultipartUpload'
-  { _cmuChecksum    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuArchiveSize :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuAccountId   :: {-# NOUNPACK #-}!Text
-  , _cmuVaultName   :: {-# NOUNPACK #-}!Text
-  , _cmuUploadId    :: {-# NOUNPACK #-}!Text
+  { _cmuChecksum    :: !(Maybe Text)
+  , _cmuArchiveSize :: !(Maybe Text)
+  , _cmuAccountId   :: !Text
+  , _cmuVaultName   :: !Text
+  , _cmuUploadId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

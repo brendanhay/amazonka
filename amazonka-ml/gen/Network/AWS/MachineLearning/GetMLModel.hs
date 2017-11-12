@@ -69,8 +69,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getMLModel' smart constructor.
 data GetMLModel = GetMLModel'
-  { _gmlmVerbose   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gmlmMLModelId :: {-# NOUNPACK #-}!Text
+  { _gmlmVerbose   :: !(Maybe Bool)
+  , _gmlmMLModelId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -157,28 +157,28 @@ instance ToQuery GetMLModel where
 --
 -- /See:/ 'getMLModelResponse' smart constructor.
 data GetMLModelResponse = GetMLModelResponse'
-  { _gmlmrsStatus :: {-# NOUNPACK #-}!(Maybe EntityStatus)
-  , _gmlmrsLastUpdatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gmlmrsTrainingParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gmlmrsScoreThresholdLastUpdatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gmlmrsCreatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gmlmrsComputeTime :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gmlmrsRecipe :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmlmrsInputDataLocationS3 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmlmrsMLModelId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmlmrsSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gmlmrsSchema :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmlmrsStartedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gmlmrsScoreThreshold :: {-# NOUNPACK #-}!(Maybe Double)
-  , _gmlmrsFinishedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gmlmrsCreatedByIAMUser :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmlmrsName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmlmrsLogURI :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmlmrsEndpointInfo :: {-# NOUNPACK #-}!(Maybe RealtimeEndpointInfo)
-  , _gmlmrsTrainingDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmlmrsMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmlmrsMLModelType :: {-# NOUNPACK #-}!(Maybe MLModelType)
-  , _gmlmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gmlmrsStatus                      :: !(Maybe EntityStatus)
+  , _gmlmrsLastUpdatedAt               :: !(Maybe POSIX)
+  , _gmlmrsTrainingParameters          :: !(Maybe (Map Text Text))
+  , _gmlmrsScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
+  , _gmlmrsCreatedAt                   :: !(Maybe POSIX)
+  , _gmlmrsComputeTime                 :: !(Maybe Integer)
+  , _gmlmrsRecipe                      :: !(Maybe Text)
+  , _gmlmrsInputDataLocationS3         :: !(Maybe Text)
+  , _gmlmrsMLModelId                   :: !(Maybe Text)
+  , _gmlmrsSizeInBytes                 :: !(Maybe Integer)
+  , _gmlmrsSchema                      :: !(Maybe Text)
+  , _gmlmrsStartedAt                   :: !(Maybe POSIX)
+  , _gmlmrsScoreThreshold              :: !(Maybe Double)
+  , _gmlmrsFinishedAt                  :: !(Maybe POSIX)
+  , _gmlmrsCreatedByIAMUser            :: !(Maybe Text)
+  , _gmlmrsName                        :: !(Maybe Text)
+  , _gmlmrsLogURI                      :: !(Maybe Text)
+  , _gmlmrsEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
+  , _gmlmrsTrainingDataSourceId        :: !(Maybe Text)
+  , _gmlmrsMessage                     :: !(Maybe Text)
+  , _gmlmrsMLModelType                 :: !(Maybe MLModelType)
+  , _gmlmrsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,10 +53,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDBSubnetGroup' smart constructor.
 data CreateDBSubnetGroup = CreateDBSubnetGroup'
-  { _cdbsgTags                     :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cdbsgDBSubnetGroupName        :: {-# NOUNPACK #-}!Text
-  , _cdbsgDBSubnetGroupDescription :: {-# NOUNPACK #-}!Text
-  , _cdbsgSubnetIds                :: {-# NOUNPACK #-}![Text]
+  { _cdbsgTags                     :: !(Maybe [Tag])
+  , _cdbsgDBSubnetGroupName        :: !Text
+  , _cdbsgDBSubnetGroupDescription :: !Text
+  , _cdbsgSubnetIds                :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery CreateDBSubnetGroup where
 
 -- | /See:/ 'createDBSubnetGroupResponse' smart constructor.
 data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
-  { _cdsgrsDBSubnetGroup  :: {-# NOUNPACK #-}!(Maybe DBSubnetGroup)
-  , _cdsgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdsgrsDBSubnetGroup  :: !(Maybe DBSubnetGroup)
+  , _cdsgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

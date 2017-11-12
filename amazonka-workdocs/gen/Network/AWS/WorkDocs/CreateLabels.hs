@@ -47,9 +47,9 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createLabels' smart constructor.
 data CreateLabels = CreateLabels'
-  { _clAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _clResourceId          :: {-# NOUNPACK #-}!Text
-  , _clLabels              :: {-# NOUNPACK #-}![Text]
+  { _clAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _clResourceId          :: !Text
+  , _clLabels              :: ![Text]
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

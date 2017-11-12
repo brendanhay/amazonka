@@ -55,8 +55,8 @@ import Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'listDomains' smart constructor.
 data ListDomains = ListDomains'
-  { _ldMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldMaxItems :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ldMarker   :: !(Maybe Text)
+  , _ldMaxItems :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance ToQuery ListDomains where
 --
 -- /See:/ 'listDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { _ldrsNextPageMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ldrsDomains        :: {-# NOUNPACK #-}![DomainSummary]
+  { _ldrsNextPageMarker :: !(Maybe Text)
+  , _ldrsResponseStatus :: !Int
+  , _ldrsDomains        :: ![DomainSummary]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

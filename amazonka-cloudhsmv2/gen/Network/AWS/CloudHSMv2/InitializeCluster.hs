@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'initializeCluster' smart constructor.
 data InitializeCluster = InitializeCluster'
-  { _icClusterId   :: {-# NOUNPACK #-}!Text
-  , _icSignedCert  :: {-# NOUNPACK #-}!Text
-  , _icTrustAnchor :: {-# NOUNPACK #-}!Text
+  { _icClusterId   :: !Text
+  , _icSignedCert  :: !Text
+  , _icTrustAnchor :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery InitializeCluster where
 
 -- | /See:/ 'initializeClusterResponse' smart constructor.
 data InitializeClusterResponse = InitializeClusterResponse'
-  { _icrsStateMessage   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _icrsState          :: {-# NOUNPACK #-}!(Maybe ClusterState)
-  , _icrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _icrsStateMessage   :: !(Maybe Text)
+  , _icrsState          :: !(Maybe ClusterState)
+  , _icrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

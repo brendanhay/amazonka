@@ -114,9 +114,9 @@ instance ToQuery GetInstanceSnapshots where
 
 -- | /See:/ 'getInstanceSnapshotsResponse' smart constructor.
 data GetInstanceSnapshotsResponse = GetInstanceSnapshotsResponse'
-  { _gissrsNextPageToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gissrsInstanceSnapshots :: {-# NOUNPACK #-}!(Maybe [InstanceSnapshot])
-  , _gissrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gissrsNextPageToken     :: !(Maybe Text)
+  , _gissrsInstanceSnapshots :: !(Maybe [InstanceSnapshot])
+  , _gissrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -58,10 +58,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
-  { _dsDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsSnapshotIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dsLimit       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dsDirectoryId :: !(Maybe Text)
+  , _dsNextToken   :: !(Maybe Text)
+  , _dsSnapshotIds :: !(Maybe [Text])
+  , _dsLimit       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery DescribeSnapshots where
 --
 -- /See:/ 'describeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-  { _dssrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dssrsSnapshots      :: {-# NOUNPACK #-}!(Maybe [Snapshot])
-  , _dssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dssrsNextToken      :: !(Maybe Text)
+  , _dssrsSnapshots      :: !(Maybe [Snapshot])
+  , _dssrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

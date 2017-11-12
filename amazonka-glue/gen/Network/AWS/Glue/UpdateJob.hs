@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { _ujJobName   :: {-# NOUNPACK #-}!Text
-  , _ujJobUpdate :: {-# NOUNPACK #-}!JobUpdate
+  { _ujJobName   :: !Text
+  , _ujJobUpdate :: !JobUpdate
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery UpdateJob where
 
 -- | /See:/ 'updateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-  { _ujrsJobName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ujrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ujrsJobName        :: !(Maybe Text)
+  , _ujrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

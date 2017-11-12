@@ -27,15 +27,15 @@ import Network.AWS.StorageGateway.Types.Sum
 --
 -- /See:/ 'cachediSCSIVolume' smart constructor.
 data CachediSCSIVolume = CachediSCSIVolume'
-  { _cscsivVolumeiSCSIAttributes :: {-# NOUNPACK #-}!(Maybe VolumeiSCSIAttributes)
-  , _cscsivVolumeStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cscsivSourceSnapshotId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cscsivVolumeARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cscsivVolumeProgress :: {-# NOUNPACK #-}!(Maybe Double)
-  , _cscsivVolumeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cscsivCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cscsivVolumeId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cscsivVolumeType :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
+  , _cscsivVolumeStatus          :: !(Maybe Text)
+  , _cscsivSourceSnapshotId      :: !(Maybe Text)
+  , _cscsivVolumeARN             :: !(Maybe Text)
+  , _cscsivVolumeProgress        :: !(Maybe Double)
+  , _cscsivVolumeSizeInBytes     :: !(Maybe Integer)
+  , _cscsivCreatedDate           :: !(Maybe POSIX)
+  , _cscsivVolumeId              :: !(Maybe Text)
+  , _cscsivVolumeType            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,10 +137,10 @@ instance NFData CachediSCSIVolume where
 --
 -- /See:/ 'chapInfo' smart constructor.
 data ChapInfo = ChapInfo'
-  { _ciTargetARN                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciSecretToAuthenticateInitiator :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciInitiatorName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciSecretToAuthenticateTarget    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ciTargetARN                     :: !(Maybe Text)
+  , _ciSecretToAuthenticateInitiator :: !(Maybe Text)
+  , _ciInitiatorName                 :: !(Maybe Text)
+  , _ciSecretToAuthenticateTarget    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -202,10 +202,10 @@ instance NFData ChapInfo where
 --
 -- /See:/ 'deviceiSCSIAttributes' smart constructor.
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
-  { _dscsiaTargetARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dscsiaChapEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dscsiaNetworkInterfaceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dscsiaNetworkInterfacePort :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dscsiaTargetARN            :: !(Maybe Text)
+  , _dscsiaChapEnabled          :: !(Maybe Bool)
+  , _dscsiaNetworkInterfaceId   :: !(Maybe Text)
+  , _dscsiaNetworkInterfacePort :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -262,13 +262,13 @@ instance NFData DeviceiSCSIAttributes where
 
 -- | /See:/ 'disk' smart constructor.
 data Disk = Disk'
-  { _dDiskAllocationResource :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dDiskAllocationType     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dDiskNode               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dDiskPath               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dDiskSizeInBytes        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dDiskStatus             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dDiskId                 :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dDiskAllocationResource :: !(Maybe Text)
+  , _dDiskAllocationType     :: !(Maybe Text)
+  , _dDiskNode               :: !(Maybe Text)
+  , _dDiskPath               :: !(Maybe Text)
+  , _dDiskSizeInBytes        :: !(Maybe Integer)
+  , _dDiskStatus             :: !(Maybe Text)
+  , _dDiskId                 :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -354,10 +354,10 @@ instance NFData Disk where
 --
 -- /See:/ 'fileShareInfo' smart constructor.
 data FileShareInfo = FileShareInfo'
-  { _fsiFileShareStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fsiGatewayARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fsiFileShareId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fsiFileShareARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fsiFileShareStatus :: !(Maybe Text)
+  , _fsiGatewayARN      :: !(Maybe Text)
+  , _fsiFileShareId     :: !(Maybe Text)
+  , _fsiFileShareARN    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -418,11 +418,11 @@ instance NFData FileShareInfo where
 --
 -- /See:/ 'gatewayInfo' smart constructor.
 data GatewayInfo = GatewayInfo'
-  { _giGatewayARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giGatewayOperationalState :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giGatewayName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giGatewayId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giGatewayType             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _giGatewayARN              :: !(Maybe Text)
+  , _giGatewayOperationalState :: !(Maybe Text)
+  , _giGatewayName             :: !(Maybe Text)
+  , _giGatewayId               :: !(Maybe Text)
+  , _giGatewayType             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -492,10 +492,10 @@ instance NFData GatewayInfo where
 --
 -- /See:/ 'nFSFileShareDefaults' smart constructor.
 data NFSFileShareDefaults = NFSFileShareDefaults'
-  { _nfsfsdFileMode      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsdOwnerId       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _nfsfsdDirectoryMode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsdGroupId       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _nfsfsdFileMode      :: !(Maybe Text)
+  , _nfsfsdOwnerId       :: !(Maybe Nat)
+  , _nfsfsdDirectoryMode :: !(Maybe Text)
+  , _nfsfsdGroupId       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -565,20 +565,20 @@ instance ToJSON NFSFileShareDefaults where
 --
 -- /See:/ 'nFSFileShareInfo' smart constructor.
 data NFSFileShareInfo = NFSFileShareInfo'
-  { _nfsfsiFileShareStatus      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsiKMSKey               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsiGatewayARN           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsiPath                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsiKMSEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _nfsfsiFileShareId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsiFileShareARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsiDefaultStorageClass  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsiRole                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsiSquash               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsiNFSFileShareDefaults :: {-# NOUNPACK #-}!(Maybe NFSFileShareDefaults)
-  , _nfsfsiLocationARN          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nfsfsiClientList           :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _nfsfsiReadOnly             :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _nfsfsiFileShareStatus      :: !(Maybe Text)
+  , _nfsfsiKMSKey               :: !(Maybe Text)
+  , _nfsfsiGatewayARN           :: !(Maybe Text)
+  , _nfsfsiPath                 :: !(Maybe Text)
+  , _nfsfsiKMSEncrypted         :: !(Maybe Bool)
+  , _nfsfsiFileShareId          :: !(Maybe Text)
+  , _nfsfsiFileShareARN         :: !(Maybe Text)
+  , _nfsfsiDefaultStorageClass  :: !(Maybe Text)
+  , _nfsfsiRole                 :: !(Maybe Text)
+  , _nfsfsiSquash               :: !(Maybe Text)
+  , _nfsfsiNFSFileShareDefaults :: !(Maybe NFSFileShareDefaults)
+  , _nfsfsiLocationARN          :: !(Maybe Text)
+  , _nfsfsiClientList           :: !(Maybe (List1 Text))
+  , _nfsfsiReadOnly             :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -719,9 +719,9 @@ instance NFData NFSFileShareInfo where
 --
 -- /See:/ 'networkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { _niIPv6Address :: {-# NOUNPACK #-}!(Maybe Text)
-  , _niMACAddress  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _niIPv4Address :: {-# NOUNPACK #-}!(Maybe Text)
+  { _niIPv6Address :: !(Maybe Text)
+  , _niMACAddress  :: !(Maybe Text)
+  , _niIPv4Address :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -771,17 +771,17 @@ instance NFData NetworkInterface where
 --
 -- /See:/ 'storediSCSIVolume' smart constructor.
 data StorediSCSIVolume = StorediSCSIVolume'
-  { _sscsivVolumeiSCSIAttributes :: {-# NOUNPACK #-}!(Maybe VolumeiSCSIAttributes)
-  , _sscsivVolumeStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sscsivSourceSnapshotId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sscsivPreservedExistingData :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sscsivVolumeARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sscsivVolumeProgress :: {-# NOUNPACK #-}!(Maybe Double)
-  , _sscsivVolumeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _sscsivCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _sscsivVolumeId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sscsivVolumeDiskId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sscsivVolumeType :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
+  , _sscsivVolumeStatus          :: !(Maybe Text)
+  , _sscsivSourceSnapshotId      :: !(Maybe Text)
+  , _sscsivPreservedExistingData :: !(Maybe Bool)
+  , _sscsivVolumeARN             :: !(Maybe Text)
+  , _sscsivVolumeProgress        :: !(Maybe Double)
+  , _sscsivVolumeSizeInBytes     :: !(Maybe Integer)
+  , _sscsivCreatedDate           :: !(Maybe POSIX)
+  , _sscsivVolumeId              :: !(Maybe Text)
+  , _sscsivVolumeDiskId          :: !(Maybe Text)
+  , _sscsivVolumeType            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -895,8 +895,8 @@ instance NFData StorediSCSIVolume where
 
 -- | /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!Text
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -944,14 +944,14 @@ instance ToJSON Tag where
 --
 -- /See:/ 'tape' smart constructor.
 data Tape = Tape'
-  { _tTapeBarcode     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tTapeStatus      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tTapeARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tProgress        :: {-# NOUNPACK #-}!(Maybe Double)
-  , _tTapeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _tVTLDevice       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tTapeUsedInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _tTapeCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _tTapeBarcode     :: !(Maybe Text)
+  , _tTapeStatus      :: !(Maybe Text)
+  , _tTapeARN         :: !(Maybe Text)
+  , _tProgress        :: !(Maybe Double)
+  , _tTapeSizeInBytes :: !(Maybe Integer)
+  , _tVTLDevice       :: !(Maybe Text)
+  , _tTapeUsedInBytes :: !(Maybe Integer)
+  , _tTapeCreatedDate :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1044,14 +1044,14 @@ instance NFData Tape where
 --
 -- /See:/ 'tapeArchive' smart constructor.
 data TapeArchive = TapeArchive'
-  { _taTapeBarcode     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _taTapeStatus      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _taTapeARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _taTapeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _taCompletionTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _taTapeUsedInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _taTapeCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _taRetrievedTo     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _taTapeBarcode     :: !(Maybe Text)
+  , _taTapeStatus      :: !(Maybe Text)
+  , _taTapeARN         :: !(Maybe Text)
+  , _taTapeSizeInBytes :: !(Maybe Integer)
+  , _taCompletionTime  :: !(Maybe POSIX)
+  , _taTapeUsedInBytes :: !(Maybe Integer)
+  , _taTapeCreatedDate :: !(Maybe POSIX)
+  , _taRetrievedTo     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1144,11 +1144,11 @@ instance NFData TapeArchive where
 --
 -- /See:/ 'tapeInfo' smart constructor.
 data TapeInfo = TapeInfo'
-  { _tiTapeBarcode     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiTapeStatus      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiTapeARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiGatewayARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiTapeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _tiTapeBarcode     :: !(Maybe Text)
+  , _tiTapeStatus      :: !(Maybe Text)
+  , _tiTapeARN         :: !(Maybe Text)
+  , _tiGatewayARN      :: !(Maybe Text)
+  , _tiTapeSizeInBytes :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1217,10 +1217,10 @@ instance NFData TapeInfo where
 --
 -- /See:/ 'tapeRecoveryPointInfo' smart constructor.
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
-  { _trpiTapeStatus            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trpiTapeRecoveryPointTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _trpiTapeARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trpiTapeSizeInBytes       :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _trpiTapeStatus            :: !(Maybe Text)
+  , _trpiTapeRecoveryPointTime :: !(Maybe POSIX)
+  , _trpiTapeARN               :: !(Maybe Text)
+  , _trpiTapeSizeInBytes       :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1282,11 +1282,11 @@ instance NFData TapeRecoveryPointInfo where
 --
 -- /See:/ 'vTLDevice' smart constructor.
 data VTLDevice = VTLDevice'
-  { _vtldDeviceiSCSIAttributes :: {-# NOUNPACK #-}!(Maybe DeviceiSCSIAttributes)
-  , _vtldVTLDeviceVendor :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vtldVTLDeviceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vtldVTLDeviceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vtldVTLDeviceProductIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vtldDeviceiSCSIAttributes      :: !(Maybe DeviceiSCSIAttributes)
+  , _vtldVTLDeviceVendor            :: !(Maybe Text)
+  , _vtldVTLDeviceARN               :: !(Maybe Text)
+  , _vtldVTLDeviceType              :: !(Maybe Text)
+  , _vtldVTLDeviceProductIdentifier :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1356,12 +1356,12 @@ instance NFData VTLDevice where
 --
 -- /See:/ 'volumeInfo' smart constructor.
 data VolumeInfo = VolumeInfo'
-  { _viGatewayARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viVolumeARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viVolumeSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _viVolumeId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viGatewayId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viVolumeType        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _viGatewayARN        :: !(Maybe Text)
+  , _viVolumeARN         :: !(Maybe Text)
+  , _viVolumeSizeInBytes :: !(Maybe Integer)
+  , _viVolumeId          :: !(Maybe Text)
+  , _viGatewayId         :: !(Maybe Text)
+  , _viVolumeType        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1434,10 +1434,10 @@ instance NFData VolumeInfo where
 
 -- | /See:/ 'volumeRecoveryPointInfo' smart constructor.
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
-  { _vrpiVolumeRecoveryPointTime :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vrpiVolumeARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vrpiVolumeSizeInBytes       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _vrpiVolumeUsageInBytes      :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _vrpiVolumeRecoveryPointTime :: !(Maybe Text)
+  , _vrpiVolumeARN               :: !(Maybe Text)
+  , _vrpiVolumeSizeInBytes       :: !(Maybe Integer)
+  , _vrpiVolumeUsageInBytes      :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1499,11 +1499,11 @@ instance NFData VolumeRecoveryPointInfo where
 --
 -- /See:/ 'volumeiSCSIAttributes' smart constructor.
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
-  { _vscsiaLunNumber            :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _vscsiaTargetARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vscsiaChapEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _vscsiaNetworkInterfaceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vscsiaNetworkInterfacePort :: {-# NOUNPACK #-}!(Maybe Int)
+  { _vscsiaLunNumber            :: !(Maybe Nat)
+  , _vscsiaTargetARN            :: !(Maybe Text)
+  , _vscsiaChapEnabled          :: !(Maybe Bool)
+  , _vscsiaNetworkInterfaceId   :: !(Maybe Text)
+  , _vscsiaNetworkInterfacePort :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

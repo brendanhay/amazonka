@@ -47,10 +47,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'getCampaignActivities' smart constructor.
 data GetCampaignActivities = GetCampaignActivities'
-  { _gcaToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcaPageSize      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcaApplicationId :: {-# NOUNPACK #-}!Text
-  , _gcaCampaignId    :: {-# NOUNPACK #-}!Text
+  { _gcaToken         :: !(Maybe Text)
+  , _gcaPageSize      :: !(Maybe Text)
+  , _gcaApplicationId :: !Text
+  , _gcaCampaignId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery GetCampaignActivities where
 
 -- | /See:/ 'getCampaignActivitiesResponse' smart constructor.
 data GetCampaignActivitiesResponse = GetCampaignActivitiesResponse'
-  { _gcarsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _gcarsActivitiesResponse :: {-# NOUNPACK #-}!ActivitiesResponse
+  { _gcarsResponseStatus     :: !Int
+  , _gcarsActivitiesResponse :: !ActivitiesResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

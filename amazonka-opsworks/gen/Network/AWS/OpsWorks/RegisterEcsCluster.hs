@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'registerEcsCluster' smart constructor.
 data RegisterEcsCluster = RegisterEcsCluster'
-  { _recEcsClusterARN :: {-# NOUNPACK #-}!Text
-  , _recStackId       :: {-# NOUNPACK #-}!Text
+  { _recEcsClusterARN :: !Text
+  , _recStackId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery RegisterEcsCluster where
 --
 -- /See:/ 'registerEcsClusterResponse' smart constructor.
 data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
-  { _recrsEcsClusterARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _recrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _recrsEcsClusterARN  :: !(Maybe Text)
+  , _recrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -60,9 +60,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeConfigurationSettings' smart constructor.
 data DescribeConfigurationSettings = DescribeConfigurationSettings'
-  { _dcsTemplateName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsApplicationName :: {-# NOUNPACK #-}!Text
+  { _dcsTemplateName    :: !(Maybe Text)
+  , _dcsEnvironmentName :: !(Maybe Text)
+  , _dcsApplicationName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,8 +139,8 @@ instance ToQuery DescribeConfigurationSettings where
 --
 -- /See:/ 'describeConfigurationSettingsResponse' smart constructor.
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
-  { _dcsrsConfigurationSettings :: {-# NOUNPACK #-}!(Maybe [ConfigurationSettingsDescription])
-  , _dcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcsrsConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
+  , _dcsrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

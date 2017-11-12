@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'getPlan' smart constructor.
 data GetPlan = GetPlan'
-  { _gpSinks    :: {-# NOUNPACK #-}!(Maybe [CatalogEntry])
-  , _gpLocation :: {-# NOUNPACK #-}!(Maybe Location)
-  , _gpMapping  :: {-# NOUNPACK #-}![MappingEntry]
-  , _gpSource   :: {-# NOUNPACK #-}!CatalogEntry
+  { _gpSinks    :: !(Maybe [CatalogEntry])
+  , _gpLocation :: !(Maybe Location)
+  , _gpMapping  :: ![MappingEntry]
+  , _gpSource   :: !CatalogEntry
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,8 +133,8 @@ instance ToQuery GetPlan where
 
 -- | /See:/ 'getPlanResponse' smart constructor.
 data GetPlanResponse = GetPlanResponse'
-  { _gpprsPythonScript   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gpprsPythonScript   :: !(Maybe Text)
+  , _gpprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

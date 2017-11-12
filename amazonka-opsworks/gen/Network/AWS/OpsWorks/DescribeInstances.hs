@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeInstances' smart constructor.
 data DescribeInstances = DescribeInstances'
-  { _diInstanceIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _diStackId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diLayerId     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _diInstanceIds :: !(Maybe [Text])
+  , _diStackId     :: !(Maybe Text)
+  , _diLayerId     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery DescribeInstances where
 --
 -- /See:/ 'describeInstancesResponse' smart constructor.
 data DescribeInstancesResponse = DescribeInstancesResponse'
-  { _dirsInstances      :: {-# NOUNPACK #-}!(Maybe [Instance])
-  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dirsInstances      :: !(Maybe [Instance])
+  , _dirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

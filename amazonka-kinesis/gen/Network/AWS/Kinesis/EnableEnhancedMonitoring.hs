@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'enableEnhancedMonitoring' smart constructor.
 data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
-  { _eemStreamName        :: {-# NOUNPACK #-}!Text
-  , _eemShardLevelMetrics :: {-# NOUNPACK #-}![MetricsName]
+  { _eemStreamName        :: !Text
+  , _eemShardLevelMetrics :: ![MetricsName]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

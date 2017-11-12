@@ -113,13 +113,13 @@ instance ToQuery DescribePatchGroupState where
 
 -- | /See:/ 'describePatchGroupStateResponse' smart constructor.
 data DescribePatchGroupStateResponse = DescribePatchGroupStateResponse'
-  { _dpgsrsInstancesWithMissingPatches        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dpgsrsInstancesWithInstalledOtherPatches :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dpgsrsInstancesWithNotApplicablePatches  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dpgsrsInstancesWithInstalledPatches      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dpgsrsInstances                          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dpgsrsInstancesWithFailedPatches         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dpgsrsResponseStatus                     :: {-# NOUNPACK #-}!Int
+  { _dpgsrsInstancesWithMissingPatches        :: !(Maybe Int)
+  , _dpgsrsInstancesWithInstalledOtherPatches :: !(Maybe Int)
+  , _dpgsrsInstancesWithNotApplicablePatches  :: !(Maybe Int)
+  , _dpgsrsInstancesWithInstalledPatches      :: !(Maybe Int)
+  , _dpgsrsInstances                          :: !(Maybe Int)
+  , _dpgsrsInstancesWithFailedPatches         :: !(Maybe Int)
+  , _dpgsrsResponseStatus                     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

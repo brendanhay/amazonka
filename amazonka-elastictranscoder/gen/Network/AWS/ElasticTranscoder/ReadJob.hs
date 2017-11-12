@@ -98,8 +98,8 @@ instance ToQuery ReadJob where
 --
 -- /See:/ 'readJobResponse' smart constructor.
 data ReadJobResponse = ReadJobResponse'
-  { _rjrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _rjrsJob            :: {-# NOUNPACK #-}!Job'
+  { _rjrsResponseStatus :: !Int
+  , _rjrsJob            :: !Job'
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,10 +57,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listMetrics' smart constructor.
 data ListMetrics = ListMetrics'
-  { _lmMetricName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmNamespace  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmDimensions :: {-# NOUNPACK #-}!(Maybe [DimensionFilter])
+  { _lmMetricName :: !(Maybe Text)
+  , _lmNamespace  :: !(Maybe Text)
+  , _lmNextToken  :: !(Maybe Text)
+  , _lmDimensions :: !(Maybe [DimensionFilter])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,9 +144,9 @@ instance ToQuery ListMetrics where
 
 -- | /See:/ 'listMetricsResponse' smart constructor.
 data ListMetricsResponse = ListMetricsResponse'
-  { _lmrsMetrics        :: {-# NOUNPACK #-}!(Maybe [Metric])
-  , _lmrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lmrsMetrics        :: !(Maybe [Metric])
+  , _lmrsNextToken      :: !(Maybe Text)
+  , _lmrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

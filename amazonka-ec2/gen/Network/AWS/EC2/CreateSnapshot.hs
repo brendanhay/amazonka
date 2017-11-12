@@ -74,9 +74,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-  { _ccDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccVolumeId    :: {-# NOUNPACK #-}!Text
+  { _ccDescription :: !(Maybe Text)
+  , _ccDryRun      :: !(Maybe Bool)
+  , _ccVolumeId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

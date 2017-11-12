@@ -60,11 +60,11 @@ instance NFData ComputeType where
 --
 -- /See:/ 'defaultWorkspaceCreationProperties' smart constructor.
 data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
-  { _dwcpCustomSecurityGroupId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwcpUserEnabledAsLocalAdministrator :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dwcpEnableWorkDocs                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dwcpEnableInternetAccess            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dwcpDefaultOu                       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dwcpCustomSecurityGroupId           :: !(Maybe Text)
+  , _dwcpUserEnabledAsLocalAdministrator :: !(Maybe Bool)
+  , _dwcpEnableWorkDocs                  :: !(Maybe Bool)
+  , _dwcpEnableInternetAccess            :: !(Maybe Bool)
+  , _dwcpDefaultOu                       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance NFData DefaultWorkspaceCreationProperties
 --
 -- /See:/ 'failedCreateWorkspaceRequest' smart constructor.
 data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
-  { _fcwrWorkspaceRequest :: {-# NOUNPACK #-}!(Maybe WorkspaceRequest)
-  , _fcwrErrorCode        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcwrErrorMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fcwrWorkspaceRequest :: !(Maybe WorkspaceRequest)
+  , _fcwrErrorCode        :: !(Maybe Text)
+  , _fcwrErrorMessage     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -192,9 +192,9 @@ instance NFData FailedCreateWorkspaceRequest where
 --
 -- /See:/ 'failedWorkspaceChangeRequest' smart constructor.
 data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
-  { _fwcrErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fwcrWorkspaceId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fwcrErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fwcrErrorCode    :: !(Maybe Text)
+  , _fwcrWorkspaceId  :: !(Maybe Text)
+  , _fwcrErrorMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -381,8 +381,8 @@ instance ToJSON StopRequest where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!Text
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -497,20 +497,20 @@ instance NFData UserStorage where
 --
 -- /See:/ 'workspace' smart constructor.
 data Workspace = Workspace'
-  { _wDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wState :: {-# NOUNPACK #-}!(Maybe WorkspaceState)
-  , _wIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wUserName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wBundleId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wWorkspaceProperties :: {-# NOUNPACK #-}!(Maybe WorkspaceProperties)
-  , _wRootVolumeEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _wErrorCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wVolumeEncryptionKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wComputerName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wWorkspaceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wUserVolumeEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _wErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _wDirectoryId                 :: !(Maybe Text)
+  , _wState                       :: !(Maybe WorkspaceState)
+  , _wIPAddress                   :: !(Maybe Text)
+  , _wUserName                    :: !(Maybe Text)
+  , _wSubnetId                    :: !(Maybe Text)
+  , _wBundleId                    :: !(Maybe Text)
+  , _wWorkspaceProperties         :: !(Maybe WorkspaceProperties)
+  , _wRootVolumeEncryptionEnabled :: !(Maybe Bool)
+  , _wErrorCode                   :: !(Maybe Text)
+  , _wVolumeEncryptionKey         :: !(Maybe Text)
+  , _wComputerName                :: !(Maybe Text)
+  , _wWorkspaceId                 :: !(Maybe Text)
+  , _wUserVolumeEncryptionEnabled :: !(Maybe Bool)
+  , _wErrorMessage                :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -651,12 +651,12 @@ instance NFData Workspace where
 --
 -- /See:/ 'workspaceBundle' smart constructor.
 data WorkspaceBundle = WorkspaceBundle'
-  { _wbBundleId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wbOwner       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wbName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wbComputeType :: {-# NOUNPACK #-}!(Maybe ComputeType)
-  , _wbUserStorage :: {-# NOUNPACK #-}!(Maybe UserStorage)
-  , _wbDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _wbBundleId    :: !(Maybe Text)
+  , _wbOwner       :: !(Maybe Text)
+  , _wbName        :: !(Maybe Text)
+  , _wbComputeType :: !(Maybe ComputeType)
+  , _wbUserStorage :: !(Maybe UserStorage)
+  , _wbDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -733,10 +733,10 @@ instance NFData WorkspaceBundle where
 --
 -- /See:/ 'workspaceConnectionStatus' smart constructor.
 data WorkspaceConnectionStatus = WorkspaceConnectionStatus'
-  { _wcsLastKnownUserConnectionTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _wcsConnectionStateCheckTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _wcsWorkspaceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wcsConnectionState :: {-# NOUNPACK #-}!(Maybe ConnectionState)
+  { _wcsLastKnownUserConnectionTimestamp :: !(Maybe POSIX)
+  , _wcsConnectionStateCheckTimestamp    :: !(Maybe POSIX)
+  , _wcsWorkspaceId                      :: !(Maybe Text)
+  , _wcsConnectionState                  :: !(Maybe ConnectionState)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -798,18 +798,18 @@ instance NFData WorkspaceConnectionStatus where
 --
 -- /See:/ 'workspaceDirectory' smart constructor.
 data WorkspaceDirectory = WorkspaceDirectory'
-  { _wdRegistrationCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wdIAMRoleId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wdDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wdState :: {-# NOUNPACK #-}!(Maybe WorkspaceDirectoryState)
-  , _wdCustomerUserName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wdSubnetIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _wdAlias :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wdWorkspaceSecurityGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wdDirectoryType :: {-# NOUNPACK #-}!(Maybe WorkspaceDirectoryType)
-  , _wdWorkspaceCreationProperties :: {-# NOUNPACK #-}!(Maybe DefaultWorkspaceCreationProperties)
-  , _wdDNSIPAddresses :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _wdDirectoryName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _wdRegistrationCode :: !(Maybe Text)
+  , _wdIAMRoleId :: !(Maybe Text)
+  , _wdDirectoryId :: !(Maybe Text)
+  , _wdState :: !(Maybe WorkspaceDirectoryState)
+  , _wdCustomerUserName :: !(Maybe Text)
+  , _wdSubnetIds :: !(Maybe [Text])
+  , _wdAlias :: !(Maybe Text)
+  , _wdWorkspaceSecurityGroupId :: !(Maybe Text)
+  , _wdDirectoryType :: !(Maybe WorkspaceDirectoryType)
+  , _wdWorkspaceCreationProperties :: !(Maybe DefaultWorkspaceCreationProperties)
+  , _wdDNSIPAddresses :: !(Maybe [Text])
+  , _wdDirectoryName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -934,8 +934,8 @@ instance NFData WorkspaceDirectory where
 --
 -- /See:/ 'workspaceProperties' smart constructor.
 data WorkspaceProperties = WorkspaceProperties'
-  { _wpRunningMode :: {-# NOUNPACK #-}!(Maybe RunningMode)
-  , _wpRunningModeAutoStopTimeoutInMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  { _wpRunningMode                         :: !(Maybe RunningMode)
+  , _wpRunningModeAutoStopTimeoutInMinutes :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -987,14 +987,14 @@ instance ToJSON WorkspaceProperties where
 --
 -- /See:/ 'workspaceRequest' smart constructor.
 data WorkspaceRequest = WorkspaceRequest'
-  { _wrWorkspaceProperties :: {-# NOUNPACK #-}!(Maybe WorkspaceProperties)
-  , _wrRootVolumeEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _wrVolumeEncryptionKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wrUserVolumeEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _wrTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _wrDirectoryId :: {-# NOUNPACK #-}!Text
-  , _wrUserName :: {-# NOUNPACK #-}!Text
-  , _wrBundleId :: {-# NOUNPACK #-}!Text
+  { _wrWorkspaceProperties         :: !(Maybe WorkspaceProperties)
+  , _wrRootVolumeEncryptionEnabled :: !(Maybe Bool)
+  , _wrVolumeEncryptionKey         :: !(Maybe Text)
+  , _wrUserVolumeEncryptionEnabled :: !(Maybe Bool)
+  , _wrTags                        :: !(Maybe [Tag])
+  , _wrDirectoryId                 :: !Text
+  , _wrUserName                    :: !Text
+  , _wrBundleId                    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

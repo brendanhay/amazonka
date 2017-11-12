@@ -56,12 +56,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeScheduledInstances' smart constructor.
 data DescribeScheduledInstances = DescribeScheduledInstances'
-  { _dsiFilters :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dsiSlotStartTimeRange :: {-# NOUNPACK #-}!(Maybe SlotStartTimeRangeRequest)
-  , _dsiNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsiScheduledInstanceIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dsiDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsiMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dsiFilters              :: !(Maybe [Filter])
+  , _dsiSlotStartTimeRange   :: !(Maybe SlotStartTimeRangeRequest)
+  , _dsiNextToken            :: !(Maybe Text)
+  , _dsiScheduledInstanceIds :: !(Maybe [Text])
+  , _dsiDryRun               :: !(Maybe Bool)
+  , _dsiMaxResults           :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -161,9 +161,9 @@ instance ToQuery DescribeScheduledInstances where
 --
 -- /See:/ 'describeScheduledInstancesResponse' smart constructor.
 data DescribeScheduledInstancesResponse = DescribeScheduledInstancesResponse'
-  { _dsirsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsirsScheduledInstanceSet :: {-# NOUNPACK #-}!(Maybe [ScheduledInstance])
-  , _dsirsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _dsirsNextToken            :: !(Maybe Text)
+  , _dsirsScheduledInstanceSet :: !(Maybe [ScheduledInstance])
+  , _dsirsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

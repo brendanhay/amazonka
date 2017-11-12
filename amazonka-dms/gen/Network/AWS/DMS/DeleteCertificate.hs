@@ -103,8 +103,8 @@ instance ToQuery DeleteCertificate where
 
 -- | /See:/ 'deleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'
-  { _dccrsCertificate    :: {-# NOUNPACK #-}!(Maybe Certificate)
-  , _dccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dccrsCertificate    :: !(Maybe Certificate)
+  , _dccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

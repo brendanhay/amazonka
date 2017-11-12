@@ -102,8 +102,8 @@ instance ToQuery GetByteMatchSet where
 
 -- | /See:/ 'getByteMatchSetResponse' smart constructor.
 data GetByteMatchSetResponse = GetByteMatchSetResponse'
-  { _gbmsrsByteMatchSet   :: {-# NOUNPACK #-}!(Maybe ByteMatchSet)
-  , _gbmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbmsrsByteMatchSet   :: !(Maybe ByteMatchSet)
+  , _gbmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

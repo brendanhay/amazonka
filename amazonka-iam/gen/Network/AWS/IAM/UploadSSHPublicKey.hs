@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'uploadSSHPublicKey' smart constructor.
 data UploadSSHPublicKey = UploadSSHPublicKey'
-  { _usshpkUserName         :: {-# NOUNPACK #-}!Text
-  , _usshpkSSHPublicKeyBody :: {-# NOUNPACK #-}!Text
+  { _usshpkUserName         :: !Text
+  , _usshpkSSHPublicKeyBody :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery UploadSSHPublicKey where
 --
 -- /See:/ 'uploadSSHPublicKeyResponse' smart constructor.
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
-  { _uspkrsSSHPublicKey   :: {-# NOUNPACK #-}!(Maybe SSHPublicKey)
-  , _uspkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uspkrsSSHPublicKey   :: !(Maybe SSHPublicKey)
+  , _uspkrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

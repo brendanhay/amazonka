@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deletePlacementGroup' smart constructor.
 data DeletePlacementGroup = DeletePlacementGroup'
-  { _dpgDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dpgGroupName :: {-# NOUNPACK #-}!Text
+  { _dpgDryRun    :: !(Maybe Bool)
+  , _dpgGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

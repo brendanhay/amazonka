@@ -54,9 +54,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listParents' smart constructor.
 data ListParents = ListParents'
-  { _lNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lChildId    :: {-# NOUNPACK #-}!Text
+  { _lNextToken  :: !(Maybe Text)
+  , _lMaxResults :: !(Maybe Nat)
+  , _lChildId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,9 +136,9 @@ instance ToQuery ListParents where
 
 -- | /See:/ 'listParentsResponse' smart constructor.
 data ListParentsResponse = ListParentsResponse'
-  { _lrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsParents        :: {-# NOUNPACK #-}!(Maybe [Parent])
-  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrsNextToken      :: !(Maybe Text)
+  , _lrsParents        :: !(Maybe [Parent])
+  , _lrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

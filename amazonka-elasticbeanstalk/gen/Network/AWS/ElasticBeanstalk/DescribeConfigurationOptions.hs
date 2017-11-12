@@ -57,12 +57,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeConfigurationOptions' smart constructor.
 data DescribeConfigurationOptions = DescribeConfigurationOptions'
-  { _dcoTemplateName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcoPlatformARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcoEnvironmentName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcoApplicationName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcoSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcoOptions           :: {-# NOUNPACK #-}!(Maybe [OptionSpecification])
+  { _dcoTemplateName      :: !(Maybe Text)
+  , _dcoPlatformARN       :: !(Maybe Text)
+  , _dcoEnvironmentName   :: !(Maybe Text)
+  , _dcoApplicationName   :: !(Maybe Text)
+  , _dcoSolutionStackName :: !(Maybe Text)
+  , _dcoOptions           :: !(Maybe [OptionSpecification])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -164,10 +164,10 @@ instance ToQuery DescribeConfigurationOptions where
 --
 -- /See:/ 'describeConfigurationOptionsResponse' smart constructor.
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
-  { _dcorsPlatformARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcorsSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcorsOptions :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionDescription])
-  , _dcorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcorsPlatformARN       :: !(Maybe Text)
+  , _dcorsSolutionStackName :: !(Maybe Text)
+  , _dcorsOptions           :: !(Maybe [ConfigurationOptionDescription])
+  , _dcorsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -69,21 +69,21 @@ import Network.AWS.Response
 --
 -- /See:/ 'createChangeSet' smart constructor.
 data CreateChangeSet = CreateChangeSet'
-  { _ccsChangeSetType         :: {-# NOUNPACK #-}!(Maybe ChangeSetType)
-  , _ccsUsePreviousTemplate   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccsClientToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsNotificationARNs      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccsParameters            :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _ccsTemplateBody          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsTemplateURL           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsDescription           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsCapabilities          :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _ccsRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe RollbackConfiguration)
-  , _ccsResourceTypes         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccsTags                  :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ccsRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsStackName             :: {-# NOUNPACK #-}!Text
-  , _ccsChangeSetName         :: {-# NOUNPACK #-}!Text
+  { _ccsChangeSetType         :: !(Maybe ChangeSetType)
+  , _ccsUsePreviousTemplate   :: !(Maybe Bool)
+  , _ccsClientToken           :: !(Maybe Text)
+  , _ccsNotificationARNs      :: !(Maybe [Text])
+  , _ccsParameters            :: !(Maybe [Parameter])
+  , _ccsTemplateBody          :: !(Maybe Text)
+  , _ccsTemplateURL           :: !(Maybe Text)
+  , _ccsDescription           :: !(Maybe Text)
+  , _ccsCapabilities          :: !(Maybe [Capability])
+  , _ccsRollbackConfiguration :: !(Maybe RollbackConfiguration)
+  , _ccsResourceTypes         :: !(Maybe [Text])
+  , _ccsTags                  :: !(Maybe [Tag])
+  , _ccsRoleARN               :: !(Maybe Text)
+  , _ccsStackName             :: !Text
+  , _ccsChangeSetName         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -257,9 +257,9 @@ instance ToQuery CreateChangeSet where
 --
 -- /See:/ 'createChangeSetResponse' smart constructor.
 data CreateChangeSetResponse = CreateChangeSetResponse'
-  { _ccsrsId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsrsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ccsrsId             :: !(Maybe Text)
+  , _ccsrsStackId        :: !(Maybe Text)
+  , _ccsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

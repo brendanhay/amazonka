@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createPolicyVersion' smart constructor.
 data CreatePolicyVersion = CreatePolicyVersion'
-  { _cpvSetAsDefault   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cpvPolicyARN      :: {-# NOUNPACK #-}!Text
-  , _cpvPolicyDocument :: {-# NOUNPACK #-}!Text
+  { _cpvSetAsDefault   :: !(Maybe Bool)
+  , _cpvPolicyARN      :: !Text
+  , _cpvPolicyDocument :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery CreatePolicyVersion where
 --
 -- /See:/ 'createPolicyVersionResponse' smart constructor.
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
-  { _cpvrsPolicyVersion  :: {-# NOUNPACK #-}!(Maybe PolicyVersion)
-  , _cpvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cpvrsPolicyVersion  :: !(Maybe PolicyVersion)
+  , _cpvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

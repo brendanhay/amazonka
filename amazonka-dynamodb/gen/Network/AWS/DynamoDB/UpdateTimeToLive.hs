@@ -61,8 +61,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateTimeToLive' smart constructor.
 data UpdateTimeToLive = UpdateTimeToLive'
-  { _uttlTableName               :: {-# NOUNPACK #-}!Text
-  , _uttlTimeToLiveSpecification :: {-# NOUNPACK #-}!TimeToLiveSpecification
+  { _uttlTableName               :: !Text
+  , _uttlTimeToLiveSpecification :: !TimeToLiveSpecification
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,8 +132,8 @@ instance ToQuery UpdateTimeToLive where
 
 -- | /See:/ 'updateTimeToLiveResponse' smart constructor.
 data UpdateTimeToLiveResponse = UpdateTimeToLiveResponse'
-  { _uttlrsTimeToLiveSpecification :: {-# NOUNPACK #-}!(Maybe TimeToLiveSpecification)
-  , _uttlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uttlrsTimeToLiveSpecification :: !(Maybe TimeToLiveSpecification)
+  , _uttlrsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

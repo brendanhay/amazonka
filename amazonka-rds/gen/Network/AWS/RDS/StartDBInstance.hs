@@ -94,8 +94,8 @@ instance ToQuery StartDBInstance where
 
 -- | /See:/ 'startDBInstanceResponse' smart constructor.
 data StartDBInstanceResponse = StartDBInstanceResponse'
-  { _sdbirsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
-  , _sdbirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sdbirsDBInstance     :: !(Maybe DBInstance)
+  , _sdbirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

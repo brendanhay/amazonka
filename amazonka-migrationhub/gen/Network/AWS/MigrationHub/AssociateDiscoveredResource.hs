@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'associateDiscoveredResource' smart constructor.
 data AssociateDiscoveredResource = AssociateDiscoveredResource'
-  { _adrDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _adrProgressUpdateStream :: {-# NOUNPACK #-}!Text
-  , _adrMigrationTaskName    :: {-# NOUNPACK #-}!Text
-  , _adrDiscoveredResource   :: {-# NOUNPACK #-}!DiscoveredResource
+  { _adrDryRun               :: !(Maybe Bool)
+  , _adrProgressUpdateStream :: !Text
+  , _adrMigrationTaskName    :: !Text
+  , _adrDiscoveredResource   :: !DiscoveredResource
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -68,8 +68,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createStream' smart constructor.
 data CreateStream = CreateStream'
-  { _csStreamName :: {-# NOUNPACK #-}!Text
-  , _csShardCount :: {-# NOUNPACK #-}!Nat
+  { _csStreamName :: !Text
+  , _csShardCount :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

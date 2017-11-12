@@ -51,8 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getBundles' smart constructor.
 data GetBundles = GetBundles'
-  { _gIncludeInactive :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gPageToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gIncludeInactive :: !(Maybe Bool)
+  , _gPageToken       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery GetBundles where
 
 -- | /See:/ 'getBundlesResponse' smart constructor.
 data GetBundlesResponse = GetBundlesResponse'
-  { _gbrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbrsBundles        :: {-# NOUNPACK #-}!(Maybe [Bundle])
-  , _gbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbrsNextPageToken  :: !(Maybe Text)
+  , _gbrsBundles        :: !(Maybe [Bundle])
+  , _gbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

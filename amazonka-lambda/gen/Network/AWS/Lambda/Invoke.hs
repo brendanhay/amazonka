@@ -61,12 +61,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'invoke' smart constructor.
 data Invoke = Invoke'
-  { _iInvocationType :: {-# NOUNPACK #-}!(Maybe InvocationType)
-  , _iLogType        :: {-# NOUNPACK #-}!(Maybe LogType)
-  , _iQualifier      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iClientContext  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iFunctionName   :: {-# NOUNPACK #-}!Text
-  , _iPayload        :: {-# NOUNPACK #-}!(HashMap Text Value)
+  { _iInvocationType :: !(Maybe InvocationType)
+  , _iLogType        :: !(Maybe LogType)
+  , _iQualifier      :: !(Maybe Text)
+  , _iClientContext  :: !(Maybe Text)
+  , _iFunctionName   :: !Text
+  , _iPayload        :: !(HashMap Text Value)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -166,10 +166,10 @@ instance ToQuery Invoke where
 --
 -- /See:/ 'invokeResponse' smart constructor.
 data InvokeResponse = InvokeResponse'
-  { _irsFunctionError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsLogResult     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irsPayload       :: {-# NOUNPACK #-}!(Maybe (HashMap Text Value))
-  , _irsStatusCode    :: {-# NOUNPACK #-}!Int
+  { _irsFunctionError :: !(Maybe Text)
+  , _irsLogResult     :: !(Maybe Text)
+  , _irsPayload       :: !(Maybe (HashMap Text Value))
+  , _irsStatusCode    :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

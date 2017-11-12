@@ -52,13 +52,13 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'registerTargetWithMaintenanceWindow' smart constructor.
 data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
-  { _rClientToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rOwnerInformation :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _rName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rDescription      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _rWindowId         :: {-# NOUNPACK #-}!Text
-  , _rResourceType     :: {-# NOUNPACK #-}!MaintenanceWindowResourceType
-  , _rTargets          :: {-# NOUNPACK #-}![Target]
+  { _rClientToken      :: !(Maybe Text)
+  , _rOwnerInformation :: !(Maybe (Sensitive Text))
+  , _rName             :: !(Maybe Text)
+  , _rDescription      :: !(Maybe (Sensitive Text))
+  , _rWindowId         :: !Text
+  , _rResourceType     :: !MaintenanceWindowResourceType
+  , _rTargets          :: ![Target]
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -176,8 +176,8 @@ instance ToQuery RegisterTargetWithMaintenanceWindow
 
 -- | /See:/ 'registerTargetWithMaintenanceWindowResponse' smart constructor.
 data RegisterTargetWithMaintenanceWindowResponse = RegisterTargetWithMaintenanceWindowResponse'
-  { _rrsWindowTargetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rrsWindowTargetId :: !(Maybe Text)
+  , _rrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

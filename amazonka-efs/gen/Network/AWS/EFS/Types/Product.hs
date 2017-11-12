@@ -27,17 +27,17 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'fileSystemDescription' smart constructor.
 data FileSystemDescription = FileSystemDescription'
-  { _fsdEncrypted            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _fsdKMSKeyId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fsdName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fsdOwnerId              :: {-# NOUNPACK #-}!Text
-  , _fsdCreationToken        :: {-# NOUNPACK #-}!Text
-  , _fsdFileSystemId         :: {-# NOUNPACK #-}!Text
-  , _fsdCreationTime         :: {-# NOUNPACK #-}!POSIX
-  , _fsdLifeCycleState       :: {-# NOUNPACK #-}!LifeCycleState
-  , _fsdNumberOfMountTargets :: {-# NOUNPACK #-}!Nat
-  , _fsdSizeInBytes          :: {-# NOUNPACK #-}!FileSystemSize
-  , _fsdPerformanceMode      :: {-# NOUNPACK #-}!PerformanceMode
+  { _fsdEncrypted            :: !(Maybe Bool)
+  , _fsdKMSKeyId             :: !(Maybe Text)
+  , _fsdName                 :: !(Maybe Text)
+  , _fsdOwnerId              :: !Text
+  , _fsdCreationToken        :: !Text
+  , _fsdFileSystemId         :: !Text
+  , _fsdCreationTime         :: !POSIX
+  , _fsdLifeCycleState       :: !LifeCycleState
+  , _fsdNumberOfMountTargets :: !Nat
+  , _fsdSizeInBytes          :: !FileSystemSize
+  , _fsdPerformanceMode      :: !PerformanceMode
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -162,8 +162,8 @@ instance NFData FileSystemDescription where
 --
 -- /See:/ 'fileSystemSize' smart constructor.
 data FileSystemSize = FileSystemSize'
-  { _fssTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _fssValue     :: {-# NOUNPACK #-}!Nat
+  { _fssTimestamp :: !(Maybe POSIX)
+  , _fssValue     :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -206,13 +206,13 @@ instance NFData FileSystemSize where
 --
 -- /See:/ 'mountTargetDescription' smart constructor.
 data MountTargetDescription = MountTargetDescription'
-  { _mtdIPAddress          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mtdNetworkInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mtdOwnerId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mtdMountTargetId      :: {-# NOUNPACK #-}!Text
-  , _mtdFileSystemId       :: {-# NOUNPACK #-}!Text
-  , _mtdSubnetId           :: {-# NOUNPACK #-}!Text
-  , _mtdLifeCycleState     :: {-# NOUNPACK #-}!LifeCycleState
+  { _mtdIPAddress          :: !(Maybe Text)
+  , _mtdNetworkInterfaceId :: !(Maybe Text)
+  , _mtdOwnerId            :: !(Maybe Text)
+  , _mtdMountTargetId      :: !Text
+  , _mtdFileSystemId       :: !Text
+  , _mtdSubnetId           :: !Text
+  , _mtdLifeCycleState     :: !LifeCycleState
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -301,8 +301,8 @@ instance NFData MountTargetDescription where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!Text
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

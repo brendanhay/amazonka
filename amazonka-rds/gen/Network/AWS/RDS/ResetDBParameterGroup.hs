@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'resetDBParameterGroup' smart constructor.
 data ResetDBParameterGroup = ResetDBParameterGroup'
-  { _rdpgResetAllParameters   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdpgParameters           :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _rdpgDBParameterGroupName :: {-# NOUNPACK #-}!Text
+  { _rdpgResetAllParameters   :: !(Maybe Bool)
+  , _rdpgParameters           :: !(Maybe [Parameter])
+  , _rdpgDBParameterGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

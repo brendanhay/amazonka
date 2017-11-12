@@ -54,11 +54,11 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'createTapes' smart constructor.
 data CreateTapes = CreateTapes'
-  { _ctGatewayARN        :: {-# NOUNPACK #-}!Text
-  , _ctTapeSizeInBytes   :: {-# NOUNPACK #-}!Integer
-  , _ctClientToken       :: {-# NOUNPACK #-}!Text
-  , _ctNumTapesToCreate  :: {-# NOUNPACK #-}!Nat
-  , _ctTapeBarcodePrefix :: {-# NOUNPACK #-}!Text
+  { _ctGatewayARN        :: !Text
+  , _ctTapeSizeInBytes   :: !Integer
+  , _ctClientToken       :: !Text
+  , _ctNumTapesToCreate  :: !Nat
+  , _ctTapeBarcodePrefix :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -158,8 +158,8 @@ instance ToQuery CreateTapes where
 --
 -- /See:/ 'createTapesResponse' smart constructor.
 data CreateTapesResponse = CreateTapesResponse'
-  { _ctrsTapeARNs       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ctrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ctrsTapeARNs       :: !(Maybe [Text])
+  , _ctrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

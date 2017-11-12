@@ -55,18 +55,18 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObjectACL' smart constructor.
 data PutObjectACL = PutObjectACL'
-  { _poaVersionId           :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _poaGrantReadACP        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poaRequestPayer        :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _poaGrantWriteACP       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poaGrantRead           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poaGrantFullControl    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poaContentMD5          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poaAccessControlPolicy :: {-# NOUNPACK #-}!(Maybe AccessControlPolicy)
-  , _poaGrantWrite          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poaACL                 :: {-# NOUNPACK #-}!(Maybe ObjectCannedACL)
-  , _poaBucket              :: {-# NOUNPACK #-}!BucketName
-  , _poaKey                 :: {-# NOUNPACK #-}!ObjectKey
+  { _poaVersionId           :: !(Maybe ObjectVersionId)
+  , _poaGrantReadACP        :: !(Maybe Text)
+  , _poaRequestPayer        :: !(Maybe RequestPayer)
+  , _poaGrantWriteACP       :: !(Maybe Text)
+  , _poaGrantRead           :: !(Maybe Text)
+  , _poaGrantFullControl    :: !(Maybe Text)
+  , _poaContentMD5          :: !(Maybe Text)
+  , _poaAccessControlPolicy :: !(Maybe AccessControlPolicy)
+  , _poaGrantWrite          :: !(Maybe Text)
+  , _poaACL                 :: !(Maybe ObjectCannedACL)
+  , _poaBucket              :: !BucketName
+  , _poaKey                 :: !ObjectKey
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -209,8 +209,8 @@ instance ToQuery PutObjectACL where
 
 -- | /See:/ 'putObjectACLResponse' smart constructor.
 data PutObjectACLResponse = PutObjectACLResponse'
-  { _poarsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _poarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _poarsRequestCharged :: !(Maybe RequestCharged)
+  , _poarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

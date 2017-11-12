@@ -53,11 +53,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'confirmForgotPassword' smart constructor.
 data ConfirmForgotPassword = ConfirmForgotPassword'
-  { _cfpSecretHash       :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _cfpClientId         :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _cfpUsername         :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _cfpConfirmationCode :: {-# NOUNPACK #-}!Text
-  , _cfpPassword         :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _cfpSecretHash       :: !(Maybe (Sensitive Text))
+  , _cfpClientId         :: !(Sensitive Text)
+  , _cfpUsername         :: !(Sensitive Text)
+  , _cfpConfirmationCode :: !Text
+  , _cfpPassword         :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

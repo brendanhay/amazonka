@@ -50,10 +50,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listPrincipalsForPortfolio' smart constructor.
 data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
-  { _lpfpAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpfpPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpfpPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lpfpPortfolioId    :: {-# NOUNPACK #-}!Text
+  { _lpfpAcceptLanguage :: !(Maybe Text)
+  , _lpfpPageToken      :: !(Maybe Text)
+  , _lpfpPageSize       :: !(Maybe Nat)
+  , _lpfpPortfolioId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery ListPrincipalsForPortfolio where
 
 -- | /See:/ 'listPrincipalsForPortfolioResponse' smart constructor.
 data ListPrincipalsForPortfolioResponse = ListPrincipalsForPortfolioResponse'
-  { _lisrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lisrsPrincipals     :: {-# NOUNPACK #-}!(Maybe [Principal])
-  , _lisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lisrsNextPageToken  :: !(Maybe Text)
+  , _lisrsPrincipals     :: !(Maybe [Principal])
+  , _lisrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putDestinationPolicy' smart constructor.
 data PutDestinationPolicy = PutDestinationPolicy'
-  { _pdpDestinationName :: {-# NOUNPACK #-}!Text
-  , _pdpAccessPolicy    :: {-# NOUNPACK #-}!Text
+  { _pdpDestinationName :: !Text
+  , _pdpAccessPolicy    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

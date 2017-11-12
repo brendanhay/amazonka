@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateDataSource' smart constructor.
 data UpdateDataSource = UpdateDataSource'
-  { _udsDataSourceId   :: {-# NOUNPACK #-}!Text
-  , _udsDataSourceName :: {-# NOUNPACK #-}!Text
+  { _udsDataSourceId   :: !Text
+  , _udsDataSourceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery UpdateDataSource where
 --
 -- /See:/ 'updateDataSourceResponse' smart constructor.
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
-  { _udsrsDataSourceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _udsrsDataSourceId   :: !(Maybe Text)
+  , _udsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

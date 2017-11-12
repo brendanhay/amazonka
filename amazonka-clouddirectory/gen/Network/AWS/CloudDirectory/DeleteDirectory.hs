@@ -96,8 +96,8 @@ instance ToQuery DeleteDirectory where
 
 -- | /See:/ 'deleteDirectoryResponse' smart constructor.
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
-  { _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ddrsDirectoryARN   :: {-# NOUNPACK #-}!Text
+  { _ddrsResponseStatus :: !Int
+  , _ddrsDirectoryARN   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

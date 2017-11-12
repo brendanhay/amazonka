@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeFlowLogs' smart constructor.
 data DescribeFlowLogs = DescribeFlowLogs'
-  { _dNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dFlowLogIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dFilter     :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dNextToken  :: !(Maybe Text)
+  , _dFlowLogIds :: !(Maybe [Text])
+  , _dFilter     :: !(Maybe [Filter])
+  , _dMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery DescribeFlowLogs where
 --
 -- /See:/ 'describeFlowLogsResponse' smart constructor.
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
-  { _dflsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dflsrsFlowLogs       :: {-# NOUNPACK #-}!(Maybe [FlowLog])
-  , _dflsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dflsrsNextToken      :: !(Maybe Text)
+  , _dflsrsFlowLogs       :: !(Maybe [FlowLog])
+  , _dflsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

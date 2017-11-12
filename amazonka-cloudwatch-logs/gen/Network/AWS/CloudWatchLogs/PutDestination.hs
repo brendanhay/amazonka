@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'putDestination' smart constructor.
 data PutDestination = PutDestination'
-  { _pdDestinationName :: {-# NOUNPACK #-}!Text
-  , _pdTargetARN       :: {-# NOUNPACK #-}!Text
-  , _pdRoleARN         :: {-# NOUNPACK #-}!Text
+  { _pdDestinationName :: !Text
+  , _pdTargetARN       :: !Text
+  , _pdRoleARN         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery PutDestination where
 
 -- | /See:/ 'putDestinationResponse' smart constructor.
 data PutDestinationResponse = PutDestinationResponse'
-  { _pdrsDestination    :: {-# NOUNPACK #-}!(Maybe Destination)
-  , _pdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pdrsDestination    :: !(Maybe Destination)
+  , _pdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

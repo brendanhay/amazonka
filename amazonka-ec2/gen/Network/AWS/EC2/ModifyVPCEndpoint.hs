@@ -60,17 +60,17 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyVPCEndpoint' smart constructor.
 data ModifyVPCEndpoint = ModifyVPCEndpoint'
-  { _mvePolicyDocument         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mveRemoveRouteTableIds    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mveResetPolicy            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mveAddRouteTableIds       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mvePrivateDNSEnabled      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mveAddSubnetIds           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mveRemoveSubnetIds        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mveAddSecurityGroupIds    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mveDryRun                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mveRemoveSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mveVPCEndpointId          :: {-# NOUNPACK #-}!Text
+  { _mvePolicyDocument         :: !(Maybe Text)
+  , _mveRemoveRouteTableIds    :: !(Maybe [Text])
+  , _mveResetPolicy            :: !(Maybe Bool)
+  , _mveAddRouteTableIds       :: !(Maybe [Text])
+  , _mvePrivateDNSEnabled      :: !(Maybe Bool)
+  , _mveAddSubnetIds           :: !(Maybe [Text])
+  , _mveRemoveSubnetIds        :: !(Maybe [Text])
+  , _mveAddSecurityGroupIds    :: !(Maybe [Text])
+  , _mveDryRun                 :: !(Maybe Bool)
+  , _mveRemoveSecurityGroupIds :: !(Maybe [Text])
+  , _mveVPCEndpointId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -211,8 +211,8 @@ instance ToQuery ModifyVPCEndpoint where
 
 -- | /See:/ 'modifyVPCEndpointResponse' smart constructor.
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
-  { _mversReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mversResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mversReturn         :: !(Maybe Bool)
+  , _mversResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

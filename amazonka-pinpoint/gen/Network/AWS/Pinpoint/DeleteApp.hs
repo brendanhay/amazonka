@@ -92,8 +92,8 @@ instance ToQuery DeleteApp where
 
 -- | /See:/ 'deleteAppResponse' smart constructor.
 data DeleteAppResponse = DeleteAppResponse'
-  { _darsResponseStatus      :: {-# NOUNPACK #-}!Int
-  , _darsApplicationResponse :: {-# NOUNPACK #-}!ApplicationResponse
+  { _darsResponseStatus      :: !Int
+  , _darsApplicationResponse :: !ApplicationResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

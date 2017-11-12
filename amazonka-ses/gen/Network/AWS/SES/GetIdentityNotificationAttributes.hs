@@ -116,8 +116,8 @@ instance ToQuery GetIdentityNotificationAttributes
 --
 -- /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
-  { _ginarsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ginarsNotificationAttributes :: {-# NOUNPACK #-}!(Map Text IdentityNotificationAttributes)
+  { _ginarsResponseStatus         :: !Int
+  , _ginarsNotificationAttributes :: !(Map Text IdentityNotificationAttributes)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

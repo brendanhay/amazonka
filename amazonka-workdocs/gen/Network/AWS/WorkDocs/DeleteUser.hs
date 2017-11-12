@@ -44,8 +44,8 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { _duuAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _duuUserId              :: {-# NOUNPACK #-}!Text
+  { _duuAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _duuUserId              :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

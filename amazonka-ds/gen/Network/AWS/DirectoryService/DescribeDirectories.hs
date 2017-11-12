@@ -59,9 +59,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDirectories' smart constructor.
 data DescribeDirectories = DescribeDirectories'
-  { _ddNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddDirectoryIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ddLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _ddNextToken    :: !(Maybe Text)
+  , _ddDirectoryIds :: !(Maybe [Text])
+  , _ddLimit        :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery DescribeDirectories where
 --
 -- /See:/ 'describeDirectoriesResponse' smart constructor.
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
-  { _ddrsDirectoryDescriptions :: {-# NOUNPACK #-}!(Maybe [DirectoryDescription])
-  , _ddrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddrsDirectoryDescriptions :: !(Maybe [DirectoryDescription])
+  , _ddrsNextToken             :: !(Maybe Text)
+  , _ddrsResponseStatus        :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getDevEndpoints' smart constructor.
 data GetDevEndpoints = GetDevEndpoints'
-  { _gdeNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdeMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gdeNextToken  :: !(Maybe Text)
+  , _gdeMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,9 +113,9 @@ instance ToQuery GetDevEndpoints where
 
 -- | /See:/ 'getDevEndpointsResponse' smart constructor.
 data GetDevEndpointsResponse = GetDevEndpointsResponse'
-  { _gdersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdersDevEndpoints   :: {-# NOUNPACK #-}!(Maybe [DevEndpoint])
-  , _gdersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdersNextToken      :: !(Maybe Text)
+  , _gdersDevEndpoints   :: !(Maybe [DevEndpoint])
+  , _gdersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

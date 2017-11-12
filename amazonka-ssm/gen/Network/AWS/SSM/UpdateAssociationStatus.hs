@@ -48,9 +48,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateAssociationStatus' smart constructor.
 data UpdateAssociationStatus = UpdateAssociationStatus'
-  { _uasName              :: {-# NOUNPACK #-}!Text
-  , _uasInstanceId        :: {-# NOUNPACK #-}!Text
-  , _uasAssociationStatus :: {-# NOUNPACK #-}!AssociationStatus
+  { _uasName              :: !Text
+  , _uasInstanceId        :: !Text
+  , _uasAssociationStatus :: !AssociationStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery UpdateAssociationStatus where
 
 -- | /See:/ 'updateAssociationStatusResponse' smart constructor.
 data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
-  { _uasrsAssociationDescription :: {-# NOUNPACK #-}!(Maybe AssociationDescription)
-  , _uasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uasrsAssociationDescription :: !(Maybe AssociationDescription)
+  , _uasrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

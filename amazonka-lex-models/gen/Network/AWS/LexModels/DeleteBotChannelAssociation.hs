@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteBotChannelAssociation' smart constructor.
 data DeleteBotChannelAssociation = DeleteBotChannelAssociation'
-  { _dbcaName     :: {-# NOUNPACK #-}!Text
-  , _dbcaBotName  :: {-# NOUNPACK #-}!Text
-  , _dbcaBotAlias :: {-# NOUNPACK #-}!Text
+  { _dbcaName     :: !Text
+  , _dbcaBotName  :: !Text
+  , _dbcaBotAlias :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

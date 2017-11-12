@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listTeamMembers' smart constructor.
 data ListTeamMembers = ListTeamMembers'
-  { _ltmNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltmMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ltmProjectId  :: {-# NOUNPACK #-}!Text
+  { _ltmNextToken  :: !(Maybe Text)
+  , _ltmMaxResults :: !(Maybe Nat)
+  , _ltmProjectId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,9 +126,9 @@ instance ToQuery ListTeamMembers where
 
 -- | /See:/ 'listTeamMembersResponse' smart constructor.
 data ListTeamMembersResponse = ListTeamMembersResponse'
-  { _ltmrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltmrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ltmrsTeamMembers    :: {-# NOUNPACK #-}![TeamMember]
+  { _ltmrsNextToken      :: !(Maybe Text)
+  , _ltmrsResponseStatus :: !Int
+  , _ltmrsTeamMembers    :: ![TeamMember]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

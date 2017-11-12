@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDBSecurityGroup' smart constructor.
 data CreateDBSecurityGroup = CreateDBSecurityGroup'
-  { _cdsgTags                       :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cdsgDBSecurityGroupName        :: {-# NOUNPACK #-}!Text
-  , _cdsgDBSecurityGroupDescription :: {-# NOUNPACK #-}!Text
+  { _cdsgTags                       :: !(Maybe [Tag])
+  , _cdsgDBSecurityGroupName        :: !Text
+  , _cdsgDBSecurityGroupDescription :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery CreateDBSecurityGroup where
 
 -- | /See:/ 'createDBSecurityGroupResponse' smart constructor.
 data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
-  { _cdbsgrsDBSecurityGroup :: {-# NOUNPACK #-}!(Maybe DBSecurityGroup)
-  , _cdbsgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _cdbsgrsDBSecurityGroup :: !(Maybe DBSecurityGroup)
+  , _cdbsgrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

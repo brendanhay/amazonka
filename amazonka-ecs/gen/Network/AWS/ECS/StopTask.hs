@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'stopTask' smart constructor.
 data StopTask = StopTask'
-  { _stCluster :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stReason  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stTask    :: {-# NOUNPACK #-}!Text
+  { _stCluster :: !(Maybe Text)
+  , _stReason  :: !(Maybe Text)
+  , _stTask    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery StopTask where
 
 -- | /See:/ 'stopTaskResponse' smart constructor.
 data StopTaskResponse = StopTaskResponse'
-  { _srsTask           :: {-# NOUNPACK #-}!(Maybe Task)
-  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _srsTask           :: !(Maybe Task)
+  , _srsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

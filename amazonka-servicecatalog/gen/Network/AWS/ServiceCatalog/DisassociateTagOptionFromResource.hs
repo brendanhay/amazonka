@@ -46,8 +46,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'disassociateTagOptionFromResource' smart constructor.
 data DisassociateTagOptionFromResource = DisassociateTagOptionFromResource'
-  { _dtofrResourceId  :: {-# NOUNPACK #-}!Text
-  , _dtofrTagOptionId :: {-# NOUNPACK #-}!Text
+  { _dtofrResourceId  :: !Text
+  , _dtofrTagOptionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

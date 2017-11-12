@@ -67,22 +67,22 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'updateHealthCheck' smart constructor.
 data UpdateHealthCheck = UpdateHealthCheck'
-  { _uhcFailureThreshold :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _uhcIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uhcEnableSNI :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uhcResetElements :: {-# NOUNPACK #-}!(Maybe [ResettableElementName])
-  , _uhcSearchString :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uhcHealthThreshold :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _uhcRegions :: {-# NOUNPACK #-}!(Maybe (List1 HealthCheckRegion))
-  , _uhcResourcePath :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uhcInsufficientDataHealthStatus :: {-# NOUNPACK #-}!(Maybe InsufficientDataHealthStatus)
-  , _uhcHealthCheckVersion :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _uhcAlarmIdentifier :: {-# NOUNPACK #-}!(Maybe AlarmIdentifier)
-  , _uhcInverted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uhcFullyQualifiedDomainName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uhcChildHealthChecks :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uhcPort :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _uhcHealthCheckId :: {-# NOUNPACK #-}!Text
+  { _uhcFailureThreshold             :: !(Maybe Nat)
+  , _uhcIPAddress                    :: !(Maybe Text)
+  , _uhcEnableSNI                    :: !(Maybe Bool)
+  , _uhcResetElements                :: !(Maybe [ResettableElementName])
+  , _uhcSearchString                 :: !(Maybe Text)
+  , _uhcHealthThreshold              :: !(Maybe Nat)
+  , _uhcRegions                      :: !(Maybe (List1 HealthCheckRegion))
+  , _uhcResourcePath                 :: !(Maybe Text)
+  , _uhcInsufficientDataHealthStatus :: !(Maybe InsufficientDataHealthStatus)
+  , _uhcHealthCheckVersion           :: !(Maybe Nat)
+  , _uhcAlarmIdentifier              :: !(Maybe AlarmIdentifier)
+  , _uhcInverted                     :: !(Maybe Bool)
+  , _uhcFullyQualifiedDomainName     :: !(Maybe Text)
+  , _uhcChildHealthChecks            :: !(Maybe [Text])
+  , _uhcPort                         :: !(Maybe Nat)
+  , _uhcHealthCheckId                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -268,8 +268,8 @@ instance ToXML UpdateHealthCheck where
 
 -- | /See:/ 'updateHealthCheckResponse' smart constructor.
 data UpdateHealthCheckResponse = UpdateHealthCheckResponse'
-  { _uhcrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _uhcrsHealthCheck    :: {-# NOUNPACK #-}!HealthCheck
+  { _uhcrsResponseStatus :: !Int
+  , _uhcrsHealthCheck    :: !HealthCheck
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

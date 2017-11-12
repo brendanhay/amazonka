@@ -94,8 +94,8 @@ instance ToQuery GetCurrentUser where
 
 -- | /See:/ 'getCurrentUserResponse' smart constructor.
 data GetCurrentUserResponse = GetCurrentUserResponse'
-  { _gcursUser           :: {-# NOUNPACK #-}!(Maybe User)
-  , _gcursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcursUser           :: !(Maybe User)
+  , _gcursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

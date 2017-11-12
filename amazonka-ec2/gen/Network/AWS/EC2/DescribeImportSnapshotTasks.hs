@@ -55,11 +55,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeImportSnapshotTasks' smart constructor.
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
-  { _distFilters       :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _distImportTaskIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _distNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _distDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _distMaxResults    :: {-# NOUNPACK #-}!(Maybe Int)
+  { _distFilters       :: !(Maybe [Filter])
+  , _distImportTaskIds :: !(Maybe [Text])
+  , _distNextToken     :: !(Maybe Text)
+  , _distDryRun        :: !(Maybe Bool)
+  , _distMaxResults    :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery DescribeImportSnapshotTasks where
 --
 -- /See:/ 'describeImportSnapshotTasksResponse' smart constructor.
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
-  { _distrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _distrsImportSnapshotTasks :: {-# NOUNPACK #-}!(Maybe [ImportSnapshotTask])
-  , _distrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _distrsNextToken           :: !(Maybe Text)
+  , _distrsImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])
+  , _distrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

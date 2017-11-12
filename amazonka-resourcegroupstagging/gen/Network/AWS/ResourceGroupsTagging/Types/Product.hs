@@ -27,9 +27,9 @@ import Network.AWS.ResourceGroupsTagging.Types.Sum
 --
 -- /See:/ 'failureInfo' smart constructor.
 data FailureInfo = FailureInfo'
-  { _fiErrorCode    :: {-# NOUNPACK #-}!(Maybe ResourceErrorCode)
-  , _fiErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fiStatusCode   :: {-# NOUNPACK #-}!(Maybe Int)
+  { _fiErrorCode    :: !(Maybe ResourceErrorCode)
+  , _fiErrorMessage :: !(Maybe Text)
+  , _fiStatusCode   :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -79,8 +79,8 @@ instance NFData FailureInfo where
 --
 -- /See:/ 'resourceTagMapping' smart constructor.
 data ResourceTagMapping = ResourceTagMapping'
-  { _rtmResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtmTags        :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _rtmResourceARN :: !(Maybe Text)
+  , _rtmTags        :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance NFData ResourceTagMapping where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!Text
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -164,8 +164,8 @@ instance NFData Tag where
 --
 -- /See:/ 'tagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { _tfValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _tfKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tfValues :: !(Maybe [Text])
+  , _tfKey    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

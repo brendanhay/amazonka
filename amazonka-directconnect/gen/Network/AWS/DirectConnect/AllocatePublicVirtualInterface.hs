@@ -75,9 +75,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'allocatePublicVirtualInterface' smart constructor.
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
-  { _aConnectionId :: {-# NOUNPACK #-}!Text
-  , _aOwnerAccount :: {-# NOUNPACK #-}!Text
-  , _aNewPublicVirtualInterfaceAllocation :: {-# NOUNPACK #-}!NewPublicVirtualInterfaceAllocation
+  { _aConnectionId :: !Text
+  , _aOwnerAccount :: !Text
+  , _aNewPublicVirtualInterfaceAllocation :: !NewPublicVirtualInterfaceAllocation
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -29,10 +29,10 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'usageRecord' smart constructor.
 data UsageRecord = UsageRecord'
-  { _urTimestamp          :: {-# NOUNPACK #-}!POSIX
-  , _urCustomerIdentifier :: {-# NOUNPACK #-}!Text
-  , _urDimension          :: {-# NOUNPACK #-}!Text
-  , _urQuantity           :: {-# NOUNPACK #-}!Nat
+  { _urTimestamp          :: !POSIX
+  , _urCustomerIdentifier :: !Text
+  , _urDimension          :: !Text
+  , _urQuantity           :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -106,9 +106,9 @@ instance ToJSON UsageRecord where
 --
 -- /See:/ 'usageRecordResult' smart constructor.
 data UsageRecordResult = UsageRecordResult'
-  { _urrStatus           :: {-# NOUNPACK #-}!(Maybe UsageRecordResultStatus)
-  , _urrUsageRecord      :: {-# NOUNPACK #-}!(Maybe UsageRecord)
-  , _urrMeteringRecordId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _urrStatus           :: !(Maybe UsageRecordResultStatus)
+  , _urrUsageRecord      :: !(Maybe UsageRecord)
+  , _urrMeteringRecordId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'closeInstancePublicPorts' smart constructor.
 data CloseInstancePublicPorts = CloseInstancePublicPorts'
-  { _cippPortInfo     :: {-# NOUNPACK #-}!PortInfo
-  , _cippInstanceName :: {-# NOUNPACK #-}!Text
+  { _cippPortInfo     :: !PortInfo
+  , _cippInstanceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery CloseInstancePublicPorts where
 
 -- | /See:/ 'closeInstancePublicPortsResponse' smart constructor.
 data CloseInstancePublicPortsResponse = CloseInstancePublicPortsResponse'
-  { _cipprsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _cipprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cipprsOperation      :: !(Maybe Operation)
+  , _cipprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

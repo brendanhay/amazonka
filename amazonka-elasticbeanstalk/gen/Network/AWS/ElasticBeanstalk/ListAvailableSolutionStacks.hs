@@ -96,9 +96,9 @@ instance ToQuery ListAvailableSolutionStacks where
 --
 -- /See:/ 'listAvailableSolutionStacksResponse' smart constructor.
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
-  { _lassrsSolutionStacks :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lassrsSolutionStackDetails :: {-# NOUNPACK #-}!(Maybe [SolutionStackDescription])
-  , _lassrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lassrsSolutionStacks       :: !(Maybe [Text])
+  , _lassrsSolutionStackDetails :: !(Maybe [SolutionStackDescription])
+  , _lassrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

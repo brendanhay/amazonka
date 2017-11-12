@@ -80,19 +80,19 @@ import Network.AWS.Response
 --
 -- /See:/ 'createEnvironment' smart constructor.
 data CreateEnvironment = CreateEnvironment'
-  { _cCNAMEPrefix       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cTemplateName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cOptionsToRemove   :: {-# NOUNPACK #-}!(Maybe [OptionSpecification])
-  , _cOptionSettings    :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionSetting])
-  , _cVersionLabel      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cPlatformARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cTier              :: {-# NOUNPACK #-}!(Maybe EnvironmentTier)
-  , _cEnvironmentName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cGroupName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cDescription       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cTags              :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cApplicationName   :: {-# NOUNPACK #-}!Text
+  { _cCNAMEPrefix       :: !(Maybe Text)
+  , _cTemplateName      :: !(Maybe Text)
+  , _cOptionsToRemove   :: !(Maybe [OptionSpecification])
+  , _cOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
+  , _cVersionLabel      :: !(Maybe Text)
+  , _cPlatformARN       :: !(Maybe Text)
+  , _cTier              :: !(Maybe EnvironmentTier)
+  , _cEnvironmentName   :: !(Maybe Text)
+  , _cSolutionStackName :: !(Maybe Text)
+  , _cGroupName         :: !(Maybe Text)
+  , _cDescription       :: !(Maybe Text)
+  , _cTags              :: !(Maybe [Tag])
+  , _cApplicationName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -59,11 +59,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'createUsagePlan' smart constructor.
 data CreateUsagePlan = CreateUsagePlan'
-  { _cupApiStages   :: {-# NOUNPACK #-}!(Maybe [APIStage])
-  , _cupThrottle    :: {-# NOUNPACK #-}!(Maybe ThrottleSettings)
-  , _cupQuota       :: {-# NOUNPACK #-}!(Maybe QuotaSettings)
-  , _cupDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cupName        :: {-# NOUNPACK #-}!Text
+  { _cupApiStages   :: !(Maybe [APIStage])
+  , _cupThrottle    :: !(Maybe ThrottleSettings)
+  , _cupQuota       :: !(Maybe QuotaSettings)
+  , _cupDescription :: !(Maybe Text)
+  , _cupName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

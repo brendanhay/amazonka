@@ -59,10 +59,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAssignmentsForHIT' smart constructor.
 data ListAssignmentsForHIT = ListAssignmentsForHIT'
-  { _lafhitAssignmentStatuses :: {-# NOUNPACK #-}!(Maybe [AssignmentStatus])
-  , _lafhitNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lafhitMaxResults         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lafhitHITId              :: {-# NOUNPACK #-}!Text
+  { _lafhitAssignmentStatuses :: !(Maybe [AssignmentStatus])
+  , _lafhitNextToken          :: !(Maybe Text)
+  , _lafhitMaxResults         :: !(Maybe Nat)
+  , _lafhitHITId              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,10 +149,10 @@ instance ToQuery ListAssignmentsForHIT where
 
 -- | /See:/ 'listAssignmentsForHITResponse' smart constructor.
 data ListAssignmentsForHITResponse = ListAssignmentsForHITResponse'
-  { _lafhitrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lafhitrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lafhitrsAssignments    :: {-# NOUNPACK #-}!(Maybe [Assignment])
-  , _lafhitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lafhitrsNextToken      :: !(Maybe Text)
+  , _lafhitrsNumResults     :: !(Maybe Int)
+  , _lafhitrsAssignments    :: !(Maybe [Assignment])
+  , _lafhitrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

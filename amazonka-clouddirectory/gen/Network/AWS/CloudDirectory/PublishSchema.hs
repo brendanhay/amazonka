@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'publishSchema' smart constructor.
 data PublishSchema = PublishSchema'
-  { _psName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psDevelopmentSchemaARN :: {-# NOUNPACK #-}!Text
-  , _psVersion              :: {-# NOUNPACK #-}!Text
+  { _psName                 :: !(Maybe Text)
+  , _psDevelopmentSchemaARN :: !Text
+  , _psVersion              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery PublishSchema where
 
 -- | /See:/ 'publishSchemaResponse' smart constructor.
 data PublishSchemaResponse = PublishSchemaResponse'
-  { _psrsPublishedSchemaARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _psrsPublishedSchemaARN :: !(Maybe Text)
+  , _psrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -100,10 +100,10 @@ instance ToQuery GetBuiltinIntent where
 
 -- | /See:/ 'getBuiltinIntentResponse' smart constructor.
 data GetBuiltinIntentResponse = GetBuiltinIntentResponse'
-  { _gbirsSignature        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbirsSlots            :: {-# NOUNPACK #-}!(Maybe [BuiltinIntentSlot])
-  , _gbirsSupportedLocales :: {-# NOUNPACK #-}!(Maybe [Locale])
-  , _gbirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _gbirsSignature        :: !(Maybe Text)
+  , _gbirsSlots            :: !(Maybe [BuiltinIntentSlot])
+  , _gbirsSupportedLocales :: !(Maybe [Locale])
+  , _gbirsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

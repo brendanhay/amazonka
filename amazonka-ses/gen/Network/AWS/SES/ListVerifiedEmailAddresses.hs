@@ -92,8 +92,8 @@ instance ToQuery ListVerifiedEmailAddresses where
 --
 -- /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
-  { _lvearsVerifiedEmailAddresses :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lvearsResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _lvearsVerifiedEmailAddresses :: !(Maybe [Text])
+  , _lvearsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

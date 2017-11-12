@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeCacheSecurityGroups' smart constructor.
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
-  { _dcsgsCacheSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsgsMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsgsMaxRecords             :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dcsgsCacheSecurityGroupName :: !(Maybe Text)
+  , _dcsgsMarker                 :: !(Maybe Text)
+  , _dcsgsMaxRecords             :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery DescribeCacheSecurityGroups where
 --
 -- /See:/ 'describeCacheSecurityGroupsResponse' smart constructor.
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
-  { _dcsgsrsCacheSecurityGroups :: {-# NOUNPACK #-}!(Maybe [CacheSecurityGroup])
-  , _dcsgsrsMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsgsrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _dcsgsrsCacheSecurityGroups :: !(Maybe [CacheSecurityGroup])
+  , _dcsgsrsMarker              :: !(Maybe Text)
+  , _dcsgsrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

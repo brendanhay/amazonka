@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'acknowledgeJob' smart constructor.
 data AcknowledgeJob = AcknowledgeJob'
-  { _ajJobId :: {-# NOUNPACK #-}!Text
-  , _ajNonce :: {-# NOUNPACK #-}!Text
+  { _ajJobId :: !Text
+  , _ajNonce :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery AcknowledgeJob where
 --
 -- /See:/ 'acknowledgeJobResponse' smart constructor.
 data AcknowledgeJobResponse = AcknowledgeJobResponse'
-  { _ajrsStatus         :: {-# NOUNPACK #-}!(Maybe JobStatus)
-  , _ajrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ajrsStatus         :: !(Maybe JobStatus)
+  , _ajrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

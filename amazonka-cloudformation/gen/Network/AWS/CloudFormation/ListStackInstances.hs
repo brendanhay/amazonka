@@ -51,11 +51,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'listStackInstances' smart constructor.
 data ListStackInstances = ListStackInstances'
-  { _lsiStackInstanceRegion  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsiNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsiStackInstanceAccount :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsiMaxResults           :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lsiStackSetName         :: {-# NOUNPACK #-}!Text
+  { _lsiStackInstanceRegion  :: !(Maybe Text)
+  , _lsiNextToken            :: !(Maybe Text)
+  , _lsiStackInstanceAccount :: !(Maybe Text)
+  , _lsiMaxResults           :: !(Maybe Nat)
+  , _lsiStackSetName         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery ListStackInstances where
 
 -- | /See:/ 'listStackInstancesResponse' smart constructor.
 data ListStackInstancesResponse = ListStackInstancesResponse'
-  { _lsirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsirsSummaries      :: {-# NOUNPACK #-}!(Maybe [StackInstanceSummary])
-  , _lsirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lsirsNextToken      :: !(Maybe Text)
+  , _lsirsSummaries      :: !(Maybe [StackInstanceSummary])
+  , _lsirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

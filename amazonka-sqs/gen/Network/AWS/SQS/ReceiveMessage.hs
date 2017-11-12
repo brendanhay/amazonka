@@ -80,13 +80,13 @@ import Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'receiveMessage' smart constructor.
 data ReceiveMessage = ReceiveMessage'
-  { _rmReceiveRequestAttemptId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmVisibilityTimeout       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rmMessageAttributeNames   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rmWaitTimeSeconds         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rmAttributeNames          :: {-# NOUNPACK #-}!(Maybe [MessageAttribute])
-  , _rmMaxNumberOfMessages     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rmQueueURL                :: {-# NOUNPACK #-}!Text
+  { _rmReceiveRequestAttemptId :: !(Maybe Text)
+  , _rmVisibilityTimeout       :: !(Maybe Int)
+  , _rmMessageAttributeNames   :: !(Maybe [Text])
+  , _rmWaitTimeSeconds         :: !(Maybe Int)
+  , _rmAttributeNames          :: !(Maybe [MessageAttribute])
+  , _rmMaxNumberOfMessages     :: !(Maybe Int)
+  , _rmQueueURL                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -193,8 +193,8 @@ instance ToQuery ReceiveMessage where
 --
 -- /See:/ 'receiveMessageResponse' smart constructor.
 data ReceiveMessageResponse = ReceiveMessageResponse'
-  { _rmrsMessages       :: {-# NOUNPACK #-}!(Maybe [Message])
-  , _rmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rmrsMessages       :: !(Maybe [Message])
+  , _rmrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

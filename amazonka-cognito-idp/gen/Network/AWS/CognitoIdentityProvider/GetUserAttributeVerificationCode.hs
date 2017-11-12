@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getUserAttributeVerificationCode' smart constructor.
 data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
-  { _guavcAccessToken   :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _guavcAttributeName :: {-# NOUNPACK #-}!Text
+  { _guavcAccessToken   :: !(Sensitive Text)
+  , _guavcAttributeName :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -133,8 +133,8 @@ instance ToQuery GetUserAttributeVerificationCode
 --
 -- /See:/ 'getUserAttributeVerificationCodeResponse' smart constructor.
 data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCodeResponse'
-  { _guavcrsCodeDeliveryDetails :: {-# NOUNPACK #-}!(Maybe CodeDeliveryDetailsType)
-  , _guavcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _guavcrsCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
+  , _guavcrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

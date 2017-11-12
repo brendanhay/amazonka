@@ -52,8 +52,8 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'createVPCAssociationAuthorization' smart constructor.
 data CreateVPCAssociationAuthorization = CreateVPCAssociationAuthorization'
-  { _cvaaHostedZoneId :: {-# NOUNPACK #-}!ResourceId
-  , _cvaaVPC          :: {-# NOUNPACK #-}!VPC
+  { _cvaaHostedZoneId :: !ResourceId
+  , _cvaaVPC          :: !VPC
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,9 +131,9 @@ instance ToXML CreateVPCAssociationAuthorization
 --
 -- /See:/ 'createVPCAssociationAuthorizationResponse' smart constructor.
 data CreateVPCAssociationAuthorizationResponse = CreateVPCAssociationAuthorizationResponse'
-  { _cvaarsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _cvaarsHostedZoneId   :: {-# NOUNPACK #-}!ResourceId
-  , _cvaarsVPC            :: {-# NOUNPACK #-}!VPC
+  { _cvaarsResponseStatus :: !Int
+  , _cvaarsHostedZoneId   :: !ResourceId
+  , _cvaarsVPC            :: !VPC
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

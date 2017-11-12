@@ -52,11 +52,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateServer' smart constructor.
 data UpdateServer = UpdateServer'
-  { _usDisableAutomatedBackup     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _usPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usPreferredBackupWindow      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usBackupRetentionCount       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _usServerName                 :: {-# NOUNPACK #-}!Text
+  { _usDisableAutomatedBackup     :: !(Maybe Bool)
+  , _usPreferredMaintenanceWindow :: !(Maybe Text)
+  , _usPreferredBackupWindow      :: !(Maybe Text)
+  , _usBackupRetentionCount       :: !(Maybe Int)
+  , _usServerName                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,8 +151,8 @@ instance ToQuery UpdateServer where
 
 -- | /See:/ 'updateServerResponse' smart constructor.
 data UpdateServerResponse = UpdateServerResponse'
-  { _usrsServer         :: {-# NOUNPACK #-}!(Maybe Server)
-  , _usrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _usrsServer         :: !(Maybe Server)
+  , _usrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

@@ -53,8 +53,8 @@ import Network.AWS.Support.Types.Product
 --
 -- /See:/ 'describeServices' smart constructor.
 data DescribeServices = DescribeServices'
-  { _dsServiceCodeList :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dsLanguage        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dsServiceCodeList :: !(Maybe [Text])
+  , _dsLanguage        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery DescribeServices where
 --
 -- /See:/ 'describeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { _dsrsServices       :: {-# NOUNPACK #-}!(Maybe [SupportService])
-  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsrsServices       :: !(Maybe [SupportService])
+  , _dsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

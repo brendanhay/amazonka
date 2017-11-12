@@ -66,11 +66,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'allocateHostedConnection' smart constructor.
 data AllocateHostedConnection = AllocateHostedConnection'
-  { _ahcConnectionId   :: {-# NOUNPACK #-}!Text
-  , _ahcOwnerAccount   :: {-# NOUNPACK #-}!Text
-  , _ahcBandwidth      :: {-# NOUNPACK #-}!Text
-  , _ahcConnectionName :: {-# NOUNPACK #-}!Text
-  , _ahcVlan           :: {-# NOUNPACK #-}!Int
+  { _ahcConnectionId   :: !Text
+  , _ahcOwnerAccount   :: !Text
+  , _ahcBandwidth      :: !Text
+  , _ahcConnectionName :: !Text
+  , _ahcVlan           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

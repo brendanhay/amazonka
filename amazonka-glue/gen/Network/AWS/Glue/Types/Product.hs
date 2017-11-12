@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'action' smart constructor.
 data Action = Action'
-  { _aArguments :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _aJobName   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aArguments :: !(Maybe (Map Text Text))
+  , _aJobName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -76,9 +76,9 @@ instance ToJSON Action where
 --
 -- /See:/ 'batchStopJobRunError' smart constructor.
 data BatchStopJobRunError = BatchStopJobRunError'
-  { _bsjreJobName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bsjreJobRunId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bsjreErrorDetail :: {-# NOUNPACK #-}!(Maybe ErrorDetail)
+  { _bsjreJobName     :: !(Maybe Text)
+  , _bsjreJobRunId    :: !(Maybe Text)
+  , _bsjreErrorDetail :: !(Maybe ErrorDetail)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance NFData BatchStopJobRunError where
 --
 -- /See:/ 'batchStopJobRunSuccessfulSubmission' smart constructor.
 data BatchStopJobRunSuccessfulSubmission = BatchStopJobRunSuccessfulSubmission'
-  { _bsjrssJobName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bsjrssJobRunId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bsjrssJobName  :: !(Maybe Text)
+  , _bsjrssJobRunId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -178,8 +178,8 @@ instance NFData BatchStopJobRunSuccessfulSubmission
 --
 -- /See:/ 'catalogEntry' smart constructor.
 data CatalogEntry = CatalogEntry'
-  { _ceDatabaseName :: {-# NOUNPACK #-}!Text
-  , _ceTableName    :: {-# NOUNPACK #-}!Text
+  { _ceDatabaseName :: !Text
+  , _ceTableName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -223,9 +223,9 @@ instance ToJSON CatalogEntry where
 --
 -- /See:/ 'catalogImportStatus' smart constructor.
 data CatalogImportStatus = CatalogImportStatus'
-  { _cisImportedBy      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cisImportTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cisImportCompleted :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _cisImportedBy      :: !(Maybe Text)
+  , _cisImportTime      :: !(Maybe POSIX)
+  , _cisImportCompleted :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -311,9 +311,9 @@ instance NFData Classifier where
 --
 -- /See:/ 'codeGenEdge' smart constructor.
 data CodeGenEdge = CodeGenEdge'
-  { _cgeTargetParameter :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgeSource          :: {-# NOUNPACK #-}!Text
-  , _cgeTarget          :: {-# NOUNPACK #-}!Text
+  { _cgeTargetParameter :: !(Maybe Text)
+  , _cgeSource          :: !Text
+  , _cgeTarget          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -373,10 +373,10 @@ instance ToJSON CodeGenEdge where
 --
 -- /See:/ 'codeGenNode' smart constructor.
 data CodeGenNode = CodeGenNode'
-  { _cgnLineNumber :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cgnId         :: {-# NOUNPACK #-}!Text
-  , _cgnNodeType   :: {-# NOUNPACK #-}!Text
-  , _cgnArgs       :: {-# NOUNPACK #-}![CodeGenNodeArg]
+  { _cgnLineNumber :: !(Maybe Int)
+  , _cgnId         :: !Text
+  , _cgnNodeType   :: !Text
+  , _cgnArgs       :: ![CodeGenNodeArg]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -448,9 +448,9 @@ instance ToJSON CodeGenNode where
 --
 -- /See:/ 'codeGenNodeArg' smart constructor.
 data CodeGenNodeArg = CodeGenNodeArg'
-  { _cgnaParam :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cgnaName  :: {-# NOUNPACK #-}!Text
-  , _cgnaValue :: {-# NOUNPACK #-}!Text
+  { _cgnaParam :: !(Maybe Bool)
+  , _cgnaName  :: !Text
+  , _cgnaValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -509,9 +509,9 @@ instance ToJSON CodeGenNodeArg where
 --
 -- /See:/ 'column' smart constructor.
 data Column = Column'
-  { _cType    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cComment :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cName    :: {-# NOUNPACK #-}!Text
+  { _cType    :: !(Maybe Text)
+  , _cComment :: !(Maybe Text)
+  , _cName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -568,9 +568,9 @@ instance ToJSON Column where
 --
 -- /See:/ 'condition' smart constructor.
 data Condition = Condition'
-  { _cState           :: {-# NOUNPACK #-}!(Maybe JobRunState)
-  , _cJobName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cLogicalOperator :: {-# NOUNPACK #-}!(Maybe LogicalOperator)
+  { _cState           :: !(Maybe JobRunState)
+  , _cJobName         :: !(Maybe Text)
+  , _cLogicalOperator :: !(Maybe LogicalOperator)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -628,15 +628,15 @@ instance ToJSON Condition where
 --
 -- /See:/ 'connection' smart constructor.
 data Connection = Connection'
-  { _conCreationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _conLastUpdatedBy :: {-# NOUNPACK #-}!(Maybe Text)
-  , _conConnectionProperties :: {-# NOUNPACK #-}!(Maybe (Map ConnectionPropertyKey Text))
-  , _conLastUpdatedTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _conMatchCriteria :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _conPhysicalConnectionRequirements :: {-# NOUNPACK #-}!(Maybe PhysicalConnectionRequirements)
-  , _conName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _conDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _conConnectionType :: {-# NOUNPACK #-}!(Maybe ConnectionType)
+  { _conCreationTime :: !(Maybe POSIX)
+  , _conLastUpdatedBy :: !(Maybe Text)
+  , _conConnectionProperties :: !(Maybe (Map ConnectionPropertyKey Text))
+  , _conLastUpdatedTime :: !(Maybe POSIX)
+  , _conMatchCriteria :: !(Maybe [Text])
+  , _conPhysicalConnectionRequirements :: !(Maybe PhysicalConnectionRequirements)
+  , _conName :: !(Maybe Text)
+  , _conDescription :: !(Maybe Text)
+  , _conConnectionType :: !(Maybe ConnectionType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -737,12 +737,12 @@ instance NFData Connection where
 --
 -- /See:/ 'connectionInput' smart constructor.
 data ConnectionInput = ConnectionInput'
-  { _ciConnectionProperties :: {-# NOUNPACK #-}!(Maybe (Map ConnectionPropertyKey Text))
-  , _ciMatchCriteria :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ciPhysicalConnectionRequirements :: {-# NOUNPACK #-}!(Maybe PhysicalConnectionRequirements)
-  , _ciName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciConnectionType :: {-# NOUNPACK #-}!(Maybe ConnectionType)
+  { _ciConnectionProperties :: !(Maybe (Map ConnectionPropertyKey Text))
+  , _ciMatchCriteria :: !(Maybe [Text])
+  , _ciPhysicalConnectionRequirements :: !(Maybe PhysicalConnectionRequirements)
+  , _ciName :: !(Maybe Text)
+  , _ciDescription :: !(Maybe Text)
+  , _ciConnectionType :: !(Maybe ConnectionType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -861,21 +861,21 @@ instance ToJSON ConnectionsList where
 --
 -- /See:/ 'crawler' smart constructor.
 data Crawler = Crawler'
-  { _craCreationTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _craState              :: {-# NOUNPACK #-}!(Maybe CrawlerState)
-  , _craSchemaChangePolicy :: {-# NOUNPACK #-}!(Maybe SchemaChangePolicy)
-  , _craLastUpdated        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _craSchedule           :: {-# NOUNPACK #-}!(Maybe Schedule)
-  , _craLastCrawl          :: {-# NOUNPACK #-}!(Maybe LastCrawlInfo)
-  , _craCrawlElapsedTime   :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _craClassifiers        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _craRole               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _craName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _craTargets            :: {-# NOUNPACK #-}!(Maybe CrawlerTargets)
-  , _craVersion            :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _craDatabaseName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _craTablePrefix        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _craDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _craCreationTime       :: !(Maybe POSIX)
+  , _craState              :: !(Maybe CrawlerState)
+  , _craSchemaChangePolicy :: !(Maybe SchemaChangePolicy)
+  , _craLastUpdated        :: !(Maybe POSIX)
+  , _craSchedule           :: !(Maybe Schedule)
+  , _craLastCrawl          :: !(Maybe LastCrawlInfo)
+  , _craCrawlElapsedTime   :: !(Maybe Integer)
+  , _craClassifiers        :: !(Maybe [Text])
+  , _craRole               :: !(Maybe Text)
+  , _craName               :: !(Maybe Text)
+  , _craTargets            :: !(Maybe CrawlerTargets)
+  , _craVersion            :: !(Maybe Integer)
+  , _craDatabaseName       :: !(Maybe Text)
+  , _craTablePrefix        :: !(Maybe Text)
+  , _craDescription        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1024,14 +1024,14 @@ instance NFData Crawler where
 --
 -- /See:/ 'crawlerMetrics' smart constructor.
 data CrawlerMetrics = CrawlerMetrics'
-  { _cmLastRuntimeSeconds   :: {-# NOUNPACK #-}!(Maybe Double)
-  , _cmTablesCreated        :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cmStillEstimating      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cmMedianRuntimeSeconds :: {-# NOUNPACK #-}!(Maybe Double)
-  , _cmTimeLeftSeconds      :: {-# NOUNPACK #-}!(Maybe Double)
-  , _cmTablesDeleted        :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cmTablesUpdated        :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cmCrawlerName          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cmLastRuntimeSeconds   :: !(Maybe Double)
+  , _cmTablesCreated        :: !(Maybe Nat)
+  , _cmStillEstimating      :: !(Maybe Bool)
+  , _cmMedianRuntimeSeconds :: !(Maybe Double)
+  , _cmTimeLeftSeconds      :: !(Maybe Double)
+  , _cmTablesDeleted        :: !(Maybe Nat)
+  , _cmTablesUpdated        :: !(Maybe Nat)
+  , _cmCrawlerName          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1125,8 +1125,8 @@ instance NFData CrawlerMetrics where
 --
 -- /See:/ 'crawlerTargets' smart constructor.
 data CrawlerTargets = CrawlerTargets'
-  { _ctS3Targets   :: {-# NOUNPACK #-}!(Maybe [S3Target])
-  , _ctJdbcTargets :: {-# NOUNPACK #-}!(Maybe [JdbcTarget])
+  { _ctS3Targets   :: !(Maybe [S3Target])
+  , _ctJdbcTargets :: !(Maybe [JdbcTarget])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1176,10 +1176,10 @@ instance ToJSON CrawlerTargets where
 --
 -- /See:/ 'createGrokClassifierRequest' smart constructor.
 data CreateGrokClassifierRequest = CreateGrokClassifierRequest'
-  { _cgcrCustomPatterns :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgcrClassification :: {-# NOUNPACK #-}!Text
-  , _cgcrName           :: {-# NOUNPACK #-}!Text
-  , _cgcrGrokPattern    :: {-# NOUNPACK #-}!Text
+  { _cgcrCustomPatterns :: !(Maybe Text)
+  , _cgcrClassification :: !Text
+  , _cgcrName           :: !Text
+  , _cgcrGrokPattern    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1243,11 +1243,11 @@ instance ToJSON CreateGrokClassifierRequest where
 --
 -- /See:/ 'database' smart constructor.
 data Database = Database'
-  { _dLocationURI :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dParameters  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _dDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dCreateTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dName        :: {-# NOUNPACK #-}!Text
+  { _dLocationURI :: !(Maybe Text)
+  , _dParameters  :: !(Maybe (Map Text Text))
+  , _dDescription :: !(Maybe Text)
+  , _dCreateTime  :: !(Maybe POSIX)
+  , _dName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1318,10 +1318,10 @@ instance NFData Database where
 --
 -- /See:/ 'databaseInput' smart constructor.
 data DatabaseInput = DatabaseInput'
-  { _diLocationURI :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diParameters  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _diDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diName        :: {-# NOUNPACK #-}!Text
+  { _diLocationURI :: !(Maybe Text)
+  , _diParameters  :: !(Maybe (Map Text Text))
+  , _diDescription :: !(Maybe Text)
+  , _diName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1383,24 +1383,24 @@ instance ToJSON DatabaseInput where
 --
 -- /See:/ 'devEndpoint' smart constructor.
 data DevEndpoint = DevEndpoint'
-  { _deStatus                             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deFailureReason                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deEndpointName                       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deExtraPythonLibsS3Path              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deLastUpdateStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deSecurityGroupIds                   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _deLastModifiedTimestamp              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _deVPCId                              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dePublicKey                          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deSubnetId                           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deNumberOfNodes                      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dePublicAddress                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deAvailabilityZone                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deZeppelinRemoteSparkInterpreterPort :: {-# NOUNPACK #-}!(Maybe Int)
-  , _deExtraJARsS3Path                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deCreatedTimestamp                   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _deYarnEndpointAddress                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deRoleARN                            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _deStatus                             :: !(Maybe Text)
+  , _deFailureReason                      :: !(Maybe Text)
+  , _deEndpointName                       :: !(Maybe Text)
+  , _deExtraPythonLibsS3Path              :: !(Maybe Text)
+  , _deLastUpdateStatus                   :: !(Maybe Text)
+  , _deSecurityGroupIds                   :: !(Maybe [Text])
+  , _deLastModifiedTimestamp              :: !(Maybe POSIX)
+  , _deVPCId                              :: !(Maybe Text)
+  , _dePublicKey                          :: !(Maybe Text)
+  , _deSubnetId                           :: !(Maybe Text)
+  , _deNumberOfNodes                      :: !(Maybe Int)
+  , _dePublicAddress                      :: !(Maybe Text)
+  , _deAvailabilityZone                   :: !(Maybe Text)
+  , _deZeppelinRemoteSparkInterpreterPort :: !(Maybe Int)
+  , _deExtraJARsS3Path                    :: !(Maybe Text)
+  , _deCreatedTimestamp                   :: !(Maybe POSIX)
+  , _deYarnEndpointAddress                :: !(Maybe Text)
+  , _deRoleARN                            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1573,8 +1573,8 @@ instance NFData DevEndpoint where
 --
 -- /See:/ 'devEndpointCustomLibraries' smart constructor.
 data DevEndpointCustomLibraries = DevEndpointCustomLibraries'
-  { _declExtraPythonLibsS3Path :: {-# NOUNPACK #-}!(Maybe Text)
-  , _declExtraJARsS3Path       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _declExtraPythonLibsS3Path :: !(Maybe Text)
+  , _declExtraJARsS3Path       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1618,8 +1618,8 @@ instance ToJSON DevEndpointCustomLibraries where
 --
 -- /See:/ 'errorDetail' smart constructor.
 data ErrorDetail = ErrorDetail'
-  { _edErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _edErrorCode    :: !(Maybe Text)
+  , _edErrorMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1700,8 +1700,8 @@ instance ToJSON ExecutionProperty where
 --
 -- /See:/ 'getConnectionsFilter' smart constructor.
 data GetConnectionsFilter = GetConnectionsFilter'
-  { _gcfMatchCriteria  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gcfConnectionType :: {-# NOUNPACK #-}!(Maybe ConnectionType)
+  { _gcfMatchCriteria  :: !(Maybe [Text])
+  , _gcfConnectionType :: !(Maybe ConnectionType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1744,13 +1744,13 @@ instance ToJSON GetConnectionsFilter where
 --
 -- /See:/ 'grokClassifier' smart constructor.
 data GrokClassifier = GrokClassifier'
-  { _gcCreationTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gcLastUpdated    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gcVersion        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gcCustomPatterns :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcName           :: {-# NOUNPACK #-}!Text
-  , _gcClassification :: {-# NOUNPACK #-}!Text
-  , _gcGrokPattern    :: {-# NOUNPACK #-}!Text
+  { _gcCreationTime   :: !(Maybe POSIX)
+  , _gcLastUpdated    :: !(Maybe POSIX)
+  , _gcVersion        :: !(Maybe Integer)
+  , _gcCustomPatterns :: !(Maybe Text)
+  , _gcName           :: !Text
+  , _gcClassification :: !Text
+  , _gcGrokPattern    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1838,9 +1838,9 @@ instance NFData GrokClassifier where
 --
 -- /See:/ 'jdbcTarget' smart constructor.
 data JdbcTarget = JdbcTarget'
-  { _jtPath           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jtConnectionName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jtExclusions     :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _jtPath           :: !(Maybe Text)
+  , _jtConnectionName :: !(Maybe Text)
+  , _jtExclusions     :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1898,18 +1898,18 @@ instance ToJSON JdbcTarget where
 --
 -- /See:/ 'job' smart constructor.
 data Job = Job'
-  { _jCommand           :: {-# NOUNPACK #-}!(Maybe JobCommand)
-  , _jLastModifiedOn    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _jConnections       :: {-# NOUNPACK #-}!(Maybe ConnectionsList)
-  , _jRole              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jLogURI            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jMaxRetries        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _jExecutionProperty :: {-# NOUNPACK #-}!(Maybe ExecutionProperty)
-  , _jAllocatedCapacity :: {-# NOUNPACK #-}!(Maybe Int)
-  , _jDefaultArguments  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _jDescription       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jCreatedOn         :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _jCommand           :: !(Maybe JobCommand)
+  , _jLastModifiedOn    :: !(Maybe POSIX)
+  , _jConnections       :: !(Maybe ConnectionsList)
+  , _jRole              :: !(Maybe Text)
+  , _jName              :: !(Maybe Text)
+  , _jLogURI            :: !(Maybe Text)
+  , _jMaxRetries        :: !(Maybe Int)
+  , _jExecutionProperty :: !(Maybe ExecutionProperty)
+  , _jAllocatedCapacity :: !(Maybe Int)
+  , _jDefaultArguments  :: !(Maybe (Map Text Text))
+  , _jDescription       :: !(Maybe Text)
+  , _jCreatedOn         :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2034,11 +2034,11 @@ instance NFData Job where
 --
 -- /See:/ 'jobBookmarkEntry' smart constructor.
 data JobBookmarkEntry = JobBookmarkEntry'
-  { _jbeJobName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jbeRun         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _jbeVersion     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _jbeAttempt     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _jbeJobBookmark :: {-# NOUNPACK #-}!(Maybe Text)
+  { _jbeJobName     :: !(Maybe Text)
+  , _jbeRun         :: !(Maybe Int)
+  , _jbeVersion     :: !(Maybe Int)
+  , _jbeAttempt     :: !(Maybe Int)
+  , _jbeJobBookmark :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2107,8 +2107,8 @@ instance NFData JobBookmarkEntry where
 --
 -- /See:/ 'jobCommand' smart constructor.
 data JobCommand = JobCommand'
-  { _jcScriptLocation :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jcName           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _jcScriptLocation :: !(Maybe Text)
+  , _jcName           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2156,19 +2156,19 @@ instance ToJSON JobCommand where
 --
 -- /See:/ 'jobRun' smart constructor.
 data JobRun = JobRun'
-  { _jrCompletedOn       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _jrTriggerName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jrLastModifiedOn    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _jrArguments         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _jrJobName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jrStartedOn         :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _jrJobRunState       :: {-# NOUNPACK #-}!(Maybe JobRunState)
-  , _jrPredecessorRuns   :: {-# NOUNPACK #-}!(Maybe [Predecessor])
-  , _jrPreviousRunId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jrId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jrAttempt           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _jrAllocatedCapacity :: {-# NOUNPACK #-}!(Maybe Int)
-  , _jrErrorMessage      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _jrCompletedOn       :: !(Maybe POSIX)
+  , _jrTriggerName       :: !(Maybe Text)
+  , _jrLastModifiedOn    :: !(Maybe POSIX)
+  , _jrArguments         :: !(Maybe (Map Text Text))
+  , _jrJobName           :: !(Maybe Text)
+  , _jrStartedOn         :: !(Maybe POSIX)
+  , _jrJobRunState       :: !(Maybe JobRunState)
+  , _jrPredecessorRuns   :: !(Maybe [Predecessor])
+  , _jrPreviousRunId     :: !(Maybe Text)
+  , _jrId                :: !(Maybe Text)
+  , _jrAttempt           :: !(Maybe Int)
+  , _jrAllocatedCapacity :: !(Maybe Int)
+  , _jrErrorMessage      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2301,15 +2301,15 @@ instance NFData JobRun where
 --
 -- /See:/ 'jobUpdate' smart constructor.
 data JobUpdate = JobUpdate'
-  { _juCommand           :: {-# NOUNPACK #-}!(Maybe JobCommand)
-  , _juConnections       :: {-# NOUNPACK #-}!(Maybe ConnectionsList)
-  , _juRole              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _juLogURI            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _juMaxRetries        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _juExecutionProperty :: {-# NOUNPACK #-}!(Maybe ExecutionProperty)
-  , _juAllocatedCapacity :: {-# NOUNPACK #-}!(Maybe Int)
-  , _juDefaultArguments  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _juDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _juCommand           :: !(Maybe JobCommand)
+  , _juConnections       :: !(Maybe ConnectionsList)
+  , _juRole              :: !(Maybe Text)
+  , _juLogURI            :: !(Maybe Text)
+  , _juMaxRetries        :: !(Maybe Int)
+  , _juExecutionProperty :: !(Maybe ExecutionProperty)
+  , _juAllocatedCapacity :: !(Maybe Int)
+  , _juDefaultArguments  :: !(Maybe (Map Text Text))
+  , _juDescription       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2409,12 +2409,12 @@ instance ToJSON JobUpdate where
 --
 -- /See:/ 'lastCrawlInfo' smart constructor.
 data LastCrawlInfo = LastCrawlInfo'
-  { _lciStatus        :: {-# NOUNPACK #-}!(Maybe LastCrawlStatus)
-  , _lciStartTime     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _lciLogStream     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lciLogGroup      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lciMessagePrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lciErrorMessage  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lciStatus        :: !(Maybe LastCrawlStatus)
+  , _lciStartTime     :: !(Maybe POSIX)
+  , _lciLogStream     :: !(Maybe Text)
+  , _lciLogGroup      :: !(Maybe Text)
+  , _lciMessagePrefix :: !(Maybe Text)
+  , _lciErrorMessage  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2491,8 +2491,8 @@ instance NFData LastCrawlInfo where
 --
 -- /See:/ 'location' smart constructor.
 data Location = Location'
-  { _lJdbc :: {-# NOUNPACK #-}!(Maybe [CodeGenNodeArg])
-  , _lS3   :: {-# NOUNPACK #-}!(Maybe [CodeGenNodeArg])
+  { _lJdbc :: !(Maybe [CodeGenNodeArg])
+  , _lS3   :: !(Maybe [CodeGenNodeArg])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2532,12 +2532,12 @@ instance ToJSON Location where
 --
 -- /See:/ 'mappingEntry' smart constructor.
 data MappingEntry = MappingEntry'
-  { _meTargetTable :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meSourceType  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meSourceTable :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meTargetType  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meTargetPath  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meSourcePath  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _meTargetTable :: !(Maybe Text)
+  , _meSourceType  :: !(Maybe Text)
+  , _meSourceTable :: !(Maybe Text)
+  , _meTargetType  :: !(Maybe Text)
+  , _meTargetPath  :: !(Maybe Text)
+  , _meSourcePath  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2625,8 +2625,8 @@ instance ToJSON MappingEntry where
 --
 -- /See:/ 'order' smart constructor.
 data Order = Order'
-  { _oColumn    :: {-# NOUNPACK #-}!Text
-  , _oSortOrder :: {-# NOUNPACK #-}!Nat
+  { _oColumn    :: !Text
+  , _oSortOrder :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2676,14 +2676,14 @@ instance ToJSON Order where
 --
 -- /See:/ 'partition' smart constructor.
 data Partition = Partition'
-  { _pCreationTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pValues            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _pLastAnalyzedTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pStorageDescriptor :: {-# NOUNPACK #-}!(Maybe StorageDescriptor)
-  , _pDatabaseName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pParameters        :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _pLastAccessTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pTableName         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pCreationTime      :: !(Maybe POSIX)
+  , _pValues            :: !(Maybe [Text])
+  , _pLastAnalyzedTime  :: !(Maybe POSIX)
+  , _pStorageDescriptor :: !(Maybe StorageDescriptor)
+  , _pDatabaseName      :: !(Maybe Text)
+  , _pParameters        :: !(Maybe (Map Text Text))
+  , _pLastAccessTime    :: !(Maybe POSIX)
+  , _pTableName         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2777,8 +2777,8 @@ instance NFData Partition where
 --
 -- /See:/ 'partitionError' smart constructor.
 data PartitionError = PartitionError'
-  { _pePartitionValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _peErrorDetail     :: {-# NOUNPACK #-}!(Maybe ErrorDetail)
+  { _pePartitionValues :: !(Maybe [Text])
+  , _peErrorDetail     :: !(Maybe ErrorDetail)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2821,11 +2821,11 @@ instance NFData PartitionError where
 --
 -- /See:/ 'partitionInput' smart constructor.
 data PartitionInput = PartitionInput'
-  { _piValues            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _piLastAnalyzedTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _piStorageDescriptor :: {-# NOUNPACK #-}!(Maybe StorageDescriptor)
-  , _piParameters        :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _piLastAccessTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _piValues            :: !(Maybe [Text])
+  , _piLastAnalyzedTime  :: !(Maybe POSIX)
+  , _piStorageDescriptor :: !(Maybe StorageDescriptor)
+  , _piParameters        :: !(Maybe (Map Text Text))
+  , _piLastAccessTime    :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2932,9 +2932,9 @@ instance ToJSON PartitionValueList where
 --
 -- /See:/ 'physicalConnectionRequirements' smart constructor.
 data PhysicalConnectionRequirements = PhysicalConnectionRequirements'
-  { _pcrSecurityGroupIdList :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _pcrSubnetId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pcrAvailabilityZone    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pcrSecurityGroupIdList :: !(Maybe [Text])
+  , _pcrSubnetId            :: !(Maybe Text)
+  , _pcrAvailabilityZone    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2999,8 +2999,8 @@ instance ToJSON PhysicalConnectionRequirements where
 --
 -- /See:/ 'predecessor' smart constructor.
 data Predecessor = Predecessor'
-  { _pJobName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pRunId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pJobName :: !(Maybe Text)
+  , _pRunId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3041,8 +3041,8 @@ instance NFData Predecessor where
 --
 -- /See:/ 'predicate' smart constructor.
 data Predicate = Predicate'
-  { _pLogical    :: {-# NOUNPACK #-}!(Maybe Logical)
-  , _pConditions :: {-# NOUNPACK #-}!(Maybe [Condition])
+  { _pLogical    :: !(Maybe Logical)
+  , _pConditions :: !(Maybe [Condition])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3091,8 +3091,8 @@ instance ToJSON Predicate where
 --
 -- /See:/ 'resourceURI' smart constructor.
 data ResourceURI = ResourceURI'
-  { _ruResourceType :: {-# NOUNPACK #-}!(Maybe ResourceType)
-  , _ruURI          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ruResourceType :: !(Maybe ResourceType)
+  , _ruURI          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3140,8 +3140,8 @@ instance ToJSON ResourceURI where
 --
 -- /See:/ 's3Target' smart constructor.
 data S3Target = S3Target'
-  { _stPath       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stExclusions :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _stPath       :: !(Maybe Text)
+  , _stExclusions :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3189,8 +3189,8 @@ instance ToJSON S3Target where
 --
 -- /See:/ 'schedule' smart constructor.
 data Schedule = Schedule'
-  { _sState              :: {-# NOUNPACK #-}!(Maybe ScheduleState)
-  , _sScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sState              :: !(Maybe ScheduleState)
+  , _sScheduleExpression :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3231,8 +3231,8 @@ instance NFData Schedule where
 --
 -- /See:/ 'schemaChangePolicy' smart constructor.
 data SchemaChangePolicy = SchemaChangePolicy'
-  { _scpDeleteBehavior :: {-# NOUNPACK #-}!(Maybe DeleteBehavior)
-  , _scpUpdateBehavior :: {-# NOUNPACK #-}!(Maybe UpdateBehavior)
+  { _scpDeleteBehavior :: !(Maybe DeleteBehavior)
+  , _scpUpdateBehavior :: !(Maybe UpdateBehavior)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3283,8 +3283,8 @@ instance ToJSON SchemaChangePolicy where
 --
 -- /See:/ 'segment' smart constructor.
 data Segment = Segment'
-  { _sSegmentNumber :: {-# NOUNPACK #-}!Nat
-  , _sTotalSegments :: {-# NOUNPACK #-}!Nat
+  { _sSegmentNumber :: !Nat
+  , _sTotalSegments :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3331,9 +3331,9 @@ instance ToJSON Segment where
 --
 -- /See:/ 'serDeInfo' smart constructor.
 data SerDeInfo = SerDeInfo'
-  { _sdiSerializationLibrary :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdiName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdiParameters           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  { _sdiSerializationLibrary :: !(Maybe Text)
+  , _sdiName                 :: !(Maybe Text)
+  , _sdiParameters           :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3395,9 +3395,9 @@ instance ToJSON SerDeInfo where
 --
 -- /See:/ 'skewedInfo' smart constructor.
 data SkewedInfo = SkewedInfo'
-  { _siSkewedColumnValueLocationMaps :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _siSkewedColumnValues            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _siSkewedColumnNames             :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _siSkewedColumnValueLocationMaps :: !(Maybe (Map Text Text))
+  , _siSkewedColumnValues            :: !(Maybe [Text])
+  , _siSkewedColumnNames             :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3460,18 +3460,18 @@ instance ToJSON SkewedInfo where
 --
 -- /See:/ 'storageDescriptor' smart constructor.
 data StorageDescriptor = StorageDescriptor'
-  { _sdSortColumns            :: {-# NOUNPACK #-}!(Maybe [Order])
-  , _sdCompressed             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sdLocation               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdBucketColumns          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sdSerdeInfo              :: {-# NOUNPACK #-}!(Maybe SerDeInfo)
-  , _sdOutputFormat           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdNumberOfBuckets        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sdStoredAsSubDirectories :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sdParameters             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _sdInputFormat            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdSkewedInfo             :: {-# NOUNPACK #-}!(Maybe SkewedInfo)
-  , _sdColumns                :: {-# NOUNPACK #-}!(Maybe [Column])
+  { _sdSortColumns            :: !(Maybe [Order])
+  , _sdCompressed             :: !(Maybe Bool)
+  , _sdLocation               :: !(Maybe Text)
+  , _sdBucketColumns          :: !(Maybe [Text])
+  , _sdSerdeInfo              :: !(Maybe SerDeInfo)
+  , _sdOutputFormat           :: !(Maybe Text)
+  , _sdNumberOfBuckets        :: !(Maybe Int)
+  , _sdStoredAsSubDirectories :: !(Maybe Bool)
+  , _sdParameters             :: !(Maybe (Map Text Text))
+  , _sdInputFormat            :: !(Maybe Text)
+  , _sdSkewedInfo             :: !(Maybe SkewedInfo)
+  , _sdColumns                :: !(Maybe [Column])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3615,22 +3615,22 @@ instance ToJSON StorageDescriptor where
 --
 -- /See:/ 'table' smart constructor.
 data Table = Table'
-  { _tRetention         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _tCreatedBy         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tTableType         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tOwner             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tViewOriginalText  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tUpdateTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tViewExpandedText  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tLastAnalyzedTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tStorageDescriptor :: {-# NOUNPACK #-}!(Maybe StorageDescriptor)
-  , _tDatabaseName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tParameters        :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _tLastAccessTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tDescription       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tPartitionKeys     :: {-# NOUNPACK #-}!(Maybe [Column])
-  , _tCreateTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tName              :: {-# NOUNPACK #-}!Text
+  { _tRetention         :: !(Maybe Nat)
+  , _tCreatedBy         :: !(Maybe Text)
+  , _tTableType         :: !(Maybe Text)
+  , _tOwner             :: !(Maybe Text)
+  , _tViewOriginalText  :: !(Maybe Text)
+  , _tUpdateTime        :: !(Maybe POSIX)
+  , _tViewExpandedText  :: !(Maybe Text)
+  , _tLastAnalyzedTime  :: !(Maybe POSIX)
+  , _tStorageDescriptor :: !(Maybe StorageDescriptor)
+  , _tDatabaseName      :: !(Maybe Text)
+  , _tParameters        :: !(Maybe (Map Text Text))
+  , _tLastAccessTime    :: !(Maybe POSIX)
+  , _tDescription       :: !(Maybe Text)
+  , _tPartitionKeys     :: !(Maybe [Column])
+  , _tCreateTime        :: !(Maybe POSIX)
+  , _tName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3788,8 +3788,8 @@ instance NFData Table where
 --
 -- /See:/ 'tableError' smart constructor.
 data TableError = TableError'
-  { _teTableName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _teErrorDetail :: {-# NOUNPACK #-}!(Maybe ErrorDetail)
+  { _teTableName   :: !(Maybe Text)
+  , _teErrorDetail :: !(Maybe ErrorDetail)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3830,18 +3830,18 @@ instance NFData TableError where
 --
 -- /See:/ 'tableInput' smart constructor.
 data TableInput = TableInput'
-  { _tiRetention         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _tiTableType         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiOwner             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiViewOriginalText  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiViewExpandedText  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiLastAnalyzedTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tiStorageDescriptor :: {-# NOUNPACK #-}!(Maybe StorageDescriptor)
-  , _tiParameters        :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _tiLastAccessTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tiDescription       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiPartitionKeys     :: {-# NOUNPACK #-}!(Maybe [Column])
-  , _tiName              :: {-# NOUNPACK #-}!Text
+  { _tiRetention         :: !(Maybe Nat)
+  , _tiTableType         :: !(Maybe Text)
+  , _tiOwner             :: !(Maybe Text)
+  , _tiViewOriginalText  :: !(Maybe Text)
+  , _tiViewExpandedText  :: !(Maybe Text)
+  , _tiLastAnalyzedTime  :: !(Maybe POSIX)
+  , _tiStorageDescriptor :: !(Maybe StorageDescriptor)
+  , _tiParameters        :: !(Maybe (Map Text Text))
+  , _tiLastAccessTime    :: !(Maybe POSIX)
+  , _tiDescription       :: !(Maybe Text)
+  , _tiPartitionKeys     :: !(Maybe [Column])
+  , _tiName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3967,8 +3967,8 @@ instance ToJSON TableInput where
 --
 -- /See:/ 'tableVersion' smart constructor.
 data TableVersion = TableVersion'
-  { _tvVersionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tvTable     :: {-# NOUNPACK #-}!(Maybe Table)
+  { _tvVersionId :: !(Maybe Text)
+  , _tvTable     :: !(Maybe Table)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4009,14 +4009,14 @@ instance NFData TableVersion where
 --
 -- /See:/ 'trigger' smart constructor.
 data Trigger = Trigger'
-  { _triState       :: {-# NOUNPACK #-}!(Maybe TriggerState)
-  , _triActions     :: {-# NOUNPACK #-}!(Maybe [Action])
-  , _triSchedule    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _triPredicate   :: {-# NOUNPACK #-}!(Maybe Predicate)
-  , _triName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _triId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _triType        :: {-# NOUNPACK #-}!(Maybe TriggerType)
-  , _triDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _triState       :: !(Maybe TriggerState)
+  , _triActions     :: !(Maybe [Action])
+  , _triSchedule    :: !(Maybe Text)
+  , _triPredicate   :: !(Maybe Predicate)
+  , _triName        :: !(Maybe Text)
+  , _triId          :: !(Maybe Text)
+  , _triType        :: !(Maybe TriggerType)
+  , _triDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4109,11 +4109,11 @@ instance NFData Trigger where
 --
 -- /See:/ 'triggerUpdate' smart constructor.
 data TriggerUpdate = TriggerUpdate'
-  { _tuActions     :: {-# NOUNPACK #-}!(Maybe [Action])
-  , _tuSchedule    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tuPredicate   :: {-# NOUNPACK #-}!(Maybe Predicate)
-  , _tuName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tuDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tuActions     :: !(Maybe [Action])
+  , _tuSchedule    :: !(Maybe Text)
+  , _tuPredicate   :: !(Maybe Predicate)
+  , _tuName        :: !(Maybe Text)
+  , _tuDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4182,10 +4182,10 @@ instance ToJSON TriggerUpdate where
 --
 -- /See:/ 'updateGrokClassifierRequest' smart constructor.
 data UpdateGrokClassifierRequest = UpdateGrokClassifierRequest'
-  { _ugcrClassification :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugcrCustomPatterns :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugcrGrokPattern    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugcrName           :: {-# NOUNPACK #-}!Text
+  { _ugcrClassification :: !(Maybe Text)
+  , _ugcrCustomPatterns :: !(Maybe Text)
+  , _ugcrGrokPattern    :: !(Maybe Text)
+  , _ugcrName           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4247,12 +4247,12 @@ instance ToJSON UpdateGrokClassifierRequest where
 --
 -- /See:/ 'userDefinedFunction' smart constructor.
 data UserDefinedFunction = UserDefinedFunction'
-  { _udfOwnerName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udfResourceURIs :: {-# NOUNPACK #-}!(Maybe [ResourceURI])
-  , _udfFunctionName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udfOwnerType    :: {-# NOUNPACK #-}!(Maybe PrincipalType)
-  , _udfCreateTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _udfClassName    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _udfOwnerName    :: !(Maybe Text)
+  , _udfResourceURIs :: !(Maybe [ResourceURI])
+  , _udfFunctionName :: !(Maybe Text)
+  , _udfOwnerType    :: !(Maybe PrincipalType)
+  , _udfCreateTime   :: !(Maybe POSIX)
+  , _udfClassName    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4330,11 +4330,11 @@ instance NFData UserDefinedFunction where
 --
 -- /See:/ 'userDefinedFunctionInput' smart constructor.
 data UserDefinedFunctionInput = UserDefinedFunctionInput'
-  { _udfiOwnerName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udfiResourceURIs :: {-# NOUNPACK #-}!(Maybe [ResourceURI])
-  , _udfiFunctionName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udfiOwnerType    :: {-# NOUNPACK #-}!(Maybe PrincipalType)
-  , _udfiClassName    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _udfiOwnerName    :: !(Maybe Text)
+  , _udfiResourceURIs :: !(Maybe [ResourceURI])
+  , _udfiFunctionName :: !(Maybe Text)
+  , _udfiOwnerType    :: !(Maybe PrincipalType)
+  , _udfiClassName    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

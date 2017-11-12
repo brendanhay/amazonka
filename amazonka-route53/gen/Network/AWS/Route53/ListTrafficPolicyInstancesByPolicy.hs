@@ -62,12 +62,12 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listTrafficPolicyInstancesByPolicy' smart constructor.
 data ListTrafficPolicyInstancesByPolicy = ListTrafficPolicyInstancesByPolicy'
-  { _ltpibpTrafficPolicyInstanceTypeMarker :: {-# NOUNPACK #-}!(Maybe RecordType)
-  , _ltpibpMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltpibpHostedZoneIdMarker :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _ltpibpTrafficPolicyInstanceNameMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltpibpTrafficPolicyId :: {-# NOUNPACK #-}!Text
-  , _ltpibpTrafficPolicyVersion :: {-# NOUNPACK #-}!Nat
+  { _ltpibpTrafficPolicyInstanceTypeMarker :: !(Maybe RecordType)
+  , _ltpibpMaxItems                        :: !(Maybe Text)
+  , _ltpibpHostedZoneIdMarker              :: !(Maybe ResourceId)
+  , _ltpibpTrafficPolicyInstanceNameMarker :: !(Maybe Text)
+  , _ltpibpTrafficPolicyId                 :: !Text
+  , _ltpibpTrafficPolicyVersion            :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -180,13 +180,13 @@ instance ToQuery ListTrafficPolicyInstancesByPolicy
 --
 -- /See:/ 'listTrafficPolicyInstancesByPolicyResponse' smart constructor.
 data ListTrafficPolicyInstancesByPolicyResponse = ListTrafficPolicyInstancesByPolicyResponse'
-  { _ltpibprsTrafficPolicyInstanceTypeMarker :: {-# NOUNPACK #-}!(Maybe RecordType)
-  , _ltpibprsHostedZoneIdMarker :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _ltpibprsTrafficPolicyInstanceNameMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltpibprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ltpibprsTrafficPolicyInstances :: {-# NOUNPACK #-}![TrafficPolicyInstance]
-  , _ltpibprsIsTruncated :: {-# NOUNPACK #-}!Bool
-  , _ltpibprsMaxItems :: {-# NOUNPACK #-}!Text
+  { _ltpibprsTrafficPolicyInstanceTypeMarker :: !(Maybe RecordType)
+  , _ltpibprsHostedZoneIdMarker              :: !(Maybe ResourceId)
+  , _ltpibprsTrafficPolicyInstanceNameMarker :: !(Maybe Text)
+  , _ltpibprsResponseStatus                  :: !Int
+  , _ltpibprsTrafficPolicyInstances          :: ![TrafficPolicyInstance]
+  , _ltpibprsIsTruncated                     :: !Bool
+  , _ltpibprsMaxItems                        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

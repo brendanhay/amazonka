@@ -59,20 +59,20 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'registerTaskWithMaintenanceWindow' smart constructor.
 data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
-  { _rtwmwTaskParameters :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
-  , _rtwmwPriority :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _rtwmwClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtwmwTaskInvocationParameters :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskInvocationParameters)
-  , _rtwmwName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtwmwLoggingInfo :: {-# NOUNPACK #-}!(Maybe LoggingInfo)
-  , _rtwmwDescription :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _rtwmwWindowId :: {-# NOUNPACK #-}!Text
-  , _rtwmwTargets :: {-# NOUNPACK #-}![Target]
-  , _rtwmwTaskARN :: {-# NOUNPACK #-}!Text
-  , _rtwmwServiceRoleARN :: {-# NOUNPACK #-}!Text
-  , _rtwmwTaskType :: {-# NOUNPACK #-}!MaintenanceWindowTaskType
-  , _rtwmwMaxConcurrency :: {-# NOUNPACK #-}!Text
-  , _rtwmwMaxErrors :: {-# NOUNPACK #-}!Text
+  { _rtwmwTaskParameters :: !(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+  , _rtwmwPriority :: !(Maybe Nat)
+  , _rtwmwClientToken :: !(Maybe Text)
+  , _rtwmwTaskInvocationParameters :: !(Maybe MaintenanceWindowTaskInvocationParameters)
+  , _rtwmwName :: !(Maybe Text)
+  , _rtwmwLoggingInfo :: !(Maybe LoggingInfo)
+  , _rtwmwDescription :: !(Maybe (Sensitive Text))
+  , _rtwmwWindowId :: !Text
+  , _rtwmwTargets :: ![Target]
+  , _rtwmwTaskARN :: !Text
+  , _rtwmwServiceRoleARN :: !Text
+  , _rtwmwTaskType :: !MaintenanceWindowTaskType
+  , _rtwmwMaxConcurrency :: !Text
+  , _rtwmwMaxErrors :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -249,8 +249,8 @@ instance ToQuery RegisterTaskWithMaintenanceWindow
 
 -- | /See:/ 'registerTaskWithMaintenanceWindowResponse' smart constructor.
 data RegisterTaskWithMaintenanceWindowResponse = RegisterTaskWithMaintenanceWindowResponse'
-  { _rtwmwrsWindowTaskId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtwmwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rtwmwrsWindowTaskId   :: !(Maybe Text)
+  , _rtwmwrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

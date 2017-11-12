@@ -53,8 +53,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createBackup' smart constructor.
 data CreateBackup = CreateBackup'
-  { _cbDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbServerName  :: {-# NOUNPACK #-}!Text
+  { _cbDescription :: !(Maybe Text)
+  , _cbServerName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery CreateBackup where
 
 -- | /See:/ 'createBackupResponse' smart constructor.
 data CreateBackupResponse = CreateBackupResponse'
-  { _cbrsBackup         :: {-# NOUNPACK #-}!(Maybe Backup)
-  , _cbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cbrsBackup         :: !(Maybe Backup)
+  , _cbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

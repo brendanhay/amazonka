@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'button' smart constructor.
 data Button = Button'
-  { _bText  :: {-# NOUNPACK #-}!Text
-  , _bValue :: {-# NOUNPACK #-}!Text
+  { _bText  :: !Text
+  , _bValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -69,11 +69,11 @@ instance NFData Button where
 --
 -- /See:/ 'genericAttachment' smart constructor.
 data GenericAttachment = GenericAttachment'
-  { _gaButtons           :: {-# NOUNPACK #-}!(Maybe [Button])
-  , _gaSubTitle          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gaImageURL          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gaAttachmentLinkURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gaTitle             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gaButtons           :: !(Maybe [Button])
+  , _gaSubTitle          :: !(Maybe Text)
+  , _gaImageURL          :: !(Maybe Text)
+  , _gaAttachmentLinkURL :: !(Maybe Text)
+  , _gaTitle             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,9 +142,9 @@ instance NFData GenericAttachment where
 --
 -- /See:/ 'responseCard' smart constructor.
 data ResponseCard = ResponseCard'
-  { _rcGenericAttachments :: {-# NOUNPACK #-}!(Maybe [GenericAttachment])
-  , _rcVersion            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcContentType        :: {-# NOUNPACK #-}!(Maybe ContentType)
+  { _rcGenericAttachments :: !(Maybe [GenericAttachment])
+  , _rcVersion            :: !(Maybe Text)
+  , _rcContentType        :: !(Maybe ContentType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,10 +48,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateNotification' smart constructor.
 data UpdateNotification = UpdateNotification'
-  { _unAccountId       :: {-# NOUNPACK #-}!Text
-  , _unBudgetName      :: {-# NOUNPACK #-}!Text
-  , _unOldNotification :: {-# NOUNPACK #-}!Notification
-  , _unNewNotification :: {-# NOUNPACK #-}!Notification
+  { _unAccountId       :: !Text
+  , _unBudgetName      :: !Text
+  , _unOldNotification :: !Notification
+  , _unNewNotification :: !Notification
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createPartition' smart constructor.
 data CreatePartition = CreatePartition'
-  { _cpCatalogId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpDatabaseName   :: {-# NOUNPACK #-}!Text
-  , _cpTableName      :: {-# NOUNPACK #-}!Text
-  , _cpPartitionInput :: {-# NOUNPACK #-}!PartitionInput
+  { _cpCatalogId      :: !(Maybe Text)
+  , _cpDatabaseName   :: !Text
+  , _cpTableName      :: !Text
+  , _cpPartitionInput :: !PartitionInput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

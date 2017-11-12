@@ -63,12 +63,12 @@ import Network.AWS.WorkSpaces.Types.Product
 --
 -- /See:/ 'describeWorkspaces' smart constructor.
 data DescribeWorkspaces = DescribeWorkspaces'
-  { _dwDirectoryId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwWorkspaceIds :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _dwUserName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwBundleId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dwDirectoryId  :: !(Maybe Text)
+  , _dwWorkspaceIds :: !(Maybe (List1 Text))
+  , _dwUserName     :: !(Maybe Text)
+  , _dwBundleId     :: !(Maybe Text)
+  , _dwNextToken    :: !(Maybe Text)
+  , _dwLimit        :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -180,9 +180,9 @@ instance ToQuery DescribeWorkspaces where
 --
 -- /See:/ 'describeWorkspacesResponse' smart constructor.
 data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
-  { _dwrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwrsWorkspaces     :: {-# NOUNPACK #-}!(Maybe [Workspace])
-  , _dwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dwrsNextToken      :: !(Maybe Text)
+  , _dwrsWorkspaces     :: !(Maybe [Workspace])
+  , _dwrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

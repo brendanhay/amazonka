@@ -112,9 +112,9 @@ instance ToQuery CreateRealtimeEndpoint where
 --
 -- /See:/ 'createRealtimeEndpointResponse' smart constructor.
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
-  { _crersRealtimeEndpointInfo :: {-# NOUNPACK #-}!(Maybe RealtimeEndpointInfo)
-  , _crersMLModelId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crersResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _crersRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
+  , _crersMLModelId            :: !(Maybe Text)
+  , _crersResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

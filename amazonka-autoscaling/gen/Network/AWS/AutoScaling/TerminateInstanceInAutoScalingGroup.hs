@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'terminateInstanceInAutoScalingGroup' smart constructor.
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
-  { _tiiasgInstanceId                     :: {-# NOUNPACK #-}!Text
-  , _tiiasgShouldDecrementDesiredCapacity :: {-# NOUNPACK #-}!Bool
+  { _tiiasgInstanceId                     :: !Text
+  , _tiiasgShouldDecrementDesiredCapacity :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
 
 -- | /See:/ 'terminateInstanceInAutoScalingGroupResponse' smart constructor.
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
-  { _tiiasgrsActivity       :: {-# NOUNPACK #-}!(Maybe Activity)
-  , _tiiasgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _tiiasgrsActivity       :: !(Maybe Activity)
+  , _tiiasgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

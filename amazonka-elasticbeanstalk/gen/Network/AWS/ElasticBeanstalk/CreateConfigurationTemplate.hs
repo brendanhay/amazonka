@@ -75,14 +75,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'createConfigurationTemplate' smart constructor.
 data CreateConfigurationTemplate = CreateConfigurationTemplate'
-  { _cctOptionSettings :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionSetting])
-  , _cctPlatformARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cctSourceConfiguration :: {-# NOUNPACK #-}!(Maybe SourceConfiguration)
-  , _cctSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cctEnvironmentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cctDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cctApplicationName :: {-# NOUNPACK #-}!Text
-  , _cctTemplateName :: {-# NOUNPACK #-}!Text
+  { _cctOptionSettings      :: !(Maybe [ConfigurationOptionSetting])
+  , _cctPlatformARN         :: !(Maybe Text)
+  , _cctSourceConfiguration :: !(Maybe SourceConfiguration)
+  , _cctSolutionStackName   :: !(Maybe Text)
+  , _cctEnvironmentId       :: !(Maybe Text)
+  , _cctDescription         :: !(Maybe Text)
+  , _cctApplicationName     :: !Text
+  , _cctTemplateName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

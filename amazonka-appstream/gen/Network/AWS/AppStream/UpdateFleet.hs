@@ -60,19 +60,19 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateFleet' smart constructor.
 data UpdateFleet = UpdateFleet'
-  { _ufDomainJoinInfo              :: {-# NOUNPACK #-}!(Maybe DomainJoinInfo)
-  , _ufDisconnectTimeoutInSeconds  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ufMaxUserDurationInSeconds    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ufAttributesToDelete          :: {-# NOUNPACK #-}!(Maybe [FleetAttribute])
-  , _ufDeleteVPCConfig             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ufInstanceType                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufVPCConfig                   :: {-# NOUNPACK #-}!(Maybe VPCConfig)
-  , _ufDisplayName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufEnableDefaultInternetAccess :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ufImageName                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufComputeCapacity             :: {-# NOUNPACK #-}!(Maybe ComputeCapacity)
-  , _ufName                        :: {-# NOUNPACK #-}!Text
+  { _ufDomainJoinInfo              :: !(Maybe DomainJoinInfo)
+  , _ufDisconnectTimeoutInSeconds  :: !(Maybe Int)
+  , _ufMaxUserDurationInSeconds    :: !(Maybe Int)
+  , _ufAttributesToDelete          :: !(Maybe [FleetAttribute])
+  , _ufDeleteVPCConfig             :: !(Maybe Bool)
+  , _ufInstanceType                :: !(Maybe Text)
+  , _ufVPCConfig                   :: !(Maybe VPCConfig)
+  , _ufDisplayName                 :: !(Maybe Text)
+  , _ufEnableDefaultInternetAccess :: !(Maybe Bool)
+  , _ufImageName                   :: !(Maybe Text)
+  , _ufDescription                 :: !(Maybe Text)
+  , _ufComputeCapacity             :: !(Maybe ComputeCapacity)
+  , _ufName                        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -230,8 +230,8 @@ instance ToQuery UpdateFleet where
 
 -- | /See:/ 'updateFleetResponse' smart constructor.
 data UpdateFleetResponse = UpdateFleetResponse'
-  { _ufrsFleet          :: {-# NOUNPACK #-}!(Maybe Fleet)
-  , _ufrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ufrsFleet          :: !(Maybe Fleet)
+  , _ufrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

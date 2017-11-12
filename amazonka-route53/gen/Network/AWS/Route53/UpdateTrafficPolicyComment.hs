@@ -52,9 +52,9 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'updateTrafficPolicyComment' smart constructor.
 data UpdateTrafficPolicyComment = UpdateTrafficPolicyComment'
-  { _utpcId      :: {-# NOUNPACK #-}!Text
-  , _utpcVersion :: {-# NOUNPACK #-}!Nat
-  , _utpcComment :: {-# NOUNPACK #-}!Text
+  { _utpcId      :: !Text
+  , _utpcVersion :: !Nat
+  , _utpcComment :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,8 +130,8 @@ instance ToXML UpdateTrafficPolicyComment where
 --
 -- /See:/ 'updateTrafficPolicyCommentResponse' smart constructor.
 data UpdateTrafficPolicyCommentResponse = UpdateTrafficPolicyCommentResponse'
-  { _utpcrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _utpcrsTrafficPolicy  :: {-# NOUNPACK #-}!TrafficPolicy
+  { _utpcrsResponseStatus :: !Int
+  , _utpcrsTrafficPolicy  :: !TrafficPolicy
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

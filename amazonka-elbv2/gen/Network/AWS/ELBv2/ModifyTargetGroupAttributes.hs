@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'modifyTargetGroupAttributes' smart constructor.
 data ModifyTargetGroupAttributes = ModifyTargetGroupAttributes'
-  { _mtgaTargetGroupARN :: {-# NOUNPACK #-}!Text
-  , _mtgaAttributes     :: {-# NOUNPACK #-}![TargetGroupAttribute]
+  { _mtgaTargetGroupARN :: !Text
+  , _mtgaAttributes     :: ![TargetGroupAttribute]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,8 +109,8 @@ instance ToQuery ModifyTargetGroupAttributes where
 
 -- | /See:/ 'modifyTargetGroupAttributesResponse' smart constructor.
 data ModifyTargetGroupAttributesResponse = ModifyTargetGroupAttributesResponse'
-  { _mtgarsAttributes     :: {-# NOUNPACK #-}!(Maybe [TargetGroupAttribute])
-  , _mtgarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mtgarsAttributes     :: !(Maybe [TargetGroupAttribute])
+  , _mtgarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

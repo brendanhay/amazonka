@@ -52,11 +52,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { _ugPrecedence  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ugDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugGroupName   :: {-# NOUNPACK #-}!Text
-  , _ugUserPoolId  :: {-# NOUNPACK #-}!Text
+  { _ugPrecedence  :: !(Maybe Nat)
+  , _ugDescription :: !(Maybe Text)
+  , _ugRoleARN     :: !(Maybe Text)
+  , _ugGroupName   :: !Text
+  , _ugUserPoolId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,8 +148,8 @@ instance ToQuery UpdateGroup where
 
 -- | /See:/ 'updateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
-  { _ugrsGroup          :: {-# NOUNPACK #-}!(Maybe GroupType)
-  , _ugrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ugrsGroup          :: !(Maybe GroupType)
+  , _ugrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

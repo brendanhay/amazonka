@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'startReplicationTask' smart constructor.
 data StartReplicationTask = StartReplicationTask'
-  { _srtCdcStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _srtReplicationTaskARN :: {-# NOUNPACK #-}!Text
-  , _srtStartReplicationTaskType :: {-# NOUNPACK #-}!StartReplicationTaskTypeValue
+  { _srtCdcStartTime             :: !(Maybe POSIX)
+  , _srtReplicationTaskARN       :: !Text
+  , _srtStartReplicationTaskType :: !StartReplicationTaskTypeValue
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,8 +140,8 @@ instance ToQuery StartReplicationTask where
 --
 -- /See:/ 'startReplicationTaskResponse' smart constructor.
 data StartReplicationTaskResponse = StartReplicationTaskResponse'
-  { _srtrsReplicationTask :: {-# NOUNPACK #-}!(Maybe ReplicationTask)
-  , _srtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _srtrsReplicationTask :: !(Maybe ReplicationTask)
+  , _srtrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'removePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { _rpQueueURL :: {-# NOUNPACK #-}!Text
-  , _rpLabel    :: {-# NOUNPACK #-}!Text
+  { _rpQueueURL :: !Text
+  , _rpLabel    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

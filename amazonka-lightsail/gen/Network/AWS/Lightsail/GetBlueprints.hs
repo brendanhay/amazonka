@@ -51,8 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getBlueprints' smart constructor.
 data GetBlueprints = GetBlueprints'
-  { _gbIncludeInactive :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gbPageToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gbIncludeInactive :: !(Maybe Bool)
+  , _gbPageToken       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery GetBlueprints where
 
 -- | /See:/ 'getBlueprintsResponse' smart constructor.
 data GetBlueprintsResponse = GetBlueprintsResponse'
-  { _gbsrsBlueprints     :: {-# NOUNPACK #-}!(Maybe [Blueprint])
-  , _gbsrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbsrsBlueprints     :: !(Maybe [Blueprint])
+  , _gbsrsNextPageToken  :: !(Maybe Text)
+  , _gbsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

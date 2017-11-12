@@ -50,9 +50,9 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updateConstraint' smart constructor.
 data UpdateConstraint = UpdateConstraint'
-  { _ucAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucDescription    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucId             :: {-# NOUNPACK #-}!Text
+  { _ucAcceptLanguage :: !(Maybe Text)
+  , _ucDescription    :: !(Maybe Text)
+  , _ucId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,10 +126,10 @@ instance ToQuery UpdateConstraint where
 
 -- | /See:/ 'updateConstraintResponse' smart constructor.
 data UpdateConstraintResponse = UpdateConstraintResponse'
-  { _ucrsStatus               :: {-# NOUNPACK #-}!(Maybe RequestStatus)
-  , _ucrsConstraintDetail     :: {-# NOUNPACK #-}!(Maybe ConstraintDetail)
-  , _ucrsConstraintParameters :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _ucrsStatus               :: !(Maybe RequestStatus)
+  , _ucrsConstraintDetail     :: !(Maybe ConstraintDetail)
+  , _ucrsConstraintParameters :: !(Maybe Text)
+  , _ucrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

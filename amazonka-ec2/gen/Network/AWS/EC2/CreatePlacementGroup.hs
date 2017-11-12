@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createPlacementGroup' smart constructor.
 data CreatePlacementGroup = CreatePlacementGroup'
-  { _cpgDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cpgGroupName :: {-# NOUNPACK #-}!Text
-  , _cpgStrategy  :: {-# NOUNPACK #-}!PlacementStrategy
+  { _cpgDryRun    :: !(Maybe Bool)
+  , _cpgGroupName :: !Text
+  , _cpgStrategy  :: !PlacementStrategy
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

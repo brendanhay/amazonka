@@ -58,15 +58,15 @@ import Network.AWS.Response
 --
 -- /See:/ 'createReplicationTask' smart constructor.
 data CreateReplicationTask = CreateReplicationTask'
-  { _crtReplicationTaskSettings   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crtTags                      :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _crtCdcStartTime              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _crtReplicationTaskIdentifier :: {-# NOUNPACK #-}!Text
-  , _crtSourceEndpointARN         :: {-# NOUNPACK #-}!Text
-  , _crtTargetEndpointARN         :: {-# NOUNPACK #-}!Text
-  , _crtReplicationInstanceARN    :: {-# NOUNPACK #-}!Text
-  , _crtMigrationType             :: {-# NOUNPACK #-}!MigrationTypeValue
-  , _crtTableMappings             :: {-# NOUNPACK #-}!Text
+  { _crtReplicationTaskSettings   :: !(Maybe Text)
+  , _crtTags                      :: !(Maybe [Tag])
+  , _crtCdcStartTime              :: !(Maybe POSIX)
+  , _crtReplicationTaskIdentifier :: !Text
+  , _crtSourceEndpointARN         :: !Text
+  , _crtTargetEndpointARN         :: !Text
+  , _crtReplicationInstanceARN    :: !Text
+  , _crtMigrationType             :: !MigrationTypeValue
+  , _crtTableMappings             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -204,8 +204,8 @@ instance ToQuery CreateReplicationTask where
 --
 -- /See:/ 'createReplicationTaskResponse' smart constructor.
 data CreateReplicationTaskResponse = CreateReplicationTaskResponse'
-  { _crtrsReplicationTask :: {-# NOUNPACK #-}!(Maybe ReplicationTask)
-  , _crtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _crtrsReplicationTask :: !(Maybe ReplicationTask)
+  , _crtrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

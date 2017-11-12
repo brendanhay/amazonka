@@ -47,9 +47,9 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'sendTaskFailure' smart constructor.
 data SendTaskFailure = SendTaskFailure'
-  { _stfError     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stfCause     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stfTaskToken :: {-# NOUNPACK #-}!Text
+  { _stfError     :: !(Maybe Text)
+  , _stfCause     :: !(Maybe Text)
+  , _stfTaskToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -104,10 +104,10 @@ instance ToQuery DescribeThingType where
 --
 -- /See:/ 'describeThingTypeResponse' smart constructor.
 data DescribeThingTypeResponse = DescribeThingTypeResponse'
-  { _drsThingTypeProperties :: {-# NOUNPACK #-}!(Maybe ThingTypeProperties)
-  , _drsThingTypeName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsThingTypeMetadata   :: {-# NOUNPACK #-}!(Maybe ThingTypeMetadata)
-  , _drsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _drsThingTypeProperties :: !(Maybe ThingTypeProperties)
+  , _drsThingTypeName       :: !(Maybe Text)
+  , _drsThingTypeMetadata   :: !(Maybe ThingTypeMetadata)
+  , _drsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

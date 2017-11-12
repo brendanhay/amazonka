@@ -44,8 +44,8 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'removeAllResourcePermissions' smart constructor.
 data RemoveAllResourcePermissions = RemoveAllResourcePermissions'
-  { _rarpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _rarpResourceId          :: {-# NOUNPACK #-}!Text
+  { _rarpAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _rarpResourceId          :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

@@ -61,13 +61,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateDestination' smart constructor.
 data UpdateDestination = UpdateDestination'
-  { _udS3DestinationUpdate :: {-# NOUNPACK #-}!(Maybe S3DestinationUpdate)
-  , _udRedshiftDestinationUpdate :: {-# NOUNPACK #-}!(Maybe RedshiftDestinationUpdate)
-  , _udElasticsearchDestinationUpdate :: {-# NOUNPACK #-}!(Maybe ElasticsearchDestinationUpdate)
-  , _udExtendedS3DestinationUpdate :: {-# NOUNPACK #-}!(Maybe ExtendedS3DestinationUpdate)
-  , _udDeliveryStreamName :: {-# NOUNPACK #-}!Text
-  , _udCurrentDeliveryStreamVersionId :: {-# NOUNPACK #-}!Text
-  , _udDestinationId :: {-# NOUNPACK #-}!Text
+  { _udS3DestinationUpdate            :: !(Maybe S3DestinationUpdate)
+  , _udRedshiftDestinationUpdate      :: !(Maybe RedshiftDestinationUpdate)
+  , _udElasticsearchDestinationUpdate :: !(Maybe ElasticsearchDestinationUpdate)
+  , _udExtendedS3DestinationUpdate    :: !(Maybe ExtendedS3DestinationUpdate)
+  , _udDeliveryStreamName             :: !Text
+  , _udCurrentDeliveryStreamVersionId :: !Text
+  , _udDestinationId                  :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

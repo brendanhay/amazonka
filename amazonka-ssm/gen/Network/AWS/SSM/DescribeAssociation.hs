@@ -49,10 +49,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeAssociation' smart constructor.
 data DescribeAssociation = DescribeAssociation'
-  { _daAssociationId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daInstanceId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daAssociationVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  { _daAssociationId      :: !(Maybe Text)
+  , _daInstanceId         :: !(Maybe Text)
+  , _daName               :: !(Maybe Text)
+  , _daAssociationVersion :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,8 +135,8 @@ instance ToQuery DescribeAssociation where
 
 -- | /See:/ 'describeAssociationResponse' smart constructor.
 data DescribeAssociationResponse = DescribeAssociationResponse'
-  { _daarsAssociationDescription :: {-# NOUNPACK #-}!(Maybe AssociationDescription)
-  , _daarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _daarsAssociationDescription :: !(Maybe AssociationDescription)
+  , _daarsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

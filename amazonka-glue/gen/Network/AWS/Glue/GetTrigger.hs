@@ -99,8 +99,8 @@ instance ToQuery GetTrigger where
 
 -- | /See:/ 'getTriggerResponse' smart constructor.
 data GetTriggerResponse = GetTriggerResponse'
-  { _gtrsTrigger        :: {-# NOUNPACK #-}!(Maybe Trigger)
-  , _gtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gtrsTrigger        :: !(Maybe Trigger)
+  , _gtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

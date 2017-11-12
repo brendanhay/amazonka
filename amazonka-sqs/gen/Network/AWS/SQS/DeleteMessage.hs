@@ -48,8 +48,8 @@ import Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'deleteMessage' smart constructor.
 data DeleteMessage = DeleteMessage'
-  { _dmQueueURL      :: {-# NOUNPACK #-}!Text
-  , _dmReceiptHandle :: {-# NOUNPACK #-}!Text
+  { _dmQueueURL      :: !Text
+  , _dmReceiptHandle :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

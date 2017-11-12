@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deprecateThingType' smart constructor.
 data DeprecateThingType = DeprecateThingType'
-  { _depUndoDeprecate :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _depThingTypeName :: {-# NOUNPACK #-}!Text
+  { _depUndoDeprecate :: !(Maybe Bool)
+  , _depThingTypeName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

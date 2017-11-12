@@ -94,8 +94,8 @@ instance ToQuery ListProvisionedCapacity where
 
 -- | /See:/ 'listProvisionedCapacityResponse' smart constructor.
 data ListProvisionedCapacityResponse = ListProvisionedCapacityResponse'
-  { _lpcrsProvisionedCapacityList :: {-# NOUNPACK #-}!(Maybe [ProvisionedCapacityDescription])
-  , _lpcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lpcrsProvisionedCapacityList :: !(Maybe [ProvisionedCapacityDescription])
+  , _lpcrsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

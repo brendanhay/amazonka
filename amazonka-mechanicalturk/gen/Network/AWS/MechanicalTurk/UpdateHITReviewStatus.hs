@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateHITReviewStatus' smart constructor.
 data UpdateHITReviewStatus = UpdateHITReviewStatus'
-  { _uhitrsRevert :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uhitrsHITId  :: {-# NOUNPACK #-}!Text
+  { _uhitrsRevert :: !(Maybe Bool)
+  , _uhitrsHITId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

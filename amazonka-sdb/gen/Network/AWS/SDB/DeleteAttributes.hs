@@ -50,10 +50,10 @@ import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'deleteAttributes' smart constructor.
 data DeleteAttributes = DeleteAttributes'
-  { _daAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _daExpected   :: {-# NOUNPACK #-}!(Maybe UpdateCondition)
-  , _daDomainName :: {-# NOUNPACK #-}!Text
-  , _daItemName   :: {-# NOUNPACK #-}!Text
+  { _daAttributes :: !(Maybe [Attribute])
+  , _daExpected   :: !(Maybe UpdateCondition)
+  , _daDomainName :: !Text
+  , _daItemName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

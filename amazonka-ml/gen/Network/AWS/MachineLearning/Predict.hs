@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'predict' smart constructor.
 data Predict = Predict'
-  { _pMLModelId       :: {-# NOUNPACK #-}!Text
-  , _pRecord          :: {-# NOUNPACK #-}!(Map Text Text)
-  , _pPredictEndpoint :: {-# NOUNPACK #-}!Text
+  { _pMLModelId       :: !Text
+  , _pRecord          :: !(Map Text Text)
+  , _pPredictEndpoint :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToQuery Predict where
 
 -- | /See:/ 'predictResponse' smart constructor.
 data PredictResponse = PredictResponse'
-  { _prsPrediction     :: {-# NOUNPACK #-}!(Maybe Prediction)
-  , _prsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _prsPrediction     :: !(Maybe Prediction)
+  , _prsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createResourceServer' smart constructor.
 data CreateResourceServer = CreateResourceServer'
-  { _crsScopes     :: {-# NOUNPACK #-}!(Maybe [ResourceServerScopeType])
-  , _crsUserPoolId :: {-# NOUNPACK #-}!Text
-  , _crsIdentifier :: {-# NOUNPACK #-}!Text
-  , _crsName       :: {-# NOUNPACK #-}!Text
+  { _crsScopes     :: !(Maybe [ResourceServerScopeType])
+  , _crsUserPoolId :: !Text
+  , _crsIdentifier :: !Text
+  , _crsName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery CreateResourceServer where
 
 -- | /See:/ 'createResourceServerResponse' smart constructor.
 data CreateResourceServerResponse = CreateResourceServerResponse'
-  { _crsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _crsrsResourceServer :: {-# NOUNPACK #-}!ResourceServerType
+  { _crsrsResponseStatus :: !Int
+  , _crsrsResourceServer :: !ResourceServerType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

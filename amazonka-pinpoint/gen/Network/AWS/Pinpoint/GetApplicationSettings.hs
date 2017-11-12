@@ -95,8 +95,8 @@ instance ToQuery GetApplicationSettings where
 
 -- | /See:/ 'getApplicationSettingsResponse' smart constructor.
 data GetApplicationSettingsResponse = GetApplicationSettingsResponse'
-  { _gassrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gassrsApplicationSettingsResource :: {-# NOUNPACK #-}!ApplicationSettingsResource
+  { _gassrsResponseStatus              :: !Int
+  , _gassrsApplicationSettingsResource :: !ApplicationSettingsResource
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

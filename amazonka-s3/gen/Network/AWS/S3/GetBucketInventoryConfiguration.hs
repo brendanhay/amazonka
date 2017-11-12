@@ -45,8 +45,8 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketInventoryConfiguration' smart constructor.
 data GetBucketInventoryConfiguration = GetBucketInventoryConfiguration'
-  { _gbicBucket :: {-# NOUNPACK #-}!BucketName
-  , _gbicId     :: {-# NOUNPACK #-}!Text
+  { _gbicBucket :: !BucketName
+  , _gbicId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -104,8 +104,8 @@ instance ToQuery GetBucketInventoryConfiguration
 
 -- | /See:/ 'getBucketInventoryConfigurationResponse' smart constructor.
 data GetBucketInventoryConfigurationResponse = GetBucketInventoryConfigurationResponse'
-  { _gbicrsInventoryConfiguration :: {-# NOUNPACK #-}!(Maybe InventoryConfiguration)
-  , _gbicrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbicrsInventoryConfiguration :: !(Maybe InventoryConfiguration)
+  , _gbicrsResponseStatus         :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

@@ -47,8 +47,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { _ltfrResourceType :: {-# NOUNPACK #-}!ResourceTypeForTagging
-  , _ltfrResourceId   :: {-# NOUNPACK #-}!Text
+  { _ltfrResourceType :: !ResourceTypeForTagging
+  , _ltfrResourceId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery ListTagsForResource where
 
 -- | /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { _ltfrrsTagList        :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ltfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltfrrsTagList        :: !(Maybe [Tag])
+  , _ltfrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

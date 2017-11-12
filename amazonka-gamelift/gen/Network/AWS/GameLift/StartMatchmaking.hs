@@ -88,9 +88,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'startMatchmaking' smart constructor.
 data StartMatchmaking = StartMatchmaking'
-  { _sTicketId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sConfigurationName :: {-# NOUNPACK #-}!Text
-  , _sPlayers           :: {-# NOUNPACK #-}![Player]
+  { _sTicketId          :: !(Maybe Text)
+  , _sConfigurationName :: !Text
+  , _sPlayers           :: ![Player]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -168,8 +168,8 @@ instance ToQuery StartMatchmaking where
 --
 -- /See:/ 'startMatchmakingResponse' smart constructor.
 data StartMatchmakingResponse = StartMatchmakingResponse'
-  { _srsMatchmakingTicket :: {-# NOUNPACK #-}!(Maybe MatchmakingTicket)
-  , _srsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _srsMatchmakingTicket :: !(Maybe MatchmakingTicket)
+  , _srsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

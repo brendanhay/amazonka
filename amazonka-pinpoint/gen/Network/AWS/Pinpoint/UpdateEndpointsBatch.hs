@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateEndpointsBatch' smart constructor.
 data UpdateEndpointsBatch = UpdateEndpointsBatch'
-  { _uebApplicationId        :: {-# NOUNPACK #-}!Text
-  , _uebEndpointBatchRequest :: {-# NOUNPACK #-}!EndpointBatchRequest
+  { _uebApplicationId        :: !Text
+  , _uebEndpointBatchRequest :: !EndpointBatchRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery UpdateEndpointsBatch where
 
 -- | /See:/ 'updateEndpointsBatchResponse' smart constructor.
 data UpdateEndpointsBatchResponse = UpdateEndpointsBatchResponse'
-  { _uebrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _uebrsMessageBody    :: {-# NOUNPACK #-}!MessageBody
+  { _uebrsResponseStatus :: !Int
+  , _uebrsMessageBody    :: !MessageBody
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

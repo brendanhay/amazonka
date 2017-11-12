@@ -74,9 +74,9 @@ import Network.AWS.WAF.Types.Product
 --
 -- /See:/ 'updateXSSMatchSet' smart constructor.
 data UpdateXSSMatchSet = UpdateXSSMatchSet'
-  { _uxmsXSSMatchSetId :: {-# NOUNPACK #-}!Text
-  , _uxmsChangeToken   :: {-# NOUNPACK #-}!Text
-  , _uxmsUpdates       :: {-# NOUNPACK #-}!(List1 XSSMatchSetUpdate)
+  { _uxmsXSSMatchSetId :: !Text
+  , _uxmsChangeToken   :: !Text
+  , _uxmsUpdates       :: !(List1 XSSMatchSetUpdate)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,8 +156,8 @@ instance ToQuery UpdateXSSMatchSet where
 --
 -- /See:/ 'updateXSSMatchSetResponse' smart constructor.
 data UpdateXSSMatchSetResponse = UpdateXSSMatchSetResponse'
-  { _uxmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uxmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uxmsrsChangeToken    :: !(Maybe Text)
+  , _uxmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

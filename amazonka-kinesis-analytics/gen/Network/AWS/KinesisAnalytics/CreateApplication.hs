@@ -65,12 +65,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'createApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { _caApplicationDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caInputs :: {-# NOUNPACK #-}!(Maybe [Input])
-  , _caCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe [CloudWatchLoggingOption])
-  , _caOutputs :: {-# NOUNPACK #-}!(Maybe [Output])
-  , _caApplicationCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caApplicationName :: {-# NOUNPACK #-}!Text
+  { _caApplicationDescription   :: !(Maybe Text)
+  , _caInputs                   :: !(Maybe [Input])
+  , _caCloudWatchLoggingOptions :: !(Maybe [CloudWatchLoggingOption])
+  , _caOutputs                  :: !(Maybe [Output])
+  , _caApplicationCode          :: !(Maybe Text)
+  , _caApplicationName          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -175,8 +175,8 @@ instance ToQuery CreateApplication where
 --
 -- /See:/ 'createApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-  { _carsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _carsApplicationSummary :: {-# NOUNPACK #-}!ApplicationSummary
+  { _carsResponseStatus     :: !Int
+  , _carsApplicationSummary :: !ApplicationSummary
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

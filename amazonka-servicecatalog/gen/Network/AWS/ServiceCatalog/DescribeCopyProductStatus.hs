@@ -49,8 +49,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeCopyProductStatus' smart constructor.
 data DescribeCopyProductStatus = DescribeCopyProductStatus'
-  { _dcpsAcceptLanguage   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpsCopyProductToken :: {-# NOUNPACK #-}!Text
+  { _dcpsAcceptLanguage   :: !(Maybe Text)
+  , _dcpsCopyProductToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,10 +119,10 @@ instance ToQuery DescribeCopyProductStatus where
 
 -- | /See:/ 'describeCopyProductStatusResponse' smart constructor.
 data DescribeCopyProductStatusResponse = DescribeCopyProductStatusResponse'
-  { _dcpsrsTargetProductId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpsrsCopyProductStatus :: {-# NOUNPACK #-}!(Maybe CopyProductStatus)
-  , _dcpsrsStatusDetail      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dcpsrsTargetProductId   :: !(Maybe Text)
+  , _dcpsrsCopyProductStatus :: !(Maybe CopyProductStatus)
+  , _dcpsrsStatusDetail      :: !(Maybe Text)
+  , _dcpsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

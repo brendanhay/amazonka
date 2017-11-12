@@ -57,9 +57,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listServerCertificates' smart constructor.
 data ListServerCertificates = ListServerCertificates'
-  { _lscPathPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lscMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lscMaxItems   :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lscPathPrefix :: !(Maybe Text)
+  , _lscMarker     :: !(Maybe Text)
+  , _lscMaxItems   :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,10 +137,10 @@ instance ToQuery ListServerCertificates where
 --
 -- /See:/ 'listServerCertificatesResponse' smart constructor.
 data ListServerCertificatesResponse = ListServerCertificatesResponse'
-  { _lscrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lscrsIsTruncated :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lscrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lscrsServerCertificateMetadataList :: {-# NOUNPACK #-}![ServerCertificateMetadata]
+  { _lscrsMarker                        :: !(Maybe Text)
+  , _lscrsIsTruncated                   :: !(Maybe Bool)
+  , _lscrsResponseStatus                :: !Int
+  , _lscrsServerCertificateMetadataList :: ![ServerCertificateMetadata]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

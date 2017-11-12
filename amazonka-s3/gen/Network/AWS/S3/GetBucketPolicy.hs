@@ -88,8 +88,8 @@ instance ToQuery GetBucketPolicy where
 
 -- | /See:/ 'getBucketPolicyResponse' smart constructor.
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
-  { _gbprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gbprsPolicy         :: {-# NOUNPACK #-}!(HashMap Text Value)
+  { _gbprsResponseStatus :: !Int
+  , _gbprsPolicy         :: !(HashMap Text Value)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

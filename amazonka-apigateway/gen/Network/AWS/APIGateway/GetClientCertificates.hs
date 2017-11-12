@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getClientCertificates' smart constructor.
 data GetClientCertificates = GetClientCertificates'
-  { _gccLimit    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gccPosition :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gccLimit    :: !(Maybe Int)
+  , _gccPosition :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery GetClientCertificates where
 --
 -- /See:/ 'getClientCertificatesResponse' smart constructor.
 data GetClientCertificatesResponse = GetClientCertificatesResponse'
-  { _gccrsItems          :: {-# NOUNPACK #-}!(Maybe [ClientCertificate])
-  , _gccrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gccrsItems          :: !(Maybe [ClientCertificate])
+  , _gccrsPosition       :: !(Maybe Text)
+  , _gccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

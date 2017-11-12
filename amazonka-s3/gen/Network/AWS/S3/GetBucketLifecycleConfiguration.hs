@@ -95,8 +95,8 @@ instance ToQuery GetBucketLifecycleConfiguration
 
 -- | /See:/ 'getBucketLifecycleConfigurationResponse' smart constructor.
 data GetBucketLifecycleConfigurationResponse = GetBucketLifecycleConfigurationResponse'
-  { _gblcrsRules          :: {-# NOUNPACK #-}!(Maybe [LifecycleRule])
-  , _gblcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gblcrsRules          :: !(Maybe [LifecycleRule])
+  , _gblcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

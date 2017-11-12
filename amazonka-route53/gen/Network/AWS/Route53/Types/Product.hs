@@ -28,8 +28,8 @@ import Network.AWS.Route53.Types.Sum
 --
 -- /See:/ 'alarmIdentifier' smart constructor.
 data AlarmIdentifier = AlarmIdentifier'
-  { _aiRegion :: {-# NOUNPACK #-}!CloudWatchRegion
-  , _aiName   :: {-# NOUNPACK #-}!Text
+  { _aiRegion :: !CloudWatchRegion
+  , _aiName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -85,9 +85,9 @@ instance ToXML AlarmIdentifier where
 --
 -- /See:/ 'aliasTarget' smart constructor.
 data AliasTarget = AliasTarget'
-  { _atHostedZoneId         :: {-# NOUNPACK #-}!ResourceId
-  , _atDNSName              :: {-# NOUNPACK #-}!Text
-  , _atEvaluateTargetHealth :: {-# NOUNPACK #-}!Bool
+  { _atHostedZoneId         :: !ResourceId
+  , _atDNSName              :: !Text
+  , _atEvaluateTargetHealth :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,8 +148,8 @@ instance ToXML AliasTarget where
 --
 -- /See:/ 'change' smart constructor.
 data Change = Change'
-  { _cAction            :: {-# NOUNPACK #-}!ChangeAction
-  , _cResourceRecordSet :: {-# NOUNPACK #-}!ResourceRecordSet
+  { _cAction            :: !ChangeAction
+  , _cResourceRecordSet :: !ResourceRecordSet
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -192,8 +192,8 @@ instance ToXML Change where
 --
 -- /See:/ 'changeBatch' smart constructor.
 data ChangeBatch = ChangeBatch'
-  { _cbComment :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbChanges :: {-# NOUNPACK #-}!(List1 Change)
+  { _cbComment :: !(Maybe Text)
+  , _cbChanges :: !(List1 Change)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -235,10 +235,10 @@ instance ToXML ChangeBatch where
 --
 -- /See:/ 'changeInfo' smart constructor.
 data ChangeInfo = ChangeInfo'
-  { _ciComment     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciId          :: {-# NOUNPACK #-}!ResourceId
-  , _ciStatus      :: {-# NOUNPACK #-}!ChangeStatus
-  , _ciSubmittedAt :: {-# NOUNPACK #-}!ISO8601
+  { _ciComment     :: !(Maybe Text)
+  , _ciId          :: !ResourceId
+  , _ciStatus      :: !ChangeStatus
+  , _ciSubmittedAt :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -299,14 +299,14 @@ instance NFData ChangeInfo where
 --
 -- /See:/ 'cloudWatchAlarmConfiguration' smart constructor.
 data CloudWatchAlarmConfiguration = CloudWatchAlarmConfiguration'
-  { _cwacDimensions         :: {-# NOUNPACK #-}!(Maybe [Dimension])
-  , _cwacEvaluationPeriods  :: {-# NOUNPACK #-}!Nat
-  , _cwacThreshold          :: {-# NOUNPACK #-}!Double
-  , _cwacComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
-  , _cwacPeriod             :: {-# NOUNPACK #-}!Nat
-  , _cwacMetricName         :: {-# NOUNPACK #-}!Text
-  , _cwacNamespace          :: {-# NOUNPACK #-}!Text
-  , _cwacStatistic          :: {-# NOUNPACK #-}!Statistic
+  { _cwacDimensions         :: !(Maybe [Dimension])
+  , _cwacEvaluationPeriods  :: !Nat
+  , _cwacThreshold          :: !Double
+  , _cwacComparisonOperator :: !ComparisonOperator
+  , _cwacPeriod             :: !Nat
+  , _cwacMetricName         :: !Text
+  , _cwacNamespace          :: !Text
+  , _cwacStatistic          :: !Statistic
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -406,9 +406,9 @@ instance NFData CloudWatchAlarmConfiguration where
 --
 -- /See:/ 'delegationSet' smart constructor.
 data DelegationSet = DelegationSet'
-  { _dsId              :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _dsCallerReference :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsNameServers     :: {-# NOUNPACK #-}!(List1 Text)
+  { _dsId              :: !(Maybe ResourceId)
+  , _dsCallerReference :: !(Maybe Text)
+  , _dsNameServers     :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -461,8 +461,8 @@ instance NFData DelegationSet where
 --
 -- /See:/ 'dimension' smart constructor.
 data Dimension = Dimension'
-  { _dName  :: {-# NOUNPACK #-}!Text
-  , _dValue :: {-# NOUNPACK #-}!Text
+  { _dName  :: !Text
+  , _dValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -502,9 +502,9 @@ instance NFData Dimension where
 --
 -- /See:/ 'geoLocation' smart constructor.
 data GeoLocation = GeoLocation'
-  { _glSubdivisionCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glCountryCode     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glContinentCode   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _glSubdivisionCode :: !(Maybe Text)
+  , _glCountryCode     :: !(Maybe Text)
+  , _glContinentCode   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -562,12 +562,12 @@ instance ToXML GeoLocation where
 --
 -- /See:/ 'geoLocationDetails' smart constructor.
 data GeoLocationDetails = GeoLocationDetails'
-  { _gldSubdivisionName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldSubdivisionCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldCountryName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldCountryCode     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldContinentCode   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldContinentName   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gldSubdivisionName :: !(Maybe Text)
+  , _gldSubdivisionCode :: !(Maybe Text)
+  , _gldCountryName     :: !(Maybe Text)
+  , _gldCountryCode     :: !(Maybe Text)
+  , _gldContinentCode   :: !(Maybe Text)
+  , _gldContinentName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -643,11 +643,11 @@ instance NFData GeoLocationDetails where
 --
 -- /See:/ 'healthCheck' smart constructor.
 data HealthCheck = HealthCheck'
-  { _hcCloudWatchAlarmConfiguration :: {-# NOUNPACK #-}!(Maybe CloudWatchAlarmConfiguration)
-  , _hcId :: {-# NOUNPACK #-}!Text
-  , _hcCallerReference :: {-# NOUNPACK #-}!Text
-  , _hcHealthCheckConfig :: {-# NOUNPACK #-}!HealthCheckConfig
-  , _hcHealthCheckVersion :: {-# NOUNPACK #-}!Nat
+  { _hcCloudWatchAlarmConfiguration :: !(Maybe CloudWatchAlarmConfiguration)
+  , _hcId                           :: !Text
+  , _hcCallerReference              :: !Text
+  , _hcHealthCheckConfig            :: !HealthCheckConfig
+  , _hcHealthCheckVersion           :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -719,22 +719,22 @@ instance NFData HealthCheck where
 --
 -- /See:/ 'healthCheckConfig' smart constructor.
 data HealthCheckConfig = HealthCheckConfig'
-  { _hccFailureThreshold :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _hccIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hccEnableSNI :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _hccSearchString :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hccHealthThreshold :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _hccRegions :: {-# NOUNPACK #-}!(Maybe (List1 HealthCheckRegion))
-  , _hccResourcePath :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hccInsufficientDataHealthStatus :: {-# NOUNPACK #-}!(Maybe InsufficientDataHealthStatus)
-  , _hccAlarmIdentifier :: {-# NOUNPACK #-}!(Maybe AlarmIdentifier)
-  , _hccMeasureLatency :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _hccInverted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _hccFullyQualifiedDomainName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hccChildHealthChecks :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _hccRequestInterval :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _hccPort :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _hccType :: {-# NOUNPACK #-}!HealthCheckType
+  { _hccFailureThreshold             :: !(Maybe Nat)
+  , _hccIPAddress                    :: !(Maybe Text)
+  , _hccEnableSNI                    :: !(Maybe Bool)
+  , _hccSearchString                 :: !(Maybe Text)
+  , _hccHealthThreshold              :: !(Maybe Nat)
+  , _hccRegions                      :: !(Maybe (List1 HealthCheckRegion))
+  , _hccResourcePath                 :: !(Maybe Text)
+  , _hccInsufficientDataHealthStatus :: !(Maybe InsufficientDataHealthStatus)
+  , _hccAlarmIdentifier              :: !(Maybe AlarmIdentifier)
+  , _hccMeasureLatency               :: !(Maybe Bool)
+  , _hccInverted                     :: !(Maybe Bool)
+  , _hccFullyQualifiedDomainName     :: !(Maybe Text)
+  , _hccChildHealthChecks            :: !(Maybe [Text])
+  , _hccRequestInterval              :: !(Maybe Nat)
+  , _hccPort                         :: !(Maybe Nat)
+  , _hccType                         :: !HealthCheckType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -919,9 +919,9 @@ instance ToXML HealthCheckConfig where
 --
 -- /See:/ 'healthCheckObservation' smart constructor.
 data HealthCheckObservation = HealthCheckObservation'
-  { _hcoIPAddress    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hcoStatusReport :: {-# NOUNPACK #-}!(Maybe StatusReport)
-  , _hcoRegion       :: {-# NOUNPACK #-}!(Maybe HealthCheckRegion)
+  { _hcoIPAddress    :: !(Maybe Text)
+  , _hcoStatusReport :: !(Maybe StatusReport)
+  , _hcoRegion       :: !(Maybe HealthCheckRegion)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -969,11 +969,11 @@ instance NFData HealthCheckObservation where
 --
 -- /See:/ 'hostedZone' smart constructor.
 data HostedZone = HostedZone'
-  { _hzConfig                 :: {-# NOUNPACK #-}!(Maybe HostedZoneConfig)
-  , _hzResourceRecordSetCount :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _hzId                     :: {-# NOUNPACK #-}!ResourceId
-  , _hzName                   :: {-# NOUNPACK #-}!Text
-  , _hzCallerReference        :: {-# NOUNPACK #-}!Text
+  { _hzConfig                 :: !(Maybe HostedZoneConfig)
+  , _hzResourceRecordSetCount :: !(Maybe Integer)
+  , _hzId                     :: !ResourceId
+  , _hzName                   :: !Text
+  , _hzCallerReference        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1043,8 +1043,8 @@ instance NFData HostedZone where
 --
 -- /See:/ 'hostedZoneConfig' smart constructor.
 data HostedZoneConfig = HostedZoneConfig'
-  { _hzcPrivateZone :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _hzcComment     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _hzcPrivateZone :: !(Maybe Bool)
+  , _hzcComment     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1090,9 +1090,9 @@ instance ToXML HostedZoneConfig where
 --
 -- /See:/ 'queryLoggingConfig' smart constructor.
 data QueryLoggingConfig = QueryLoggingConfig'
-  { _qlcId                        :: {-# NOUNPACK #-}!Text
-  , _qlcHostedZoneId              :: {-# NOUNPACK #-}!ResourceId
-  , _qlcCloudWatchLogsLogGroupARN :: {-# NOUNPACK #-}!Text
+  { _qlcId                        :: !Text
+  , _qlcHostedZoneId              :: !ResourceId
+  , _qlcCloudWatchLogsLogGroupARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1182,19 +1182,19 @@ instance ToXML ResourceRecord where
 --
 -- /See:/ 'resourceRecordSet' smart constructor.
 data ResourceRecordSet = ResourceRecordSet'
-  { _rrsTTL :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _rrsResourceRecords :: {-# NOUNPACK #-}!(Maybe (List1 ResourceRecord))
-  , _rrsAliasTarget :: {-# NOUNPACK #-}!(Maybe AliasTarget)
-  , _rrsWeight :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _rrsTrafficPolicyInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrsSetIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrsFailover :: {-# NOUNPACK #-}!(Maybe Failover)
-  , _rrsHealthCheckId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrsRegion :: {-# NOUNPACK #-}!(Maybe Region)
-  , _rrsGeoLocation :: {-# NOUNPACK #-}!(Maybe GeoLocation)
-  , _rrsMultiValueAnswer :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rrsName :: {-# NOUNPACK #-}!Text
-  , _rrsType :: {-# NOUNPACK #-}!RecordType
+  { _rrsTTL                     :: !(Maybe Nat)
+  , _rrsResourceRecords         :: !(Maybe (List1 ResourceRecord))
+  , _rrsAliasTarget             :: !(Maybe AliasTarget)
+  , _rrsWeight                  :: !(Maybe Nat)
+  , _rrsTrafficPolicyInstanceId :: !(Maybe Text)
+  , _rrsSetIdentifier           :: !(Maybe Text)
+  , _rrsFailover                :: !(Maybe Failover)
+  , _rrsHealthCheckId           :: !(Maybe Text)
+  , _rrsRegion                  :: !(Maybe Region)
+  , _rrsGeoLocation             :: !(Maybe GeoLocation)
+  , _rrsMultiValueAnswer        :: !(Maybe Bool)
+  , _rrsName                    :: !Text
+  , _rrsType                    :: !RecordType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1348,9 +1348,9 @@ instance ToXML ResourceRecordSet where
 --
 -- /See:/ 'resourceTagSet' smart constructor.
 data ResourceTagSet = ResourceTagSet'
-  { _rtsResourceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtsResourceType :: {-# NOUNPACK #-}!(Maybe TagResourceType)
-  , _rtsTags         :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
+  { _rtsResourceId   :: !(Maybe Text)
+  , _rtsResourceType :: !(Maybe TagResourceType)
+  , _rtsTags         :: !(Maybe (List1 Tag))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1399,8 +1399,8 @@ instance NFData ResourceTagSet where
 --
 -- /See:/ 'statusReport' smart constructor.
 data StatusReport = StatusReport'
-  { _srStatus      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srCheckedTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  { _srStatus      :: !(Maybe Text)
+  , _srCheckedTime :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1439,8 +1439,8 @@ instance NFData StatusReport where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1482,12 +1482,12 @@ instance ToXML Tag where
 --
 -- /See:/ 'trafficPolicy' smart constructor.
 data TrafficPolicy = TrafficPolicy'
-  { _tpComment  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tpId       :: {-# NOUNPACK #-}!Text
-  , _tpVersion  :: {-# NOUNPACK #-}!Nat
-  , _tpName     :: {-# NOUNPACK #-}!Text
-  , _tpType     :: {-# NOUNPACK #-}!RecordType
-  , _tpDocument :: {-# NOUNPACK #-}!Text
+  { _tpComment  :: !(Maybe Text)
+  , _tpId       :: !Text
+  , _tpVersion  :: !Nat
+  , _tpName     :: !Text
+  , _tpType     :: !RecordType
+  , _tpDocument :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1567,15 +1567,15 @@ instance NFData TrafficPolicy where
 --
 -- /See:/ 'trafficPolicyInstance' smart constructor.
 data TrafficPolicyInstance = TrafficPolicyInstance'
-  { _tpiId                   :: {-# NOUNPACK #-}!Text
-  , _tpiHostedZoneId         :: {-# NOUNPACK #-}!ResourceId
-  , _tpiName                 :: {-# NOUNPACK #-}!Text
-  , _tpiTTL                  :: {-# NOUNPACK #-}!Nat
-  , _tpiState                :: {-# NOUNPACK #-}!Text
-  , _tpiMessage              :: {-# NOUNPACK #-}!Text
-  , _tpiTrafficPolicyId      :: {-# NOUNPACK #-}!Text
-  , _tpiTrafficPolicyVersion :: {-# NOUNPACK #-}!Nat
-  , _tpiTrafficPolicyType    :: {-# NOUNPACK #-}!RecordType
+  { _tpiId                   :: !Text
+  , _tpiHostedZoneId         :: !ResourceId
+  , _tpiName                 :: !Text
+  , _tpiTTL                  :: !Nat
+  , _tpiState                :: !Text
+  , _tpiMessage              :: !Text
+  , _tpiTrafficPolicyId      :: !Text
+  , _tpiTrafficPolicyVersion :: !Nat
+  , _tpiTrafficPolicyType    :: !RecordType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1683,11 +1683,11 @@ instance NFData TrafficPolicyInstance where
 --
 -- /See:/ 'trafficPolicySummary' smart constructor.
 data TrafficPolicySummary = TrafficPolicySummary'
-  { _tpsId                 :: {-# NOUNPACK #-}!Text
-  , _tpsName               :: {-# NOUNPACK #-}!Text
-  , _tpsType               :: {-# NOUNPACK #-}!RecordType
-  , _tpsLatestVersion      :: {-# NOUNPACK #-}!Nat
-  , _tpsTrafficPolicyCount :: {-# NOUNPACK #-}!Nat
+  { _tpsId                 :: !Text
+  , _tpsName               :: !Text
+  , _tpsType               :: !RecordType
+  , _tpsLatestVersion      :: !Nat
+  , _tpsTrafficPolicyCount :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1758,8 +1758,8 @@ instance NFData TrafficPolicySummary where
 --
 -- /See:/ 'vpc' smart constructor.
 data VPC = VPC'
-  { _vpcVPCRegion :: {-# NOUNPACK #-}!(Maybe VPCRegion)
-  , _vpcVPCId     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vpcVPCRegion :: !(Maybe VPCRegion)
+  , _vpcVPCId     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

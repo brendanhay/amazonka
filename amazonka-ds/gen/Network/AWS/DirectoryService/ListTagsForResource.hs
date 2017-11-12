@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { _ltfrNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltfrLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ltfrResourceId :: {-# NOUNPACK #-}!Text
+  { _ltfrNextToken  :: !(Maybe Text)
+  , _ltfrLimit      :: !(Maybe Nat)
+  , _ltfrResourceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery ListTagsForResource where
 
 -- | /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { _ltfrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltfrrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ltfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltfrrsNextToken      :: !(Maybe Text)
+  , _ltfrrsTags           :: !(Maybe [Tag])
+  , _ltfrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

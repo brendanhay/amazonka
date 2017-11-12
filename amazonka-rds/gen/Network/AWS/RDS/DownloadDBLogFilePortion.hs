@@ -58,10 +58,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'downloadDBLogFilePortion' smart constructor.
 data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
-  { _ddlfpNumberOfLines        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ddlfpMarker               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddlfpDBInstanceIdentifier :: {-# NOUNPACK #-}!Text
-  , _ddlfpLogFileName          :: {-# NOUNPACK #-}!Text
+  { _ddlfpNumberOfLines        :: !(Maybe Int)
+  , _ddlfpMarker               :: !(Maybe Text)
+  , _ddlfpDBInstanceIdentifier :: !Text
+  , _ddlfpLogFileName          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -152,10 +152,10 @@ instance ToQuery DownloadDBLogFilePortion where
 --
 -- /See:/ 'downloadDBLogFilePortionResponse' smart constructor.
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
-  { _ddlfprsLogFileData           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddlfprsAdditionalDataPending :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ddlfprsMarker                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddlfprsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _ddlfprsLogFileData           :: !(Maybe Text)
+  , _ddlfprsAdditionalDataPending :: !(Maybe Bool)
+  , _ddlfprsMarker                :: !(Maybe Text)
+  , _ddlfprsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

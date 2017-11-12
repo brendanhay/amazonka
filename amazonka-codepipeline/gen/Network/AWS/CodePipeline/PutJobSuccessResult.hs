@@ -50,10 +50,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'putJobSuccessResult' smart constructor.
 data PutJobSuccessResult = PutJobSuccessResult'
-  { _pjsrContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pjsrExecutionDetails  :: {-# NOUNPACK #-}!(Maybe ExecutionDetails)
-  , _pjsrCurrentRevision   :: {-# NOUNPACK #-}!(Maybe CurrentRevision)
-  , _pjsrJobId             :: {-# NOUNPACK #-}!Text
+  { _pjsrContinuationToken :: !(Maybe Text)
+  , _pjsrExecutionDetails  :: !(Maybe ExecutionDetails)
+  , _pjsrCurrentRevision   :: !(Maybe CurrentRevision)
+  , _pjsrJobId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

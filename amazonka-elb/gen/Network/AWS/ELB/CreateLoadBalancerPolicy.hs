@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createLoadBalancerPolicy' smart constructor.
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
-  { _clbpPolicyAttributes :: {-# NOUNPACK #-}!(Maybe [PolicyAttribute])
-  , _clbpLoadBalancerName :: {-# NOUNPACK #-}!Text
-  , _clbpPolicyName       :: {-# NOUNPACK #-}!Text
-  , _clbpPolicyTypeName   :: {-# NOUNPACK #-}!Text
+  { _clbpPolicyAttributes :: !(Maybe [PolicyAttribute])
+  , _clbpLoadBalancerName :: !Text
+  , _clbpPolicyName       :: !Text
+  , _clbpPolicyTypeName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

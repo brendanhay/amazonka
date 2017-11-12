@@ -43,9 +43,9 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketWebsite' smart constructor.
 data PutBucketWebsite = PutBucketWebsite'
-  { _pbwContentMD5           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbwBucket               :: {-# NOUNPACK #-}!BucketName
-  , _pbwWebsiteConfiguration :: {-# NOUNPACK #-}!WebsiteConfiguration
+  { _pbwContentMD5           :: !(Maybe Text)
+  , _pbwBucket               :: !BucketName
+  , _pbwWebsiteConfiguration :: !WebsiteConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

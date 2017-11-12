@@ -51,11 +51,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'getTables' smart constructor.
 data GetTables = GetTables'
-  { _gtCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtExpression   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gtDatabaseName :: {-# NOUNPACK #-}!Text
+  { _gtCatalogId    :: !(Maybe Text)
+  , _gtNextToken    :: !(Maybe Text)
+  , _gtExpression   :: !(Maybe Text)
+  , _gtMaxResults   :: !(Maybe Nat)
+  , _gtDatabaseName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,9 +147,9 @@ instance ToQuery GetTables where
 
 -- | /See:/ 'getTablesResponse' smart constructor.
 data GetTablesResponse = GetTablesResponse'
-  { _gtsrsTableList      :: {-# NOUNPACK #-}!(Maybe [Table])
-  , _gtsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gtsrsTableList      :: !(Maybe [Table])
+  , _gtsrsNextToken      :: !(Maybe Text)
+  , _gtsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

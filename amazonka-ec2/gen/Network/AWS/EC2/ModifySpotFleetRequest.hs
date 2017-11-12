@@ -58,9 +58,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifySpotFleetRequest' smart constructor.
 data ModifySpotFleetRequest = ModifySpotFleetRequest'
-  { _msfrTargetCapacity :: {-# NOUNPACK #-}!(Maybe Int)
-  , _msfrExcessCapacityTerminationPolicy :: {-# NOUNPACK #-}!(Maybe ExcessCapacityTerminationPolicy)
-  , _msfrSpotFleetRequestId :: {-# NOUNPACK #-}!Text
+  { _msfrTargetCapacity :: !(Maybe Int)
+  , _msfrExcessCapacityTerminationPolicy :: !(Maybe ExcessCapacityTerminationPolicy)
+  , _msfrSpotFleetRequestId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,8 +133,8 @@ instance ToQuery ModifySpotFleetRequest where
 --
 -- /See:/ 'modifySpotFleetRequestResponse' smart constructor.
 data ModifySpotFleetRequestResponse = ModifySpotFleetRequestResponse'
-  { _msfrrsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _msfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _msfrrsReturn         :: !(Maybe Bool)
+  , _msfrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

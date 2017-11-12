@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listDiscoveredResources' smart constructor.
 data ListDiscoveredResources = ListDiscoveredResources'
-  { _ldrNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrMaxResults           :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ldrProgressUpdateStream :: {-# NOUNPACK #-}!Text
-  , _ldrMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  { _ldrNextToken            :: !(Maybe Text)
+  , _ldrMaxResults           :: !(Maybe Nat)
+  , _ldrProgressUpdateStream :: !Text
+  , _ldrMigrationTaskName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery ListDiscoveredResources where
 
 -- | /See:/ 'listDiscoveredResourcesResponse' smart constructor.
 data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
-  { _ldrrsDiscoveredResourceList :: {-# NOUNPACK #-}!(Maybe [DiscoveredResource])
-  , _ldrrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ldrrsDiscoveredResourceList :: !(Maybe [DiscoveredResource])
+  , _ldrrsNextToken              :: !(Maybe Text)
+  , _ldrrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

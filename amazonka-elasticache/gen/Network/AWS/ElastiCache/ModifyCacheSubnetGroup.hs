@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyCacheSubnetGroup' smart constructor.
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
-  { _mcsgSubnetIds                   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mcsgCacheSubnetGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mcsgCacheSubnetGroupName        :: {-# NOUNPACK #-}!Text
+  { _mcsgSubnetIds                   :: !(Maybe [Text])
+  , _mcsgCacheSubnetGroupDescription :: !(Maybe Text)
+  , _mcsgCacheSubnetGroupName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToQuery ModifyCacheSubnetGroup where
 
 -- | /See:/ 'modifyCacheSubnetGroupResponse' smart constructor.
 data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
-  { _mcsgrsCacheSubnetGroup :: {-# NOUNPACK #-}!(Maybe CacheSubnetGroup)
-  , _mcsgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _mcsgrsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
+  , _mcsgrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

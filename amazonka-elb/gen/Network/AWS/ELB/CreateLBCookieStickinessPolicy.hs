@@ -57,9 +57,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createLBCookieStickinessPolicy' smart constructor.
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
-  { _clbcspCookieExpirationPeriod :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _clbcspLoadBalancerName       :: {-# NOUNPACK #-}!Text
-  , _clbcspPolicyName             :: {-# NOUNPACK #-}!Text
+  { _clbcspCookieExpirationPeriod :: !(Maybe Integer)
+  , _clbcspLoadBalancerName       :: !Text
+  , _clbcspPolicyName             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

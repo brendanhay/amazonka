@@ -89,8 +89,8 @@ instance ToQuery GetBucketEncryption where
 
 -- | /See:/ 'getBucketEncryptionResponse' smart constructor.
 data GetBucketEncryptionResponse = GetBucketEncryptionResponse'
-  { _gbersServerSideEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe ServerSideEncryptionConfiguration)
-  , _gbersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbersServerSideEncryptionConfiguration :: !(Maybe ServerSideEncryptionConfiguration)
+  , _gbersResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

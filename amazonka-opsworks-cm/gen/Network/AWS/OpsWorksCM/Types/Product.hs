@@ -27,9 +27,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'accountAttribute' smart constructor.
 data AccountAttribute = AccountAttribute'
-  { _aaUsed    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _aaMaximum :: {-# NOUNPACK #-}!(Maybe Int)
-  , _aaName    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aaUsed    :: !(Maybe Int)
+  , _aaMaximum :: !(Maybe Int)
+  , _aaName    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -78,30 +78,30 @@ instance NFData AccountAttribute where
 --
 -- /See:/ 'backup' smart constructor.
 data Backup = Backup'
-  { _bEngineVersion              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bServiceRoleARN             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bStatus                     :: {-# NOUNPACK #-}!(Maybe BackupStatus)
-  , _bInstanceProfileARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _bStatusDescription          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bServerName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bSubnetIds                  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _bKeyPair                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bCreatedAt                  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _bBackupId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bEngine                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bInstanceType               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bEngineModel                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bUserARN                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bPreferredBackupWindow      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bS3LogURL                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bS3DataSize                 :: {-# NOUNPACK #-}!(Maybe Int)
-  , _bBackupARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bS3DataURL                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bDescription                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bBackupType                 :: {-# NOUNPACK #-}!(Maybe BackupType)
-  , _bToolsVersion               :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bEngineVersion              :: !(Maybe Text)
+  , _bServiceRoleARN             :: !(Maybe Text)
+  , _bStatus                     :: !(Maybe BackupStatus)
+  , _bInstanceProfileARN         :: !(Maybe Text)
+  , _bSecurityGroupIds           :: !(Maybe [Text])
+  , _bStatusDescription          :: !(Maybe Text)
+  , _bServerName                 :: !(Maybe Text)
+  , _bSubnetIds                  :: !(Maybe [Text])
+  , _bKeyPair                    :: !(Maybe Text)
+  , _bCreatedAt                  :: !(Maybe POSIX)
+  , _bBackupId                   :: !(Maybe Text)
+  , _bEngine                     :: !(Maybe Text)
+  , _bInstanceType               :: !(Maybe Text)
+  , _bEngineModel                :: !(Maybe Text)
+  , _bPreferredMaintenanceWindow :: !(Maybe Text)
+  , _bUserARN                    :: !(Maybe Text)
+  , _bPreferredBackupWindow      :: !(Maybe Text)
+  , _bS3LogURL                   :: !(Maybe Text)
+  , _bS3DataSize                 :: !(Maybe Int)
+  , _bBackupARN                  :: !(Maybe Text)
+  , _bS3DataURL                  :: !(Maybe Text)
+  , _bDescription                :: !(Maybe Text)
+  , _bBackupType                 :: !(Maybe BackupType)
+  , _bToolsVersion               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -322,8 +322,8 @@ instance NFData Backup where
 --
 -- /See:/ 'engineAttribute' smart constructor.
 data EngineAttribute = EngineAttribute'
-  { _eaValue :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _eaName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eaValue :: !(Maybe (Sensitive Text))
+  , _eaName  :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -370,29 +370,29 @@ instance ToJSON EngineAttribute where
 --
 -- /See:/ 'server' smart constructor.
 data Server = Server'
-  { _sEngineVersion              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sServiceRoleARN             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sDisableAutomatedBackup     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sStatus                     :: {-# NOUNPACK #-}!(Maybe ServerStatus)
-  , _sInstanceProfileARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sAssociatePublicIPAddress   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sServerName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSubnetIds                  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sKeyPair                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCreatedAt                  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _sServerARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEngine                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sMaintenanceStatus          :: {-# NOUNPACK #-}!(Maybe MaintenanceStatus)
-  , _sInstanceType               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEngineModel                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEngineAttributes           :: {-# NOUNPACK #-}!(Maybe [EngineAttribute])
-  , _sPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sPreferredBackupWindow      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sStatusReason               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEndpoint                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCloudFormationStackARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sBackupRetentionCount       :: {-# NOUNPACK #-}!(Maybe Int)
+  { _sEngineVersion              :: !(Maybe Text)
+  , _sServiceRoleARN             :: !(Maybe Text)
+  , _sDisableAutomatedBackup     :: !(Maybe Bool)
+  , _sStatus                     :: !(Maybe ServerStatus)
+  , _sInstanceProfileARN         :: !(Maybe Text)
+  , _sSecurityGroupIds           :: !(Maybe [Text])
+  , _sAssociatePublicIPAddress   :: !(Maybe Bool)
+  , _sServerName                 :: !(Maybe Text)
+  , _sSubnetIds                  :: !(Maybe [Text])
+  , _sKeyPair                    :: !(Maybe Text)
+  , _sCreatedAt                  :: !(Maybe POSIX)
+  , _sServerARN                  :: !(Maybe Text)
+  , _sEngine                     :: !(Maybe Text)
+  , _sMaintenanceStatus          :: !(Maybe MaintenanceStatus)
+  , _sInstanceType               :: !(Maybe Text)
+  , _sEngineModel                :: !(Maybe Text)
+  , _sEngineAttributes           :: !(Maybe [EngineAttribute])
+  , _sPreferredMaintenanceWindow :: !(Maybe Text)
+  , _sPreferredBackupWindow      :: !(Maybe Text)
+  , _sStatusReason               :: !(Maybe Text)
+  , _sEndpoint                   :: !(Maybe Text)
+  , _sCloudFormationStackARN     :: !(Maybe Text)
+  , _sBackupRetentionCount       :: !(Maybe Int)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -605,10 +605,10 @@ instance NFData Server where
 --
 -- /See:/ 'serverEvent' smart constructor.
 data ServerEvent = ServerEvent'
-  { _seLogURL     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seServerName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seCreatedAt  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _seMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _seLogURL     :: !(Maybe Text)
+  , _seServerName :: !(Maybe Text)
+  , _seCreatedAt  :: !(Maybe POSIX)
+  , _seMessage    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

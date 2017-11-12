@@ -48,10 +48,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'associatePrincipalWithPortfolio' smart constructor.
 data AssociatePrincipalWithPortfolio = AssociatePrincipalWithPortfolio'
-  { _aAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aPortfolioId    :: {-# NOUNPACK #-}!Text
-  , _aPrincipalARN   :: {-# NOUNPACK #-}!Text
-  , _aPrincipalType  :: {-# NOUNPACK #-}!PrincipalType
+  { _aAcceptLanguage :: !(Maybe Text)
+  , _aPortfolioId    :: !Text
+  , _aPrincipalARN   :: !Text
+  , _aPrincipalType  :: !PrincipalType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateBaiduChannel' smart constructor.
 data UpdateBaiduChannel = UpdateBaiduChannel'
-  { _ubcApplicationId       :: {-# NOUNPACK #-}!Text
-  , _ubcBaiduChannelRequest :: {-# NOUNPACK #-}!BaiduChannelRequest
+  { _ubcApplicationId       :: !Text
+  , _ubcBaiduChannelRequest :: !BaiduChannelRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery UpdateBaiduChannel where
 
 -- | /See:/ 'updateBaiduChannelResponse' smart constructor.
 data UpdateBaiduChannelResponse = UpdateBaiduChannelResponse'
-  { _ubcrsResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _ubcrsBaiduChannelResponse :: {-# NOUNPACK #-}!BaiduChannelResponse
+  { _ubcrsResponseStatus       :: !Int
+  , _ubcrsBaiduChannelResponse :: !BaiduChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

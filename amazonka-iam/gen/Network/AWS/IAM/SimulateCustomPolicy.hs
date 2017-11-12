@@ -67,16 +67,16 @@ import Network.AWS.Response
 
 -- | /See:/ 'simulateCustomPolicy' smart constructor.
 data SimulateCustomPolicy = SimulateCustomPolicy'
-  { _scpResourcePolicy         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scpCallerARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scpResourceHandlingOption :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scpResourceARNs           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _scpMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scpMaxItems               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _scpContextEntries         :: {-# NOUNPACK #-}!(Maybe [ContextEntry])
-  , _scpResourceOwner          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scpPolicyInputList        :: {-# NOUNPACK #-}![Text]
-  , _scpActionNames            :: {-# NOUNPACK #-}![Text]
+  { _scpResourcePolicy         :: !(Maybe Text)
+  , _scpCallerARN              :: !(Maybe Text)
+  , _scpResourceHandlingOption :: !(Maybe Text)
+  , _scpResourceARNs           :: !(Maybe [Text])
+  , _scpMarker                 :: !(Maybe Text)
+  , _scpMaxItems               :: !(Maybe Nat)
+  , _scpContextEntries         :: !(Maybe [ContextEntry])
+  , _scpResourceOwner          :: !(Maybe Text)
+  , _scpPolicyInputList        :: ![Text]
+  , _scpActionNames            :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

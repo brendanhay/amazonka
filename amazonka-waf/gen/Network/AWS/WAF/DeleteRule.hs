@@ -59,8 +59,8 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'deleteRule' smart constructor.
 data DeleteRule = DeleteRule'
-  { _drRuleId      :: {-# NOUNPACK #-}!Text
-  , _drChangeToken :: {-# NOUNPACK #-}!Text
+  { _drRuleId      :: !Text
+  , _drChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery DeleteRule where
 
 -- | /See:/ 'deleteRuleResponse' smart constructor.
 data DeleteRuleResponse = DeleteRuleResponse'
-  { _drrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drrsChangeToken    :: !(Maybe Text)
+  , _drrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

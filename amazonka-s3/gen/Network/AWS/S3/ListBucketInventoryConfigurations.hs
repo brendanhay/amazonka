@@ -48,8 +48,8 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listBucketInventoryConfigurations' smart constructor.
 data ListBucketInventoryConfigurations = ListBucketInventoryConfigurations'
-  { _lbicContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbicBucket            :: {-# NOUNPACK #-}!BucketName
+  { _lbicContinuationToken :: !(Maybe Text)
+  , _lbicBucket            :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,11 +115,11 @@ instance ToQuery ListBucketInventoryConfigurations
 
 -- | /See:/ 'listBucketInventoryConfigurationsResponse' smart constructor.
 data ListBucketInventoryConfigurationsResponse = ListBucketInventoryConfigurationsResponse'
-  { _lbicrsContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbicrsInventoryConfigurationList :: {-# NOUNPACK #-}!(Maybe [InventoryConfiguration])
-  , _lbicrsNextContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbicrsIsTruncated :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lbicrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lbicrsContinuationToken          :: !(Maybe Text)
+  , _lbicrsInventoryConfigurationList :: !(Maybe [InventoryConfiguration])
+  , _lbicrsNextContinuationToken      :: !(Maybe Text)
+  , _lbicrsIsTruncated                :: !(Maybe Bool)
+  , _lbicrsResponseStatus             :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'detachLoadBalancers' smart constructor.
 data DetachLoadBalancers = DetachLoadBalancers'
-  { _dAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _dLoadBalancerNames    :: {-# NOUNPACK #-}![Text]
+  { _dAutoScalingGroupName :: !Text
+  , _dLoadBalancerNames    :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

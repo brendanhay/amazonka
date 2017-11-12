@@ -106,8 +106,8 @@ instance ToQuery GetJobManifest where
 
 -- | /See:/ 'getJobManifestResponse' smart constructor.
 data GetJobManifestResponse = GetJobManifestResponse'
-  { _gjmrsManifestURI    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gjmrsManifestURI    :: !(Maybe Text)
+  , _gjmrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

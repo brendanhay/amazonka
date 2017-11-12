@@ -69,12 +69,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeInstanceStatus' smart constructor.
 data DescribeInstanceStatus = DescribeInstanceStatus'
-  { _disIncludeAllInstances :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _disFilters             :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _disNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _disInstanceIds         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _disDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _disMaxResults          :: {-# NOUNPACK #-}!(Maybe Int)
+  { _disIncludeAllInstances :: !(Maybe Bool)
+  , _disFilters             :: !(Maybe [Filter])
+  , _disNextToken           :: !(Maybe Text)
+  , _disInstanceIds         :: !(Maybe [Text])
+  , _disDryRun              :: !(Maybe Bool)
+  , _disMaxResults          :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -180,9 +180,9 @@ instance ToQuery DescribeInstanceStatus where
 --
 -- /See:/ 'describeInstanceStatusResponse' smart constructor.
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
-  { _disrsInstanceStatuses :: {-# NOUNPACK #-}!(Maybe [InstanceStatus])
-  , _disrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _disrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _disrsInstanceStatuses :: !(Maybe [InstanceStatus])
+  , _disrsNextToken        :: !(Maybe Text)
+  , _disrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

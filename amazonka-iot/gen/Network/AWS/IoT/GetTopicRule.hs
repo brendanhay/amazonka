@@ -100,9 +100,9 @@ instance ToQuery GetTopicRule where
 --
 -- /See:/ 'getTopicRuleResponse' smart constructor.
 data GetTopicRuleResponse = GetTopicRuleResponse'
-  { _gtrrsRule           :: {-# NOUNPACK #-}!(Maybe TopicRule)
-  , _gtrrsRuleARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gtrrsRule           :: !(Maybe TopicRule)
+  , _gtrrsRuleARN        :: !(Maybe Text)
+  , _gtrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

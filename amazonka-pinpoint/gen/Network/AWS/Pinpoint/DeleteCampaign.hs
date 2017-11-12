@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteCampaign' smart constructor.
 data DeleteCampaign = DeleteCampaign'
-  { _dcCampaignId    :: {-# NOUNPACK #-}!Text
-  , _dcApplicationId :: {-# NOUNPACK #-}!Text
+  { _dcCampaignId    :: !Text
+  , _dcApplicationId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -105,8 +105,8 @@ instance ToQuery DeleteCampaign where
 
 -- | /See:/ 'deleteCampaignResponse' smart constructor.
 data DeleteCampaignResponse = DeleteCampaignResponse'
-  { _dcrsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _dcrsCampaignResponse :: {-# NOUNPACK #-}!CampaignResponse
+  { _dcrsResponseStatus   :: !Int
+  , _dcrsCampaignResponse :: !CampaignResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

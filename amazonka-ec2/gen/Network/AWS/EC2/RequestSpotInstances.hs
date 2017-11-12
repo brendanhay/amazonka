@@ -61,18 +61,18 @@ import Network.AWS.Response
 --
 -- /See:/ 'requestSpotInstances' smart constructor.
 data RequestSpotInstances = RequestSpotInstances'
-  { _rsisBlockDurationMinutes :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rsisClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsisInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rsisInstanceInterruptionBehavior :: {-# NOUNPACK #-}!(Maybe InstanceInterruptionBehavior)
-  , _rsisLaunchSpecification :: {-# NOUNPACK #-}!(Maybe RequestSpotLaunchSpecification)
-  , _rsisAvailabilityZoneGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsisValidUntil :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _rsisLaunchGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsisType :: {-# NOUNPACK #-}!(Maybe SpotInstanceType)
-  , _rsisValidFrom :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _rsisDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rsisSpotPrice :: {-# NOUNPACK #-}!Text
+  { _rsisBlockDurationMinutes         :: !(Maybe Int)
+  , _rsisClientToken                  :: !(Maybe Text)
+  , _rsisInstanceCount                :: !(Maybe Int)
+  , _rsisInstanceInterruptionBehavior :: !(Maybe InstanceInterruptionBehavior)
+  , _rsisLaunchSpecification          :: !(Maybe RequestSpotLaunchSpecification)
+  , _rsisAvailabilityZoneGroup        :: !(Maybe Text)
+  , _rsisValidUntil                   :: !(Maybe ISO8601)
+  , _rsisLaunchGroup                  :: !(Maybe Text)
+  , _rsisType                         :: !(Maybe SpotInstanceType)
+  , _rsisValidFrom                    :: !(Maybe ISO8601)
+  , _rsisDryRun                       :: !(Maybe Bool)
+  , _rsisSpotPrice                    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -218,8 +218,8 @@ instance ToQuery RequestSpotInstances where
 --
 -- /See:/ 'requestSpotInstancesResponse' smart constructor.
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
-  { _rsirsSpotInstanceRequests :: {-# NOUNPACK #-}!(Maybe [SpotInstanceRequest])
-  , _rsirsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _rsirsSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
+  , _rsirsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

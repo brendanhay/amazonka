@@ -57,8 +57,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getVaultNotifications' smart constructor.
 data GetVaultNotifications = GetVaultNotifications'
-  { _gvnAccountId :: {-# NOUNPACK #-}!Text
-  , _gvnVaultName :: {-# NOUNPACK #-}!Text
+  { _gvnAccountId :: !Text
+  , _gvnVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery GetVaultNotifications where
 --
 -- /See:/ 'getVaultNotificationsResponse' smart constructor.
 data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
-  { _gvnrsVaultNotificationConfig :: {-# NOUNPACK #-}!(Maybe VaultNotificationConfig)
-  , _gvnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gvnrsVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
+  , _gvnrsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

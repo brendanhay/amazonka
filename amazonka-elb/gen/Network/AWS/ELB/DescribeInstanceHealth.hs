@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeInstanceHealth' smart constructor.
 data DescribeInstanceHealth = DescribeInstanceHealth'
-  { _dihInstances        :: {-# NOUNPACK #-}!(Maybe [Instance])
-  , _dihLoadBalancerName :: {-# NOUNPACK #-}!Text
+  { _dihInstances        :: !(Maybe [Instance])
+  , _dihLoadBalancerName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,8 +117,8 @@ instance ToQuery DescribeInstanceHealth where
 --
 -- /See:/ 'describeInstanceHealthResponse' smart constructor.
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
-  { _dihrsInstanceStates :: {-# NOUNPACK #-}!(Maybe [InstanceState])
-  , _dihrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dihrsInstanceStates :: !(Maybe [InstanceState])
+  , _dihrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

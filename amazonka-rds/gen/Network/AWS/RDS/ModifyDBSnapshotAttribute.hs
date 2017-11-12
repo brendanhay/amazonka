@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyDBSnapshotAttribute' smart constructor.
 data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
-  { _mdsaValuesToAdd          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mdsaValuesToRemove       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mdsaDBSnapshotIdentifier :: {-# NOUNPACK #-}!Text
-  , _mdsaAttributeName        :: {-# NOUNPACK #-}!Text
+  { _mdsaValuesToAdd          :: !(Maybe [Text])
+  , _mdsaValuesToRemove       :: !(Maybe [Text])
+  , _mdsaDBSnapshotIdentifier :: !Text
+  , _mdsaAttributeName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -143,8 +143,8 @@ instance ToQuery ModifyDBSnapshotAttribute where
 
 -- | /See:/ 'modifyDBSnapshotAttributeResponse' smart constructor.
 data ModifyDBSnapshotAttributeResponse = ModifyDBSnapshotAttributeResponse'
-  { _mdsarsDBSnapshotAttributesResult :: {-# NOUNPACK #-}!(Maybe DBSnapshotAttributesResult)
-  , _mdsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mdsarsDBSnapshotAttributesResult :: !(Maybe DBSnapshotAttributesResult)
+  , _mdsarsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

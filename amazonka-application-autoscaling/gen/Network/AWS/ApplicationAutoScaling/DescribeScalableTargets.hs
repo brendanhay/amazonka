@@ -58,11 +58,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeScalableTargets' smart constructor.
 data DescribeScalableTargets = DescribeScalableTargets'
-  { _dstResourceIds       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dstScalableDimension :: {-# NOUNPACK #-}!(Maybe ScalableDimension)
-  , _dstNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dstMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dstServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
+  { _dstResourceIds       :: !(Maybe [Text])
+  , _dstScalableDimension :: !(Maybe ScalableDimension)
+  , _dstNextToken         :: !(Maybe Text)
+  , _dstMaxResults        :: !(Maybe Int)
+  , _dstServiceNamespace  :: !ServiceNamespace
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -163,9 +163,9 @@ instance ToQuery DescribeScalableTargets where
 
 -- | /See:/ 'describeScalableTargetsResponse' smart constructor.
 data DescribeScalableTargetsResponse = DescribeScalableTargetsResponse'
-  { _dstsrsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dstsrsScalableTargets :: {-# NOUNPACK #-}!(Maybe [ScalableTarget])
-  , _dstsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dstsrsNextToken       :: !(Maybe Text)
+  , _dstsrsScalableTargets :: !(Maybe [ScalableTarget])
+  , _dstsrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

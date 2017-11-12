@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createLoginProfile' smart constructor.
 data CreateLoginProfile = CreateLoginProfile'
-  { _clpPasswordResetRequired :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _clpUserName              :: {-# NOUNPACK #-}!Text
-  , _clpPassword              :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _clpPasswordResetRequired :: !(Maybe Bool)
+  , _clpUserName              :: !Text
+  , _clpPassword              :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery CreateLoginProfile where
 --
 -- /See:/ 'createLoginProfileResponse' smart constructor.
 data CreateLoginProfileResponse = CreateLoginProfileResponse'
-  { _clprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _clprsLoginProfile   :: {-# NOUNPACK #-}!LoginProfile
+  { _clprsResponseStatus :: !Int
+  , _clprsLoginProfile   :: !LoginProfile
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

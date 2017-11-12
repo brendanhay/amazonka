@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'monitorInstances' smart constructor.
 data MonitorInstances = MonitorInstances'
-  { _miDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _miInstanceIds :: {-# NOUNPACK #-}![Text]
+  { _miDryRun      :: !(Maybe Bool)
+  , _miInstanceIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery MonitorInstances where
 --
 -- /See:/ 'monitorInstancesResponse' smart constructor.
 data MonitorInstancesResponse = MonitorInstancesResponse'
-  { _mirsInstanceMonitorings :: {-# NOUNPACK #-}!(Maybe [InstanceMonitoring])
-  , _mirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
+  , _mirsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

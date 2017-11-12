@@ -121,8 +121,8 @@ instance ToQuery GetComplianceSummaryByResourceType
 --
 -- /See:/ 'getComplianceSummaryByResourceTypeResponse' smart constructor.
 data GetComplianceSummaryByResourceTypeResponse = GetComplianceSummaryByResourceTypeResponse'
-  { _gcsbrtrsComplianceSummariesByResourceType :: {-# NOUNPACK #-}!(Maybe [ComplianceSummaryByResourceType])
-  , _gcsbrtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcsbrtrsComplianceSummariesByResourceType :: !(Maybe [ComplianceSummaryByResourceType])
+  , _gcsbrtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

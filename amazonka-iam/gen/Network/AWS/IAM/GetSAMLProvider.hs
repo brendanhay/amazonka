@@ -102,10 +102,10 @@ instance ToQuery GetSAMLProvider where
 --
 -- /See:/ 'getSAMLProviderResponse' smart constructor.
 data GetSAMLProviderResponse = GetSAMLProviderResponse'
-  { _gsamlprsCreateDate           :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _gsamlprsValidUntil           :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _gsamlprsSAMLMetadataDocument :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsamlprsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _gsamlprsCreateDate           :: !(Maybe ISO8601)
+  , _gsamlprsValidUntil           :: !(Maybe ISO8601)
+  , _gsamlprsSAMLMetadataDocument :: !(Maybe Text)
+  , _gsamlprsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

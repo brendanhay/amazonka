@@ -50,9 +50,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createDocument' smart constructor.
 data CreateDocument = CreateDocument'
-  { _cdDocumentType :: {-# NOUNPACK #-}!(Maybe DocumentType)
-  , _cdContent      :: {-# NOUNPACK #-}!Text
-  , _cdName         :: {-# NOUNPACK #-}!Text
+  { _cdDocumentType :: !(Maybe DocumentType)
+  , _cdContent      :: !Text
+  , _cdName         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToQuery CreateDocument where
 
 -- | /See:/ 'createDocumentResponse' smart constructor.
 data CreateDocumentResponse = CreateDocumentResponse'
-  { _cdrsDocumentDescription :: {-# NOUNPACK #-}!(Maybe DocumentDescription)
-  , _cdrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _cdrsDocumentDescription :: !(Maybe DocumentDescription)
+  , _cdrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

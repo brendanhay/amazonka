@@ -108,9 +108,9 @@ instance ToQuery ListExports where
 
 -- | /See:/ 'listExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
-  { _lersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lersExports        :: {-# NOUNPACK #-}!(Maybe [Export])
-  , _lersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lersNextToken      :: !(Maybe Text)
+  , _lersExports        :: !(Maybe [Export])
+  , _lersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

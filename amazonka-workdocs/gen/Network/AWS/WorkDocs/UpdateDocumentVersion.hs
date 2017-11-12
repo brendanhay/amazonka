@@ -48,10 +48,10 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateDocumentVersion' smart constructor.
 data UpdateDocumentVersion = UpdateDocumentVersion'
-  { _udvAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _udvVersionStatus       :: {-# NOUNPACK #-}!(Maybe DocumentVersionStatus)
-  , _udvDocumentId          :: {-# NOUNPACK #-}!Text
-  , _udvVersionId           :: {-# NOUNPACK #-}!Text
+  { _udvAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _udvVersionStatus       :: !(Maybe DocumentVersionStatus)
+  , _udvDocumentId          :: !Text
+  , _udvVersionId           :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

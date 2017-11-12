@@ -59,13 +59,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'putScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-  { _pspPolicyType :: {-# NOUNPACK #-}!(Maybe PolicyType)
-  , _pspTargetTrackingScalingPolicyConfiguration :: {-# NOUNPACK #-}!(Maybe TargetTrackingScalingPolicyConfiguration)
-  , _pspStepScalingPolicyConfiguration :: {-# NOUNPACK #-}!(Maybe StepScalingPolicyConfiguration)
-  , _pspPolicyName :: {-# NOUNPACK #-}!Text
-  , _pspServiceNamespace :: {-# NOUNPACK #-}!ServiceNamespace
-  , _pspResourceId :: {-# NOUNPACK #-}!Text
-  , _pspScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
+  { _pspPolicyType :: !(Maybe PolicyType)
+  , _pspTargetTrackingScalingPolicyConfiguration :: !(Maybe TargetTrackingScalingPolicyConfiguration)
+  , _pspStepScalingPolicyConfiguration :: !(Maybe StepScalingPolicyConfiguration)
+  , _pspPolicyName :: !Text
+  , _pspServiceNamespace :: !ServiceNamespace
+  , _pspResourceId :: !Text
+  , _pspScalableDimension :: !ScalableDimension
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -178,9 +178,9 @@ instance ToQuery PutScalingPolicy where
 
 -- | /See:/ 'putScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-  { _psprsAlarms         :: {-# NOUNPACK #-}!(Maybe [Alarm])
-  , _psprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _psprsPolicyARN      :: {-# NOUNPACK #-}!Text
+  { _psprsAlarms         :: !(Maybe [Alarm])
+  , _psprsResponseStatus :: !Int
+  , _psprsPolicyARN      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

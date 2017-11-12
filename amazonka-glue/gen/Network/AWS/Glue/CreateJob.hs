@@ -55,16 +55,16 @@ import Network.AWS.Response
 
 -- | /See:/ 'createJob' smart constructor.
 data CreateJob = CreateJob'
-  { _cjConnections       :: {-# NOUNPACK #-}!(Maybe ConnectionsList)
-  , _cjLogURI            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjMaxRetries        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cjExecutionProperty :: {-# NOUNPACK #-}!(Maybe ExecutionProperty)
-  , _cjAllocatedCapacity :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cjDefaultArguments  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cjDescription       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjName              :: {-# NOUNPACK #-}!Text
-  , _cjRole              :: {-# NOUNPACK #-}!Text
-  , _cjCommand           :: {-# NOUNPACK #-}!JobCommand
+  { _cjConnections       :: !(Maybe ConnectionsList)
+  , _cjLogURI            :: !(Maybe Text)
+  , _cjMaxRetries        :: !(Maybe Int)
+  , _cjExecutionProperty :: !(Maybe ExecutionProperty)
+  , _cjAllocatedCapacity :: !(Maybe Int)
+  , _cjDefaultArguments  :: !(Maybe (Map Text Text))
+  , _cjDescription       :: !(Maybe Text)
+  , _cjName              :: !Text
+  , _cjRole              :: !Text
+  , _cjCommand           :: !JobCommand
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -195,8 +195,8 @@ instance ToQuery CreateJob where
 
 -- | /See:/ 'createJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { _cjrsName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cjrsName           :: !(Maybe Text)
+  , _cjrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

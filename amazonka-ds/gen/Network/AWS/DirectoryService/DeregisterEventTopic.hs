@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deregisterEventTopic' smart constructor.
 data DeregisterEventTopic = DeregisterEventTopic'
-  { _detDirectoryId :: {-# NOUNPACK #-}!Text
-  , _detTopicName   :: {-# NOUNPACK #-}!Text
+  { _detDirectoryId :: !Text
+  , _detTopicName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

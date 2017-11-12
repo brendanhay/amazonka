@@ -55,11 +55,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeVolumesModifications' smart constructor.
 data DescribeVolumesModifications = DescribeVolumesModifications'
-  { _dvmFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dvmVolumeIds  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvmNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvmDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dvmMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dvmFilters    :: !(Maybe [Filter])
+  , _dvmVolumeIds  :: !(Maybe [Text])
+  , _dvmNextToken  :: !(Maybe Text)
+  , _dvmDryRun     :: !(Maybe Bool)
+  , _dvmMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -145,9 +145,9 @@ instance ToQuery DescribeVolumesModifications where
 
 -- | /See:/ 'describeVolumesModificationsResponse' smart constructor.
 data DescribeVolumesModificationsResponse = DescribeVolumesModificationsResponse'
-  { _dvmrsVolumesModifications :: {-# NOUNPACK #-}!(Maybe [VolumeModification])
-  , _dvmrsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvmrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _dvmrsVolumesModifications :: !(Maybe [VolumeModification])
+  , _dvmrsNextToken            :: !(Maybe Text)
+  , _dvmrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

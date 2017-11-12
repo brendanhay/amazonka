@@ -102,8 +102,8 @@ instance ToQuery DeleteMaintenanceWindow where
 
 -- | /See:/ 'deleteMaintenanceWindowResponse' smart constructor.
 data DeleteMaintenanceWindowResponse = DeleteMaintenanceWindowResponse'
-  { _dmwrsWindowId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmwrsWindowId       :: !(Maybe Text)
+  , _dmwrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

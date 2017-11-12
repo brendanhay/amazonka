@@ -101,8 +101,8 @@ instance ToQuery DescribeTargetGroupAttributes where
 
 -- | /See:/ 'describeTargetGroupAttributesResponse' smart constructor.
 data DescribeTargetGroupAttributesResponse = DescribeTargetGroupAttributesResponse'
-  { _dtgarsAttributes     :: {-# NOUNPACK #-}!(Maybe [TargetGroupAttribute])
-  , _dtgarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dtgarsAttributes     :: !(Maybe [TargetGroupAttribute])
+  , _dtgarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

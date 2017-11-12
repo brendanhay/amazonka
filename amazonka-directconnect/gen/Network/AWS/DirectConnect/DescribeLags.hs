@@ -108,8 +108,8 @@ instance ToQuery DescribeLags where
 --
 -- /See:/ 'describeLagsResponse' smart constructor.
 data DescribeLagsResponse = DescribeLagsResponse'
-  { _desrsLags           :: {-# NOUNPACK #-}!(Maybe [Lag])
-  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _desrsLags           :: !(Maybe [Lag])
+  , _desrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

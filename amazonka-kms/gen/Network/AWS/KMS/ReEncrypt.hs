@@ -56,11 +56,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'reEncrypt' smart constructor.
 data ReEncrypt = ReEncrypt'
-  { _reDestinationEncryptionContext :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _reSourceEncryptionContext      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _reGrantTokens                  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _reCiphertextBlob               :: {-# NOUNPACK #-}!Base64
-  , _reDestinationKeyId             :: {-# NOUNPACK #-}!Text
+  { _reDestinationEncryptionContext :: !(Maybe (Map Text Text))
+  , _reSourceEncryptionContext      :: !(Maybe (Map Text Text))
+  , _reGrantTokens                  :: !(Maybe [Text])
+  , _reCiphertextBlob               :: !Base64
+  , _reDestinationKeyId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -155,10 +155,10 @@ instance ToQuery ReEncrypt where
 
 -- | /See:/ 'reEncryptResponse' smart constructor.
 data ReEncryptResponse = ReEncryptResponse'
-  { _rersSourceKeyId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rersKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rersCiphertextBlob :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _rersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rersSourceKeyId    :: !(Maybe Text)
+  , _rersKeyId          :: !(Maybe Text)
+  , _rersCiphertextBlob :: !(Maybe Base64)
+  , _rersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

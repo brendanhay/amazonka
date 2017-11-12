@@ -46,9 +46,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getCampaignVersion' smart constructor.
 data GetCampaignVersion = GetCampaignVersion'
-  { _gcvcVersion       :: {-# NOUNPACK #-}!Text
-  , _gcvcApplicationId :: {-# NOUNPACK #-}!Text
-  , _gcvcCampaignId    :: {-# NOUNPACK #-}!Text
+  { _gcvcVersion       :: !Text
+  , _gcvcApplicationId :: !Text
+  , _gcvcCampaignId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,8 +119,8 @@ instance ToQuery GetCampaignVersion where
 
 -- | /See:/ 'getCampaignVersionResponse' smart constructor.
 data GetCampaignVersionResponse = GetCampaignVersionResponse'
-  { _gcvcrsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _gcvcrsCampaignResponse :: {-# NOUNPACK #-}!CampaignResponse
+  { _gcvcrsResponseStatus   :: !Int
+  , _gcvcrsCampaignResponse :: !CampaignResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

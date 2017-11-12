@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeNatGateways' smart constructor.
 data DescribeNatGateways = DescribeNatGateways'
-  { _dngNatGatewayIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dngNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dngFilter        :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dngMaxResults    :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dngNatGatewayIds :: !(Maybe [Text])
+  , _dngNextToken     :: !(Maybe Text)
+  , _dngFilter        :: !(Maybe [Filter])
+  , _dngMaxResults    :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery DescribeNatGateways where
 --
 -- /See:/ 'describeNatGatewaysResponse' smart constructor.
 data DescribeNatGatewaysResponse = DescribeNatGatewaysResponse'
-  { _dngrsNatGateways    :: {-# NOUNPACK #-}!(Maybe [NatGateway])
-  , _dngrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dngrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dngrsNatGateways    :: !(Maybe [NatGateway])
+  , _dngrsNextToken      :: !(Maybe Text)
+  , _dngrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

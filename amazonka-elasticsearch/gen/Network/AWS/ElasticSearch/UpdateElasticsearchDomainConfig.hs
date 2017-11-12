@@ -57,14 +57,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateElasticsearchDomainConfig' smart constructor.
 data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
-  { _uedcEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptions)
-  , _uedcAccessPolicies :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uedcLogPublishingOptions :: {-# NOUNPACK #-}!(Maybe (Map LogType LogPublishingOption))
-  , _uedcElasticsearchClusterConfig :: {-# NOUNPACK #-}!(Maybe ElasticsearchClusterConfig)
-  , _uedcSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptions)
-  , _uedcVPCOptions :: {-# NOUNPACK #-}!(Maybe VPCOptions)
-  , _uedcAdvancedOptions :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _uedcDomainName :: {-# NOUNPACK #-}!Text
+  { _uedcEBSOptions :: !(Maybe EBSOptions)
+  , _uedcAccessPolicies :: !(Maybe Text)
+  , _uedcLogPublishingOptions :: !(Maybe (Map LogType LogPublishingOption))
+  , _uedcElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfig)
+  , _uedcSnapshotOptions :: !(Maybe SnapshotOptions)
+  , _uedcVPCOptions :: !(Maybe VPCOptions)
+  , _uedcAdvancedOptions :: !(Maybe (Map Text Text))
+  , _uedcDomainName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -185,8 +185,8 @@ instance ToQuery UpdateElasticsearchDomainConfig
 --
 -- /See:/ 'updateElasticsearchDomainConfigResponse' smart constructor.
 data UpdateElasticsearchDomainConfigResponse = UpdateElasticsearchDomainConfigResponse'
-  { _uedcrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _uedcrsDomainConfig   :: {-# NOUNPACK #-}!ElasticsearchDomainConfig
+  { _uedcrsResponseStatus :: !Int
+  , _uedcrsDomainConfig   :: !ElasticsearchDomainConfig
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

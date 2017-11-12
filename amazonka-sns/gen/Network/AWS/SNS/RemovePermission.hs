@@ -48,8 +48,8 @@ import Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'removePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { _rpTopicARN :: {-# NOUNPACK #-}!Text
-  , _rpLabel    :: {-# NOUNPACK #-}!Text
+  { _rpTopicARN :: !Text
+  , _rpLabel    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

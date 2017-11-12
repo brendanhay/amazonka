@@ -59,10 +59,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVPC' smart constructor.
 data CreateVPC = CreateVPC'
-  { _cvAmazonProvidedIPv6CidrBlock :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cvInstanceTenancy             :: {-# NOUNPACK #-}!(Maybe Tenancy)
-  , _cvDryRun                      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cvCidrBlock                   :: {-# NOUNPACK #-}!Text
+  { _cvAmazonProvidedIPv6CidrBlock :: !(Maybe Bool)
+  , _cvInstanceTenancy             :: !(Maybe Tenancy)
+  , _cvDryRun                      :: !(Maybe Bool)
+  , _cvCidrBlock                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,8 +140,8 @@ instance ToQuery CreateVPC where
 --
 -- /See:/ 'createVPCResponse' smart constructor.
 data CreateVPCResponse = CreateVPCResponse'
-  { _cvrsVPC            :: {-# NOUNPACK #-}!(Maybe VPC)
-  , _cvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cvrsVPC            :: !(Maybe VPC)
+  , _cvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

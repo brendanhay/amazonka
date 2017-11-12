@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDeploymentConfig' smart constructor.
 data CreateDeploymentConfig = CreateDeploymentConfig'
-  { _cdcDeploymentConfigName :: {-# NOUNPACK #-}!Text
-  , _cdcMinimumHealthyHosts  :: {-# NOUNPACK #-}!MinimumHealthyHosts
+  { _cdcDeploymentConfigName :: !Text
+  , _cdcMinimumHealthyHosts  :: !MinimumHealthyHosts
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery CreateDeploymentConfig where
 --
 -- /See:/ 'createDeploymentConfigResponse' smart constructor.
 data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
-  { _cdcrsDeploymentConfigId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _cdcrsDeploymentConfigId :: !(Maybe Text)
+  , _cdcrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

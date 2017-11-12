@@ -49,9 +49,9 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listTagOptions' smart constructor.
 data ListTagOptions = ListTagOptions'
-  { _ltoFilters   :: {-# NOUNPACK #-}!(Maybe ListTagOptionsFilters)
-  , _ltoPageToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltoPageSize  :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _ltoFilters   :: !(Maybe ListTagOptionsFilters)
+  , _ltoPageToken :: !(Maybe Text)
+  , _ltoPageSize  :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery ListTagOptions where
 
 -- | /See:/ 'listTagOptionsResponse' smart constructor.
 data ListTagOptionsResponse = ListTagOptionsResponse'
-  { _ltorsPageToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltorsTagOptionDetails :: {-# NOUNPACK #-}!(Maybe [TagOptionDetail])
-  , _ltorsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ltorsPageToken        :: !(Maybe Text)
+  , _ltorsTagOptionDetails :: !(Maybe [TagOptionDetail])
+  , _ltorsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

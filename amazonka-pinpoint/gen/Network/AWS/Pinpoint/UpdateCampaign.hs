@@ -46,9 +46,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateCampaign' smart constructor.
 data UpdateCampaign = UpdateCampaign'
-  { _ucCampaignId           :: {-# NOUNPACK #-}!Text
-  , _ucApplicationId        :: {-# NOUNPACK #-}!Text
-  , _ucWriteCampaignRequest :: {-# NOUNPACK #-}!WriteCampaignRequest
+  { _ucCampaignId           :: !Text
+  , _ucApplicationId        :: !Text
+  , _ucWriteCampaignRequest :: !WriteCampaignRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery UpdateCampaign where
 
 -- | /See:/ 'updateCampaignResponse' smart constructor.
 data UpdateCampaignResponse = UpdateCampaignResponse'
-  { _ucrsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _ucrsCampaignResponse :: {-# NOUNPACK #-}!CampaignResponse
+  { _ucrsResponseStatus   :: !Int
+  , _ucrsCampaignResponse :: !CampaignResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

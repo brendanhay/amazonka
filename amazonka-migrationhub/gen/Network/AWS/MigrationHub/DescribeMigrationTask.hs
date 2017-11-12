@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeMigrationTask' smart constructor.
 data DescribeMigrationTask = DescribeMigrationTask'
-  { _dmtProgressUpdateStream :: {-# NOUNPACK #-}!Text
-  , _dmtMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  { _dmtProgressUpdateStream :: !Text
+  , _dmtMigrationTaskName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery DescribeMigrationTask where
 
 -- | /See:/ 'describeMigrationTaskResponse' smart constructor.
 data DescribeMigrationTaskResponse = DescribeMigrationTaskResponse'
-  { _dmtrsMigrationTask  :: {-# NOUNPACK #-}!(Maybe MigrationTask)
-  , _dmtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmtrsMigrationTask  :: !(Maybe MigrationTask)
+  , _dmtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

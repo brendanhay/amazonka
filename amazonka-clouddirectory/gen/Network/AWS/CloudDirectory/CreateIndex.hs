@@ -50,11 +50,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createIndex' smart constructor.
 data CreateIndex = CreateIndex'
-  { _ciParentReference             :: {-# NOUNPACK #-}!(Maybe ObjectReference)
-  , _ciLinkName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciDirectoryARN                :: {-# NOUNPACK #-}!Text
-  , _ciOrderedIndexedAttributeList :: {-# NOUNPACK #-}![AttributeKey]
-  , _ciIsUnique                    :: {-# NOUNPACK #-}!Bool
+  { _ciParentReference             :: !(Maybe ObjectReference)
+  , _ciLinkName                    :: !(Maybe Text)
+  , _ciDirectoryARN                :: !Text
+  , _ciOrderedIndexedAttributeList :: ![AttributeKey]
+  , _ciIsUnique                    :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,8 +142,8 @@ instance ToQuery CreateIndex where
 
 -- | /See:/ 'createIndexResponse' smart constructor.
 data CreateIndexResponse = CreateIndexResponse'
-  { _cirsObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _cirsObjectIdentifier :: !(Maybe Text)
+  , _cirsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

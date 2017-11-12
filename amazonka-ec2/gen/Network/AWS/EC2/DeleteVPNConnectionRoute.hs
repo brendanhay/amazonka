@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteVPNConnectionRoute' smart constructor.
 data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'
-  { _dvcrDestinationCidrBlock :: {-# NOUNPACK #-}!Text
-  , _dvcrVPNConnectionId      :: {-# NOUNPACK #-}!Text
+  { _dvcrDestinationCidrBlock :: !Text
+  , _dvcrVPNConnectionId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

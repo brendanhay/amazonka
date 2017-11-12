@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteDeploymentGroup' smart constructor.
 data DeleteDeploymentGroup = DeleteDeploymentGroup'
-  { _ddgApplicationName     :: {-# NOUNPACK #-}!Text
-  , _ddgDeploymentGroupName :: {-# NOUNPACK #-}!Text
+  { _ddgApplicationName     :: !Text
+  , _ddgDeploymentGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery DeleteDeploymentGroup where
 --
 -- /See:/ 'deleteDeploymentGroupResponse' smart constructor.
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
-  { _ddgrsHooksNotCleanedUp :: {-# NOUNPACK #-}!(Maybe [AutoScalingGroup])
-  , _ddgrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _ddgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
+  , _ddgrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

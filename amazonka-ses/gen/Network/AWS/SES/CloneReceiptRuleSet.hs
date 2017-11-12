@@ -54,8 +54,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'cloneReceiptRuleSet' smart constructor.
 data CloneReceiptRuleSet = CloneReceiptRuleSet'
-  { _cRuleSetName         :: {-# NOUNPACK #-}!Text
-  , _cOriginalRuleSetName :: {-# NOUNPACK #-}!Text
+  { _cRuleSetName         :: !Text
+  , _cOriginalRuleSetName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

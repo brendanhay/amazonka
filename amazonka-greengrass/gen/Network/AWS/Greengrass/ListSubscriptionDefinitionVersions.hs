@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listSubscriptionDefinitionVersions' smart constructor.
 data ListSubscriptionDefinitionVersions = ListSubscriptionDefinitionVersions'
-  { _lsdvNextToken                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsdvMaxResults               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsdvSubscriptionDefinitionId :: {-# NOUNPACK #-}!Text
+  { _lsdvNextToken                :: !(Maybe Text)
+  , _lsdvMaxResults               :: !(Maybe Text)
+  , _lsdvSubscriptionDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery ListSubscriptionDefinitionVersions
 
 -- | /See:/ 'listSubscriptionDefinitionVersionsResponse' smart constructor.
 data ListSubscriptionDefinitionVersionsResponse = ListSubscriptionDefinitionVersionsResponse'
-  { _lsdvrsVersions       :: {-# NOUNPACK #-}!(Maybe [VersionInformation])
-  , _lsdvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lsdvrsVersions       :: !(Maybe [VersionInformation])
+  , _lsdvrsNextToken      :: !(Maybe Text)
+  , _lsdvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

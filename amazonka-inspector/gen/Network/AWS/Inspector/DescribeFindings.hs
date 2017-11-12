@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeFindings' smart constructor.
 data DescribeFindings = DescribeFindings'
-  { _dfLocale      :: {-# NOUNPACK #-}!(Maybe Locale)
-  , _dfFindingARNs :: {-# NOUNPACK #-}!(List1 Text)
+  { _dfLocale      :: !(Maybe Locale)
+  , _dfFindingARNs :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,9 +114,9 @@ instance ToQuery DescribeFindings where
 
 -- | /See:/ 'describeFindingsResponse' smart constructor.
 data DescribeFindingsResponse = DescribeFindingsResponse'
-  { _dfrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dfrsFindings       :: {-# NOUNPACK #-}![Finding]
-  , _dfrsFailedItems    :: {-# NOUNPACK #-}!(Map Text FailedItemDetails)
+  { _dfrsResponseStatus :: !Int
+  , _dfrsFindings       :: ![Finding]
+  , _dfrsFailedItems    :: !(Map Text FailedItemDetails)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

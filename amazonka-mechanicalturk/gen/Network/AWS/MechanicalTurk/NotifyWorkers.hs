@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'notifyWorkers' smart constructor.
 data NotifyWorkers = NotifyWorkers'
-  { _nwSubject     :: {-# NOUNPACK #-}!Text
-  , _nwMessageText :: {-# NOUNPACK #-}!Text
-  , _nwWorkerIds   :: {-# NOUNPACK #-}![Text]
+  { _nwSubject     :: !Text
+  , _nwMessageText :: !Text
+  , _nwWorkerIds   :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery NotifyWorkers where
 
 -- | /See:/ 'notifyWorkersResponse' smart constructor.
 data NotifyWorkersResponse = NotifyWorkersResponse'
-  { _nwrsNotifyWorkersFailureStatuses :: {-# NOUNPACK #-}!(Maybe [NotifyWorkersFailureStatus])
-  , _nwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _nwrsNotifyWorkersFailureStatuses :: !(Maybe [NotifyWorkersFailureStatus])
+  , _nwrsResponseStatus               :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

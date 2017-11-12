@@ -66,9 +66,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeInstanceAttribute' smart constructor.
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
-  { _diaDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diaAttribute  :: {-# NOUNPACK #-}!InstanceAttributeName
-  , _diaInstanceId :: {-# NOUNPACK #-}!Text
+  { _diaDryRun     :: !(Maybe Bool)
+  , _diaAttribute  :: !InstanceAttributeName
+  , _diaInstanceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,22 +160,22 @@ instance ToQuery DescribeInstanceAttribute where
 --
 -- /See:/ 'describeInstanceAttributeResponse' smart constructor.
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
-  { _desrsInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsGroups :: {-# NOUNPACK #-}!(Maybe [GroupIdentifier])
-  , _desrsEnaSupport :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _desrsSourceDestCheck :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _desrsDisableAPITermination :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _desrsRAMDiskId :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _desrsKernelId :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _desrsRootDeviceName :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _desrsInstanceType :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _desrsSRIOVNetSupport :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _desrsEBSOptimized :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _desrsUserData :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _desrsInstanceInitiatedShutdownBehavior :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _desrsProductCodes :: {-# NOUNPACK #-}!(Maybe [ProductCode])
-  , _desrsBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [InstanceBlockDeviceMapping])
-  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _desrsInstanceId :: !(Maybe Text)
+  , _desrsGroups :: !(Maybe [GroupIdentifier])
+  , _desrsEnaSupport :: !(Maybe AttributeBooleanValue)
+  , _desrsSourceDestCheck :: !(Maybe AttributeBooleanValue)
+  , _desrsDisableAPITermination :: !(Maybe AttributeBooleanValue)
+  , _desrsRAMDiskId :: !(Maybe AttributeValue)
+  , _desrsKernelId :: !(Maybe AttributeValue)
+  , _desrsRootDeviceName :: !(Maybe AttributeValue)
+  , _desrsInstanceType :: !(Maybe AttributeValue)
+  , _desrsSRIOVNetSupport :: !(Maybe AttributeValue)
+  , _desrsEBSOptimized :: !(Maybe AttributeBooleanValue)
+  , _desrsUserData :: !(Maybe AttributeValue)
+  , _desrsInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
+  , _desrsProductCodes :: !(Maybe [ProductCode])
+  , _desrsBlockDeviceMappings :: !(Maybe [InstanceBlockDeviceMapping])
+  , _desrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

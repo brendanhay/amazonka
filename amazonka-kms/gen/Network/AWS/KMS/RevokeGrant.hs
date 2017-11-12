@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'revokeGrant' smart constructor.
 data RevokeGrant = RevokeGrant'
-  { _rKeyId   :: {-# NOUNPACK #-}!Text
-  , _rGrantId :: {-# NOUNPACK #-}!Text
+  { _rKeyId   :: !Text
+  , _rGrantId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putLexicon' smart constructor.
 data PutLexicon = PutLexicon'
-  { _plName    :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _plContent :: {-# NOUNPACK #-}!Text
+  { _plName    :: !(Sensitive Text)
+  , _plContent :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

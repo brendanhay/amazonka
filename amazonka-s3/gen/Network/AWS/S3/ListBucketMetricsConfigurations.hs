@@ -48,8 +48,8 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listBucketMetricsConfigurations' smart constructor.
 data ListBucketMetricsConfigurations = ListBucketMetricsConfigurations'
-  { _lbmcContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbmcBucket            :: {-# NOUNPACK #-}!BucketName
+  { _lbmcContinuationToken :: !(Maybe Text)
+  , _lbmcBucket            :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,11 +113,11 @@ instance ToQuery ListBucketMetricsConfigurations
 
 -- | /See:/ 'listBucketMetricsConfigurationsResponse' smart constructor.
 data ListBucketMetricsConfigurationsResponse = ListBucketMetricsConfigurationsResponse'
-  { _lbmcrsContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbmcrsMetricsConfigurationList :: {-# NOUNPACK #-}!(Maybe [MetricsConfiguration])
-  , _lbmcrsNextContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbmcrsIsTruncated :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lbmcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lbmcrsContinuationToken        :: !(Maybe Text)
+  , _lbmcrsMetricsConfigurationList :: !(Maybe [MetricsConfiguration])
+  , _lbmcrsNextContinuationToken    :: !(Maybe Text)
+  , _lbmcrsIsTruncated              :: !(Maybe Bool)
+  , _lbmcrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

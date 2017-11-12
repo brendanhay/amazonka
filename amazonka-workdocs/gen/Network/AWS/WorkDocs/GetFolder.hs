@@ -49,9 +49,9 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getFolder' smart constructor.
 data GetFolder = GetFolder'
-  { _gfAuthenticationToken   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _gfIncludeCustomMetadata :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gfFolderId              :: {-# NOUNPACK #-}!Text
+  { _gfAuthenticationToken   :: !(Maybe (Sensitive Text))
+  , _gfIncludeCustomMetadata :: !(Maybe Bool)
+  , _gfFolderId              :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -120,9 +120,9 @@ instance ToQuery GetFolder where
 
 -- | /See:/ 'getFolderResponse' smart constructor.
 data GetFolderResponse = GetFolderResponse'
-  { _gfrsCustomMetadata :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gfrsMetadata       :: {-# NOUNPACK #-}!(Maybe FolderMetadata)
-  , _gfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gfrsCustomMetadata :: !(Maybe (Map Text Text))
+  , _gfrsMetadata       :: !(Maybe FolderMetadata)
+  , _gfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

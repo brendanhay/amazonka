@@ -54,9 +54,9 @@ import Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'createPlatformApplication' smart constructor.
 data CreatePlatformApplication = CreatePlatformApplication'
-  { _cpaName       :: {-# NOUNPACK #-}!Text
-  , _cpaPlatform   :: {-# NOUNPACK #-}!Text
-  , _cpaAttributes :: {-# NOUNPACK #-}!(Map Text Text)
+  { _cpaName       :: !Text
+  , _cpaPlatform   :: !Text
+  , _cpaAttributes :: !(Map Text Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery CreatePlatformApplication where
 --
 -- /See:/ 'createPlatformApplicationResponse' smart constructor.
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
-  { _cparsPlatformApplicationARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cparsResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _cparsPlatformApplicationARN :: !(Maybe Text)
+  , _cparsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeParameterGroups' smart constructor.
 data DescribeParameterGroups = DescribeParameterGroups'
-  { _dpgNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpgParameterGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dpgMaxResults          :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dpgNextToken           :: !(Maybe Text)
+  , _dpgParameterGroupNames :: !(Maybe [Text])
+  , _dpgMaxResults          :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,9 +129,9 @@ instance ToQuery DescribeParameterGroups where
 
 -- | /See:/ 'describeParameterGroupsResponse' smart constructor.
 data DescribeParameterGroupsResponse = DescribeParameterGroupsResponse'
-  { _dpgsrsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpgsrsParameterGroups :: {-# NOUNPACK #-}!(Maybe [ParameterGroup])
-  , _dpgsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dpgsrsNextToken       :: !(Maybe Text)
+  , _dpgsrsParameterGroups :: !(Maybe [ParameterGroup])
+  , _dpgsrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

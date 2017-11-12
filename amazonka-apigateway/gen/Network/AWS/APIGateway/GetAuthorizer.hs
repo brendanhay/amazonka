@@ -60,8 +60,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getAuthorizer' smart constructor.
 data GetAuthorizer = GetAuthorizer'
-  { _gaaRestAPIId    :: {-# NOUNPACK #-}!Text
-  , _gaaAuthorizerId :: {-# NOUNPACK #-}!Text
+  { _gaaRestAPIId    :: !Text
+  , _gaaAuthorizerId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

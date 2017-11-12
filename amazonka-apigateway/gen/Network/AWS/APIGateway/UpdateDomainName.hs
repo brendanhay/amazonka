@@ -58,8 +58,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateDomainName' smart constructor.
 data UpdateDomainName = UpdateDomainName'
-  { _udnPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
-  , _udnDomainName      :: {-# NOUNPACK #-}!Text
+  { _udnPatchOperations :: !(Maybe [PatchOperation])
+  , _udnDomainName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -72,10 +72,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'getJobOutput' smart constructor.
 data GetJobOutput = GetJobOutput'
-  { _gjoRange     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjoAccountId :: {-# NOUNPACK #-}!Text
-  , _gjoVaultName :: {-# NOUNPACK #-}!Text
-  , _gjoJobId     :: {-# NOUNPACK #-}!Text
+  { _gjoRange     :: !(Maybe Text)
+  , _gjoAccountId :: !Text
+  , _gjoVaultName :: !Text
+  , _gjoJobId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -159,13 +159,13 @@ instance ToQuery GetJobOutput where
 --
 -- /See:/ 'getJobOutputResponse' smart constructor.
 data GetJobOutputResponse = GetJobOutputResponse'
-  { _gjorsChecksum           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjorsAcceptRanges       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjorsArchiveDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjorsContentRange       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjorsContentType        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjorsStatus             :: {-# NOUNPACK #-}!Int
-  , _gjorsBody               :: {-# NOUNPACK #-}!RsBody
+  { _gjorsChecksum           :: !(Maybe Text)
+  , _gjorsAcceptRanges       :: !(Maybe Text)
+  , _gjorsArchiveDescription :: !(Maybe Text)
+  , _gjorsContentRange       :: !(Maybe Text)
+  , _gjorsContentType        :: !(Maybe Text)
+  , _gjorsStatus             :: !Int
+  , _gjorsBody               :: !RsBody
   } deriving (Show, Generic)
 
 

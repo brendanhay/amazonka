@@ -54,9 +54,9 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listFileShares' smart constructor.
 data ListFileShares = ListFileShares'
-  { _lfsGatewayARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfsMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lfsGatewayARN :: !(Maybe Text)
+  , _lfsMarker     :: !(Maybe Text)
+  , _lfsLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,10 +134,10 @@ instance ToQuery ListFileShares where
 --
 -- /See:/ 'listFileSharesResponse' smart constructor.
 data ListFileSharesResponse = ListFileSharesResponse'
-  { _lfsrsFileShareInfoList :: {-# NOUNPACK #-}!(Maybe [FileShareInfo])
-  , _lfsrsMarker            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfsrsNextMarker        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _lfsrsFileShareInfoList :: !(Maybe [FileShareInfo])
+  , _lfsrsMarker            :: !(Maybe Text)
+  , _lfsrsNextMarker        :: !(Maybe Text)
+  , _lfsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

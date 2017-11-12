@@ -31,8 +31,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'accountGateResult' smart constructor.
 data AccountGateResult = AccountGateResult'
-  { _agrStatus       :: {-# NOUNPACK #-}!(Maybe AccountGateStatus)
-  , _agrStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
+  { _agrStatus       :: !(Maybe AccountGateStatus)
+  , _agrStatusReason :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -72,8 +72,8 @@ instance NFData AccountGateResult where
 --
 -- /See:/ 'accountLimit' smart constructor.
 data AccountLimit = AccountLimit'
-  { _alValue :: {-# NOUNPACK #-}!(Maybe Int)
-  , _alName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _alValue :: !(Maybe Int)
+  , _alName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance NFData AccountLimit where
 --
 -- /See:/ 'change' smart constructor.
 data Change = Change'
-  { _cResourceChange :: {-# NOUNPACK #-}!(Maybe ResourceChange)
-  , _cType           :: {-# NOUNPACK #-}!(Maybe ChangeType)
+  { _cResourceChange :: !(Maybe ResourceChange)
+  , _cType           :: !(Maybe ChangeType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -152,15 +152,15 @@ instance NFData Change where
 --
 -- /See:/ 'changeSetSummary' smart constructor.
 data ChangeSetSummary = ChangeSetSummary'
-  { _cCreationTime    :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _cStatus          :: {-# NOUNPACK #-}!(Maybe ChangeSetStatus)
-  , _cChangeSetName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cExecutionStatus :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
-  , _cChangeSetId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cStatusReason    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cStackId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cStackName       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cCreationTime    :: !(Maybe ISO8601)
+  , _cStatus          :: !(Maybe ChangeSetStatus)
+  , _cChangeSetName   :: !(Maybe Text)
+  , _cExecutionStatus :: !(Maybe ExecutionStatus)
+  , _cChangeSetId     :: !(Maybe Text)
+  , _cStatusReason    :: !(Maybe Text)
+  , _cStackId         :: !(Maybe Text)
+  , _cDescription     :: !(Maybe Text)
+  , _cStackName       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -259,9 +259,9 @@ instance NFData ChangeSetSummary where
 --
 -- /See:/ 'export'' smart constructor.
 data Export = Export'
-  { _eValue            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eExportingStackId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eName             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eValue            :: !(Maybe Text)
+  , _eExportingStackId :: !(Maybe Text)
+  , _eName             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -308,10 +308,10 @@ instance NFData Export where
 --
 -- /See:/ 'output' smart constructor.
 data Output = Output'
-  { _oOutputValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oOutputKey   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oExportName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _oOutputValue :: !(Maybe Text)
+  , _oOutputKey   :: !(Maybe Text)
+  , _oExportName  :: !(Maybe Text)
+  , _oDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -370,9 +370,9 @@ instance NFData Output where
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-  { _pParameterValue   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pParameterKey     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pUsePreviousValue :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _pParameterValue   :: !(Maybe Text)
+  , _pParameterKey     :: !(Maybe Text)
+  , _pUsePreviousValue :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -464,12 +464,12 @@ instance NFData ParameterConstraints where
 --
 -- /See:/ 'parameterDeclaration' smart constructor.
 data ParameterDeclaration = ParameterDeclaration'
-  { _pdParameterKey         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdParameterType        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdParameterConstraints :: {-# NOUNPACK #-}!(Maybe ParameterConstraints)
-  , _pdDefaultValue         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdNoEcho               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pdDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pdParameterKey         :: !(Maybe Text)
+  , _pdParameterType        :: !(Maybe Text)
+  , _pdParameterConstraints :: !(Maybe ParameterConstraints)
+  , _pdDefaultValue         :: !(Maybe Text)
+  , _pdNoEcho               :: !(Maybe Bool)
+  , _pdDescription          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -544,13 +544,13 @@ instance NFData ParameterDeclaration where
 --
 -- /See:/ 'resourceChange' smart constructor.
 data ResourceChange = ResourceChange'
-  { _rcLogicalResourceId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcPhysicalResourceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcResourceType       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcAction             :: {-# NOUNPACK #-}!(Maybe ChangeAction)
-  , _rcScope              :: {-# NOUNPACK #-}!(Maybe [ResourceAttribute])
-  , _rcDetails            :: {-# NOUNPACK #-}!(Maybe [ResourceChangeDetail])
-  , _rcReplacement        :: {-# NOUNPACK #-}!(Maybe Replacement)
+  { _rcLogicalResourceId  :: !(Maybe Text)
+  , _rcPhysicalResourceId :: !(Maybe Text)
+  , _rcResourceType       :: !(Maybe Text)
+  , _rcAction             :: !(Maybe ChangeAction)
+  , _rcScope              :: !(Maybe [ResourceAttribute])
+  , _rcDetails            :: !(Maybe [ResourceChangeDetail])
+  , _rcReplacement        :: !(Maybe Replacement)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -638,10 +638,10 @@ instance NFData ResourceChange where
 --
 -- /See:/ 'resourceChangeDetail' smart constructor.
 data ResourceChangeDetail = ResourceChangeDetail'
-  { _rcdCausingEntity :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcdChangeSource  :: {-# NOUNPACK #-}!(Maybe ChangeSource)
-  , _rcdEvaluation    :: {-# NOUNPACK #-}!(Maybe EvaluationType)
-  , _rcdTarget        :: {-# NOUNPACK #-}!(Maybe ResourceTargetDefinition)
+  { _rcdCausingEntity :: !(Maybe Text)
+  , _rcdChangeSource  :: !(Maybe ChangeSource)
+  , _rcdEvaluation    :: !(Maybe EvaluationType)
+  , _rcdTarget        :: !(Maybe ResourceTargetDefinition)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -700,9 +700,9 @@ instance NFData ResourceChangeDetail where
 --
 -- /See:/ 'resourceTargetDefinition' smart constructor.
 data ResourceTargetDefinition = ResourceTargetDefinition'
-  { _rtdAttribute          :: {-# NOUNPACK #-}!(Maybe ResourceAttribute)
-  , _rtdRequiresRecreation :: {-# NOUNPACK #-}!(Maybe RequiresRecreation)
-  , _rtdName               :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rtdAttribute          :: !(Maybe ResourceAttribute)
+  , _rtdRequiresRecreation :: !(Maybe RequiresRecreation)
+  , _rtdName               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -759,8 +759,8 @@ instance NFData ResourceTargetDefinition where
 --
 -- /See:/ 'rollbackConfiguration' smart constructor.
 data RollbackConfiguration = RollbackConfiguration'
-  { _rcRollbackTriggers        :: {-# NOUNPACK #-}!(Maybe [RollbackTrigger])
-  , _rcMonitoringTimeInMinutes :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _rcRollbackTriggers        :: !(Maybe [RollbackTrigger])
+  , _rcMonitoringTimeInMinutes :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -812,8 +812,8 @@ instance ToQuery RollbackConfiguration where
 --
 -- /See:/ 'rollbackTrigger' smart constructor.
 data RollbackTrigger = RollbackTrigger'
-  { _rtARN  :: {-# NOUNPACK #-}!Text
-  , _rtType :: {-# NOUNPACK #-}!Text
+  { _rtARN  :: !Text
+  , _rtType :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -858,27 +858,27 @@ instance ToQuery RollbackTrigger where
 --
 -- /See:/ 'stack' smart constructor.
 data Stack = Stack'
-  { _sDisableRollback :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sLastUpdatedTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _sRootId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sNotificationARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sStackStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEnableTerminationProtection :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sChangeSetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sDeletionTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _sOutputs :: {-# NOUNPACK #-}!(Maybe [Output])
-  , _sParameters :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _sStackId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCapabilities :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _sRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe RollbackConfiguration)
-  , _sTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _sTimeoutInMinutes :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _sParentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sStackName :: {-# NOUNPACK #-}!Text
-  , _sCreationTime :: {-# NOUNPACK #-}!ISO8601
-  , _sStackStatus :: {-# NOUNPACK #-}!StackStatus
+  { _sDisableRollback             :: !(Maybe Bool)
+  , _sLastUpdatedTime             :: !(Maybe ISO8601)
+  , _sRootId                      :: !(Maybe Text)
+  , _sNotificationARNs            :: !(Maybe [Text])
+  , _sStackStatusReason           :: !(Maybe Text)
+  , _sEnableTerminationProtection :: !(Maybe Bool)
+  , _sChangeSetId                 :: !(Maybe Text)
+  , _sDeletionTime                :: !(Maybe ISO8601)
+  , _sOutputs                     :: !(Maybe [Output])
+  , _sParameters                  :: !(Maybe [Parameter])
+  , _sStackId                     :: !(Maybe Text)
+  , _sDescription                 :: !(Maybe Text)
+  , _sCapabilities                :: !(Maybe [Capability])
+  , _sRollbackConfiguration       :: !(Maybe RollbackConfiguration)
+  , _sTags                        :: !(Maybe [Tag])
+  , _sTimeoutInMinutes            :: !(Maybe Nat)
+  , _sParentId                    :: !(Maybe Text)
+  , _sRoleARN                     :: !(Maybe Text)
+  , _sStackName                   :: !Text
+  , _sCreationTime                :: !ISO8601
+  , _sStackStatus                 :: !StackStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1087,17 +1087,17 @@ instance NFData Stack where
 --
 -- /See:/ 'stackEvent' smart constructor.
 data StackEvent = StackEvent'
-  { _seLogicalResourceId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sePhysicalResourceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seResourceType         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seResourceStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seResourceProperties   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seResourceStatus       :: {-# NOUNPACK #-}!(Maybe ResourceStatus)
-  , _seClientRequestToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seStackId              :: {-# NOUNPACK #-}!Text
-  , _seEventId              :: {-# NOUNPACK #-}!Text
-  , _seStackName            :: {-# NOUNPACK #-}!Text
-  , _seTimestamp            :: {-# NOUNPACK #-}!ISO8601
+  { _seLogicalResourceId    :: !(Maybe Text)
+  , _sePhysicalResourceId   :: !(Maybe Text)
+  , _seResourceType         :: !(Maybe Text)
+  , _seResourceStatusReason :: !(Maybe Text)
+  , _seResourceProperties   :: !(Maybe Text)
+  , _seResourceStatus       :: !(Maybe ResourceStatus)
+  , _seClientRequestToken   :: !(Maybe Text)
+  , _seStackId              :: !Text
+  , _seEventId              :: !Text
+  , _seStackName            :: !Text
+  , _seTimestamp            :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1217,12 +1217,12 @@ instance NFData StackEvent where
 --
 -- /See:/ 'stackInstance' smart constructor.
 data StackInstance = StackInstance'
-  { _siStatus       :: {-# NOUNPACK #-}!(Maybe StackInstanceStatus)
-  , _siAccount      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _siRegion       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _siStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _siStackId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _siStackSetId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _siStatus       :: !(Maybe StackInstanceStatus)
+  , _siAccount      :: !(Maybe Text)
+  , _siRegion       :: !(Maybe Text)
+  , _siStatusReason :: !(Maybe Text)
+  , _siStackId      :: !(Maybe Text)
+  , _siStackSetId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1297,12 +1297,12 @@ instance NFData StackInstance where
 --
 -- /See:/ 'stackInstanceSummary' smart constructor.
 data StackInstanceSummary = StackInstanceSummary'
-  { _sisStatus       :: {-# NOUNPACK #-}!(Maybe StackInstanceStatus)
-  , _sisAccount      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sisRegion       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sisStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sisStackId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sisStackSetId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sisStatus       :: !(Maybe StackInstanceStatus)
+  , _sisAccount      :: !(Maybe Text)
+  , _sisRegion       :: !(Maybe Text)
+  , _sisStatusReason :: !(Maybe Text)
+  , _sisStackId      :: !(Maybe Text)
+  , _sisStackSetId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1377,15 +1377,15 @@ instance NFData StackInstanceSummary where
 --
 -- /See:/ 'stackResource' smart constructor.
 data StackResource = StackResource'
-  { _srPhysicalResourceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srResourceStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srStackId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srDescription          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srStackName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srLogicalResourceId    :: {-# NOUNPACK #-}!Text
-  , _srResourceType         :: {-# NOUNPACK #-}!Text
-  , _srTimestamp            :: {-# NOUNPACK #-}!ISO8601
-  , _srResourceStatus       :: {-# NOUNPACK #-}!ResourceStatus
+  { _srPhysicalResourceId   :: !(Maybe Text)
+  , _srResourceStatusReason :: !(Maybe Text)
+  , _srStackId              :: !(Maybe Text)
+  , _srDescription          :: !(Maybe Text)
+  , _srStackName            :: !(Maybe Text)
+  , _srLogicalResourceId    :: !Text
+  , _srResourceType         :: !Text
+  , _srTimestamp            :: !ISO8601
+  , _srResourceStatus       :: !ResourceStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1489,16 +1489,16 @@ instance NFData StackResource where
 --
 -- /See:/ 'stackResourceDetail' smart constructor.
 data StackResourceDetail = StackResourceDetail'
-  { _srdPhysicalResourceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srdResourceStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srdMetadata             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srdStackId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srdDescription          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srdStackName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srdLogicalResourceId    :: {-# NOUNPACK #-}!Text
-  , _srdResourceType         :: {-# NOUNPACK #-}!Text
-  , _srdLastUpdatedTimestamp :: {-# NOUNPACK #-}!ISO8601
-  , _srdResourceStatus       :: {-# NOUNPACK #-}!ResourceStatus
+  { _srdPhysicalResourceId   :: !(Maybe Text)
+  , _srdResourceStatusReason :: !(Maybe Text)
+  , _srdMetadata             :: !(Maybe Text)
+  , _srdStackId              :: !(Maybe Text)
+  , _srdDescription          :: !(Maybe Text)
+  , _srdStackName            :: !(Maybe Text)
+  , _srdLogicalResourceId    :: !Text
+  , _srdResourceType         :: !Text
+  , _srdLastUpdatedTimestamp :: !ISO8601
+  , _srdResourceStatus       :: !ResourceStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1610,12 +1610,12 @@ instance NFData StackResourceDetail where
 --
 -- /See:/ 'stackResourceSummary' smart constructor.
 data StackResourceSummary = StackResourceSummary'
-  { _srsPhysicalResourceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srsResourceStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srsLogicalResourceId    :: {-# NOUNPACK #-}!Text
-  , _srsResourceType         :: {-# NOUNPACK #-}!Text
-  , _srsLastUpdatedTimestamp :: {-# NOUNPACK #-}!ISO8601
-  , _srsResourceStatus       :: {-# NOUNPACK #-}!ResourceStatus
+  { _srsPhysicalResourceId   :: !(Maybe Text)
+  , _srsResourceStatusReason :: !(Maybe Text)
+  , _srsLogicalResourceId    :: !Text
+  , _srsResourceType         :: !Text
+  , _srsLastUpdatedTimestamp :: !ISO8601
+  , _srsResourceStatus       :: !ResourceStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1695,14 +1695,14 @@ instance NFData StackResourceSummary where
 --
 -- /See:/ 'stackSet' smart constructor.
 data StackSet = StackSet'
-  { _ssStatus       :: {-# NOUNPACK #-}!(Maybe StackSetStatus)
-  , _ssParameters   :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _ssTemplateBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssStackSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssDescription  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssCapabilities :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _ssTags         :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ssStackSetId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ssStatus       :: !(Maybe StackSetStatus)
+  , _ssParameters   :: !(Maybe [Parameter])
+  , _ssTemplateBody :: !(Maybe Text)
+  , _ssStackSetName :: !(Maybe Text)
+  , _ssDescription  :: !(Maybe Text)
+  , _ssCapabilities :: !(Maybe [Capability])
+  , _ssTags         :: !(Maybe [Tag])
+  , _ssStackSetId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1799,14 +1799,14 @@ instance NFData StackSet where
 --
 -- /See:/ 'stackSetOperation' smart constructor.
 data StackSetOperation = StackSetOperation'
-  { _ssoStatus :: {-# NOUNPACK #-}!(Maybe StackSetOperationStatus)
-  , _ssoAction :: {-# NOUNPACK #-}!(Maybe StackSetOperationAction)
-  , _ssoEndTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _ssoCreationTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _ssoOperationPreferences :: {-# NOUNPACK #-}!(Maybe StackSetOperationPreferences)
-  , _ssoOperationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssoRetainStacks :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ssoStackSetId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ssoStatus               :: !(Maybe StackSetOperationStatus)
+  , _ssoAction               :: !(Maybe StackSetOperationAction)
+  , _ssoEndTimestamp         :: !(Maybe ISO8601)
+  , _ssoCreationTimestamp    :: !(Maybe ISO8601)
+  , _ssoOperationPreferences :: !(Maybe StackSetOperationPreferences)
+  , _ssoOperationId          :: !(Maybe Text)
+  , _ssoRetainStacks         :: !(Maybe Bool)
+  , _ssoStackSetId           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1899,11 +1899,11 @@ instance NFData StackSetOperation where
 --
 -- /See:/ 'stackSetOperationPreferences' smart constructor.
 data StackSetOperationPreferences = StackSetOperationPreferences'
-  { _ssopRegionOrder                :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ssopMaxConcurrentCount         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ssopMaxConcurrentPercentage    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ssopFailureToleranceCount      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ssopFailureTolerancePercentage :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _ssopRegionOrder                :: !(Maybe [Text])
+  , _ssopMaxConcurrentCount         :: !(Maybe Nat)
+  , _ssopMaxConcurrentPercentage    :: !(Maybe Nat)
+  , _ssopFailureToleranceCount      :: !(Maybe Nat)
+  , _ssopFailureTolerancePercentage :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1985,11 +1985,11 @@ instance ToQuery StackSetOperationPreferences where
 --
 -- /See:/ 'stackSetOperationResultSummary' smart constructor.
 data StackSetOperationResultSummary = StackSetOperationResultSummary'
-  { _ssorsStatus :: {-# NOUNPACK #-}!(Maybe StackSetOperationResultStatus)
-  , _ssorsAccount :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssorsAccountGateResult :: {-# NOUNPACK #-}!(Maybe AccountGateResult)
-  , _ssorsRegion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssorsStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ssorsStatus            :: !(Maybe StackSetOperationResultStatus)
+  , _ssorsAccount           :: !(Maybe Text)
+  , _ssorsAccountGateResult :: !(Maybe AccountGateResult)
+  , _ssorsRegion            :: !(Maybe Text)
+  , _ssorsStatusReason      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2057,11 +2057,11 @@ instance NFData StackSetOperationResultSummary where
 --
 -- /See:/ 'stackSetOperationSummary' smart constructor.
 data StackSetOperationSummary = StackSetOperationSummary'
-  { _ssosStatus            :: {-# NOUNPACK #-}!(Maybe StackSetOperationStatus)
-  , _ssosAction            :: {-# NOUNPACK #-}!(Maybe StackSetOperationAction)
-  , _ssosEndTimestamp      :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _ssosCreationTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _ssosOperationId       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ssosStatus            :: !(Maybe StackSetOperationStatus)
+  , _ssosAction            :: !(Maybe StackSetOperationAction)
+  , _ssosEndTimestamp      :: !(Maybe ISO8601)
+  , _ssosCreationTimestamp :: !(Maybe ISO8601)
+  , _ssosOperationId       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2128,10 +2128,10 @@ instance NFData StackSetOperationSummary where
 --
 -- /See:/ 'stackSetSummary' smart constructor.
 data StackSetSummary = StackSetSummary'
-  { _sssStatus       :: {-# NOUNPACK #-}!(Maybe StackSetStatus)
-  , _sssStackSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sssDescription  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sssStackSetId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sssStatus       :: !(Maybe StackSetStatus)
+  , _sssStackSetName :: !(Maybe Text)
+  , _sssDescription  :: !(Maybe Text)
+  , _sssStackSetId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2190,16 +2190,16 @@ instance NFData StackSetSummary where
 --
 -- /See:/ 'stackSummary' smart constructor.
 data StackSummary = StackSummary'
-  { _ssLastUpdatedTime     :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _ssRootId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssStackStatusReason   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssTemplateDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssDeletionTime        :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _ssStackId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssParentId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssStackName           :: {-# NOUNPACK #-}!Text
-  , _ssCreationTime        :: {-# NOUNPACK #-}!ISO8601
-  , _ssStackStatus         :: {-# NOUNPACK #-}!StackStatus
+  { _ssLastUpdatedTime     :: !(Maybe ISO8601)
+  , _ssRootId              :: !(Maybe Text)
+  , _ssStackStatusReason   :: !(Maybe Text)
+  , _ssTemplateDescription :: !(Maybe Text)
+  , _ssDeletionTime        :: !(Maybe ISO8601)
+  , _ssStackId             :: !(Maybe Text)
+  , _ssParentId            :: !(Maybe Text)
+  , _ssStackName           :: !Text
+  , _ssCreationTime        :: !ISO8601
+  , _ssStackStatus         :: !StackStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2309,8 +2309,8 @@ instance NFData StackSummary where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!Text
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2353,10 +2353,10 @@ instance ToQuery Tag where
 --
 -- /See:/ 'templateParameter' smart constructor.
 data TemplateParameter = TemplateParameter'
-  { _tpParameterKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tpDefaultValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tpNoEcho       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tpDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tpParameterKey :: !(Maybe Text)
+  , _tpDefaultValue :: !(Maybe Text)
+  , _tpNoEcho       :: !(Maybe Bool)
+  , _tpDescription  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

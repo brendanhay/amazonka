@@ -101,8 +101,8 @@ instance ToQuery GetStaticIP where
 
 -- | /See:/ 'getStaticIPResponse' smart constructor.
 data GetStaticIPResponse = GetStaticIPResponse'
-  { _gsirsStaticIP       :: {-# NOUNPACK #-}!(Maybe StaticIP)
-  , _gsirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsirsStaticIP       :: !(Maybe StaticIP)
+  , _gsirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

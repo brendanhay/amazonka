@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { _dtsResourceName :: {-# NOUNPACK #-}!Text
-  , _dtsTagKeys      :: {-# NOUNPACK #-}![Text]
+  { _dtsResourceName :: !Text
+  , _dtsTagKeys      :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

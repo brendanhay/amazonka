@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { _detTaskId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _detNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _detLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _detStatusCode :: {-# NOUNPACK #-}!(Maybe ExportTaskStatusCode)
+  { _detTaskId     :: !(Maybe Text)
+  , _detNextToken  :: !(Maybe Text)
+  , _detLimit      :: !(Maybe Nat)
+  , _detStatusCode :: !(Maybe ExportTaskStatusCode)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery DescribeExportTasks where
 
 -- | /See:/ 'describeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-  { _detrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _detrsExportTasks    :: {-# NOUNPACK #-}!(Maybe [ExportTask])
-  , _detrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _detrsNextToken      :: !(Maybe Text)
+  , _detrsExportTasks    :: !(Maybe [ExportTask])
+  , _detrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

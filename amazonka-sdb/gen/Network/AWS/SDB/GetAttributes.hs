@@ -51,10 +51,10 @@ import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'getAttributes' smart constructor.
 data GetAttributes = GetAttributes'
-  { _gaConsistentRead :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gaAttributeNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gaDomainName     :: {-# NOUNPACK #-}!Text
-  , _gaItemName       :: {-# NOUNPACK #-}!Text
+  { _gaConsistentRead :: !(Maybe Bool)
+  , _gaAttributeNames :: !(Maybe [Text])
+  , _gaDomainName     :: !Text
+  , _gaItemName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance ToQuery GetAttributes where
 
 -- | /See:/ 'getAttributesResponse' smart constructor.
 data GetAttributesResponse = GetAttributesResponse'
-  { _garsAttributes     :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _garsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _garsAttributes     :: !(Maybe [Attribute])
+  , _garsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

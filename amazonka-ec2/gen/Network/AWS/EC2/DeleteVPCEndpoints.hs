@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteVPCEndpoints' smart constructor.
 data DeleteVPCEndpoints = DeleteVPCEndpoints'
-  { _dveDryRun         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dveVPCEndpointIds :: {-# NOUNPACK #-}![Text]
+  { _dveDryRun         :: !(Maybe Bool)
+  , _dveVPCEndpointIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery DeleteVPCEndpoints where
 --
 -- /See:/ 'deleteVPCEndpointsResponse' smart constructor.
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
-  { _dversUnsuccessful   :: {-# NOUNPACK #-}!(Maybe [UnsuccessfulItem])
-  , _dversResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dversUnsuccessful   :: !(Maybe [UnsuccessfulItem])
+  , _dversResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

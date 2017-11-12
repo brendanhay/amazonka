@@ -56,11 +56,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeTargetGroups' smart constructor.
 data DescribeTargetGroups = DescribeTargetGroups'
-  { _dtgTargetGroupARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dtgNames           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dtgLoadBalancerARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtgMarker          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtgPageSize        :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dtgTargetGroupARNs :: !(Maybe [Text])
+  , _dtgNames           :: !(Maybe [Text])
+  , _dtgLoadBalancerARN :: !(Maybe Text)
+  , _dtgMarker          :: !(Maybe Text)
+  , _dtgPageSize        :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,9 +154,9 @@ instance ToQuery DescribeTargetGroups where
 
 -- | /See:/ 'describeTargetGroupsResponse' smart constructor.
 data DescribeTargetGroupsResponse = DescribeTargetGroupsResponse'
-  { _dtgsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtgsrsTargetGroups   :: {-# NOUNPACK #-}!(Maybe [TargetGroup])
-  , _dtgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dtgsrsNextMarker     :: !(Maybe Text)
+  , _dtgsrsTargetGroups   :: !(Maybe [TargetGroup])
+  , _dtgsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

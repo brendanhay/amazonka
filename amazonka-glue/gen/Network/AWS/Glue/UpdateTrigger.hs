@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateTrigger' smart constructor.
 data UpdateTrigger = UpdateTrigger'
-  { _utName          :: {-# NOUNPACK #-}!Text
-  , _utTriggerUpdate :: {-# NOUNPACK #-}!TriggerUpdate
+  { _utName          :: !Text
+  , _utTriggerUpdate :: !TriggerUpdate
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery UpdateTrigger where
 
 -- | /See:/ 'updateTriggerResponse' smart constructor.
 data UpdateTriggerResponse = UpdateTriggerResponse'
-  { _updrsTrigger        :: {-# NOUNPACK #-}!(Maybe Trigger)
-  , _updrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _updrsTrigger        :: !(Maybe Trigger)
+  , _updrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

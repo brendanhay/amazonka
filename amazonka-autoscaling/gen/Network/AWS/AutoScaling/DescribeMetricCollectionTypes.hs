@@ -96,9 +96,9 @@ instance ToQuery DescribeMetricCollectionTypes where
 
 -- | /See:/ 'describeMetricCollectionTypesResponse' smart constructor.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
-  { _dmctrsMetrics        :: {-# NOUNPACK #-}!(Maybe [MetricCollectionType])
-  , _dmctrsGranularities  :: {-# NOUNPACK #-}!(Maybe [MetricGranularityType])
-  , _dmctrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmctrsMetrics        :: !(Maybe [MetricCollectionType])
+  , _dmctrsGranularities  :: !(Maybe [MetricGranularityType])
+  , _dmctrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

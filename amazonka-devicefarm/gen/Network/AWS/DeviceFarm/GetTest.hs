@@ -107,8 +107,8 @@ instance ToQuery GetTest where
 --
 -- /See:/ 'getTestResponse' smart constructor.
 data GetTestResponse = GetTestResponse'
-  { _gtrsTest           :: {-# NOUNPACK #-}!(Maybe Test)
-  , _gtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gtrsTest           :: !(Maybe Test)
+  , _gtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

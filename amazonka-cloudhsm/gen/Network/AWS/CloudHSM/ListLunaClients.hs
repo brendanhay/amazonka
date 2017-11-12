@@ -108,9 +108,9 @@ instance ToQuery ListLunaClients where
 
 -- | /See:/ 'listLunaClientsResponse' smart constructor.
 data ListLunaClientsResponse = ListLunaClientsResponse'
-  { _llcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _llcrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _llcrsClientList     :: {-# NOUNPACK #-}![Text]
+  { _llcrsNextToken      :: !(Maybe Text)
+  , _llcrsResponseStatus :: !Int
+  , _llcrsClientList     :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

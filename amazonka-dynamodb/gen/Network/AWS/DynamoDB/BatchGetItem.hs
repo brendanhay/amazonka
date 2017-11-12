@@ -73,8 +73,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'batchGetItem' smart constructor.
 data BatchGetItem = BatchGetItem'
-  { _bgiReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
-  , _bgiRequestItems :: {-# NOUNPACK #-}!(Map Text KeysAndAttributes)
+  { _bgiReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
+  , _bgiRequestItems           :: !(Map Text KeysAndAttributes)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -145,10 +145,10 @@ instance ToQuery BatchGetItem where
 --
 -- /See:/ 'batchGetItemResponse' smart constructor.
 data BatchGetItemResponse = BatchGetItemResponse'
-  { _bgirsUnprocessedKeys :: {-# NOUNPACK #-}!(Maybe (Map Text KeysAndAttributes))
-  , _bgirsResponses :: {-# NOUNPACK #-}!(Maybe (Map Text [Map Text AttributeValue]))
-  , _bgirsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe [ConsumedCapacity])
-  , _bgirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bgirsUnprocessedKeys  :: !(Maybe (Map Text KeysAndAttributes))
+  , _bgirsResponses        :: !(Maybe (Map Text [Map Text AttributeValue]))
+  , _bgirsConsumedCapacity :: !(Maybe [ConsumedCapacity])
+  , _bgirsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

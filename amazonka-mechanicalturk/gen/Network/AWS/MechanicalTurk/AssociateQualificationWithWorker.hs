@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'associateQualificationWithWorker' smart constructor.
 data AssociateQualificationWithWorker = AssociateQualificationWithWorker'
-  { _aqwwIntegerValue        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _aqwwSendNotification    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _aqwwQualificationTypeId :: {-# NOUNPACK #-}!Text
-  , _aqwwWorkerId            :: {-# NOUNPACK #-}!Text
+  { _aqwwIntegerValue        :: !(Maybe Int)
+  , _aqwwSendNotification    :: !(Maybe Bool)
+  , _aqwwQualificationTypeId :: !Text
+  , _aqwwWorkerId            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

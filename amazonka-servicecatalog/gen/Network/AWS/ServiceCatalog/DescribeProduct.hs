@@ -50,8 +50,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProduct' smart constructor.
 data DescribeProduct = DescribeProduct'
-  { _dpAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpId             :: {-# NOUNPACK #-}!Text
+  { _dpAcceptLanguage :: !(Maybe Text)
+  , _dpId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,9 +117,9 @@ instance ToQuery DescribeProduct where
 
 -- | /See:/ 'describeProductResponse' smart constructor.
 data DescribeProductResponse = DescribeProductResponse'
-  { _ddrsProductViewSummary :: {-# NOUNPACK #-}!(Maybe ProductViewSummary)
-  , _ddrsProvisioningArtifacts :: {-# NOUNPACK #-}!(Maybe [ProvisioningArtifact])
-  , _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddrsProductViewSummary    :: !(Maybe ProductViewSummary)
+  , _ddrsProvisioningArtifacts :: !(Maybe [ProvisioningArtifact])
+  , _ddrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

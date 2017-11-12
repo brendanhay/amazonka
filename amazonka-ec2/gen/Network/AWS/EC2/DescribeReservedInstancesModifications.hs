@@ -58,9 +58,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeReservedInstancesModifications' smart constructor.
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
-  { _drimFilters                          :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _drimReservedInstancesModificationIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _drimNextToken                        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _drimFilters                          :: !(Maybe [Filter])
+  , _drimReservedInstancesModificationIds :: !(Maybe [Text])
+  , _drimNextToken                        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -159,9 +159,9 @@ instance ToQuery
 --
 -- /See:/ 'describeReservedInstancesModificationsResponse' smart constructor.
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
-  { _drimrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drimrsReservedInstancesModifications :: {-# NOUNPACK #-}!(Maybe [ReservedInstancesModification])
-  , _drimrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drimrsNextToken :: !(Maybe Text)
+  , _drimrsReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
+  , _drimrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

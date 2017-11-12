@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'registerCACertificate' smart constructor.
 data RegisterCACertificate = RegisterCACertificate'
-  { _rcacSetAsActive             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rcacAllowAutoRegistration   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rcacCaCertificate           :: {-# NOUNPACK #-}!Text
-  , _rcacVerificationCertificate :: {-# NOUNPACK #-}!Text
+  { _rcacSetAsActive             :: !(Maybe Bool)
+  , _rcacAllowAutoRegistration   :: !(Maybe Bool)
+  , _rcacCaCertificate           :: !Text
+  , _rcacVerificationCertificate :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,9 +144,9 @@ instance ToQuery RegisterCACertificate where
 --
 -- /See:/ 'registerCACertificateResponse' smart constructor.
 data RegisterCACertificateResponse = RegisterCACertificateResponse'
-  { _rcacrsCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcacrsCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rcacrsCertificateARN :: !(Maybe Text)
+  , _rcacrsCertificateId  :: !(Maybe Text)
+  , _rcacrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

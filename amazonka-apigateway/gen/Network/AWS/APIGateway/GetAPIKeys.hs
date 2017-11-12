@@ -59,11 +59,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'getAPIKeys' smart constructor.
 data GetAPIKeys = GetAPIKeys'
-  { _gakIncludeValues :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gakCustomerId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gakNameQuery     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gakLimit         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gakPosition      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gakIncludeValues :: !(Maybe Bool)
+  , _gakCustomerId    :: !(Maybe Text)
+  , _gakNameQuery     :: !(Maybe Text)
+  , _gakLimit         :: !(Maybe Int)
+  , _gakPosition      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -159,10 +159,10 @@ instance ToQuery GetAPIKeys where
 --
 -- /See:/ 'getAPIKeysResponse' smart constructor.
 data GetAPIKeysResponse = GetAPIKeysResponse'
-  { _gakrsItems          :: {-# NOUNPACK #-}!(Maybe [APIKey])
-  , _gakrsWarnings       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gakrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gakrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gakrsItems          :: !(Maybe [APIKey])
+  , _gakrsWarnings       :: !(Maybe [Text])
+  , _gakrsPosition       :: !(Maybe Text)
+  , _gakrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

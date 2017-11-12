@@ -95,8 +95,8 @@ instance ToQuery DeleteGCMChannel where
 
 -- | /See:/ 'deleteGCMChannelResponse' smart constructor.
 data DeleteGCMChannelResponse = DeleteGCMChannelResponse'
-  { _dgcrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _dgcrsGCMChannelResponse :: {-# NOUNPACK #-}!GCMChannelResponse
+  { _dgcrsResponseStatus     :: !Int
+  , _dgcrsGCMChannelResponse :: !GCMChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

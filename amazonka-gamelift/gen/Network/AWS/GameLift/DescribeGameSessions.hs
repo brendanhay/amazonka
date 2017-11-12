@@ -86,12 +86,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeGameSessions' smart constructor.
 data DescribeGameSessions = DescribeGameSessions'
-  { _dgsGameSessionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgsAliasId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgsNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgsStatusFilter  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgsLimit         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dgsFleetId       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dgsGameSessionId :: !(Maybe Text)
+  , _dgsAliasId       :: !(Maybe Text)
+  , _dgsNextToken     :: !(Maybe Text)
+  , _dgsStatusFilter  :: !(Maybe Text)
+  , _dgsLimit         :: !(Maybe Nat)
+  , _dgsFleetId       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -195,9 +195,9 @@ instance ToQuery DescribeGameSessions where
 --
 -- /See:/ 'describeGameSessionsResponse' smart constructor.
 data DescribeGameSessionsResponse = DescribeGameSessionsResponse'
-  { _dgsrsGameSessions   :: {-# NOUNPACK #-}!(Maybe [GameSession])
-  , _dgsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dgsrsGameSessions   :: !(Maybe [GameSession])
+  , _dgsrsNextToken      :: !(Maybe Text)
+  , _dgsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

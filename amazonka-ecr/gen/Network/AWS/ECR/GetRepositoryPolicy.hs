@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getRepositoryPolicy' smart constructor.
 data GetRepositoryPolicy = GetRepositoryPolicy'
-  { _grpRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grpRepositoryName :: {-# NOUNPACK #-}!Text
+  { _grpRegistryId     :: !(Maybe Text)
+  , _grpRepositoryName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,10 +118,10 @@ instance ToQuery GetRepositoryPolicy where
 
 -- | /See:/ 'getRepositoryPolicyResponse' smart constructor.
 data GetRepositoryPolicyResponse = GetRepositoryPolicyResponse'
-  { _grprsRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grprsRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grprsPolicyText     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grprsRegistryId     :: !(Maybe Text)
+  , _grprsRepositoryName :: !(Maybe Text)
+  , _grprsPolicyText     :: !(Maybe Text)
+  , _grprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

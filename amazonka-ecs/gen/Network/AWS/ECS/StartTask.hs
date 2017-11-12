@@ -54,12 +54,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'startTask' smart constructor.
 data StartTask = StartTask'
-  { _sOverrides          :: {-# NOUNPACK #-}!(Maybe TaskOverride)
-  , _sGroup              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCluster            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sStartedBy          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sTaskDefinition     :: {-# NOUNPACK #-}!Text
-  , _sContainerInstances :: {-# NOUNPACK #-}![Text]
+  { _sOverrides          :: !(Maybe TaskOverride)
+  , _sGroup              :: !(Maybe Text)
+  , _sCluster            :: !(Maybe Text)
+  , _sStartedBy          :: !(Maybe Text)
+  , _sTaskDefinition     :: !Text
+  , _sContainerInstances :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,9 +160,9 @@ instance ToQuery StartTask where
 
 -- | /See:/ 'startTaskResponse' smart constructor.
 data StartTaskResponse = StartTaskResponse'
-  { _strsFailures       :: {-# NOUNPACK #-}!(Maybe [Failure])
-  , _strsTasks          :: {-# NOUNPACK #-}!(Maybe [Task])
-  , _strsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _strsFailures       :: !(Maybe [Failure])
+  , _strsTasks          :: !(Maybe [Task])
+  , _strsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'exitStandby' smart constructor.
 data ExitStandby = ExitStandby'
-  { _eInstanceIds          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _eAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  { _eInstanceIds          :: !(Maybe [Text])
+  , _eAutoScalingGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,8 +109,8 @@ instance ToQuery ExitStandby where
 
 -- | /See:/ 'exitStandbyResponse' smart constructor.
 data ExitStandbyResponse = ExitStandbyResponse'
-  { _esrsActivities     :: {-# NOUNPACK #-}!(Maybe [Activity])
-  , _esrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _esrsActivities     :: !(Maybe [Activity])
+  , _esrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

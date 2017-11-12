@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'purchaseReservedCacheNodesOffering' smart constructor.
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
-  { _prcnoCacheNodeCount               :: {-# NOUNPACK #-}!(Maybe Int)
-  , _prcnoReservedCacheNodeId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prcnoReservedCacheNodesOfferingId :: {-# NOUNPACK #-}!Text
+  { _prcnoCacheNodeCount               :: !(Maybe Int)
+  , _prcnoReservedCacheNodeId          :: !(Maybe Text)
+  , _prcnoReservedCacheNodesOfferingId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance ToQuery PurchaseReservedCacheNodesOffering
 
 -- | /See:/ 'purchaseReservedCacheNodesOfferingResponse' smart constructor.
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
-  { _prcnorsReservedCacheNode :: {-# NOUNPACK #-}!(Maybe ReservedCacheNode)
-  , _prcnorsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _prcnorsReservedCacheNode :: !(Maybe ReservedCacheNode)
+  , _prcnorsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

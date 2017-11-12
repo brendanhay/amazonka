@@ -47,11 +47,11 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-  { _udParentFolderId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _udName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udResourceState       :: {-# NOUNPACK #-}!(Maybe ResourceStateType)
-  , _udDocumentId          :: {-# NOUNPACK #-}!Text
+  { _udParentFolderId      :: !(Maybe Text)
+  , _udAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _udName                :: !(Maybe Text)
+  , _udResourceState       :: !(Maybe ResourceStateType)
+  , _udDocumentId          :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

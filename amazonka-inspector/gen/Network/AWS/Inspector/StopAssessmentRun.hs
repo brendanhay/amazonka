@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'stopAssessmentRun' smart constructor.
 data StopAssessmentRun = StopAssessmentRun'
-  { _sarStopAction       :: {-# NOUNPACK #-}!(Maybe StopAction)
-  , _sarAssessmentRunARN :: {-# NOUNPACK #-}!Text
+  { _sarStopAction       :: !(Maybe StopAction)
+  , _sarAssessmentRunARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

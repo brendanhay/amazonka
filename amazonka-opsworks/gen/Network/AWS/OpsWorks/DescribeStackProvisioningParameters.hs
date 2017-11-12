@@ -121,9 +121,9 @@ instance ToQuery DescribeStackProvisioningParameters
 --
 -- /See:/ 'describeStackProvisioningParametersResponse' smart constructor.
 data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'
-  { _dspprsAgentInstallerURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dspprsParameters        :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _dspprsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dspprsAgentInstallerURL :: !(Maybe Text)
+  , _dspprsParameters        :: !(Maybe (Map Text Text))
+  , _dspprsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listJobsByStatus' smart constructor.
 data ListJobsByStatus = ListJobsByStatus'
-  { _ljbsAscending :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ljbsPageToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ljbsStatus    :: {-# NOUNPACK #-}!Text
+  { _ljbsAscending :: !(Maybe Text)
+  , _ljbsPageToken :: !(Maybe Text)
+  , _ljbsStatus    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,9 +133,9 @@ instance ToQuery ListJobsByStatus where
 --
 -- /See:/ 'listJobsByStatusResponse' smart constructor.
 data ListJobsByStatusResponse = ListJobsByStatusResponse'
-  { _ljbsrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ljbsrsJobs           :: {-# NOUNPACK #-}!(Maybe [Job'])
-  , _ljbsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ljbsrsNextPageToken  :: !(Maybe Text)
+  , _ljbsrsJobs           :: !(Maybe [Job'])
+  , _ljbsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeProject' smart constructor.
 data DescribeProject = DescribeProject'
-  { _dSyncFromResources :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dProjectId         :: {-# NOUNPACK #-}!Text
+  { _dSyncFromResources :: !(Maybe Bool)
+  , _dProjectId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery DescribeProject where
 --
 -- /See:/ 'describeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
-  { _drsDetails        :: {-# NOUNPACK #-}!(Maybe ProjectDetails)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsDetails        :: !(Maybe ProjectDetails)
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

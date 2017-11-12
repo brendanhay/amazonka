@@ -46,8 +46,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'associateTagOptionWithResource' smart constructor.
 data AssociateTagOptionWithResource = AssociateTagOptionWithResource'
-  { _atowrResourceId  :: {-# NOUNPACK #-}!Text
-  , _atowrTagOptionId :: {-# NOUNPACK #-}!Text
+  { _atowrResourceId  :: !Text
+  , _atowrTagOptionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

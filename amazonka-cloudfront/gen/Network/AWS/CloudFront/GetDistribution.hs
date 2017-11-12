@@ -100,9 +100,9 @@ instance ToQuery GetDistribution where
 --
 -- /See:/ 'getDistributionResponse' smart constructor.
 data GetDistributionResponse = GetDistributionResponse'
-  { _gdrsETag           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdrsDistribution   :: {-# NOUNPACK #-}!(Maybe Distribution)
-  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdrsETag           :: !(Maybe Text)
+  , _gdrsDistribution   :: !(Maybe Distribution)
+  , _gdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -62,11 +62,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeHSMClientCertificates' smart constructor.
 data DescribeHSMClientCertificates = DescribeHSMClientCertificates'
-  { _dhccTagValues                      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dhccTagKeys                        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dhccHSMClientCertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhccMarker                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhccMaxRecords                     :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dhccTagValues                      :: !(Maybe [Text])
+  , _dhccTagKeys                        :: !(Maybe [Text])
+  , _dhccHSMClientCertificateIdentifier :: !(Maybe Text)
+  , _dhccMarker                         :: !(Maybe Text)
+  , _dhccMaxRecords                     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -169,9 +169,9 @@ instance ToQuery DescribeHSMClientCertificates where
 --
 -- /See:/ 'describeHSMClientCertificatesResponse' smart constructor.
 data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'
-  { _dhccrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhccrsHSMClientCertificates :: {-# NOUNPACK #-}!(Maybe [HSMClientCertificate])
-  , _dhccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dhccrsMarker                :: !(Maybe Text)
+  , _dhccrsHSMClientCertificates :: !(Maybe [HSMClientCertificate])
+  , _dhccrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -55,9 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getBotVersions' smart constructor.
 data GetBotVersions = GetBotVersions'
-  { _gbvNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbvMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gbvName       :: {-# NOUNPACK #-}!Text
+  { _gbvNextToken  :: !(Maybe Text)
+  , _gbvMaxResults :: !(Maybe Nat)
+  , _gbvName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery GetBotVersions where
 
 -- | /See:/ 'getBotVersionsResponse' smart constructor.
 data GetBotVersionsResponse = GetBotVersionsResponse'
-  { _gbvrsBots           :: {-# NOUNPACK #-}!(Maybe [BotMetadata])
-  , _gbvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbvrsBots           :: !(Maybe [BotMetadata])
+  , _gbvrsNextToken      :: !(Maybe Text)
+  , _gbvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

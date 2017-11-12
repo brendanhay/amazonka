@@ -62,15 +62,15 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { _deStartTime        :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _deSourceType       :: {-# NOUNPACK #-}!(Maybe SourceType)
-  , _deFilters          :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _deSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _deMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deMaxRecords       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _deEndTime          :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _deDuration         :: {-# NOUNPACK #-}!(Maybe Int)
+  { _deStartTime        :: !(Maybe ISO8601)
+  , _deSourceType       :: !(Maybe SourceType)
+  , _deFilters          :: !(Maybe [Filter])
+  , _deSourceIdentifier :: !(Maybe Text)
+  , _deEventCategories  :: !(Maybe [Text])
+  , _deMarker           :: !(Maybe Text)
+  , _deMaxRecords       :: !(Maybe Int)
+  , _deEndTime          :: !(Maybe ISO8601)
+  , _deDuration         :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -198,9 +198,9 @@ instance ToQuery DescribeEvents where
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { _dersEvents         :: {-# NOUNPACK #-}!(Maybe [Event])
-  , _dersMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dersEvents         :: !(Maybe [Event])
+  , _dersMarker         :: !(Maybe Text)
+  , _dersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

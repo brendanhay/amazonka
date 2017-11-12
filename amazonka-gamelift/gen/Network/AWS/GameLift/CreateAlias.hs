@@ -72,9 +72,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { _caDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caName            :: {-# NOUNPACK #-}!Text
-  , _caRoutingStrategy :: {-# NOUNPACK #-}!RoutingStrategy
+  { _caDescription     :: !(Maybe Text)
+  , _caName            :: !Text
+  , _caRoutingStrategy :: !RoutingStrategy
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -153,8 +153,8 @@ instance ToQuery CreateAlias where
 --
 -- /See:/ 'createAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
-  { _carsAlias          :: {-# NOUNPACK #-}!(Maybe Alias)
-  , _carsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _carsAlias          :: !(Maybe Alias)
+  , _carsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

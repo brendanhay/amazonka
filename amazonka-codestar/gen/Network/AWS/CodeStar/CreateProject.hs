@@ -52,10 +52,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createProject' smart constructor.
 data CreateProject = CreateProject'
-  { _cpClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpDescription        :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _cpName               :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _cpId                 :: {-# NOUNPACK #-}!Text
+  { _cpClientRequestToken :: !(Maybe Text)
+  , _cpDescription        :: !(Maybe (Sensitive Text))
+  , _cpName               :: !(Sensitive Text)
+  , _cpId                 :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -141,11 +141,11 @@ instance ToQuery CreateProject where
 
 -- | /See:/ 'createProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-  { _cprsProjectTemplateId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cprsClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cprsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _cprsId                 :: {-# NOUNPACK #-}!Text
-  , _cprsArn                :: {-# NOUNPACK #-}!Text
+  { _cprsProjectTemplateId  :: !(Maybe Text)
+  , _cprsClientRequestToken :: !(Maybe Text)
+  , _cprsResponseStatus     :: !Int
+  , _cprsId                 :: !Text
+  , _cprsArn                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

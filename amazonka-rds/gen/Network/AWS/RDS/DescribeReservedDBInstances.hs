@@ -63,16 +63,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeReservedDBInstances' smart constructor.
 data DescribeReservedDBInstances = DescribeReservedDBInstances'
-  { _drdiProductDescription            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdiFilters                       :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _drdiReservedDBInstanceId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdiDBInstanceClass               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdiMarker                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdiMaxRecords                    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _drdiMultiAZ                       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _drdiReservedDBInstancesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdiOfferingType                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdiDuration                      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _drdiProductDescription            :: !(Maybe Text)
+  , _drdiFilters                       :: !(Maybe [Filter])
+  , _drdiReservedDBInstanceId          :: !(Maybe Text)
+  , _drdiDBInstanceClass               :: !(Maybe Text)
+  , _drdiMarker                        :: !(Maybe Text)
+  , _drdiMaxRecords                    :: !(Maybe Int)
+  , _drdiMultiAZ                       :: !(Maybe Bool)
+  , _drdiReservedDBInstancesOfferingId :: !(Maybe Text)
+  , _drdiOfferingType                  :: !(Maybe Text)
+  , _drdiDuration                      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -212,9 +212,9 @@ instance ToQuery DescribeReservedDBInstances where
 --
 -- /See:/ 'describeReservedDBInstancesResponse' smart constructor.
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
-  { _drdirsReservedDBInstances :: {-# NOUNPACK #-}!(Maybe [ReservedDBInstance])
-  , _drdirsMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _drdirsReservedDBInstances :: !(Maybe [ReservedDBInstance])
+  , _drdirsMarker              :: !(Maybe Text)
+  , _drdirsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

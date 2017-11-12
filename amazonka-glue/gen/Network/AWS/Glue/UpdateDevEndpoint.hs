@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateDevEndpoint' smart constructor.
 data UpdateDevEndpoint = UpdateDevEndpoint'
-  { _udeCustomLibraries :: {-# NOUNPACK #-}!(Maybe DevEndpointCustomLibraries)
-  , _udePublicKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udeUpdateEtlLibraries :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _udeEndpointName :: {-# NOUNPACK #-}!Text
+  { _udeCustomLibraries    :: !(Maybe DevEndpointCustomLibraries)
+  , _udePublicKey          :: !(Maybe Text)
+  , _udeUpdateEtlLibraries :: !(Maybe Bool)
+  , _udeEndpointName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

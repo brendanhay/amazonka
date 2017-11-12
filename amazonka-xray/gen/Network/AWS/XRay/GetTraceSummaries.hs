@@ -63,11 +63,11 @@ import Network.AWS.XRay.Types.Product
 
 -- | /See:/ 'getTraceSummaries' smart constructor.
 data GetTraceSummaries = GetTraceSummaries'
-  { _gtsFilterExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsSampling         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gtsStartTime        :: {-# NOUNPACK #-}!POSIX
-  , _gtsEndTime          :: {-# NOUNPACK #-}!POSIX
+  { _gtsFilterExpression :: !(Maybe Text)
+  , _gtsNextToken        :: !(Maybe Text)
+  , _gtsSampling         :: !(Maybe Bool)
+  , _gtsStartTime        :: !POSIX
+  , _gtsEndTime          :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,11 +156,11 @@ instance ToQuery GetTraceSummaries where
 
 -- | /See:/ 'getTraceSummariesResponse' smart constructor.
 data GetTraceSummariesResponse = GetTraceSummariesResponse'
-  { _gtsrsTracesProcessedCount :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gtsrsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsrsApproximateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gtsrsTraceSummaries       :: {-# NOUNPACK #-}!(Maybe [TraceSummary])
-  , _gtsrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _gtsrsTracesProcessedCount :: !(Maybe Integer)
+  , _gtsrsNextToken            :: !(Maybe Text)
+  , _gtsrsApproximateTime      :: !(Maybe POSIX)
+  , _gtsrsTraceSummaries       :: !(Maybe [TraceSummary])
+  , _gtsrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

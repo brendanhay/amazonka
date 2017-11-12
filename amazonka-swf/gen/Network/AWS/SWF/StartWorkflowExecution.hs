@@ -90,17 +90,17 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'startWorkflowExecution' smart constructor.
 data StartWorkflowExecution = StartWorkflowExecution'
-  { _sTagList                      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sTaskStartToCloseTimeout      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sLambdaRole                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sInput                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sExecutionStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sTaskList                     :: {-# NOUNPACK #-}!(Maybe TaskList)
-  , _sTaskPriority                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sChildPolicy                  :: {-# NOUNPACK #-}!(Maybe ChildPolicy)
-  , _sDomain                       :: {-# NOUNPACK #-}!Text
-  , _sWorkflowId                   :: {-# NOUNPACK #-}!Text
-  , _sWorkflowType                 :: {-# NOUNPACK #-}!WorkflowType
+  { _sTagList                      :: !(Maybe [Text])
+  , _sTaskStartToCloseTimeout      :: !(Maybe Text)
+  , _sLambdaRole                   :: !(Maybe Text)
+  , _sInput                        :: !(Maybe Text)
+  , _sExecutionStartToCloseTimeout :: !(Maybe Text)
+  , _sTaskList                     :: !(Maybe TaskList)
+  , _sTaskPriority                 :: !(Maybe Text)
+  , _sChildPolicy                  :: !(Maybe ChildPolicy)
+  , _sDomain                       :: !Text
+  , _sWorkflowId                   :: !Text
+  , _sWorkflowType                 :: !WorkflowType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -248,8 +248,8 @@ instance ToQuery StartWorkflowExecution where
 --
 -- /See:/ 'startWorkflowExecutionResponse' smart constructor.
 data StartWorkflowExecutionResponse = StartWorkflowExecutionResponse'
-  { _swersRunId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _swersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _swersRunId          :: !(Maybe Text)
+  , _swersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

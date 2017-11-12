@@ -95,8 +95,8 @@ instance ToQuery DeleteSmsChannel where
 
 -- | /See:/ 'deleteSmsChannelResponse' smart constructor.
 data DeleteSmsChannelResponse = DeleteSmsChannelResponse'
-  { _dscrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _dscrsSMSChannelResponse :: {-# NOUNPACK #-}!SMSChannelResponse
+  { _dscrsResponseStatus     :: !Int
+  , _dscrsSMSChannelResponse :: !SMSChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

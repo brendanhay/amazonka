@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'disassociateConfigurationItemsFromApplication' smart constructor.
 data DisassociateConfigurationItemsFromApplication = DisassociateConfigurationItemsFromApplication'
-  { _dcifaApplicationConfigurationId :: {-# NOUNPACK #-}!Text
-  , _dcifaConfigurationIds           :: {-# NOUNPACK #-}![Text]
+  { _dcifaApplicationConfigurationId :: !Text
+  , _dcifaConfigurationIds           :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'resetServiceSpecificCredential' smart constructor.
 data ResetServiceSpecificCredential = ResetServiceSpecificCredential'
-  { _rsscUserName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsscServiceSpecificCredentialId :: {-# NOUNPACK #-}!Text
+  { _rsscUserName                    :: !(Maybe Text)
+  , _rsscServiceSpecificCredentialId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery ResetServiceSpecificCredential where
 
 -- | /See:/ 'resetServiceSpecificCredentialResponse' smart constructor.
 data ResetServiceSpecificCredentialResponse = ResetServiceSpecificCredentialResponse'
-  { _rsscrsServiceSpecificCredential :: {-# NOUNPACK #-}!(Maybe ServiceSpecificCredential)
-  , _rsscrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rsscrsServiceSpecificCredential :: !(Maybe ServiceSpecificCredential)
+  , _rsscrsResponseStatus            :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

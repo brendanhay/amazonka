@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDeviceDefinition' smart constructor.
 data CreateDeviceDefinition = CreateDeviceDefinition'
-  { _cddAmznClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddInitialVersion  :: {-# NOUNPACK #-}!(Maybe DeviceDefinitionVersion)
-  , _cddName            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cddAmznClientToken :: !(Maybe Text)
+  , _cddInitialVersion  :: !(Maybe DeviceDefinitionVersion)
+  , _cddName            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,14 +131,14 @@ instance ToQuery CreateDeviceDefinition where
 
 -- | /See:/ 'createDeviceDefinitionResponse' smart constructor.
 data CreateDeviceDefinitionResponse = CreateDeviceDefinitionResponse'
-  { _cddrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _cddrsLatestVersionARN     :: !(Maybe Text)
+  , _cddrsARN                  :: !(Maybe Text)
+  , _cddrsName                 :: !(Maybe Text)
+  , _cddrsCreationTimestamp    :: !(Maybe Text)
+  , _cddrsId                   :: !(Maybe Text)
+  , _cddrsLatestVersion        :: !(Maybe Text)
+  , _cddrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _cddrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

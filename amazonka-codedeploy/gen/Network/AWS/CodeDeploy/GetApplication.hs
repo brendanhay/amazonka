@@ -110,8 +110,8 @@ instance ToQuery GetApplication where
 --
 -- /See:/ 'getApplicationResponse' smart constructor.
 data GetApplicationResponse = GetApplicationResponse'
-  { _garsApplication    :: {-# NOUNPACK #-}!(Maybe ApplicationInfo)
-  , _garsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _garsApplication    :: !(Maybe ApplicationInfo)
+  , _garsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -60,14 +60,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'updatePipeline' smart constructor.
 data UpdatePipeline = UpdatePipeline'
-  { _upInputBucket     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upContentConfig   :: {-# NOUNPACK #-}!(Maybe PipelineOutputConfig)
-  , _upRole            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upAWSKMSKeyARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upNotifications   :: {-# NOUNPACK #-}!(Maybe Notifications)
-  , _upThumbnailConfig :: {-# NOUNPACK #-}!(Maybe PipelineOutputConfig)
-  , _upId              :: {-# NOUNPACK #-}!Text
+  { _upInputBucket     :: !(Maybe Text)
+  , _upContentConfig   :: !(Maybe PipelineOutputConfig)
+  , _upRole            :: !(Maybe Text)
+  , _upName            :: !(Maybe Text)
+  , _upAWSKMSKeyARN    :: !(Maybe Text)
+  , _upNotifications   :: !(Maybe Notifications)
+  , _upThumbnailConfig :: !(Maybe PipelineOutputConfig)
+  , _upId              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -179,9 +179,9 @@ instance ToQuery UpdatePipeline where
 --
 -- /See:/ 'updatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
-  { _uprsWarnings       :: {-# NOUNPACK #-}!(Maybe [Warning])
-  , _uprsPipeline       :: {-# NOUNPACK #-}!(Maybe Pipeline)
-  , _uprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uprsWarnings       :: !(Maybe [Warning])
+  , _uprsPipeline       :: !(Maybe Pipeline)
+  , _uprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

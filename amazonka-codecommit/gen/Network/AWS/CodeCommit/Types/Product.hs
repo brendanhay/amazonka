@@ -27,9 +27,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'blobMetadata' smart constructor.
 data BlobMetadata = BlobMetadata'
-  { _bmPath   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bmMode   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bmBlobId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bmPath   :: !(Maybe Text)
+  , _bmMode   :: !(Maybe Text)
+  , _bmBlobId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -78,8 +78,8 @@ instance NFData BlobMetadata where
 --
 -- /See:/ 'branchInfo' smart constructor.
 data BranchInfo = BranchInfo'
-  { _biCommitId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _biBranchName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _biCommitId   :: !(Maybe Text)
+  , _biBranchName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,13 +120,13 @@ instance NFData BranchInfo where
 --
 -- /See:/ 'commit' smart constructor.
 data Commit = Commit'
-  { _cCommitId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCommitter      :: {-# NOUNPACK #-}!(Maybe UserInfo)
-  , _cTreeId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cAdditionalData :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cParents        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cAuthor         :: {-# NOUNPACK #-}!(Maybe UserInfo)
-  , _cMessage        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cCommitId       :: !(Maybe Text)
+  , _cCommitter      :: !(Maybe UserInfo)
+  , _cTreeId         :: !(Maybe Text)
+  , _cAdditionalData :: !(Maybe Text)
+  , _cParents        :: !(Maybe [Text])
+  , _cAuthor         :: !(Maybe UserInfo)
+  , _cMessage        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -211,9 +211,9 @@ instance NFData Commit where
 --
 -- /See:/ 'difference' smart constructor.
 data Difference = Difference'
-  { _dAfterBlob  :: {-# NOUNPACK #-}!(Maybe BlobMetadata)
-  , _dBeforeBlob :: {-# NOUNPACK #-}!(Maybe BlobMetadata)
-  , _dChangeType :: {-# NOUNPACK #-}!(Maybe ChangeTypeEnum)
+  { _dAfterBlob  :: !(Maybe BlobMetadata)
+  , _dBeforeBlob :: !(Maybe BlobMetadata)
+  , _dChangeType :: !(Maybe ChangeTypeEnum)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -263,16 +263,16 @@ instance NFData Difference where
 --
 -- /See:/ 'repositoryMetadata' smart constructor.
 data RepositoryMetadata = RepositoryMetadata'
-  { _rmRepositoryDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmLastModifiedDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rmARN                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmCloneURLHTTP          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmAccountId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmDefaultBranch         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmRepositoryId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmRepositoryName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmCreationDate          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rmCloneURLSSH           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rmRepositoryDescription :: !(Maybe Text)
+  , _rmLastModifiedDate      :: !(Maybe POSIX)
+  , _rmARN                   :: !(Maybe Text)
+  , _rmCloneURLHTTP          :: !(Maybe Text)
+  , _rmAccountId             :: !(Maybe Text)
+  , _rmDefaultBranch         :: !(Maybe Text)
+  , _rmRepositoryId          :: !(Maybe Text)
+  , _rmRepositoryName        :: !(Maybe Text)
+  , _rmCreationDate          :: !(Maybe POSIX)
+  , _rmCloneURLSSH           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -382,8 +382,8 @@ instance NFData RepositoryMetadata where
 --
 -- /See:/ 'repositoryNameIdPair' smart constructor.
 data RepositoryNameIdPair = RepositoryNameIdPair'
-  { _rnipRepositoryId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnipRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rnipRepositoryId   :: !(Maybe Text)
+  , _rnipRepositoryName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -426,11 +426,11 @@ instance NFData RepositoryNameIdPair where
 --
 -- /See:/ 'repositoryTrigger' smart constructor.
 data RepositoryTrigger = RepositoryTrigger'
-  { _rtBranches       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rtCustomData     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtName           :: {-# NOUNPACK #-}!Text
-  , _rtDestinationARN :: {-# NOUNPACK #-}!Text
-  , _rtEvents         :: {-# NOUNPACK #-}![RepositoryTriggerEventEnum]
+  { _rtBranches       :: !(Maybe [Text])
+  , _rtCustomData     :: !(Maybe Text)
+  , _rtName           :: !Text
+  , _rtDestinationARN :: !Text
+  , _rtEvents         :: ![RepositoryTriggerEventEnum]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -512,8 +512,8 @@ instance ToJSON RepositoryTrigger where
 --
 -- /See:/ 'repositoryTriggerExecutionFailure' smart constructor.
 data RepositoryTriggerExecutionFailure = RepositoryTriggerExecutionFailure'
-  { _rtefFailureMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtefTrigger        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rtefFailureMessage :: !(Maybe Text)
+  , _rtefTrigger        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -559,9 +559,9 @@ instance NFData RepositoryTriggerExecutionFailure
 --
 -- /See:/ 'userInfo' smart constructor.
 data UserInfo = UserInfo'
-  { _uiEmail :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uiDate  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uiName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _uiEmail :: !(Maybe Text)
+  , _uiDate  :: !(Maybe Text)
+  , _uiName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

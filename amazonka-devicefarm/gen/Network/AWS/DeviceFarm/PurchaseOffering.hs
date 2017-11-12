@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'purchaseOffering' smart constructor.
 data PurchaseOffering = PurchaseOffering'
-  { _poQuantity            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _poOfferingId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poOfferingPromotionId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _poQuantity            :: !(Maybe Int)
+  , _poOfferingId          :: !(Maybe Text)
+  , _poOfferingPromotionId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery PurchaseOffering where
 --
 -- /See:/ 'purchaseOfferingResponse' smart constructor.
 data PurchaseOfferingResponse = PurchaseOfferingResponse'
-  { _porsOfferingTransaction :: {-# NOUNPACK #-}!(Maybe OfferingTransaction)
-  , _porsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _porsOfferingTransaction :: !(Maybe OfferingTransaction)
+  , _porsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

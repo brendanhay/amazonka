@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteTrust' smart constructor.
 data DeleteTrust = DeleteTrust'
-  { _dtDeleteAssociatedConditionalForwarder :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dtTrustId                              :: {-# NOUNPACK #-}!Text
+  { _dtDeleteAssociatedConditionalForwarder :: !(Maybe Bool)
+  , _dtTrustId                              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery DeleteTrust where
 --
 -- /See:/ 'deleteTrustResponse' smart constructor.
 data DeleteTrustResponse = DeleteTrustResponse'
-  { _dttrsTrustId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dttrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dttrsTrustId        :: !(Maybe Text)
+  , _dttrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,8 +50,8 @@ import Network.AWS.Route53.Types.Product
 
 -- | /See:/ 'createReusableDelegationSet' smart constructor.
 data CreateReusableDelegationSet = CreateReusableDelegationSet'
-  { _crdsHostedZoneId    :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _crdsCallerReference :: {-# NOUNPACK #-}!Text
+  { _crdsHostedZoneId    :: !(Maybe ResourceId)
+  , _crdsCallerReference :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,9 +115,9 @@ instance ToXML CreateReusableDelegationSet where
 
 -- | /See:/ 'createReusableDelegationSetResponse' smart constructor.
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
-  { _crdsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _crdsrsDelegationSet  :: {-# NOUNPACK #-}!DelegationSet
-  , _crdsrsLocation       :: {-# NOUNPACK #-}!Text
+  { _crdsrsResponseStatus :: !Int
+  , _crdsrsDelegationSet  :: !DelegationSet
+  , _crdsrsLocation       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listStackSetOperations' smart constructor.
 data ListStackSetOperations = ListStackSetOperations'
-  { _lssoNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lssoMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lssoStackSetName :: {-# NOUNPACK #-}!Text
+  { _lssoNextToken    :: !(Maybe Text)
+  , _lssoMaxResults   :: !(Maybe Nat)
+  , _lssoStackSetName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery ListStackSetOperations where
 
 -- | /See:/ 'listStackSetOperationsResponse' smart constructor.
 data ListStackSetOperationsResponse = ListStackSetOperationsResponse'
-  { _lssorsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lssorsSummaries      :: {-# NOUNPACK #-}!(Maybe [StackSetOperationSummary])
-  , _lssorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lssorsNextToken      :: !(Maybe Text)
+  , _lssorsSummaries      :: !(Maybe [StackSetOperationSummary])
+  , _lssorsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

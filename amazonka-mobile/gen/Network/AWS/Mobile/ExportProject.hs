@@ -109,10 +109,10 @@ instance ToQuery ExportProject where
 --
 -- /See:/ 'exportProjectResponse' smart constructor.
 data ExportProjectResponse = ExportProjectResponse'
-  { _eprsShareURL       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eprsDownloadURL    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eprsSnapshotId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _eprsShareURL       :: !(Maybe Text)
+  , _eprsDownloadURL    :: !(Maybe Text)
+  , _eprsSnapshotId     :: !(Maybe Text)
+  , _eprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

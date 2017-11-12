@@ -113,10 +113,10 @@ instance ToQuery GetIdentityPoolConfiguration where
 --
 -- /See:/ 'getIdentityPoolConfigurationResponse' smart constructor.
 data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'
-  { _gipcrsIdentityPoolId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gipcrsCognitoStreams :: {-# NOUNPACK #-}!(Maybe CognitoStreams)
-  , _gipcrsPushSync       :: {-# NOUNPACK #-}!(Maybe PushSync)
-  , _gipcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gipcrsIdentityPoolId :: !(Maybe Text)
+  , _gipcrsCognitoStreams :: !(Maybe CognitoStreams)
+  , _gipcrsPushSync       :: !(Maybe PushSync)
+  , _gipcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

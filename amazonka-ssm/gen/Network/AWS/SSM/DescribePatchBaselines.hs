@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describePatchBaselines' smart constructor.
 data DescribePatchBaselines = DescribePatchBaselines'
-  { _dpbFilters    :: {-# NOUNPACK #-}!(Maybe [PatchOrchestratorFilter])
-  , _dpbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpbMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dpbFilters    :: !(Maybe [PatchOrchestratorFilter])
+  , _dpbNextToken  :: !(Maybe Text)
+  , _dpbMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery DescribePatchBaselines where
 
 -- | /See:/ 'describePatchBaselinesResponse' smart constructor.
 data DescribePatchBaselinesResponse = DescribePatchBaselinesResponse'
-  { _dpbsrsBaselineIdentities :: {-# NOUNPACK #-}!(Maybe [PatchBaselineIdentity])
-  , _dpbsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpbsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dpbsrsBaselineIdentities :: !(Maybe [PatchBaselineIdentity])
+  , _dpbsrsNextToken          :: !(Maybe Text)
+  , _dpbsrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'addFacetToObject' smart constructor.
 data AddFacetToObject = AddFacetToObject'
-  { _aftoObjectAttributeList :: {-# NOUNPACK #-}!(Maybe [AttributeKeyAndValue])
-  , _aftoDirectoryARN        :: {-# NOUNPACK #-}!Text
-  , _aftoSchemaFacet         :: {-# NOUNPACK #-}!SchemaFacet
-  , _aftoObjectReference     :: {-# NOUNPACK #-}!ObjectReference
+  { _aftoObjectAttributeList :: !(Maybe [AttributeKeyAndValue])
+  , _aftoDirectoryARN        :: !Text
+  , _aftoSchemaFacet         :: !SchemaFacet
+  , _aftoObjectReference     :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

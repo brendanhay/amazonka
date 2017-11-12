@@ -61,8 +61,8 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'countPendingDecisionTasks' smart constructor.
 data CountPendingDecisionTasks = CountPendingDecisionTasks'
-  { _cpdtDomain   :: {-# NOUNPACK #-}!Text
-  , _cpdtTaskList :: {-# NOUNPACK #-}!TaskList
+  { _cpdtDomain   :: !Text
+  , _cpdtTaskList :: !TaskList
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

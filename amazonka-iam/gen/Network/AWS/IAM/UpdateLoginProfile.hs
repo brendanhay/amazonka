@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateLoginProfile' smart constructor.
 data UpdateLoginProfile = UpdateLoginProfile'
-  { _ulpPassword              :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _ulpPasswordResetRequired :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ulpUserName              :: {-# NOUNPACK #-}!Text
+  { _ulpPassword              :: !(Maybe (Sensitive Text))
+  , _ulpPasswordResetRequired :: !(Maybe Bool)
+  , _ulpUserName              :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

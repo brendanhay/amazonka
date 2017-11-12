@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'adminDeleteUser' smart constructor.
 data AdminDeleteUser = AdminDeleteUser'
-  { _aUserPoolId :: {-# NOUNPACK #-}!Text
-  , _aUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _aUserPoolId :: !Text
+  , _aUsername   :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

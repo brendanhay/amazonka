@@ -55,12 +55,12 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listCommandInvocations' smart constructor.
 data ListCommandInvocations = ListCommandInvocations'
-  { _lciInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lciFilters    :: {-# NOUNPACK #-}!(Maybe (List1 CommandFilter))
-  , _lciNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lciCommandId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lciDetails    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lciMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lciInstanceId :: !(Maybe Text)
+  , _lciFilters    :: !(Maybe (List1 CommandFilter))
+  , _lciNextToken  :: !(Maybe Text)
+  , _lciCommandId  :: !(Maybe Text)
+  , _lciDetails    :: !(Maybe Bool)
+  , _lciMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -167,9 +167,9 @@ instance ToQuery ListCommandInvocations where
 
 -- | /See:/ 'listCommandInvocationsResponse' smart constructor.
 data ListCommandInvocationsResponse = ListCommandInvocationsResponse'
-  { _lrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsCommandInvocations :: {-# NOUNPACK #-}!(Maybe [CommandInvocation])
-  , _lrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _lrsNextToken          :: !(Maybe Text)
+  , _lrsCommandInvocations :: !(Maybe [CommandInvocation])
+  , _lrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

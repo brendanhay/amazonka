@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateModel' smart constructor.
 data UpdateModel = UpdateModel'
-  { _uPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
-  , _uRestAPIId       :: {-# NOUNPACK #-}!Text
-  , _uModelName       :: {-# NOUNPACK #-}!Text
+  { _uPatchOperations :: !(Maybe [PatchOperation])
+  , _uRestAPIId       :: !Text
+  , _uModelName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,10 +57,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromS3' smart constructor.
 data CreateDataSourceFromS3 = CreateDataSourceFromS3'
-  { _cdsfsDataSourceName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdsfsComputeStatistics :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdsfsDataSourceId      :: {-# NOUNPACK #-}!Text
-  , _cdsfsDataSpec          :: {-# NOUNPACK #-}!S3DataSpec
+  { _cdsfsDataSourceName    :: !(Maybe Text)
+  , _cdsfsComputeStatistics :: !(Maybe Bool)
+  , _cdsfsDataSourceId      :: !Text
+  , _cdsfsDataSpec          :: !S3DataSpec
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,8 +151,8 @@ instance ToQuery CreateDataSourceFromS3 where
 --
 -- /See:/ 'createDataSourceFromS3Response' smart constructor.
 data CreateDataSourceFromS3Response = CreateDataSourceFromS3Response'
-  { _cdsfsrsDataSourceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdsfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdsfsrsDataSourceId   :: !(Maybe Text)
+  , _cdsfsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

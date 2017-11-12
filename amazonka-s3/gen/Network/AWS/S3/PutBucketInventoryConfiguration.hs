@@ -43,9 +43,9 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketInventoryConfiguration' smart constructor.
 data PutBucketInventoryConfiguration = PutBucketInventoryConfiguration'
-  { _pbicBucket                 :: {-# NOUNPACK #-}!BucketName
-  , _pbicId                     :: {-# NOUNPACK #-}!Text
-  , _pbicInventoryConfiguration :: {-# NOUNPACK #-}!InventoryConfiguration
+  { _pbicBucket                 :: !BucketName
+  , _pbicId                     :: !Text
+  , _pbicInventoryConfiguration :: !InventoryConfiguration
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

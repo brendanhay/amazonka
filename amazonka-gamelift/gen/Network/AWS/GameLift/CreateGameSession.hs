@@ -96,15 +96,15 @@ import Network.AWS.Response
 --
 -- /See:/ 'createGameSession' smart constructor.
 data CreateGameSession = CreateGameSession'
-  { _cgsIdempotencyToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgsGameProperties            :: {-# NOUNPACK #-}!(Maybe [GameProperty])
-  , _cgsGameSessionId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgsAliasId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgsName                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgsGameSessionData           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgsFleetId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgsCreatorId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgsMaximumPlayerSessionCount :: {-# NOUNPACK #-}!Nat
+  { _cgsIdempotencyToken          :: !(Maybe Text)
+  , _cgsGameProperties            :: !(Maybe [GameProperty])
+  , _cgsGameSessionId             :: !(Maybe Text)
+  , _cgsAliasId                   :: !(Maybe Text)
+  , _cgsName                      :: !(Maybe Text)
+  , _cgsGameSessionData           :: !(Maybe Text)
+  , _cgsFleetId                   :: !(Maybe Text)
+  , _cgsCreatorId                 :: !(Maybe Text)
+  , _cgsMaximumPlayerSessionCount :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -232,8 +232,8 @@ instance ToQuery CreateGameSession where
 --
 -- /See:/ 'createGameSessionResponse' smart constructor.
 data CreateGameSessionResponse = CreateGameSessionResponse'
-  { _cgsrsGameSession    :: {-# NOUNPACK #-}!(Maybe GameSession)
-  , _cgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cgsrsGameSession    :: !(Maybe GameSession)
+  , _cgsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

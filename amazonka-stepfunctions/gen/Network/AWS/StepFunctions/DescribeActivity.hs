@@ -105,10 +105,10 @@ instance ToQuery DescribeActivity where
 
 -- | /See:/ 'describeActivityResponse' smart constructor.
 data DescribeActivityResponse = DescribeActivityResponse'
-  { _desrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _desrsActivityARN    :: {-# NOUNPACK #-}!Text
-  , _desrsName           :: {-# NOUNPACK #-}!Text
-  , _desrsCreationDate   :: {-# NOUNPACK #-}!POSIX
+  { _desrsResponseStatus :: !Int
+  , _desrsActivityARN    :: !Text
+  , _desrsName           :: !Text
+  , _desrsCreationDate   :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

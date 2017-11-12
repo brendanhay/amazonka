@@ -109,8 +109,8 @@ instance ToQuery DescribeUserPool where
 --
 -- /See:/ 'describeUserPoolResponse' smart constructor.
 data DescribeUserPoolResponse = DescribeUserPoolResponse'
-  { _duprsUserPool       :: {-# NOUNPACK #-}!(Maybe UserPoolType)
-  , _duprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _duprsUserPool       :: !(Maybe UserPoolType)
+  , _duprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

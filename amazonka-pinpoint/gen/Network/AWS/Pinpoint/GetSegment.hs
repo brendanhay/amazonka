@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getSegment' smart constructor.
 data GetSegment = GetSegment'
-  { _gsSegmentId     :: {-# NOUNPACK #-}!Text
-  , _gsApplicationId :: {-# NOUNPACK #-}!Text
+  { _gsSegmentId     :: !Text
+  , _gsApplicationId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -104,8 +104,8 @@ instance ToQuery GetSegment where
 
 -- | /See:/ 'getSegmentResponse' smart constructor.
 data GetSegmentResponse = GetSegmentResponse'
-  { _getrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _getrsSegmentResponse :: {-# NOUNPACK #-}!SegmentResponse
+  { _getrsResponseStatus  :: !Int
+  , _getrsSegmentResponse :: !SegmentResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

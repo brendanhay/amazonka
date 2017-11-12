@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDeviceDefinitionVersion' smart constructor.
 data CreateDeviceDefinitionVersion = CreateDeviceDefinitionVersion'
-  { _cddvAmznClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddvDevices            :: {-# NOUNPACK #-}!(Maybe [Device])
-  , _cddvDeviceDefinitionId :: {-# NOUNPACK #-}!Text
+  { _cddvAmznClientToken    :: !(Maybe Text)
+  , _cddvDevices            :: !(Maybe [Device])
+  , _cddvDeviceDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,11 +129,11 @@ instance ToQuery CreateDeviceDefinitionVersion where
 
 -- | /See:/ 'createDeviceDefinitionVersionResponse' smart constructor.
 data CreateDeviceDefinitionVersionResponse = CreateDeviceDefinitionVersionResponse'
-  { _cddvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _cddvrsARN               :: !(Maybe Text)
+  , _cddvrsCreationTimestamp :: !(Maybe Text)
+  , _cddvrsVersion           :: !(Maybe Text)
+  , _cddvrsId                :: !(Maybe Text)
+  , _cddvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

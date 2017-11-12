@@ -77,10 +77,10 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'updateRateBasedRule' smart constructor.
 data UpdateRateBasedRule = UpdateRateBasedRule'
-  { _urbrRuleId      :: {-# NOUNPACK #-}!Text
-  , _urbrChangeToken :: {-# NOUNPACK #-}!Text
-  , _urbrUpdates     :: {-# NOUNPACK #-}![RuleUpdate]
-  , _urbrRateLimit   :: {-# NOUNPACK #-}!Nat
+  { _urbrRuleId      :: !Text
+  , _urbrChangeToken :: !Text
+  , _urbrUpdates     :: ![RuleUpdate]
+  , _urbrRateLimit   :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -166,8 +166,8 @@ instance ToQuery UpdateRateBasedRule where
 
 -- | /See:/ 'updateRateBasedRuleResponse' smart constructor.
 data UpdateRateBasedRuleResponse = UpdateRateBasedRuleResponse'
-  { _urbrrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _urbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _urbrrsChangeToken    :: !(Maybe Text)
+  , _urbrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

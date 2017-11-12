@@ -62,11 +62,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeHSMConfigurations' smart constructor.
 data DescribeHSMConfigurations = DescribeHSMConfigurations'
-  { _dhsmcTagValues                  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dhsmcHSMConfigurationIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhsmcTagKeys                    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dhsmcMarker                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhsmcMaxRecords                 :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dhsmcTagValues                  :: !(Maybe [Text])
+  , _dhsmcHSMConfigurationIdentifier :: !(Maybe Text)
+  , _dhsmcTagKeys                    :: !(Maybe [Text])
+  , _dhsmcMarker                     :: !(Maybe Text)
+  , _dhsmcMaxRecords                 :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -166,9 +166,9 @@ instance ToQuery DescribeHSMConfigurations where
 --
 -- /See:/ 'describeHSMConfigurationsResponse' smart constructor.
 data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
-  { _dhcrsMarker            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhcrsHSMConfigurations :: {-# NOUNPACK #-}!(Maybe [HSMConfiguration])
-  , _dhcrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dhcrsMarker            :: !(Maybe Text)
+  , _dhcrsHSMConfigurations :: !(Maybe [HSMConfiguration])
+  , _dhcrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

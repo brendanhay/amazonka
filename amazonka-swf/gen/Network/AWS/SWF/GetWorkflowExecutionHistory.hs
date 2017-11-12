@@ -68,11 +68,11 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'getWorkflowExecutionHistory' smart constructor.
 data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'
-  { _gwehNextPageToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gwehReverseOrder    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gwehMaximumPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gwehDomain          :: {-# NOUNPACK #-}!Text
-  , _gwehExecution       :: {-# NOUNPACK #-}!WorkflowExecution
+  { _gwehNextPageToken   :: !(Maybe Text)
+  , _gwehReverseOrder    :: !(Maybe Bool)
+  , _gwehMaximumPageSize :: !(Maybe Nat)
+  , _gwehDomain          :: !Text
+  , _gwehExecution       :: !WorkflowExecution
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -178,9 +178,9 @@ instance ToQuery GetWorkflowExecutionHistory where
 --
 -- /See:/ 'getWorkflowExecutionHistoryResponse' smart constructor.
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
-  { _gwehrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gwehrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gwehrsEvents         :: {-# NOUNPACK #-}![HistoryEvent]
+  { _gwehrsNextPageToken  :: !(Maybe Text)
+  , _gwehrsResponseStatus :: !Int
+  , _gwehrsEvents         :: ![HistoryEvent]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

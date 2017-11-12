@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createCacheSubnetGroup' smart constructor.
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
-  { _ccsgCacheSubnetGroupName        :: {-# NOUNPACK #-}!Text
-  , _ccsgCacheSubnetGroupDescription :: {-# NOUNPACK #-}!Text
-  , _ccsgSubnetIds                   :: {-# NOUNPACK #-}![Text]
+  { _ccsgCacheSubnetGroupName        :: !Text
+  , _ccsgCacheSubnetGroupDescription :: !Text
+  , _ccsgSubnetIds                   :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery CreateCacheSubnetGroup where
 
 -- | /See:/ 'createCacheSubnetGroupResponse' smart constructor.
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
-  { _crsCacheSubnetGroup :: {-# NOUNPACK #-}!(Maybe CacheSubnetGroup)
-  , _crsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _crsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
+  , _crsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

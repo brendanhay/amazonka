@@ -56,9 +56,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listHandshakesForOrganization' smart constructor.
 data ListHandshakesForOrganization = ListHandshakesForOrganization'
-  { _lhfoNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhfoFilter     :: {-# NOUNPACK #-}!(Maybe HandshakeFilter)
-  , _lhfoMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lhfoNextToken  :: !(Maybe Text)
+  , _lhfoFilter     :: !(Maybe HandshakeFilter)
+  , _lhfoMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery ListHandshakesForOrganization where
 
 -- | /See:/ 'listHandshakesForOrganizationResponse' smart constructor.
 data ListHandshakesForOrganizationResponse = ListHandshakesForOrganizationResponse'
-  { _lhforsHandshakes     :: {-# NOUNPACK #-}!(Maybe [Handshake])
-  , _lhforsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhforsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lhforsHandshakes     :: !(Maybe [Handshake])
+  , _lhforsNextToken      :: !(Maybe Text)
+  , _lhforsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

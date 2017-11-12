@@ -121,8 +121,8 @@ instance ToQuery RefreshTrustedAdvisorCheck where
 --
 -- /See:/ 'refreshTrustedAdvisorCheckResponse' smart constructor.
 data RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
-  { _rtacrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _rtacrsStatus         :: {-# NOUNPACK #-}!TrustedAdvisorCheckRefreshStatus
+  { _rtacrsResponseStatus :: !Int
+  , _rtacrsStatus         :: !TrustedAdvisorCheckRefreshStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

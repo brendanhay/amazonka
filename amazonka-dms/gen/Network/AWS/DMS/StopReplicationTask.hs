@@ -115,8 +115,8 @@ instance ToQuery StopReplicationTask where
 --
 -- /See:/ 'stopReplicationTaskResponse' smart constructor.
 data StopReplicationTaskResponse = StopReplicationTaskResponse'
-  { _srsReplicationTask :: {-# NOUNPACK #-}!(Maybe ReplicationTask)
-  , _srsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _srsReplicationTask :: !(Maybe ReplicationTask)
+  , _srsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

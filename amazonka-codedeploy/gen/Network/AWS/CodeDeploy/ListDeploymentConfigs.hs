@@ -122,9 +122,9 @@ instance ToQuery ListDeploymentConfigs where
 --
 -- /See:/ 'listDeploymentConfigsResponse' smart constructor.
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
-  { _ldcrsNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldcrsDeploymentConfigsList :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ldcrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _ldcrsNextToken             :: !(Maybe Text)
+  , _ldcrsDeploymentConfigsList :: !(Maybe [Text])
+  , _ldcrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

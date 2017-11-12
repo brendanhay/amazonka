@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyIdFormat' smart constructor.
 data ModifyIdFormat = ModifyIdFormat'
-  { _mifResource   :: {-# NOUNPACK #-}!Text
-  , _mifUseLongIds :: {-# NOUNPACK #-}!Bool
+  { _mifResource   :: !Text
+  , _mifUseLongIds :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getDatabases' smart constructor.
 data GetDatabases = GetDatabases'
-  { _gdCatalogId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gdCatalogId  :: !(Maybe Text)
+  , _gdNextToken  :: !(Maybe Text)
+  , _gdMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery GetDatabases where
 
 -- | /See:/ 'getDatabasesResponse' smart constructor.
 data GetDatabasesResponse = GetDatabasesResponse'
-  { _gdsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gdsrsDatabaseList   :: {-# NOUNPACK #-}![Database]
+  { _gdsrsNextToken      :: !(Maybe Text)
+  , _gdsrsResponseStatus :: !Int
+  , _gdsrsDatabaseList   :: ![Database]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

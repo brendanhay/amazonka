@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getInstanceAccess' smart constructor.
 data GetInstanceAccess = GetInstanceAccess'
-  { _giaFleetId    :: {-# NOUNPACK #-}!Text
-  , _giaInstanceId :: {-# NOUNPACK #-}!Text
+  { _giaFleetId    :: !Text
+  , _giaInstanceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery GetInstanceAccess where
 --
 -- /See:/ 'getInstanceAccessResponse' smart constructor.
 data GetInstanceAccessResponse = GetInstanceAccessResponse'
-  { _giarsInstanceAccess :: {-# NOUNPACK #-}!(Maybe InstanceAccess)
-  , _giarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _giarsInstanceAccess :: !(Maybe InstanceAccess)
+  , _giarsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

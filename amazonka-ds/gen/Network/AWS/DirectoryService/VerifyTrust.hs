@@ -110,8 +110,8 @@ instance ToQuery VerifyTrust where
 --
 -- /See:/ 'verifyTrustResponse' smart constructor.
 data VerifyTrustResponse = VerifyTrustResponse'
-  { _vtrsTrustId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _vtrsTrustId        :: !(Maybe Text)
+  , _vtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

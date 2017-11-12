@@ -55,10 +55,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createRequestValidator' smart constructor.
 data CreateRequestValidator = CreateRequestValidator'
-  { _crvValidateRequestParameters :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _crvName                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crvValidateRequestBody       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _crvRestAPIId                 :: {-# NOUNPACK #-}!Text
+  { _crvValidateRequestParameters :: !(Maybe Bool)
+  , _crvName                      :: !(Maybe Text)
+  , _crvValidateRequestBody       :: !(Maybe Bool)
+  , _crvRestAPIId                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,11 +54,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'modifyVolume' smart constructor.
 data ModifyVolume = ModifyVolume'
-  { _mvSize       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _mvIOPS       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _mvVolumeType :: {-# NOUNPACK #-}!(Maybe VolumeType)
-  , _mvDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mvVolumeId   :: {-# NOUNPACK #-}!Text
+  { _mvSize       :: !(Maybe Int)
+  , _mvIOPS       :: !(Maybe Int)
+  , _mvVolumeType :: !(Maybe VolumeType)
+  , _mvDryRun     :: !(Maybe Bool)
+  , _mvVolumeId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery ModifyVolume where
 
 -- | /See:/ 'modifyVolumeResponse' smart constructor.
 data ModifyVolumeResponse = ModifyVolumeResponse'
-  { _mvrsVolumeModification :: {-# NOUNPACK #-}!(Maybe VolumeModification)
-  , _mvrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _mvrsVolumeModification :: !(Maybe VolumeModification)
+  , _mvrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

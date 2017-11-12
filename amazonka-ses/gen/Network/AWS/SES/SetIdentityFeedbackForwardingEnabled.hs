@@ -54,8 +54,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'setIdentityFeedbackForwardingEnabled' smart constructor.
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
-  { _siffeIdentity          :: {-# NOUNPACK #-}!Text
-  , _siffeForwardingEnabled :: {-# NOUNPACK #-}!Bool
+  { _siffeIdentity          :: !Text
+  , _siffeForwardingEnabled :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'disassociateFleet' smart constructor.
 data DisassociateFleet = DisassociateFleet'
-  { _dfFleetName :: {-# NOUNPACK #-}!Text
-  , _dfStackName :: {-# NOUNPACK #-}!Text
+  { _dfFleetName :: !Text
+  , _dfStackName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

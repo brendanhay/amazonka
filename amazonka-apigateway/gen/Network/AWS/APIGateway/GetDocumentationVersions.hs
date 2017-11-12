@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDocumentationVersions' smart constructor.
 data GetDocumentationVersions = GetDocumentationVersions'
-  { _gdvLimit     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gdvPosition  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdvRestAPIId :: {-# NOUNPACK #-}!Text
+  { _gdvLimit     :: !(Maybe Int)
+  , _gdvPosition  :: !(Maybe Text)
+  , _gdvRestAPIId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,9 +127,9 @@ instance ToQuery GetDocumentationVersions where
 --
 -- /See:/ 'getDocumentationVersionsResponse' smart constructor.
 data GetDocumentationVersionsResponse = GetDocumentationVersionsResponse'
-  { _gdvrsItems          :: {-# NOUNPACK #-}!(Maybe [DocumentationVersion])
-  , _gdvrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdvrsItems          :: !(Maybe [DocumentationVersion])
+  , _gdvrsPosition       :: !(Maybe Text)
+  , _gdvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

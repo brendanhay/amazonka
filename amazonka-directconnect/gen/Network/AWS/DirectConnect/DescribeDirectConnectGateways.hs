@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDirectConnectGateways' smart constructor.
 data DescribeDirectConnectGateways = DescribeDirectConnectGateways'
-  { _ddcgDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcgNextToken              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcgMaxResults             :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ddcgDirectConnectGatewayId :: !(Maybe Text)
+  , _ddcgNextToken              :: !(Maybe Text)
+  , _ddcgMaxResults             :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery DescribeDirectConnectGateways where
 --
 -- /See:/ 'describeDirectConnectGatewaysResponse' smart constructor.
 data DescribeDirectConnectGatewaysResponse = DescribeDirectConnectGatewaysResponse'
-  { _ddcgrsDirectConnectGateways :: {-# NOUNPACK #-}!(Maybe [DirectConnectGateway])
-  , _ddcgrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddcgrsDirectConnectGateways :: !(Maybe [DirectConnectGateway])
+  , _ddcgrsNextToken             :: !(Maybe Text)
+  , _ddcgrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

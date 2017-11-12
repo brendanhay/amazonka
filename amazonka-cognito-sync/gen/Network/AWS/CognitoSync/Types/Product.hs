@@ -25,9 +25,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'cognitoStreams' smart constructor.
 data CognitoStreams = CognitoStreams'
-  { _csStreamingStatus :: {-# NOUNPACK #-}!(Maybe StreamingStatus)
-  , _csStreamName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csRoleARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csStreamingStatus :: !(Maybe StreamingStatus)
+  , _csStreamName      :: !(Maybe Text)
+  , _csRoleARN         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -83,13 +83,13 @@ instance ToJSON CognitoStreams where
 --
 -- /See:/ 'dataset' smart constructor.
 data Dataset = Dataset'
-  { _dLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dNumRecords       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dDataStorage      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dDatasetName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dIdentityId       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dLastModifiedDate :: !(Maybe POSIX)
+  , _dNumRecords       :: !(Maybe Integer)
+  , _dDataStorage      :: !(Maybe Integer)
+  , _dDatasetName      :: !(Maybe Text)
+  , _dCreationDate     :: !(Maybe POSIX)
+  , _dLastModifiedBy   :: !(Maybe Text)
+  , _dIdentityId       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -172,10 +172,10 @@ instance NFData Dataset where
 --
 -- /See:/ 'identityPoolUsage' smart constructor.
 data IdentityPoolUsage = IdentityPoolUsage'
-  { _ipuLastModifiedDate  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ipuIdentityPoolId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ipuDataStorage       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _ipuSyncSessionsCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _ipuLastModifiedDate  :: !(Maybe POSIX)
+  , _ipuIdentityPoolId    :: !(Maybe Text)
+  , _ipuDataStorage       :: !(Maybe Integer)
+  , _ipuSyncSessionsCount :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -235,11 +235,11 @@ instance NFData IdentityPoolUsage where
 --
 -- /See:/ 'identityUsage' smart constructor.
 data IdentityUsage = IdentityUsage'
-  { _iuLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _iuIdentityPoolId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iuDatasetCount     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _iuDataStorage      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _iuIdentityId       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iuLastModifiedDate :: !(Maybe POSIX)
+  , _iuIdentityPoolId   :: !(Maybe Text)
+  , _iuDatasetCount     :: !(Maybe Int)
+  , _iuDataStorage      :: !(Maybe Integer)
+  , _iuIdentityId       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -309,8 +309,8 @@ instance NFData IdentityUsage where
 --
 -- /See:/ 'pushSync' smart constructor.
 data PushSync = PushSync'
-  { _psApplicationARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _psRoleARN         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _psApplicationARNs :: !(Maybe [Text])
+  , _psRoleARN         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -357,12 +357,12 @@ instance ToJSON PushSync where
 --
 -- /See:/ 'record' smart constructor.
 data Record = Record'
-  { _rSyncCount              :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _rDeviceLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rLastModifiedDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rValue                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rKey                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rLastModifiedBy         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rSyncCount              :: !(Maybe Integer)
+  , _rDeviceLastModifiedDate :: !(Maybe POSIX)
+  , _rLastModifiedDate       :: !(Maybe POSIX)
+  , _rValue                  :: !(Maybe Text)
+  , _rKey                    :: !(Maybe Text)
+  , _rLastModifiedBy         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -438,11 +438,11 @@ instance NFData Record where
 --
 -- /See:/ 'recordPatch' smart constructor.
 data RecordPatch = RecordPatch'
-  { _rpDeviceLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rpValue                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rpOp                     :: {-# NOUNPACK #-}!Operation
-  , _rpKey                    :: {-# NOUNPACK #-}!Text
-  , _rpSyncCount              :: {-# NOUNPACK #-}!Integer
+  { _rpDeviceLastModifiedDate :: !(Maybe POSIX)
+  , _rpValue                  :: !(Maybe Text)
+  , _rpOp                     :: !Operation
+  , _rpKey                    :: !Text
+  , _rpSyncCount              :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

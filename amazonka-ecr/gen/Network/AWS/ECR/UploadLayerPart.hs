@@ -54,12 +54,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'uploadLayerPart' smart constructor.
 data UploadLayerPart = UploadLayerPart'
-  { _ulpRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ulpRepositoryName :: {-# NOUNPACK #-}!Text
-  , _ulpUploadId       :: {-# NOUNPACK #-}!Text
-  , _ulpPartFirstByte  :: {-# NOUNPACK #-}!Nat
-  , _ulpPartLastByte   :: {-# NOUNPACK #-}!Nat
-  , _ulpLayerPartBlob  :: {-# NOUNPACK #-}!Base64
+  { _ulpRegistryId     :: !(Maybe Text)
+  , _ulpRepositoryName :: !Text
+  , _ulpUploadId       :: !Text
+  , _ulpPartFirstByte  :: !Nat
+  , _ulpPartLastByte   :: !Nat
+  , _ulpLayerPartBlob  :: !Base64
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -165,11 +165,11 @@ instance ToQuery UploadLayerPart where
 
 -- | /See:/ 'uploadLayerPartResponse' smart constructor.
 data UploadLayerPartResponse = UploadLayerPartResponse'
-  { _ulprsRegistryId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ulprsLastByteReceived :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ulprsRepositoryName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ulprsUploadId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ulprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ulprsRegistryId       :: !(Maybe Text)
+  , _ulprsLastByteReceived :: !(Maybe Nat)
+  , _ulprsRepositoryName   :: !(Maybe Text)
+  , _ulprsUploadId         :: !(Maybe Text)
+  , _ulprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

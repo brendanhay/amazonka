@@ -65,9 +65,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeGameSessionQueues' smart constructor.
 data DescribeGameSessionQueues = DescribeGameSessionQueues'
-  { _dgsqNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgsqNames     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dgsqLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dgsqNextToken :: !(Maybe Text)
+  , _dgsqNames     :: !(Maybe [Text])
+  , _dgsqLimit     :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,9 +144,9 @@ instance ToQuery DescribeGameSessionQueues where
 --
 -- /See:/ 'describeGameSessionQueuesResponse' smart constructor.
 data DescribeGameSessionQueuesResponse = DescribeGameSessionQueuesResponse'
-  { _drsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsGameSessionQueues :: {-# NOUNPACK #-}!(Maybe [GameSessionQueue])
-  , _drsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _drsNextToken         :: !(Maybe Text)
+  , _drsGameSessionQueues :: !(Maybe [GameSessionQueue])
+  , _drsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

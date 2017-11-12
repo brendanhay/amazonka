@@ -52,9 +52,9 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'createTapeWithBarcode' smart constructor.
 data CreateTapeWithBarcode = CreateTapeWithBarcode'
-  { _ctwbGatewayARN      :: {-# NOUNPACK #-}!Text
-  , _ctwbTapeSizeInBytes :: {-# NOUNPACK #-}!Integer
-  , _ctwbTapeBarcode     :: {-# NOUNPACK #-}!Text
+  { _ctwbGatewayARN      :: !Text
+  , _ctwbTapeSizeInBytes :: !Integer
+  , _ctwbTapeBarcode     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,8 +136,8 @@ instance ToQuery CreateTapeWithBarcode where
 --
 -- /See:/ 'createTapeWithBarcodeResponse' smart constructor.
 data CreateTapeWithBarcodeResponse = CreateTapeWithBarcodeResponse'
-  { _ctwbrsTapeARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctwbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ctwbrsTapeARN        :: !(Maybe Text)
+  , _ctwbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

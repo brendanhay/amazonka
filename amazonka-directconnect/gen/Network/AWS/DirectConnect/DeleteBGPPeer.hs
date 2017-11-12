@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteBGPPeer' smart constructor.
 data DeleteBGPPeer = DeleteBGPPeer'
-  { _dbpCustomerAddress    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbpAsn                :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dbpVirtualInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dbpCustomerAddress    :: !(Maybe Text)
+  , _dbpAsn                :: !(Maybe Int)
+  , _dbpVirtualInterfaceId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,8 +132,8 @@ instance ToQuery DeleteBGPPeer where
 --
 -- /See:/ 'deleteBGPPeerResponse' smart constructor.
 data DeleteBGPPeerResponse = DeleteBGPPeerResponse'
-  { _dbprsVirtualInterface :: {-# NOUNPACK #-}!(Maybe VirtualInterface)
-  , _dbprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _dbprsVirtualInterface :: !(Maybe VirtualInterface)
+  , _dbprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

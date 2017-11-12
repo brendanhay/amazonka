@@ -89,8 +89,8 @@ instance ToQuery GetBucketTagging where
 
 -- | /See:/ 'getBucketTaggingResponse' smart constructor.
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
-  { _gbtrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gbtrsTagSet         :: {-# NOUNPACK #-}![Tag]
+  { _gbtrsResponseStatus :: !Int
+  , _gbtrsTagSet         :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

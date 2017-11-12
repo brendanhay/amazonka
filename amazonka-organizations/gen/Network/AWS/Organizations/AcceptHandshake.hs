@@ -116,8 +116,8 @@ instance ToQuery AcceptHandshake where
 
 -- | /See:/ 'acceptHandshakeResponse' smart constructor.
 data AcceptHandshakeResponse = AcceptHandshakeResponse'
-  { _ahrsHandshake      :: {-# NOUNPACK #-}!(Maybe Handshake)
-  , _ahrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ahrsHandshake      :: !(Maybe Handshake)
+  , _ahrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

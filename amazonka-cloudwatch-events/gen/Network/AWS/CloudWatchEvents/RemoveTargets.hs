@@ -52,8 +52,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'removeTargets' smart constructor.
 data RemoveTargets = RemoveTargets'
-  { _rtRule :: {-# NOUNPACK #-}!Text
-  , _rtIds  :: {-# NOUNPACK #-}!(List1 Text)
+  { _rtRule :: !Text
+  , _rtIds  :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,9 +118,9 @@ instance ToQuery RemoveTargets where
 
 -- | /See:/ 'removeTargetsResponse' smart constructor.
 data RemoveTargetsResponse = RemoveTargetsResponse'
-  { _rtrsFailedEntryCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rtrsFailedEntries    :: {-# NOUNPACK #-}!(Maybe [RemoveTargetsResultEntry])
-  , _rtrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _rtrsFailedEntryCount :: !(Maybe Int)
+  , _rtrsFailedEntries    :: !(Maybe [RemoveTargetsResultEntry])
+  , _rtrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

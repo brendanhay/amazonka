@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
-  { _aValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aValue :: !(Maybe Text)
+  , _aName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -74,9 +74,9 @@ instance ToJSON Attribute where
 --
 -- /See:/ 'computer' smart constructor.
 data Computer = Computer'
-  { _cComputerId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cComputerAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _cComputerName       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cComputerId         :: !(Maybe Text)
+  , _cComputerAttributes :: !(Maybe [Attribute])
+  , _cComputerName       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance NFData Computer where
 --
 -- /See:/ 'conditionalForwarder' smart constructor.
 data ConditionalForwarder = ConditionalForwarder'
-  { _cfDNSIPAddrs       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cfRemoteDomainName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfReplicationScope :: {-# NOUNPACK #-}!(Maybe ReplicationScope)
+  { _cfDNSIPAddrs       :: !(Maybe [Text])
+  , _cfRemoteDomainName :: !(Maybe Text)
+  , _cfReplicationScope :: !(Maybe ReplicationScope)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -186,10 +186,10 @@ instance NFData ConditionalForwarder where
 --
 -- /See:/ 'directoryConnectSettings' smart constructor.
 data DirectoryConnectSettings = DirectoryConnectSettings'
-  { _dcsVPCId            :: {-# NOUNPACK #-}!Text
-  , _dcsSubnetIds        :: {-# NOUNPACK #-}![Text]
-  , _dcsCustomerDNSIPs   :: {-# NOUNPACK #-}![Text]
-  , _dcsCustomerUserName :: {-# NOUNPACK #-}!Text
+  { _dcsVPCId            :: !Text
+  , _dcsSubnetIds        :: ![Text]
+  , _dcsCustomerDNSIPs   :: ![Text]
+  , _dcsCustomerUserName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -252,12 +252,12 @@ instance ToJSON DirectoryConnectSettings where
 --
 -- /See:/ 'directoryConnectSettingsDescription' smart constructor.
 data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
-  { _dcsdCustomerUserName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsdSubnetIds         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcsdVPCId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsdSecurityGroupId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsdConnectIPs        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcsdAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dcsdCustomerUserName  :: !(Maybe Text)
+  , _dcsdSubnetIds         :: !(Maybe [Text])
+  , _dcsdVPCId             :: !(Maybe Text)
+  , _dcsdSecurityGroupId   :: !(Maybe Text)
+  , _dcsdConnectIPs        :: !(Maybe [Text])
+  , _dcsdAvailabilityZones :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -338,25 +338,25 @@ instance NFData DirectoryConnectSettingsDescription
 --
 -- /See:/ 'directoryDescription' smart constructor.
 data DirectoryDescription = DirectoryDescription'
-  { _ddRadiusStatus :: {-# NOUNPACK #-}!(Maybe RadiusStatus)
-  , _ddStage :: {-# NOUNPACK #-}!(Maybe DirectoryStage)
-  , _ddDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddAccessURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddShortName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddSize :: {-# NOUNPACK #-}!(Maybe DirectorySize)
-  , _ddDesiredNumberOfDomainControllers :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ddRadiusSettings :: {-# NOUNPACK #-}!(Maybe RadiusSettings)
-  , _ddLaunchTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ddAlias :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddStageLastUpdatedDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ddSSOEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ddDNSIPAddrs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ddVPCSettings :: {-# NOUNPACK #-}!(Maybe DirectoryVPCSettingsDescription)
-  , _ddType :: {-# NOUNPACK #-}!(Maybe DirectoryType)
-  , _ddStageReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddConnectSettings :: {-# NOUNPACK #-}!(Maybe DirectoryConnectSettingsDescription)
-  , _ddDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ddRadiusStatus :: !(Maybe RadiusStatus)
+  , _ddStage :: !(Maybe DirectoryStage)
+  , _ddDirectoryId :: !(Maybe Text)
+  , _ddAccessURL :: !(Maybe Text)
+  , _ddShortName :: !(Maybe Text)
+  , _ddSize :: !(Maybe DirectorySize)
+  , _ddDesiredNumberOfDomainControllers :: !(Maybe Nat)
+  , _ddRadiusSettings :: !(Maybe RadiusSettings)
+  , _ddLaunchTime :: !(Maybe POSIX)
+  , _ddAlias :: !(Maybe Text)
+  , _ddName :: !(Maybe Text)
+  , _ddStageLastUpdatedDateTime :: !(Maybe POSIX)
+  , _ddSSOEnabled :: !(Maybe Bool)
+  , _ddDNSIPAddrs :: !(Maybe [Text])
+  , _ddVPCSettings :: !(Maybe DirectoryVPCSettingsDescription)
+  , _ddType :: !(Maybe DirectoryType)
+  , _ddStageReason :: !(Maybe Text)
+  , _ddConnectSettings :: !(Maybe DirectoryConnectSettingsDescription)
+  , _ddDescription :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -537,15 +537,15 @@ instance NFData DirectoryDescription where
 --
 -- /See:/ 'directoryLimits' smart constructor.
 data DirectoryLimits = DirectoryLimits'
-  { _dlConnectedDirectoriesCurrentCount :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dlCloudOnlyMicrosoftADLimitReached :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dlConnectedDirectoriesLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dlConnectedDirectoriesLimitReached :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dlCloudOnlyMicrosoftADLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dlCloudOnlyDirectoriesLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dlCloudOnlyDirectoriesCurrentCount :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dlCloudOnlyDirectoriesLimitReached :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dlCloudOnlyMicrosoftADCurrentCount :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dlConnectedDirectoriesCurrentCount :: !(Maybe Nat)
+  , _dlCloudOnlyMicrosoftADLimitReached :: !(Maybe Bool)
+  , _dlConnectedDirectoriesLimit        :: !(Maybe Nat)
+  , _dlConnectedDirectoriesLimitReached :: !(Maybe Bool)
+  , _dlCloudOnlyMicrosoftADLimit        :: !(Maybe Nat)
+  , _dlCloudOnlyDirectoriesLimit        :: !(Maybe Nat)
+  , _dlCloudOnlyDirectoriesCurrentCount :: !(Maybe Nat)
+  , _dlCloudOnlyDirectoriesLimitReached :: !(Maybe Bool)
+  , _dlCloudOnlyMicrosoftADCurrentCount :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -647,8 +647,8 @@ instance NFData DirectoryLimits where
 --
 -- /See:/ 'directoryVPCSettings' smart constructor.
 data DirectoryVPCSettings = DirectoryVPCSettings'
-  { _dvsVPCId     :: {-# NOUNPACK #-}!Text
-  , _dvsSubnetIds :: {-# NOUNPACK #-}![Text]
+  { _dvsVPCId     :: !Text
+  , _dvsSubnetIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -691,10 +691,10 @@ instance ToJSON DirectoryVPCSettings where
 --
 -- /See:/ 'directoryVPCSettingsDescription' smart constructor.
 data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
-  { _dvsdSubnetIds         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvsdVPCId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvsdSecurityGroupId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvsdAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dvsdSubnetIds         :: !(Maybe [Text])
+  , _dvsdVPCId             :: !(Maybe Text)
+  , _dvsdSecurityGroupId   :: !(Maybe Text)
+  , _dvsdAvailabilityZones :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -757,16 +757,16 @@ instance NFData DirectoryVPCSettingsDescription where
 --
 -- /See:/ 'domainController' smart constructor.
 data DomainController = DomainController'
-  { _dcStatus :: {-# NOUNPACK #-}!(Maybe DomainControllerStatus)
-  , _dcDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcLaunchTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dcSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcStatusLastUpdatedDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dcStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcDNSIPAddr :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcDomainControllerId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dcStatus                    :: !(Maybe DomainControllerStatus)
+  , _dcDirectoryId               :: !(Maybe Text)
+  , _dcVPCId                     :: !(Maybe Text)
+  , _dcLaunchTime                :: !(Maybe POSIX)
+  , _dcSubnetId                  :: !(Maybe Text)
+  , _dcAvailabilityZone          :: !(Maybe Text)
+  , _dcStatusLastUpdatedDateTime :: !(Maybe POSIX)
+  , _dcStatusReason              :: !(Maybe Text)
+  , _dcDNSIPAddr                 :: !(Maybe Text)
+  , _dcDomainControllerId        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -875,11 +875,11 @@ instance NFData DomainController where
 --
 -- /See:/ 'eventTopic' smart constructor.
 data EventTopic = EventTopic'
-  { _etStatus          :: {-# NOUNPACK #-}!(Maybe TopicStatus)
-  , _etDirectoryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _etTopicName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _etTopicARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _etCreatedDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _etStatus          :: !(Maybe TopicStatus)
+  , _etDirectoryId     :: !(Maybe Text)
+  , _etTopicName       :: !(Maybe Text)
+  , _etTopicARN        :: !(Maybe Text)
+  , _etCreatedDateTime :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -948,8 +948,8 @@ instance NFData EventTopic where
 --
 -- /See:/ 'ipRoute' smart constructor.
 data IPRoute = IPRoute'
-  { _irCidrIP      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _irCidrIP      :: !(Maybe Text)
+  , _irDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -990,12 +990,12 @@ instance ToJSON IPRoute where
 --
 -- /See:/ 'ipRouteInfo' smart constructor.
 data IPRouteInfo = IPRouteInfo'
-  { _iriDirectoryId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iriIPRouteStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iriAddedDateTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _iriCidrIP              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iriIPRouteStatusMsg    :: {-# NOUNPACK #-}!(Maybe IPRouteStatusMsg)
-  , _iriDescription         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iriDirectoryId         :: !(Maybe Text)
+  , _iriIPRouteStatusReason :: !(Maybe Text)
+  , _iriAddedDateTime       :: !(Maybe POSIX)
+  , _iriCidrIP              :: !(Maybe Text)
+  , _iriIPRouteStatusMsg    :: !(Maybe IPRouteStatusMsg)
+  , _iriDescription         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1073,14 +1073,14 @@ instance NFData IPRouteInfo where
 --
 -- /See:/ 'radiusSettings' smart constructor.
 data RadiusSettings = RadiusSettings'
-  { _rsDisplayLabel :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsRadiusRetries :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _rsAuthenticationProtocol :: {-# NOUNPACK #-}!(Maybe RadiusAuthenticationProtocol)
-  , _rsRadiusServers :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rsUseSameUsername :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rsSharedSecret :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _rsRadiusTimeout :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _rsRadiusPort :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _rsDisplayLabel           :: !(Maybe Text)
+  , _rsRadiusRetries          :: !(Maybe Nat)
+  , _rsAuthenticationProtocol :: !(Maybe RadiusAuthenticationProtocol)
+  , _rsRadiusServers          :: !(Maybe [Text])
+  , _rsUseSameUsername        :: !(Maybe Bool)
+  , _rsSharedSecret           :: !(Maybe (Sensitive Text))
+  , _rsRadiusTimeout          :: !(Maybe Nat)
+  , _rsRadiusPort             :: !(Maybe Nat)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1187,13 +1187,13 @@ instance ToJSON RadiusSettings where
 --
 -- /See:/ 'schemaExtensionInfo' smart constructor.
 data SchemaExtensionInfo = SchemaExtensionInfo'
-  { _seiDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seiSchemaExtensionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seiSchemaExtensionStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seiSchemaExtensionStatus :: {-# NOUNPACK #-}!(Maybe SchemaExtensionStatus)
-  , _seiDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seiEndDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _seiStartDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _seiDirectoryId                 :: !(Maybe Text)
+  , _seiSchemaExtensionId           :: !(Maybe Text)
+  , _seiSchemaExtensionStatusReason :: !(Maybe Text)
+  , _seiSchemaExtensionStatus       :: !(Maybe SchemaExtensionStatus)
+  , _seiDescription                 :: !(Maybe Text)
+  , _seiEndDateTime                 :: !(Maybe POSIX)
+  , _seiStartDateTime               :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1278,12 +1278,12 @@ instance NFData SchemaExtensionInfo where
 --
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
-  { _sStatus      :: {-# NOUNPACK #-}!(Maybe SnapshotStatus)
-  , _sDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sStartTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _sName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sType        :: {-# NOUNPACK #-}!(Maybe SnapshotType)
-  , _sSnapshotId  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sStatus      :: !(Maybe SnapshotStatus)
+  , _sDirectoryId :: !(Maybe Text)
+  , _sStartTime   :: !(Maybe POSIX)
+  , _sName        :: !(Maybe Text)
+  , _sType        :: !(Maybe SnapshotType)
+  , _sSnapshotId  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1360,9 +1360,9 @@ instance NFData Snapshot where
 --
 -- /See:/ 'snapshotLimits' smart constructor.
 data SnapshotLimits = SnapshotLimits'
-  { _slManualSnapshotsLimitReached :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _slManualSnapshotsCurrentCount :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _slManualSnapshotsLimit        :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _slManualSnapshotsLimitReached :: !(Maybe Bool)
+  , _slManualSnapshotsCurrentCount :: !(Maybe Nat)
+  , _slManualSnapshotsLimit        :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1416,8 +1416,8 @@ instance NFData SnapshotLimits where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!Text
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1465,16 +1465,16 @@ instance ToJSON Tag where
 --
 -- /See:/ 'trust' smart constructor.
 data Trust = Trust'
-  { _tDirectoryId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tTrustState               :: {-# NOUNPACK #-}!(Maybe TrustState)
-  , _tLastUpdatedDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tTrustDirection           :: {-# NOUNPACK #-}!(Maybe TrustDirection)
-  , _tStateLastUpdatedDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tTrustType                :: {-# NOUNPACK #-}!(Maybe TrustType)
-  , _tTrustStateReason         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tRemoteDomainName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tTrustId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tCreatedDateTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _tDirectoryId              :: !(Maybe Text)
+  , _tTrustState               :: !(Maybe TrustState)
+  , _tLastUpdatedDateTime      :: !(Maybe POSIX)
+  , _tTrustDirection           :: !(Maybe TrustDirection)
+  , _tStateLastUpdatedDateTime :: !(Maybe POSIX)
+  , _tTrustType                :: !(Maybe TrustType)
+  , _tTrustStateReason         :: !(Maybe Text)
+  , _tRemoteDomainName         :: !(Maybe Text)
+  , _tTrustId                  :: !(Maybe Text)
+  , _tCreatedDateTime          :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

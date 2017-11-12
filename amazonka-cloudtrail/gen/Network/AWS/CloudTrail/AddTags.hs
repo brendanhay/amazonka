@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
-  { _atTagsList   :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _atResourceId :: {-# NOUNPACK #-}!Text
+  { _atTagsList   :: !(Maybe [Tag])
+  , _atResourceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

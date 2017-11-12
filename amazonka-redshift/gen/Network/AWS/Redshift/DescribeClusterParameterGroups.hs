@@ -64,11 +64,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeClusterParameterGroups' smart constructor.
 data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
-  { _dcpgTagValues          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcpgTagKeys            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcpgMarker             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpgMaxRecords         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dcpgParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dcpgTagValues          :: !(Maybe [Text])
+  , _dcpgTagKeys            :: !(Maybe [Text])
+  , _dcpgMarker             :: !(Maybe Text)
+  , _dcpgMaxRecords         :: !(Maybe Int)
+  , _dcpgParameterGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -172,9 +172,9 @@ instance ToQuery DescribeClusterParameterGroups where
 --
 -- /See:/ 'describeClusterParameterGroupsResponse' smart constructor.
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'
-  { _dcpgrsMarker          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpgrsParameterGroups :: {-# NOUNPACK #-}!(Maybe [ClusterParameterGroup])
-  , _dcpgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dcpgrsMarker          :: !(Maybe Text)
+  , _dcpgrsParameterGroups :: !(Maybe [ClusterParameterGroup])
+  , _dcpgrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

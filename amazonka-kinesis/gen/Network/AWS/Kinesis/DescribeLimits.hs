@@ -94,9 +94,9 @@ instance ToQuery DescribeLimits where
 
 -- | /See:/ 'describeLimitsResponse' smart constructor.
 data DescribeLimitsResponse = DescribeLimitsResponse'
-  { _dlrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dlrsShardLimit     :: {-# NOUNPACK #-}!Nat
-  , _dlrsOpenShardCount :: {-# NOUNPACK #-}!Nat
+  { _dlrsResponseStatus :: !Int
+  , _dlrsShardLimit     :: !Nat
+  , _dlrsOpenShardCount :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

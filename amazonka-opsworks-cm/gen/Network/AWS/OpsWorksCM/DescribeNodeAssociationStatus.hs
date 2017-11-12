@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeNodeAssociationStatus' smart constructor.
 data DescribeNodeAssociationStatus = DescribeNodeAssociationStatus'
-  { _dnasNodeAssociationStatusToken :: {-# NOUNPACK #-}!Text
-  , _dnasServerName                 :: {-# NOUNPACK #-}!Text
+  { _dnasNodeAssociationStatusToken :: !Text
+  , _dnasServerName                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,9 +126,9 @@ instance ToQuery DescribeNodeAssociationStatus where
 
 -- | /See:/ 'describeNodeAssociationStatusResponse' smart constructor.
 data DescribeNodeAssociationStatusResponse = DescribeNodeAssociationStatusResponse'
-  { _dnasrsEngineAttributes      :: {-# NOUNPACK #-}!(Maybe [EngineAttribute])
-  , _dnasrsResponseStatus        :: {-# NOUNPACK #-}!Int
-  , _dnasrsNodeAssociationStatus :: {-# NOUNPACK #-}!NodeAssociationStatus
+  { _dnasrsEngineAttributes      :: !(Maybe [EngineAttribute])
+  , _dnasrsResponseStatus        :: !Int
+  , _dnasrsNodeAssociationStatus :: !NodeAssociationStatus
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

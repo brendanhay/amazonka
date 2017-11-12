@@ -73,8 +73,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createMatchmakingRuleSet' smart constructor.
 data CreateMatchmakingRuleSet = CreateMatchmakingRuleSet'
-  { _cmrsName        :: {-# NOUNPACK #-}!Text
-  , _cmrsRuleSetBody :: {-# NOUNPACK #-}!Text
+  { _cmrsName        :: !Text
+  , _cmrsRuleSetBody :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,8 +144,8 @@ instance ToQuery CreateMatchmakingRuleSet where
 --
 -- /See:/ 'createMatchmakingRuleSetResponse' smart constructor.
 data CreateMatchmakingRuleSetResponse = CreateMatchmakingRuleSetResponse'
-  { _cmrsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _cmrsrsRuleSet        :: {-# NOUNPACK #-}!MatchmakingRuleSet
+  { _cmrsrsResponseStatus :: !Int
+  , _cmrsrsRuleSet        :: !MatchmakingRuleSet
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

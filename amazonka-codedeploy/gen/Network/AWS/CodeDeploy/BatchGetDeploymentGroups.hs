@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'batchGetDeploymentGroups' smart constructor.
 data BatchGetDeploymentGroups = BatchGetDeploymentGroups'
-  { _bgdgApplicationName      :: {-# NOUNPACK #-}!Text
-  , _bgdgDeploymentGroupNames :: {-# NOUNPACK #-}![Text]
+  { _bgdgApplicationName      :: !Text
+  , _bgdgDeploymentGroupNames :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,9 +127,9 @@ instance ToQuery BatchGetDeploymentGroups where
 --
 -- /See:/ 'batchGetDeploymentGroupsResponse' smart constructor.
 data BatchGetDeploymentGroupsResponse = BatchGetDeploymentGroupsResponse'
-  { _bgdgrsDeploymentGroupsInfo :: {-# NOUNPACK #-}!(Maybe [DeploymentGroupInfo])
-  , _bgdgrsErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bgdgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bgdgrsDeploymentGroupsInfo :: !(Maybe [DeploymentGroupInfo])
+  , _bgdgrsErrorMessage         :: !(Maybe Text)
+  , _bgdgrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

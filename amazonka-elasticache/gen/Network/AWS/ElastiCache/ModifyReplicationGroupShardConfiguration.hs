@@ -56,11 +56,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyReplicationGroupShardConfiguration' smart constructor.
 data ModifyReplicationGroupShardConfiguration = ModifyReplicationGroupShardConfiguration'
-  { _mrgscReshardingConfiguration :: {-# NOUNPACK #-}!(Maybe [ReshardingConfiguration])
-  , _mrgscNodeGroupsToRemove :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mrgscReplicationGroupId :: {-# NOUNPACK #-}!Text
-  , _mrgscNodeGroupCount :: {-# NOUNPACK #-}!Int
-  , _mrgscApplyImmediately :: {-# NOUNPACK #-}!Bool
+  { _mrgscReshardingConfiguration :: !(Maybe [ReshardingConfiguration])
+  , _mrgscNodeGroupsToRemove      :: !(Maybe [Text])
+  , _mrgscReplicationGroupId      :: !Text
+  , _mrgscNodeGroupCount          :: !Int
+  , _mrgscApplyImmediately        :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -166,8 +166,8 @@ instance ToQuery
 
 -- | /See:/ 'modifyReplicationGroupShardConfigurationResponse' smart constructor.
 data ModifyReplicationGroupShardConfigurationResponse = ModifyReplicationGroupShardConfigurationResponse'
-  { _mrgscrsReplicationGroup :: {-# NOUNPACK #-}!(Maybe ReplicationGroup)
-  , _mrgscrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _mrgscrsReplicationGroup :: !(Maybe ReplicationGroup)
+  , _mrgscrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

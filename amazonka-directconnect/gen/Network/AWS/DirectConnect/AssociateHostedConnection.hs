@@ -61,8 +61,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'associateHostedConnection' smart constructor.
 data AssociateHostedConnection = AssociateHostedConnection'
-  { _assConnectionId       :: {-# NOUNPACK #-}!Text
-  , _assParentConnectionId :: {-# NOUNPACK #-}!Text
+  { _assConnectionId       :: !Text
+  , _assParentConnectionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

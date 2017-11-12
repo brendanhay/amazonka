@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listTagsForProject' smart constructor.
 data ListTagsForProject = ListTagsForProject'
-  { _ltfpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltfpMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ltfpId         :: {-# NOUNPACK #-}!Text
+  { _ltfpNextToken  :: !(Maybe Text)
+  , _ltfpMaxResults :: !(Maybe Nat)
+  , _ltfpId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery ListTagsForProject where
 
 -- | /See:/ 'listTagsForProjectResponse' smart constructor.
 data ListTagsForProjectResponse = ListTagsForProjectResponse'
-  { _ltfprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltfprsTags           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _ltfprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltfprsNextToken      :: !(Maybe Text)
+  , _ltfprsTags           :: !(Maybe (Map Text Text))
+  , _ltfprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -44,8 +44,8 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteNotificationSubscription' smart constructor.
 data DeleteNotificationSubscription = DeleteNotificationSubscription'
-  { _dnsSubscriptionId :: {-# NOUNPACK #-}!Text
-  , _dnsOrganizationId :: {-# NOUNPACK #-}!Text
+  { _dnsSubscriptionId :: !Text
+  , _dnsOrganizationId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

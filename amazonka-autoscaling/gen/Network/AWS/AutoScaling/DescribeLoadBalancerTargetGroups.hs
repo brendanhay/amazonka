@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancerTargetGroups' smart constructor.
 data DescribeLoadBalancerTargetGroups = DescribeLoadBalancerTargetGroups'
-  { _dlbtgsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlbtgsMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dlbtgsAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  { _dlbtgsNextToken            :: !(Maybe Text)
+  , _dlbtgsMaxRecords           :: !(Maybe Int)
+  , _dlbtgsAutoScalingGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance ToQuery DescribeLoadBalancerTargetGroups
 
 -- | /See:/ 'describeLoadBalancerTargetGroupsResponse' smart constructor.
 data DescribeLoadBalancerTargetGroupsResponse = DescribeLoadBalancerTargetGroupsResponse'
-  { _dlbtgsrsLoadBalancerTargetGroups :: {-# NOUNPACK #-}!(Maybe [LoadBalancerTargetGroupState])
-  , _dlbtgsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlbtgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dlbtgsrsLoadBalancerTargetGroups :: !(Maybe [LoadBalancerTargetGroupState])
+  , _dlbtgsrsNextToken                :: !(Maybe Text)
+  , _dlbtgsrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

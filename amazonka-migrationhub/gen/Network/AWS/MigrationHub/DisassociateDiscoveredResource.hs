@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'disassociateDiscoveredResource' smart constructor.
 data DisassociateDiscoveredResource = DisassociateDiscoveredResource'
-  { _ddrDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ddrProgressUpdateStream :: {-# NOUNPACK #-}!Text
-  , _ddrMigrationTaskName    :: {-# NOUNPACK #-}!Text
-  , _ddrConfigurationId      :: {-# NOUNPACK #-}!Text
+  { _ddrDryRun               :: !(Maybe Bool)
+  , _ddrProgressUpdateStream :: !Text
+  , _ddrMigrationTaskName    :: !Text
+  , _ddrConfigurationId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

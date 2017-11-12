@@ -123,8 +123,8 @@ instance ToQuery ResolveAlias where
 --
 -- /See:/ 'resolveAliasResponse' smart constructor.
 data ResolveAliasResponse = ResolveAliasResponse'
-  { _rarsFleetId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rarsFleetId        :: !(Maybe Text)
+  , _rarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

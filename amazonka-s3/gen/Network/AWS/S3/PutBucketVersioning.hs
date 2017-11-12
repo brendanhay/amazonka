@@ -44,10 +44,10 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketVersioning' smart constructor.
 data PutBucketVersioning = PutBucketVersioning'
-  { _pbvMFA                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbvContentMD5              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbvBucket                  :: {-# NOUNPACK #-}!BucketName
-  , _pbvVersioningConfiguration :: {-# NOUNPACK #-}!VersioningConfiguration
+  { _pbvMFA                     :: !(Maybe Text)
+  , _pbvContentMD5              :: !(Maybe Text)
+  , _pbvBucket                  :: !BucketName
+  , _pbvVersioningConfiguration :: !VersioningConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

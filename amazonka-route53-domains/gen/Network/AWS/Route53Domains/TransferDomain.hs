@@ -69,18 +69,18 @@ import Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'transferDomain' smart constructor.
 data TransferDomain = TransferDomain'
-  { _tdPrivacyProtectTechContact :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tdPrivacyProtectRegistrantContact :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tdAutoRenew :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tdPrivacyProtectAdminContact :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tdIdNLangCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdAuthCode :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _tdNameservers :: {-# NOUNPACK #-}!(Maybe [Nameserver])
-  , _tdDomainName :: {-# NOUNPACK #-}!Text
-  , _tdDurationInYears :: {-# NOUNPACK #-}!Nat
-  , _tdAdminContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
-  , _tdRegistrantContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
-  , _tdTechContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  { _tdPrivacyProtectTechContact       :: !(Maybe Bool)
+  , _tdPrivacyProtectRegistrantContact :: !(Maybe Bool)
+  , _tdAutoRenew                       :: !(Maybe Bool)
+  , _tdPrivacyProtectAdminContact      :: !(Maybe Bool)
+  , _tdIdNLangCode                     :: !(Maybe Text)
+  , _tdAuthCode                        :: !(Maybe (Sensitive Text))
+  , _tdNameservers                     :: !(Maybe [Nameserver])
+  , _tdDomainName                      :: !Text
+  , _tdDurationInYears                 :: !Nat
+  , _tdAdminContact                    :: !(Sensitive ContactDetail)
+  , _tdRegistrantContact               :: !(Sensitive ContactDetail)
+  , _tdTechContact                     :: !(Sensitive ContactDetail)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -238,8 +238,8 @@ instance ToQuery TransferDomain where
 --
 -- /See:/ 'transferDomainResponse' smart constructor.
 data TransferDomainResponse = TransferDomainResponse'
-  { _tdrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _tdrsOperationId    :: {-# NOUNPACK #-}!Text
+  { _tdrsResponseStatus :: !Int
+  , _tdrsOperationId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

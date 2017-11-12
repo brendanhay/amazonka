@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'detachLoadBalancerTargetGroups' smart constructor.
 data DetachLoadBalancerTargetGroups = DetachLoadBalancerTargetGroups'
-  { _dlbtgAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _dlbtgTargetGroupARNs      :: {-# NOUNPACK #-}![Text]
+  { _dlbtgAutoScalingGroupName :: !Text
+  , _dlbtgTargetGroupARNs      :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

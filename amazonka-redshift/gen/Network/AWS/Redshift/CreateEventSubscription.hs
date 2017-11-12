@@ -61,14 +61,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'createEventSubscription' smart constructor.
 data CreateEventSubscription = CreateEventSubscription'
-  { _cesEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cesSourceType       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cesSeverity         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cesEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cesSourceIds        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cesTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cesSubscriptionName :: {-# NOUNPACK #-}!Text
-  , _cesSNSTopicARN      :: {-# NOUNPACK #-}!Text
+  { _cesEnabled          :: !(Maybe Bool)
+  , _cesSourceType       :: !(Maybe Text)
+  , _cesSeverity         :: !(Maybe Text)
+  , _cesEventCategories  :: !(Maybe [Text])
+  , _cesSourceIds        :: !(Maybe [Text])
+  , _cesTags             :: !(Maybe [Tag])
+  , _cesSubscriptionName :: !Text
+  , _cesSNSTopicARN      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -181,8 +181,8 @@ instance ToQuery CreateEventSubscription where
 
 -- | /See:/ 'createEventSubscriptionResponse' smart constructor.
 data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
-  { _cesrsEventSubscription :: {-# NOUNPACK #-}!(Maybe EventSubscription)
-  , _cesrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _cesrsEventSubscription :: !(Maybe EventSubscription)
+  , _cesrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

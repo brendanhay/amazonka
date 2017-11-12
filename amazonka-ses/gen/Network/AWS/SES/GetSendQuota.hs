@@ -93,10 +93,10 @@ instance ToQuery GetSendQuota where
 --
 -- /See:/ 'getSendQuotaResponse' smart constructor.
 data GetSendQuotaResponse = GetSendQuotaResponse'
-  { _gsqrsMaxSendRate     :: {-# NOUNPACK #-}!(Maybe Double)
-  , _gsqrsSentLast24Hours :: {-# NOUNPACK #-}!(Maybe Double)
-  , _gsqrsMax24HourSend   :: {-# NOUNPACK #-}!(Maybe Double)
-  , _gsqrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gsqrsMaxSendRate     :: !(Maybe Double)
+  , _gsqrsSentLast24Hours :: !(Maybe Double)
+  , _gsqrsMax24HourSend   :: !(Maybe Double)
+  , _gsqrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

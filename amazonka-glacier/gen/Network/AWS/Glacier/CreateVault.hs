@@ -65,8 +65,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVault' smart constructor.
 data CreateVault = CreateVault'
-  { _cvAccountId :: {-# NOUNPACK #-}!Text
-  , _cvVaultName :: {-# NOUNPACK #-}!Text
+  { _cvAccountId :: !Text
+  , _cvVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery CreateVault where
 --
 -- /See:/ 'createVaultResponse' smart constructor.
 data CreateVaultResponse = CreateVaultResponse'
-  { _cvrsLocation       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cvrsLocation       :: !(Maybe Text)
+  , _cvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

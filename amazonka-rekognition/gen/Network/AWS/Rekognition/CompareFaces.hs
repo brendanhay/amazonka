@@ -62,9 +62,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'compareFaces' smart constructor.
 data CompareFaces = CompareFaces'
-  { _cfSimilarityThreshold :: {-# NOUNPACK #-}!(Maybe Double)
-  , _cfSourceImage         :: {-# NOUNPACK #-}!Image
-  , _cfTargetImage         :: {-# NOUNPACK #-}!Image
+  { _cfSimilarityThreshold :: !(Maybe Double)
+  , _cfSourceImage         :: !Image
+  , _cfTargetImage         :: !Image
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -145,12 +145,12 @@ instance ToQuery CompareFaces where
 
 -- | /See:/ 'compareFacesResponse' smart constructor.
 data CompareFacesResponse = CompareFacesResponse'
-  { _cfrsFaceMatches :: {-# NOUNPACK #-}!(Maybe [CompareFacesMatch])
-  , _cfrsUnmatchedFaces :: {-# NOUNPACK #-}!(Maybe [ComparedFace])
-  , _cfrsTargetImageOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
-  , _cfrsSourceImageOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
-  , _cfrsSourceImageFace :: {-# NOUNPACK #-}!(Maybe ComparedSourceImageFace)
-  , _cfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cfrsFaceMatches                      :: !(Maybe [CompareFacesMatch])
+  , _cfrsUnmatchedFaces                   :: !(Maybe [ComparedFace])
+  , _cfrsTargetImageOrientationCorrection :: !(Maybe OrientationCorrection)
+  , _cfrsSourceImageOrientationCorrection :: !(Maybe OrientationCorrection)
+  , _cfrsSourceImageFace                  :: !(Maybe ComparedSourceImageFace)
+  , _cfrsResponseStatus                   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

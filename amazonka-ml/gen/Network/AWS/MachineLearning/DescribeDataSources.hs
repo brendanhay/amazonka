@@ -60,17 +60,17 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeDataSources' smart constructor.
 data DescribeDataSources = DescribeDataSources'
-  { _ddsEQ             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsGE             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsPrefix         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsGT             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsNE             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsSortOrder      :: {-# NOUNPACK #-}!(Maybe SortOrder)
-  , _ddsLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ddsLT             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsFilterVariable :: {-# NOUNPACK #-}!(Maybe DataSourceFilterVariable)
-  , _ddsLE             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ddsEQ             :: !(Maybe Text)
+  , _ddsGE             :: !(Maybe Text)
+  , _ddsPrefix         :: !(Maybe Text)
+  , _ddsGT             :: !(Maybe Text)
+  , _ddsNE             :: !(Maybe Text)
+  , _ddsNextToken      :: !(Maybe Text)
+  , _ddsSortOrder      :: !(Maybe SortOrder)
+  , _ddsLimit          :: !(Maybe Nat)
+  , _ddsLT             :: !(Maybe Text)
+  , _ddsFilterVariable :: !(Maybe DataSourceFilterVariable)
+  , _ddsLE             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -218,9 +218,9 @@ instance ToQuery DescribeDataSources where
 --
 -- /See:/ 'describeDataSourcesResponse' smart constructor.
 data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
-  { _ddssrsResults        :: {-# NOUNPACK #-}!(Maybe [DataSource])
-  , _ddssrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddssrsResults        :: !(Maybe [DataSource])
+  , _ddssrsNextToken      :: !(Maybe Text)
+  , _ddssrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

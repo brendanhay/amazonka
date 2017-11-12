@@ -98,8 +98,8 @@ instance ToQuery ListAvailableZones where
 
 -- | /See:/ 'listAvailableZonesResponse' smart constructor.
 data ListAvailableZonesResponse = ListAvailableZonesResponse'
-  { _lazrsAZList         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lazrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lazrsAZList         :: !(Maybe [Text])
+  , _lazrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

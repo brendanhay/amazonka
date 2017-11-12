@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'tagResource' smart constructor.
 data TagResource = TagResource'
-  { _trResourceName :: {-# NOUNPACK #-}!Text
-  , _trTags         :: {-# NOUNPACK #-}![Tag]
+  { _trResourceName :: !Text
+  , _trTags         :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -111,8 +111,8 @@ instance ToQuery TagResource where
 
 -- | /See:/ 'tagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-  { _trrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _trrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _trrsTags           :: !(Maybe [Tag])
+  , _trrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

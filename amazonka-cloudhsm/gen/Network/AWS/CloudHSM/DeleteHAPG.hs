@@ -111,8 +111,8 @@ instance ToQuery DeleteHAPG where
 --
 -- /See:/ 'deleteHAPGResponse' smart constructor.
 data DeleteHAPGResponse = DeleteHAPGResponse'
-  { _dhrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dhrsStatus         :: {-# NOUNPACK #-}!Text
+  { _dhrsResponseStatus :: !Int
+  , _dhrsStatus         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

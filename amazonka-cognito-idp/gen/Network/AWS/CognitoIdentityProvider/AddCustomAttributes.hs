@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'addCustomAttributes' smart constructor.
 data AddCustomAttributes = AddCustomAttributes'
-  { _acaUserPoolId       :: {-# NOUNPACK #-}!Text
-  , _acaCustomAttributes :: {-# NOUNPACK #-}!(List1 SchemaAttributeType)
+  { _acaUserPoolId       :: !Text
+  , _acaCustomAttributes :: !(List1 SchemaAttributeType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -67,14 +67,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'createStage' smart constructor.
 data CreateStage = CreateStage'
-  { _csVariables            :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _csDocumentationVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csCacheClusterSize     :: {-# NOUNPACK #-}!(Maybe CacheClusterSize)
-  , _csCacheClusterEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _csDescription          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csRestAPIId            :: {-# NOUNPACK #-}!Text
-  , _csStageName            :: {-# NOUNPACK #-}!Text
-  , _csDeploymentId         :: {-# NOUNPACK #-}!Text
+  { _csVariables            :: !(Maybe (Map Text Text))
+  , _csDocumentationVersion :: !(Maybe Text)
+  , _csCacheClusterSize     :: !(Maybe CacheClusterSize)
+  , _csCacheClusterEnabled  :: !(Maybe Bool)
+  , _csDescription          :: !(Maybe Text)
+  , _csRestAPIId            :: !Text
+  , _csStageName            :: !Text
+  , _csDeploymentId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

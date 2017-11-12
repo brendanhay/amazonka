@@ -43,9 +43,9 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketAnalyticsConfiguration' smart constructor.
 data PutBucketAnalyticsConfiguration = PutBucketAnalyticsConfiguration'
-  { _pBucket                 :: {-# NOUNPACK #-}!BucketName
-  , _pId                     :: {-# NOUNPACK #-}!Text
-  , _pAnalyticsConfiguration :: {-# NOUNPACK #-}!AnalyticsConfiguration
+  { _pBucket                 :: !BucketName
+  , _pId                     :: !Text
+  , _pAnalyticsConfiguration :: !AnalyticsConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,10 +53,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeListeners' smart constructor.
 data DescribeListeners = DescribeListeners'
-  { _dlListenerARNs    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dlLoadBalancerARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlMarker          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlPageSize        :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dlListenerARNs    :: !(Maybe [Text])
+  , _dlLoadBalancerARN :: !(Maybe Text)
+  , _dlMarker          :: !(Maybe Text)
+  , _dlPageSize        :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery DescribeListeners where
 
 -- | /See:/ 'describeListenersResponse' smart constructor.
 data DescribeListenersResponse = DescribeListenersResponse'
-  { _dlsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlsrsListeners      :: {-# NOUNPACK #-}!(Maybe [Listener])
-  , _dlsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dlsrsNextMarker     :: !(Maybe Text)
+  , _dlsrsListeners      :: !(Maybe [Listener])
+  , _dlsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

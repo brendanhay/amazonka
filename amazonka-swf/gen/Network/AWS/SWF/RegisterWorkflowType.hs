@@ -78,16 +78,16 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'registerWorkflowType' smart constructor.
 data RegisterWorkflowType = RegisterWorkflowType'
-  { _rwtDefaultLambdaRole :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rwtDefaultChildPolicy :: {-# NOUNPACK #-}!(Maybe ChildPolicy)
-  , _rwtDefaultTaskList :: {-# NOUNPACK #-}!(Maybe TaskList)
-  , _rwtDefaultTaskPriority :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rwtDefaultExecutionStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rwtDefaultTaskStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rwtDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rwtDomain :: {-# NOUNPACK #-}!Text
-  , _rwtName :: {-# NOUNPACK #-}!Text
-  , _rwtVersion :: {-# NOUNPACK #-}!Text
+  { _rwtDefaultLambdaRole                   :: !(Maybe Text)
+  , _rwtDefaultChildPolicy                  :: !(Maybe ChildPolicy)
+  , _rwtDefaultTaskList                     :: !(Maybe TaskList)
+  , _rwtDefaultTaskPriority                 :: !(Maybe Text)
+  , _rwtDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
+  , _rwtDefaultTaskStartToCloseTimeout      :: !(Maybe Text)
+  , _rwtDescription                         :: !(Maybe Text)
+  , _rwtDomain                              :: !Text
+  , _rwtName                                :: !Text
+  , _rwtVersion                             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -103,8 +103,8 @@ instance ToQuery DeleteReportDefinition where
 --
 -- /See:/ 'deleteReportDefinitionResponse' smart constructor.
 data DeleteReportDefinitionResponse = DeleteReportDefinitionResponse'
-  { _drsResponseMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _drsResponseMessage :: !(Maybe Text)
+  , _drsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

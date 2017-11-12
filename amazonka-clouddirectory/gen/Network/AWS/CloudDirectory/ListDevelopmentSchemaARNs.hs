@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listDevelopmentSchemaARNs' smart constructor.
 data ListDevelopmentSchemaARNs = ListDevelopmentSchemaARNs'
-  { _ldsaNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldsaMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _ldsaNextToken  :: !(Maybe Text)
+  , _ldsaMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -111,9 +111,9 @@ instance ToQuery ListDevelopmentSchemaARNs where
 
 -- | /See:/ 'listDevelopmentSchemaARNsResponse' smart constructor.
 data ListDevelopmentSchemaARNsResponse = ListDevelopmentSchemaARNsResponse'
-  { _ldsarsSchemaARNs     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ldsarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ldsarsSchemaARNs     :: !(Maybe [Text])
+  , _ldsarsNextToken      :: !(Maybe Text)
+  , _ldsarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

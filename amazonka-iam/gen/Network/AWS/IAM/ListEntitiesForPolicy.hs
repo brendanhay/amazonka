@@ -61,11 +61,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'listEntitiesForPolicy' smart constructor.
 data ListEntitiesForPolicy = ListEntitiesForPolicy'
-  { _lefpPathPrefix   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lefpEntityFilter :: {-# NOUNPACK #-}!(Maybe EntityType)
-  , _lefpMarker       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lefpMaxItems     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lefpPolicyARN    :: {-# NOUNPACK #-}!Text
+  { _lefpPathPrefix   :: !(Maybe Text)
+  , _lefpEntityFilter :: !(Maybe EntityType)
+  , _lefpMarker       :: !(Maybe Text)
+  , _lefpMaxItems     :: !(Maybe Nat)
+  , _lefpPolicyARN    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -168,12 +168,12 @@ instance ToQuery ListEntitiesForPolicy where
 --
 -- /See:/ 'listEntitiesForPolicyResponse' smart constructor.
 data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
-  { _lefprsPolicyGroups   :: {-# NOUNPACK #-}!(Maybe [PolicyGroup])
-  , _lefprsPolicyRoles    :: {-# NOUNPACK #-}!(Maybe [PolicyRole])
-  , _lefprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lefprsPolicyUsers    :: {-# NOUNPACK #-}!(Maybe [PolicyUser])
-  , _lefprsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lefprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lefprsPolicyGroups   :: !(Maybe [PolicyGroup])
+  , _lefprsPolicyRoles    :: !(Maybe [PolicyRole])
+  , _lefprsMarker         :: !(Maybe Text)
+  , _lefprsPolicyUsers    :: !(Maybe [PolicyUser])
+  , _lefprsIsTruncated    :: !(Maybe Bool)
+  , _lefprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

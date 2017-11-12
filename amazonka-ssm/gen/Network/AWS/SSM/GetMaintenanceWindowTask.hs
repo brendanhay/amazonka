@@ -60,8 +60,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getMaintenanceWindowTask' smart constructor.
 data GetMaintenanceWindowTask = GetMaintenanceWindowTask'
-  { _gmwtWindowId     :: {-# NOUNPACK #-}!Text
-  , _gmwtWindowTaskId :: {-# NOUNPACK #-}!Text
+  { _gmwtWindowId     :: !Text
+  , _gmwtWindowTaskId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,21 +140,21 @@ instance ToQuery GetMaintenanceWindowTask where
 
 -- | /See:/ 'getMaintenanceWindowTaskResponse' smart constructor.
 data GetMaintenanceWindowTaskResponse = GetMaintenanceWindowTaskResponse'
-  { _gmwtrsServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwtrsWindowTaskId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwtrsTaskParameters :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
-  , _gmwtrsPriority :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gmwtrsTaskType :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskType)
-  , _gmwtrsTaskARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwtrsMaxErrors :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwtrsTaskInvocationParameters :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskInvocationParameters)
-  , _gmwtrsName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwtrsTargets :: {-# NOUNPACK #-}!(Maybe [Target])
-  , _gmwtrsLoggingInfo :: {-# NOUNPACK #-}!(Maybe LoggingInfo)
-  , _gmwtrsDescription :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _gmwtrsMaxConcurrency :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwtrsWindowId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gmwtrsServiceRoleARN :: !(Maybe Text)
+  , _gmwtrsWindowTaskId :: !(Maybe Text)
+  , _gmwtrsTaskParameters :: !(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+  , _gmwtrsPriority :: !(Maybe Nat)
+  , _gmwtrsTaskType :: !(Maybe MaintenanceWindowTaskType)
+  , _gmwtrsTaskARN :: !(Maybe Text)
+  , _gmwtrsMaxErrors :: !(Maybe Text)
+  , _gmwtrsTaskInvocationParameters :: !(Maybe MaintenanceWindowTaskInvocationParameters)
+  , _gmwtrsName :: !(Maybe Text)
+  , _gmwtrsTargets :: !(Maybe [Target])
+  , _gmwtrsLoggingInfo :: !(Maybe LoggingInfo)
+  , _gmwtrsDescription :: !(Maybe (Sensitive Text))
+  , _gmwtrsMaxConcurrency :: !(Maybe Text)
+  , _gmwtrsWindowId :: !(Maybe Text)
+  , _gmwtrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

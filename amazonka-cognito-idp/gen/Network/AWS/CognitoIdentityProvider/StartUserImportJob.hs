@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'startUserImportJob' smart constructor.
 data StartUserImportJob = StartUserImportJob'
-  { _suijUserPoolId :: {-# NOUNPACK #-}!Text
-  , _suijJobId      :: {-# NOUNPACK #-}!Text
+  { _suijUserPoolId :: !Text
+  , _suijJobId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery StartUserImportJob where
 --
 -- /See:/ 'startUserImportJobResponse' smart constructor.
 data StartUserImportJobResponse = StartUserImportJobResponse'
-  { _suijrsUserImportJob  :: {-# NOUNPACK #-}!(Maybe UserImportJobType)
-  , _suijrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _suijrsUserImportJob  :: !(Maybe UserImportJobType)
+  , _suijrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'enterStandby' smart constructor.
 data EnterStandby = EnterStandby'
-  { _esInstanceIds                    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _esAutoScalingGroupName           :: {-# NOUNPACK #-}!Text
-  , _esShouldDecrementDesiredCapacity :: {-# NOUNPACK #-}!Bool
+  { _esInstanceIds                    :: !(Maybe [Text])
+  , _esAutoScalingGroupName           :: !Text
+  , _esShouldDecrementDesiredCapacity :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery EnterStandby where
 
 -- | /See:/ 'enterStandbyResponse' smart constructor.
 data EnterStandbyResponse = EnterStandbyResponse'
-  { _ersActivities     :: {-# NOUNPACK #-}!(Maybe [Activity])
-  , _ersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ersActivities     :: !(Maybe [Activity])
+  , _ersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

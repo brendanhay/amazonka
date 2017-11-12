@@ -171,8 +171,8 @@ instance ToQuery DescribeEC2InstanceLimits where
 --
 -- /See:/ 'describeEC2InstanceLimitsResponse' smart constructor.
 data DescribeEC2InstanceLimitsResponse = DescribeEC2InstanceLimitsResponse'
-  { _deilrsEC2InstanceLimits :: {-# NOUNPACK #-}!(Maybe [EC2InstanceLimit])
-  , _deilrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _deilrsEC2InstanceLimits :: !(Maybe [EC2InstanceLimit])
+  , _deilrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,10 +54,10 @@ import Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'viewBilling' smart constructor.
 data ViewBilling = ViewBilling'
-  { _vbStart    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _vbEnd      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _vbMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vbMaxItems :: {-# NOUNPACK #-}!(Maybe Int)
+  { _vbStart    :: !(Maybe POSIX)
+  , _vbEnd      :: !(Maybe POSIX)
+  , _vbMarker   :: !(Maybe Text)
+  , _vbMaxItems :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,9 +144,9 @@ instance ToQuery ViewBilling where
 --
 -- /See:/ 'viewBillingResponse' smart constructor.
 data ViewBillingResponse = ViewBillingResponse'
-  { _vbrsNextPageMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vbrsBillingRecords :: {-# NOUNPACK #-}!(Maybe [BillingRecord])
-  , _vbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _vbrsNextPageMarker :: !(Maybe Text)
+  , _vbrsBillingRecords :: !(Maybe [BillingRecord])
+  , _vbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

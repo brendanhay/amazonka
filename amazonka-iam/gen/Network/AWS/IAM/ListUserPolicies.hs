@@ -57,9 +57,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listUserPolicies' smart constructor.
 data ListUserPolicies = ListUserPolicies'
-  { _lupMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lupMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lupUserName :: {-# NOUNPACK #-}!Text
+  { _lupMarker   :: !(Maybe Text)
+  , _lupMaxItems :: !(Maybe Nat)
+  , _lupUserName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,10 +136,10 @@ instance ToQuery ListUserPolicies where
 --
 -- /See:/ 'listUserPoliciesResponse' smart constructor.
 data ListUserPoliciesResponse = ListUserPoliciesResponse'
-  { _luprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luprsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _luprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _luprsPolicyNames    :: {-# NOUNPACK #-}![Text]
+  { _luprsMarker         :: !(Maybe Text)
+  , _luprsIsTruncated    :: !(Maybe Bool)
+  , _luprsResponseStatus :: !Int
+  , _luprsPolicyNames    :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

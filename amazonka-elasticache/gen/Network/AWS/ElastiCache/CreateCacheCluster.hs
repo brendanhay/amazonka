@@ -74,29 +74,29 @@ import Network.AWS.Response
 --
 -- /See:/ 'createCacheCluster' smart constructor.
 data CreateCacheCluster = CreateCacheCluster'
-  { _cccEngineVersion              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccCacheNodeType              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cccSnapshotARNs               :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cccAutoMinorVersionUpgrade    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cccCacheParameterGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccSnapshotWindow             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccAuthToken                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccEngine                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccPreferredAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cccPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccCacheSubnetGroupName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccPreferredAvailabilityZone  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccSnapshotRetentionLimit     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cccAZMode                     :: {-# NOUNPACK #-}!(Maybe AZMode)
-  , _cccSnapshotName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccReplicationGroupId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccNotificationTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cccNumCacheNodes              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cccTags                       :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cccPort                       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cccCacheSecurityGroupNames    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cccCacheClusterId             :: {-# NOUNPACK #-}!Text
+  { _cccEngineVersion              :: !(Maybe Text)
+  , _cccCacheNodeType              :: !(Maybe Text)
+  , _cccSecurityGroupIds           :: !(Maybe [Text])
+  , _cccSnapshotARNs               :: !(Maybe [Text])
+  , _cccAutoMinorVersionUpgrade    :: !(Maybe Bool)
+  , _cccCacheParameterGroupName    :: !(Maybe Text)
+  , _cccSnapshotWindow             :: !(Maybe Text)
+  , _cccAuthToken                  :: !(Maybe Text)
+  , _cccEngine                     :: !(Maybe Text)
+  , _cccPreferredAvailabilityZones :: !(Maybe [Text])
+  , _cccPreferredMaintenanceWindow :: !(Maybe Text)
+  , _cccCacheSubnetGroupName       :: !(Maybe Text)
+  , _cccPreferredAvailabilityZone  :: !(Maybe Text)
+  , _cccSnapshotRetentionLimit     :: !(Maybe Int)
+  , _cccAZMode                     :: !(Maybe AZMode)
+  , _cccSnapshotName               :: !(Maybe Text)
+  , _cccReplicationGroupId         :: !(Maybe Text)
+  , _cccNotificationTopicARN       :: !(Maybe Text)
+  , _cccNumCacheNodes              :: !(Maybe Int)
+  , _cccTags                       :: !(Maybe [Tag])
+  , _cccPort                       :: !(Maybe Int)
+  , _cccCacheSecurityGroupNames    :: !(Maybe [Text])
+  , _cccCacheClusterId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -338,8 +338,8 @@ instance ToQuery CreateCacheCluster where
 
 -- | /See:/ 'createCacheClusterResponse' smart constructor.
 data CreateCacheClusterResponse = CreateCacheClusterResponse'
-  { _cccrsCacheCluster   :: {-# NOUNPACK #-}!(Maybe CacheCluster)
-  , _cccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cccrsCacheCluster   :: !(Maybe CacheCluster)
+  , _cccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -59,14 +59,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'restoreTableFromClusterSnapshot' smart constructor.
 data RestoreTableFromClusterSnapshot = RestoreTableFromClusterSnapshot'
-  { _rtfcsTargetSchemaName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtfcsTargetDatabaseName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtfcsSourceSchemaName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtfcsClusterIdentifier  :: {-# NOUNPACK #-}!Text
-  , _rtfcsSnapshotIdentifier :: {-# NOUNPACK #-}!Text
-  , _rtfcsSourceDatabaseName :: {-# NOUNPACK #-}!Text
-  , _rtfcsSourceTableName    :: {-# NOUNPACK #-}!Text
-  , _rtfcsNewTableName       :: {-# NOUNPACK #-}!Text
+  { _rtfcsTargetSchemaName   :: !(Maybe Text)
+  , _rtfcsTargetDatabaseName :: !(Maybe Text)
+  , _rtfcsSourceSchemaName   :: !(Maybe Text)
+  , _rtfcsClusterIdentifier  :: !Text
+  , _rtfcsSnapshotIdentifier :: !Text
+  , _rtfcsSourceDatabaseName :: !Text
+  , _rtfcsSourceTableName    :: !Text
+  , _rtfcsNewTableName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -183,8 +183,8 @@ instance ToQuery RestoreTableFromClusterSnapshot
 
 -- | /See:/ 'restoreTableFromClusterSnapshotResponse' smart constructor.
 data RestoreTableFromClusterSnapshotResponse = RestoreTableFromClusterSnapshotResponse'
-  { _rtfcsrsTableRestoreStatus :: {-# NOUNPACK #-}!(Maybe TableRestoreStatus)
-  , _rtfcsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _rtfcsrsTableRestoreStatus :: !(Maybe TableRestoreStatus)
+  , _rtfcsrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

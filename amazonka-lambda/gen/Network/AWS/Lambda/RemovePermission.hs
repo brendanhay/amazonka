@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'removePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { _rpQualifier    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rpFunctionName :: {-# NOUNPACK #-}!Text
-  , _rpStatementId  :: {-# NOUNPACK #-}!Text
+  { _rpQualifier    :: !(Maybe Text)
+  , _rpFunctionName :: !Text
+  , _rpStatementId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

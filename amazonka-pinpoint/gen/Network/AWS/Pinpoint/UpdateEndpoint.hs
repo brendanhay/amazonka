@@ -46,9 +46,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateEndpoint' smart constructor.
 data UpdateEndpoint = UpdateEndpoint'
-  { _ueApplicationId   :: {-# NOUNPACK #-}!Text
-  , _ueEndpointId      :: {-# NOUNPACK #-}!Text
-  , _ueEndpointRequest :: {-# NOUNPACK #-}!EndpointRequest
+  { _ueApplicationId   :: !Text
+  , _ueEndpointId      :: !Text
+  , _ueEndpointRequest :: !EndpointRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery UpdateEndpoint where
 
 -- | /See:/ 'updateEndpointResponse' smart constructor.
 data UpdateEndpointResponse = UpdateEndpointResponse'
-  { _uersResponseStatus :: {-# NOUNPACK #-}!Int
-  , _uersMessageBody    :: {-# NOUNPACK #-}!MessageBody
+  { _uersResponseStatus :: !Int
+  , _uersMessageBody    :: !MessageBody
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

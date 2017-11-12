@@ -59,9 +59,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeImageAttribute' smart constructor.
 data DescribeImageAttribute = DescribeImageAttribute'
-  { _diaiDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diaiAttribute :: {-# NOUNPACK #-}!ImageAttributeName
-  , _diaiImageId   :: {-# NOUNPACK #-}!Text
+  { _diaiDryRun    :: !(Maybe Bool)
+  , _diaiAttribute :: !ImageAttributeName
+  , _diaiImageId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,15 +147,15 @@ instance ToQuery DescribeImageAttribute where
 --
 -- /See:/ 'describeImageAttributeResponse' smart constructor.
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
-  { _diarsLaunchPermissions   :: {-# NOUNPACK #-}!(Maybe [LaunchPermission])
-  , _diarsRAMDiskId           :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _diarsKernelId            :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _diarsSRIOVNetSupport     :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _diarsImageId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diarsProductCodes        :: {-# NOUNPACK #-}!(Maybe [ProductCode])
-  , _diarsDescription         :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _diarsBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
-  , _diarsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _diarsLaunchPermissions   :: !(Maybe [LaunchPermission])
+  , _diarsRAMDiskId           :: !(Maybe AttributeValue)
+  , _diarsKernelId            :: !(Maybe AttributeValue)
+  , _diarsSRIOVNetSupport     :: !(Maybe AttributeValue)
+  , _diarsImageId             :: !(Maybe Text)
+  , _diarsProductCodes        :: !(Maybe [ProductCode])
+  , _diarsDescription         :: !(Maybe AttributeValue)
+  , _diarsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+  , _diarsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

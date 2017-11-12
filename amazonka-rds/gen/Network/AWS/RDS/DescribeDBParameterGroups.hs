@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDBParameterGroups' smart constructor.
 data DescribeDBParameterGroups = DescribeDBParameterGroups'
-  { _ddpgFilters              :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _ddpgDBParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddpgMarker               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddpgMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ddpgFilters              :: !(Maybe [Filter])
+  , _ddpgDBParameterGroupName :: !(Maybe Text)
+  , _ddpgMarker               :: !(Maybe Text)
+  , _ddpgMaxRecords           :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery DescribeDBParameterGroups where
 --
 -- /See:/ 'describeDBParameterGroupsResponse' smart constructor.
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
-  { _ddpgrsMarker            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddpgrsDBParameterGroups :: {-# NOUNPACK #-}!(Maybe [DBParameterGroup])
-  , _ddpgrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _ddpgrsMarker            :: !(Maybe Text)
+  , _ddpgrsDBParameterGroups :: !(Maybe [DBParameterGroup])
+  , _ddpgrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

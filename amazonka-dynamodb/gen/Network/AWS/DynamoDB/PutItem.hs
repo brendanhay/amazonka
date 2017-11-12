@@ -89,16 +89,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'putItem' smart constructor.
 data PutItem = PutItem'
-  { _piExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _piReturnValues :: {-# NOUNPACK #-}!(Maybe ReturnValue)
-  , _piExpressionAttributeValues :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _piReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
-  , _piReturnItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe ReturnItemCollectionMetrics)
-  , _piConditionExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _piConditionalOperator :: {-# NOUNPACK #-}!(Maybe ConditionalOperator)
-  , _piExpected :: {-# NOUNPACK #-}!(Maybe (Map Text ExpectedAttributeValue))
-  , _piTableName :: {-# NOUNPACK #-}!Text
-  , _piItem :: {-# NOUNPACK #-}!(Map Text AttributeValue)
+  { _piExpressionAttributeNames    :: !(Maybe (Map Text Text))
+  , _piReturnValues                :: !(Maybe ReturnValue)
+  , _piExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+  , _piReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+  , _piReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+  , _piConditionExpression         :: !(Maybe Text)
+  , _piConditionalOperator         :: !(Maybe ConditionalOperator)
+  , _piExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+  , _piTableName                   :: !Text
+  , _piItem                        :: !(Map Text AttributeValue)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -241,10 +241,10 @@ instance ToQuery PutItem where
 --
 -- /See:/ 'putItemResponse' smart constructor.
 data PutItemResponse = PutItemResponse'
-  { _pirsItemCollectionMetrics :: {-# NOUNPACK #-}!(Maybe ItemCollectionMetrics)
-  , _pirsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ConsumedCapacity)
-  , _pirsAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _pirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+  , _pirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
+  , _pirsAttributes            :: !(Maybe (Map Text AttributeValue))
+  , _pirsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

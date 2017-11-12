@@ -102,8 +102,8 @@ instance ToQuery StopInstance where
 
 -- | /See:/ 'stopInstanceResponse' smart constructor.
 data StopInstanceResponse = StopInstanceResponse'
-  { _sirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _sirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sirsOperations     :: !(Maybe [Operation])
+  , _sirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

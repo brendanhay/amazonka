@@ -46,10 +46,10 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteComment' smart constructor.
 data DeleteComment = DeleteComment'
-  { _delAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _delDocumentId          :: {-# NOUNPACK #-}!Text
-  , _delVersionId           :: {-# NOUNPACK #-}!Text
-  , _delCommentId           :: {-# NOUNPACK #-}!Text
+  { _delAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _delDocumentId          :: !Text
+  , _delVersionId           :: !Text
+  , _delCommentId           :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

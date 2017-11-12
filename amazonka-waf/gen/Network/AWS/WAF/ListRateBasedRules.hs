@@ -48,8 +48,8 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'listRateBasedRules' smart constructor.
 data ListRateBasedRules = ListRateBasedRules'
-  { _lrbrNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrbrLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lrbrNextMarker :: !(Maybe Text)
+  , _lrbrLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,9 +113,9 @@ instance ToQuery ListRateBasedRules where
 
 -- | /See:/ 'listRateBasedRulesResponse' smart constructor.
 data ListRateBasedRulesResponse = ListRateBasedRulesResponse'
-  { _lrbrrsRules          :: {-# NOUNPACK #-}!(Maybe [RuleSummary])
-  , _lrbrrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrbrrsRules          :: !(Maybe [RuleSummary])
+  , _lrbrrsNextMarker     :: !(Maybe Text)
+  , _lrbrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

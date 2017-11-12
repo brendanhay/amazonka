@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteCustomActionType' smart constructor.
 data DeleteCustomActionType = DeleteCustomActionType'
-  { _dcatCategory :: {-# NOUNPACK #-}!ActionCategory
-  , _dcatProvider :: {-# NOUNPACK #-}!Text
-  , _dcatVersion  :: {-# NOUNPACK #-}!Text
+  { _dcatCategory :: !ActionCategory
+  , _dcatProvider :: !Text
+  , _dcatVersion  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

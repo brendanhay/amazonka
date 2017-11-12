@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeDefaultParameters' smart constructor.
 data DescribeDefaultParameters = DescribeDefaultParameters'
-  { _ddpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddpMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ddpNextToken  :: !(Maybe Text)
+  , _ddpMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,9 +115,9 @@ instance ToQuery DescribeDefaultParameters where
 
 -- | /See:/ 'describeDefaultParametersResponse' smart constructor.
 data DescribeDefaultParametersResponse = DescribeDefaultParametersResponse'
-  { _ddprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddprsParameters     :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _ddprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddprsNextToken      :: !(Maybe Text)
+  , _ddprsParameters     :: !(Maybe [Parameter])
+  , _ddprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

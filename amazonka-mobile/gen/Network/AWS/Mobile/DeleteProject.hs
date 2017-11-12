@@ -105,9 +105,9 @@ instance ToQuery DeleteProject where
 --
 -- /See:/ 'deleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
-  { _dprsDeletedResources  :: {-# NOUNPACK #-}!(Maybe [Resource])
-  , _dprsOrphanedResources :: {-# NOUNPACK #-}!(Maybe [Resource])
-  , _dprsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dprsDeletedResources  :: !(Maybe [Resource])
+  , _dprsOrphanedResources :: !(Maybe [Resource])
+  , _dprsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

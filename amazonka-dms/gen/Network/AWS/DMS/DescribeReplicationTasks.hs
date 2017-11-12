@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeReplicationTasks' smart constructor.
 data DescribeReplicationTasks = DescribeReplicationTasks'
-  { _drtFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _drtMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drtMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  { _drtFilters    :: !(Maybe [Filter])
+  , _drtMarker     :: !(Maybe Text)
+  , _drtMaxRecords :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,9 +133,9 @@ instance ToQuery DescribeReplicationTasks where
 --
 -- /See:/ 'describeReplicationTasksResponse' smart constructor.
 data DescribeReplicationTasksResponse = DescribeReplicationTasksResponse'
-  { _drtsrsReplicationTasks :: {-# NOUNPACK #-}!(Maybe [ReplicationTask])
-  , _drtsrsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drtsrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _drtsrsReplicationTasks :: !(Maybe [ReplicationTask])
+  , _drtsrsMarker           :: !(Maybe Text)
+  , _drtsrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

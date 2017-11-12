@@ -52,10 +52,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listObjectParentPaths' smart constructor.
 data ListObjectParentPaths = ListObjectParentPaths'
-  { _loppNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _loppMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _loppDirectoryARN    :: {-# NOUNPACK #-}!Text
-  , _loppObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _loppNextToken       :: !(Maybe Text)
+  , _loppMaxResults      :: !(Maybe Nat)
+  , _loppDirectoryARN    :: !Text
+  , _loppObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery ListObjectParentPaths where
 
 -- | /See:/ 'listObjectParentPathsResponse' smart constructor.
 data ListObjectParentPathsResponse = ListObjectParentPathsResponse'
-  { _lopprsPathToObjectIdentifiersList :: {-# NOUNPACK #-}!(Maybe [PathToObjectIdentifiers])
-  , _lopprsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lopprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lopprsPathToObjectIdentifiersList :: !(Maybe [PathToObjectIdentifiers])
+  , _lopprsNextToken                   :: !(Maybe Text)
+  , _lopprsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

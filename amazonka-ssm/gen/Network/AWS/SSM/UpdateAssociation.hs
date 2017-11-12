@@ -54,15 +54,15 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateAssociation' smart constructor.
 data UpdateAssociation = UpdateAssociation'
-  { _uaScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaOutputLocation :: {-# NOUNPACK #-}!(Maybe InstanceAssociationOutputLocation)
-  , _uaTargets :: {-# NOUNPACK #-}!(Maybe [Target])
-  , _uaParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _uaDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaAssociationVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaAssociationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaAssociationId :: {-# NOUNPACK #-}!Text
+  { _uaScheduleExpression :: !(Maybe Text)
+  , _uaName               :: !(Maybe Text)
+  , _uaOutputLocation     :: !(Maybe InstanceAssociationOutputLocation)
+  , _uaTargets            :: !(Maybe [Target])
+  , _uaParameters         :: !(Maybe (Map Text [Text]))
+  , _uaDocumentVersion    :: !(Maybe Text)
+  , _uaAssociationVersion :: !(Maybe Text)
+  , _uaAssociationName    :: !(Maybe Text)
+  , _uaAssociationId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -185,8 +185,8 @@ instance ToQuery UpdateAssociation where
 
 -- | /See:/ 'updateAssociationResponse' smart constructor.
 data UpdateAssociationResponse = UpdateAssociationResponse'
-  { _uarsAssociationDescription :: {-# NOUNPACK #-}!(Maybe AssociationDescription)
-  , _uarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uarsAssociationDescription :: !(Maybe AssociationDescription)
+  , _uarsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

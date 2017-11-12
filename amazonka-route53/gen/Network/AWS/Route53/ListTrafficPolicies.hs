@@ -54,8 +54,8 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listTrafficPolicies' smart constructor.
 data ListTrafficPolicies = ListTrafficPolicies'
-  { _ltpTrafficPolicyIdMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltpMaxItems              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ltpTrafficPolicyIdMarker :: !(Maybe Text)
+  , _ltpMaxItems              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,11 +118,11 @@ instance ToQuery ListTrafficPolicies where
 --
 -- /See:/ 'listTrafficPoliciesResponse' smart constructor.
 data ListTrafficPoliciesResponse = ListTrafficPoliciesResponse'
-  { _ltprsResponseStatus         :: {-# NOUNPACK #-}!Int
-  , _ltprsTrafficPolicySummaries :: {-# NOUNPACK #-}![TrafficPolicySummary]
-  , _ltprsIsTruncated            :: {-# NOUNPACK #-}!Bool
-  , _ltprsTrafficPolicyIdMarker  :: {-# NOUNPACK #-}!Text
-  , _ltprsMaxItems               :: {-# NOUNPACK #-}!Text
+  { _ltprsResponseStatus         :: !Int
+  , _ltprsTrafficPolicySummaries :: ![TrafficPolicySummary]
+  , _ltprsIsTruncated            :: !Bool
+  , _ltprsTrafficPolicyIdMarker  :: !Text
+  , _ltprsMaxItems               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

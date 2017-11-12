@@ -61,8 +61,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listStreams' smart constructor.
 data ListStreams = ListStreams'
-  { _lsLimit                    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lsExclusiveStartStreamName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lsLimit                    :: !(Maybe Nat)
+  , _lsExclusiveStartStreamName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToQuery ListStreams where
 --
 -- /See:/ 'listStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-  { _lsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lsrsStreamNames    :: {-# NOUNPACK #-}![Text]
-  , _lsrsHasMoreStreams :: {-# NOUNPACK #-}!Bool
+  { _lsrsResponseStatus :: !Int
+  , _lsrsStreamNames    :: ![Text]
+  , _lsrsHasMoreStreams :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

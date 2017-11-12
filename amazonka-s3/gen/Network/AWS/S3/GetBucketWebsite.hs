@@ -97,11 +97,11 @@ instance ToQuery GetBucketWebsite where
 
 -- | /See:/ 'getBucketWebsiteResponse' smart constructor.
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
-  { _gbwrsRedirectAllRequestsTo :: {-# NOUNPACK #-}!(Maybe RedirectAllRequestsTo)
-  , _gbwrsErrorDocument :: {-# NOUNPACK #-}!(Maybe ErrorDocument)
-  , _gbwrsIndexDocument :: {-# NOUNPACK #-}!(Maybe IndexDocument)
-  , _gbwrsRoutingRules :: {-# NOUNPACK #-}!(Maybe [RoutingRule])
-  , _gbwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbwrsRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
+  , _gbwrsErrorDocument         :: !(Maybe ErrorDocument)
+  , _gbwrsIndexDocument         :: !(Maybe IndexDocument)
+  , _gbwrsRoutingRules          :: !(Maybe [RoutingRule])
+  , _gbwrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

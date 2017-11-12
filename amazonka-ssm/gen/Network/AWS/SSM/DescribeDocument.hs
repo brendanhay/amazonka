@@ -47,8 +47,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeDocument' smart constructor.
 data DescribeDocument = DescribeDocument'
-  { _ddDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddName            :: {-# NOUNPACK #-}!Text
+  { _ddDocumentVersion :: !(Maybe Text)
+  , _ddName            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -111,8 +111,8 @@ instance ToQuery DescribeDocument where
 
 -- | /See:/ 'describeDocumentResponse' smart constructor.
 data DescribeDocumentResponse = DescribeDocumentResponse'
-  { _desrsDocument       :: {-# NOUNPACK #-}!(Maybe DocumentDescription)
-  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _desrsDocument       :: !(Maybe DocumentDescription)
+  , _desrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

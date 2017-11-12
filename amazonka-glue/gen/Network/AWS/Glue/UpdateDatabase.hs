@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateDatabase' smart constructor.
 data UpdateDatabase = UpdateDatabase'
-  { _udCatalogId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udName          :: {-# NOUNPACK #-}!Text
-  , _udDatabaseInput :: {-# NOUNPACK #-}!DatabaseInput
+  { _udCatalogId     :: !(Maybe Text)
+  , _udName          :: !Text
+  , _udDatabaseInput :: !DatabaseInput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

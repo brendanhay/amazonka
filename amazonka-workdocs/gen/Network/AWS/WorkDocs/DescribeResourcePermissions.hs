@@ -50,10 +50,10 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeResourcePermissions' smart constructor.
 data DescribeResourcePermissions = DescribeResourcePermissions'
-  { _drpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _drpMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drpLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _drpResourceId          :: {-# NOUNPACK #-}!Text
+  { _drpAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _drpMarker              :: !(Maybe Text)
+  , _drpLimit               :: !(Maybe Nat)
+  , _drpResourceId          :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -131,9 +131,9 @@ instance ToQuery DescribeResourcePermissions where
 
 -- | /See:/ 'describeResourcePermissionsResponse' smart constructor.
 data DescribeResourcePermissionsResponse = DescribeResourcePermissionsResponse'
-  { _drprsPrincipals     :: {-# NOUNPACK #-}!(Maybe [Principal])
-  , _drprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drprsPrincipals     :: !(Maybe [Principal])
+  , _drprsMarker         :: !(Maybe Text)
+  , _drprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

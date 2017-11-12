@@ -46,8 +46,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'acceptPortfolioShare' smart constructor.
 data AcceptPortfolioShare = AcceptPortfolioShare'
-  { _apsAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _apsPortfolioId    :: {-# NOUNPACK #-}!Text
+  { _apsAcceptLanguage :: !(Maybe Text)
+  , _apsPortfolioId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

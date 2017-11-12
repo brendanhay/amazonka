@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachUserPolicy' smart constructor.
 data AttachUserPolicy = AttachUserPolicy'
-  { _aupUserName  :: {-# NOUNPACK #-}!Text
-  , _aupPolicyARN :: {-# NOUNPACK #-}!Text
+  { _aupUserName  :: !Text
+  , _aupPolicyARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

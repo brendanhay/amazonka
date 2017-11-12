@@ -102,8 +102,8 @@ instance ToQuery DescribeLoadBalancerAttributes where
 
 -- | /See:/ 'describeLoadBalancerAttributesResponse' smart constructor.
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
-  { _dlbarsAttributes     :: {-# NOUNPACK #-}!(Maybe [LoadBalancerAttribute])
-  , _dlbarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dlbarsAttributes     :: !(Maybe [LoadBalancerAttribute])
+  , _dlbarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

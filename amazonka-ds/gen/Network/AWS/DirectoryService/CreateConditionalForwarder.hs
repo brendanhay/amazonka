@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createConditionalForwarder' smart constructor.
 data CreateConditionalForwarder = CreateConditionalForwarder'
-  { _ccfDirectoryId      :: {-# NOUNPACK #-}!Text
-  , _ccfRemoteDomainName :: {-# NOUNPACK #-}!Text
-  , _ccfDNSIPAddrs       :: {-# NOUNPACK #-}![Text]
+  { _ccfDirectoryId      :: !Text
+  , _ccfRemoteDomainName :: !Text
+  , _ccfDNSIPAddrs       :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

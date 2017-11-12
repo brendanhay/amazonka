@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteVaultAccessPolicy' smart constructor.
 data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
-  { _dvapAccountId :: {-# NOUNPACK #-}!Text
-  , _dvapVaultName :: {-# NOUNPACK #-}!Text
+  { _dvapAccountId :: !Text
+  , _dvapVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

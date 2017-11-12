@@ -49,15 +49,15 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketACL' smart constructor.
 data PutBucketACL = PutBucketACL'
-  { _pbaGrantReadACP        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbaGrantWriteACP       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbaGrantRead           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbaGrantFullControl    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbaContentMD5          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbaAccessControlPolicy :: {-# NOUNPACK #-}!(Maybe AccessControlPolicy)
-  , _pbaGrantWrite          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbaACL                 :: {-# NOUNPACK #-}!(Maybe BucketCannedACL)
-  , _pbaBucket              :: {-# NOUNPACK #-}!BucketName
+  { _pbaGrantReadACP        :: !(Maybe Text)
+  , _pbaGrantWriteACP       :: !(Maybe Text)
+  , _pbaGrantRead           :: !(Maybe Text)
+  , _pbaGrantFullControl    :: !(Maybe Text)
+  , _pbaContentMD5          :: !(Maybe Text)
+  , _pbaAccessControlPolicy :: !(Maybe AccessControlPolicy)
+  , _pbaGrantWrite          :: !(Maybe Text)
+  , _pbaACL                 :: !(Maybe BucketCannedACL)
+  , _pbaBucket              :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

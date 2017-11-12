@@ -48,8 +48,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'getRateBasedRuleManagedKeys' smart constructor.
 data GetRateBasedRuleManagedKeys = GetRateBasedRuleManagedKeys'
-  { _grbrmkNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grbrmkRuleId     :: {-# NOUNPACK #-}!Text
+  { _grbrmkNextMarker :: !(Maybe Text)
+  , _grbrmkRuleId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,9 +117,9 @@ instance ToQuery GetRateBasedRuleManagedKeys where
 
 -- | /See:/ 'getRateBasedRuleManagedKeysResponse' smart constructor.
 data GetRateBasedRuleManagedKeysResponse = GetRateBasedRuleManagedKeysResponse'
-  { _grbrmkrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grbrmkrsManagedKeys    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _grbrmkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grbrmkrsNextMarker     :: !(Maybe Text)
+  , _grbrmkrsManagedKeys    :: !(Maybe [Text])
+  , _grbrmkrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

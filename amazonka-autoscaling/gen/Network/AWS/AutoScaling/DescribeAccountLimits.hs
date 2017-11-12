@@ -93,11 +93,11 @@ instance ToQuery DescribeAccountLimits where
 
 -- | /See:/ 'describeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { _dalrsNumberOfLaunchConfigurations    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dalrsNumberOfAutoScalingGroups       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dalrsMaxNumberOfAutoScalingGroups    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dalrsMaxNumberOfLaunchConfigurations :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dalrsResponseStatus                  :: {-# NOUNPACK #-}!Int
+  { _dalrsNumberOfLaunchConfigurations    :: !(Maybe Int)
+  , _dalrsNumberOfAutoScalingGroups       :: !(Maybe Int)
+  , _dalrsMaxNumberOfAutoScalingGroups    :: !(Maybe Int)
+  , _dalrsMaxNumberOfLaunchConfigurations :: !(Maybe Int)
+  , _dalrsResponseStatus                  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

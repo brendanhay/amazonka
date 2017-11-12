@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteThing' smart constructor.
 data DeleteThing = DeleteThing'
-  { _dtExpectedVersion :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dtThingName       :: {-# NOUNPACK #-}!Text
+  { _dtExpectedVersion :: !(Maybe Integer)
+  , _dtThingName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

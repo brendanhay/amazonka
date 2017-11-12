@@ -54,9 +54,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listTargetsForPolicy' smart constructor.
 data ListTargetsForPolicy = ListTargetsForPolicy'
-  { _ltfpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltfpMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ltfpPolicyId   :: {-# NOUNPACK #-}!Text
+  { _ltfpNextToken  :: !(Maybe Text)
+  , _ltfpMaxResults :: !(Maybe Nat)
+  , _ltfpPolicyId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToQuery ListTargetsForPolicy where
 
 -- | /See:/ 'listTargetsForPolicyResponse' smart constructor.
 data ListTargetsForPolicyResponse = ListTargetsForPolicyResponse'
-  { _ltfprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltfprsTargets        :: {-# NOUNPACK #-}!(Maybe [PolicyTargetSummary])
-  , _ltfprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltfprsNextToken      :: !(Maybe Text)
+  , _ltfprsTargets        :: !(Maybe [PolicyTargetSummary])
+  , _ltfprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

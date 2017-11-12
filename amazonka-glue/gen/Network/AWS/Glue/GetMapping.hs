@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getMapping' smart constructor.
 data GetMapping = GetMapping'
-  { _gmSinks    :: {-# NOUNPACK #-}!(Maybe [CatalogEntry])
-  , _gmLocation :: {-# NOUNPACK #-}!(Maybe Location)
-  , _gmSource   :: {-# NOUNPACK #-}!CatalogEntry
+  { _gmSinks    :: !(Maybe [CatalogEntry])
+  , _gmLocation :: !(Maybe Location)
+  , _gmSource   :: !CatalogEntry
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,8 +120,8 @@ instance ToQuery GetMapping where
 
 -- | /See:/ 'getMappingResponse' smart constructor.
 data GetMappingResponse = GetMappingResponse'
-  { _gmrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gmrsMapping        :: {-# NOUNPACK #-}![MappingEntry]
+  { _gmrsResponseStatus :: !Int
+  , _gmrsMapping        :: ![MappingEntry]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

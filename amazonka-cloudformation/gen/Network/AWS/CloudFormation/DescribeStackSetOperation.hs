@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeStackSetOperation' smart constructor.
 data DescribeStackSetOperation = DescribeStackSetOperation'
-  { _dssoStackSetName :: {-# NOUNPACK #-}!Text
-  , _dssoOperationId  :: {-# NOUNPACK #-}!Text
+  { _dssoStackSetName :: !Text
+  , _dssoOperationId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -107,8 +107,8 @@ instance ToQuery DescribeStackSetOperation where
 
 -- | /See:/ 'describeStackSetOperationResponse' smart constructor.
 data DescribeStackSetOperationResponse = DescribeStackSetOperationResponse'
-  { _dssorsStackSetOperation :: {-# NOUNPACK #-}!(Maybe StackSetOperation)
-  , _dssorsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dssorsStackSetOperation :: !(Maybe StackSetOperation)
+  , _dssorsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

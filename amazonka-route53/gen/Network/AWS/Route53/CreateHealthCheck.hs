@@ -70,8 +70,8 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'createHealthCheck' smart constructor.
 data CreateHealthCheck = CreateHealthCheck'
-  { _chcCallerReference   :: {-# NOUNPACK #-}!Text
-  , _chcHealthCheckConfig :: {-# NOUNPACK #-}!HealthCheckConfig
+  { _chcCallerReference   :: !Text
+  , _chcHealthCheckConfig :: !HealthCheckConfig
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToXML CreateHealthCheck where
 --
 -- /See:/ 'createHealthCheckResponse' smart constructor.
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
-  { _chcrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _chcrsHealthCheck    :: {-# NOUNPACK #-}!HealthCheck
-  , _chcrsLocation       :: {-# NOUNPACK #-}!Text
+  { _chcrsResponseStatus :: !Int
+  , _chcrsHealthCheck    :: !HealthCheck
+  , _chcrsLocation       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

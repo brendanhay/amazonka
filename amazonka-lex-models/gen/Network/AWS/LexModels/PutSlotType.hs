@@ -63,11 +63,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'putSlotType' smart constructor.
 data PutSlotType = PutSlotType'
-  { _pstChecksum :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pstValueSelectionStrategy :: {-# NOUNPACK #-}!(Maybe SlotValueSelectionStrategy)
-  , _pstDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pstEnumerationValues :: {-# NOUNPACK #-}!(Maybe (List1 EnumerationValue))
-  , _pstName :: {-# NOUNPACK #-}!Text
+  { _pstChecksum               :: !(Maybe Text)
+  , _pstValueSelectionStrategy :: !(Maybe SlotValueSelectionStrategy)
+  , _pstDescription            :: !(Maybe Text)
+  , _pstEnumerationValues      :: !(Maybe (List1 EnumerationValue))
+  , _pstName                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -165,15 +165,15 @@ instance ToQuery PutSlotType where
 
 -- | /See:/ 'putSlotTypeResponse' smart constructor.
 data PutSlotTypeResponse = PutSlotTypeResponse'
-  { _pstrsChecksum :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pstrsValueSelectionStrategy :: {-# NOUNPACK #-}!(Maybe SlotValueSelectionStrategy)
-  , _pstrsCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pstrsName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pstrsVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pstrsLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pstrsDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pstrsEnumerationValues :: {-# NOUNPACK #-}!(Maybe (List1 EnumerationValue))
-  , _pstrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pstrsChecksum               :: !(Maybe Text)
+  , _pstrsValueSelectionStrategy :: !(Maybe SlotValueSelectionStrategy)
+  , _pstrsCreatedDate            :: !(Maybe POSIX)
+  , _pstrsName                   :: !(Maybe Text)
+  , _pstrsVersion                :: !(Maybe Text)
+  , _pstrsLastUpdatedDate        :: !(Maybe POSIX)
+  , _pstrsDescription            :: !(Maybe Text)
+  , _pstrsEnumerationValues      :: !(Maybe (List1 EnumerationValue))
+  , _pstrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

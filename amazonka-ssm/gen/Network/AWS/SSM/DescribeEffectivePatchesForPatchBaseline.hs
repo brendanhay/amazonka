@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeEffectivePatchesForPatchBaseline' smart constructor.
 data DescribeEffectivePatchesForPatchBaseline = DescribeEffectivePatchesForPatchBaseline'
-  { _depfpbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _depfpbMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _depfpbBaselineId :: {-# NOUNPACK #-}!Text
+  { _depfpbNextToken  :: !(Maybe Text)
+  , _depfpbMaxResults :: !(Maybe Nat)
+  , _depfpbBaselineId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -143,9 +143,9 @@ instance ToQuery
 
 -- | /See:/ 'describeEffectivePatchesForPatchBaselineResponse' smart constructor.
 data DescribeEffectivePatchesForPatchBaselineResponse = DescribeEffectivePatchesForPatchBaselineResponse'
-  { _depfpbrsEffectivePatches :: {-# NOUNPACK #-}!(Maybe [EffectivePatch])
-  , _depfpbrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _depfpbrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _depfpbrsEffectivePatches :: !(Maybe [EffectivePatch])
+  , _depfpbrsNextToken        :: !(Maybe Text)
+  , _depfpbrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

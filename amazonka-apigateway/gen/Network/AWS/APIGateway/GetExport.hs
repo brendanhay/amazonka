@@ -56,11 +56,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'getExport' smart constructor.
 data GetExport = GetExport'
-  { _geParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _geAccepts    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _geRestAPIId  :: {-# NOUNPACK #-}!Text
-  , _geStageName  :: {-# NOUNPACK #-}!Text
-  , _geExportType :: {-# NOUNPACK #-}!Text
+  { _geParameters :: !(Maybe (Map Text Text))
+  , _geAccepts    :: !(Maybe Text)
+  , _geRestAPIId  :: !Text
+  , _geStageName  :: !Text
+  , _geExportType :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -152,10 +152,10 @@ instance ToQuery GetExport where
 --
 -- /See:/ 'getExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
-  { _gersBody               :: {-# NOUNPACK #-}!(Maybe (HashMap Text Value))
-  , _gersContentDisposition :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersContentType        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _gersBody               :: !(Maybe (HashMap Text Value))
+  , _gersContentDisposition :: !(Maybe Text)
+  , _gersContentType        :: !(Maybe Text)
+  , _gersResponseStatus     :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

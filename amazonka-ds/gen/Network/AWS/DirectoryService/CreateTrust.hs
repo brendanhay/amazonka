@@ -59,12 +59,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'createTrust' smart constructor.
 data CreateTrust = CreateTrust'
-  { _ctConditionalForwarderIPAddrs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ctTrustType                   :: {-# NOUNPACK #-}!(Maybe TrustType)
-  , _ctDirectoryId                 :: {-# NOUNPACK #-}!Text
-  , _ctRemoteDomainName            :: {-# NOUNPACK #-}!Text
-  , _ctTrustPassword               :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _ctTrustDirection              :: {-# NOUNPACK #-}!TrustDirection
+  { _ctConditionalForwarderIPAddrs :: !(Maybe [Text])
+  , _ctTrustType                   :: !(Maybe TrustType)
+  , _ctDirectoryId                 :: !Text
+  , _ctRemoteDomainName            :: !Text
+  , _ctTrustPassword               :: !(Sensitive Text)
+  , _ctTrustDirection              :: !TrustDirection
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -171,8 +171,8 @@ instance ToQuery CreateTrust where
 --
 -- /See:/ 'createTrustResponse' smart constructor.
 data CreateTrustResponse = CreateTrustResponse'
-  { _ctrsTrustId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ctrsTrustId        :: !(Maybe Text)
+  , _ctrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

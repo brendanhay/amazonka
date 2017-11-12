@@ -54,11 +54,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'allocateHosts' smart constructor.
 data AllocateHosts = AllocateHosts'
-  { _ahClientToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ahAutoPlacement    :: {-# NOUNPACK #-}!(Maybe AutoPlacement)
-  , _ahAvailabilityZone :: {-# NOUNPACK #-}!Text
-  , _ahInstanceType     :: {-# NOUNPACK #-}!Text
-  , _ahQuantity         :: {-# NOUNPACK #-}!Int
+  { _ahClientToken      :: !(Maybe Text)
+  , _ahAutoPlacement    :: !(Maybe AutoPlacement)
+  , _ahAvailabilityZone :: !Text
+  , _ahInstanceType     :: !Text
+  , _ahQuantity         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,8 +148,8 @@ instance ToQuery AllocateHosts where
 --
 -- /See:/ 'allocateHostsResponse' smart constructor.
 data AllocateHostsResponse = AllocateHostsResponse'
-  { _ahrsHostIds        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ahrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ahrsHostIds        :: !(Maybe [Text])
+  , _ahrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

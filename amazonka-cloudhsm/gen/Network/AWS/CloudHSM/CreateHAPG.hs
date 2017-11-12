@@ -111,8 +111,8 @@ instance ToQuery CreateHAPG where
 --
 -- /See:/ 'createHAPGResponse' smart constructor.
 data CreateHAPGResponse = CreateHAPGResponse'
-  { _chapgrsHAPGARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _chapgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _chapgrsHAPGARN        :: !(Maybe Text)
+  , _chapgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

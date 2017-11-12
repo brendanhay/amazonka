@@ -62,11 +62,11 @@ import Network.AWS.Support.Types.Product
 --
 -- /See:/ 'describeCommunications' smart constructor.
 data DescribeCommunications = DescribeCommunications'
-  { _dAfterTime  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dBeforeTime :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dCaseId     :: {-# NOUNPACK #-}!Text
+  { _dAfterTime  :: !(Maybe Text)
+  , _dBeforeTime :: !(Maybe Text)
+  , _dNextToken  :: !(Maybe Text)
+  , _dMaxResults :: !(Maybe Nat)
+  , _dCaseId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -171,9 +171,9 @@ instance ToQuery DescribeCommunications where
 --
 -- /See:/ 'describeCommunicationsResponse' smart constructor.
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
-  { _dcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcrsCommunications :: {-# NOUNPACK #-}!(Maybe [Communication])
-  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcrsNextToken      :: !(Maybe Text)
+  , _dcrsCommunications :: !(Maybe [Communication])
+  , _dcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -64,11 +64,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeClusterSecurityGroups' smart constructor.
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
-  { _dcsgTagValues                :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcsgTagKeys                  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcsgClusterSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsgMarker                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsgMaxRecords               :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dcsgTagValues                :: !(Maybe [Text])
+  , _dcsgTagKeys                  :: !(Maybe [Text])
+  , _dcsgClusterSecurityGroupName :: !(Maybe Text)
+  , _dcsgMarker                   :: !(Maybe Text)
+  , _dcsgMaxRecords               :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -171,9 +171,9 @@ instance ToQuery DescribeClusterSecurityGroups where
 --
 -- /See:/ 'describeClusterSecurityGroupsResponse' smart constructor.
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'
-  { _dcsgsrsClusterSecurityGroups :: {-# NOUNPACK #-}!(Maybe [ClusterSecurityGroup])
-  , _dcsgsrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcsgsrsClusterSecurityGroups :: !(Maybe [ClusterSecurityGroup])
+  , _dcsgsrsMarker                :: !(Maybe Text)
+  , _dcsgsrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

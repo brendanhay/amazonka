@@ -45,8 +45,8 @@ import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'startOnDemandReplicationRun' smart constructor.
 data StartOnDemandReplicationRun = StartOnDemandReplicationRun'
-  { _sodrrDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sodrrReplicationJobId :: {-# NOUNPACK #-}!Text
+  { _sodrrDescription      :: !(Maybe Text)
+  , _sodrrReplicationJobId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery StartOnDemandReplicationRun where
 
 -- | /See:/ 'startOnDemandReplicationRunResponse' smart constructor.
 data StartOnDemandReplicationRunResponse = StartOnDemandReplicationRunResponse'
-  { _sodrrrsReplicationRunId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sodrrrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _sodrrrsReplicationRunId :: !(Maybe Text)
+  , _sodrrrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

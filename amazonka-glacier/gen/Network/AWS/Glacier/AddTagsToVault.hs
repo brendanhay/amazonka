@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'addTagsToVault' smart constructor.
 data AddTagsToVault = AddTagsToVault'
-  { _attvTags      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _attvAccountId :: {-# NOUNPACK #-}!Text
-  , _attvVaultName :: {-# NOUNPACK #-}!Text
+  { _attvTags      :: !(Maybe (Map Text Text))
+  , _attvAccountId :: !Text
+  , _attvVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

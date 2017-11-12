@@ -51,10 +51,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createUserProfile' smart constructor.
 data CreateUserProfile = CreateUserProfile'
-  { _cupAllowSelfManagement :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cupSSHPublicKey        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cupSSHUsername         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cupIAMUserARN          :: {-# NOUNPACK #-}!Text
+  { _cupAllowSelfManagement :: !(Maybe Bool)
+  , _cupSSHPublicKey        :: !(Maybe Text)
+  , _cupSSHUsername         :: !(Maybe Text)
+  , _cupIAMUserARN          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,8 +142,8 @@ instance ToQuery CreateUserProfile where
 --
 -- /See:/ 'createUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
-  { _cuprsIAMUserARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cuprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cuprsIAMUserARN     :: !(Maybe Text)
+  , _cuprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

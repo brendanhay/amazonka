@@ -47,11 +47,11 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateFolder' smart constructor.
 data UpdateFolder = UpdateFolder'
-  { _ufParentFolderId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _ufName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufResourceState       :: {-# NOUNPACK #-}!(Maybe ResourceStateType)
-  , _ufFolderId            :: {-# NOUNPACK #-}!Text
+  { _ufParentFolderId      :: !(Maybe Text)
+  , _ufAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _ufName                :: !(Maybe Text)
+  , _ufResourceState       :: !(Maybe ResourceStateType)
+  , _ufFolderId            :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

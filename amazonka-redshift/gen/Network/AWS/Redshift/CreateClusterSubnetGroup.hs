@@ -55,10 +55,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createClusterSubnetGroup' smart constructor.
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
-  { _ccsgTags                   :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ccsgClusterSubnetGroupName :: {-# NOUNPACK #-}!Text
-  , _ccsgDescription            :: {-# NOUNPACK #-}!Text
-  , _ccsgSubnetIds              :: {-# NOUNPACK #-}![Text]
+  { _ccsgTags                   :: !(Maybe [Tag])
+  , _ccsgClusterSubnetGroupName :: !Text
+  , _ccsgDescription            :: !Text
+  , _ccsgSubnetIds              :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,8 +137,8 @@ instance ToQuery CreateClusterSubnetGroup where
 
 -- | /See:/ 'createClusterSubnetGroupResponse' smart constructor.
 data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
-  { _ccsgrsClusterSubnetGroup :: {-# NOUNPACK #-}!(Maybe ClusterSubnetGroup)
-  , _ccsgrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _ccsgrsClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
+  , _ccsgrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

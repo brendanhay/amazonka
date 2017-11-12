@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'setLoadBalancerListenerSSLCertificate' smart constructor.
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate'
-  { _slblscLoadBalancerName :: {-# NOUNPACK #-}!Text
-  , _slblscLoadBalancerPort :: {-# NOUNPACK #-}!Int
-  , _slblscSSLCertificateId :: {-# NOUNPACK #-}!Text
+  { _slblscLoadBalancerName :: !Text
+  , _slblscLoadBalancerPort :: !Int
+  , _slblscSSLCertificateId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

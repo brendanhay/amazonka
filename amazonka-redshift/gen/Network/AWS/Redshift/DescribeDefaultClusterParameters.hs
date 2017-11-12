@@ -57,9 +57,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDefaultClusterParameters' smart constructor.
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
-  { _ddcpMarker               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcpMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ddcpParameterGroupFamily :: {-# NOUNPACK #-}!Text
+  { _ddcpMarker               :: !(Maybe Text)
+  , _ddcpMaxRecords           :: !(Maybe Int)
+  , _ddcpParameterGroupFamily :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -152,8 +152,8 @@ instance ToQuery DescribeDefaultClusterParameters
 
 -- | /See:/ 'describeDefaultClusterParametersResponse' smart constructor.
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
-  { _ddcprsResponseStatus           :: {-# NOUNPACK #-}!Int
-  , _ddcprsDefaultClusterParameters :: {-# NOUNPACK #-}!DefaultClusterParameters
+  { _ddcprsResponseStatus           :: !Int
+  , _ddcprsDefaultClusterParameters :: !DefaultClusterParameters
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

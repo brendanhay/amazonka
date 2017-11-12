@@ -106,12 +106,12 @@ instance ToQuery DescribeThing where
 --
 -- /See:/ 'describeThingResponse' smart constructor.
 data DescribeThingResponse = DescribeThingResponse'
-  { _dtrsDefaultClientId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtrsThingTypeName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtrsAttributes      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _dtrsVersion         :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dtrsThingName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dtrsDefaultClientId :: !(Maybe Text)
+  , _dtrsThingTypeName   :: !(Maybe Text)
+  , _dtrsAttributes      :: !(Maybe (Map Text Text))
+  , _dtrsVersion         :: !(Maybe Integer)
+  , _dtrsThingName       :: !(Maybe Text)
+  , _dtrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

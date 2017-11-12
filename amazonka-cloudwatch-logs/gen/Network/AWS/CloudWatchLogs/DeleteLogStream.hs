@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteLogStream' smart constructor.
 data DeleteLogStream = DeleteLogStream'
-  { _dlsLogGroupName  :: {-# NOUNPACK #-}!Text
-  , _dlsLogStreamName :: {-# NOUNPACK #-}!Text
+  { _dlsLogGroupName  :: !Text
+  , _dlsLogStreamName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

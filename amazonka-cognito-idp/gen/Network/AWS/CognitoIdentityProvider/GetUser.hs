@@ -114,10 +114,10 @@ instance ToQuery GetUser where
 --
 -- /See:/ 'getUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
-  { _gursMFAOptions     :: {-# NOUNPACK #-}!(Maybe [MFAOptionType])
-  , _gursResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gursUsername       :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _gursUserAttributes :: {-# NOUNPACK #-}![AttributeType]
+  { _gursMFAOptions     :: !(Maybe [MFAOptionType])
+  , _gursResponseStatus :: !Int
+  , _gursUsername       :: !(Sensitive Text)
+  , _gursUserAttributes :: ![AttributeType]
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

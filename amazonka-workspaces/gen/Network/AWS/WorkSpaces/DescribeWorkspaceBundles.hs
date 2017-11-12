@@ -60,9 +60,9 @@ import Network.AWS.WorkSpaces.Types.Product
 --
 -- /See:/ 'describeWorkspaceBundles' smart constructor.
 data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
-  { _dwbBundleIds :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _dwbOwner     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwbNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dwbBundleIds :: !(Maybe (List1 Text))
+  , _dwbOwner     :: !(Maybe Text)
+  , _dwbNextToken :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,9 +146,9 @@ instance ToQuery DescribeWorkspaceBundles where
 --
 -- /See:/ 'describeWorkspaceBundlesResponse' smart constructor.
 data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
-  { _dwbrsBundles        :: {-# NOUNPACK #-}!(Maybe [WorkspaceBundle])
-  , _dwbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dwbrsBundles        :: !(Maybe [WorkspaceBundle])
+  , _dwbrsNextToken      :: !(Maybe Text)
+  , _dwbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

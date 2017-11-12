@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'enableAvailabilityZonesForLoadBalancer' smart constructor.
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer'
-  { _eazflbLoadBalancerName  :: {-# NOUNPACK #-}!Text
-  , _eazflbAvailabilityZones :: {-# NOUNPACK #-}![Text]
+  { _eazflbLoadBalancerName  :: !Text
+  , _eazflbAvailabilityZones :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,8 +137,8 @@ instance ToQuery
 --
 -- /See:/ 'enableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'
-  { _eazflbrsAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _eazflbrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _eazflbrsAvailabilityZones :: !(Maybe [Text])
+  , _eazflbrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

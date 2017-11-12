@@ -65,12 +65,12 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listParts' smart constructor.
 data ListParts = ListParts'
-  { _lpMaxParts         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lpRequestPayer     :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _lpPartNumberMarker :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lpBucket           :: {-# NOUNPACK #-}!BucketName
-  , _lpKey              :: {-# NOUNPACK #-}!ObjectKey
-  , _lpUploadId         :: {-# NOUNPACK #-}!Text
+  { _lpMaxParts         :: !(Maybe Int)
+  , _lpRequestPayer     :: !(Maybe RequestPayer)
+  , _lpPartNumberMarker :: !(Maybe Int)
+  , _lpBucket           :: !BucketName
+  , _lpKey              :: !ObjectKey
+  , _lpUploadId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -182,21 +182,21 @@ instance ToQuery ListParts where
 
 -- | /See:/ 'listPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
-  { _lprsParts                :: {-# NOUNPACK #-}!(Maybe [Part])
-  , _lprsRequestCharged       :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _lprsMaxParts             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lprsInitiator            :: {-# NOUNPACK #-}!(Maybe Initiator)
-  , _lprsBucket               :: {-# NOUNPACK #-}!(Maybe BucketName)
-  , _lprsAbortDate            :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _lprsNextPartNumberMarker :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lprsAbortRuleId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lprsOwner                :: {-# NOUNPACK #-}!(Maybe Owner)
-  , _lprsKey                  :: {-# NOUNPACK #-}!(Maybe ObjectKey)
-  , _lprsStorageClass         :: {-# NOUNPACK #-}!(Maybe StorageClass)
-  , _lprsIsTruncated          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lprsPartNumberMarker     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lprsUploadId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lprsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _lprsParts                :: !(Maybe [Part])
+  , _lprsRequestCharged       :: !(Maybe RequestCharged)
+  , _lprsMaxParts             :: !(Maybe Int)
+  , _lprsInitiator            :: !(Maybe Initiator)
+  , _lprsBucket               :: !(Maybe BucketName)
+  , _lprsAbortDate            :: !(Maybe RFC822)
+  , _lprsNextPartNumberMarker :: !(Maybe Int)
+  , _lprsAbortRuleId          :: !(Maybe Text)
+  , _lprsOwner                :: !(Maybe Owner)
+  , _lprsKey                  :: !(Maybe ObjectKey)
+  , _lprsStorageClass         :: !(Maybe StorageClass)
+  , _lprsIsTruncated          :: !(Maybe Bool)
+  , _lprsPartNumberMarker     :: !(Maybe Int)
+  , _lprsUploadId             :: !(Maybe Text)
+  , _lprsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteEnvironmentConfiguration' smart constructor.
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
-  { _decApplicationName :: {-# NOUNPACK #-}!Text
-  , _decEnvironmentName :: {-# NOUNPACK #-}!Text
+  { _decApplicationName :: !Text
+  , _decEnvironmentName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

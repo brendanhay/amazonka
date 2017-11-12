@@ -89,9 +89,9 @@ instance ToQuery GetLoggingOptions where
 --
 -- /See:/ 'getLoggingOptionsResponse' smart constructor.
 data GetLoggingOptionsResponse = GetLoggingOptionsResponse'
-  { _glorsLogLevel       :: {-# NOUNPACK #-}!(Maybe LogLevel)
-  , _glorsRoleARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _glorsLogLevel       :: !(Maybe LogLevel)
+  , _glorsRoleARN        :: !(Maybe Text)
+  , _glorsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

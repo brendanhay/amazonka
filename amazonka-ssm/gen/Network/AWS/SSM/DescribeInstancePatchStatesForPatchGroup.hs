@@ -50,10 +50,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeInstancePatchStatesForPatchGroup' smart constructor.
 data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPatchGroup'
-  { _dipsfpgFilters    :: {-# NOUNPACK #-}!(Maybe [InstancePatchStateFilter])
-  , _dipsfpgNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dipsfpgMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dipsfpgPatchGroup :: {-# NOUNPACK #-}!Text
+  { _dipsfpgFilters    :: !(Maybe [InstancePatchStateFilter])
+  , _dipsfpgNextToken  :: !(Maybe Text)
+  , _dipsfpgMaxResults :: !(Maybe Nat)
+  , _dipsfpgPatchGroup :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -152,9 +152,9 @@ instance ToQuery
 
 -- | /See:/ 'describeInstancePatchStatesForPatchGroupResponse' smart constructor.
 data DescribeInstancePatchStatesForPatchGroupResponse = DescribeInstancePatchStatesForPatchGroupResponse'
-  { _dipsfpgrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dipsfpgrsInstancePatchStates :: {-# NOUNPACK #-}!(Maybe (List1 InstancePatchState))
-  , _dipsfpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dipsfpgrsNextToken           :: !(Maybe Text)
+  , _dipsfpgrsInstancePatchStates :: !(Maybe (List1 InstancePatchState))
+  , _dipsfpgrsResponseStatus      :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

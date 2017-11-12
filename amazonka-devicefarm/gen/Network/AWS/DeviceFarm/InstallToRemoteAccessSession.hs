@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'installToRemoteAccessSession' smart constructor.
 data InstallToRemoteAccessSession = InstallToRemoteAccessSession'
-  { _itrasRemoteAccessSessionARN :: {-# NOUNPACK #-}!Text
-  , _itrasAppARN                 :: {-# NOUNPACK #-}!Text
+  { _itrasRemoteAccessSessionARN :: !Text
+  , _itrasAppARN                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery InstallToRemoteAccessSession where
 --
 -- /See:/ 'installToRemoteAccessSessionResponse' smart constructor.
 data InstallToRemoteAccessSessionResponse = InstallToRemoteAccessSessionResponse'
-  { _itrasrsAppUpload      :: {-# NOUNPACK #-}!(Maybe Upload)
-  , _itrasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _itrasrsAppUpload      :: !(Maybe Upload)
+  , _itrasrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

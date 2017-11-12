@@ -51,8 +51,8 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'listWebACLs' smart constructor.
 data ListWebACLs = ListWebACLs'
-  { _lwaNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lwaLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lwaNextMarker :: !(Maybe Text)
+  , _lwaLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,9 +121,9 @@ instance ToQuery ListWebACLs where
 
 -- | /See:/ 'listWebACLsResponse' smart constructor.
 data ListWebACLsResponse = ListWebACLsResponse'
-  { _lwarsWebACLs        :: {-# NOUNPACK #-}!(Maybe [WebACLSummary])
-  , _lwarsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lwarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lwarsWebACLs        :: !(Maybe [WebACLSummary])
+  , _lwarsNextMarker     :: !(Maybe Text)
+  , _lwarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

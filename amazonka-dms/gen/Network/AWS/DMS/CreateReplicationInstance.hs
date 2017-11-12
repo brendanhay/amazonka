@@ -62,19 +62,19 @@ import Network.AWS.Response
 --
 -- /See:/ 'createReplicationInstance' smart constructor.
 data CreateReplicationInstance = CreateReplicationInstance'
-  { _criEngineVersion                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _criPubliclyAccessible               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _criAutoMinorVersionUpgrade          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _criReplicationSubnetGroupIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _criPreferredMaintenanceWindow       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _criKMSKeyId                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _criAvailabilityZone                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _criVPCSecurityGroupIds              :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _criMultiAZ                          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _criAllocatedStorage                 :: {-# NOUNPACK #-}!(Maybe Int)
-  , _criTags                             :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _criReplicationInstanceIdentifier    :: {-# NOUNPACK #-}!Text
-  , _criReplicationInstanceClass         :: {-# NOUNPACK #-}!Text
+  { _criEngineVersion                    :: !(Maybe Text)
+  , _criPubliclyAccessible               :: !(Maybe Bool)
+  , _criAutoMinorVersionUpgrade          :: !(Maybe Bool)
+  , _criReplicationSubnetGroupIdentifier :: !(Maybe Text)
+  , _criPreferredMaintenanceWindow       :: !(Maybe Text)
+  , _criKMSKeyId                         :: !(Maybe Text)
+  , _criAvailabilityZone                 :: !(Maybe Text)
+  , _criVPCSecurityGroupIds              :: !(Maybe [Text])
+  , _criMultiAZ                          :: !(Maybe Bool)
+  , _criAllocatedStorage                 :: !(Maybe Int)
+  , _criTags                             :: !(Maybe [Tag])
+  , _criReplicationInstanceIdentifier    :: !Text
+  , _criReplicationInstanceClass         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -244,8 +244,8 @@ instance ToQuery CreateReplicationInstance where
 --
 -- /See:/ 'createReplicationInstanceResponse' smart constructor.
 data CreateReplicationInstanceResponse = CreateReplicationInstanceResponse'
-  { _crirsReplicationInstance :: {-# NOUNPACK #-}!(Maybe ReplicationInstance)
-  , _crirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _crirsReplicationInstance :: !(Maybe ReplicationInstance)
+  , _crirsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

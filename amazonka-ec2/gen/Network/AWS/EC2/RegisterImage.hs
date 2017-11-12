@@ -70,19 +70,19 @@ import Network.AWS.Response
 --
 -- /See:/ 'registerImage' smart constructor.
 data RegisterImage = RegisterImage'
-  { _riVirtualizationType  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riImageLocation       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riEnaSupport          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _riBillingProducts     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _riRAMDiskId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riKernelId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riRootDeviceName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riSRIOVNetSupport     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riArchitecture        :: {-# NOUNPACK #-}!(Maybe ArchitectureValues)
-  , _riDescription         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
-  , _riDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _riName                :: {-# NOUNPACK #-}!Text
+  { _riVirtualizationType  :: !(Maybe Text)
+  , _riImageLocation       :: !(Maybe Text)
+  , _riEnaSupport          :: !(Maybe Bool)
+  , _riBillingProducts     :: !(Maybe [Text])
+  , _riRAMDiskId           :: !(Maybe Text)
+  , _riKernelId            :: !(Maybe Text)
+  , _riRootDeviceName      :: !(Maybe Text)
+  , _riSRIOVNetSupport     :: !(Maybe Text)
+  , _riArchitecture        :: !(Maybe ArchitectureValues)
+  , _riDescription         :: !(Maybe Text)
+  , _riBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+  , _riDryRun              :: !(Maybe Bool)
+  , _riName                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -235,8 +235,8 @@ instance ToQuery RegisterImage where
 --
 -- /See:/ 'registerImageResponse' smart constructor.
 data RegisterImageResponse = RegisterImageResponse'
-  { _rirsImageId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rirsImageId        :: !(Maybe Text)
+  , _rirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

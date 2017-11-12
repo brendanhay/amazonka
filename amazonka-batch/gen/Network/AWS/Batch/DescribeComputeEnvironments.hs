@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeComputeEnvironments' smart constructor.
 data DescribeComputeEnvironments = DescribeComputeEnvironments'
-  { _dceComputeEnvironments :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dceNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dceMaxResults          :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dceComputeEnvironments :: !(Maybe [Text])
+  , _dceNextToken           :: !(Maybe Text)
+  , _dceMaxResults          :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery DescribeComputeEnvironments where
 
 -- | /See:/ 'describeComputeEnvironmentsResponse' smart constructor.
 data DescribeComputeEnvironmentsResponse = DescribeComputeEnvironmentsResponse'
-  { _drsComputeEnvironments :: {-# NOUNPACK #-}!(Maybe [ComputeEnvironmentDetail])
-  , _drsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsComputeEnvironments :: !(Maybe [ComputeEnvironmentDetail])
+  , _drsNextToken           :: !(Maybe Text)
+  , _drsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'listProtections' smart constructor.
 data ListProtections = ListProtections'
-  { _lpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lpNextToken  :: !(Maybe Text)
+  , _lpMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,9 +113,9 @@ instance ToQuery ListProtections where
 
 -- | /See:/ 'listProtectionsResponse' smart constructor.
 data ListProtectionsResponse = ListProtectionsResponse'
-  { _lprsProtections    :: {-# NOUNPACK #-}!(Maybe [Protection])
-  , _lprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lprsProtections    :: !(Maybe [Protection])
+  , _lprsNextToken      :: !(Maybe Text)
+  , _lprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -68,11 +68,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateTable' smart constructor.
 data UpdateTable = UpdateTable'
-  { _utAttributeDefinitions :: {-# NOUNPACK #-}!(Maybe [AttributeDefinition])
-  , _utProvisionedThroughput :: {-# NOUNPACK #-}!(Maybe ProvisionedThroughput)
-  , _utGlobalSecondaryIndexUpdates :: {-# NOUNPACK #-}!(Maybe [GlobalSecondaryIndexUpdate])
-  , _utStreamSpecification :: {-# NOUNPACK #-}!(Maybe StreamSpecification)
-  , _utTableName :: {-# NOUNPACK #-}!Text
+  { _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
+  , _utProvisionedThroughput       :: !(Maybe ProvisionedThroughput)
+  , _utGlobalSecondaryIndexUpdates :: !(Maybe [GlobalSecondaryIndexUpdate])
+  , _utStreamSpecification         :: !(Maybe StreamSpecification)
+  , _utTableName                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -170,8 +170,8 @@ instance ToQuery UpdateTable where
 --
 -- /See:/ 'updateTableResponse' smart constructor.
 data UpdateTableResponse = UpdateTableResponse'
-  { _utrsTableDescription :: {-# NOUNPACK #-}!(Maybe TableDescription)
-  , _utrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _utrsTableDescription :: !(Maybe TableDescription)
+  , _utrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putAttributes' smart constructor.
 data PutAttributes = PutAttributes'
-  { _paCluster    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _paAttributes :: {-# NOUNPACK #-}![Attribute]
+  { _paCluster    :: !(Maybe Text)
+  , _paAttributes :: ![Attribute]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -111,8 +111,8 @@ instance ToQuery PutAttributes where
 
 -- | /See:/ 'putAttributesResponse' smart constructor.
 data PutAttributesResponse = PutAttributesResponse'
-  { _parsAttributes     :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _parsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _parsAttributes     :: !(Maybe [Attribute])
+  , _parsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

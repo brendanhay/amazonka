@@ -116,9 +116,9 @@ instance ToQuery
 --
 -- /See:/ 'getCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
 data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse'
-  { _gcfoaicrsCloudFrontOriginAccessIdentityConfig :: {-# NOUNPACK #-}!(Maybe CloudFrontOriginAccessIdentityConfig)
-  , _gcfoaicrsETag :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcfoaicrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcfoaicrsCloudFrontOriginAccessIdentityConfig :: !(Maybe CloudFrontOriginAccessIdentityConfig)
+  , _gcfoaicrsETag :: !(Maybe Text)
+  , _gcfoaicrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

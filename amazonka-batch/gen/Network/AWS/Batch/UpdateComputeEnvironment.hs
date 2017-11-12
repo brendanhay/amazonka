@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateComputeEnvironment' smart constructor.
 data UpdateComputeEnvironment = UpdateComputeEnvironment'
-  { _uceState              :: {-# NOUNPACK #-}!(Maybe CEState)
-  , _uceComputeResources   :: {-# NOUNPACK #-}!(Maybe ComputeResourceUpdate)
-  , _uceServiceRole        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uceComputeEnvironment :: {-# NOUNPACK #-}!Text
+  { _uceState              :: !(Maybe CEState)
+  , _uceComputeResources   :: !(Maybe ComputeResourceUpdate)
+  , _uceServiceRole        :: !(Maybe Text)
+  , _uceComputeEnvironment :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery UpdateComputeEnvironment where
 
 -- | /See:/ 'updateComputeEnvironmentResponse' smart constructor.
 data UpdateComputeEnvironmentResponse = UpdateComputeEnvironmentResponse'
-  { _ucersComputeEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucersComputeEnvironmentARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucersResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _ucersComputeEnvironmentName :: !(Maybe Text)
+  , _ucersComputeEnvironmentARN  :: !(Maybe Text)
+  , _ucersResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

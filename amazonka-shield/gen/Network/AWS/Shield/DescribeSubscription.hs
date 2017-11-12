@@ -90,8 +90,8 @@ instance ToQuery DescribeSubscription where
 
 -- | /See:/ 'describeSubscriptionResponse' smart constructor.
 data DescribeSubscriptionResponse = DescribeSubscriptionResponse'
-  { _dsrsSubscription   :: {-# NOUNPACK #-}!(Maybe Subscription)
-  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsrsSubscription   :: !(Maybe Subscription)
+  , _dsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

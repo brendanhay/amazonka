@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateMLModel' smart constructor.
 data UpdateMLModel = UpdateMLModel'
-  { _umlmMLModelName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umlmScoreThreshold :: {-# NOUNPACK #-}!(Maybe Double)
-  , _umlmMLModelId      :: {-# NOUNPACK #-}!Text
+  { _umlmMLModelName    :: !(Maybe Text)
+  , _umlmScoreThreshold :: !(Maybe Double)
+  , _umlmMLModelId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,8 +132,8 @@ instance ToQuery UpdateMLModel where
 --
 -- /See:/ 'updateMLModelResponse' smart constructor.
 data UpdateMLModelResponse = UpdateMLModelResponse'
-  { _umlmrsMLModelId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umlmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _umlmrsMLModelId      :: !(Maybe Text)
+  , _umlmrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

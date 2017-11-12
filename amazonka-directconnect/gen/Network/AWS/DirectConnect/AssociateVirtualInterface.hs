@@ -72,8 +72,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'associateVirtualInterface' smart constructor.
 data AssociateVirtualInterface = AssociateVirtualInterface'
-  { _aviVirtualInterfaceId :: {-# NOUNPACK #-}!Text
-  , _aviConnectionId       :: {-# NOUNPACK #-}!Text
+  { _aviVirtualInterfaceId :: !Text
+  , _aviConnectionId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

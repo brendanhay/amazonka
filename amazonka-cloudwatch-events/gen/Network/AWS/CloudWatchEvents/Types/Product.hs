@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'ecsParameters' smart constructor.
 data EcsParameters = EcsParameters'
-  { _epTaskCount         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _epTaskDefinitionARN :: {-# NOUNPACK #-}!Text
+  { _epTaskCount         :: !(Maybe Nat)
+  , _epTaskDefinitionARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -79,8 +79,8 @@ instance ToJSON EcsParameters where
 --
 -- /See:/ 'inputTransformer' smart constructor.
 data InputTransformer = InputTransformer'
-  { _itInputPathsMap :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _itInputTemplate :: {-# NOUNPACK #-}!Text
+  { _itInputPathsMap :: !(Maybe (Map Text Text))
+  , _itInputTemplate :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -174,11 +174,11 @@ instance ToJSON KinesisParameters where
 --
 -- /See:/ 'putEventsRequestEntry' smart constructor.
 data PutEventsRequestEntry = PutEventsRequestEntry'
-  { _pereTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pereDetailType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pereResources  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _pereSource     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pereDetail     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pereTime       :: !(Maybe POSIX)
+  , _pereDetailType :: !(Maybe Text)
+  , _pereResources  :: !(Maybe [Text])
+  , _pereSource     :: !(Maybe Text)
+  , _pereDetail     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -247,9 +247,9 @@ instance ToJSON PutEventsRequestEntry where
 --
 -- /See:/ 'putEventsResultEntry' smart constructor.
 data PutEventsResultEntry = PutEventsResultEntry'
-  { _pereErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pereErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pereEventId      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pereErrorCode    :: !(Maybe Text)
+  , _pereErrorMessage :: !(Maybe Text)
+  , _pereEventId      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -302,9 +302,9 @@ instance NFData PutEventsResultEntry where
 --
 -- /See:/ 'putTargetsResultEntry' smart constructor.
 data PutTargetsResultEntry = PutTargetsResultEntry'
-  { _ptreTargetId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ptreErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ptreErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ptreTargetId     :: !(Maybe Text)
+  , _ptreErrorCode    :: !(Maybe Text)
+  , _ptreErrorMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -357,9 +357,9 @@ instance NFData PutTargetsResultEntry where
 --
 -- /See:/ 'removeTargetsResultEntry' smart constructor.
 data RemoveTargetsResultEntry = RemoveTargetsResultEntry'
-  { _rtreTargetId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtreErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtreErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rtreTargetId     :: !(Maybe Text)
+  , _rtreErrorCode    :: !(Maybe Text)
+  , _rtreErrorMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -412,13 +412,13 @@ instance NFData RemoveTargetsResultEntry where
 --
 -- /See:/ 'rule' smart constructor.
 data Rule = Rule'
-  { _rEventPattern       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rState              :: {-# NOUNPACK #-}!(Maybe RuleState)
-  , _rARN                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rEventPattern       :: !(Maybe Text)
+  , _rState              :: !(Maybe RuleState)
+  , _rARN                :: !(Maybe Text)
+  , _rScheduleExpression :: !(Maybe Text)
+  , _rName               :: !(Maybe Text)
+  , _rDescription        :: !(Maybe Text)
+  , _rRoleARN            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -546,8 +546,8 @@ instance ToJSON RunCommandParameters where
 --
 -- /See:/ 'runCommandTarget' smart constructor.
 data RunCommandTarget = RunCommandTarget'
-  { _rctKey    :: {-# NOUNPACK #-}!Text
-  , _rctValues :: {-# NOUNPACK #-}!(List1 Text)
+  { _rctKey    :: !Text
+  , _rctValues :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -598,15 +598,15 @@ instance ToJSON RunCommandTarget where
 --
 -- /See:/ 'target' smart constructor.
 data Target = Target'
-  { _tRunCommandParameters :: {-# NOUNPACK #-}!(Maybe RunCommandParameters)
-  , _tKinesisParameters    :: {-# NOUNPACK #-}!(Maybe KinesisParameters)
-  , _tInputTransformer     :: {-# NOUNPACK #-}!(Maybe InputTransformer)
-  , _tInput                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tEcsParameters        :: {-# NOUNPACK #-}!(Maybe EcsParameters)
-  , _tInputPath            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tRoleARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tId                   :: {-# NOUNPACK #-}!Text
-  , _tARN                  :: {-# NOUNPACK #-}!Text
+  { _tRunCommandParameters :: !(Maybe RunCommandParameters)
+  , _tKinesisParameters    :: !(Maybe KinesisParameters)
+  , _tInputTransformer     :: !(Maybe InputTransformer)
+  , _tInput                :: !(Maybe Text)
+  , _tEcsParameters        :: !(Maybe EcsParameters)
+  , _tInputPath            :: !(Maybe Text)
+  , _tRoleARN              :: !(Maybe Text)
+  , _tId                   :: !Text
+  , _tARN                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,12 +57,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'getLifecyclePolicyPreview' smart constructor.
 data GetLifecyclePolicyPreview = GetLifecyclePolicyPreview'
-  { _glppRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glppImageIds       :: {-# NOUNPACK #-}!(Maybe [ImageIdentifier])
-  , _glppNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glppFilter         :: {-# NOUNPACK #-}!(Maybe LifecyclePolicyPreviewFilter)
-  , _glppMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _glppRepositoryName :: {-# NOUNPACK #-}!Text
+  { _glppRegistryId     :: !(Maybe Text)
+  , _glppImageIds       :: !(Maybe [ImageIdentifier])
+  , _glppNextToken      :: !(Maybe Text)
+  , _glppFilter         :: !(Maybe LifecyclePolicyPreviewFilter)
+  , _glppMaxResults     :: !(Maybe Nat)
+  , _glppRepositoryName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -168,14 +168,14 @@ instance ToQuery GetLifecyclePolicyPreview where
 
 -- | /See:/ 'getLifecyclePolicyPreviewResponse' smart constructor.
 data GetLifecyclePolicyPreviewResponse = GetLifecyclePolicyPreviewResponse'
-  { _glpprsSummary :: {-# NOUNPACK #-}!(Maybe LifecyclePolicyPreviewSummary)
-  , _glpprsStatus :: {-# NOUNPACK #-}!(Maybe LifecyclePolicyPreviewStatus)
-  , _glpprsRegistryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glpprsLifecyclePolicyText :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glpprsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glpprsRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glpprsPreviewResults :: {-# NOUNPACK #-}!(Maybe [LifecyclePolicyPreviewResult])
-  , _glpprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _glpprsSummary             :: !(Maybe LifecyclePolicyPreviewSummary)
+  , _glpprsStatus              :: !(Maybe LifecyclePolicyPreviewStatus)
+  , _glpprsRegistryId          :: !(Maybe Text)
+  , _glpprsLifecyclePolicyText :: !(Maybe Text)
+  , _glpprsNextToken           :: !(Maybe Text)
+  , _glpprsRepositoryName      :: !(Maybe Text)
+  , _glpprsPreviewResults      :: !(Maybe [LifecyclePolicyPreviewResult])
+  , _glpprsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

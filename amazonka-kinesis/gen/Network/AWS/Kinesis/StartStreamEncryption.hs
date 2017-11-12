@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'startStreamEncryption' smart constructor.
 data StartStreamEncryption = StartStreamEncryption'
-  { _sStreamName     :: {-# NOUNPACK #-}!Text
-  , _sEncryptionType :: {-# NOUNPACK #-}!EncryptionType
-  , _sKeyId          :: {-# NOUNPACK #-}!Text
+  { _sStreamName     :: !Text
+  , _sEncryptionType :: !EncryptionType
+  , _sKeyId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

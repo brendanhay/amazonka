@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'detachPolicy' smart constructor.
 data DetachPolicy = DetachPolicy'
-  { _dpDirectoryARN    :: {-# NOUNPACK #-}!Text
-  , _dpPolicyReference :: {-# NOUNPACK #-}!ObjectReference
-  , _dpObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _dpDirectoryARN    :: !Text
+  , _dpPolicyReference :: !ObjectReference
+  , _dpObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

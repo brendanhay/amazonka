@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'addClientIdToOpenIdConnectProvider' smart constructor.
 data AddClientIdToOpenIdConnectProvider = AddClientIdToOpenIdConnectProvider'
-  { _acitoicpOpenIdConnectProviderARN :: {-# NOUNPACK #-}!Text
-  , _acitoicpClientId                 :: {-# NOUNPACK #-}!Text
+  { _acitoicpOpenIdConnectProviderARN :: !Text
+  , _acitoicpClientId                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

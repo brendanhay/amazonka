@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteStage' smart constructor.
 data DeleteStage = DeleteStage'
-  { _dsRestAPIId :: {-# NOUNPACK #-}!Text
-  , _dsStageName :: {-# NOUNPACK #-}!Text
+  { _dsRestAPIId :: !Text
+  , _dsStageName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -74,9 +74,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateShardCount' smart constructor.
 data UpdateShardCount = UpdateShardCount'
-  { _uscStreamName       :: {-# NOUNPACK #-}!Text
-  , _uscTargetShardCount :: {-# NOUNPACK #-}!Nat
-  , _uscScalingType      :: {-# NOUNPACK #-}!ScalingType
+  { _uscStreamName       :: !Text
+  , _uscTargetShardCount :: !Nat
+  , _uscScalingType      :: !ScalingType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,10 +154,10 @@ instance ToQuery UpdateShardCount where
 
 -- | /See:/ 'updateShardCountResponse' smart constructor.
 data UpdateShardCountResponse = UpdateShardCountResponse'
-  { _uscrsTargetShardCount  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _uscrsStreamName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uscrsCurrentShardCount :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _uscrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _uscrsTargetShardCount  :: !(Maybe Nat)
+  , _uscrsStreamName        :: !(Maybe Text)
+  , _uscrsCurrentShardCount :: !(Maybe Nat)
+  , _uscrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -112,13 +112,13 @@ instance ToQuery DescribeUserProfile where
 
 -- | /See:/ 'describeUserProfileResponse' smart constructor.
 data DescribeUserProfileResponse = DescribeUserProfileResponse'
-  { _duprsSshPublicKey          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _duprsEmailAddress          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _duprsDisplayName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _duprsResponseStatus        :: {-# NOUNPACK #-}!Int
-  , _duprsUserARN               :: {-# NOUNPACK #-}!Text
-  , _duprsCreatedTimestamp      :: {-# NOUNPACK #-}!POSIX
-  , _duprsLastModifiedTimestamp :: {-# NOUNPACK #-}!POSIX
+  { _duprsSshPublicKey          :: !(Maybe Text)
+  , _duprsEmailAddress          :: !(Maybe (Sensitive Text))
+  , _duprsDisplayName           :: !(Maybe Text)
+  , _duprsResponseStatus        :: !Int
+  , _duprsUserARN               :: !Text
+  , _duprsCreatedTimestamp      :: !POSIX
+  , _duprsLastModifiedTimestamp :: !POSIX
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

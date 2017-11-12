@@ -61,14 +61,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'copySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
-  { _csPresignedURL      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _csDestinationRegion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csKMSKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csDescription       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _csSourceRegion      :: {-# NOUNPACK #-}!Text
-  , _csSourceSnapshotId  :: {-# NOUNPACK #-}!Text
+  { _csPresignedURL      :: !(Maybe Text)
+  , _csEncrypted         :: !(Maybe Bool)
+  , _csDestinationRegion :: !(Maybe Text)
+  , _csKMSKeyId          :: !(Maybe Text)
+  , _csDescription       :: !(Maybe Text)
+  , _csDryRun            :: !(Maybe Bool)
+  , _csSourceRegion      :: !Text
+  , _csSourceSnapshotId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -179,8 +179,8 @@ instance ToQuery CopySnapshot where
 --
 -- /See:/ 'copySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
-  { _csrsSnapshotId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csrsSnapshotId     :: !(Maybe Text)
+  , _csrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

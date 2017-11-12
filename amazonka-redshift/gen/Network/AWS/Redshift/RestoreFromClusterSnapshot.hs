@@ -75,28 +75,28 @@ import Network.AWS.Response
 --
 -- /See:/ 'restoreFromClusterSnapshot' smart constructor.
 data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
-  { _rfcsEnhancedVPCRouting               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rfcsAdditionalInfo                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsPubliclyAccessible               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rfcsSnapshotClusterIdentifier        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsHSMConfigurationIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsClusterSecurityGroups            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rfcsAutomatedSnapshotRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rfcsClusterSubnetGroupName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsHSMClientCertificateIdentifier   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsElasticIP                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsPreferredMaintenanceWindow       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsKMSKeyId                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsAvailabilityZone                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsVPCSecurityGroupIds              :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rfcsIAMRoles                         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rfcsOwnerAccount                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsNodeType                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsAllowVersionUpgrade              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rfcsClusterParameterGroupName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rfcsPort                             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rfcsClusterIdentifier                :: {-# NOUNPACK #-}!Text
-  , _rfcsSnapshotIdentifier               :: {-# NOUNPACK #-}!Text
+  { _rfcsEnhancedVPCRouting               :: !(Maybe Bool)
+  , _rfcsAdditionalInfo                   :: !(Maybe Text)
+  , _rfcsPubliclyAccessible               :: !(Maybe Bool)
+  , _rfcsSnapshotClusterIdentifier        :: !(Maybe Text)
+  , _rfcsHSMConfigurationIdentifier       :: !(Maybe Text)
+  , _rfcsClusterSecurityGroups            :: !(Maybe [Text])
+  , _rfcsAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+  , _rfcsClusterSubnetGroupName           :: !(Maybe Text)
+  , _rfcsHSMClientCertificateIdentifier   :: !(Maybe Text)
+  , _rfcsElasticIP                        :: !(Maybe Text)
+  , _rfcsPreferredMaintenanceWindow       :: !(Maybe Text)
+  , _rfcsKMSKeyId                         :: !(Maybe Text)
+  , _rfcsAvailabilityZone                 :: !(Maybe Text)
+  , _rfcsVPCSecurityGroupIds              :: !(Maybe [Text])
+  , _rfcsIAMRoles                         :: !(Maybe [Text])
+  , _rfcsOwnerAccount                     :: !(Maybe Text)
+  , _rfcsNodeType                         :: !(Maybe Text)
+  , _rfcsAllowVersionUpgrade              :: !(Maybe Bool)
+  , _rfcsClusterParameterGroupName        :: !(Maybe Text)
+  , _rfcsPort                             :: !(Maybe Int)
+  , _rfcsClusterIdentifier                :: !Text
+  , _rfcsSnapshotIdentifier               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -332,8 +332,8 @@ instance ToQuery RestoreFromClusterSnapshot where
 
 -- | /See:/ 'restoreFromClusterSnapshotResponse' smart constructor.
 data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
-  { _rfcsrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
-  , _rfcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rfcsrsCluster        :: !(Maybe Cluster)
+  , _rfcsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

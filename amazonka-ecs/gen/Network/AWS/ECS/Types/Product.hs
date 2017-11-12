@@ -27,10 +27,10 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
-  { _aTargetId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aValue      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aTargetType :: {-# NOUNPACK #-}!(Maybe TargetType)
-  , _aName       :: {-# NOUNPACK #-}!Text
+  { _aTargetId   :: !(Maybe Text)
+  , _aValue      :: !(Maybe Text)
+  , _aTargetType :: !(Maybe TargetType)
+  , _aName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -101,13 +101,13 @@ instance ToJSON Attribute where
 --
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
-  { _cStatus                            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cClusterARN                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cRunningTasksCount                 :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cRegisteredContainerInstancesCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cPendingTasksCount                 :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cClusterName                       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cActiveServicesCount               :: {-# NOUNPACK #-}!(Maybe Int)
+  { _cStatus                            :: !(Maybe Text)
+  , _cClusterARN                        :: !(Maybe Text)
+  , _cRunningTasksCount                 :: !(Maybe Int)
+  , _cRegisteredContainerInstancesCount :: !(Maybe Int)
+  , _cPendingTasksCount                 :: !(Maybe Int)
+  , _cClusterName                       :: !(Maybe Text)
+  , _cActiveServicesCount               :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -192,13 +192,13 @@ instance NFData Cluster where
 --
 -- /See:/ 'container' smart constructor.
 data Container = Container'
-  { _cNetworkBindings :: {-# NOUNPACK #-}!(Maybe [NetworkBinding])
-  , _cContainerARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cTaskARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cLastStatus      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cReason          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cExitCode        :: {-# NOUNPACK #-}!(Maybe Int)
+  { _cNetworkBindings :: !(Maybe [NetworkBinding])
+  , _cContainerARN    :: !(Maybe Text)
+  , _cTaskARN         :: !(Maybe Text)
+  , _cLastStatus      :: !(Maybe Text)
+  , _cReason          :: !(Maybe Text)
+  , _cName            :: !(Maybe Text)
+  , _cExitCode        :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -284,33 +284,33 @@ instance NFData Container where
 --
 -- /See:/ 'containerDefinition' smart constructor.
 data ContainerDefinition = ContainerDefinition'
-  { _cdImage                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdCommand                :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdHostname               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdDockerSecurityOptions  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdDisableNetworking      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdVolumesFrom            :: {-# NOUNPACK #-}!(Maybe [VolumeFrom])
-  , _cdEnvironment            :: {-# NOUNPACK #-}!(Maybe [KeyValuePair])
-  , _cdEntryPoint             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdWorkingDirectory       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdUlimits                :: {-# NOUNPACK #-}!(Maybe [Ulimit])
-  , _cdPrivileged             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdPortMappings           :: {-# NOUNPACK #-}!(Maybe [PortMapping])
-  , _cdDockerLabels           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cdExtraHosts             :: {-# NOUNPACK #-}!(Maybe [HostEntry])
-  , _cdMemory                 :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdUser                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdDnsSearchDomains       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdLogConfiguration       :: {-# NOUNPACK #-}!(Maybe LogConfiguration)
-  , _cdLinuxParameters        :: {-# NOUNPACK #-}!(Maybe LinuxParameters)
-  , _cdName                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdDnsServers             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdMountPoints            :: {-# NOUNPACK #-}!(Maybe [MountPoint])
-  , _cdLinks                  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdReadonlyRootFilesystem :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdEssential              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdCpu                    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdMemoryReservation      :: {-# NOUNPACK #-}!(Maybe Int)
+  { _cdImage                  :: !(Maybe Text)
+  , _cdCommand                :: !(Maybe [Text])
+  , _cdHostname               :: !(Maybe Text)
+  , _cdDockerSecurityOptions  :: !(Maybe [Text])
+  , _cdDisableNetworking      :: !(Maybe Bool)
+  , _cdVolumesFrom            :: !(Maybe [VolumeFrom])
+  , _cdEnvironment            :: !(Maybe [KeyValuePair])
+  , _cdEntryPoint             :: !(Maybe [Text])
+  , _cdWorkingDirectory       :: !(Maybe Text)
+  , _cdUlimits                :: !(Maybe [Ulimit])
+  , _cdPrivileged             :: !(Maybe Bool)
+  , _cdPortMappings           :: !(Maybe [PortMapping])
+  , _cdDockerLabels           :: !(Maybe (Map Text Text))
+  , _cdExtraHosts             :: !(Maybe [HostEntry])
+  , _cdMemory                 :: !(Maybe Int)
+  , _cdUser                   :: !(Maybe Text)
+  , _cdDnsSearchDomains       :: !(Maybe [Text])
+  , _cdLogConfiguration       :: !(Maybe LogConfiguration)
+  , _cdLinuxParameters        :: !(Maybe LinuxParameters)
+  , _cdName                   :: !(Maybe Text)
+  , _cdDnsServers             :: !(Maybe [Text])
+  , _cdMountPoints            :: !(Maybe [MountPoint])
+  , _cdLinks                  :: !(Maybe [Text])
+  , _cdReadonlyRootFilesystem :: !(Maybe Bool)
+  , _cdEssential              :: !(Maybe Bool)
+  , _cdCpu                    :: !(Maybe Int)
+  , _cdMemoryReservation      :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -588,19 +588,19 @@ instance ToJSON ContainerDefinition where
 --
 -- /See:/ 'containerInstance' smart constructor.
 data ContainerInstance = ContainerInstance'
-  { _ciStatus               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciRunningTasksCount    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ciRemainingResources   :: {-# NOUNPACK #-}!(Maybe [Resource])
-  , _ciEc2InstanceId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciContainerInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciAgentConnected       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ciVersionInfo          :: {-# NOUNPACK #-}!(Maybe VersionInfo)
-  , _ciAgentUpdateStatus    :: {-# NOUNPACK #-}!(Maybe AgentUpdateStatus)
-  , _ciAttributes           :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _ciVersion              :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _ciPendingTasksCount    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ciRegisteredAt         :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ciRegisteredResources  :: {-# NOUNPACK #-}!(Maybe [Resource])
+  { _ciStatus               :: !(Maybe Text)
+  , _ciRunningTasksCount    :: !(Maybe Int)
+  , _ciRemainingResources   :: !(Maybe [Resource])
+  , _ciEc2InstanceId        :: !(Maybe Text)
+  , _ciContainerInstanceARN :: !(Maybe Text)
+  , _ciAgentConnected       :: !(Maybe Bool)
+  , _ciVersionInfo          :: !(Maybe VersionInfo)
+  , _ciAgentUpdateStatus    :: !(Maybe AgentUpdateStatus)
+  , _ciAttributes           :: !(Maybe [Attribute])
+  , _ciVersion              :: !(Maybe Integer)
+  , _ciPendingTasksCount    :: !(Maybe Int)
+  , _ciRegisteredAt         :: !(Maybe POSIX)
+  , _ciRegisteredResources  :: !(Maybe [Resource])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -733,12 +733,12 @@ instance NFData ContainerInstance where
 --
 -- /See:/ 'containerOverride' smart constructor.
 data ContainerOverride = ContainerOverride'
-  { _coCommand           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _coEnvironment       :: {-# NOUNPACK #-}!(Maybe [KeyValuePair])
-  , _coMemory            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _coName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _coCpu               :: {-# NOUNPACK #-}!(Maybe Int)
-  , _coMemoryReservation :: {-# NOUNPACK #-}!(Maybe Int)
+  { _coCommand           :: !(Maybe [Text])
+  , _coEnvironment       :: !(Maybe [KeyValuePair])
+  , _coMemory            :: !(Maybe Int)
+  , _coName              :: !(Maybe Text)
+  , _coCpu               :: !(Maybe Int)
+  , _coMemoryReservation :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -826,22 +826,22 @@ instance ToJSON ContainerOverride where
 --
 -- /See:/ 'containerService' smart constructor.
 data ContainerService = ContainerService'
-  { _csRunningCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _csStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csClusterARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csCreatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _csDesiredCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _csLoadBalancers :: {-# NOUNPACK #-}!(Maybe [LoadBalancer])
-  , _csPendingCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _csPlacementConstraints :: {-# NOUNPACK #-}!(Maybe [PlacementConstraint])
-  , _csEvents :: {-# NOUNPACK #-}!(Maybe [ServiceEvent])
-  , _csPlacementStrategy :: {-# NOUNPACK #-}!(Maybe [PlacementStrategy])
-  , _csDeployments :: {-# NOUNPACK #-}!(Maybe [Deployment])
-  , _csServiceName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csServiceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csTaskDefinition :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe DeploymentConfiguration)
+  { _csRunningCount            :: !(Maybe Int)
+  , _csStatus                  :: !(Maybe Text)
+  , _csClusterARN              :: !(Maybe Text)
+  , _csCreatedAt               :: !(Maybe POSIX)
+  , _csDesiredCount            :: !(Maybe Int)
+  , _csLoadBalancers           :: !(Maybe [LoadBalancer])
+  , _csPendingCount            :: !(Maybe Int)
+  , _csPlacementConstraints    :: !(Maybe [PlacementConstraint])
+  , _csEvents                  :: !(Maybe [ServiceEvent])
+  , _csPlacementStrategy       :: !(Maybe [PlacementStrategy])
+  , _csDeployments             :: !(Maybe [Deployment])
+  , _csServiceName             :: !(Maybe Text)
+  , _csServiceARN              :: !(Maybe Text)
+  , _csTaskDefinition          :: !(Maybe Text)
+  , _csRoleARN                 :: !(Maybe Text)
+  , _csDeploymentConfiguration :: !(Maybe DeploymentConfiguration)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -998,14 +998,14 @@ instance NFData ContainerService where
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
-  { _dRunningCount   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dStatus         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dCreatedAt      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dDesiredCount   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dPendingCount   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dUpdatedAt      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dTaskDefinition :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dRunningCount   :: !(Maybe Int)
+  , _dStatus         :: !(Maybe Text)
+  , _dCreatedAt      :: !(Maybe POSIX)
+  , _dDesiredCount   :: !(Maybe Int)
+  , _dPendingCount   :: !(Maybe Int)
+  , _dId             :: !(Maybe Text)
+  , _dUpdatedAt      :: !(Maybe POSIX)
+  , _dTaskDefinition :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1098,8 +1098,8 @@ instance NFData Deployment where
 --
 -- /See:/ 'deploymentConfiguration' smart constructor.
 data DeploymentConfiguration = DeploymentConfiguration'
-  { _dcMinimumHealthyPercent :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dcMaximumPercent        :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dcMinimumHealthyPercent :: !(Maybe Int)
+  , _dcMaximumPercent        :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1151,9 +1151,9 @@ instance ToJSON DeploymentConfiguration where
 --
 -- /See:/ 'device' smart constructor.
 data Device = Device'
-  { _dContainerPath :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dPermissions   :: {-# NOUNPACK #-}!(Maybe [DeviceCgroupPermission])
-  , _dHostPath      :: {-# NOUNPACK #-}!Text
+  { _dContainerPath :: !(Maybe Text)
+  , _dPermissions   :: !(Maybe [DeviceCgroupPermission])
+  , _dHostPath      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1213,8 +1213,8 @@ instance ToJSON Device where
 --
 -- /See:/ 'failure' smart constructor.
 data Failure = Failure'
-  { _fArn    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fReason :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fArn    :: !(Maybe Text)
+  , _fReason :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1254,8 +1254,8 @@ instance NFData Failure where
 --
 -- /See:/ 'hostEntry' smart constructor.
 data HostEntry = HostEntry'
-  { _heHostname  :: {-# NOUNPACK #-}!Text
-  , _heIpAddress :: {-# NOUNPACK #-}!Text
+  { _heHostname  :: !Text
+  , _heIpAddress :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1345,8 +1345,8 @@ instance ToJSON HostVolumeProperties where
 --
 -- /See:/ 'kernelCapabilities' smart constructor.
 data KernelCapabilities = KernelCapabilities'
-  { _kcDrop :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _kcAdd  :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _kcDrop :: !(Maybe [Text])
+  , _kcAdd  :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1394,8 +1394,8 @@ instance ToJSON KernelCapabilities where
 --
 -- /See:/ 'keyValuePair' smart constructor.
 data KeyValuePair = KeyValuePair'
-  { _kvpValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kvpName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _kvpValue :: !(Maybe Text)
+  , _kvpName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1442,9 +1442,9 @@ instance ToJSON KeyValuePair where
 --
 -- /See:/ 'linuxParameters' smart constructor.
 data LinuxParameters = LinuxParameters'
-  { _lpInitProcessEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lpDevices            :: {-# NOUNPACK #-}!(Maybe [Device])
-  , _lpCapabilities       :: {-# NOUNPACK #-}!(Maybe KernelCapabilities)
+  { _lpInitProcessEnabled :: !(Maybe Bool)
+  , _lpDevices            :: !(Maybe [Device])
+  , _lpCapabilities       :: !(Maybe KernelCapabilities)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1506,10 +1506,10 @@ instance ToJSON LinuxParameters where
 --
 -- /See:/ 'loadBalancer' smart constructor.
 data LoadBalancer = LoadBalancer'
-  { _lbLoadBalancerName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbContainerName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbTargetGroupARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbContainerPort    :: {-# NOUNPACK #-}!(Maybe Int)
+  { _lbLoadBalancerName :: !(Maybe Text)
+  , _lbContainerName    :: !(Maybe Text)
+  , _lbTargetGroupARN   :: !(Maybe Text)
+  , _lbContainerPort    :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1580,8 +1580,8 @@ instance ToJSON LoadBalancer where
 --
 -- /See:/ 'logConfiguration' smart constructor.
 data LogConfiguration = LogConfiguration'
-  { _lcOptions   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _lcLogDriver :: {-# NOUNPACK #-}!LogDriver
+  { _lcOptions   :: !(Maybe (Map Text Text))
+  , _lcLogDriver :: !LogDriver
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1631,9 +1631,9 @@ instance ToJSON LogConfiguration where
 --
 -- /See:/ 'mountPoint' smart constructor.
 data MountPoint = MountPoint'
-  { _mpContainerPath :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mpSourceVolume  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mpReadOnly      :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _mpContainerPath :: !(Maybe Text)
+  , _mpSourceVolume  :: !(Maybe Text)
+  , _mpReadOnly      :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1691,10 +1691,10 @@ instance ToJSON MountPoint where
 --
 -- /See:/ 'networkBinding' smart constructor.
 data NetworkBinding = NetworkBinding'
-  { _nbBindIP        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nbProtocol      :: {-# NOUNPACK #-}!(Maybe TransportProtocol)
-  , _nbHostPort      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _nbContainerPort :: {-# NOUNPACK #-}!(Maybe Int)
+  { _nbBindIP        :: !(Maybe Text)
+  , _nbProtocol      :: !(Maybe TransportProtocol)
+  , _nbHostPort      :: !(Maybe Int)
+  , _nbContainerPort :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1764,8 +1764,8 @@ instance ToJSON NetworkBinding where
 --
 -- /See:/ 'placementConstraint' smart constructor.
 data PlacementConstraint = PlacementConstraint'
-  { _pcExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pcType       :: {-# NOUNPACK #-}!(Maybe PlacementConstraintType)
+  { _pcExpression :: !(Maybe Text)
+  , _pcType       :: !(Maybe PlacementConstraintType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1814,8 +1814,8 @@ instance ToJSON PlacementConstraint where
 --
 -- /See:/ 'placementStrategy' smart constructor.
 data PlacementStrategy = PlacementStrategy'
-  { _psField :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psType  :: {-# NOUNPACK #-}!(Maybe PlacementStrategyType)
+  { _psField :: !(Maybe Text)
+  , _psType  :: !(Maybe PlacementStrategyType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1862,9 +1862,9 @@ instance ToJSON PlacementStrategy where
 --
 -- /See:/ 'portMapping' smart constructor.
 data PortMapping = PortMapping'
-  { _pmProtocol      :: {-# NOUNPACK #-}!(Maybe TransportProtocol)
-  , _pmHostPort      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pmContainerPort :: {-# NOUNPACK #-}!(Maybe Int)
+  { _pmProtocol      :: !(Maybe TransportProtocol)
+  , _pmHostPort      :: !(Maybe Int)
+  , _pmContainerPort :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1922,12 +1922,12 @@ instance ToJSON PortMapping where
 --
 -- /See:/ 'resource' smart constructor.
 data Resource = Resource'
-  { _rStringSetValue :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rIntegerValue   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rDoubleValue    :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rLongValue      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _rName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rType           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rStringSetValue :: !(Maybe [Text])
+  , _rIntegerValue   :: !(Maybe Int)
+  , _rDoubleValue    :: !(Maybe Double)
+  , _rLongValue      :: !(Maybe Integer)
+  , _rName           :: !(Maybe Text)
+  , _rType           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2015,9 +2015,9 @@ instance ToJSON Resource where
 --
 -- /See:/ 'serviceEvent' smart constructor.
 data ServiceEvent = ServiceEvent'
-  { _seCreatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _seId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _seCreatedAt :: !(Maybe POSIX)
+  , _seId        :: !(Maybe Text)
+  , _seMessage   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2066,21 +2066,21 @@ instance NFData ServiceEvent where
 --
 -- /See:/ 'task' smart constructor.
 data Task = Task'
-  { _tStoppedAt            :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tDesiredStatus        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tOverrides            :: {-# NOUNPACK #-}!(Maybe TaskOverride)
-  , _tClusterARN           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tGroup                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tCreatedAt            :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tTaskARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tContainerInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tLastStatus           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tContainers           :: {-# NOUNPACK #-}!(Maybe [Container])
-  , _tStartedAt            :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tVersion              :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _tStartedBy            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tStoppedReason        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tTaskDefinitionARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tStoppedAt            :: !(Maybe POSIX)
+  , _tDesiredStatus        :: !(Maybe Text)
+  , _tOverrides            :: !(Maybe TaskOverride)
+  , _tClusterARN           :: !(Maybe Text)
+  , _tGroup                :: !(Maybe Text)
+  , _tCreatedAt            :: !(Maybe POSIX)
+  , _tTaskARN              :: !(Maybe Text)
+  , _tContainerInstanceARN :: !(Maybe Text)
+  , _tLastStatus           :: !(Maybe Text)
+  , _tContainers           :: !(Maybe [Container])
+  , _tStartedAt            :: !(Maybe POSIX)
+  , _tVersion              :: !(Maybe Integer)
+  , _tStartedBy            :: !(Maybe Text)
+  , _tStoppedReason        :: !(Maybe Text)
+  , _tTaskDefinitionARN    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2229,16 +2229,16 @@ instance NFData Task where
 --
 -- /See:/ 'taskDefinition' smart constructor.
 data TaskDefinition = TaskDefinition'
-  { _tdStatus :: {-# NOUNPACK #-}!(Maybe TaskDefinitionStatus)
-  , _tdFamily :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdContainerDefinitions :: {-# NOUNPACK #-}!(Maybe [ContainerDefinition])
-  , _tdTaskRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdPlacementConstraints :: {-# NOUNPACK #-}!(Maybe [TaskDefinitionPlacementConstraint])
-  , _tdNetworkMode :: {-# NOUNPACK #-}!(Maybe NetworkMode)
-  , _tdTaskDefinitionARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdRevision :: {-# NOUNPACK #-}!(Maybe Int)
-  , _tdVolumes :: {-# NOUNPACK #-}!(Maybe [Volume])
-  , _tdRequiresAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
+  { _tdStatus               :: !(Maybe TaskDefinitionStatus)
+  , _tdFamily               :: !(Maybe Text)
+  , _tdContainerDefinitions :: !(Maybe [ContainerDefinition])
+  , _tdTaskRoleARN          :: !(Maybe Text)
+  , _tdPlacementConstraints :: !(Maybe [TaskDefinitionPlacementConstraint])
+  , _tdNetworkMode          :: !(Maybe NetworkMode)
+  , _tdTaskDefinitionARN    :: !(Maybe Text)
+  , _tdRevision             :: !(Maybe Int)
+  , _tdVolumes              :: !(Maybe [Volume])
+  , _tdRequiresAttributes   :: !(Maybe [Attribute])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2347,8 +2347,8 @@ instance NFData TaskDefinition where
 --
 -- /See:/ 'taskDefinitionPlacementConstraint' smart constructor.
 data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
-  { _tdpcExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdpcType :: {-# NOUNPACK #-}!(Maybe TaskDefinitionPlacementConstraintType)
+  { _tdpcExpression :: !(Maybe Text)
+  , _tdpcType       :: !(Maybe TaskDefinitionPlacementConstraintType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2402,8 +2402,8 @@ instance ToJSON TaskDefinitionPlacementConstraint
 --
 -- /See:/ 'taskOverride' smart constructor.
 data TaskOverride = TaskOverride'
-  { _toContainerOverrides :: {-# NOUNPACK #-}!(Maybe [ContainerOverride])
-  , _toTaskRoleARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _toContainerOverrides :: !(Maybe [ContainerOverride])
+  , _toTaskRoleARN        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2453,9 +2453,9 @@ instance ToJSON TaskOverride where
 --
 -- /See:/ 'ulimit' smart constructor.
 data Ulimit = Ulimit'
-  { _uName      :: {-# NOUNPACK #-}!UlimitName
-  , _uSoftLimit :: {-# NOUNPACK #-}!Int
-  , _uHardLimit :: {-# NOUNPACK #-}!Int
+  { _uName      :: !UlimitName
+  , _uSoftLimit :: !Int
+  , _uHardLimit :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2516,9 +2516,9 @@ instance ToJSON Ulimit where
 --
 -- /See:/ 'versionInfo' smart constructor.
 data VersionInfo = VersionInfo'
-  { _viAgentHash     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viAgentVersion  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viDockerVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  { _viAgentHash     :: !(Maybe Text)
+  , _viAgentVersion  :: !(Maybe Text)
+  , _viDockerVersion :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2579,8 +2579,8 @@ instance ToJSON VersionInfo where
 --
 -- /See:/ 'volume' smart constructor.
 data Volume = Volume'
-  { _vName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vHost :: {-# NOUNPACK #-}!(Maybe HostVolumeProperties)
+  { _vName :: !(Maybe Text)
+  , _vHost :: !(Maybe HostVolumeProperties)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2626,8 +2626,8 @@ instance ToJSON Volume where
 --
 -- /See:/ 'volumeFrom' smart constructor.
 data VolumeFrom = VolumeFrom'
-  { _vfSourceContainer :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vfReadOnly        :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _vfSourceContainer :: !(Maybe Text)
+  , _vfReadOnly        :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

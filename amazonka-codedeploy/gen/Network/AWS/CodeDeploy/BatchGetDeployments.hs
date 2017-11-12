@@ -111,8 +111,8 @@ instance ToQuery BatchGetDeployments where
 --
 -- /See:/ 'batchGetDeploymentsResponse' smart constructor.
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
-  { _bgdrsDeploymentsInfo :: {-# NOUNPACK #-}!(Maybe [DeploymentInfo])
-  , _bgdrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _bgdrsDeploymentsInfo :: !(Maybe [DeploymentInfo])
+  , _bgdrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

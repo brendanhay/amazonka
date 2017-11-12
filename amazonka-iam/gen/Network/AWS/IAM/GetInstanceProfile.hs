@@ -99,8 +99,8 @@ instance ToQuery GetInstanceProfile where
 --
 -- /See:/ 'getInstanceProfileResponse' smart constructor.
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
-  { _giprsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _giprsInstanceProfile :: {-# NOUNPACK #-}!InstanceProfile
+  { _giprsResponseStatus  :: !Int
+  , _giprsInstanceProfile :: !InstanceProfile
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

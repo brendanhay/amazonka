@@ -50,10 +50,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeInstancePatches' smart constructor.
 data DescribeInstancePatches = DescribeInstancePatches'
-  { _dipFilters    :: {-# NOUNPACK #-}!(Maybe [PatchOrchestratorFilter])
-  , _dipNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dipMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dipInstanceId :: {-# NOUNPACK #-}!Text
+  { _dipFilters    :: !(Maybe [PatchOrchestratorFilter])
+  , _dipNextToken  :: !(Maybe Text)
+  , _dipMaxResults :: !(Maybe Nat)
+  , _dipInstanceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery DescribeInstancePatches where
 
 -- | /See:/ 'describeInstancePatchesResponse' smart constructor.
 data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
-  { _diprsPatches        :: {-# NOUNPACK #-}!(Maybe [PatchComplianceData])
-  , _diprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _diprsPatches        :: !(Maybe [PatchComplianceData])
+  , _diprsNextToken      :: !(Maybe Text)
+  , _diprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'batchCheckLayerAvailability' smart constructor.
 data BatchCheckLayerAvailability = BatchCheckLayerAvailability'
-  { _bclaRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bclaRepositoryName :: {-# NOUNPACK #-}!Text
-  , _bclaLayerDigests   :: {-# NOUNPACK #-}!(List1 Text)
+  { _bclaRegistryId     :: !(Maybe Text)
+  , _bclaRepositoryName :: !Text
+  , _bclaLayerDigests   :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance ToQuery BatchCheckLayerAvailability where
 
 -- | /See:/ 'batchCheckLayerAvailabilityResponse' smart constructor.
 data BatchCheckLayerAvailabilityResponse = BatchCheckLayerAvailabilityResponse'
-  { _bclarsFailures       :: {-# NOUNPACK #-}!(Maybe [LayerFailure])
-  , _bclarsLayers         :: {-# NOUNPACK #-}!(Maybe [Layer])
-  , _bclarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bclarsFailures       :: !(Maybe [LayerFailure])
+  , _bclarsLayers         :: !(Maybe [Layer])
+  , _bclarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

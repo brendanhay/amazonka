@@ -67,9 +67,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeChangeSet' smart constructor.
 data DescribeChangeSet = DescribeChangeSet'
-  { _desNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desStackName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desChangeSetName :: {-# NOUNPACK #-}!Text
+  { _desNextToken     :: !(Maybe Text)
+  , _desStackName     :: !(Maybe Text)
+  , _desChangeSetName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -164,23 +164,23 @@ instance ToQuery DescribeChangeSet where
 --
 -- /See:/ 'describeChangeSetResponse' smart constructor.
 data DescribeChangeSetResponse = DescribeChangeSetResponse'
-  { _desrsCreationTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _desrsChanges :: {-# NOUNPACK #-}!(Maybe [Change])
-  , _desrsNotificationARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _desrsChangeSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsExecutionStatus :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
-  , _desrsChangeSetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsParameters :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _desrsStatusReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsStackId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsCapabilities :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _desrsRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe RollbackConfiguration)
-  , _desrsTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _desrsStackName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _desrsStatus :: {-# NOUNPACK #-}!ChangeSetStatus
+  { _desrsCreationTime          :: !(Maybe ISO8601)
+  , _desrsChanges               :: !(Maybe [Change])
+  , _desrsNotificationARNs      :: !(Maybe [Text])
+  , _desrsChangeSetName         :: !(Maybe Text)
+  , _desrsExecutionStatus       :: !(Maybe ExecutionStatus)
+  , _desrsChangeSetId           :: !(Maybe Text)
+  , _desrsNextToken             :: !(Maybe Text)
+  , _desrsParameters            :: !(Maybe [Parameter])
+  , _desrsStatusReason          :: !(Maybe Text)
+  , _desrsStackId               :: !(Maybe Text)
+  , _desrsDescription           :: !(Maybe Text)
+  , _desrsCapabilities          :: !(Maybe [Capability])
+  , _desrsRollbackConfiguration :: !(Maybe RollbackConfiguration)
+  , _desrsTags                  :: !(Maybe [Tag])
+  , _desrsStackName             :: !(Maybe Text)
+  , _desrsResponseStatus        :: !Int
+  , _desrsStatus                :: !ChangeSetStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

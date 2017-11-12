@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDomainNames' smart constructor.
 data GetDomainNames = GetDomainNames'
-  { _gdnLimit    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gdnPosition :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gdnLimit    :: !(Maybe Int)
+  , _gdnPosition :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery GetDomainNames where
 --
 -- /See:/ 'getDomainNamesResponse' smart constructor.
 data GetDomainNamesResponse = GetDomainNamesResponse'
-  { _gdnrsItems          :: {-# NOUNPACK #-}!(Maybe [DomainName])
-  , _gdnrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdnrsItems          :: !(Maybe [DomainName])
+  , _gdnrsPosition       :: !(Maybe Text)
+  , _gdnrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

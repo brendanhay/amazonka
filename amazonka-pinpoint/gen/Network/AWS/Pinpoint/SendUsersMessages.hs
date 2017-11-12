@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'sendUsersMessages' smart constructor.
 data SendUsersMessages = SendUsersMessages'
-  { _sumsApplicationId           :: {-# NOUNPACK #-}!Text
-  , _sumsSendUsersMessageRequest :: {-# NOUNPACK #-}!SendUsersMessageRequest
+  { _sumsApplicationId           :: !Text
+  , _sumsSendUsersMessageRequest :: !SendUsersMessageRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery SendUsersMessages where
 
 -- | /See:/ 'sendUsersMessagesResponse' smart constructor.
 data SendUsersMessagesResponse = SendUsersMessagesResponse'
-  { _sumrsResponseStatus           :: {-# NOUNPACK #-}!Int
-  , _sumrsSendUsersMessageResponse :: {-# NOUNPACK #-}!SendUsersMessageResponse
+  { _sumrsResponseStatus           :: !Int
+  , _sumrsSendUsersMessageResponse :: !SendUsersMessageResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

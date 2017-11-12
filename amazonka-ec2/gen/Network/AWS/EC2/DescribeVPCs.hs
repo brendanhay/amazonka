@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeVPCs' smart constructor.
 data DescribeVPCs = DescribeVPCs'
-  { _dvsFilters :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dvsVPCIds  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvsDryRun  :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dvsFilters :: !(Maybe [Filter])
+  , _dvsVPCIds  :: !(Maybe [Text])
+  , _dvsDryRun  :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery DescribeVPCs where
 --
 -- /See:/ 'describeVPCsResponse' smart constructor.
 data DescribeVPCsResponse = DescribeVPCsResponse'
-  { _dvrsVPCs           :: {-# NOUNPACK #-}!(Maybe [VPC])
-  , _dvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvrsVPCs           :: !(Maybe [VPC])
+  , _dvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

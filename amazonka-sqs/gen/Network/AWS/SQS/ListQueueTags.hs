@@ -110,8 +110,8 @@ instance ToQuery ListQueueTags where
 
 -- | /See:/ 'listQueueTagsResponse' smart constructor.
 data ListQueueTagsResponse = ListQueueTagsResponse'
-  { _lqtrsTags           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _lqtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lqtrsTags           :: !(Maybe (Map Text Text))
+  , _lqtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getConsoleScreenshot' smart constructor.
 data GetConsoleScreenshot = GetConsoleScreenshot'
-  { _gcsWakeUp     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gcsDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gcsInstanceId :: {-# NOUNPACK #-}!Text
+  { _gcsWakeUp     :: !(Maybe Bool)
+  , _gcsDryRun     :: !(Maybe Bool)
+  , _gcsInstanceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery GetConsoleScreenshot where
 --
 -- /See:/ 'getConsoleScreenshotResponse' smart constructor.
 data GetConsoleScreenshotResponse = GetConsoleScreenshotResponse'
-  { _gcsrsInstanceId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcsrsImageData      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcsrsInstanceId     :: !(Maybe Text)
+  , _gcsrsImageData      :: !(Maybe Text)
+  , _gcsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

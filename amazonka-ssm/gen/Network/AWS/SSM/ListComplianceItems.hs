@@ -51,11 +51,11 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listComplianceItems' smart constructor.
 data ListComplianceItems = ListComplianceItems'
-  { _lResourceIds   :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _lFilters       :: {-# NOUNPACK #-}!(Maybe [ComplianceStringFilter])
-  , _lNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lMaxResults    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lResourceTypes :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  { _lResourceIds   :: !(Maybe (List1 Text))
+  , _lFilters       :: !(Maybe [ComplianceStringFilter])
+  , _lNextToken     :: !(Maybe Text)
+  , _lMaxResults    :: !(Maybe Nat)
+  , _lResourceTypes :: !(Maybe (List1 Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,9 +147,9 @@ instance ToQuery ListComplianceItems where
 
 -- | /See:/ 'listComplianceItemsResponse' smart constructor.
 data ListComplianceItemsResponse = ListComplianceItemsResponse'
-  { _lcirsComplianceItems :: {-# NOUNPACK #-}!(Maybe [ComplianceItem])
-  , _lcirsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcirsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _lcirsComplianceItems :: !(Maybe [ComplianceItem])
+  , _lcirsNextToken       :: !(Maybe Text)
+  , _lcirsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

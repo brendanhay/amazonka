@@ -72,15 +72,15 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'sendEmail' smart constructor.
 data SendEmail = SendEmail'
-  { _seReturnPath           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seConfigurationSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seSourceARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seReturnPathARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seTags                 :: {-# NOUNPACK #-}!(Maybe [MessageTag])
-  , _seReplyToAddresses     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _seSource               :: {-# NOUNPACK #-}!Text
-  , _seDestination          :: {-# NOUNPACK #-}!Destination
-  , _seMessage              :: {-# NOUNPACK #-}!Message
+  { _seReturnPath           :: !(Maybe Text)
+  , _seConfigurationSetName :: !(Maybe Text)
+  , _seSourceARN            :: !(Maybe Text)
+  , _seReturnPathARN        :: !(Maybe Text)
+  , _seTags                 :: !(Maybe [MessageTag])
+  , _seReplyToAddresses     :: !(Maybe [Text])
+  , _seSource               :: !Text
+  , _seDestination          :: !Destination
+  , _seMessage              :: !Message
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -202,8 +202,8 @@ instance ToQuery SendEmail where
 --
 -- /See:/ 'sendEmailResponse' smart constructor.
 data SendEmailResponse = SendEmailResponse'
-  { _sersResponseStatus :: {-# NOUNPACK #-}!Int
-  , _sersMessageId      :: {-# NOUNPACK #-}!Text
+  { _sersResponseStatus :: !Int
+  , _sersMessageId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

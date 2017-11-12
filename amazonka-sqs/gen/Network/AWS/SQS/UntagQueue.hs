@@ -60,8 +60,8 @@ import Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'untagQueue' smart constructor.
 data UntagQueue = UntagQueue'
-  { _uqQueueURL :: {-# NOUNPACK #-}!Text
-  , _uqTagKeys  :: {-# NOUNPACK #-}![Text]
+  { _uqQueueURL :: !Text
+  , _uqTagKeys  :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -27,13 +27,13 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'account' smart constructor.
 data Account = Account'
-  { _aStatus          :: {-# NOUNPACK #-}!(Maybe AccountStatus)
-  , _aJoinedMethod    :: {-# NOUNPACK #-}!(Maybe AccountJoinedMethod)
-  , _aEmail           :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _aARN             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aJoinedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _aName            :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _aId              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aStatus          :: !(Maybe AccountStatus)
+  , _aJoinedMethod    :: !(Maybe AccountJoinedMethod)
+  , _aEmail           :: !(Maybe (Sensitive Text))
+  , _aARN             :: !(Maybe Text)
+  , _aJoinedTimestamp :: !(Maybe POSIX)
+  , _aName            :: !(Maybe (Sensitive Text))
+  , _aId              :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance NFData Account where
 --
 -- /See:/ 'child' smart constructor.
 data Child = Child'
-  { _cId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cType :: {-# NOUNPACK #-}!(Maybe ChildType)
+  { _cId   :: !(Maybe Text)
+  , _cType :: !(Maybe ChildType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -158,13 +158,13 @@ instance NFData Child where
 --
 -- /See:/ 'createAccountStatus' smart constructor.
 data CreateAccountStatus = CreateAccountStatus'
-  { _casFailureReason :: {-# NOUNPACK #-}!(Maybe CreateAccountFailureReason)
-  , _casState :: {-# NOUNPACK #-}!(Maybe CreateAccountState)
-  , _casCompletedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _casAccountName :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _casAccountId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _casId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _casRequestedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _casFailureReason      :: !(Maybe CreateAccountFailureReason)
+  , _casState              :: !(Maybe CreateAccountState)
+  , _casCompletedTimestamp :: !(Maybe POSIX)
+  , _casAccountName        :: !(Maybe (Sensitive Text))
+  , _casAccountId          :: !(Maybe Text)
+  , _casId                 :: !(Maybe Text)
+  , _casRequestedTimestamp :: !(Maybe POSIX)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -251,14 +251,14 @@ instance NFData CreateAccountStatus where
 --
 -- /See:/ 'handshake' smart constructor.
 data Handshake = Handshake'
-  { _hState               :: {-# NOUNPACK #-}!(Maybe HandshakeState)
-  , _hARN                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hAction              :: {-# NOUNPACK #-}!(Maybe ActionType)
-  , _hResources           :: {-# NOUNPACK #-}!(Maybe [HandshakeResource])
-  , _hId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hExpirationTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _hParties             :: {-# NOUNPACK #-}!(Maybe [HandshakeParty])
-  , _hRequestedTimestamp  :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _hState               :: !(Maybe HandshakeState)
+  , _hARN                 :: !(Maybe Text)
+  , _hAction              :: !(Maybe ActionType)
+  , _hResources           :: !(Maybe [HandshakeResource])
+  , _hId                  :: !(Maybe Text)
+  , _hExpirationTimestamp :: !(Maybe POSIX)
+  , _hParties             :: !(Maybe [HandshakeParty])
+  , _hRequestedTimestamp  :: !(Maybe POSIX)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -351,8 +351,8 @@ instance NFData Handshake where
 --
 -- /See:/ 'handshakeFilter' smart constructor.
 data HandshakeFilter = HandshakeFilter'
-  { _hfParentHandshakeId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hfActionType        :: {-# NOUNPACK #-}!(Maybe ActionType)
+  { _hfParentHandshakeId :: !(Maybe Text)
+  , _hfActionType        :: !(Maybe ActionType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -394,8 +394,8 @@ instance ToJSON HandshakeFilter where
 --
 -- /See:/ 'handshakeParty' smart constructor.
 data HandshakeParty = HandshakeParty'
-  { _hpId   :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _hpType :: {-# NOUNPACK #-}!HandshakePartyType
+  { _hpId   :: !(Sensitive Text)
+  , _hpType :: !HandshakePartyType
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -444,9 +444,9 @@ instance ToJSON HandshakeParty where
 --
 -- /See:/ 'handshakeResource' smart constructor.
 data HandshakeResource = HandshakeResource'
-  { _hrValue     :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _hrResources :: {-# NOUNPACK #-}!(Maybe [HandshakeResource])
-  , _hrType      :: {-# NOUNPACK #-}!(Maybe HandshakeResourceType)
+  { _hrValue     :: !(Maybe (Sensitive Text))
+  , _hrResources :: !(Maybe [HandshakeResource])
+  , _hrType      :: !(Maybe HandshakeResourceType)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -496,13 +496,13 @@ instance NFData HandshakeResource where
 --
 -- /See:/ 'organization' smart constructor.
 data Organization = Organization'
-  { _oARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oMasterAccountId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oMasterAccountARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oMasterAccountEmail   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _oAvailablePolicyTypes :: {-# NOUNPACK #-}!(Maybe [PolicyTypeSummary])
-  , _oId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oFeatureSet           :: {-# NOUNPACK #-}!(Maybe OrganizationFeatureSet)
+  { _oARN                  :: !(Maybe Text)
+  , _oMasterAccountId      :: !(Maybe Text)
+  , _oMasterAccountARN     :: !(Maybe Text)
+  , _oMasterAccountEmail   :: !(Maybe (Sensitive Text))
+  , _oAvailablePolicyTypes :: !(Maybe [PolicyTypeSummary])
+  , _oId                   :: !(Maybe Text)
+  , _oFeatureSet           :: !(Maybe OrganizationFeatureSet)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -587,9 +587,9 @@ instance NFData Organization where
 --
 -- /See:/ 'organizationalUnit' smart constructor.
 data OrganizationalUnit = OrganizationalUnit'
-  { _ouARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ouName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ouId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ouARN  :: !(Maybe Text)
+  , _ouName :: !(Maybe Text)
+  , _ouId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -637,8 +637,8 @@ instance NFData OrganizationalUnit where
 --
 -- /See:/ 'parent' smart constructor.
 data Parent = Parent'
-  { _pId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pType :: {-# NOUNPACK #-}!(Maybe ParentType)
+  { _pId   :: !(Maybe Text)
+  , _pType :: !(Maybe ParentType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -677,8 +677,8 @@ instance NFData Parent where
 --
 -- /See:/ 'policy' smart constructor.
 data Policy = Policy'
-  { _pContent       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pPolicySummary :: {-# NOUNPACK #-}!(Maybe PolicySummary)
+  { _pContent       :: !(Maybe Text)
+  , _pPolicySummary :: !(Maybe PolicySummary)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -719,12 +719,12 @@ instance NFData Policy where
 --
 -- /See:/ 'policySummary' smart constructor.
 data PolicySummary = PolicySummary'
-  { _psARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psAWSManaged  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _psType        :: {-# NOUNPACK #-}!(Maybe PolicyType)
-  , _psDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _psARN         :: !(Maybe Text)
+  , _psName        :: !(Maybe Text)
+  , _psId          :: !(Maybe Text)
+  , _psAWSManaged  :: !(Maybe Bool)
+  , _psType        :: !(Maybe PolicyType)
+  , _psDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -800,10 +800,10 @@ instance NFData PolicySummary where
 --
 -- /See:/ 'policyTargetSummary' smart constructor.
 data PolicyTargetSummary = PolicyTargetSummary'
-  { _polTargetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _polARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _polName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _polType     :: {-# NOUNPACK #-}!(Maybe TargetType)
+  { _polTargetId :: !(Maybe Text)
+  , _polARN      :: !(Maybe Text)
+  , _polName     :: !(Maybe Text)
+  , _polType     :: !(Maybe TargetType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -864,8 +864,8 @@ instance NFData PolicyTargetSummary where
 --
 -- /See:/ 'policyTypeSummary' smart constructor.
 data PolicyTypeSummary = PolicyTypeSummary'
-  { _ptsStatus :: {-# NOUNPACK #-}!(Maybe PolicyTypeStatus)
-  , _ptsType   :: {-# NOUNPACK #-}!(Maybe PolicyType)
+  { _ptsStatus :: !(Maybe PolicyTypeStatus)
+  , _ptsType   :: !(Maybe PolicyType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -907,10 +907,10 @@ instance NFData PolicyTypeSummary where
 --
 -- /See:/ 'root' smart constructor.
 data Root = Root'
-  { _rARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rPolicyTypes :: {-# NOUNPACK #-}!(Maybe [PolicyTypeSummary])
+  { _rARN         :: !(Maybe Text)
+  , _rName        :: !(Maybe Text)
+  , _rId          :: !(Maybe Text)
+  , _rPolicyTypes :: !(Maybe [PolicyTypeSummary])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

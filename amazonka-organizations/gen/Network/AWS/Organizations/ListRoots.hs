@@ -53,8 +53,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listRoots' smart constructor.
 data ListRoots = ListRoots'
-  { _lrNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lrNextToken  :: !(Maybe Text)
+  , _lrMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery ListRoots where
 
 -- | /See:/ 'listRootsResponse' smart constructor.
 data ListRootsResponse = ListRootsResponse'
-  { _lrrsRoots          :: {-# NOUNPACK #-}!(Maybe [Root])
-  , _lrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrrsRoots          :: !(Maybe [Root])
+  , _lrrsNextToken      :: !(Maybe Text)
+  , _lrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

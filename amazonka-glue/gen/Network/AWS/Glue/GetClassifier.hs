@@ -99,8 +99,8 @@ instance ToQuery GetClassifier where
 
 -- | /See:/ 'getClassifierResponse' smart constructor.
 data GetClassifierResponse = GetClassifierResponse'
-  { _gcrsClassifier     :: {-# NOUNPACK #-}!(Maybe Classifier)
-  , _gcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcrsClassifier     :: !(Maybe Classifier)
+  , _gcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

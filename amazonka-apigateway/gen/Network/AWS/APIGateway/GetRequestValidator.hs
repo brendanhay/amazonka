@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getRequestValidator' smart constructor.
 data GetRequestValidator = GetRequestValidator'
-  { _grvrRestAPIId          :: {-# NOUNPACK #-}!Text
-  , _grvrRequestValidatorId :: {-# NOUNPACK #-}!Text
+  { _grvrRestAPIId          :: !Text
+  , _grvrRequestValidatorId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

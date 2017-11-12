@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listSchemaExtensions' smart constructor.
 data ListSchemaExtensions = ListSchemaExtensions'
-  { _lseNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lseLimit       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lseDirectoryId :: {-# NOUNPACK #-}!Text
+  { _lseNextToken   :: !(Maybe Text)
+  , _lseLimit       :: !(Maybe Nat)
+  , _lseDirectoryId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,9 +129,9 @@ instance ToQuery ListSchemaExtensions where
 
 -- | /See:/ 'listSchemaExtensionsResponse' smart constructor.
 data ListSchemaExtensionsResponse = ListSchemaExtensionsResponse'
-  { _lsersSchemaExtensionsInfo :: {-# NOUNPACK #-}!(Maybe [SchemaExtensionInfo])
-  , _lsersNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsersResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _lsersSchemaExtensionsInfo :: !(Maybe [SchemaExtensionInfo])
+  , _lsersNextToken            :: !(Maybe Text)
+  , _lsersResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

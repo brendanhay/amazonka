@@ -109,8 +109,8 @@ instance ToQuery GetDeployment where
 --
 -- /See:/ 'getDeploymentResponse' smart constructor.
 data GetDeploymentResponse = GetDeploymentResponse'
-  { _gdrsDeploymentInfo :: {-# NOUNPACK #-}!(Maybe DeploymentInfo)
-  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdrsDeploymentInfo :: !(Maybe DeploymentInfo)
+  , _gdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

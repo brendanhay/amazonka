@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createAssessmentTarget' smart constructor.
 data CreateAssessmentTarget = CreateAssessmentTarget'
-  { _catAssessmentTargetName :: {-# NOUNPACK #-}!Text
-  , _catResourceGroupARN     :: {-# NOUNPACK #-}!Text
+  { _catAssessmentTargetName :: !Text
+  , _catResourceGroupARN     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,8 +119,8 @@ instance ToQuery CreateAssessmentTarget where
 
 -- | /See:/ 'createAssessmentTargetResponse' smart constructor.
 data CreateAssessmentTargetResponse = CreateAssessmentTargetResponse'
-  { _catrsResponseStatus      :: {-# NOUNPACK #-}!Int
-  , _catrsAssessmentTargetARN :: {-# NOUNPACK #-}!Text
+  { _catrsResponseStatus      :: !Int
+  , _catrsAssessmentTargetARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

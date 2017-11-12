@@ -49,8 +49,8 @@ import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'getConnectors' smart constructor.
 data GetConnectors = GetConnectors'
-  { _gcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _gcNextToken  :: !(Maybe Text)
+  , _gcMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,9 +121,9 @@ instance ToQuery GetConnectors where
 
 -- | /See:/ 'getConnectorsResponse' smart constructor.
 data GetConnectorsResponse = GetConnectorsResponse'
-  { _gcrsConnectorList  :: {-# NOUNPACK #-}!(Maybe [Connector])
-  , _gcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcrsConnectorList  :: !(Maybe [Connector])
+  , _gcrsNextToken      :: !(Maybe Text)
+  , _gcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

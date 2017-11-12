@@ -80,19 +80,19 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'headObject' smart constructor.
 data HeadObject = HeadObject'
-  { _hoIfMatch              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hoVersionId            :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _hoSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hoSSECustomerKey       :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _hoRequestPayer         :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _hoIfModifiedSince      :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _hoPartNumber           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _hoRange                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hoIfUnmodifiedSince    :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _hoSSECustomerKeyMD5    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hoIfNoneMatch          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hoBucket               :: {-# NOUNPACK #-}!BucketName
-  , _hoKey                  :: {-# NOUNPACK #-}!ObjectKey
+  { _hoIfMatch              :: !(Maybe Text)
+  , _hoVersionId            :: !(Maybe ObjectVersionId)
+  , _hoSSECustomerAlgorithm :: !(Maybe Text)
+  , _hoSSECustomerKey       :: !(Maybe (Sensitive Text))
+  , _hoRequestPayer         :: !(Maybe RequestPayer)
+  , _hoIfModifiedSince      :: !(Maybe RFC822)
+  , _hoPartNumber           :: !(Maybe Int)
+  , _hoRange                :: !(Maybe Text)
+  , _hoIfUnmodifiedSince    :: !(Maybe RFC822)
+  , _hoSSECustomerKeyMD5    :: !(Maybe Text)
+  , _hoIfNoneMatch          :: !(Maybe Text)
+  , _hoBucket               :: !BucketName
+  , _hoKey                  :: !ObjectKey
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -270,32 +270,32 @@ instance ToQuery HeadObject where
 
 -- | /See:/ 'headObjectResponse' smart constructor.
 data HeadObjectResponse = HeadObjectResponse'
-  { _horsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _horsPartsCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _horsETag :: {-# NOUNPACK #-}!(Maybe ETag)
-  , _horsVersionId :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _horsContentLength :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _horsExpires :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _horsRestore :: {-# NOUNPACK #-}!(Maybe Text)
-  , _horsExpiration :: {-# NOUNPACK #-}!(Maybe Text)
-  , _horsDeleteMarker :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _horsSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
-  , _horsMissingMeta :: {-# NOUNPACK #-}!(Maybe Int)
-  , _horsWebsiteRedirectLocation :: {-# NOUNPACK #-}!(Maybe Text)
-  , _horsAcceptRanges :: {-# NOUNPACK #-}!(Maybe Text)
-  , _horsStorageClass :: {-# NOUNPACK #-}!(Maybe StorageClass)
-  , _horsSSECustomerKeyMD5 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _horsSSEKMSKeyId :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _horsContentEncoding :: {-# NOUNPACK #-}!(Maybe Text)
-  , _horsMetadata :: {-# NOUNPACK #-}!(Map Text Text)
-  , _horsReplicationStatus :: {-# NOUNPACK #-}!(Maybe ReplicationStatus)
-  , _horsCacheControl :: {-# NOUNPACK #-}!(Maybe Text)
-  , _horsContentLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _horsLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _horsContentDisposition :: {-# NOUNPACK #-}!(Maybe Text)
-  , _horsServerSideEncryption :: {-# NOUNPACK #-}!(Maybe ServerSideEncryption)
-  , _horsContentType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _horsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _horsRequestCharged          :: !(Maybe RequestCharged)
+  , _horsPartsCount              :: !(Maybe Int)
+  , _horsETag                    :: !(Maybe ETag)
+  , _horsVersionId               :: !(Maybe ObjectVersionId)
+  , _horsContentLength           :: !(Maybe Integer)
+  , _horsExpires                 :: !(Maybe RFC822)
+  , _horsRestore                 :: !(Maybe Text)
+  , _horsExpiration              :: !(Maybe Text)
+  , _horsDeleteMarker            :: !(Maybe Bool)
+  , _horsSSECustomerAlgorithm    :: !(Maybe Text)
+  , _horsMissingMeta             :: !(Maybe Int)
+  , _horsWebsiteRedirectLocation :: !(Maybe Text)
+  , _horsAcceptRanges            :: !(Maybe Text)
+  , _horsStorageClass            :: !(Maybe StorageClass)
+  , _horsSSECustomerKeyMD5       :: !(Maybe Text)
+  , _horsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+  , _horsContentEncoding         :: !(Maybe Text)
+  , _horsMetadata                :: !(Map Text Text)
+  , _horsReplicationStatus       :: !(Maybe ReplicationStatus)
+  , _horsCacheControl            :: !(Maybe Text)
+  , _horsContentLanguage         :: !(Maybe Text)
+  , _horsLastModified            :: !(Maybe RFC822)
+  , _horsContentDisposition      :: !(Maybe Text)
+  , _horsServerSideEncryption    :: !(Maybe ServerSideEncryption)
+  , _horsContentType             :: !(Maybe Text)
+  , _horsResponseStatus          :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

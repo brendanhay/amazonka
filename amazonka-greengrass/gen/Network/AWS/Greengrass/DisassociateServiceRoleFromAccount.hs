@@ -89,8 +89,8 @@ instance ToQuery DisassociateServiceRoleFromAccount
 
 -- | /See:/ 'disassociateServiceRoleFromAccountResponse' smart constructor.
 data DisassociateServiceRoleFromAccountResponse = DisassociateServiceRoleFromAccountResponse'
-  { _dsrfarsDisassociatedAt :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsrfarsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dsrfarsDisassociatedAt :: !(Maybe Text)
+  , _dsrfarsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -107,8 +107,8 @@ instance ToQuery GetUpload where
 --
 -- /See:/ 'getUploadResponse' smart constructor.
 data GetUploadResponse = GetUploadResponse'
-  { _gursUpload         :: {-# NOUNPACK #-}!(Maybe Upload)
-  , _gursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gursUpload         :: !(Maybe Upload)
+  , _gursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

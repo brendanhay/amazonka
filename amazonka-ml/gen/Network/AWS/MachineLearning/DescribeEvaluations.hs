@@ -60,17 +60,17 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeEvaluations' smart constructor.
 data DescribeEvaluations = DescribeEvaluations'
-  { _deEQ             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deGE             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dePrefix         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deGT             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deNE             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deSortOrder      :: {-# NOUNPACK #-}!(Maybe SortOrder)
-  , _deLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _deLT             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deFilterVariable :: {-# NOUNPACK #-}!(Maybe EvaluationFilterVariable)
-  , _deLE             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _deEQ             :: !(Maybe Text)
+  , _deGE             :: !(Maybe Text)
+  , _dePrefix         :: !(Maybe Text)
+  , _deGT             :: !(Maybe Text)
+  , _deNE             :: !(Maybe Text)
+  , _deNextToken      :: !(Maybe Text)
+  , _deSortOrder      :: !(Maybe SortOrder)
+  , _deLimit          :: !(Maybe Nat)
+  , _deLT             :: !(Maybe Text)
+  , _deFilterVariable :: !(Maybe EvaluationFilterVariable)
+  , _deLE             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -218,9 +218,9 @@ instance ToQuery DescribeEvaluations where
 --
 -- /See:/ 'describeEvaluationsResponse' smart constructor.
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
-  { _desrsResults        :: {-# NOUNPACK #-}!(Maybe [Evaluation])
-  , _desrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _desrsResults        :: !(Maybe [Evaluation])
+  , _desrsNextToken      :: !(Maybe Text)
+  , _desrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

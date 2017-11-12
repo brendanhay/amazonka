@@ -107,9 +107,9 @@ instance ToQuery GetContactReachabilityStatus where
 
 -- | /See:/ 'getContactReachabilityStatusResponse' smart constructor.
 data GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse'
-  { _gcrsrsStatus         :: {-# NOUNPACK #-}!(Maybe ReachabilityStatus)
-  , _gcrsrsDomainName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcrsrsStatus         :: !(Maybe ReachabilityStatus)
+  , _gcrsrsDomainName     :: !(Maybe Text)
+  , _gcrsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

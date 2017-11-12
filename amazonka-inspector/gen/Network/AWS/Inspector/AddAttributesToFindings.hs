@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'addAttributesToFindings' smart constructor.
 data AddAttributesToFindings = AddAttributesToFindings'
-  { _aatfFindingARNs :: {-# NOUNPACK #-}!(List1 Text)
-  , _aatfAttributes  :: {-# NOUNPACK #-}![Attribute]
+  { _aatfFindingARNs :: !(List1 Text)
+  , _aatfAttributes  :: ![Attribute]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery AddAttributesToFindings where
 
 -- | /See:/ 'addAttributesToFindingsResponse' smart constructor.
 data AddAttributesToFindingsResponse = AddAttributesToFindingsResponse'
-  { _aatfrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _aatfrsFailedItems    :: {-# NOUNPACK #-}!(Map Text FailedItemDetails)
+  { _aatfrsResponseStatus :: !Int
+  , _aatfrsFailedItems    :: !(Map Text FailedItemDetails)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

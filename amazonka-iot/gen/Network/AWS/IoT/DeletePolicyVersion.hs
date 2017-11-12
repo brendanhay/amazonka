@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deletePolicyVersion' smart constructor.
 data DeletePolicyVersion = DeletePolicyVersion'
-  { _dpvPolicyName      :: {-# NOUNPACK #-}!Text
-  , _dpvPolicyVersionId :: {-# NOUNPACK #-}!Text
+  { _dpvPolicyName      :: !Text
+  , _dpvPolicyVersionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

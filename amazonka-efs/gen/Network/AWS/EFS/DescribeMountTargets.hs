@@ -60,10 +60,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeMountTargets' smart constructor.
 data DescribeMountTargets = DescribeMountTargets'
-  { _dmtFileSystemId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmtMarker        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmtMaxItems      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dmtMountTargetId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dmtFileSystemId  :: !(Maybe Text)
+  , _dmtMarker        :: !(Maybe Text)
+  , _dmtMaxItems      :: !(Maybe Nat)
+  , _dmtMountTargetId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,10 +148,10 @@ instance ToQuery DescribeMountTargets where
 --
 -- /See:/ 'describeMountTargetsResponse' smart constructor.
 data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
-  { _dmtrsMountTargets   :: {-# NOUNPACK #-}!(Maybe [MountTargetDescription])
-  , _dmtrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmtrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmtrsMountTargets   :: !(Maybe [MountTargetDescription])
+  , _dmtrsMarker         :: !(Maybe Text)
+  , _dmtrsNextMarker     :: !(Maybe Text)
+  , _dmtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

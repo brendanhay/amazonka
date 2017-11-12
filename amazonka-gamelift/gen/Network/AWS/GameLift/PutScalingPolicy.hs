@@ -119,14 +119,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'putScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-  { _pspName                  :: {-# NOUNPACK #-}!Text
-  , _pspFleetId               :: {-# NOUNPACK #-}!Text
-  , _pspScalingAdjustment     :: {-# NOUNPACK #-}!Int
-  , _pspScalingAdjustmentType :: {-# NOUNPACK #-}!ScalingAdjustmentType
-  , _pspThreshold             :: {-# NOUNPACK #-}!Double
-  , _pspComparisonOperator    :: {-# NOUNPACK #-}!ComparisonOperatorType
-  , _pspEvaluationPeriods     :: {-# NOUNPACK #-}!Nat
-  , _pspMetricName            :: {-# NOUNPACK #-}!MetricName
+  { _pspName                  :: !Text
+  , _pspFleetId               :: !Text
+  , _pspScalingAdjustment     :: !Int
+  , _pspScalingAdjustmentType :: !ScalingAdjustmentType
+  , _pspThreshold             :: !Double
+  , _pspComparisonOperator    :: !ComparisonOperatorType
+  , _pspEvaluationPeriods     :: !Nat
+  , _pspMetricName            :: !MetricName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -254,8 +254,8 @@ instance ToQuery PutScalingPolicy where
 --
 -- /See:/ 'putScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-  { _psprsName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _psprsName           :: !(Maybe Text)
+  , _psprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

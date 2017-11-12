@@ -78,11 +78,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'generateDataKey' smart constructor.
 data GenerateDataKey = GenerateDataKey'
-  { _gdkKeySpec           :: {-# NOUNPACK #-}!(Maybe DataKeySpec)
-  , _gdkEncryptionContext :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gdkNumberOfBytes     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gdkGrantTokens       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gdkKeyId             :: {-# NOUNPACK #-}!Text
+  { _gdkKeySpec           :: !(Maybe DataKeySpec)
+  , _gdkEncryptionContext :: !(Maybe (Map Text Text))
+  , _gdkNumberOfBytes     :: !(Maybe Nat)
+  , _gdkGrantTokens       :: !(Maybe [Text])
+  , _gdkKeyId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -174,10 +174,10 @@ instance ToQuery GenerateDataKey where
 
 -- | /See:/ 'generateDataKeyResponse' smart constructor.
 data GenerateDataKeyResponse = GenerateDataKeyResponse'
-  { _gdkrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gdkrsKeyId          :: {-# NOUNPACK #-}!Text
-  , _gdkrsPlaintext      :: {-# NOUNPACK #-}!(Sensitive Base64)
-  , _gdkrsCiphertextBlob :: {-# NOUNPACK #-}!Base64
+  { _gdkrsResponseStatus :: !Int
+  , _gdkrsKeyId          :: !Text
+  , _gdkrsPlaintext      :: !(Sensitive Base64)
+  , _gdkrsCiphertextBlob :: !Base64
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

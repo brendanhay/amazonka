@@ -51,10 +51,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listWorkersWithQualificationType' smart constructor.
 data ListWorkersWithQualificationType = ListWorkersWithQualificationType'
-  { _lwwqtStatus              :: {-# NOUNPACK #-}!(Maybe QualificationStatus)
-  , _lwwqtNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lwwqtMaxResults          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lwwqtQualificationTypeId :: {-# NOUNPACK #-}!Text
+  { _lwwqtStatus              :: !(Maybe QualificationStatus)
+  , _lwwqtNextToken           :: !(Maybe Text)
+  , _lwwqtMaxResults          :: !(Maybe Nat)
+  , _lwwqtQualificationTypeId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,10 +149,10 @@ instance ToQuery ListWorkersWithQualificationType
 
 -- | /See:/ 'listWorkersWithQualificationTypeResponse' smart constructor.
 data ListWorkersWithQualificationTypeResponse = ListWorkersWithQualificationTypeResponse'
-  { _lwwqtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lwwqtrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lwwqtrsQualifications :: {-# NOUNPACK #-}!(Maybe [Qualification])
-  , _lwwqtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lwwqtrsNextToken      :: !(Maybe Text)
+  , _lwwqtrsNumResults     :: !(Maybe Int)
+  , _lwwqtrsQualifications :: !(Maybe [Qualification])
+  , _lwwqtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

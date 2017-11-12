@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'executeChangeSet' smart constructor.
 data ExecuteChangeSet = ExecuteChangeSet'
-  { _ecsClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecsStackName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecsChangeSetName      :: {-# NOUNPACK #-}!Text
+  { _ecsClientRequestToken :: !(Maybe Text)
+  , _ecsStackName          :: !(Maybe Text)
+  , _ecsChangeSetName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

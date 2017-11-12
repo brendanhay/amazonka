@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listDevicePools' smart constructor.
 data ListDevicePools = ListDevicePools'
-  { _ldpNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldpType      :: {-# NOUNPACK #-}!(Maybe DevicePoolType)
-  , _ldpArn       :: {-# NOUNPACK #-}!Text
+  { _ldpNextToken :: !(Maybe Text)
+  , _ldpType      :: !(Maybe DevicePoolType)
+  , _ldpArn       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,9 +142,9 @@ instance ToQuery ListDevicePools where
 --
 -- /See:/ 'listDevicePoolsResponse' smart constructor.
 data ListDevicePoolsResponse = ListDevicePoolsResponse'
-  { _ldprsDevicePools    :: {-# NOUNPACK #-}!(Maybe [DevicePool])
-  , _ldprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ldprsDevicePools    :: !(Maybe [DevicePool])
+  , _ldprsNextToken      :: !(Maybe Text)
+  , _ldprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

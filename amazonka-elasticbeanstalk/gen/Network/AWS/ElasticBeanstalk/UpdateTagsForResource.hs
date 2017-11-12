@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateTagsForResource' smart constructor.
 data UpdateTagsForResource = UpdateTagsForResource'
-  { _utfrTagsToRemove :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _utfrTagsToAdd    :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _utfrResourceARN  :: {-# NOUNPACK #-}!Text
+  { _utfrTagsToRemove :: !(Maybe [Text])
+  , _utfrTagsToAdd    :: !(Maybe [Tag])
+  , _utfrResourceARN  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

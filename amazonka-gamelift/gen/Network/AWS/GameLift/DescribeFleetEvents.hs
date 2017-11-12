@@ -107,11 +107,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeFleetEvents' smart constructor.
 data DescribeFleetEvents = DescribeFleetEvents'
-  { _dfeStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dfeNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfeEndTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dfeLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dfeFleetId   :: {-# NOUNPACK #-}!Text
+  { _dfeStartTime :: !(Maybe POSIX)
+  , _dfeNextToken :: !(Maybe Text)
+  , _dfeEndTime   :: !(Maybe POSIX)
+  , _dfeLimit     :: !(Maybe Nat)
+  , _dfeFleetId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -207,9 +207,9 @@ instance ToQuery DescribeFleetEvents where
 --
 -- /See:/ 'describeFleetEventsResponse' smart constructor.
 data DescribeFleetEventsResponse = DescribeFleetEventsResponse'
-  { _dfersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfersEvents         :: {-# NOUNPACK #-}!(Maybe [Event])
-  , _dfersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dfersNextToken      :: !(Maybe Text)
+  , _dfersEvents         :: !(Maybe [Event])
+  , _dfersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

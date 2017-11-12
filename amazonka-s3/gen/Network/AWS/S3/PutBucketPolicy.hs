@@ -44,10 +44,10 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketPolicy' smart constructor.
 data PutBucketPolicy = PutBucketPolicy'
-  { _pbpConfirmRemoveSelfBucketAccess :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pbpContentMD5                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbpBucket                        :: {-# NOUNPACK #-}!BucketName
-  , _pbpPolicy                        :: {-# NOUNPACK #-}!(HashMap Text Value)
+  { _pbpConfirmRemoveSelfBucketAccess :: !(Maybe Bool)
+  , _pbpContentMD5                    :: !(Maybe Text)
+  , _pbpBucket                        :: !BucketName
+  , _pbpPolicy                        :: !(HashMap Text Value)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

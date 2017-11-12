@@ -60,14 +60,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'putIntegrationResponse' smart constructor.
 data PutIntegrationResponse = PutIntegrationResponse'
-  { _piContentHandling    :: {-# NOUNPACK #-}!(Maybe ContentHandlingStrategy)
-  , _piResponseTemplates  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _piSelectionPattern   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _piResponseParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _piRestAPIId          :: {-# NOUNPACK #-}!Text
-  , _piResourceId         :: {-# NOUNPACK #-}!Text
-  , _piHttpMethod         :: {-# NOUNPACK #-}!Text
-  , _piStatusCode         :: {-# NOUNPACK #-}!Text
+  { _piContentHandling    :: !(Maybe ContentHandlingStrategy)
+  , _piResponseTemplates  :: !(Maybe (Map Text Text))
+  , _piSelectionPattern   :: !(Maybe Text)
+  , _piResponseParameters :: !(Maybe (Map Text Text))
+  , _piRestAPIId          :: !Text
+  , _piResourceId         :: !Text
+  , _piHttpMethod         :: !Text
+  , _piStatusCode         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

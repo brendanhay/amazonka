@@ -102,8 +102,8 @@ instance ToQuery GetQueryExecution where
 
 -- | /See:/ 'getQueryExecutionResponse' smart constructor.
 data GetQueryExecutionResponse = GetQueryExecutionResponse'
-  { _gqersQueryExecution :: {-# NOUNPACK #-}!(Maybe QueryExecution)
-  , _gqersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gqersQueryExecution :: !(Maybe QueryExecution)
+  , _gqersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

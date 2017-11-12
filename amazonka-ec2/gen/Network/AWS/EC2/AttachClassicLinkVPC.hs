@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'attachClassicLinkVPC' smart constructor.
 data AttachClassicLinkVPC = AttachClassicLinkVPC'
-  { _aclvDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _aclvGroups     :: {-# NOUNPACK #-}![Text]
-  , _aclvInstanceId :: {-# NOUNPACK #-}!Text
-  , _aclvVPCId      :: {-# NOUNPACK #-}!Text
+  { _aclvDryRun     :: !(Maybe Bool)
+  , _aclvGroups     :: ![Text]
+  , _aclvInstanceId :: !Text
+  , _aclvVPCId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,8 +140,8 @@ instance ToQuery AttachClassicLinkVPC where
 --
 -- /See:/ 'attachClassicLinkVPCResponse' smart constructor.
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
-  { _aclvrsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _aclvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _aclvrsReturn         :: !(Maybe Bool)
+  , _aclvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

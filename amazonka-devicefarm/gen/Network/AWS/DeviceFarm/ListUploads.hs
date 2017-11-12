@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listUploads' smart constructor.
 data ListUploads = ListUploads'
-  { _luNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luArn       :: {-# NOUNPACK #-}!Text
+  { _luNextToken :: !(Maybe Text)
+  , _luArn       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance ToQuery ListUploads where
 --
 -- /See:/ 'listUploadsResponse' smart constructor.
 data ListUploadsResponse = ListUploadsResponse'
-  { _lursNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lursUploads        :: {-# NOUNPACK #-}!(Maybe [Upload])
-  , _lursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lursNextToken      :: !(Maybe Text)
+  , _lursUploads        :: !(Maybe [Upload])
+  , _lursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

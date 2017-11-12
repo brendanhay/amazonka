@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listActionTypes' smart constructor.
 data ListActionTypes = ListActionTypes'
-  { _latActionOwnerFilter :: {-# NOUNPACK #-}!(Maybe ActionOwner)
-  , _latNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _latActionOwnerFilter :: !(Maybe ActionOwner)
+  , _latNextToken         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,9 +121,9 @@ instance ToQuery ListActionTypes where
 --
 -- /See:/ 'listActionTypesResponse' smart constructor.
 data ListActionTypesResponse = ListActionTypesResponse'
-  { _latrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _latrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _latrsActionTypes    :: {-# NOUNPACK #-}![ActionType]
+  { _latrsNextToken      :: !(Maybe Text)
+  , _latrsResponseStatus :: !Int
+  , _latrsActionTypes    :: ![ActionType]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

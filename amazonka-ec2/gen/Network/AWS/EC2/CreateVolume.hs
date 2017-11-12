@@ -76,15 +76,15 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVolume' smart constructor.
 data CreateVolume = CreateVolume'
-  { _cvvSize              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cvvIOPS              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cvvEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cvvTagSpecifications :: {-# NOUNPACK #-}!(Maybe [TagSpecification])
-  , _cvvKMSKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cvvVolumeType        :: {-# NOUNPACK #-}!(Maybe VolumeType)
-  , _cvvDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cvvSnapshotId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cvvAvailabilityZone  :: {-# NOUNPACK #-}!Text
+  { _cvvSize              :: !(Maybe Int)
+  , _cvvIOPS              :: !(Maybe Int)
+  , _cvvEncrypted         :: !(Maybe Bool)
+  , _cvvTagSpecifications :: !(Maybe [TagSpecification])
+  , _cvvKMSKeyId          :: !(Maybe Text)
+  , _cvvVolumeType        :: !(Maybe VolumeType)
+  , _cvvDryRun            :: !(Maybe Bool)
+  , _cvvSnapshotId        :: !(Maybe Text)
+  , _cvvAvailabilityZone  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

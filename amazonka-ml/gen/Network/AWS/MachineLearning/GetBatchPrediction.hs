@@ -141,24 +141,24 @@ instance ToQuery GetBatchPrediction where
 --
 -- /See:/ 'getBatchPredictionResponse' smart constructor.
 data GetBatchPredictionResponse = GetBatchPredictionResponse'
-  { _gbprsStatus                      :: {-# NOUNPACK #-}!(Maybe EntityStatus)
-  , _gbprsLastUpdatedAt               :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gbprsCreatedAt                   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gbprsComputeTime                 :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gbprsInputDataLocationS3         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbprsMLModelId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbprsBatchPredictionDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbprsTotalRecordCount            :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gbprsStartedAt                   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gbprsBatchPredictionId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbprsFinishedAt                  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gbprsInvalidRecordCount          :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gbprsCreatedByIAMUser            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbprsName                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbprsLogURI                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbprsMessage                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbprsOutputURI                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbprsResponseStatus              :: {-# NOUNPACK #-}!Int
+  { _gbprsStatus                      :: !(Maybe EntityStatus)
+  , _gbprsLastUpdatedAt               :: !(Maybe POSIX)
+  , _gbprsCreatedAt                   :: !(Maybe POSIX)
+  , _gbprsComputeTime                 :: !(Maybe Integer)
+  , _gbprsInputDataLocationS3         :: !(Maybe Text)
+  , _gbprsMLModelId                   :: !(Maybe Text)
+  , _gbprsBatchPredictionDataSourceId :: !(Maybe Text)
+  , _gbprsTotalRecordCount            :: !(Maybe Integer)
+  , _gbprsStartedAt                   :: !(Maybe POSIX)
+  , _gbprsBatchPredictionId           :: !(Maybe Text)
+  , _gbprsFinishedAt                  :: !(Maybe POSIX)
+  , _gbprsInvalidRecordCount          :: !(Maybe Integer)
+  , _gbprsCreatedByIAMUser            :: !(Maybe Text)
+  , _gbprsName                        :: !(Maybe Text)
+  , _gbprsLogURI                      :: !(Maybe Text)
+  , _gbprsMessage                     :: !(Maybe Text)
+  , _gbprsOutputURI                   :: !(Maybe Text)
+  , _gbprsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

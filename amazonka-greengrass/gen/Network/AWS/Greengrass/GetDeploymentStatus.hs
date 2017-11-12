@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getDeploymentStatus' smart constructor.
 data GetDeploymentStatus = GetDeploymentStatus'
-  { _gdsGroupId      :: {-# NOUNPACK #-}!Text
-  , _gdsDeploymentId :: {-# NOUNPACK #-}!Text
+  { _gdsGroupId      :: !Text
+  , _gdsDeploymentId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,12 +115,12 @@ instance ToQuery GetDeploymentStatus where
 
 -- | /See:/ 'getDeploymentStatusResponse' smart constructor.
 data GetDeploymentStatusResponse = GetDeploymentStatusResponse'
-  { _gdsrsDeploymentType   :: {-# NOUNPACK #-}!(Maybe DeploymentType)
-  , _gdsrsErrorDetails     :: {-# NOUNPACK #-}!(Maybe [ErrorDetail])
-  , _gdsrsDeploymentStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsUpdatedAt        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsErrorMessage     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _gdsrsDeploymentType   :: !(Maybe DeploymentType)
+  , _gdsrsErrorDetails     :: !(Maybe [ErrorDetail])
+  , _gdsrsDeploymentStatus :: !(Maybe Text)
+  , _gdsrsUpdatedAt        :: !(Maybe Text)
+  , _gdsrsErrorMessage     :: !(Maybe Text)
+  , _gdsrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

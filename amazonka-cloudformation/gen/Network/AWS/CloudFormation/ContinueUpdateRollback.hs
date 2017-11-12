@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'continueUpdateRollback' smart constructor.
 data ContinueUpdateRollback = ContinueUpdateRollback'
-  { _curResourcesToSkip    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _curClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _curRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _curStackName          :: {-# NOUNPACK #-}!Text
+  { _curResourcesToSkip    :: !(Maybe [Text])
+  , _curClientRequestToken :: !(Maybe Text)
+  , _curRoleARN            :: !(Maybe Text)
+  , _curStackName          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

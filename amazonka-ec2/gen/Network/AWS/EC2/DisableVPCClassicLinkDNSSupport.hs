@@ -107,8 +107,8 @@ instance ToQuery DisableVPCClassicLinkDNSSupport
 --
 -- /See:/ 'disableVPCClassicLinkDNSSupportResponse' smart constructor.
 data DisableVPCClassicLinkDNSSupportResponse = DisableVPCClassicLinkDNSSupportResponse'
-  { _dvcldsrsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dvcldsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvcldsrsReturn         :: !(Maybe Bool)
+  , _dvcldsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listAllowedNodeTypeModifications' smart constructor.
 data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
-  { _lantmCacheClusterId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lantmReplicationGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lantmCacheClusterId     :: !(Maybe Text)
+  , _lantmReplicationGroupId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery ListAllowedNodeTypeModifications
 --
 -- /See:/ 'listAllowedNodeTypeModificationsResponse' smart constructor.
 data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModificationsResponse'
-  { _lantmrsScaleUpModifications :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lantmrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _lantmrsScaleUpModifications :: !(Maybe [Text])
+  , _lantmrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

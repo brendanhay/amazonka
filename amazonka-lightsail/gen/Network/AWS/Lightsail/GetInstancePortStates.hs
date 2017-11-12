@@ -105,8 +105,8 @@ instance ToQuery GetInstancePortStates where
 
 -- | /See:/ 'getInstancePortStatesResponse' smart constructor.
 data GetInstancePortStatesResponse = GetInstancePortStatesResponse'
-  { _gipsrsPortStates     :: {-# NOUNPACK #-}!(Maybe [InstancePortState])
-  , _gipsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gipsrsPortStates     :: !(Maybe [InstancePortState])
+  , _gipsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

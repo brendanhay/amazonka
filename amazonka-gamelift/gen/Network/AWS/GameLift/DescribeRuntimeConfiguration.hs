@@ -165,8 +165,8 @@ instance ToQuery DescribeRuntimeConfiguration where
 --
 -- /See:/ 'describeRuntimeConfigurationResponse' smart constructor.
 data DescribeRuntimeConfigurationResponse = DescribeRuntimeConfigurationResponse'
-  { _drcrsRuntimeConfiguration :: {-# NOUNPACK #-}!(Maybe RuntimeConfiguration)
-  , _drcrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _drcrsRuntimeConfiguration :: !(Maybe RuntimeConfiguration)
+  , _drcrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

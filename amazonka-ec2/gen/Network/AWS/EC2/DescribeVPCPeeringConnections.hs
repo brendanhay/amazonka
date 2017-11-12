@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeVPCPeeringConnections' smart constructor.
 data DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'
-  { _dvpcpcFilters                 :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dvpcpcVPCPeeringConnectionIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvpcpcDryRun                  :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dvpcpcFilters                 :: !(Maybe [Filter])
+  , _dvpcpcVPCPeeringConnectionIds :: !(Maybe [Text])
+  , _dvpcpcDryRun                  :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance ToQuery DescribeVPCPeeringConnections where
 --
 -- /See:/ 'describeVPCPeeringConnectionsResponse' smart constructor.
 data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
-  { _dvpcpcrsVPCPeeringConnections :: {-# NOUNPACK #-}!(Maybe [VPCPeeringConnection])
-  , _dvpcpcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvpcpcrsVPCPeeringConnections :: !(Maybe [VPCPeeringConnection])
+  , _dvpcpcrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

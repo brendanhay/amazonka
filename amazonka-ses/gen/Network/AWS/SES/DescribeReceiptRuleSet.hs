@@ -112,9 +112,9 @@ instance ToQuery DescribeReceiptRuleSet where
 --
 -- /See:/ 'describeReceiptRuleSetResponse' smart constructor.
 data DescribeReceiptRuleSetResponse = DescribeReceiptRuleSetResponse'
-  { _desrsRules          :: {-# NOUNPACK #-}!(Maybe [ReceiptRule])
-  , _desrsMetadata       :: {-# NOUNPACK #-}!(Maybe ReceiptRuleSetMetadata)
-  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _desrsRules          :: !(Maybe [ReceiptRule])
+  , _desrsMetadata       :: !(Maybe ReceiptRuleSetMetadata)
+  , _desrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

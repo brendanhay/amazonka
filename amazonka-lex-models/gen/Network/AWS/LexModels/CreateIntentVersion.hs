@@ -65,8 +65,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createIntentVersion' smart constructor.
 data CreateIntentVersion = CreateIntentVersion'
-  { _civChecksum :: {-# NOUNPACK #-}!(Maybe Text)
-  , _civName     :: {-# NOUNPACK #-}!Text
+  { _civChecksum :: !(Maybe Text)
+  , _civName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,22 +142,22 @@ instance ToQuery CreateIntentVersion where
 
 -- | /See:/ 'createIntentVersionResponse' smart constructor.
 data CreateIntentVersionResponse = CreateIntentVersionResponse'
-  { _civrsFulfillmentActivity   :: {-# NOUNPACK #-}!(Maybe FulfillmentActivity)
-  , _civrsSlots                 :: {-# NOUNPACK #-}!(Maybe [Slot])
-  , _civrsRejectionStatement    :: {-# NOUNPACK #-}!(Maybe Statement)
-  , _civrsChecksum              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _civrsConclusionStatement   :: {-# NOUNPACK #-}!(Maybe Statement)
-  , _civrsSampleUtterances      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _civrsParentIntentSignature :: {-# NOUNPACK #-}!(Maybe Text)
-  , _civrsCreatedDate           :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _civrsName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _civrsVersion               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _civrsFollowUpPrompt        :: {-# NOUNPACK #-}!(Maybe FollowUpPrompt)
-  , _civrsLastUpdatedDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _civrsConfirmationPrompt    :: {-# NOUNPACK #-}!(Maybe Prompt)
-  , _civrsDialogCodeHook        :: {-# NOUNPACK #-}!(Maybe CodeHook)
-  , _civrsDescription           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _civrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _civrsFulfillmentActivity   :: !(Maybe FulfillmentActivity)
+  , _civrsSlots                 :: !(Maybe [Slot])
+  , _civrsRejectionStatement    :: !(Maybe Statement)
+  , _civrsChecksum              :: !(Maybe Text)
+  , _civrsConclusionStatement   :: !(Maybe Statement)
+  , _civrsSampleUtterances      :: !(Maybe [Text])
+  , _civrsParentIntentSignature :: !(Maybe Text)
+  , _civrsCreatedDate           :: !(Maybe POSIX)
+  , _civrsName                  :: !(Maybe Text)
+  , _civrsVersion               :: !(Maybe Text)
+  , _civrsFollowUpPrompt        :: !(Maybe FollowUpPrompt)
+  , _civrsLastUpdatedDate       :: !(Maybe POSIX)
+  , _civrsConfirmationPrompt    :: !(Maybe Prompt)
+  , _civrsDialogCodeHook        :: !(Maybe CodeHook)
+  , _civrsDescription           :: !(Maybe Text)
+  , _civrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

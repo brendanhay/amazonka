@@ -105,33 +105,33 @@ import Network.AWS.Response
 --
 -- /See:/ 'runInstances' smart constructor.
 data RunInstances = RunInstances'
-  { _rAdditionalInfo :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rDisableAPITermination :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rKeyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rNetworkInterfaces :: {-# NOUNPACK #-}!(Maybe [InstanceNetworkInterfaceSpecification])
-  , _rRAMDiskId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rKernelId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rInstanceType :: {-# NOUNPACK #-}!(Maybe InstanceType)
-  , _rEBSOptimized :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rUserData :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rMonitoring :: {-# NOUNPACK #-}!(Maybe RunInstancesMonitoringEnabled)
-  , _rTagSpecifications :: {-# NOUNPACK #-}!(Maybe [TagSpecification])
-  , _rIPv6AddressCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rIAMInstanceProfile :: {-# NOUNPACK #-}!(Maybe IAMInstanceProfileSpecification)
-  , _rElasticGpuSpecification :: {-# NOUNPACK #-}!(Maybe [ElasticGpuSpecification])
-  , _rPrivateIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rInstanceInitiatedShutdownBehavior :: {-# NOUNPACK #-}!(Maybe ShutdownBehavior)
-  , _rBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
-  , _rDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rPlacement :: {-# NOUNPACK #-}!(Maybe Placement)
-  , _rIPv6Addresses :: {-# NOUNPACK #-}!(Maybe [InstanceIPv6Address])
-  , _rImageId :: {-# NOUNPACK #-}!Text
-  , _rMaxCount :: {-# NOUNPACK #-}!Int
-  , _rMinCount :: {-# NOUNPACK #-}!Int
+  { _rAdditionalInfo :: !(Maybe Text)
+  , _rSecurityGroupIds :: !(Maybe [Text])
+  , _rSecurityGroups :: !(Maybe [Text])
+  , _rClientToken :: !(Maybe Text)
+  , _rDisableAPITermination :: !(Maybe Bool)
+  , _rKeyName :: !(Maybe Text)
+  , _rNetworkInterfaces :: !(Maybe [InstanceNetworkInterfaceSpecification])
+  , _rRAMDiskId :: !(Maybe Text)
+  , _rSubnetId :: !(Maybe Text)
+  , _rKernelId :: !(Maybe Text)
+  , _rInstanceType :: !(Maybe InstanceType)
+  , _rEBSOptimized :: !(Maybe Bool)
+  , _rUserData :: !(Maybe Text)
+  , _rMonitoring :: !(Maybe RunInstancesMonitoringEnabled)
+  , _rTagSpecifications :: !(Maybe [TagSpecification])
+  , _rIPv6AddressCount :: !(Maybe Int)
+  , _rIAMInstanceProfile :: !(Maybe IAMInstanceProfileSpecification)
+  , _rElasticGpuSpecification :: !(Maybe [ElasticGpuSpecification])
+  , _rPrivateIPAddress :: !(Maybe Text)
+  , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
+  , _rBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+  , _rDryRun :: !(Maybe Bool)
+  , _rPlacement :: !(Maybe Placement)
+  , _rIPv6Addresses :: !(Maybe [InstanceIPv6Address])
+  , _rImageId :: !Text
+  , _rMaxCount :: !Int
+  , _rMinCount :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

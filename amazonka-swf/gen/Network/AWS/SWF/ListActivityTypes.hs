@@ -69,12 +69,12 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'listActivityTypes' smart constructor.
 data ListActivityTypes = ListActivityTypes'
-  { _latNextPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _latReverseOrder       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _latName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _latMaximumPageSize    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _latDomain             :: {-# NOUNPACK #-}!Text
-  , _latRegistrationStatus :: {-# NOUNPACK #-}!RegistrationStatus
+  { _latNextPageToken      :: !(Maybe Text)
+  , _latReverseOrder       :: !(Maybe Bool)
+  , _latName               :: !(Maybe Text)
+  , _latMaximumPageSize    :: !(Maybe Nat)
+  , _latDomain             :: !Text
+  , _latRegistrationStatus :: !RegistrationStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -188,9 +188,9 @@ instance ToQuery ListActivityTypes where
 --
 -- /See:/ 'listActivityTypesResponse' smart constructor.
 data ListActivityTypesResponse = ListActivityTypesResponse'
-  { _latrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _latrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _latrsTypeInfos      :: {-# NOUNPACK #-}![ActivityTypeInfo]
+  { _latrsNextPageToken  :: !(Maybe Text)
+  , _latrsResponseStatus :: !Int
+  , _latrsTypeInfos      :: ![ActivityTypeInfo]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

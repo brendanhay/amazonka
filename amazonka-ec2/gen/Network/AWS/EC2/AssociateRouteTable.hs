@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'associateRouteTable' smart constructor.
 data AssociateRouteTable = AssociateRouteTable'
-  { _artDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _artRouteTableId :: {-# NOUNPACK #-}!Text
-  , _artSubnetId     :: {-# NOUNPACK #-}!Text
+  { _artDryRun       :: !(Maybe Bool)
+  , _artRouteTableId :: !Text
+  , _artSubnetId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery AssociateRouteTable where
 --
 -- /See:/ 'associateRouteTableResponse' smart constructor.
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
-  { _artrsAssociationId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _artrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _artrsAssociationId  :: !(Maybe Text)
+  , _artrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

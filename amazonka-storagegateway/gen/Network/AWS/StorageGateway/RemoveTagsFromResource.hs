@@ -51,8 +51,8 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'removeTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-  { _rtfrResourceARN :: {-# NOUNPACK #-}!Text
-  , _rtfrTagKeys     :: {-# NOUNPACK #-}![Text]
+  { _rtfrResourceARN :: !Text
+  , _rtfrTagKeys     :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery RemoveTagsFromResource where
 --
 -- /See:/ 'removeTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-  { _rtfrrsResourceARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rtfrrsResourceARN    :: !(Maybe Text)
+  , _rtfrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

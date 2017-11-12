@@ -68,11 +68,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeCacheClusters' smart constructor.
 data DescribeCacheClusters = DescribeCacheClusters'
-  { _dShowCacheClustersNotInReplicationGroups :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dCacheClusterId                          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dMarker                                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dMaxRecords                              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dShowCacheNodeInfo                       :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dShowCacheClustersNotInReplicationGroups :: !(Maybe Bool)
+  , _dCacheClusterId                          :: !(Maybe Text)
+  , _dMarker                                  :: !(Maybe Text)
+  , _dMaxRecords                              :: !(Maybe Int)
+  , _dShowCacheNodeInfo                       :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -167,9 +167,9 @@ instance ToQuery DescribeCacheClusters where
 --
 -- /See:/ 'describeCacheClustersResponse' smart constructor.
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
-  { _drsCacheClusters  :: {-# NOUNPACK #-}!(Maybe [CacheCluster])
-  , _drsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsCacheClusters  :: !(Maybe [CacheCluster])
+  , _drsMarker         :: !(Maybe Text)
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -64,22 +64,22 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyInstanceAttribute' smart constructor.
 data ModifyInstanceAttribute = ModifyInstanceAttribute'
-  { _mGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mAttribute :: {-# NOUNPACK #-}!(Maybe InstanceAttributeName)
-  , _mEnaSupport :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _mSourceDestCheck :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _mDisableAPITermination :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _mKernel :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _mRAMDisk :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _mValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mInstanceType :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _mSRIOVNetSupport :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _mEBSOptimized :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _mUserData :: {-# NOUNPACK #-}!(Maybe BlobAttributeValue)
-  , _mInstanceInitiatedShutdownBehavior :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _mBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [InstanceBlockDeviceMappingSpecification])
-  , _mDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mInstanceId :: {-# NOUNPACK #-}!Text
+  { _mGroups :: !(Maybe [Text])
+  , _mAttribute :: !(Maybe InstanceAttributeName)
+  , _mEnaSupport :: !(Maybe AttributeBooleanValue)
+  , _mSourceDestCheck :: !(Maybe AttributeBooleanValue)
+  , _mDisableAPITermination :: !(Maybe AttributeBooleanValue)
+  , _mKernel :: !(Maybe AttributeValue)
+  , _mRAMDisk :: !(Maybe AttributeValue)
+  , _mValue :: !(Maybe Text)
+  , _mInstanceType :: !(Maybe AttributeValue)
+  , _mSRIOVNetSupport :: !(Maybe AttributeValue)
+  , _mEBSOptimized :: !(Maybe AttributeBooleanValue)
+  , _mUserData :: !(Maybe BlobAttributeValue)
+  , _mInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
+  , _mBlockDeviceMappings :: !(Maybe [InstanceBlockDeviceMappingSpecification])
+  , _mDryRun :: !(Maybe Bool)
+  , _mInstanceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

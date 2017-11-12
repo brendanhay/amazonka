@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createSubscriptionDefinitionVersion' smart constructor.
 data CreateSubscriptionDefinitionVersion = CreateSubscriptionDefinitionVersion'
-  { _csdvAmznClientToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdvSubscriptions            :: {-# NOUNPACK #-}!(Maybe [Subscription])
-  , _csdvSubscriptionDefinitionId :: {-# NOUNPACK #-}!Text
+  { _csdvAmznClientToken          :: !(Maybe Text)
+  , _csdvSubscriptions            :: !(Maybe [Subscription])
+  , _csdvSubscriptionDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,11 +137,11 @@ instance ToQuery CreateSubscriptionDefinitionVersion
 
 -- | /See:/ 'createSubscriptionDefinitionVersionResponse' smart constructor.
 data CreateSubscriptionDefinitionVersionResponse = CreateSubscriptionDefinitionVersionResponse'
-  { _csdvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _csdvrsARN               :: !(Maybe Text)
+  , _csdvrsCreationTimestamp :: !(Maybe Text)
+  , _csdvrsVersion           :: !(Maybe Text)
+  , _csdvrsId                :: !(Maybe Text)
+  , _csdvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

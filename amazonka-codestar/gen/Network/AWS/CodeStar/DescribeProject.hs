@@ -113,15 +113,15 @@ instance ToQuery DescribeProject where
 
 -- | /See:/ 'describeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
-  { _drsArn                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsProjectTemplateId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsName               :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _drsId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsStackId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsCreatedTimeStamp   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _drsDescription        :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _drsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _drsArn                :: !(Maybe Text)
+  , _drsProjectTemplateId  :: !(Maybe Text)
+  , _drsName               :: !(Maybe (Sensitive Text))
+  , _drsId                 :: !(Maybe Text)
+  , _drsStackId            :: !(Maybe Text)
+  , _drsClientRequestToken :: !(Maybe Text)
+  , _drsCreatedTimeStamp   :: !(Maybe POSIX)
+  , _drsDescription        :: !(Maybe (Sensitive Text))
+  , _drsResponseStatus     :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

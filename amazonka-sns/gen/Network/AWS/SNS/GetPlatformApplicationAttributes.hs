@@ -115,8 +115,8 @@ instance ToQuery GetPlatformApplicationAttributes
 --
 -- /See:/ 'getPlatformApplicationAttributesResponse' smart constructor.
 data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'
-  { _gpaarsAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gpaarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gpaarsAttributes     :: !(Maybe (Map Text Text))
+  , _gpaarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

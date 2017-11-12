@@ -46,8 +46,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'deleteProduct' smart constructor.
 data DeleteProduct = DeleteProduct'
-  { _delAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _delId             :: {-# NOUNPACK #-}!Text
+  { _delAcceptLanguage :: !(Maybe Text)
+  , _delId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -103,8 +103,8 @@ instance ToQuery ReleaseStaticIP where
 
 -- | /See:/ 'releaseStaticIPResponse' smart constructor.
 data ReleaseStaticIPResponse = ReleaseStaticIPResponse'
-  { _rsirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _rsirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rsirsOperations     :: !(Maybe [Operation])
+  , _rsirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

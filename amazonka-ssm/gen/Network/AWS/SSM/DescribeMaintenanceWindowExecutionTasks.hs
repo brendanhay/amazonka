@@ -50,10 +50,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeMaintenanceWindowExecutionTasks' smart constructor.
 data DescribeMaintenanceWindowExecutionTasks = DescribeMaintenanceWindowExecutionTasks'
-  { _dmwetFilters :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowFilter])
-  , _dmwetNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmwetMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dmwetWindowExecutionId :: {-# NOUNPACK #-}!Text
+  { _dmwetFilters           :: !(Maybe [MaintenanceWindowFilter])
+  , _dmwetNextToken         :: !(Maybe Text)
+  , _dmwetMaxResults        :: !(Maybe Nat)
+  , _dmwetWindowExecutionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,9 +154,9 @@ instance ToQuery
 
 -- | /See:/ 'describeMaintenanceWindowExecutionTasksResponse' smart constructor.
 data DescribeMaintenanceWindowExecutionTasksResponse = DescribeMaintenanceWindowExecutionTasksResponse'
-  { _dmwetrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmwetrsWindowExecutionTaskIdentities :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowExecutionTaskIdentity])
-  , _dmwetrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmwetrsNextToken :: !(Maybe Text)
+  , _dmwetrsWindowExecutionTaskIdentities :: !(Maybe [MaintenanceWindowExecutionTaskIdentity])
+  , _dmwetrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

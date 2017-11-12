@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getFileUploadURL' smart constructor.
 data GetFileUploadURL = GetFileUploadURL'
-  { _gfuuAssignmentId       :: {-# NOUNPACK #-}!Text
-  , _gfuuQuestionIdentifier :: {-# NOUNPACK #-}!Text
+  { _gfuuAssignmentId       :: !Text
+  , _gfuuQuestionIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,8 +117,8 @@ instance ToQuery GetFileUploadURL where
 
 -- | /See:/ 'getFileUploadURLResponse' smart constructor.
 data GetFileUploadURLResponse = GetFileUploadURLResponse'
-  { _gfuursFileUploadURL  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfuursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gfuursFileUploadURL  :: !(Maybe Text)
+  , _gfuursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

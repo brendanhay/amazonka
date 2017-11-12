@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateConnectivityInfo' smart constructor.
 data UpdateConnectivityInfo = UpdateConnectivityInfo'
-  { _uciConnectivityInfo :: {-# NOUNPACK #-}!(Maybe [ConnectivityInfo])
-  , _uciThingName        :: {-# NOUNPACK #-}!Text
+  { _uciConnectivityInfo :: !(Maybe [ConnectivityInfo])
+  , _uciThingName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,9 +115,9 @@ instance ToQuery UpdateConnectivityInfo where
 
 -- | /See:/ 'updateConnectivityInfoResponse' smart constructor.
 data UpdateConnectivityInfoResponse = UpdateConnectivityInfoResponse'
-  { _ucirsVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucirsMessage        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ucirsVersion        :: !(Maybe Text)
+  , _ucirsMessage        :: !(Maybe Text)
+  , _ucirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

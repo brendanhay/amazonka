@@ -55,10 +55,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVPNGateway' smart constructor.
 data CreateVPNGateway = CreateVPNGateway'
-  { _cvgAmazonSideASN    :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cvgAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cvgDryRun           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cvgType             :: {-# NOUNPACK #-}!GatewayType
+  { _cvgAmazonSideASN    :: !(Maybe Integer)
+  , _cvgAvailabilityZone :: !(Maybe Text)
+  , _cvgDryRun           :: !(Maybe Bool)
+  , _cvgType             :: !GatewayType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,8 +135,8 @@ instance ToQuery CreateVPNGateway where
 --
 -- /See:/ 'createVPNGatewayResponse' smart constructor.
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
-  { _cvgrsVPNGateway     :: {-# NOUNPACK #-}!(Maybe VPNGateway)
-  , _cvgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cvgrsVPNGateway     :: !(Maybe VPNGateway)
+  , _cvgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

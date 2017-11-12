@@ -27,9 +27,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'awsSessionCredentials' smart constructor.
 data AWSSessionCredentials = AWSSessionCredentials'
-  { _ascAccessKeyId     :: {-# NOUNPACK #-}!Text
-  , _ascSecretAccessKey :: {-# NOUNPACK #-}!Text
-  , _ascSessionToken    :: {-# NOUNPACK #-}!Text
+  { _ascAccessKeyId     :: !Text
+  , _ascSecretAccessKey :: !Text
+  , _ascSessionToken    :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -120,13 +120,13 @@ instance NFData ActionConfiguration where
 --
 -- /See:/ 'actionConfigurationProperty' smart constructor.
 data ActionConfigurationProperty = ActionConfigurationProperty'
-  { _acpQueryable   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _acpType        :: {-# NOUNPACK #-}!(Maybe ActionConfigurationPropertyType)
-  , _acpDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acpName        :: {-# NOUNPACK #-}!Text
-  , _acpRequired    :: {-# NOUNPACK #-}!Bool
-  , _acpKey         :: {-# NOUNPACK #-}!Bool
-  , _acpSecret      :: {-# NOUNPACK #-}!Bool
+  { _acpQueryable   :: !(Maybe Bool)
+  , _acpType        :: !(Maybe ActionConfigurationPropertyType)
+  , _acpDescription :: !(Maybe Text)
+  , _acpName        :: !Text
+  , _acpRequired    :: !Bool
+  , _acpKey         :: !Bool
+  , _acpSecret      :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -260,13 +260,13 @@ instance NFData ActionContext where
 --
 -- /See:/ 'actionDeclaration' smart constructor.
 data ActionDeclaration = ActionDeclaration'
-  { _adOutputArtifacts :: {-# NOUNPACK #-}!(Maybe [OutputArtifact])
-  , _adRunOrder        :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _adConfiguration   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _adInputArtifacts  :: {-# NOUNPACK #-}!(Maybe [InputArtifact])
-  , _adRoleARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _adName            :: {-# NOUNPACK #-}!Text
-  , _adActionTypeId    :: {-# NOUNPACK #-}!ActionTypeId
+  { _adOutputArtifacts :: !(Maybe [OutputArtifact])
+  , _adRunOrder        :: !(Maybe Nat)
+  , _adConfiguration   :: !(Maybe (Map Text Text))
+  , _adInputArtifacts  :: !(Maybe [InputArtifact])
+  , _adRoleARN         :: !(Maybe Text)
+  , _adName            :: !Text
+  , _adActionTypeId    :: !ActionTypeId
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -366,15 +366,15 @@ instance ToJSON ActionDeclaration where
 --
 -- /See:/ 'actionExecution' smart constructor.
 data ActionExecution = ActionExecution'
-  { _aeLastUpdatedBy        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aeSummary              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aeStatus               :: {-# NOUNPACK #-}!(Maybe ActionExecutionStatus)
-  , _aeLastStatusChange     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _aeToken                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aeExternalExecutionURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aeExternalExecutionId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aeErrorDetails         :: {-# NOUNPACK #-}!(Maybe ErrorDetails)
-  , _aePercentComplete      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _aeLastUpdatedBy        :: !(Maybe Text)
+  , _aeSummary              :: !(Maybe Text)
+  , _aeStatus               :: !(Maybe ActionExecutionStatus)
+  , _aeLastStatusChange     :: !(Maybe POSIX)
+  , _aeToken                :: !(Maybe Text)
+  , _aeExternalExecutionURL :: !(Maybe Text)
+  , _aeExternalExecutionId  :: !(Maybe Text)
+  , _aeErrorDetails         :: !(Maybe ErrorDetails)
+  , _aePercentComplete      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -475,9 +475,9 @@ instance NFData ActionExecution where
 --
 -- /See:/ 'actionRevision' smart constructor.
 data ActionRevision = ActionRevision'
-  { _aRevisionId       :: {-# NOUNPACK #-}!Text
-  , _aRevisionChangeId :: {-# NOUNPACK #-}!Text
-  , _aCreated          :: {-# NOUNPACK #-}!POSIX
+  { _aRevisionId       :: !Text
+  , _aRevisionChangeId :: !Text
+  , _aCreated          :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -541,11 +541,11 @@ instance ToJSON ActionRevision where
 --
 -- /See:/ 'actionState' smart constructor.
 data ActionState = ActionState'
-  { _asRevisionURL     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asEntityURL       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asActionName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asCurrentRevision :: {-# NOUNPACK #-}!(Maybe ActionRevision)
-  , _asLatestExecution :: {-# NOUNPACK #-}!(Maybe ActionExecution)
+  { _asRevisionURL     :: !(Maybe Text)
+  , _asEntityURL       :: !(Maybe Text)
+  , _asActionName      :: !(Maybe Text)
+  , _asCurrentRevision :: !(Maybe ActionRevision)
+  , _asLatestExecution :: !(Maybe ActionExecution)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -614,11 +614,11 @@ instance NFData ActionState where
 --
 -- /See:/ 'actionType' smart constructor.
 data ActionType = ActionType'
-  { _atSettings :: {-# NOUNPACK #-}!(Maybe ActionTypeSettings)
-  , _atActionConfigurationProperties :: {-# NOUNPACK #-}!(Maybe [ActionConfigurationProperty])
-  , _atId :: {-# NOUNPACK #-}!ActionTypeId
-  , _atInputArtifactDetails :: {-# NOUNPACK #-}!ArtifactDetails
-  , _atOutputArtifactDetails :: {-# NOUNPACK #-}!ArtifactDetails
+  { _atSettings                      :: !(Maybe ActionTypeSettings)
+  , _atActionConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
+  , _atId                            :: !ActionTypeId
+  , _atInputArtifactDetails          :: !ArtifactDetails
+  , _atOutputArtifactDetails         :: !ArtifactDetails
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -691,10 +691,10 @@ instance NFData ActionType where
 --
 -- /See:/ 'actionTypeId' smart constructor.
 data ActionTypeId = ActionTypeId'
-  { _atiCategory :: {-# NOUNPACK #-}!ActionCategory
-  , _atiOwner    :: {-# NOUNPACK #-}!ActionOwner
-  , _atiProvider :: {-# NOUNPACK #-}!Text
-  , _atiVersion  :: {-# NOUNPACK #-}!Text
+  { _atiCategory :: !ActionCategory
+  , _atiOwner    :: !ActionOwner
+  , _atiProvider :: !Text
+  , _atiVersion  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -768,10 +768,10 @@ instance ToJSON ActionTypeId where
 --
 -- /See:/ 'actionTypeSettings' smart constructor.
 data ActionTypeSettings = ActionTypeSettings'
-  { _atsThirdPartyConfigurationURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atsExecutionURLTemplate       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atsRevisionURLTemplate        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atsEntityURLTemplate          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _atsThirdPartyConfigurationURL :: !(Maybe Text)
+  , _atsExecutionURLTemplate       :: !(Maybe Text)
+  , _atsRevisionURLTemplate        :: !(Maybe Text)
+  , _atsEntityURLTemplate          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -845,8 +845,8 @@ instance ToJSON ActionTypeSettings where
 --
 -- /See:/ 'approvalResult' smart constructor.
 data ApprovalResult = ApprovalResult'
-  { _arSummary :: {-# NOUNPACK #-}!Text
-  , _arStatus  :: {-# NOUNPACK #-}!ApprovalStatus
+  { _arSummary :: !Text
+  , _arStatus  :: !ApprovalStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -890,9 +890,9 @@ instance ToJSON ApprovalResult where
 --
 -- /See:/ 'artifact' smart constructor.
 data Artifact = Artifact'
-  { _aLocation :: {-# NOUNPACK #-}!(Maybe ArtifactLocation)
-  , _aName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aRevision :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aLocation :: !(Maybe ArtifactLocation)
+  , _aName     :: !(Maybe Text)
+  , _aRevision :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -941,8 +941,8 @@ instance NFData Artifact where
 --
 -- /See:/ 'artifactDetails' smart constructor.
 data ArtifactDetails = ArtifactDetails'
-  { _adMinimumCount :: {-# NOUNPACK #-}!Nat
-  , _adMaximumCount :: {-# NOUNPACK #-}!Nat
+  { _adMinimumCount :: !Nat
+  , _adMaximumCount :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -996,8 +996,8 @@ instance ToJSON ArtifactDetails where
 --
 -- /See:/ 'artifactLocation' smart constructor.
 data ArtifactLocation = ArtifactLocation'
-  { _alS3Location :: {-# NOUNPACK #-}!(Maybe S3ArtifactLocation)
-  , _alType       :: {-# NOUNPACK #-}!(Maybe ArtifactLocationType)
+  { _alS3Location :: !(Maybe S3ArtifactLocation)
+  , _alType       :: !(Maybe ArtifactLocationType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1039,12 +1039,12 @@ instance NFData ArtifactLocation where
 --
 -- /See:/ 'artifactRevision' smart constructor.
 data ArtifactRevision = ArtifactRevision'
-  { _arRevisionSummary          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arRevisionURL              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arCreated                  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _arName                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arRevisionId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arRevisionChangeIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  { _arRevisionSummary          :: !(Maybe Text)
+  , _arRevisionURL              :: !(Maybe Text)
+  , _arCreated                  :: !(Maybe POSIX)
+  , _arName                     :: !(Maybe Text)
+  , _arRevisionId               :: !(Maybe Text)
+  , _arRevisionChangeIdentifier :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1121,9 +1121,9 @@ instance NFData ArtifactRevision where
 --
 -- /See:/ 'artifactStore' smart constructor.
 data ArtifactStore = ArtifactStore'
-  { _asEncryptionKey :: {-# NOUNPACK #-}!(Maybe EncryptionKey)
-  , _asType          :: {-# NOUNPACK #-}!ArtifactStoreType
-  , _asLocation      :: {-# NOUNPACK #-}!Text
+  { _asEncryptionKey :: !(Maybe EncryptionKey)
+  , _asType          :: !ArtifactStoreType
+  , _asLocation      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1183,8 +1183,8 @@ instance ToJSON ArtifactStore where
 --
 -- /See:/ 'blockerDeclaration' smart constructor.
 data BlockerDeclaration = BlockerDeclaration'
-  { _bdName :: {-# NOUNPACK #-}!Text
-  , _bdType :: {-# NOUNPACK #-}!BlockerType
+  { _bdName :: !Text
+  , _bdType :: !BlockerType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1234,10 +1234,10 @@ instance ToJSON BlockerDeclaration where
 --
 -- /See:/ 'currentRevision' smart constructor.
 data CurrentRevision = CurrentRevision'
-  { _crRevisionSummary  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crCreated          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _crRevision         :: {-# NOUNPACK #-}!Text
-  , _crChangeIdentifier :: {-# NOUNPACK #-}!Text
+  { _crRevisionSummary  :: !(Maybe Text)
+  , _crCreated          :: !(Maybe POSIX)
+  , _crRevision         :: !Text
+  , _crChangeIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1300,8 +1300,8 @@ instance ToJSON CurrentRevision where
 --
 -- /See:/ 'encryptionKey' smart constructor.
 data EncryptionKey = EncryptionKey'
-  { _ekId   :: {-# NOUNPACK #-}!Text
-  , _ekType :: {-# NOUNPACK #-}!EncryptionKeyType
+  { _ekId   :: !Text
+  , _ekType :: !EncryptionKeyType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1349,8 +1349,8 @@ instance ToJSON EncryptionKey where
 --
 -- /See:/ 'errorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
-  { _edCode    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _edCode    :: !(Maybe Text)
+  , _edMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1391,9 +1391,9 @@ instance NFData ErrorDetails where
 --
 -- /See:/ 'executionDetails' smart constructor.
 data ExecutionDetails = ExecutionDetails'
-  { _edSummary             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edExternalExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edPercentComplete     :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _edSummary             :: !(Maybe Text)
+  , _edExternalExecutionId :: !(Maybe Text)
+  , _edPercentComplete     :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1447,9 +1447,9 @@ instance ToJSON ExecutionDetails where
 --
 -- /See:/ 'failureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-  { _fdExternalExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fdType                :: {-# NOUNPACK #-}!FailureType
-  , _fdMessage             :: {-# NOUNPACK #-}!Text
+  { _fdExternalExecutionId :: !(Maybe Text)
+  , _fdType                :: !FailureType
+  , _fdMessage             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1540,10 +1540,10 @@ instance ToJSON InputArtifact where
 --
 -- /See:/ 'job' smart constructor.
 data Job = Job'
-  { _jData      :: {-# NOUNPACK #-}!(Maybe JobData)
-  , _jAccountId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jNonce     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _jData      :: !(Maybe JobData)
+  , _jAccountId :: !(Maybe Text)
+  , _jId        :: !(Maybe Text)
+  , _jNonce     :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1600,14 +1600,14 @@ instance NFData Job where
 --
 -- /See:/ 'jobData' smart constructor.
 data JobData = JobData'
-  { _jdContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jdOutputArtifacts :: {-# NOUNPACK #-}!(Maybe [Artifact])
-  , _jdArtifactCredentials :: {-# NOUNPACK #-}!(Maybe (Sensitive AWSSessionCredentials))
-  , _jdPipelineContext :: {-# NOUNPACK #-}!(Maybe PipelineContext)
-  , _jdEncryptionKey :: {-# NOUNPACK #-}!(Maybe EncryptionKey)
-  , _jdActionTypeId :: {-# NOUNPACK #-}!(Maybe ActionTypeId)
-  , _jdInputArtifacts :: {-# NOUNPACK #-}!(Maybe [Artifact])
-  , _jdActionConfiguration :: {-# NOUNPACK #-}!(Maybe ActionConfiguration)
+  { _jdContinuationToken   :: !(Maybe Text)
+  , _jdOutputArtifacts     :: !(Maybe [Artifact])
+  , _jdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
+  , _jdPipelineContext     :: !(Maybe PipelineContext)
+  , _jdEncryptionKey       :: !(Maybe EncryptionKey)
+  , _jdActionTypeId        :: !(Maybe ActionTypeId)
+  , _jdInputArtifacts      :: !(Maybe [Artifact])
+  , _jdActionConfiguration :: !(Maybe ActionConfiguration)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1701,9 +1701,9 @@ instance NFData JobData where
 --
 -- /See:/ 'jobDetails' smart constructor.
 data JobDetails = JobDetails'
-  { _jdData      :: {-# NOUNPACK #-}!(Maybe JobData)
-  , _jdAccountId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jdId        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _jdData      :: !(Maybe JobData)
+  , _jdAccountId :: !(Maybe Text)
+  , _jdId        :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1790,9 +1790,9 @@ instance ToJSON OutputArtifact where
 --
 -- /See:/ 'pipelineContext' smart constructor.
 data PipelineContext = PipelineContext'
-  { _pcStage        :: {-# NOUNPACK #-}!(Maybe StageContext)
-  , _pcPipelineName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pcAction       :: {-# NOUNPACK #-}!(Maybe ActionContext)
+  { _pcStage        :: !(Maybe StageContext)
+  , _pcPipelineName :: !(Maybe Text)
+  , _pcAction       :: !(Maybe ActionContext)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1842,11 +1842,11 @@ instance NFData PipelineContext where
 --
 -- /See:/ 'pipelineDeclaration' smart constructor.
 data PipelineDeclaration = PipelineDeclaration'
-  { _pdVersion       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _pdName          :: {-# NOUNPACK #-}!Text
-  , _pdRoleARN       :: {-# NOUNPACK #-}!Text
-  , _pdArtifactStore :: {-# NOUNPACK #-}!ArtifactStore
-  , _pdStages        :: {-# NOUNPACK #-}![StageDeclaration]
+  { _pdVersion       :: !(Maybe Nat)
+  , _pdName          :: !Text
+  , _pdRoleARN       :: !Text
+  , _pdArtifactStore :: !ArtifactStore
+  , _pdStages        :: ![StageDeclaration]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1928,11 +1928,11 @@ instance ToJSON PipelineDeclaration where
 --
 -- /See:/ 'pipelineExecution' smart constructor.
 data PipelineExecution = PipelineExecution'
-  { _peStatus              :: {-# NOUNPACK #-}!(Maybe PipelineExecutionStatus)
-  , _pePipelineName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pePipelineVersion     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _pePipelineExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _peArtifactRevisions   :: {-# NOUNPACK #-}!(Maybe [ArtifactRevision])
+  { _peStatus              :: !(Maybe PipelineExecutionStatus)
+  , _pePipelineName        :: !(Maybe Text)
+  , _pePipelineVersion     :: !(Maybe Nat)
+  , _pePipelineExecutionId :: !(Maybe Text)
+  , _peArtifactRevisions   :: !(Maybe [ArtifactRevision])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2001,10 +2001,10 @@ instance NFData PipelineExecution where
 --
 -- /See:/ 'pipelineExecutionSummary' smart constructor.
 data PipelineExecutionSummary = PipelineExecutionSummary'
-  { _pesStatus              :: {-# NOUNPACK #-}!(Maybe PipelineExecutionStatus)
-  , _pesStartTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pesPipelineExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pesLastUpdateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _pesStatus              :: !(Maybe PipelineExecutionStatus)
+  , _pesStartTime           :: !(Maybe POSIX)
+  , _pesPipelineExecutionId :: !(Maybe Text)
+  , _pesLastUpdateTime      :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2065,9 +2065,9 @@ instance NFData PipelineExecutionSummary where
 --
 -- /See:/ 'pipelineMetadata' smart constructor.
 data PipelineMetadata = PipelineMetadata'
-  { _pmCreated     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pmPipelineARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmUpdated     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _pmCreated     :: !(Maybe POSIX)
+  , _pmPipelineARN :: !(Maybe Text)
+  , _pmUpdated     :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2117,10 +2117,10 @@ instance NFData PipelineMetadata where
 --
 -- /See:/ 'pipelineSummary' smart constructor.
 data PipelineSummary = PipelineSummary'
-  { _psCreated :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _psName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psVersion :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _psUpdated :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _psCreated :: !(Maybe POSIX)
+  , _psName    :: !(Maybe Text)
+  , _psVersion :: !(Maybe Nat)
+  , _psUpdated :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2181,8 +2181,8 @@ instance NFData PipelineSummary where
 --
 -- /See:/ 's3ArtifactLocation' smart constructor.
 data S3ArtifactLocation = S3ArtifactLocation'
-  { _salBucketName :: {-# NOUNPACK #-}!Text
-  , _salObjectKey  :: {-# NOUNPACK #-}!Text
+  { _salBucketName :: !Text
+  , _salObjectKey  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2260,9 +2260,9 @@ instance NFData StageContext where
 --
 -- /See:/ 'stageDeclaration' smart constructor.
 data StageDeclaration = StageDeclaration'
-  { _sdBlockers :: {-# NOUNPACK #-}!(Maybe [BlockerDeclaration])
-  , _sdName     :: {-# NOUNPACK #-}!Text
-  , _sdActions  :: {-# NOUNPACK #-}![ActionDeclaration]
+  { _sdBlockers :: !(Maybe [BlockerDeclaration])
+  , _sdName     :: !Text
+  , _sdActions  :: ![ActionDeclaration]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2321,8 +2321,8 @@ instance ToJSON StageDeclaration where
 --
 -- /See:/ 'stageExecution' smart constructor.
 data StageExecution = StageExecution'
-  { _sePipelineExecutionId :: {-# NOUNPACK #-}!Text
-  , _seStatus              :: {-# NOUNPACK #-}!StageExecutionStatus
+  { _sePipelineExecutionId :: !Text
+  , _seStatus              :: !StageExecutionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2367,10 +2367,10 @@ instance NFData StageExecution where
 --
 -- /See:/ 'stageState' smart constructor.
 data StageState = StageState'
-  { _ssInboundTransitionState :: {-# NOUNPACK #-}!(Maybe TransitionState)
-  , _ssActionStates           :: {-# NOUNPACK #-}!(Maybe [ActionState])
-  , _ssStageName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssLatestExecution        :: {-# NOUNPACK #-}!(Maybe StageExecution)
+  { _ssInboundTransitionState :: !(Maybe TransitionState)
+  , _ssActionStates           :: !(Maybe [ActionState])
+  , _ssStageName              :: !(Maybe Text)
+  , _ssLatestExecution        :: !(Maybe StageExecution)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2432,8 +2432,8 @@ instance NFData StageState where
 --
 -- /See:/ 'thirdPartyJob' smart constructor.
 data ThirdPartyJob = ThirdPartyJob'
-  { _tpjClientId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tpjJobId    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tpjClientId :: !(Maybe Text)
+  , _tpjJobId    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2474,14 +2474,14 @@ instance NFData ThirdPartyJob where
 --
 -- /See:/ 'thirdPartyJobData' smart constructor.
 data ThirdPartyJobData = ThirdPartyJobData'
-  { _tpjdContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tpjdOutputArtifacts :: {-# NOUNPACK #-}!(Maybe [Artifact])
-  , _tpjdArtifactCredentials :: {-# NOUNPACK #-}!(Maybe (Sensitive AWSSessionCredentials))
-  , _tpjdPipelineContext :: {-# NOUNPACK #-}!(Maybe PipelineContext)
-  , _tpjdEncryptionKey :: {-# NOUNPACK #-}!(Maybe EncryptionKey)
-  , _tpjdActionTypeId :: {-# NOUNPACK #-}!(Maybe ActionTypeId)
-  , _tpjdInputArtifacts :: {-# NOUNPACK #-}!(Maybe [Artifact])
-  , _tpjdActionConfiguration :: {-# NOUNPACK #-}!(Maybe ActionConfiguration)
+  { _tpjdContinuationToken   :: !(Maybe Text)
+  , _tpjdOutputArtifacts     :: !(Maybe [Artifact])
+  , _tpjdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
+  , _tpjdPipelineContext     :: !(Maybe PipelineContext)
+  , _tpjdEncryptionKey       :: !(Maybe EncryptionKey)
+  , _tpjdActionTypeId        :: !(Maybe ActionTypeId)
+  , _tpjdInputArtifacts      :: !(Maybe [Artifact])
+  , _tpjdActionConfiguration :: !(Maybe ActionConfiguration)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -2575,9 +2575,9 @@ instance NFData ThirdPartyJobData where
 --
 -- /See:/ 'thirdPartyJobDetails' smart constructor.
 data ThirdPartyJobDetails = ThirdPartyJobDetails'
-  { _tpjdData  :: {-# NOUNPACK #-}!(Maybe ThirdPartyJobData)
-  , _tpjdId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tpjdNonce :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tpjdData  :: !(Maybe ThirdPartyJobData)
+  , _tpjdId    :: !(Maybe Text)
+  , _tpjdNonce :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -2626,10 +2626,10 @@ instance NFData ThirdPartyJobDetails where
 --
 -- /See:/ 'transitionState' smart constructor.
 data TransitionState = TransitionState'
-  { _tsEnabled        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tsDisabledReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tsLastChangedAt  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tsLastChangedBy  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tsEnabled        :: !(Maybe Bool)
+  , _tsDisabledReason :: !(Maybe Text)
+  , _tsLastChangedAt  :: !(Maybe POSIX)
+  , _tsLastChangedBy  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

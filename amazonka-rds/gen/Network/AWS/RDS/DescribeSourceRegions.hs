@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeSourceRegions' smart constructor.
 data DescribeSourceRegions = DescribeSourceRegions'
-  { _dsrRegionName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsrFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dsrMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsrMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dsrRegionName :: !(Maybe Text)
+  , _dsrFilters    :: !(Maybe [Filter])
+  , _dsrMarker     :: !(Maybe Text)
+  , _dsrMaxRecords :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery DescribeSourceRegions where
 --
 -- /See:/ 'describeSourceRegionsResponse' smart constructor.
 data DescribeSourceRegionsResponse = DescribeSourceRegionsResponse'
-  { _dsrrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsrrsSourceRegions  :: {-# NOUNPACK #-}!(Maybe [SourceRegion])
-  , _dsrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsrrsMarker         :: !(Maybe Text)
+  , _dsrrsSourceRegions  :: !(Maybe [SourceRegion])
+  , _dsrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

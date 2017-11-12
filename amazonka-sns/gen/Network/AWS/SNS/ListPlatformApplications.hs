@@ -116,9 +116,9 @@ instance ToQuery ListPlatformApplications where
 --
 -- /See:/ 'listPlatformApplicationsResponse' smart constructor.
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
-  { _lparsPlatformApplications :: {-# NOUNPACK #-}!(Maybe [PlatformApplication])
-  , _lparsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lparsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _lparsPlatformApplications :: !(Maybe [PlatformApplication])
+  , _lparsNextToken            :: !(Maybe Text)
+  , _lparsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

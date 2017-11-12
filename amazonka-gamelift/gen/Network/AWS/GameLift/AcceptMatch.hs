@@ -69,9 +69,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'acceptMatch' smart constructor.
 data AcceptMatch = AcceptMatch'
-  { _amTicketId       :: {-# NOUNPACK #-}!Text
-  , _amPlayerIds      :: {-# NOUNPACK #-}![Text]
-  , _amAcceptanceType :: {-# NOUNPACK #-}!AcceptanceType
+  { _amTicketId       :: !Text
+  , _amPlayerIds      :: ![Text]
+  , _amAcceptanceType :: !AcceptanceType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

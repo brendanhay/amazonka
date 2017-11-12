@@ -52,13 +52,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'generateDataSet' smart constructor.
 data GenerateDataSet = GenerateDataSet'
-  { _gdsCustomerDefinedValues   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gdsDestinationS3Prefix     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsDataSetType             :: {-# NOUNPACK #-}!DataSetType
-  , _gdsDataSetPublicationDate  :: {-# NOUNPACK #-}!POSIX
-  , _gdsRoleNameARN             :: {-# NOUNPACK #-}!Text
-  , _gdsDestinationS3BucketName :: {-# NOUNPACK #-}!Text
-  , _gdsSnsTopicARN             :: {-# NOUNPACK #-}!Text
+  { _gdsCustomerDefinedValues   :: !(Maybe (Map Text Text))
+  , _gdsDestinationS3Prefix     :: !(Maybe Text)
+  , _gdsDataSetType             :: !DataSetType
+  , _gdsDataSetPublicationDate  :: !POSIX
+  , _gdsRoleNameARN             :: !Text
+  , _gdsDestinationS3BucketName :: !Text
+  , _gdsSnsTopicARN             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -177,8 +177,8 @@ instance ToQuery GenerateDataSet where
 --
 -- /See:/ 'generateDataSetResponse' smart constructor.
 data GenerateDataSetResponse = GenerateDataSetResponse'
-  { _gdsrsDataSetRequestId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _gdsrsDataSetRequestId :: !(Maybe Text)
+  , _gdsrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -60,8 +60,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putMetricData' smart constructor.
 data PutMetricData = PutMetricData'
-  { _pmdNamespace  :: {-# NOUNPACK #-}!Text
-  , _pmdMetricData :: {-# NOUNPACK #-}![MetricDatum]
+  { _pmdNamespace  :: !Text
+  , _pmdMetricData :: ![MetricDatum]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

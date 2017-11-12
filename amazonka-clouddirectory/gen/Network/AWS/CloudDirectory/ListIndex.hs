@@ -52,12 +52,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'listIndex' smart constructor.
 data ListIndex = ListIndex'
-  { _liRangesOnIndexedValues :: {-# NOUNPACK #-}!(Maybe [ObjectAttributeRange])
-  , _liConsistencyLevel      :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
-  , _liNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liMaxResults            :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _liDirectoryARN          :: {-# NOUNPACK #-}!Text
-  , _liIndexReference        :: {-# NOUNPACK #-}!ObjectReference
+  { _liRangesOnIndexedValues :: !(Maybe [ObjectAttributeRange])
+  , _liConsistencyLevel      :: !(Maybe ConsistencyLevel)
+  , _liNextToken             :: !(Maybe Text)
+  , _liMaxResults            :: !(Maybe Nat)
+  , _liDirectoryARN          :: !Text
+  , _liIndexReference        :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,9 +156,9 @@ instance ToQuery ListIndex where
 
 -- | /See:/ 'listIndexResponse' smart constructor.
 data ListIndexResponse = ListIndexResponse'
-  { _lirsIndexAttachments :: {-# NOUNPACK #-}!(Maybe [IndexAttachment])
-  , _lirsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _lirsIndexAttachments :: !(Maybe [IndexAttachment])
+  , _lirsNextToken        :: !(Maybe Text)
+  , _lirsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

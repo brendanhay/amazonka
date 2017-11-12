@@ -96,8 +96,8 @@ instance ToQuery PurchaseProvisionedCapacity where
 
 -- | /See:/ 'purchaseProvisionedCapacityResponse' smart constructor.
 data PurchaseProvisionedCapacityResponse = PurchaseProvisionedCapacityResponse'
-  { _ppcrsCapacityId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ppcrsCapacityId     :: !(Maybe Text)
+  , _ppcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

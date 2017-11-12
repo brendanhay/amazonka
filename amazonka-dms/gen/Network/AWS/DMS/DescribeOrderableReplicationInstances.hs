@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeOrderableReplicationInstances' smart constructor.
 data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstances'
-  { _doriMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _doriMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  { _doriMarker     :: !(Maybe Text)
+  , _doriMaxRecords :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery
 --
 -- /See:/ 'describeOrderableReplicationInstancesResponse' smart constructor.
 data DescribeOrderableReplicationInstancesResponse = DescribeOrderableReplicationInstancesResponse'
-  { _dorirsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dorirsOrderableReplicationInstances :: {-# NOUNPACK #-}!(Maybe [OrderableReplicationInstance])
-  , _dorirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dorirsMarker :: !(Maybe Text)
+  , _dorirsOrderableReplicationInstances :: !(Maybe [OrderableReplicationInstance])
+  , _dorirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

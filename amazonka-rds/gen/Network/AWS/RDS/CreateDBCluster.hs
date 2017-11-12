@@ -75,28 +75,28 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDBCluster' smart constructor.
 data CreateDBCluster = CreateDBCluster'
-  { _cdcEngineVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcStorageEncrypted                :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdcMasterUserPassword              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcReplicationSourceIdentifier     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcMasterUsername                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcPreSignedURL                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcPreferredMaintenanceWindow      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcAvailabilityZones               :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdcCharacterSetName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcPreferredBackupWindow           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcBackupRetentionPeriod           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdcVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdcDatabaseName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcDBClusterParameterGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdcTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cdcPort                            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdcEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdcDBClusterIdentifier             :: {-# NOUNPACK #-}!Text
-  , _cdcEngine                          :: {-# NOUNPACK #-}!Text
+  { _cdcEngineVersion                   :: !(Maybe Text)
+  , _cdcStorageEncrypted                :: !(Maybe Bool)
+  , _cdcMasterUserPassword              :: !(Maybe Text)
+  , _cdcReplicationSourceIdentifier     :: !(Maybe Text)
+  , _cdcMasterUsername                  :: !(Maybe Text)
+  , _cdcDBSubnetGroupName               :: !(Maybe Text)
+  , _cdcPreSignedURL                    :: !(Maybe Text)
+  , _cdcPreferredMaintenanceWindow      :: !(Maybe Text)
+  , _cdcAvailabilityZones               :: !(Maybe [Text])
+  , _cdcCharacterSetName                :: !(Maybe Text)
+  , _cdcKMSKeyId                        :: !(Maybe Text)
+  , _cdcPreferredBackupWindow           :: !(Maybe Text)
+  , _cdcBackupRetentionPeriod           :: !(Maybe Int)
+  , _cdcVPCSecurityGroupIds             :: !(Maybe [Text])
+  , _cdcDatabaseName                    :: !(Maybe Text)
+  , _cdcDBClusterParameterGroupName     :: !(Maybe Text)
+  , _cdcOptionGroupName                 :: !(Maybe Text)
+  , _cdcTags                            :: !(Maybe [Tag])
+  , _cdcPort                            :: !(Maybe Int)
+  , _cdcEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+  , _cdcDBClusterIdentifier             :: !Text
+  , _cdcEngine                          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -325,8 +325,8 @@ instance ToQuery CreateDBCluster where
 
 -- | /See:/ 'createDBClusterResponse' smart constructor.
 data CreateDBClusterResponse = CreateDBClusterResponse'
-  { _cdcrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
-  , _cdcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdcrsDBCluster      :: !(Maybe DBCluster)
+  , _cdcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

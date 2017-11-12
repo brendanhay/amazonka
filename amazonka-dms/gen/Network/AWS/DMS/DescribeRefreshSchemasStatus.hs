@@ -114,8 +114,8 @@ instance ToQuery DescribeRefreshSchemasStatus where
 --
 -- /See:/ 'describeRefreshSchemasStatusResponse' smart constructor.
 data DescribeRefreshSchemasStatusResponse = DescribeRefreshSchemasStatusResponse'
-  { _drssrsRefreshSchemasStatus :: {-# NOUNPACK #-}!(Maybe RefreshSchemasStatus)
-  , _drssrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _drssrsRefreshSchemasStatus :: !(Maybe RefreshSchemasStatus)
+  , _drssrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

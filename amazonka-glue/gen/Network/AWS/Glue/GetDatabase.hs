@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getDatabase' smart constructor.
 data GetDatabase = GetDatabase'
-  { _gddCatalogId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddName      :: {-# NOUNPACK #-}!Text
+  { _gddCatalogId :: !(Maybe Text)
+  , _gddName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,8 +110,8 @@ instance ToQuery GetDatabase where
 
 -- | /See:/ 'getDatabaseResponse' smart constructor.
 data GetDatabaseResponse = GetDatabaseResponse'
-  { _gdrsDatabase       :: {-# NOUNPACK #-}!(Maybe Database)
-  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdrsDatabase       :: !(Maybe Database)
+  , _gdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

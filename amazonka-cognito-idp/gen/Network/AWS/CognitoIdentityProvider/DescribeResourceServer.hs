@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeResourceServer' smart constructor.
 data DescribeResourceServer = DescribeResourceServer'
-  { _desUserPoolId :: {-# NOUNPACK #-}!Text
-  , _desIdentifier :: {-# NOUNPACK #-}!Text
+  { _desUserPoolId :: !Text
+  , _desIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery DescribeResourceServer where
 
 -- | /See:/ 'describeResourceServerResponse' smart constructor.
 data DescribeResourceServerResponse = DescribeResourceServerResponse'
-  { _drsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _drsrsResourceServer :: {-# NOUNPACK #-}!ResourceServerType
+  { _drsrsResponseStatus :: !Int
+  , _drsrsResourceServer :: !ResourceServerType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

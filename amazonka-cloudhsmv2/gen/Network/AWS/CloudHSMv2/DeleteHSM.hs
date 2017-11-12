@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteHSM' smart constructor.
 data DeleteHSM = DeleteHSM'
-  { _dhEniId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhHSMId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhEniIP     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhClusterId :: {-# NOUNPACK #-}!Text
+  { _dhEniId     :: !(Maybe Text)
+  , _dhHSMId     :: !(Maybe Text)
+  , _dhEniIP     :: !(Maybe Text)
+  , _dhClusterId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,8 +133,8 @@ instance ToQuery DeleteHSM where
 
 -- | /See:/ 'deleteHSMResponse' smart constructor.
 data DeleteHSMResponse = DeleteHSMResponse'
-  { _dhrsHSMId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dhrsHSMId          :: !(Maybe Text)
+  , _dhrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

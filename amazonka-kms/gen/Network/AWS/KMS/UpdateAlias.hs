@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-  { _uaAliasName   :: {-# NOUNPACK #-}!Text
-  , _uaTargetKeyId :: {-# NOUNPACK #-}!Text
+  { _uaAliasName   :: !Text
+  , _uaTargetKeyId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

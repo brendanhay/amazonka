@@ -59,9 +59,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getMaintenanceWindowExecutionTaskInvocation' smart constructor.
 data GetMaintenanceWindowExecutionTaskInvocation = GetMaintenanceWindowExecutionTaskInvocation'
-  { _gmwetiWindowExecutionId :: {-# NOUNPACK #-}!Text
-  , _gmwetiTaskId            :: {-# NOUNPACK #-}!Text
-  , _gmwetiInvocationId      :: {-# NOUNPACK #-}!Text
+  { _gmwetiWindowExecutionId :: !Text
+  , _gmwetiTaskId            :: !Text
+  , _gmwetiInvocationId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -167,19 +167,19 @@ instance ToQuery
 
 -- | /See:/ 'getMaintenanceWindowExecutionTaskInvocationResponse' smart constructor.
 data GetMaintenanceWindowExecutionTaskInvocationResponse = GetMaintenanceWindowExecutionTaskInvocationResponse'
-  { _gmwetirsStatus :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowExecutionStatus)
-  , _gmwetirsExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwetirsTaskExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwetirsStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gmwetirsInvocationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwetirsOwnerInformation :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _gmwetirsTaskType :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskType)
-  , _gmwetirsWindowTargetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwetirsWindowExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwetirsStatusDetails :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwetirsEndTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gmwetirsParameters :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _gmwetirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gmwetirsStatus            :: !(Maybe MaintenanceWindowExecutionStatus)
+  , _gmwetirsExecutionId       :: !(Maybe Text)
+  , _gmwetirsTaskExecutionId   :: !(Maybe Text)
+  , _gmwetirsStartTime         :: !(Maybe POSIX)
+  , _gmwetirsInvocationId      :: !(Maybe Text)
+  , _gmwetirsOwnerInformation  :: !(Maybe (Sensitive Text))
+  , _gmwetirsTaskType          :: !(Maybe MaintenanceWindowTaskType)
+  , _gmwetirsWindowTargetId    :: !(Maybe Text)
+  , _gmwetirsWindowExecutionId :: !(Maybe Text)
+  , _gmwetirsStatusDetails     :: !(Maybe Text)
+  , _gmwetirsEndTime           :: !(Maybe POSIX)
+  , _gmwetirsParameters        :: !(Maybe (Sensitive Text))
+  , _gmwetirsResponseStatus    :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

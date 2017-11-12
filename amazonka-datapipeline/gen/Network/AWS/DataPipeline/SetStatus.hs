@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'setStatus' smart constructor.
 data SetStatus = SetStatus'
-  { _ssPipelineId :: {-# NOUNPACK #-}!Text
-  , _ssObjectIds  :: {-# NOUNPACK #-}![Text]
-  , _ssStatus     :: {-# NOUNPACK #-}!Text
+  { _ssPipelineId :: !Text
+  , _ssObjectIds  :: ![Text]
+  , _ssStatus     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

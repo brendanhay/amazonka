@@ -45,9 +45,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateServiceSpecificCredential' smart constructor.
 data UpdateServiceSpecificCredential = UpdateServiceSpecificCredential'
-  { _usscUserName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usscServiceSpecificCredentialId :: {-# NOUNPACK #-}!Text
-  , _usscStatus                      :: {-# NOUNPACK #-}!StatusType
+  { _usscUserName                    :: !(Maybe Text)
+  , _usscServiceSpecificCredentialId :: !Text
+  , _usscStatus                      :: !StatusType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

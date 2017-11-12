@@ -64,12 +64,12 @@ import Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'sendMessage' smart constructor.
 data SendMessage = SendMessage'
-  { _smMessageAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text MessageAttributeValue))
-  , _smDelaySeconds :: {-# NOUNPACK #-}!(Maybe Int)
-  , _smMessageDeduplicationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smMessageGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smQueueURL :: {-# NOUNPACK #-}!Text
-  , _smMessageBody :: {-# NOUNPACK #-}!Text
+  { _smMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
+  , _smDelaySeconds           :: !(Maybe Int)
+  , _smMessageDeduplicationId :: !(Maybe Text)
+  , _smMessageGroupId         :: !(Maybe Text)
+  , _smQueueURL               :: !Text
+  , _smMessageBody            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -170,11 +170,11 @@ instance ToQuery SendMessage where
 --
 -- /See:/ 'sendMessageResponse' smart constructor.
 data SendMessageResponse = SendMessageResponse'
-  { _smrsSequenceNumber         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smrsMessageId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smrsMD5OfMessageBody       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smrsMD5OfMessageAttributes :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _smrsSequenceNumber         :: !(Maybe Text)
+  , _smrsMessageId              :: !(Maybe Text)
+  , _smrsMD5OfMessageBody       :: !(Maybe Text)
+  , _smrsMD5OfMessageAttributes :: !(Maybe Text)
+  , _smrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

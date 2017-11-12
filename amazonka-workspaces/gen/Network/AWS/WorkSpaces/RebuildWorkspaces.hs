@@ -125,8 +125,8 @@ instance ToQuery RebuildWorkspaces where
 --
 -- /See:/ 'rebuildWorkspacesResponse' smart constructor.
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
-  { _rwrsFailedRequests :: {-# NOUNPACK #-}!(Maybe [FailedWorkspaceChangeRequest])
-  , _rwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rwrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
+  , _rwrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

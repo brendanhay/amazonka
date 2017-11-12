@@ -62,14 +62,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeScheduledInstanceAvailability' smart constructor.
 data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailability'
-  { _dsiaMinSlotDurationInHours :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsiaFilters :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dsiaNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsiaMaxSlotDurationInHours :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsiaDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsiaMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsiaFirstSlotStartTimeRange :: {-# NOUNPACK #-}!SlotDateTimeRangeRequest
-  , _dsiaRecurrence :: {-# NOUNPACK #-}!ScheduledInstanceRecurrenceRequest
+  { _dsiaMinSlotDurationInHours  :: !(Maybe Int)
+  , _dsiaFilters                 :: !(Maybe [Filter])
+  , _dsiaNextToken               :: !(Maybe Text)
+  , _dsiaMaxSlotDurationInHours  :: !(Maybe Int)
+  , _dsiaDryRun                  :: !(Maybe Bool)
+  , _dsiaMaxResults              :: !(Maybe Int)
+  , _dsiaFirstSlotStartTimeRange :: !SlotDateTimeRangeRequest
+  , _dsiaRecurrence              :: !ScheduledInstanceRecurrenceRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -199,9 +199,9 @@ instance ToQuery
 --
 -- /See:/ 'describeScheduledInstanceAvailabilityResponse' smart constructor.
 data DescribeScheduledInstanceAvailabilityResponse = DescribeScheduledInstanceAvailabilityResponse'
-  { _dsiarsScheduledInstanceAvailabilitySet :: {-# NOUNPACK #-}!(Maybe [ScheduledInstanceAvailability])
-  , _dsiarsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsiarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsiarsScheduledInstanceAvailabilitySet :: !(Maybe [ScheduledInstanceAvailability])
+  , _dsiarsNextToken :: !(Maybe Text)
+  , _dsiarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

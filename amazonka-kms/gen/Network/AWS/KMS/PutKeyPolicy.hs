@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'putKeyPolicy' smart constructor.
 data PutKeyPolicy = PutKeyPolicy'
-  { _pkpBypassPolicyLockoutSafetyCheck :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pkpKeyId                          :: {-# NOUNPACK #-}!Text
-  , _pkpPolicyName                     :: {-# NOUNPACK #-}!Text
-  , _pkpPolicy                         :: {-# NOUNPACK #-}!Text
+  { _pkpBypassPolicyLockoutSafetyCheck :: !(Maybe Bool)
+  , _pkpKeyId                          :: !Text
+  , _pkpPolicyName                     :: !Text
+  , _pkpPolicy                         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

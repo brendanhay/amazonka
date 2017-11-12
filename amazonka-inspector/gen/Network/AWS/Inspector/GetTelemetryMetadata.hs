@@ -105,8 +105,8 @@ instance ToQuery GetTelemetryMetadata where
 
 -- | /See:/ 'getTelemetryMetadataResponse' smart constructor.
 data GetTelemetryMetadataResponse = GetTelemetryMetadataResponse'
-  { _gtmrsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _gtmrsTelemetryMetadata :: {-# NOUNPACK #-}![TelemetryMetadata]
+  { _gtmrsResponseStatus    :: !Int
+  , _gtmrsTelemetryMetadata :: ![TelemetryMetadata]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

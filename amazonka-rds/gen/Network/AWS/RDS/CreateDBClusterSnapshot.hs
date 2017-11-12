@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDBClusterSnapshot' smart constructor.
 data CreateDBClusterSnapshot = CreateDBClusterSnapshot'
-  { _cdcsTags                        :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cdcsDBClusterSnapshotIdentifier :: {-# NOUNPACK #-}!Text
-  , _cdcsDBClusterIdentifier         :: {-# NOUNPACK #-}!Text
+  { _cdcsTags                        :: !(Maybe [Tag])
+  , _cdcsDBClusterSnapshotIdentifier :: !Text
+  , _cdcsDBClusterIdentifier         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery CreateDBClusterSnapshot where
 
 -- | /See:/ 'createDBClusterSnapshotResponse' smart constructor.
 data CreateDBClusterSnapshotResponse = CreateDBClusterSnapshotResponse'
-  { _cdbcsrsDBClusterSnapshot :: {-# NOUNPACK #-}!(Maybe DBClusterSnapshot)
-  , _cdbcsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _cdbcsrsDBClusterSnapshot :: !(Maybe DBClusterSnapshot)
+  , _cdbcsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

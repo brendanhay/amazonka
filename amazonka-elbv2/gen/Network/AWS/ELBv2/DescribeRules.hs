@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeRules' smart constructor.
 data DescribeRules = DescribeRules'
-  { _drListenerARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drMarker      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drRuleARNs    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _drPageSize    :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _drListenerARN :: !(Maybe Text)
+  , _drMarker      :: !(Maybe Text)
+  , _drRuleARNs    :: !(Maybe [Text])
+  , _drPageSize    :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance ToQuery DescribeRules where
 
 -- | /See:/ 'describeRulesResponse' smart constructor.
 data DescribeRulesResponse = DescribeRulesResponse'
-  { _drsrsRules          :: {-# NOUNPACK #-}!(Maybe [Rule])
-  , _drsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsrsRules          :: !(Maybe [Rule])
+  , _drsrsNextMarker     :: !(Maybe Text)
+  , _drsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

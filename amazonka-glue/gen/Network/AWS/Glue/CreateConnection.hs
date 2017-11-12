@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createConnection' smart constructor.
 data CreateConnection = CreateConnection'
-  { _ccCatalogId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccConnectionInput :: {-# NOUNPACK #-}!ConnectionInput
+  { _ccCatalogId       :: !(Maybe Text)
+  , _ccConnectionInput :: !ConnectionInput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

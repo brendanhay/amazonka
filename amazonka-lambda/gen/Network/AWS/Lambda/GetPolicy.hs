@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getPolicy' smart constructor.
 data GetPolicy = GetPolicy'
-  { _gpQualifier    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpFunctionName :: {-# NOUNPACK #-}!Text
+  { _gpQualifier    :: !(Maybe Text)
+  , _gpFunctionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery GetPolicy where
 --
 -- /See:/ 'getPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-  { _gprsPolicy         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gprsPolicy         :: !(Maybe Text)
+  , _gprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

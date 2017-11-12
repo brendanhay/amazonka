@@ -60,10 +60,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'indexFaces' smart constructor.
 data IndexFaces = IndexFaces'
-  { _ifExternalImageId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ifDetectionAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _ifCollectionId        :: {-# NOUNPACK #-}!Text
-  , _ifImage               :: {-# NOUNPACK #-}!Image
+  { _ifExternalImageId     :: !(Maybe Text)
+  , _ifDetectionAttributes :: !(Maybe [Attribute])
+  , _ifCollectionId        :: !Text
+  , _ifImage               :: !Image
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery IndexFaces where
 
 -- | /See:/ 'indexFacesResponse' smart constructor.
 data IndexFacesResponse = IndexFacesResponse'
-  { _ifrsFaceRecords           :: {-# NOUNPACK #-}!(Maybe [FaceRecord])
-  , _ifrsOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
-  , _ifrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _ifrsFaceRecords           :: !(Maybe [FaceRecord])
+  , _ifrsOrientationCorrection :: !(Maybe OrientationCorrection)
+  , _ifrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

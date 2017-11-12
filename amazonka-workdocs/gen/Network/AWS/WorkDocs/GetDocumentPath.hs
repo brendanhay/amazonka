@@ -52,11 +52,11 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getDocumentPath' smart constructor.
 data GetDocumentPath = GetDocumentPath'
-  { _gdpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _gdpMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdpLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gdpFields              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdpDocumentId          :: {-# NOUNPACK #-}!Text
+  { _gdpAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _gdpMarker              :: !(Maybe Text)
+  , _gdpLimit               :: !(Maybe Nat)
+  , _gdpFields              :: !(Maybe Text)
+  , _gdpDocumentId          :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -139,8 +139,8 @@ instance ToQuery GetDocumentPath where
 
 -- | /See:/ 'getDocumentPathResponse' smart constructor.
 data GetDocumentPathResponse = GetDocumentPathResponse'
-  { _gdprsPath           :: {-# NOUNPACK #-}!(Maybe ResourcePath)
-  , _gdprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdprsPath           :: !(Maybe ResourcePath)
+  , _gdprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

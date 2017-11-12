@@ -54,9 +54,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getGroup' smart constructor.
 data GetGroup = GetGroup'
-  { _ggMarker    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggMaxItems  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ggGroupName :: {-# NOUNPACK #-}!Text
+  { _ggMarker    :: !(Maybe Text)
+  , _ggMaxItems  :: !(Maybe Nat)
+  , _ggGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,11 +133,11 @@ instance ToQuery GetGroup where
 --
 -- /See:/ 'getGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-  { _ggrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggrsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ggrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ggrsGroup          :: {-# NOUNPACK #-}!Group
-  , _ggrsUsers          :: {-# NOUNPACK #-}![User]
+  { _ggrsMarker         :: !(Maybe Text)
+  , _ggrsIsTruncated    :: !(Maybe Bool)
+  , _ggrsResponseStatus :: !Int
+  , _ggrsGroup          :: !Group
+  , _ggrsUsers          :: ![User]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

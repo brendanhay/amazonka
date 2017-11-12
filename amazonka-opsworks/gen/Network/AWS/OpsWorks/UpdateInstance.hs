@@ -56,18 +56,18 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateInstance' smart constructor.
 data UpdateInstance = UpdateInstance'
-  { _uiInstallUpdatesOnBoot :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uiHostname             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uiSSHKeyName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uiAgentVersion         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uiInstanceType         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uiEBSOptimized         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uiOS                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uiAutoScalingType      :: {-# NOUNPACK #-}!(Maybe AutoScalingType)
-  , _uiLayerIds             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uiArchitecture         :: {-# NOUNPACK #-}!(Maybe Architecture)
-  , _uiAMIId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uiInstanceId           :: {-# NOUNPACK #-}!Text
+  { _uiInstallUpdatesOnBoot :: !(Maybe Bool)
+  , _uiHostname             :: !(Maybe Text)
+  , _uiSSHKeyName           :: !(Maybe Text)
+  , _uiAgentVersion         :: !(Maybe Text)
+  , _uiInstanceType         :: !(Maybe Text)
+  , _uiEBSOptimized         :: !(Maybe Bool)
+  , _uiOS                   :: !(Maybe Text)
+  , _uiAutoScalingType      :: !(Maybe AutoScalingType)
+  , _uiLayerIds             :: !(Maybe [Text])
+  , _uiArchitecture         :: !(Maybe Architecture)
+  , _uiAMIId                :: !(Maybe Text)
+  , _uiInstanceId           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -94,8 +94,8 @@ instance ToQuery GetQueryLoggingConfig where
 
 -- | /See:/ 'getQueryLoggingConfigResponse' smart constructor.
 data GetQueryLoggingConfigResponse = GetQueryLoggingConfigResponse'
-  { _gqlcrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _gqlcrsQueryLoggingConfig :: {-# NOUNPACK #-}!QueryLoggingConfig
+  { _gqlcrsResponseStatus     :: !Int
+  , _gqlcrsQueryLoggingConfig :: !QueryLoggingConfig
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,9 +47,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'sendAutomationSignal' smart constructor.
 data SendAutomationSignal = SendAutomationSignal'
-  { _sasPayload               :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _sasAutomationExecutionId :: {-# NOUNPACK #-}!Text
-  , _sasSignalType            :: {-# NOUNPACK #-}!SignalType
+  { _sasPayload               :: !(Maybe (Map Text [Text]))
+  , _sasAutomationExecutionId :: !Text
+  , _sasSignalType            :: !SignalType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

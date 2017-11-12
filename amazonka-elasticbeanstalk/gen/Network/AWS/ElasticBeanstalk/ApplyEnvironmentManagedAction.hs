@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'applyEnvironmentManagedAction' smart constructor.
 data ApplyEnvironmentManagedAction = ApplyEnvironmentManagedAction'
-  { _aemaEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aemaEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aemaActionId        :: {-# NOUNPACK #-}!Text
+  { _aemaEnvironmentName :: !(Maybe Text)
+  , _aemaEnvironmentId   :: !(Maybe Text)
+  , _aemaActionId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,11 +135,11 @@ instance ToQuery ApplyEnvironmentManagedAction where
 --
 -- /See:/ 'applyEnvironmentManagedActionResponse' smart constructor.
 data ApplyEnvironmentManagedActionResponse = ApplyEnvironmentManagedActionResponse'
-  { _aemarsStatus            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aemarsActionId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aemarsActionDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aemarsActionType        :: {-# NOUNPACK #-}!(Maybe ActionType)
-  , _aemarsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _aemarsStatus            :: !(Maybe Text)
+  , _aemarsActionId          :: !(Maybe Text)
+  , _aemarsActionDescription :: !(Maybe Text)
+  , _aemarsActionType        :: !(Maybe ActionType)
+  , _aemarsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

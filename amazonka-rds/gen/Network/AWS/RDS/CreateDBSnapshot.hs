@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDBSnapshot' smart constructor.
 data CreateDBSnapshot = CreateDBSnapshot'
-  { _cdbsTags                 :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cdbsDBSnapshotIdentifier :: {-# NOUNPACK #-}!Text
-  , _cdbsDBInstanceIdentifier :: {-# NOUNPACK #-}!Text
+  { _cdbsTags                 :: !(Maybe [Tag])
+  , _cdbsDBSnapshotIdentifier :: !Text
+  , _cdbsDBInstanceIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery CreateDBSnapshot where
 
 -- | /See:/ 'createDBSnapshotResponse' smart constructor.
 data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
-  { _cdbsrsDBSnapshot     :: {-# NOUNPACK #-}!(Maybe DBSnapshot)
-  , _cdbsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdbsrsDBSnapshot     :: !(Maybe DBSnapshot)
+  , _cdbsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

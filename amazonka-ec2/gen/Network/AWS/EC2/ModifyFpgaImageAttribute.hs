@@ -55,16 +55,16 @@ import Network.AWS.Response
 
 -- | /See:/ 'modifyFpgaImageAttribute' smart constructor.
 data ModifyFpgaImageAttribute = ModifyFpgaImageAttribute'
-  { _mfiaAttribute      :: {-# NOUNPACK #-}!(Maybe FpgaImageAttributeName)
-  , _mfiaUserIds        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mfiaUserGroups     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mfiaLoadPermission :: {-# NOUNPACK #-}!(Maybe LoadPermissionModifications)
-  , _mfiaName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mfiaOperationType  :: {-# NOUNPACK #-}!(Maybe OperationType)
-  , _mfiaProductCodes   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mfiaDescription    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mfiaDryRun         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mfiaFpgaImageId    :: {-# NOUNPACK #-}!Text
+  { _mfiaAttribute      :: !(Maybe FpgaImageAttributeName)
+  , _mfiaUserIds        :: !(Maybe [Text])
+  , _mfiaUserGroups     :: !(Maybe [Text])
+  , _mfiaLoadPermission :: !(Maybe LoadPermissionModifications)
+  , _mfiaName           :: !(Maybe Text)
+  , _mfiaOperationType  :: !(Maybe OperationType)
+  , _mfiaProductCodes   :: !(Maybe [Text])
+  , _mfiaDescription    :: !(Maybe Text)
+  , _mfiaDryRun         :: !(Maybe Bool)
+  , _mfiaFpgaImageId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -190,8 +190,8 @@ instance ToQuery ModifyFpgaImageAttribute where
 
 -- | /See:/ 'modifyFpgaImageAttributeResponse' smart constructor.
 data ModifyFpgaImageAttributeResponse = ModifyFpgaImageAttributeResponse'
-  { _mfiarsFpgaImageAttribute :: {-# NOUNPACK #-}!(Maybe FpgaImageAttribute)
-  , _mfiarsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _mfiarsFpgaImageAttribute :: !(Maybe FpgaImageAttribute)
+  , _mfiarsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

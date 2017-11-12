@@ -54,11 +54,11 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listCommands' smart constructor.
 data ListCommands = ListCommands'
-  { _lcInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcFilters    :: {-# NOUNPACK #-}!(Maybe (List1 CommandFilter))
-  , _lcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcCommandId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lcInstanceId :: !(Maybe Text)
+  , _lcFilters    :: !(Maybe (List1 CommandFilter))
+  , _lcNextToken  :: !(Maybe Text)
+  , _lcCommandId  :: !(Maybe Text)
+  , _lcMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -155,9 +155,9 @@ instance ToQuery ListCommands where
 
 -- | /See:/ 'listCommandsResponse' smart constructor.
 data ListCommandsResponse = ListCommandsResponse'
-  { _lcrsCommands       :: {-# NOUNPACK #-}!(Maybe [Command])
-  , _lcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcrsCommands       :: !(Maybe [Command])
+  , _lcrsNextToken      :: !(Maybe Text)
+  , _lcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

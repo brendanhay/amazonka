@@ -54,10 +54,10 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'changeTagsForResource' smart constructor.
 data ChangeTagsForResource = ChangeTagsForResource'
-  { _ctfrRemoveTagKeys :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _ctfrAddTags       :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
-  , _ctfrResourceType  :: {-# NOUNPACK #-}!TagResourceType
-  , _ctfrResourceId    :: {-# NOUNPACK #-}!Text
+  { _ctfrRemoveTagKeys :: !(Maybe (List1 Text))
+  , _ctfrAddTags       :: !(Maybe (List1 Tag))
+  , _ctfrResourceType  :: !TagResourceType
+  , _ctfrResourceId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

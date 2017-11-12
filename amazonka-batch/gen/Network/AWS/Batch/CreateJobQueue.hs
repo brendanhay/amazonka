@@ -52,10 +52,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createJobQueue' smart constructor.
 data CreateJobQueue = CreateJobQueue'
-  { _cjqState                   :: {-# NOUNPACK #-}!(Maybe JQState)
-  , _cjqJobQueueName            :: {-# NOUNPACK #-}!Text
-  , _cjqPriority                :: {-# NOUNPACK #-}!Int
-  , _cjqComputeEnvironmentOrder :: {-# NOUNPACK #-}![ComputeEnvironmentOrder]
+  { _cjqState                   :: !(Maybe JQState)
+  , _cjqJobQueueName            :: !Text
+  , _cjqPriority                :: !Int
+  , _cjqComputeEnvironmentOrder :: ![ComputeEnvironmentOrder]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery CreateJobQueue where
 
 -- | /See:/ 'createJobQueueResponse' smart constructor.
 data CreateJobQueueResponse = CreateJobQueueResponse'
-  { _cjqrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _cjqrsJobQueueName   :: {-# NOUNPACK #-}!Text
-  , _cjqrsJobQueueARN    :: {-# NOUNPACK #-}!Text
+  { _cjqrsResponseStatus :: !Int
+  , _cjqrsJobQueueName   :: !Text
+  , _cjqrsJobQueueARN    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

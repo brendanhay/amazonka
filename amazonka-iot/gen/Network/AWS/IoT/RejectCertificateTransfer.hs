@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'rejectCertificateTransfer' smart constructor.
 data RejectCertificateTransfer = RejectCertificateTransfer'
-  { _rctRejectReason  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rctCertificateId :: {-# NOUNPACK #-}!Text
+  { _rctRejectReason  :: !(Maybe Text)
+  , _rctCertificateId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

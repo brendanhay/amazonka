@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteRolePolicy' smart constructor.
 data DeleteRolePolicy = DeleteRolePolicy'
-  { _delRoleName   :: {-# NOUNPACK #-}!Text
-  , _delPolicyName :: {-# NOUNPACK #-}!Text
+  { _delRoleName   :: !Text
+  , _delPolicyName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

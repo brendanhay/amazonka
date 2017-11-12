@@ -53,10 +53,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeInstanceInformation' smart constructor.
 data DescribeInstanceInformation = DescribeInstanceInformation'
-  { _diiInstanceInformationFilterList :: {-# NOUNPACK #-}!(Maybe [InstanceInformationFilter])
-  , _diiFilters :: {-# NOUNPACK #-}!(Maybe [InstanceInformationStringFilter])
-  , _diiNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diiMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _diiInstanceInformationFilterList :: !(Maybe [InstanceInformationFilter])
+  , _diiFilters :: !(Maybe [InstanceInformationStringFilter])
+  , _diiNextToken :: !(Maybe Text)
+  , _diiMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery DescribeInstanceInformation where
 
 -- | /See:/ 'describeInstanceInformationResponse' smart constructor.
 data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
-  { _diirsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diirsInstanceInformationList :: {-# NOUNPACK #-}!(Maybe [InstanceInformation])
-  , _diirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _diirsNextToken               :: !(Maybe Text)
+  , _diirsInstanceInformationList :: !(Maybe [InstanceInformation])
+  , _diirsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

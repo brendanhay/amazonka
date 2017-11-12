@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getClassifiers' smart constructor.
 data GetClassifiers = GetClassifiers'
-  { _gcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gcNextToken  :: !(Maybe Text)
+  , _gcMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,9 +113,9 @@ instance ToQuery GetClassifiers where
 
 -- | /See:/ 'getClassifiersResponse' smart constructor.
 data GetClassifiersResponse = GetClassifiersResponse'
-  { _gcsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcsrsClassifiers    :: {-# NOUNPACK #-}!(Maybe [Classifier])
-  , _gcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcsrsNextToken      :: !(Maybe Text)
+  , _gcsrsClassifiers    :: !(Maybe [Classifier])
+  , _gcsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

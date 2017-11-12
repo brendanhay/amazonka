@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDirectConnectGatewayAssociation' smart constructor.
 data CreateDirectConnectGatewayAssociation = CreateDirectConnectGatewayAssociation'
-  { _cdcgaDirectConnectGatewayId :: {-# NOUNPACK #-}!Text
-  , _cdcgaVirtualGatewayId       :: {-# NOUNPACK #-}!Text
+  { _cdcgaDirectConnectGatewayId :: !Text
+  , _cdcgaVirtualGatewayId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,8 +139,8 @@ instance ToQuery
 --
 -- /See:/ 'createDirectConnectGatewayAssociationResponse' smart constructor.
 data CreateDirectConnectGatewayAssociationResponse = CreateDirectConnectGatewayAssociationResponse'
-  { _cdcgarsDirectConnectGatewayAssociation :: {-# NOUNPACK #-}!(Maybe DirectConnectGatewayAssociation)
-  , _cdcgarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdcgarsDirectConnectGatewayAssociation :: !(Maybe DirectConnectGatewayAssociation)
+  , _cdcgarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

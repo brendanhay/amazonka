@@ -51,8 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createOrganizationalUnit' smart constructor.
 data CreateOrganizationalUnit = CreateOrganizationalUnit'
-  { _couParentId :: {-# NOUNPACK #-}!Text
-  , _couName     :: {-# NOUNPACK #-}!Text
+  { _couParentId :: !Text
+  , _couName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery CreateOrganizationalUnit where
 
 -- | /See:/ 'createOrganizationalUnitResponse' smart constructor.
 data CreateOrganizationalUnitResponse = CreateOrganizationalUnitResponse'
-  { _coursOrganizationalUnit :: {-# NOUNPACK #-}!(Maybe OrganizationalUnit)
-  , _coursResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _coursOrganizationalUnit :: !(Maybe OrganizationalUnit)
+  , _coursResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

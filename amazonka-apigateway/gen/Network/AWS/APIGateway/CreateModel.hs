@@ -57,11 +57,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'createModel' smart constructor.
 data CreateModel = CreateModel'
-  { _cmSchema      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmRestAPIId   :: {-# NOUNPACK #-}!Text
-  , _cmName        :: {-# NOUNPACK #-}!Text
-  , _cmContentType :: {-# NOUNPACK #-}!Text
+  { _cmSchema      :: !(Maybe Text)
+  , _cmDescription :: !(Maybe Text)
+  , _cmRestAPIId   :: !Text
+  , _cmName        :: !Text
+  , _cmContentType :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

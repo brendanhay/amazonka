@@ -49,10 +49,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'startAutomationExecution' smart constructor.
 data StartAutomationExecution = StartAutomationExecution'
-  { _saeClientToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _saeParameters      :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _saeDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _saeDocumentName    :: {-# NOUNPACK #-}!Text
+  { _saeClientToken     :: !(Maybe Text)
+  , _saeParameters      :: !(Maybe (Map Text [Text]))
+  , _saeDocumentVersion :: !(Maybe Text)
+  , _saeDocumentName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,8 +136,8 @@ instance ToQuery StartAutomationExecution where
 
 -- | /See:/ 'startAutomationExecutionResponse' smart constructor.
 data StartAutomationExecutionResponse = StartAutomationExecutionResponse'
-  { _srsAutomationExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _srsAutomationExecutionId :: !(Maybe Text)
+  , _srsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -95,8 +95,8 @@ instance ToQuery GetEmailChannel where
 
 -- | /See:/ 'getEmailChannelResponse' smart constructor.
 data GetEmailChannelResponse = GetEmailChannelResponse'
-  { _gecrsResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _gecrsEmailChannelResponse :: {-# NOUNPACK #-}!EmailChannelResponse
+  { _gecrsResponseStatus       :: !Int
+  , _gecrsEmailChannelResponse :: !EmailChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

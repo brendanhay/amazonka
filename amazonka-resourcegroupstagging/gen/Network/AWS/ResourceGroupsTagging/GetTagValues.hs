@@ -51,8 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getTagValues' smart constructor.
 data GetTagValues = GetTagValues'
-  { _gtvPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtvKey             :: {-# NOUNPACK #-}!Text
+  { _gtvPaginationToken :: !(Maybe Text)
+  , _gtvKey             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,9 +126,9 @@ instance ToQuery GetTagValues where
 
 -- | /See:/ 'getTagValuesResponse' smart constructor.
 data GetTagValuesResponse = GetTagValuesResponse'
-  { _gtvrsPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtvrsTagValues       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gtvrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gtvrsPaginationToken :: !(Maybe Text)
+  , _gtvrsTagValues       :: !(Maybe [Text])
+  , _gtvrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

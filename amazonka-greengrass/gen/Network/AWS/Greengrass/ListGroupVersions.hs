@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listGroupVersions' smart constructor.
 data ListGroupVersions = ListGroupVersions'
-  { _lgvNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgvMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgvGroupId    :: {-# NOUNPACK #-}!Text
+  { _lgvNextToken  :: !(Maybe Text)
+  , _lgvMaxResults :: !(Maybe Text)
+  , _lgvGroupId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,9 +117,9 @@ instance ToQuery ListGroupVersions where
 
 -- | /See:/ 'listGroupVersionsResponse' smart constructor.
 data ListGroupVersionsResponse = ListGroupVersionsResponse'
-  { _lgvrsVersions       :: {-# NOUNPACK #-}!(Maybe [VersionInformation])
-  , _lgvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lgvrsVersions       :: !(Maybe [VersionInformation])
+  , _lgvrsNextToken      :: !(Maybe Text)
+  , _lgvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,10 +49,10 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteObjects' smart constructor.
 data DeleteObjects = DeleteObjects'
-  { _dosMFA          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dosRequestPayer :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _dosBucket       :: {-# NOUNPACK #-}!BucketName
-  , _dosDelete       :: {-# NOUNPACK #-}!Delete
+  { _dosMFA          :: !(Maybe Text)
+  , _dosRequestPayer :: !(Maybe RequestPayer)
+  , _dosBucket       :: !BucketName
+  , _dosDelete       :: !Delete
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,10 +134,10 @@ instance ToQuery DeleteObjects where
 
 -- | /See:/ 'deleteObjectsResponse' smart constructor.
 data DeleteObjectsResponse = DeleteObjectsResponse'
-  { _drsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _drsDeleted        :: {-# NOUNPACK #-}!(Maybe [DeletedObject])
-  , _drsErrors         :: {-# NOUNPACK #-}!(Maybe [S3ServiceError])
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsRequestCharged :: !(Maybe RequestCharged)
+  , _drsDeleted        :: !(Maybe [DeletedObject])
+  , _drsErrors         :: !(Maybe [S3ServiceError])
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

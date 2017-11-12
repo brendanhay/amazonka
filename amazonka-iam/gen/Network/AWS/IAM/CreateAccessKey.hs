@@ -102,8 +102,8 @@ instance ToQuery CreateAccessKey where
 --
 -- /See:/ 'createAccessKeyResponse' smart constructor.
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
-  { _cakrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _cakrsAccessKey      :: {-# NOUNPACK #-}!AccessKeyInfo
+  { _cakrsResponseStatus :: !Int
+  , _cakrsAccessKey      :: !AccessKeyInfo
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

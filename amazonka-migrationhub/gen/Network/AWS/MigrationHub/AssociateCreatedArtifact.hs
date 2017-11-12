@@ -56,10 +56,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'associateCreatedArtifact' smart constructor.
 data AssociateCreatedArtifact = AssociateCreatedArtifact'
-  { _acaDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _acaProgressUpdateStream :: {-# NOUNPACK #-}!Text
-  , _acaMigrationTaskName    :: {-# NOUNPACK #-}!Text
-  , _acaCreatedArtifact      :: {-# NOUNPACK #-}!CreatedArtifact
+  { _acaDryRun               :: !(Maybe Bool)
+  , _acaProgressUpdateStream :: !Text
+  , _acaMigrationTaskName    :: !Text
+  , _acaCreatedArtifact      :: !CreatedArtifact
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

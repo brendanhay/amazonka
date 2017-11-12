@@ -63,8 +63,8 @@ import Network.AWS.WAFRegional.Types.Product
 --
 -- /See:/ 'deleteSqlInjectionMatchSet' smart constructor.
 data DeleteSqlInjectionMatchSet = DeleteSqlInjectionMatchSet'
-  { _dsimsSqlInjectionMatchSetId :: {-# NOUNPACK #-}!Text
-  , _dsimsChangeToken            :: {-# NOUNPACK #-}!Text
+  { _dsimsSqlInjectionMatchSetId :: !Text
+  , _dsimsChangeToken            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,8 +139,8 @@ instance ToQuery DeleteSqlInjectionMatchSet where
 --
 -- /See:/ 'deleteSqlInjectionMatchSetResponse' smart constructor.
 data DeleteSqlInjectionMatchSetResponse = DeleteSqlInjectionMatchSetResponse'
-  { _dsimsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsimsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsimsrsChangeToken    :: !(Maybe Text)
+  , _dsimsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -55,11 +55,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'createJob' smart constructor.
 data CreateJob = CreateJob'
-  { _cjAPIVersion       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjManifestAddendum :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjJobType          :: {-# NOUNPACK #-}!JobType
-  , _cjManifest         :: {-# NOUNPACK #-}!Text
-  , _cjValidateOnly     :: {-# NOUNPACK #-}!Bool
+  { _cjAPIVersion       :: !(Maybe Text)
+  , _cjManifestAddendum :: !(Maybe Text)
+  , _cjJobType          :: !JobType
+  , _cjManifest         :: !Text
+  , _cjValidateOnly     :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -152,13 +152,13 @@ instance ToQuery CreateJob where
 --
 -- /See:/ 'createJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { _cjrsSignature             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjrsJobType               :: {-# NOUNPACK #-}!(Maybe JobType)
-  , _cjrsJobId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjrsSignatureFileContents :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjrsWarningMessage        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjrsArtifactList          :: {-# NOUNPACK #-}!(Maybe [Artifact])
-  , _cjrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _cjrsSignature             :: !(Maybe Text)
+  , _cjrsJobType               :: !(Maybe JobType)
+  , _cjrsJobId                 :: !(Maybe Text)
+  , _cjrsSignatureFileContents :: !(Maybe Text)
+  , _cjrsWarningMessage        :: !(Maybe Text)
+  , _cjrsArtifactList          :: !(Maybe [Artifact])
+  , _cjrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

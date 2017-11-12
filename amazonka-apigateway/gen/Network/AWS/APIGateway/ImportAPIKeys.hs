@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'importAPIKeys' smart constructor.
 data ImportAPIKeys = ImportAPIKeys'
-  { _iakFailOnWarnings :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _iakBody           :: {-# NOUNPACK #-}!(HashMap Text Value)
-  , _iakFormat         :: {-# NOUNPACK #-}!APIKeysFormat
+  { _iakFailOnWarnings :: !(Maybe Bool)
+  , _iakBody           :: !(HashMap Text Value)
+  , _iakFormat         :: !APIKeysFormat
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery ImportAPIKeys where
 --
 -- /See:/ 'importAPIKeysResponse' smart constructor.
 data ImportAPIKeysResponse = ImportAPIKeysResponse'
-  { _iakrsIds            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _iakrsWarnings       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _iakrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _iakrsIds            :: !(Maybe [Text])
+  , _iakrsWarnings       :: !(Maybe [Text])
+  , _iakrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

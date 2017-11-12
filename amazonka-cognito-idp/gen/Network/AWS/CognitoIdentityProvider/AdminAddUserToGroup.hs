@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'adminAddUserToGroup' smart constructor.
 data AdminAddUserToGroup = AdminAddUserToGroup'
-  { _aautgUserPoolId :: {-# NOUNPACK #-}!Text
-  , _aautgUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _aautgGroupName  :: {-# NOUNPACK #-}!Text
+  { _aautgUserPoolId :: !Text
+  , _aautgUsername   :: !(Sensitive Text)
+  , _aautgGroupName  :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

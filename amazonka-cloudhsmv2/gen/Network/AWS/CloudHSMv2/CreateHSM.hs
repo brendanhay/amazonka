@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createHSM' smart constructor.
 data CreateHSM = CreateHSM'
-  { _chIPAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _chClusterId        :: {-# NOUNPACK #-}!Text
-  , _chAvailabilityZone :: {-# NOUNPACK #-}!Text
+  { _chIPAddress        :: !(Maybe Text)
+  , _chClusterId        :: !Text
+  , _chAvailabilityZone :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToQuery CreateHSM where
 
 -- | /See:/ 'createHSMResponse' smart constructor.
 data CreateHSMResponse = CreateHSMResponse'
-  { _chrsHSM            :: {-# NOUNPACK #-}!(Maybe HSM)
-  , _chrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _chrsHSM            :: !(Maybe HSM)
+  , _chrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

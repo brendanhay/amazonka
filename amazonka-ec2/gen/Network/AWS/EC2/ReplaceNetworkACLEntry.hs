@@ -56,16 +56,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'replaceNetworkACLEntry' smart constructor.
 data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
-  { _rnaeIPv6CidrBlock :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnaeICMPTypeCode  :: {-# NOUNPACK #-}!(Maybe ICMPTypeCode)
-  , _rnaePortRange     :: {-# NOUNPACK #-}!(Maybe PortRange)
-  , _rnaeCidrBlock     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnaeDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rnaeEgress        :: {-# NOUNPACK #-}!Bool
-  , _rnaeNetworkACLId  :: {-# NOUNPACK #-}!Text
-  , _rnaeProtocol      :: {-# NOUNPACK #-}!Text
-  , _rnaeRuleAction    :: {-# NOUNPACK #-}!RuleAction
-  , _rnaeRuleNumber    :: {-# NOUNPACK #-}!Int
+  { _rnaeIPv6CidrBlock :: !(Maybe Text)
+  , _rnaeICMPTypeCode  :: !(Maybe ICMPTypeCode)
+  , _rnaePortRange     :: !(Maybe PortRange)
+  , _rnaeCidrBlock     :: !(Maybe Text)
+  , _rnaeDryRun        :: !(Maybe Bool)
+  , _rnaeEgress        :: !Bool
+  , _rnaeNetworkACLId  :: !Text
+  , _rnaeProtocol      :: !Text
+  , _rnaeRuleAction    :: !RuleAction
+  , _rnaeRuleNumber    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeAvailablePatches' smart constructor.
 data DescribeAvailablePatches = DescribeAvailablePatches'
-  { _dapFilters    :: {-# NOUNPACK #-}!(Maybe [PatchOrchestratorFilter])
-  , _dapNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dapMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dapFilters    :: !(Maybe [PatchOrchestratorFilter])
+  , _dapNextToken  :: !(Maybe Text)
+  , _dapMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery DescribeAvailablePatches where
 
 -- | /See:/ 'describeAvailablePatchesResponse' smart constructor.
 data DescribeAvailablePatchesResponse = DescribeAvailablePatchesResponse'
-  { _daprsPatches        :: {-# NOUNPACK #-}!(Maybe [Patch])
-  , _daprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _daprsPatches        :: !(Maybe [Patch])
+  , _daprsNextToken      :: !(Maybe Text)
+  , _daprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

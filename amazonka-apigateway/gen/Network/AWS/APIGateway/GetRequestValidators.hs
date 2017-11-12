@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getRequestValidators' smart constructor.
 data GetRequestValidators = GetRequestValidators'
-  { _grvLimit     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _grvPosition  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grvRestAPIId :: {-# NOUNPACK #-}!Text
+  { _grvLimit     :: !(Maybe Int)
+  , _grvPosition  :: !(Maybe Text)
+  , _grvRestAPIId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,9 +129,9 @@ instance ToQuery GetRequestValidators where
 --
 -- /See:/ 'getRequestValidatorsResponse' smart constructor.
 data GetRequestValidatorsResponse = GetRequestValidatorsResponse'
-  { _grvrsItems          :: {-# NOUNPACK #-}!(Maybe [RequestValidator])
-  , _grvrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grvrsItems          :: !(Maybe [RequestValidator])
+  , _grvrsPosition       :: !(Maybe Text)
+  , _grvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

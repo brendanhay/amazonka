@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'bufferingHints' smart constructor.
 data BufferingHints = BufferingHints'
-  { _bhSizeInMBs         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _bhIntervalInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _bhSizeInMBs         :: !(Maybe Nat)
+  , _bhIntervalInSeconds :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -77,9 +77,9 @@ instance ToJSON BufferingHints where
 --
 -- /See:/ 'cloudWatchLoggingOptions' smart constructor.
 data CloudWatchLoggingOptions = CloudWatchLoggingOptions'
-  { _cwloEnabled       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cwloLogGroupName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwloLogStreamName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cwloEnabled       :: !(Maybe Bool)
+  , _cwloLogGroupName  :: !(Maybe Text)
+  , _cwloLogStreamName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToJSON CloudWatchLoggingOptions where
 --
 -- /See:/ 'copyCommand' smart constructor.
 data CopyCommand = CopyCommand'
-  { _ccCopyOptions      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccDataTableColumns :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccDataTableName    :: {-# NOUNPACK #-}!Text
+  { _ccCopyOptions      :: !(Maybe Text)
+  , _ccDataTableColumns :: !(Maybe Text)
+  , _ccDataTableName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -204,16 +204,16 @@ instance ToJSON CopyCommand where
 --
 -- /See:/ 'deliveryStreamDescription' smart constructor.
 data DeliveryStreamDescription = DeliveryStreamDescription'
-  { _dsdCreateTimestamp      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dsdSource               :: {-# NOUNPACK #-}!(Maybe SourceDescription)
-  , _dsdLastUpdateTimestamp  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dsdDeliveryStreamName   :: {-# NOUNPACK #-}!Text
-  , _dsdDeliveryStreamARN    :: {-# NOUNPACK #-}!Text
-  , _dsdDeliveryStreamStatus :: {-# NOUNPACK #-}!DeliveryStreamStatus
-  , _dsdDeliveryStreamType   :: {-# NOUNPACK #-}!DeliveryStreamType
-  , _dsdVersionId            :: {-# NOUNPACK #-}!Text
-  , _dsdDestinations         :: {-# NOUNPACK #-}![DestinationDescription]
-  , _dsdHasMoreDestinations  :: {-# NOUNPACK #-}!Bool
+  { _dsdCreateTimestamp      :: !(Maybe POSIX)
+  , _dsdSource               :: !(Maybe SourceDescription)
+  , _dsdLastUpdateTimestamp  :: !(Maybe POSIX)
+  , _dsdDeliveryStreamName   :: !Text
+  , _dsdDeliveryStreamARN    :: !Text
+  , _dsdDeliveryStreamStatus :: !DeliveryStreamStatus
+  , _dsdDeliveryStreamType   :: !DeliveryStreamType
+  , _dsdVersionId            :: !Text
+  , _dsdDestinations         :: ![DestinationDescription]
+  , _dsdHasMoreDestinations  :: !Bool
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -328,11 +328,11 @@ instance NFData DeliveryStreamDescription where
 --
 -- /See:/ 'destinationDescription' smart constructor.
 data DestinationDescription = DestinationDescription'
-  { _ddS3DestinationDescription :: {-# NOUNPACK #-}!(Maybe S3DestinationDescription)
-  , _ddExtendedS3DestinationDescription :: {-# NOUNPACK #-}!(Maybe ExtendedS3DestinationDescription)
-  , _ddElasticsearchDestinationDescription :: {-# NOUNPACK #-}!(Maybe ElasticsearchDestinationDescription)
-  , _ddRedshiftDestinationDescription :: {-# NOUNPACK #-}!(Maybe RedshiftDestinationDescription)
-  , _ddDestinationId :: {-# NOUNPACK #-}!Text
+  { _ddS3DestinationDescription :: !(Maybe S3DestinationDescription)
+  , _ddExtendedS3DestinationDescription :: !(Maybe ExtendedS3DestinationDescription)
+  , _ddElasticsearchDestinationDescription :: !(Maybe ElasticsearchDestinationDescription)
+  , _ddRedshiftDestinationDescription :: !(Maybe RedshiftDestinationDescription)
+  , _ddDestinationId :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -403,8 +403,8 @@ instance NFData DestinationDescription where
 --
 -- /See:/ 'elasticsearchBufferingHints' smart constructor.
 data ElasticsearchBufferingHints = ElasticsearchBufferingHints'
-  { _ebhSizeInMBs         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ebhIntervalInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _ebhSizeInMBs         :: !(Maybe Nat)
+  , _ebhIntervalInSeconds :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -454,17 +454,17 @@ instance ToJSON ElasticsearchBufferingHints where
 --
 -- /See:/ 'elasticsearchDestinationConfiguration' smart constructor.
 data ElasticsearchDestinationConfiguration = ElasticsearchDestinationConfiguration'
-  { _edcIndexRotationPeriod :: {-# NOUNPACK #-}!(Maybe ElasticsearchIndexRotationPeriod)
-  , _edcS3BackupMode :: {-# NOUNPACK #-}!(Maybe ElasticsearchS3BackupMode)
-  , _edcCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _edcBufferingHints :: {-# NOUNPACK #-}!(Maybe ElasticsearchBufferingHints)
-  , _edcRetryOptions :: {-# NOUNPACK #-}!(Maybe ElasticsearchRetryOptions)
-  , _edcProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
-  , _edcRoleARN :: {-# NOUNPACK #-}!Text
-  , _edcDomainARN :: {-# NOUNPACK #-}!Text
-  , _edcIndexName :: {-# NOUNPACK #-}!Text
-  , _edcTypeName :: {-# NOUNPACK #-}!Text
-  , _edcS3Configuration :: {-# NOUNPACK #-}!S3DestinationConfiguration
+  { _edcIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
+  , _edcS3BackupMode             :: !(Maybe ElasticsearchS3BackupMode)
+  , _edcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _edcBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
+  , _edcRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
+  , _edcProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _edcRoleARN                  :: !Text
+  , _edcDomainARN                :: !Text
+  , _edcIndexName                :: !Text
+  , _edcTypeName                 :: !Text
+  , _edcS3Configuration          :: !S3DestinationConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -593,17 +593,17 @@ instance ToJSON ElasticsearchDestinationConfiguration
 --
 -- /See:/ 'elasticsearchDestinationDescription' smart constructor.
 data ElasticsearchDestinationDescription = ElasticsearchDestinationDescription'
-  { _eddIndexRotationPeriod :: {-# NOUNPACK #-}!(Maybe ElasticsearchIndexRotationPeriod)
-  , _eddTypeName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eddS3BackupMode :: {-# NOUNPACK #-}!(Maybe ElasticsearchS3BackupMode)
-  , _eddDomainARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eddCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _eddS3DestinationDescription :: {-# NOUNPACK #-}!(Maybe S3DestinationDescription)
-  , _eddBufferingHints :: {-# NOUNPACK #-}!(Maybe ElasticsearchBufferingHints)
-  , _eddRetryOptions :: {-# NOUNPACK #-}!(Maybe ElasticsearchRetryOptions)
-  , _eddProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
-  , _eddRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eddIndexName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eddIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
+  , _eddTypeName                 :: !(Maybe Text)
+  , _eddS3BackupMode             :: !(Maybe ElasticsearchS3BackupMode)
+  , _eddDomainARN                :: !(Maybe Text)
+  , _eddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _eddS3DestinationDescription :: !(Maybe S3DestinationDescription)
+  , _eddBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
+  , _eddRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
+  , _eddProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _eddRoleARN                  :: !(Maybe Text)
+  , _eddIndexName                :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -723,16 +723,16 @@ instance NFData ElasticsearchDestinationDescription
 --
 -- /See:/ 'elasticsearchDestinationUpdate' smart constructor.
 data ElasticsearchDestinationUpdate = ElasticsearchDestinationUpdate'
-  { _eduIndexRotationPeriod :: {-# NOUNPACK #-}!(Maybe ElasticsearchIndexRotationPeriod)
-  , _eduTypeName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eduDomainARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eduCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _eduS3Update :: {-# NOUNPACK #-}!(Maybe S3DestinationUpdate)
-  , _eduBufferingHints :: {-# NOUNPACK #-}!(Maybe ElasticsearchBufferingHints)
-  , _eduRetryOptions :: {-# NOUNPACK #-}!(Maybe ElasticsearchRetryOptions)
-  , _eduProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
-  , _eduRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eduIndexName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eduIndexRotationPeriod      :: !(Maybe ElasticsearchIndexRotationPeriod)
+  , _eduTypeName                 :: !(Maybe Text)
+  , _eduDomainARN                :: !(Maybe Text)
+  , _eduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _eduS3Update                 :: !(Maybe S3DestinationUpdate)
+  , _eduBufferingHints           :: !(Maybe ElasticsearchBufferingHints)
+  , _eduRetryOptions             :: !(Maybe ElasticsearchRetryOptions)
+  , _eduProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _eduRoleARN                  :: !(Maybe Text)
+  , _eduIndexName                :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -887,8 +887,8 @@ instance ToJSON ElasticsearchRetryOptions where
 --
 -- /See:/ 'encryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-  { _ecNoEncryptionConfig  :: {-# NOUNPACK #-}!(Maybe NoEncryptionConfig)
-  , _ecKMSEncryptionConfig :: {-# NOUNPACK #-}!(Maybe KMSEncryptionConfig)
+  { _ecNoEncryptionConfig  :: !(Maybe NoEncryptionConfig)
+  , _ecKMSEncryptionConfig :: !(Maybe KMSEncryptionConfig)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -940,16 +940,16 @@ instance ToJSON EncryptionConfiguration where
 --
 -- /See:/ 'extendedS3DestinationConfiguration' smart constructor.
 data ExtendedS3DestinationConfiguration = ExtendedS3DestinationConfiguration'
-  { _esdcS3BackupMode :: {-# NOUNPACK #-}!(Maybe S3BackupMode)
-  , _esdcPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esdcCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _esdcS3BackupConfiguration :: {-# NOUNPACK #-}!(Maybe S3DestinationConfiguration)
-  , _esdcEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
-  , _esdcCompressionFormat :: {-# NOUNPACK #-}!(Maybe CompressionFormat)
-  , _esdcBufferingHints :: {-# NOUNPACK #-}!(Maybe BufferingHints)
-  , _esdcProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
-  , _esdcRoleARN :: {-# NOUNPACK #-}!Text
-  , _esdcBucketARN :: {-# NOUNPACK #-}!Text
+  { _esdcS3BackupMode             :: !(Maybe S3BackupMode)
+  , _esdcPrefix                   :: !(Maybe Text)
+  , _esdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _esdcS3BackupConfiguration    :: !(Maybe S3DestinationConfiguration)
+  , _esdcEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
+  , _esdcCompressionFormat        :: !(Maybe CompressionFormat)
+  , _esdcBufferingHints           :: !(Maybe BufferingHints)
+  , _esdcProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _esdcRoleARN                  :: !Text
+  , _esdcBucketARN                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1067,16 +1067,16 @@ instance ToJSON ExtendedS3DestinationConfiguration
 --
 -- /See:/ 'extendedS3DestinationDescription' smart constructor.
 data ExtendedS3DestinationDescription = ExtendedS3DestinationDescription'
-  { _esddS3BackupMode :: {-# NOUNPACK #-}!(Maybe S3BackupMode)
-  , _esddS3BackupDescription :: {-# NOUNPACK #-}!(Maybe S3DestinationDescription)
-  , _esddPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esddCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _esddProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
-  , _esddRoleARN :: {-# NOUNPACK #-}!Text
-  , _esddBucketARN :: {-# NOUNPACK #-}!Text
-  , _esddBufferingHints :: {-# NOUNPACK #-}!BufferingHints
-  , _esddCompressionFormat :: {-# NOUNPACK #-}!CompressionFormat
-  , _esddEncryptionConfiguration :: {-# NOUNPACK #-}!EncryptionConfiguration
+  { _esddS3BackupMode             :: !(Maybe S3BackupMode)
+  , _esddS3BackupDescription      :: !(Maybe S3DestinationDescription)
+  , _esddPrefix                   :: !(Maybe Text)
+  , _esddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _esddProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _esddRoleARN                  :: !Text
+  , _esddBucketARN                :: !Text
+  , _esddBufferingHints           :: !BufferingHints
+  , _esddCompressionFormat        :: !CompressionFormat
+  , _esddEncryptionConfiguration  :: !EncryptionConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1194,16 +1194,16 @@ instance NFData ExtendedS3DestinationDescription
 --
 -- /See:/ 'extendedS3DestinationUpdate' smart constructor.
 data ExtendedS3DestinationUpdate = ExtendedS3DestinationUpdate'
-  { _esduS3BackupMode :: {-# NOUNPACK #-}!(Maybe S3BackupMode)
-  , _esduPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esduCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _esduS3BackupUpdate :: {-# NOUNPACK #-}!(Maybe S3DestinationUpdate)
-  , _esduEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
-  , _esduCompressionFormat :: {-# NOUNPACK #-}!(Maybe CompressionFormat)
-  , _esduBufferingHints :: {-# NOUNPACK #-}!(Maybe BufferingHints)
-  , _esduBucketARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esduProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
-  , _esduRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _esduS3BackupMode             :: !(Maybe S3BackupMode)
+  , _esduPrefix                   :: !(Maybe Text)
+  , _esduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _esduS3BackupUpdate           :: !(Maybe S3DestinationUpdate)
+  , _esduEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
+  , _esduCompressionFormat        :: !(Maybe CompressionFormat)
+  , _esduBufferingHints           :: !(Maybe BufferingHints)
+  , _esduBucketARN                :: !(Maybe Text)
+  , _esduProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _esduRoleARN                  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1357,8 +1357,8 @@ instance ToJSON KMSEncryptionConfig where
 --
 -- /See:/ 'kinesisStreamSourceConfiguration' smart constructor.
 data KinesisStreamSourceConfiguration = KinesisStreamSourceConfiguration'
-  { _ksscKinesisStreamARN :: {-# NOUNPACK #-}!Text
-  , _ksscRoleARN          :: {-# NOUNPACK #-}!Text
+  { _ksscKinesisStreamARN :: !Text
+  , _ksscRoleARN          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1406,9 +1406,9 @@ instance ToJSON KinesisStreamSourceConfiguration
 --
 -- /See:/ 'kinesisStreamSourceDescription' smart constructor.
 data KinesisStreamSourceDescription = KinesisStreamSourceDescription'
-  { _kssdDeliveryStartTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _kssdKinesisStreamARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kssdRoleARN                :: {-# NOUNPACK #-}!(Maybe Text)
+  { _kssdDeliveryStartTimestamp :: !(Maybe POSIX)
+  , _kssdKinesisStreamARN       :: !(Maybe Text)
+  , _kssdRoleARN                :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1464,8 +1464,8 @@ instance NFData KinesisStreamSourceDescription where
 --
 -- /See:/ 'processingConfiguration' smart constructor.
 data ProcessingConfiguration = ProcessingConfiguration'
-  { _pcEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pcProcessors :: {-# NOUNPACK #-}!(Maybe [Processor])
+  { _pcEnabled    :: !(Maybe Bool)
+  , _pcProcessors :: !(Maybe [Processor])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1515,8 +1515,8 @@ instance ToJSON ProcessingConfiguration where
 --
 -- /See:/ 'processor' smart constructor.
 data Processor = Processor'
-  { _pParameters :: {-# NOUNPACK #-}!(Maybe [ProcessorParameter])
-  , _pType       :: {-# NOUNPACK #-}!ProcessorType
+  { _pParameters :: !(Maybe [ProcessorParameter])
+  , _pType       :: !ProcessorType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1565,8 +1565,8 @@ instance ToJSON Processor where
 --
 -- /See:/ 'processorParameter' smart constructor.
 data ProcessorParameter = ProcessorParameter'
-  { _ppParameterName  :: {-# NOUNPACK #-}!ProcessorParameterName
-  , _ppParameterValue :: {-# NOUNPACK #-}!Text
+  { _ppParameterName  :: !ProcessorParameterName
+  , _ppParameterValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1618,9 +1618,9 @@ instance ToJSON ProcessorParameter where
 --
 -- /See:/ 'putRecordBatchResponseEntry' smart constructor.
 data PutRecordBatchResponseEntry = PutRecordBatchResponseEntry'
-  { _prbreRecordId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prbreErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prbreErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _prbreRecordId     :: !(Maybe Text)
+  , _prbreErrorCode    :: !(Maybe Text)
+  , _prbreErrorMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1706,17 +1706,17 @@ instance ToJSON Record where
 --
 -- /See:/ 'redshiftDestinationConfiguration' smart constructor.
 data RedshiftDestinationConfiguration = RedshiftDestinationConfiguration'
-  { _rdcS3BackupMode :: {-# NOUNPACK #-}!(Maybe RedshiftS3BackupMode)
-  , _rdcCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _rdcS3BackupConfiguration :: {-# NOUNPACK #-}!(Maybe S3DestinationConfiguration)
-  , _rdcRetryOptions :: {-# NOUNPACK #-}!(Maybe RedshiftRetryOptions)
-  , _rdcProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
-  , _rdcRoleARN :: {-# NOUNPACK #-}!Text
-  , _rdcClusterJDBCURL :: {-# NOUNPACK #-}!Text
-  , _rdcCopyCommand :: {-# NOUNPACK #-}!CopyCommand
-  , _rdcUsername :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _rdcPassword :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _rdcS3Configuration :: {-# NOUNPACK #-}!S3DestinationConfiguration
+  { _rdcS3BackupMode             :: !(Maybe RedshiftS3BackupMode)
+  , _rdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _rdcS3BackupConfiguration    :: !(Maybe S3DestinationConfiguration)
+  , _rdcRetryOptions             :: !(Maybe RedshiftRetryOptions)
+  , _rdcProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _rdcRoleARN                  :: !Text
+  , _rdcClusterJDBCURL           :: !Text
+  , _rdcCopyCommand              :: !CopyCommand
+  , _rdcUsername                 :: !(Sensitive Text)
+  , _rdcPassword                 :: !(Sensitive Text)
+  , _rdcS3Configuration          :: !S3DestinationConfiguration
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1845,16 +1845,16 @@ instance ToJSON RedshiftDestinationConfiguration
 --
 -- /See:/ 'redshiftDestinationDescription' smart constructor.
 data RedshiftDestinationDescription = RedshiftDestinationDescription'
-  { _rddS3BackupMode :: {-# NOUNPACK #-}!(Maybe RedshiftS3BackupMode)
-  , _rddS3BackupDescription :: {-# NOUNPACK #-}!(Maybe S3DestinationDescription)
-  , _rddCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _rddRetryOptions :: {-# NOUNPACK #-}!(Maybe RedshiftRetryOptions)
-  , _rddProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
-  , _rddRoleARN :: {-# NOUNPACK #-}!Text
-  , _rddClusterJDBCURL :: {-# NOUNPACK #-}!Text
-  , _rddCopyCommand :: {-# NOUNPACK #-}!CopyCommand
-  , _rddUsername :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _rddS3DestinationDescription :: {-# NOUNPACK #-}!S3DestinationDescription
+  { _rddS3BackupMode             :: !(Maybe RedshiftS3BackupMode)
+  , _rddS3BackupDescription      :: !(Maybe S3DestinationDescription)
+  , _rddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _rddRetryOptions             :: !(Maybe RedshiftRetryOptions)
+  , _rddProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _rddRoleARN                  :: !Text
+  , _rddClusterJDBCURL           :: !Text
+  , _rddCopyCommand              :: !CopyCommand
+  , _rddUsername                 :: !(Sensitive Text)
+  , _rddS3DestinationDescription :: !S3DestinationDescription
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1971,17 +1971,17 @@ instance NFData RedshiftDestinationDescription where
 --
 -- /See:/ 'redshiftDestinationUpdate' smart constructor.
 data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
-  { _rduS3BackupMode :: {-# NOUNPACK #-}!(Maybe RedshiftS3BackupMode)
-  , _rduCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _rduUsername :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _rduS3Update :: {-# NOUNPACK #-}!(Maybe S3DestinationUpdate)
-  , _rduPassword :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _rduS3BackupUpdate :: {-# NOUNPACK #-}!(Maybe S3DestinationUpdate)
-  , _rduCopyCommand :: {-# NOUNPACK #-}!(Maybe CopyCommand)
-  , _rduRetryOptions :: {-# NOUNPACK #-}!(Maybe RedshiftRetryOptions)
-  , _rduProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe ProcessingConfiguration)
-  , _rduClusterJDBCURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rduRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rduS3BackupMode             :: !(Maybe RedshiftS3BackupMode)
+  , _rduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _rduUsername                 :: !(Maybe (Sensitive Text))
+  , _rduS3Update                 :: !(Maybe S3DestinationUpdate)
+  , _rduPassword                 :: !(Maybe (Sensitive Text))
+  , _rduS3BackupUpdate           :: !(Maybe S3DestinationUpdate)
+  , _rduCopyCommand              :: !(Maybe CopyCommand)
+  , _rduRetryOptions             :: !(Maybe RedshiftRetryOptions)
+  , _rduProcessingConfiguration  :: !(Maybe ProcessingConfiguration)
+  , _rduClusterJDBCURL           :: !(Maybe Text)
+  , _rduRoleARN                  :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -2141,13 +2141,13 @@ instance ToJSON RedshiftRetryOptions where
 --
 -- /See:/ 's3DestinationConfiguration' smart constructor.
 data S3DestinationConfiguration = S3DestinationConfiguration'
-  { _sdcPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdcCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _sdcEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
-  , _sdcCompressionFormat :: {-# NOUNPACK #-}!(Maybe CompressionFormat)
-  , _sdcBufferingHints :: {-# NOUNPACK #-}!(Maybe BufferingHints)
-  , _sdcRoleARN :: {-# NOUNPACK #-}!Text
-  , _sdcBucketARN :: {-# NOUNPACK #-}!Text
+  { _sdcPrefix                   :: !(Maybe Text)
+  , _sdcCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _sdcEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
+  , _sdcCompressionFormat        :: !(Maybe CompressionFormat)
+  , _sdcBufferingHints           :: !(Maybe BufferingHints)
+  , _sdcRoleARN                  :: !Text
+  , _sdcBucketARN                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2236,13 +2236,13 @@ instance ToJSON S3DestinationConfiguration where
 --
 -- /See:/ 's3DestinationDescription' smart constructor.
 data S3DestinationDescription = S3DestinationDescription'
-  { _sddPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sddCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _sddRoleARN :: {-# NOUNPACK #-}!Text
-  , _sddBucketARN :: {-# NOUNPACK #-}!Text
-  , _sddBufferingHints :: {-# NOUNPACK #-}!BufferingHints
-  , _sddCompressionFormat :: {-# NOUNPACK #-}!CompressionFormat
-  , _sddEncryptionConfiguration :: {-# NOUNPACK #-}!EncryptionConfiguration
+  { _sddPrefix                   :: !(Maybe Text)
+  , _sddCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _sddRoleARN                  :: !Text
+  , _sddBucketARN                :: !Text
+  , _sddBufferingHints           :: !BufferingHints
+  , _sddCompressionFormat        :: !CompressionFormat
+  , _sddEncryptionConfiguration  :: !EncryptionConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2333,13 +2333,13 @@ instance NFData S3DestinationDescription where
 --
 -- /See:/ 's3DestinationUpdate' smart constructor.
 data S3DestinationUpdate = S3DestinationUpdate'
-  { _sduPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sduCloudWatchLoggingOptions :: {-# NOUNPACK #-}!(Maybe CloudWatchLoggingOptions)
-  , _sduEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
-  , _sduCompressionFormat :: {-# NOUNPACK #-}!(Maybe CompressionFormat)
-  , _sduBufferingHints :: {-# NOUNPACK #-}!(Maybe BufferingHints)
-  , _sduBucketARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sduRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sduPrefix                   :: !(Maybe Text)
+  , _sduCloudWatchLoggingOptions :: !(Maybe CloudWatchLoggingOptions)
+  , _sduEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
+  , _sduCompressionFormat        :: !(Maybe CompressionFormat)
+  , _sduBufferingHints           :: !(Maybe BufferingHints)
+  , _sduBucketARN                :: !(Maybe Text)
+  , _sduRoleARN                  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2422,10 +2422,10 @@ instance ToJSON S3DestinationUpdate where
 
 -- | /See:/ 'sessionCredentials' smart constructor.
 data SessionCredentials = SessionCredentials'
-  { _scAccessKeyId     :: {-# NOUNPACK #-}!Text
-  , _scSecretAccessKey :: {-# NOUNPACK #-}!Text
-  , _scSessionToken    :: {-# NOUNPACK #-}!Text
-  , _scExpiration      :: {-# NOUNPACK #-}!POSIX
+  { _scAccessKeyId     :: !Text
+  , _scSecretAccessKey :: !Text
+  , _scSessionToken    :: !Text
+  , _scExpiration      :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

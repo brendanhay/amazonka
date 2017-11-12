@@ -64,8 +64,8 @@ import Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'sendMessageBatch' smart constructor.
 data SendMessageBatch = SendMessageBatch'
-  { _smbQueueURL :: {-# NOUNPACK #-}!Text
-  , _smbEntries  :: {-# NOUNPACK #-}![SendMessageBatchRequestEntry]
+  { _smbQueueURL :: !Text
+  , _smbEntries  :: ![SendMessageBatchRequestEntry]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,9 +127,9 @@ instance ToQuery SendMessageBatch where
 --
 -- /See:/ 'sendMessageBatchResponse' smart constructor.
 data SendMessageBatchResponse = SendMessageBatchResponse'
-  { _smbrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _smbrsSuccessful     :: {-# NOUNPACK #-}![SendMessageBatchResultEntry]
-  , _smbrsFailed         :: {-# NOUNPACK #-}![BatchResultErrorEntry]
+  { _smbrsResponseStatus :: !Int
+  , _smbrsSuccessful     :: ![SendMessageBatchResultEntry]
+  , _smbrsFailed         :: ![BatchResultErrorEntry]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

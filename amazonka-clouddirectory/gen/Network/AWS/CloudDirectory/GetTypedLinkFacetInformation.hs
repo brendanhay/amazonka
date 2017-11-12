@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getTypedLinkFacetInformation' smart constructor.
 data GetTypedLinkFacetInformation = GetTypedLinkFacetInformation'
-  { _gtlfiSchemaARN :: {-# NOUNPACK #-}!Text
-  , _gtlfiName      :: {-# NOUNPACK #-}!Text
+  { _gtlfiSchemaARN :: !Text
+  , _gtlfiName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,8 +110,8 @@ instance ToQuery GetTypedLinkFacetInformation where
 
 -- | /See:/ 'getTypedLinkFacetInformationResponse' smart constructor.
 data GetTypedLinkFacetInformationResponse = GetTypedLinkFacetInformationResponse'
-  { _gtlfirsIdentityAttributeOrder :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gtlfirsResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _gtlfirsIdentityAttributeOrder :: !(Maybe [Text])
+  , _gtlfirsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

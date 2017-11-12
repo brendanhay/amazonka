@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteVolume' smart constructor.
 data DeleteVolume = DeleteVolume'
-  { _dvvDryRun   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dvvVolumeId :: {-# NOUNPACK #-}!Text
+  { _dvvDryRun   :: !(Maybe Bool)
+  , _dvvVolumeId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

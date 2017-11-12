@@ -105,8 +105,8 @@ instance ToQuery CreateResourceGroup where
 
 -- | /See:/ 'createResourceGroupResponse' smart constructor.
 data CreateResourceGroupResponse = CreateResourceGroupResponse'
-  { _crgrsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _crgrsResourceGroupARN :: {-# NOUNPACK #-}!Text
+  { _crgrsResponseStatus   :: !Int
+  , _crgrsResourceGroupARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -95,8 +95,8 @@ instance ToQuery DisassociateRoleFromGroup where
 
 -- | /See:/ 'disassociateRoleFromGroupResponse' smart constructor.
 data DisassociateRoleFromGroupResponse = DisassociateRoleFromGroupResponse'
-  { _drfgrsDisassociatedAt :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drfgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _drfgrsDisassociatedAt :: !(Maybe Text)
+  , _drfgrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

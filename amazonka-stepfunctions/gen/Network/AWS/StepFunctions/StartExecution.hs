@@ -49,9 +49,9 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'startExecution' smart constructor.
 data StartExecution = StartExecution'
-  { _seInput           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seStateMachineARN :: {-# NOUNPACK #-}!Text
+  { _seInput           :: !(Maybe Text)
+  , _seName            :: !(Maybe Text)
+  , _seStateMachineARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery StartExecution where
 
 -- | /See:/ 'startExecutionResponse' smart constructor.
 data StartExecutionResponse = StartExecutionResponse'
-  { _srsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _srsExecutionARN   :: {-# NOUNPACK #-}!Text
-  , _srsStartDate      :: {-# NOUNPACK #-}!POSIX
+  { _srsResponseStatus :: !Int
+  , _srsExecutionARN   :: !Text
+  , _srsStartDate      :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

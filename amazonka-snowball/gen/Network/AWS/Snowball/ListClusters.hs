@@ -48,8 +48,8 @@ import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'listClusters' smart constructor.
 data ListClusters = ListClusters'
-  { _lcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lcNextToken  :: !(Maybe Text)
+  , _lcMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,9 +113,9 @@ instance ToQuery ListClusters where
 
 -- | /See:/ 'listClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
-  { _lcrsClusterListEntries :: {-# NOUNPACK #-}!(Maybe [ClusterListEntry])
-  , _lcrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _lcrsClusterListEntries :: !(Maybe [ClusterListEntry])
+  , _lcrsNextToken          :: !(Maybe Text)
+  , _lcrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

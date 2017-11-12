@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'attachThingPrincipal' smart constructor.
 data AttachThingPrincipal = AttachThingPrincipal'
-  { _atpThingName :: {-# NOUNPACK #-}!Text
-  , _atpPrincipal :: {-# NOUNPACK #-}!Text
+  { _atpThingName :: !Text
+  , _atpPrincipal :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

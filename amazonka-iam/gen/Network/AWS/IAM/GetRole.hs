@@ -97,8 +97,8 @@ instance ToQuery GetRole where
 --
 -- /See:/ 'getRoleResponse' smart constructor.
 data GetRoleResponse = GetRoleResponse'
-  { _grrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _grrsRole           :: {-# NOUNPACK #-}!Role
+  { _grrsResponseStatus :: !Int
+  , _grrsRole           :: !Role
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

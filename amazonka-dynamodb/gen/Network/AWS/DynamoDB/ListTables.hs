@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listTables' smart constructor.
 data ListTables = ListTables'
-  { _ltExclusiveStartTableName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltLimit                   :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _ltExclusiveStartTableName :: !(Maybe Text)
+  , _ltLimit                   :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,9 +134,9 @@ instance ToQuery ListTables where
 --
 -- /See:/ 'listTablesResponse' smart constructor.
 data ListTablesResponse = ListTablesResponse'
-  { _ltrsLastEvaluatedTableName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltrsTableNames             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ltrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _ltrsLastEvaluatedTableName :: !(Maybe Text)
+  , _ltrsTableNames             :: !(Maybe [Text])
+  , _ltrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

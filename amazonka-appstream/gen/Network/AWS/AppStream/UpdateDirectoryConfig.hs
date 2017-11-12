@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateDirectoryConfig' smart constructor.
 data UpdateDirectoryConfig = UpdateDirectoryConfig'
-  { _udcServiceAccountCredentials :: {-# NOUNPACK #-}!(Maybe ServiceAccountCredentials)
-  , _udcOrganizationalUnitDistinguishedNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _udcDirectoryName :: {-# NOUNPACK #-}!Text
+  { _udcServiceAccountCredentials :: !(Maybe ServiceAccountCredentials)
+  , _udcOrganizationalUnitDistinguishedNames :: !(Maybe [Text])
+  , _udcDirectoryName :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery UpdateDirectoryConfig where
 
 -- | /See:/ 'updateDirectoryConfigResponse' smart constructor.
 data UpdateDirectoryConfigResponse = UpdateDirectoryConfigResponse'
-  { _udcrsDirectoryConfig :: {-# NOUNPACK #-}!(Maybe DirectoryConfig)
-  , _udcrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _udcrsDirectoryConfig :: !(Maybe DirectoryConfig)
+  , _udcrsResponseStatus  :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

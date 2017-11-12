@@ -56,10 +56,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDBClusters' smart constructor.
 data DescribeDBClusters = DescribeDBClusters'
-  { _ddcDBClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcFilters             :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _ddcMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcMaxRecords          :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ddcDBClusterIdentifier :: !(Maybe Text)
+  , _ddcFilters             :: !(Maybe [Filter])
+  , _ddcMarker              :: !(Maybe Text)
+  , _ddcMaxRecords          :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery DescribeDBClusters where
 --
 -- /See:/ 'describeDBClustersResponse' smart constructor.
 data DescribeDBClustersResponse = DescribeDBClustersResponse'
-  { _ddcrsDBClusters     :: {-# NOUNPACK #-}!(Maybe [DBCluster])
-  , _ddcrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddcrsDBClusters     :: !(Maybe [DBCluster])
+  , _ddcrsMarker         :: !(Maybe Text)
+  , _ddcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

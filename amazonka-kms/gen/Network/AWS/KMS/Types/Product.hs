@@ -27,9 +27,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'aliasListEntry' smart constructor.
 data AliasListEntry = AliasListEntry'
-  { _aleTargetKeyId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aleAliasName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aleAliasARN    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aleTargetKeyId :: !(Maybe Text)
+  , _aleAliasName   :: !(Maybe Text)
+  , _aleAliasARN    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -81,8 +81,8 @@ instance NFData AliasListEntry where
 --
 -- /See:/ 'grantConstraints' smart constructor.
 data GrantConstraints = GrantConstraints'
-  { _gcEncryptionContextEquals :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gcEncryptionContextSubset :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  { _gcEncryptionContextEquals :: !(Maybe (Map Text Text))
+  , _gcEncryptionContextSubset :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,15 +135,15 @@ instance ToJSON GrantConstraints where
 --
 -- /See:/ 'grantListEntry' smart constructor.
 data GrantListEntry = GrantListEntry'
-  { _gleKeyId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gleRetiringPrincipal :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gleIssuingAccount    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gleGrantId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gleConstraints       :: {-# NOUNPACK #-}!(Maybe GrantConstraints)
-  , _gleGranteePrincipal  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gleName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gleCreationDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gleOperations        :: {-# NOUNPACK #-}!(Maybe [GrantOperation])
+  { _gleKeyId             :: !(Maybe Text)
+  , _gleRetiringPrincipal :: !(Maybe Text)
+  , _gleIssuingAccount    :: !(Maybe Text)
+  , _gleGrantId           :: !(Maybe Text)
+  , _gleConstraints       :: !(Maybe GrantConstraints)
+  , _gleGranteePrincipal  :: !(Maybe Text)
+  , _gleName              :: !(Maybe Text)
+  , _gleCreationDate      :: !(Maybe POSIX)
+  , _gleOperations        :: !(Maybe [GrantOperation])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -244,8 +244,8 @@ instance NFData GrantListEntry where
 --
 -- /See:/ 'keyListEntry' smart constructor.
 data KeyListEntry = KeyListEntry'
-  { _kleKeyId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kleKeyARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _kleKeyId  :: !(Maybe Text)
+  , _kleKeyARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -288,19 +288,19 @@ instance NFData KeyListEntry where
 --
 -- /See:/ 'keyMetadata' smart constructor.
 data KeyMetadata = KeyMetadata'
-  { _kmOrigin          :: {-# NOUNPACK #-}!(Maybe OriginType)
-  , _kmExpirationModel :: {-# NOUNPACK #-}!(Maybe ExpirationModelType)
-  , _kmKeyManager      :: {-# NOUNPACK #-}!(Maybe KeyManagerType)
-  , _kmEnabled         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _kmValidTo         :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _kmARN             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kmKeyState        :: {-# NOUNPACK #-}!(Maybe KeyState)
-  , _kmAWSAccountId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kmKeyUsage        :: {-# NOUNPACK #-}!(Maybe KeyUsageType)
-  , _kmCreationDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _kmDeletionDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _kmDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kmKeyId           :: {-# NOUNPACK #-}!Text
+  { _kmOrigin          :: !(Maybe OriginType)
+  , _kmExpirationModel :: !(Maybe ExpirationModelType)
+  , _kmKeyManager      :: !(Maybe KeyManagerType)
+  , _kmEnabled         :: !(Maybe Bool)
+  , _kmValidTo         :: !(Maybe POSIX)
+  , _kmARN             :: !(Maybe Text)
+  , _kmKeyState        :: !(Maybe KeyState)
+  , _kmAWSAccountId    :: !(Maybe Text)
+  , _kmKeyUsage        :: !(Maybe KeyUsageType)
+  , _kmCreationDate    :: !(Maybe POSIX)
+  , _kmDeletionDate    :: !(Maybe POSIX)
+  , _kmDescription     :: !(Maybe Text)
+  , _kmKeyId           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -430,9 +430,9 @@ instance NFData KeyMetadata where
 
 -- | /See:/ 'listGrantsResponse' smart constructor.
 data ListGrantsResponse = ListGrantsResponse'
-  { _lgTruncated  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lgGrants     :: {-# NOUNPACK #-}!(Maybe [GrantListEntry])
-  , _lgNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lgTruncated  :: !(Maybe Bool)
+  , _lgGrants     :: !(Maybe [GrantListEntry])
+  , _lgNextMarker :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -484,8 +484,8 @@ instance NFData ListGrantsResponse where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagTagKey   :: {-# NOUNPACK #-}!Text
-  , _tagTagValue :: {-# NOUNPACK #-}!Text
+  { _tagTagKey   :: !Text
+  , _tagTagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

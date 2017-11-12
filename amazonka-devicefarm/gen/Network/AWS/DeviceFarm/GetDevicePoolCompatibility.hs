@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDevicePoolCompatibility' smart constructor.
 data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
-  { _gdpcTest          :: {-# NOUNPACK #-}!(Maybe ScheduleRunTest)
-  , _gdpcAppARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdpcTestType      :: {-# NOUNPACK #-}!(Maybe TestType)
-  , _gdpcDevicePoolARN :: {-# NOUNPACK #-}!Text
+  { _gdpcTest          :: !(Maybe ScheduleRunTest)
+  , _gdpcAppARN        :: !(Maybe Text)
+  , _gdpcTestType      :: !(Maybe TestType)
+  , _gdpcDevicePoolARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,9 +147,9 @@ instance ToQuery GetDevicePoolCompatibility where
 --
 -- /See:/ 'getDevicePoolCompatibilityResponse' smart constructor.
 data GetDevicePoolCompatibilityResponse = GetDevicePoolCompatibilityResponse'
-  { _gdpcrsIncompatibleDevices :: {-# NOUNPACK #-}!(Maybe [DevicePoolCompatibilityResult])
-  , _gdpcrsCompatibleDevices :: {-# NOUNPACK #-}!(Maybe [DevicePoolCompatibilityResult])
-  , _gdpcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdpcrsIncompatibleDevices :: !(Maybe [DevicePoolCompatibilityResult])
+  , _gdpcrsCompatibleDevices   :: !(Maybe [DevicePoolCompatibilityResult])
+  , _gdpcrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

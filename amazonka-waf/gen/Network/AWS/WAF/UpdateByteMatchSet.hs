@@ -74,9 +74,9 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'updateByteMatchSet' smart constructor.
 data UpdateByteMatchSet = UpdateByteMatchSet'
-  { _ubmsByteMatchSetId :: {-# NOUNPACK #-}!Text
-  , _ubmsChangeToken    :: {-# NOUNPACK #-}!Text
-  , _ubmsUpdates        :: {-# NOUNPACK #-}!(List1 ByteMatchSetUpdate)
+  { _ubmsByteMatchSetId :: !Text
+  , _ubmsChangeToken    :: !Text
+  , _ubmsUpdates        :: !(List1 ByteMatchSetUpdate)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -153,8 +153,8 @@ instance ToQuery UpdateByteMatchSet where
 
 -- | /See:/ 'updateByteMatchSetResponse' smart constructor.
 data UpdateByteMatchSetResponse = UpdateByteMatchSetResponse'
-  { _ubmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ubmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ubmsrsChangeToken    :: !(Maybe Text)
+  , _ubmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

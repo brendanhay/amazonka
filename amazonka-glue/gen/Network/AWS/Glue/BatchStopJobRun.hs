@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'batchStopJobRun' smart constructor.
 data BatchStopJobRun = BatchStopJobRun'
-  { _bsjrJobName   :: {-# NOUNPACK #-}!Text
-  , _bsjrJobRunIds :: {-# NOUNPACK #-}!(List1 Text)
+  { _bsjrJobName   :: !Text
+  , _bsjrJobRunIds :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,9 +116,9 @@ instance ToQuery BatchStopJobRun where
 
 -- | /See:/ 'batchStopJobRunResponse' smart constructor.
 data BatchStopJobRunResponse = BatchStopJobRunResponse'
-  { _bsjrrsSuccessfulSubmissions :: {-# NOUNPACK #-}!(Maybe [BatchStopJobRunSuccessfulSubmission])
-  , _bsjrrsErrors :: {-# NOUNPACK #-}!(Maybe [BatchStopJobRunError])
-  , _bsjrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bsjrrsSuccessfulSubmissions :: !(Maybe [BatchStopJobRunSuccessfulSubmission])
+  , _bsjrrsErrors :: !(Maybe [BatchStopJobRunError])
+  , _bsjrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -56,9 +56,9 @@ import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'select' smart constructor.
 data Select = Select'
-  { _sConsistentRead   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSelectExpression :: {-# NOUNPACK #-}!Text
+  { _sConsistentRead   :: !(Maybe Bool)
+  , _sNextToken        :: !(Maybe Text)
+  , _sSelectExpression :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,9 +132,9 @@ instance ToQuery Select where
 
 -- | /See:/ 'selectResponse' smart constructor.
 data SelectResponse = SelectResponse'
-  { _srsItems          :: {-# NOUNPACK #-}!(Maybe [Item])
-  , _srsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _srsItems          :: !(Maybe [Item])
+  , _srsNextToken      :: !(Maybe Text)
+  , _srsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

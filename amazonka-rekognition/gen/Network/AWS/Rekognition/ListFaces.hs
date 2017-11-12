@@ -54,9 +54,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listFaces' smart constructor.
 data ListFaces = ListFaces'
-  { _lfNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lfCollectionId :: {-# NOUNPACK #-}!Text
+  { _lfNextToken    :: !(Maybe Text)
+  , _lfMaxResults   :: !(Maybe Nat)
+  , _lfCollectionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery ListFaces where
 
 -- | /See:/ 'listFacesResponse' smart constructor.
 data ListFacesResponse = ListFacesResponse'
-  { _lfrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfrsFaces          :: {-# NOUNPACK #-}!(Maybe [Face])
-  , _lfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lfrsNextToken      :: !(Maybe Text)
+  , _lfrsFaces          :: !(Maybe [Face])
+  , _lfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

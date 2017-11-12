@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteFaces' smart constructor.
 data DeleteFaces = DeleteFaces'
-  { _dfCollectionId :: {-# NOUNPACK #-}!Text
-  , _dfFaceIds      :: {-# NOUNPACK #-}!(List1 Text)
+  { _dfCollectionId :: !Text
+  , _dfFaceIds      :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery DeleteFaces where
 
 -- | /See:/ 'deleteFacesResponse' smart constructor.
 data DeleteFacesResponse = DeleteFacesResponse'
-  { _drsDeletedFaces   :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsDeletedFaces   :: !(Maybe (List1 Text))
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

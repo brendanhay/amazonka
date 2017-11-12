@@ -71,14 +71,14 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'updateNFSFileShare' smart constructor.
 data UpdateNFSFileShare = UpdateNFSFileShare'
-  { _unfsfsKMSKey               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _unfsfsKMSEncrypted         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _unfsfsDefaultStorageClass  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _unfsfsSquash               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _unfsfsNFSFileShareDefaults :: {-# NOUNPACK #-}!(Maybe NFSFileShareDefaults)
-  , _unfsfsClientList           :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _unfsfsReadOnly             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _unfsfsFileShareARN         :: {-# NOUNPACK #-}!Text
+  { _unfsfsKMSKey               :: !(Maybe Text)
+  , _unfsfsKMSEncrypted         :: !(Maybe Bool)
+  , _unfsfsDefaultStorageClass  :: !(Maybe Text)
+  , _unfsfsSquash               :: !(Maybe Text)
+  , _unfsfsNFSFileShareDefaults :: !(Maybe NFSFileShareDefaults)
+  , _unfsfsClientList           :: !(Maybe (List1 Text))
+  , _unfsfsReadOnly             :: !(Maybe Bool)
+  , _unfsfsFileShareARN         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -200,8 +200,8 @@ instance ToQuery UpdateNFSFileShare where
 --
 -- /See:/ 'updateNFSFileShareResponse' smart constructor.
 data UpdateNFSFileShareResponse = UpdateNFSFileShareResponse'
-  { _unfsfsrsFileShareARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _unfsfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _unfsfsrsFileShareARN   :: !(Maybe Text)
+  , _unfsfsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

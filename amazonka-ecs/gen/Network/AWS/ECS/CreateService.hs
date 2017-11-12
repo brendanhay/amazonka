@@ -77,16 +77,16 @@ import Network.AWS.Response
 
 -- | /See:/ 'createService' smart constructor.
 data CreateService = CreateService'
-  { _cCluster :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cLoadBalancers :: {-# NOUNPACK #-}!(Maybe [LoadBalancer])
-  , _cRole :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cPlacementConstraints :: {-# NOUNPACK #-}!(Maybe [PlacementConstraint])
-  , _cPlacementStrategy :: {-# NOUNPACK #-}!(Maybe [PlacementStrategy])
-  , _cDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe DeploymentConfiguration)
-  , _cServiceName :: {-# NOUNPACK #-}!Text
-  , _cTaskDefinition :: {-# NOUNPACK #-}!Text
-  , _cDesiredCount :: {-# NOUNPACK #-}!Int
+  { _cCluster                 :: !(Maybe Text)
+  , _cClientToken             :: !(Maybe Text)
+  , _cLoadBalancers           :: !(Maybe [LoadBalancer])
+  , _cRole                    :: !(Maybe Text)
+  , _cPlacementConstraints    :: !(Maybe [PlacementConstraint])
+  , _cPlacementStrategy       :: !(Maybe [PlacementStrategy])
+  , _cDeploymentConfiguration :: !(Maybe DeploymentConfiguration)
+  , _cServiceName             :: !Text
+  , _cTaskDefinition          :: !Text
+  , _cDesiredCount            :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -221,8 +221,8 @@ instance ToQuery CreateService where
 
 -- | /See:/ 'createServiceResponse' smart constructor.
 data CreateServiceResponse = CreateServiceResponse'
-  { _csrsService        :: {-# NOUNPACK #-}!(Maybe ContainerService)
-  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csrsService        :: !(Maybe ContainerService)
+  , _csrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'batchGetApplicationRevisions' smart constructor.
 data BatchGetApplicationRevisions = BatchGetApplicationRevisions'
-  { _bgarApplicationName :: {-# NOUNPACK #-}!Text
-  , _bgarRevisions       :: {-# NOUNPACK #-}![RevisionLocation]
+  { _bgarApplicationName :: !Text
+  , _bgarRevisions       :: ![RevisionLocation]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,10 +128,10 @@ instance ToQuery BatchGetApplicationRevisions where
 --
 -- /See:/ 'batchGetApplicationRevisionsResponse' smart constructor.
 data BatchGetApplicationRevisionsResponse = BatchGetApplicationRevisionsResponse'
-  { _bgarrsApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bgarrsRevisions       :: {-# NOUNPACK #-}!(Maybe [RevisionInfo])
-  , _bgarrsErrorMessage    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bgarrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _bgarrsApplicationName :: !(Maybe Text)
+  , _bgarrsRevisions       :: !(Maybe [RevisionInfo])
+  , _bgarrsErrorMessage    :: !(Maybe Text)
+  , _bgarrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -123,8 +123,8 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
 --
 -- /See:/ 'describeTrustedAdvisorCheckSummariesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
-  { _dtacsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dtacsrsSummaries      :: {-# NOUNPACK #-}![TrustedAdvisorCheckSummary]
+  { _dtacsrsResponseStatus :: !Int
+  , _dtacsrsSummaries      :: ![TrustedAdvisorCheckSummary]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

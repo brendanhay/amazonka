@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'reportTaskProgress' smart constructor.
 data ReportTaskProgress = ReportTaskProgress'
-  { _rtpFields :: {-# NOUNPACK #-}!(Maybe [Field])
-  , _rtpTaskId :: {-# NOUNPACK #-}!Text
+  { _rtpFields :: !(Maybe [Field])
+  , _rtpTaskId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery ReportTaskProgress where
 --
 -- /See:/ 'reportTaskProgressResponse' smart constructor.
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
-  { _rtprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _rtprsCanceled       :: {-# NOUNPACK #-}!Bool
+  { _rtprsResponseStatus :: !Int
+  , _rtprsCanceled       :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

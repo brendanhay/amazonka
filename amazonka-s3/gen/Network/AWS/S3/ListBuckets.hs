@@ -81,9 +81,9 @@ instance ToQuery ListBuckets where
 
 -- | /See:/ 'listBucketsResponse' smart constructor.
 data ListBucketsResponse = ListBucketsResponse'
-  { _lbrsBuckets        :: {-# NOUNPACK #-}!(Maybe [Bucket])
-  , _lbrsOwner          :: {-# NOUNPACK #-}!(Maybe Owner)
-  , _lbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lbrsBuckets        :: !(Maybe [Bucket])
+  , _lbrsOwner          :: !(Maybe Owner)
+  , _lbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

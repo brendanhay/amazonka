@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeEventDetails' smart constructor.
 data DescribeEventDetails = DescribeEventDetails'
-  { _dedLocale    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dedEventARNs :: {-# NOUNPACK #-}!(List1 Text)
+  { _dedLocale    :: !(Maybe Text)
+  , _dedEventARNs :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,9 +119,9 @@ instance ToQuery DescribeEventDetails where
 
 -- | /See:/ 'describeEventDetailsResponse' smart constructor.
 data DescribeEventDetailsResponse = DescribeEventDetailsResponse'
-  { _dedrsSuccessfulSet  :: {-# NOUNPACK #-}!(Maybe [EventDetails])
-  , _dedrsFailedSet      :: {-# NOUNPACK #-}!(Maybe [EventDetailsErrorItem])
-  , _dedrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dedrsSuccessfulSet  :: !(Maybe [EventDetails])
+  , _dedrsFailedSet      :: !(Maybe [EventDetailsErrorItem])
+  , _dedrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

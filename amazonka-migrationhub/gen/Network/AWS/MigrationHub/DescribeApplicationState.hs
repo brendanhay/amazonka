@@ -107,9 +107,9 @@ instance ToQuery DescribeApplicationState where
 
 -- | /See:/ 'describeApplicationStateResponse' smart constructor.
 data DescribeApplicationStateResponse = DescribeApplicationStateResponse'
-  { _dasrsLastUpdatedTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dasrsApplicationStatus :: {-# NOUNPACK #-}!(Maybe ApplicationStatus)
-  , _dasrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dasrsLastUpdatedTime   :: !(Maybe POSIX)
+  , _dasrsApplicationStatus :: !(Maybe ApplicationStatus)
+  , _dasrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -118,8 +118,8 @@ instance ToQuery GetIdentityVerificationAttributes
 --
 -- /See:/ 'getIdentityVerificationAttributesResponse' smart constructor.
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
-  { _givarsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _givarsVerificationAttributes :: {-# NOUNPACK #-}!(Map Text IdentityVerificationAttributes)
+  { _givarsResponseStatus         :: !Int
+  , _givarsVerificationAttributes :: !(Map Text IdentityVerificationAttributes)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

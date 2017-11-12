@@ -60,21 +60,21 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'sendCommand' smart constructor.
 data SendCommand = SendCommand'
-  { _scServiceRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scNotificationConfig :: {-# NOUNPACK #-}!(Maybe NotificationConfig)
-  , _scDocumentHashType   :: {-# NOUNPACK #-}!(Maybe DocumentHashType)
-  , _scOutputS3KeyPrefix  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scMaxErrors          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scInstanceIds        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _scOutputS3Region     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scTargets            :: {-# NOUNPACK #-}!(Maybe [Target])
-  , _scParameters         :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _scDocumentHash       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scTimeoutSeconds     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _scComment            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scOutputS3BucketName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scMaxConcurrency     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scDocumentName       :: {-# NOUNPACK #-}!Text
+  { _scServiceRoleARN     :: !(Maybe Text)
+  , _scNotificationConfig :: !(Maybe NotificationConfig)
+  , _scDocumentHashType   :: !(Maybe DocumentHashType)
+  , _scOutputS3KeyPrefix  :: !(Maybe Text)
+  , _scMaxErrors          :: !(Maybe Text)
+  , _scInstanceIds        :: !(Maybe [Text])
+  , _scOutputS3Region     :: !(Maybe Text)
+  , _scTargets            :: !(Maybe [Target])
+  , _scParameters         :: !(Maybe (Map Text [Text]))
+  , _scDocumentHash       :: !(Maybe Text)
+  , _scTimeoutSeconds     :: !(Maybe Nat)
+  , _scComment            :: !(Maybe Text)
+  , _scOutputS3BucketName :: !(Maybe Text)
+  , _scMaxConcurrency     :: !(Maybe Text)
+  , _scDocumentName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -244,8 +244,8 @@ instance ToQuery SendCommand where
 
 -- | /See:/ 'sendCommandResponse' smart constructor.
 data SendCommandResponse = SendCommandResponse'
-  { _scrsCommand        :: {-# NOUNPACK #-}!(Maybe Command)
-  , _scrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _scrsCommand        :: !(Maybe Command)
+  , _scrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

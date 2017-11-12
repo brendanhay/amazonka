@@ -112,8 +112,8 @@ instance ToQuery GetChangeTokenStatus where
 
 -- | /See:/ 'getChangeTokenStatusResponse' smart constructor.
 data GetChangeTokenStatusResponse = GetChangeTokenStatusResponse'
-  { _gctsrsChangeTokenStatus :: {-# NOUNPACK #-}!(Maybe ChangeTokenStatus)
-  , _gctsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gctsrsChangeTokenStatus :: !(Maybe ChangeTokenStatus)
+  , _gctsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -51,11 +51,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'listConfigurations' smart constructor.
 data ListConfigurations = ListConfigurations'
-  { _lcOrderBy           :: {-# NOUNPACK #-}!(Maybe [OrderByElement])
-  , _lcFilters           :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _lcNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lcConfigurationType :: {-# NOUNPACK #-}!ConfigurationItemType
+  { _lcOrderBy           :: !(Maybe [OrderByElement])
+  , _lcFilters           :: !(Maybe [Filter])
+  , _lcNextToken         :: !(Maybe Text)
+  , _lcMaxResults        :: !(Maybe Int)
+  , _lcConfigurationType :: !ConfigurationItemType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery ListConfigurations where
 
 -- | /See:/ 'listConfigurationsResponse' smart constructor.
 data ListConfigurationsResponse = ListConfigurationsResponse'
-  { _lcrsConfigurations :: {-# NOUNPACK #-}!(Maybe [Map Text Text])
-  , _lcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcrsConfigurations :: !(Maybe [Map Text Text])
+  , _lcrsNextToken      :: !(Maybe Text)
+  , _lcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

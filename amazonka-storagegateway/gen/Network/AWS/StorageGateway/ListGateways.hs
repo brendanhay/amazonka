@@ -65,8 +65,8 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listGateways' smart constructor.
 data ListGateways = ListGateways'
-  { _lgMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgLimit  :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lgMarker :: !(Maybe Text)
+  , _lgLimit  :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,9 +136,9 @@ instance ToQuery ListGateways where
 
 -- | /See:/ 'listGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
-  { _lgrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgrsGateways       :: {-# NOUNPACK #-}!(Maybe [GatewayInfo])
-  , _lgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lgrsMarker         :: !(Maybe Text)
+  , _lgrsGateways       :: !(Maybe [GatewayInfo])
+  , _lgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

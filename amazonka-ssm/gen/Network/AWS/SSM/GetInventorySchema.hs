@@ -50,10 +50,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getInventorySchema' smart constructor.
 data GetInventorySchema = GetInventorySchema'
-  { _gisTypeName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gisNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gisSubType    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gisMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gisTypeName   :: !(Maybe Text)
+  , _gisNextToken  :: !(Maybe Text)
+  , _gisSubType    :: !(Maybe Bool)
+  , _gisMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,9 +136,9 @@ instance ToQuery GetInventorySchema where
 
 -- | /See:/ 'getInventorySchemaResponse' smart constructor.
 data GetInventorySchemaResponse = GetInventorySchemaResponse'
-  { _gisrsSchemas        :: {-# NOUNPACK #-}!(Maybe [InventoryItemSchema])
-  , _gisrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gisrsSchemas        :: !(Maybe [InventoryItemSchema])
+  , _gisrsNextToken      :: !(Maybe Text)
+  , _gisrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

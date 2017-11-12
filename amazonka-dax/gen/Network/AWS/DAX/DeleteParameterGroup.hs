@@ -104,8 +104,8 @@ instance ToQuery DeleteParameterGroup where
 
 -- | /See:/ 'deleteParameterGroupResponse' smart constructor.
 data DeleteParameterGroupResponse = DeleteParameterGroupResponse'
-  { _dpgrsDeletionMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dpgrsDeletionMessage :: !(Maybe Text)
+  , _dpgrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

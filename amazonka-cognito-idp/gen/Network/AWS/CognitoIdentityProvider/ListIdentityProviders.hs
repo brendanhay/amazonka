@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listIdentityProviders' smart constructor.
 data ListIdentityProviders = ListIdentityProviders'
-  { _lipNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lipMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lipUserPoolId :: {-# NOUNPACK #-}!Text
+  { _lipNextToken  :: !(Maybe Text)
+  , _lipMaxResults :: !(Maybe Nat)
+  , _lipUserPoolId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery ListIdentityProviders where
 
 -- | /See:/ 'listIdentityProvidersResponse' smart constructor.
 data ListIdentityProvidersResponse = ListIdentityProvidersResponse'
-  { _liprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _liprsProviders      :: {-# NOUNPACK #-}![ProviderDescription]
+  { _liprsNextToken      :: !(Maybe Text)
+  , _liprsResponseStatus :: !Int
+  , _liprsProviders      :: ![ProviderDescription]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

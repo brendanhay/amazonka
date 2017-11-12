@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateResourceServer' smart constructor.
 data UpdateResourceServer = UpdateResourceServer'
-  { _ursScopes     :: {-# NOUNPACK #-}!(Maybe [ResourceServerScopeType])
-  , _ursUserPoolId :: {-# NOUNPACK #-}!Text
-  , _ursIdentifier :: {-# NOUNPACK #-}!Text
-  , _ursName       :: {-# NOUNPACK #-}!Text
+  { _ursScopes     :: !(Maybe [ResourceServerScopeType])
+  , _ursUserPoolId :: !Text
+  , _ursIdentifier :: !Text
+  , _ursName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery UpdateResourceServer where
 
 -- | /See:/ 'updateResourceServerResponse' smart constructor.
 data UpdateResourceServerResponse = UpdateResourceServerResponse'
-  { _ursrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ursrsResourceServer :: {-# NOUNPACK #-}!ResourceServerType
+  { _ursrsResponseStatus :: !Int
+  , _ursrsResourceServer :: !ResourceServerType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

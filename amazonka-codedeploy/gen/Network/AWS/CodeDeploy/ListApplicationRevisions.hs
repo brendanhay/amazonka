@@ -60,13 +60,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'listApplicationRevisions' smart constructor.
 data ListApplicationRevisions = ListApplicationRevisions'
-  { _larS3KeyPrefix     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larDeployed        :: {-# NOUNPACK #-}!(Maybe ListStateFilterAction)
-  , _larSortOrder       :: {-# NOUNPACK #-}!(Maybe SortOrder)
-  , _larNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larS3Bucket        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larSortBy          :: {-# NOUNPACK #-}!(Maybe ApplicationRevisionSortBy)
-  , _larApplicationName :: {-# NOUNPACK #-}!Text
+  { _larS3KeyPrefix     :: !(Maybe Text)
+  , _larDeployed        :: !(Maybe ListStateFilterAction)
+  , _larSortOrder       :: !(Maybe SortOrder)
+  , _larNextToken       :: !(Maybe Text)
+  , _larS3Bucket        :: !(Maybe Text)
+  , _larSortBy          :: !(Maybe ApplicationRevisionSortBy)
+  , _larApplicationName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -187,9 +187,9 @@ instance ToQuery ListApplicationRevisions where
 --
 -- /See:/ 'listApplicationRevisionsResponse' smart constructor.
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
-  { _larrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larrsRevisions      :: {-# NOUNPACK #-}!(Maybe [RevisionLocation])
-  , _larrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _larrsNextToken      :: !(Maybe Text)
+  , _larrsRevisions      :: !(Maybe [RevisionLocation])
+  , _larrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

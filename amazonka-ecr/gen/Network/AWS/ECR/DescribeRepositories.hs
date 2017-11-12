@@ -53,10 +53,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeRepositories' smart constructor.
 data DescribeRepositories = DescribeRepositories'
-  { _drRegistryId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drRepositoryNames :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _drNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _drRegistryId      :: !(Maybe Text)
+  , _drRepositoryNames :: !(Maybe (List1 Text))
+  , _drNextToken       :: !(Maybe Text)
+  , _drMaxResults      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,9 +148,9 @@ instance ToQuery DescribeRepositories where
 
 -- | /See:/ 'describeRepositoriesResponse' smart constructor.
 data DescribeRepositoriesResponse = DescribeRepositoriesResponse'
-  { _drrsRepositories   :: {-# NOUNPACK #-}!(Maybe [Repository])
-  , _drrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drrsRepositories   :: !(Maybe [Repository])
+  , _drrsNextToken      :: !(Maybe Text)
+  , _drrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

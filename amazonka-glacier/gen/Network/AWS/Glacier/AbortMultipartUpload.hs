@@ -59,9 +59,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'abortMultipartUpload' smart constructor.
 data AbortMultipartUpload = AbortMultipartUpload'
-  { _amuAccountId :: {-# NOUNPACK #-}!Text
-  , _amuVaultName :: {-# NOUNPACK #-}!Text
-  , _amuUploadId  :: {-# NOUNPACK #-}!Text
+  { _amuAccountId :: !Text
+  , _amuVaultName :: !Text
+  , _amuUploadId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

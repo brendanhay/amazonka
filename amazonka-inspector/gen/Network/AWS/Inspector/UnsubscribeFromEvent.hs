@@ -45,9 +45,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'unsubscribeFromEvent' smart constructor.
 data UnsubscribeFromEvent = UnsubscribeFromEvent'
-  { _ufeResourceARN :: {-# NOUNPACK #-}!Text
-  , _ufeEvent       :: {-# NOUNPACK #-}!InspectorEvent
-  , _ufeTopicARN    :: {-# NOUNPACK #-}!Text
+  { _ufeResourceARN :: !Text
+  , _ufeEvent       :: !InspectorEvent
+  , _ufeTopicARN    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

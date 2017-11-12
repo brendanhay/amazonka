@@ -97,8 +97,8 @@ instance ToQuery GetLoginProfile where
 --
 -- /See:/ 'getLoginProfileResponse' smart constructor.
 data GetLoginProfileResponse = GetLoginProfileResponse'
-  { _glprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _glprsLoginProfile   :: {-# NOUNPACK #-}!LoginProfile
+  { _glprsResponseStatus :: !Int
+  , _glprsLoginProfile   :: !LoginProfile
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

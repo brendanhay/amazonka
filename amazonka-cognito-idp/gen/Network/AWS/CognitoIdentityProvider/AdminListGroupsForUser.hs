@@ -52,10 +52,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'adminListGroupsForUser' smart constructor.
 data AdminListGroupsForUser = AdminListGroupsForUser'
-  { _algfuNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _algfuLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _algfuUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _algfuUserPoolId :: {-# NOUNPACK #-}!Text
+  { _algfuNextToken  :: !(Maybe Text)
+  , _algfuLimit      :: !(Maybe Nat)
+  , _algfuUsername   :: !(Sensitive Text)
+  , _algfuUserPoolId :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery AdminListGroupsForUser where
 
 -- | /See:/ 'adminListGroupsForUserResponse' smart constructor.
 data AdminListGroupsForUserResponse = AdminListGroupsForUserResponse'
-  { _algfursGroups         :: {-# NOUNPACK #-}!(Maybe [GroupType])
-  , _algfursNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _algfursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _algfursGroups         :: !(Maybe [GroupType])
+  , _algfursNextToken      :: !(Maybe Text)
+  , _algfursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

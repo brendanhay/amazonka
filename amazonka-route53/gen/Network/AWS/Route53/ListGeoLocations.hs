@@ -60,10 +60,10 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listGeoLocations' smart constructor.
 data ListGeoLocations = ListGeoLocations'
-  { _lglStartSubdivisionCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lglMaxItems             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lglStartCountryCode     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lglStartContinentCode   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lglStartSubdivisionCode :: !(Maybe Text)
+  , _lglMaxItems             :: !(Maybe Text)
+  , _lglStartCountryCode     :: !(Maybe Text)
+  , _lglStartContinentCode   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,13 +146,13 @@ instance ToQuery ListGeoLocations where
 --
 -- /See:/ 'listGeoLocationsResponse' smart constructor.
 data ListGeoLocationsResponse = ListGeoLocationsResponse'
-  { _lglrsNextContinentCode      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lglrsNextCountryCode        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lglrsNextSubdivisionCode    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lglrsResponseStatus         :: {-# NOUNPACK #-}!Int
-  , _lglrsGeoLocationDetailsList :: {-# NOUNPACK #-}![GeoLocationDetails]
-  , _lglrsIsTruncated            :: {-# NOUNPACK #-}!Bool
-  , _lglrsMaxItems               :: {-# NOUNPACK #-}!Text
+  { _lglrsNextContinentCode      :: !(Maybe Text)
+  , _lglrsNextCountryCode        :: !(Maybe Text)
+  , _lglrsNextSubdivisionCode    :: !(Maybe Text)
+  , _lglrsResponseStatus         :: !Int
+  , _lglrsGeoLocationDetailsList :: ![GeoLocationDetails]
+  , _lglrsIsTruncated            :: !Bool
+  , _lglrsMaxItems               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

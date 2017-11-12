@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'getConnections' smart constructor.
 data GetConnections = GetConnections'
-  { _gcsCatalogId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcsFilter     :: {-# NOUNPACK #-}!(Maybe GetConnectionsFilter)
-  , _gcsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gcsCatalogId  :: !(Maybe Text)
+  , _gcsNextToken  :: !(Maybe Text)
+  , _gcsFilter     :: !(Maybe GetConnectionsFilter)
+  , _gcsMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,9 +136,9 @@ instance ToQuery GetConnections where
 
 -- | /See:/ 'getConnectionsResponse' smart constructor.
 data GetConnectionsResponse = GetConnectionsResponse'
-  { _gccrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gccrsConnectionList :: {-# NOUNPACK #-}!(Maybe [Connection])
-  , _gccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gccrsNextToken      :: !(Maybe Text)
+  , _gccrsConnectionList :: !(Maybe [Connection])
+  , _gccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'modifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
-  { _mlbaLoadBalancerARN :: {-# NOUNPACK #-}!Text
-  , _mlbaAttributes      :: {-# NOUNPACK #-}![LoadBalancerAttribute]
+  { _mlbaLoadBalancerARN :: !Text
+  , _mlbaAttributes      :: ![LoadBalancerAttribute]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery ModifyLoadBalancerAttributes where
 
 -- | /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
-  { _mlbarsAttributes     :: {-# NOUNPACK #-}!(Maybe [LoadBalancerAttribute])
-  , _mlbarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mlbarsAttributes     :: !(Maybe [LoadBalancerAttribute])
+  , _mlbarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

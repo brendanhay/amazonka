@@ -57,18 +57,18 @@ import Network.AWS.Response
 
 -- | /See:/ 'createNetworkProfile' smart constructor.
 data CreateNetworkProfile = CreateNetworkProfile'
-  { _cnpUplinkJitterMs        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cnpUplinkLossPercent     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cnpDownlinkJitterMs      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cnpDownlinkLossPercent   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cnpType                  :: {-# NOUNPACK #-}!(Maybe NetworkProfileType)
-  , _cnpUplinkDelayMs         :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cnpUplinkBandwidthBits   :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cnpDescription           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnpDownlinkDelayMs       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cnpDownlinkBandwidthBits :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cnpProjectARN            :: {-# NOUNPACK #-}!Text
-  , _cnpName                  :: {-# NOUNPACK #-}!Text
+  { _cnpUplinkJitterMs        :: !(Maybe Integer)
+  , _cnpUplinkLossPercent     :: !(Maybe Nat)
+  , _cnpDownlinkJitterMs      :: !(Maybe Integer)
+  , _cnpDownlinkLossPercent   :: !(Maybe Nat)
+  , _cnpType                  :: !(Maybe NetworkProfileType)
+  , _cnpUplinkDelayMs         :: !(Maybe Integer)
+  , _cnpUplinkBandwidthBits   :: !(Maybe Integer)
+  , _cnpDescription           :: !(Maybe Text)
+  , _cnpDownlinkDelayMs       :: !(Maybe Integer)
+  , _cnpDownlinkBandwidthBits :: !(Maybe Integer)
+  , _cnpProjectARN            :: !Text
+  , _cnpName                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -220,8 +220,8 @@ instance ToQuery CreateNetworkProfile where
 
 -- | /See:/ 'createNetworkProfileResponse' smart constructor.
 data CreateNetworkProfileResponse = CreateNetworkProfileResponse'
-  { _cnprsNetworkProfile :: {-# NOUNPACK #-}!(Maybe NetworkProfile)
-  , _cnprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cnprsNetworkProfile :: !(Maybe NetworkProfile)
+  , _cnprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

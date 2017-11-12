@@ -27,19 +27,19 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'action' smart constructor.
 data Action = Action'
-  { _aCloudwatchMetric :: {-# NOUNPACK #-}!(Maybe CloudwatchMetricAction)
-  , _aDynamoDBv2       :: {-# NOUNPACK #-}!(Maybe DynamoDBv2Action)
-  , _aCloudwatchAlarm  :: {-# NOUNPACK #-}!(Maybe CloudwatchAlarmAction)
-  , _aSns              :: {-# NOUNPACK #-}!(Maybe SNSAction)
-  , _aDynamoDB         :: {-# NOUNPACK #-}!(Maybe DynamoDBAction)
-  , _aFirehose         :: {-# NOUNPACK #-}!(Maybe FirehoseAction)
-  , _aLambda           :: {-# NOUNPACK #-}!(Maybe LambdaAction)
-  , _aSalesforce       :: {-# NOUNPACK #-}!(Maybe SalesforceAction)
-  , _aKinesis          :: {-# NOUNPACK #-}!(Maybe KinesisAction)
-  , _aS3               :: {-# NOUNPACK #-}!(Maybe S3Action)
-  , _aElasticsearch    :: {-# NOUNPACK #-}!(Maybe ElasticsearchAction)
-  , _aRepublish        :: {-# NOUNPACK #-}!(Maybe RepublishAction)
-  , _aSqs              :: {-# NOUNPACK #-}!(Maybe SqsAction)
+  { _aCloudwatchMetric :: !(Maybe CloudwatchMetricAction)
+  , _aDynamoDBv2       :: !(Maybe DynamoDBv2Action)
+  , _aCloudwatchAlarm  :: !(Maybe CloudwatchAlarmAction)
+  , _aSns              :: !(Maybe SNSAction)
+  , _aDynamoDB         :: !(Maybe DynamoDBAction)
+  , _aFirehose         :: !(Maybe FirehoseAction)
+  , _aLambda           :: !(Maybe LambdaAction)
+  , _aSalesforce       :: !(Maybe SalesforceAction)
+  , _aKinesis          :: !(Maybe KinesisAction)
+  , _aS3               :: !(Maybe S3Action)
+  , _aElasticsearch    :: !(Maybe ElasticsearchAction)
+  , _aRepublish        :: !(Maybe RepublishAction)
+  , _aSqs              :: !(Maybe SqsAction)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -188,8 +188,8 @@ instance ToJSON Action where
 --
 -- /See:/ 'attributePayload' smart constructor.
 data AttributePayload = AttributePayload'
-  { _apAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _apMerge      :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _apAttributes :: !(Maybe (Map Text Text))
+  , _apMerge      :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -231,10 +231,10 @@ instance ToJSON AttributePayload where
 --
 -- /See:/ 'cACertificate' smart constructor.
 data CACertificate = CACertificate'
-  { _cacStatus         :: {-# NOUNPACK #-}!(Maybe CACertificateStatus)
-  , _cacCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cacCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cacCreationDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _cacStatus         :: !(Maybe CACertificateStatus)
+  , _cacCertificateARN :: !(Maybe Text)
+  , _cacCertificateId  :: !(Maybe Text)
+  , _cacCreationDate   :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -295,13 +295,13 @@ instance NFData CACertificate where
 --
 -- /See:/ 'cACertificateDescription' smart constructor.
 data CACertificateDescription = CACertificateDescription'
-  { _cacdStatus :: {-# NOUNPACK #-}!(Maybe CACertificateStatus)
-  , _cacdOwnedBy :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cacdCertificatePem :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cacdCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cacdCertificateId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cacdAutoRegistrationStatus :: {-# NOUNPACK #-}!(Maybe AutoRegistrationStatus)
-  , _cacdCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _cacdStatus                 :: !(Maybe CACertificateStatus)
+  , _cacdOwnedBy                :: !(Maybe Text)
+  , _cacdCertificatePem         :: !(Maybe Text)
+  , _cacdCertificateARN         :: !(Maybe Text)
+  , _cacdCertificateId          :: !(Maybe Text)
+  , _cacdAutoRegistrationStatus :: !(Maybe AutoRegistrationStatus)
+  , _cacdCreationDate           :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -386,10 +386,10 @@ instance NFData CACertificateDescription where
 --
 -- /See:/ 'certificate' smart constructor.
 data Certificate = Certificate'
-  { _cStatus         :: {-# NOUNPACK #-}!(Maybe CertificateStatus)
-  , _cCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCreationDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _cStatus         :: !(Maybe CertificateStatus)
+  , _cCertificateARN :: !(Maybe Text)
+  , _cCertificateId  :: !(Maybe Text)
+  , _cCreationDate   :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -450,16 +450,16 @@ instance NFData Certificate where
 --
 -- /See:/ 'certificateDescription' smart constructor.
 data CertificateDescription = CertificateDescription'
-  { _cdStatus           :: {-# NOUNPACK #-}!(Maybe CertificateStatus)
-  , _cdOwnedBy          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cdCaCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdPreviousOwnedBy  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdCertificatePem   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdCertificateARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdCertificateId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cdTransferData     :: {-# NOUNPACK #-}!(Maybe TransferData)
+  { _cdStatus           :: !(Maybe CertificateStatus)
+  , _cdOwnedBy          :: !(Maybe Text)
+  , _cdLastModifiedDate :: !(Maybe POSIX)
+  , _cdCaCertificateId  :: !(Maybe Text)
+  , _cdPreviousOwnedBy  :: !(Maybe Text)
+  , _cdCertificatePem   :: !(Maybe Text)
+  , _cdCertificateARN   :: !(Maybe Text)
+  , _cdCertificateId    :: !(Maybe Text)
+  , _cdCreationDate     :: !(Maybe POSIX)
+  , _cdTransferData     :: !(Maybe TransferData)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -568,10 +568,10 @@ instance NFData CertificateDescription where
 --
 -- /See:/ 'cloudwatchAlarmAction' smart constructor.
 data CloudwatchAlarmAction = CloudwatchAlarmAction'
-  { _caaRoleARN     :: {-# NOUNPACK #-}!Text
-  , _caaAlarmName   :: {-# NOUNPACK #-}!Text
-  , _caaStateReason :: {-# NOUNPACK #-}!Text
-  , _caaStateValue  :: {-# NOUNPACK #-}!Text
+  { _caaRoleARN     :: !Text
+  , _caaAlarmName   :: !Text
+  , _caaStateReason :: !Text
+  , _caaStateValue  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -645,12 +645,12 @@ instance ToJSON CloudwatchAlarmAction where
 --
 -- /See:/ 'cloudwatchMetricAction' smart constructor.
 data CloudwatchMetricAction = CloudwatchMetricAction'
-  { _cmaMetricTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmaRoleARN         :: {-# NOUNPACK #-}!Text
-  , _cmaMetricNamespace :: {-# NOUNPACK #-}!Text
-  , _cmaMetricName      :: {-# NOUNPACK #-}!Text
-  , _cmaMetricValue     :: {-# NOUNPACK #-}!Text
-  , _cmaMetricUnit      :: {-# NOUNPACK #-}!Text
+  { _cmaMetricTimestamp :: !(Maybe Text)
+  , _cmaRoleARN         :: !Text
+  , _cmaMetricNamespace :: !Text
+  , _cmaMetricName      :: !Text
+  , _cmaMetricValue     :: !Text
+  , _cmaMetricUnit      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -755,16 +755,16 @@ instance ToJSON CloudwatchMetricAction where
 --
 -- /See:/ 'dynamoDBAction' smart constructor.
 data DynamoDBAction = DynamoDBAction'
-  { _ddbaHashKeyType   :: {-# NOUNPACK #-}!(Maybe DynamoKeyType)
-  , _ddbaOperation     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbaRangeKeyType  :: {-# NOUNPACK #-}!(Maybe DynamoKeyType)
-  , _ddbaPayloadField  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbaRangeKeyField :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbaRangeKeyValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbaTableName     :: {-# NOUNPACK #-}!Text
-  , _ddbaRoleARN       :: {-# NOUNPACK #-}!Text
-  , _ddbaHashKeyField  :: {-# NOUNPACK #-}!Text
-  , _ddbaHashKeyValue  :: {-# NOUNPACK #-}!Text
+  { _ddbaHashKeyType   :: !(Maybe DynamoKeyType)
+  , _ddbaOperation     :: !(Maybe Text)
+  , _ddbaRangeKeyType  :: !(Maybe DynamoKeyType)
+  , _ddbaPayloadField  :: !(Maybe Text)
+  , _ddbaRangeKeyField :: !(Maybe Text)
+  , _ddbaRangeKeyValue :: !(Maybe Text)
+  , _ddbaTableName     :: !Text
+  , _ddbaRoleARN       :: !Text
+  , _ddbaHashKeyField  :: !Text
+  , _ddbaHashKeyValue  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -894,8 +894,8 @@ instance ToJSON DynamoDBAction where
 --
 -- /See:/ 'dynamoDBv2Action' smart constructor.
 data DynamoDBv2Action = DynamoDBv2Action'
-  { _ddaPutItem :: {-# NOUNPACK #-}!(Maybe PutItemInput)
-  , _ddaRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ddaPutItem :: !(Maybe PutItemInput)
+  , _ddaRoleARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -944,11 +944,11 @@ instance ToJSON DynamoDBv2Action where
 --
 -- /See:/ 'elasticsearchAction' smart constructor.
 data ElasticsearchAction = ElasticsearchAction'
-  { _eaRoleARN  :: {-# NOUNPACK #-}!Text
-  , _eaEndpoint :: {-# NOUNPACK #-}!Text
-  , _eaIndex    :: {-# NOUNPACK #-}!Text
-  , _eaType     :: {-# NOUNPACK #-}!Text
-  , _eaId       :: {-# NOUNPACK #-}!Text
+  { _eaRoleARN  :: !Text
+  , _eaEndpoint :: !Text
+  , _eaIndex    :: !Text
+  , _eaType     :: !Text
+  , _eaId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1031,9 +1031,9 @@ instance ToJSON ElasticsearchAction where
 --
 -- /See:/ 'firehoseAction' smart constructor.
 data FirehoseAction = FirehoseAction'
-  { _faSeparator          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _faRoleARN            :: {-# NOUNPACK #-}!Text
-  , _faDeliveryStreamName :: {-# NOUNPACK #-}!Text
+  { _faSeparator          :: !(Maybe Text)
+  , _faRoleARN            :: !Text
+  , _faDeliveryStreamName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1097,8 +1097,8 @@ instance ToJSON FirehoseAction where
 --
 -- /See:/ 'keyPair' smart constructor.
 data KeyPair = KeyPair'
-  { _kpPrivateKey :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _kpPublicKey  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _kpPrivateKey :: !(Maybe (Sensitive Text))
+  , _kpPublicKey  :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1139,9 +1139,9 @@ instance NFData KeyPair where
 --
 -- /See:/ 'kinesisAction' smart constructor.
 data KinesisAction = KinesisAction'
-  { _kaPartitionKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kaRoleARN      :: {-# NOUNPACK #-}!Text
-  , _kaStreamName   :: {-# NOUNPACK #-}!Text
+  { _kaPartitionKey :: !(Maybe Text)
+  , _kaRoleARN      :: !Text
+  , _kaStreamName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1243,8 +1243,8 @@ instance ToJSON LambdaAction where
 --
 -- /See:/ 'loggingOptionsPayload' smart constructor.
 data LoggingOptionsPayload = LoggingOptionsPayload'
-  { _lopLogLevel :: {-# NOUNPACK #-}!(Maybe LogLevel)
-  , _lopRoleARN  :: {-# NOUNPACK #-}!Text
+  { _lopLogLevel :: !(Maybe LogLevel)
+  , _lopRoleARN  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1287,12 +1287,12 @@ instance ToJSON LoggingOptionsPayload where
 --
 -- /See:/ 'outgoingCertificate' smart constructor.
 data OutgoingCertificate = OutgoingCertificate'
-  { _ocTransferDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ocCertificateARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ocCertificateId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ocTransferredTo   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ocCreationDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ocTransferMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ocTransferDate    :: !(Maybe POSIX)
+  , _ocCertificateARN  :: !(Maybe Text)
+  , _ocCertificateId   :: !(Maybe Text)
+  , _ocTransferredTo   :: !(Maybe Text)
+  , _ocCreationDate    :: !(Maybe POSIX)
+  , _ocTransferMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1369,8 +1369,8 @@ instance NFData OutgoingCertificate where
 --
 -- /See:/ 'policy' smart constructor.
 data Policy = Policy'
-  { _pPolicyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pPolicyARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pPolicyName :: !(Maybe Text)
+  , _pPolicyARN  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1411,9 +1411,9 @@ instance NFData Policy where
 --
 -- /See:/ 'policyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
-  { _pvVersionId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvCreateDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pvIsDefaultVersion :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _pvVersionId        :: !(Maybe Text)
+  , _pvCreateDate       :: !(Maybe POSIX)
+  , _pvIsDefaultVersion :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1505,8 +1505,8 @@ instance ToJSON PutItemInput where
 --
 -- /See:/ 'republishAction' smart constructor.
 data RepublishAction = RepublishAction'
-  { _raRoleARN :: {-# NOUNPACK #-}!Text
-  , _raTopic   :: {-# NOUNPACK #-}!Text
+  { _raRoleARN :: !Text
+  , _raTopic   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1557,10 +1557,10 @@ instance ToJSON RepublishAction where
 --
 -- /See:/ 's3Action' smart constructor.
 data S3Action = S3Action'
-  { _sCannedACL  :: {-# NOUNPACK #-}!(Maybe CannedAccessControlList)
-  , _sRoleARN    :: {-# NOUNPACK #-}!Text
-  , _sBucketName :: {-# NOUNPACK #-}!Text
-  , _sKey        :: {-# NOUNPACK #-}!Text
+  { _sCannedACL  :: !(Maybe CannedAccessControlList)
+  , _sRoleARN    :: !Text
+  , _sBucketName :: !Text
+  , _sKey        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1633,9 +1633,9 @@ instance ToJSON S3Action where
 --
 -- /See:/ 'snsAction' smart constructor.
 data SNSAction = SNSAction'
-  { _snsaMessageFormat :: {-# NOUNPACK #-}!(Maybe MessageFormat)
-  , _snsaTargetARN     :: {-# NOUNPACK #-}!Text
-  , _snsaRoleARN       :: {-# NOUNPACK #-}!Text
+  { _snsaMessageFormat :: !(Maybe MessageFormat)
+  , _snsaTargetARN     :: !Text
+  , _snsaRoleARN       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1698,8 +1698,8 @@ instance ToJSON SNSAction where
 --
 -- /See:/ 'salesforceAction' smart constructor.
 data SalesforceAction = SalesforceAction'
-  { _saToken :: {-# NOUNPACK #-}!Text
-  , _saUrl   :: {-# NOUNPACK #-}!Text
+  { _saToken :: !Text
+  , _saUrl   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1749,9 +1749,9 @@ instance ToJSON SalesforceAction where
 --
 -- /See:/ 'sqsAction' smart constructor.
 data SqsAction = SqsAction'
-  { _saUseBase64 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _saRoleARN   :: {-# NOUNPACK #-}!Text
-  , _saQueueURL  :: {-# NOUNPACK #-}!Text
+  { _saUseBase64 :: !(Maybe Bool)
+  , _saRoleARN   :: !Text
+  , _saQueueURL  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1811,10 +1811,10 @@ instance ToJSON SqsAction where
 --
 -- /See:/ 'thingAttribute' smart constructor.
 data ThingAttribute = ThingAttribute'
-  { _taThingTypeName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _taAttributes    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _taVersion       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _taThingName     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _taThingTypeName :: !(Maybe Text)
+  , _taAttributes    :: !(Maybe (Map Text Text))
+  , _taVersion       :: !(Maybe Integer)
+  , _taThingName     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1876,9 +1876,9 @@ instance NFData ThingAttribute where
 --
 -- /See:/ 'thingTypeDefinition' smart constructor.
 data ThingTypeDefinition = ThingTypeDefinition'
-  { _ttdThingTypeProperties :: {-# NOUNPACK #-}!(Maybe ThingTypeProperties)
-  , _ttdThingTypeName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ttdThingTypeMetadata   :: {-# NOUNPACK #-}!(Maybe ThingTypeMetadata)
+  { _ttdThingTypeProperties :: !(Maybe ThingTypeProperties)
+  , _ttdThingTypeName       :: !(Maybe Text)
+  , _ttdThingTypeMetadata   :: !(Maybe ThingTypeMetadata)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1932,9 +1932,9 @@ instance NFData ThingTypeDefinition where
 --
 -- /See:/ 'thingTypeMetadata' smart constructor.
 data ThingTypeMetadata = ThingTypeMetadata'
-  { _ttmDeprecationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ttmCreationDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ttmDeprecated      :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _ttmDeprecationDate :: !(Maybe POSIX)
+  , _ttmCreationDate    :: !(Maybe POSIX)
+  , _ttmDeprecated      :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1987,8 +1987,8 @@ instance NFData ThingTypeMetadata where
 --
 -- /See:/ 'thingTypeProperties' smart constructor.
 data ThingTypeProperties = ThingTypeProperties'
-  { _ttpSearchableAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ttpThingTypeDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ttpSearchableAttributes :: !(Maybe [Text])
+  , _ttpThingTypeDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2041,13 +2041,13 @@ instance ToJSON ThingTypeProperties where
 --
 -- /See:/ 'topicRule' smart constructor.
 data TopicRule = TopicRule'
-  { _trCreatedAt        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _trActions          :: {-# NOUNPACK #-}!(Maybe [Action])
-  , _trAwsIotSqlVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trRuleDisabled     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _trRuleName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trSql              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _trCreatedAt        :: !(Maybe POSIX)
+  , _trActions          :: !(Maybe [Action])
+  , _trAwsIotSqlVersion :: !(Maybe Text)
+  , _trRuleDisabled     :: !(Maybe Bool)
+  , _trRuleName         :: !(Maybe Text)
+  , _trSql              :: !(Maybe Text)
+  , _trDescription      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2132,11 +2132,11 @@ instance NFData TopicRule where
 --
 -- /See:/ 'topicRuleListItem' smart constructor.
 data TopicRuleListItem = TopicRuleListItem'
-  { _trliCreatedAt    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _trliRuleDisabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _trliRuleName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trliRuleARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trliTopicPattern :: {-# NOUNPACK #-}!(Maybe Text)
+  { _trliCreatedAt    :: !(Maybe POSIX)
+  , _trliRuleDisabled :: !(Maybe Bool)
+  , _trliRuleName     :: !(Maybe Text)
+  , _trliRuleARN      :: !(Maybe Text)
+  , _trliTopicPattern :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2205,11 +2205,11 @@ instance NFData TopicRuleListItem where
 --
 -- /See:/ 'topicRulePayload' smart constructor.
 data TopicRulePayload = TopicRulePayload'
-  { _trpAwsIotSqlVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trpRuleDisabled     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _trpDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trpSql              :: {-# NOUNPACK #-}!Text
-  , _trpActions          :: {-# NOUNPACK #-}![Action]
+  { _trpAwsIotSqlVersion :: !(Maybe Text)
+  , _trpRuleDisabled     :: !(Maybe Bool)
+  , _trpDescription      :: !(Maybe Text)
+  , _trpSql              :: !Text
+  , _trpActions          :: ![Action]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2279,11 +2279,11 @@ instance ToJSON TopicRulePayload where
 --
 -- /See:/ 'transferData' smart constructor.
 data TransferData = TransferData'
-  { _tdTransferDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tdAcceptDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tdTransferMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdRejectDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tdRejectReason    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tdTransferDate    :: !(Maybe POSIX)
+  , _tdAcceptDate      :: !(Maybe POSIX)
+  , _tdTransferMessage :: !(Maybe Text)
+  , _tdRejectDate      :: !(Maybe POSIX)
+  , _tdRejectReason    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

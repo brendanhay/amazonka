@@ -132,19 +132,19 @@ instance ToQuery DescribeResize where
 --
 -- /See:/ 'describeResizeResponse' smart constructor.
 data DescribeResizeResponse = DescribeResizeResponse'
-  { _drrsImportTablesNotStarted             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _drrsStatus                             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsEstimatedTimeToCompletionInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _drrsAvgResizeRateInMegaBytesPerSecond  :: {-# NOUNPACK #-}!(Maybe Double)
-  , _drrsTargetNumberOfNodes                :: {-# NOUNPACK #-}!(Maybe Int)
-  , _drrsTargetNodeType                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsImportTablesInProgress             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _drrsImportTablesCompleted              :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _drrsProgressInMegaBytes                :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _drrsTotalResizeDataInMegaBytes         :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _drrsTargetClusterType                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsElapsedTimeInSeconds               :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _drrsResponseStatus                     :: {-# NOUNPACK #-}!Int
+  { _drrsImportTablesNotStarted             :: !(Maybe [Text])
+  , _drrsStatus                             :: !(Maybe Text)
+  , _drrsEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
+  , _drrsAvgResizeRateInMegaBytesPerSecond  :: !(Maybe Double)
+  , _drrsTargetNumberOfNodes                :: !(Maybe Int)
+  , _drrsTargetNodeType                     :: !(Maybe Text)
+  , _drrsImportTablesInProgress             :: !(Maybe [Text])
+  , _drrsImportTablesCompleted              :: !(Maybe [Text])
+  , _drrsProgressInMegaBytes                :: !(Maybe Integer)
+  , _drrsTotalResizeDataInMegaBytes         :: !(Maybe Integer)
+  , _drrsTargetClusterType                  :: !(Maybe Text)
+  , _drrsElapsedTimeInSeconds               :: !(Maybe Integer)
+  , _drrsResponseStatus                     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

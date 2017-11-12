@@ -66,11 +66,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'getShardIterator' smart constructor.
 data GetShardIterator = GetShardIterator'
-  { _gsiStartingSequenceNumber :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsiTimestamp              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gsiStreamName             :: {-# NOUNPACK #-}!Text
-  , _gsiShardId                :: {-# NOUNPACK #-}!Text
-  , _gsiShardIteratorType      :: {-# NOUNPACK #-}!ShardIteratorType
+  { _gsiStartingSequenceNumber :: !(Maybe Text)
+  , _gsiTimestamp              :: !(Maybe POSIX)
+  , _gsiStreamName             :: !Text
+  , _gsiShardId                :: !Text
+  , _gsiShardIteratorType      :: !ShardIteratorType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -167,8 +167,8 @@ instance ToQuery GetShardIterator where
 --
 -- /See:/ 'getShardIteratorResponse' smart constructor.
 data GetShardIteratorResponse = GetShardIteratorResponse'
-  { _gsirsShardIterator  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsirsShardIterator  :: !(Maybe Text)
+  , _gsirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

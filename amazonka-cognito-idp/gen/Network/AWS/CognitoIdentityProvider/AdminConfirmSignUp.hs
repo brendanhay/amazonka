@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'adminConfirmSignUp' smart constructor.
 data AdminConfirmSignUp = AdminConfirmSignUp'
-  { _acsuUserPoolId :: {-# NOUNPACK #-}!Text
-  , _acsuUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _acsuUserPoolId :: !Text
+  , _acsuUsername   :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

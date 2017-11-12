@@ -72,15 +72,15 @@ import Network.AWS.Support.Types.Product
 --
 -- /See:/ 'describeCases' smart constructor.
 data DescribeCases = DescribeCases'
-  { _dcIncludeResolvedCases  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dcCaseIdList            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcAfterTime             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcBeforeTime            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcIncludeCommunications :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dcDisplayId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcLanguage              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcMaxResults            :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dcIncludeResolvedCases  :: !(Maybe Bool)
+  , _dcCaseIdList            :: !(Maybe [Text])
+  , _dcAfterTime             :: !(Maybe Text)
+  , _dcBeforeTime            :: !(Maybe Text)
+  , _dcNextToken             :: !(Maybe Text)
+  , _dcIncludeCommunications :: !(Maybe Bool)
+  , _dcDisplayId             :: !(Maybe Text)
+  , _dcLanguage              :: !(Maybe Text)
+  , _dcMaxResults            :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -215,9 +215,9 @@ instance ToQuery DescribeCases where
 --
 -- /See:/ 'describeCasesResponse' smart constructor.
 data DescribeCasesResponse = DescribeCasesResponse'
-  { _drsCases          :: {-# NOUNPACK #-}!(Maybe [CaseDetails])
-  , _drsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsCases          :: !(Maybe [CaseDetails])
+  , _drsNextToken      :: !(Maybe Text)
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

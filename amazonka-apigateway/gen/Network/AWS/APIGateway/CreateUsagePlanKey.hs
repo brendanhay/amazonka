@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createUsagePlanKey' smart constructor.
 data CreateUsagePlanKey = CreateUsagePlanKey'
-  { _cupkUsagePlanId :: {-# NOUNPACK #-}!Text
-  , _cupkKeyId       :: {-# NOUNPACK #-}!Text
-  , _cupkKeyType     :: {-# NOUNPACK #-}!Text
+  { _cupkUsagePlanId :: !Text
+  , _cupkKeyId       :: !Text
+  , _cupkKeyType     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

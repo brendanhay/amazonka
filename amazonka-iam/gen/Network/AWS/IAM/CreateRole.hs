@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createRole' smart constructor.
 data CreateRole = CreateRole'
-  { _crPath                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crDescription              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crRoleName                 :: {-# NOUNPACK #-}!Text
-  , _crAssumeRolePolicyDocument :: {-# NOUNPACK #-}!Text
+  { _crPath                     :: !(Maybe Text)
+  , _crDescription              :: !(Maybe Text)
+  , _crRoleName                 :: !Text
+  , _crAssumeRolePolicyDocument :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance ToQuery CreateRole where
 --
 -- /See:/ 'createRoleResponse' smart constructor.
 data CreateRoleResponse = CreateRoleResponse'
-  { _crrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _crrsRole           :: {-# NOUNPACK #-}!Role
+  { _crrsResponseStatus :: !Int
+  , _crrsRole           :: !Role
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

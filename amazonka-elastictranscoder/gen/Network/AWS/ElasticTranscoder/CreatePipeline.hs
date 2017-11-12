@@ -58,14 +58,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'createPipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
-  { _cContentConfig   :: {-# NOUNPACK #-}!(Maybe PipelineOutputConfig)
-  , _cOutputBucket    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cAWSKMSKeyARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cNotifications   :: {-# NOUNPACK #-}!(Maybe Notifications)
-  , _cThumbnailConfig :: {-# NOUNPACK #-}!(Maybe PipelineOutputConfig)
-  , _cName            :: {-# NOUNPACK #-}!Text
-  , _cInputBucket     :: {-# NOUNPACK #-}!Text
-  , _cRole            :: {-# NOUNPACK #-}!Text
+  { _cContentConfig   :: !(Maybe PipelineOutputConfig)
+  , _cOutputBucket    :: !(Maybe Text)
+  , _cAWSKMSKeyARN    :: !(Maybe Text)
+  , _cNotifications   :: !(Maybe Notifications)
+  , _cThumbnailConfig :: !(Maybe PipelineOutputConfig)
+  , _cName            :: !Text
+  , _cInputBucket     :: !Text
+  , _cRole            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -180,9 +180,9 @@ instance ToQuery CreatePipeline where
 --
 -- /See:/ 'createPipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-  { _crsWarnings       :: {-# NOUNPACK #-}!(Maybe [Warning])
-  , _crsPipeline       :: {-# NOUNPACK #-}!(Maybe Pipeline)
-  , _crsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crsWarnings       :: !(Maybe [Warning])
+  , _crsPipeline       :: !(Maybe Pipeline)
+  , _crsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

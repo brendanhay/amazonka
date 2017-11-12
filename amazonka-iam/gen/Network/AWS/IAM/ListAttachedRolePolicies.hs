@@ -58,10 +58,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAttachedRolePolicies' smart constructor.
 data ListAttachedRolePolicies = ListAttachedRolePolicies'
-  { _larpPathPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larpMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larpMaxItems   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _larpRoleName   :: {-# NOUNPACK #-}!Text
+  { _larpPathPrefix :: !(Maybe Text)
+  , _larpMarker     :: !(Maybe Text)
+  , _larpMaxItems   :: !(Maybe Nat)
+  , _larpRoleName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,10 +151,10 @@ instance ToQuery ListAttachedRolePolicies where
 --
 -- /See:/ 'listAttachedRolePoliciesResponse' smart constructor.
 data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
-  { _larprsAttachedPolicies :: {-# NOUNPACK #-}!(Maybe [AttachedPolicy])
-  , _larprsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larprsIsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _larprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _larprsAttachedPolicies :: !(Maybe [AttachedPolicy])
+  , _larprsMarker           :: !(Maybe Text)
+  , _larprsIsTruncated      :: !(Maybe Bool)
+  , _larprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -101,8 +101,8 @@ instance ToQuery GetServerCertificate where
 --
 -- /See:/ 'getServerCertificateResponse' smart constructor.
 data GetServerCertificateResponse = GetServerCertificateResponse'
-  { _gscrsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _gscrsServerCertificate :: {-# NOUNPACK #-}!ServerCertificate
+  { _gscrsResponseStatus    :: !Int
+  , _gscrsServerCertificate :: !ServerCertificate
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

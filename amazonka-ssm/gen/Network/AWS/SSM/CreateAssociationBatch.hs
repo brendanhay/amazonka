@@ -109,9 +109,9 @@ instance ToQuery CreateAssociationBatch where
 
 -- | /See:/ 'createAssociationBatchResponse' smart constructor.
 data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
-  { _cabrsSuccessful     :: {-# NOUNPACK #-}!(Maybe [AssociationDescription])
-  , _cabrsFailed         :: {-# NOUNPACK #-}!(Maybe [FailedCreateAssociation])
-  , _cabrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cabrsSuccessful     :: !(Maybe [AssociationDescription])
+  , _cabrsFailed         :: !(Maybe [FailedCreateAssociation])
+  , _cabrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -58,8 +58,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createSlotTypeVersion' smart constructor.
 data CreateSlotTypeVersion = CreateSlotTypeVersion'
-  { _cstvChecksum :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cstvName     :: {-# NOUNPACK #-}!Text
+  { _cstvChecksum :: !(Maybe Text)
+  , _cstvName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,15 +129,15 @@ instance ToQuery CreateSlotTypeVersion where
 
 -- | /See:/ 'createSlotTypeVersionResponse' smart constructor.
 data CreateSlotTypeVersionResponse = CreateSlotTypeVersionResponse'
-  { _cstvrsChecksum :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cstvrsValueSelectionStrategy :: {-# NOUNPACK #-}!(Maybe SlotValueSelectionStrategy)
-  , _cstvrsCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cstvrsName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cstvrsVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cstvrsLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cstvrsDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cstvrsEnumerationValues :: {-# NOUNPACK #-}!(Maybe (List1 EnumerationValue))
-  , _cstvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cstvrsChecksum               :: !(Maybe Text)
+  , _cstvrsValueSelectionStrategy :: !(Maybe SlotValueSelectionStrategy)
+  , _cstvrsCreatedDate            :: !(Maybe POSIX)
+  , _cstvrsName                   :: !(Maybe Text)
+  , _cstvrsVersion                :: !(Maybe Text)
+  , _cstvrsLastUpdatedDate        :: !(Maybe POSIX)
+  , _cstvrsDescription            :: !(Maybe Text)
+  , _cstvrsEnumerationValues      :: !(Maybe (List1 EnumerationValue))
+  , _cstvrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

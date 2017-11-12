@@ -73,12 +73,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'createEventSourceMapping' smart constructor.
 data CreateEventSourceMapping = CreateEventSourceMapping'
-  { _cesmStartingPositionTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cesmEnabled                   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cesmBatchSize                 :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cesmEventSourceARN            :: {-# NOUNPACK #-}!Text
-  , _cesmFunctionName              :: {-# NOUNPACK #-}!Text
-  , _cesmStartingPosition          :: {-# NOUNPACK #-}!EventSourcePosition
+  { _cesmStartingPositionTimestamp :: !(Maybe POSIX)
+  , _cesmEnabled                   :: !(Maybe Bool)
+  , _cesmBatchSize                 :: !(Maybe Nat)
+  , _cesmEventSourceARN            :: !Text
+  , _cesmFunctionName              :: !Text
+  , _cesmStartingPosition          :: !EventSourcePosition
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

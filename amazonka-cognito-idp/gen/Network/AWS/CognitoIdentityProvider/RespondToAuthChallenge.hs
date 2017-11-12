@@ -56,10 +56,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'respondToAuthChallenge' smart constructor.
 data RespondToAuthChallenge = RespondToAuthChallenge'
-  { _rtacChallengeResponses :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _rtacSession            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtacClientId           :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _rtacChallengeName      :: {-# NOUNPACK #-}!ChallengeNameType
+  { _rtacChallengeResponses :: !(Maybe (Map Text Text))
+  , _rtacSession            :: !(Maybe Text)
+  , _rtacClientId           :: !(Sensitive Text)
+  , _rtacChallengeName      :: !ChallengeNameType
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -153,11 +153,11 @@ instance ToQuery RespondToAuthChallenge where
 --
 -- /See:/ 'respondToAuthChallengeResponse' smart constructor.
 data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
-  { _rtacrsChallengeName :: {-# NOUNPACK #-}!(Maybe ChallengeNameType)
-  , _rtacrsChallengeParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _rtacrsAuthenticationResult :: {-# NOUNPACK #-}!(Maybe AuthenticationResultType)
-  , _rtacrsSession :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rtacrsChallengeName        :: !(Maybe ChallengeNameType)
+  , _rtacrsChallengeParameters  :: !(Maybe (Map Text Text))
+  , _rtacrsAuthenticationResult :: !(Maybe AuthenticationResultType)
+  , _rtacrsSession              :: !(Maybe Text)
+  , _rtacrsResponseStatus       :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

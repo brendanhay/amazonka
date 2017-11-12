@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeSSLPolicies' smart constructor.
 data DescribeSSLPolicies = DescribeSSLPolicies'
-  { _dspNames    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dspMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dspPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dspNames    :: !(Maybe [Text])
+  , _dspMarker   :: !(Maybe Text)
+  , _dspPageSize :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,9 +119,9 @@ instance ToQuery DescribeSSLPolicies where
 
 -- | /See:/ 'describeSSLPoliciesResponse' smart constructor.
 data DescribeSSLPoliciesResponse = DescribeSSLPoliciesResponse'
-  { _dsprsSSLPolicies    :: {-# NOUNPACK #-}!(Maybe [SSLPolicy])
-  , _dsprsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsprsSSLPolicies    :: !(Maybe [SSLPolicy])
+  , _dsprsNextMarker     :: !(Maybe Text)
+  , _dsprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

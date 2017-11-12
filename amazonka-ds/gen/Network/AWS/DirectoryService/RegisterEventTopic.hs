@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'registerEventTopic' smart constructor.
 data RegisterEventTopic = RegisterEventTopic'
-  { _retDirectoryId :: {-# NOUNPACK #-}!Text
-  , _retTopicName   :: {-# NOUNPACK #-}!Text
+  { _retDirectoryId :: !Text
+  , _retTopicName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

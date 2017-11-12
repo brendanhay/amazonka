@@ -46,8 +46,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteBudget' smart constructor.
 data DeleteBudget = DeleteBudget'
-  { _dAccountId  :: {-# NOUNPACK #-}!Text
-  , _dBudgetName :: {-# NOUNPACK #-}!Text
+  { _dAccountId  :: !Text
+  , _dBudgetName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

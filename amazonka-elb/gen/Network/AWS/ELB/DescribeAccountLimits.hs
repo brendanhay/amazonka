@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits'
-  { _dalMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dalPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dalMarker   :: !(Maybe Text)
+  , _dalPageSize :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -108,9 +108,9 @@ instance ToQuery DescribeAccountLimits where
 
 -- | /See:/ 'describeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { _dalrsLimits         :: {-# NOUNPACK #-}!(Maybe [Limit])
-  , _dalrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dalrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dalrsLimits         :: !(Maybe [Limit])
+  , _dalrsNextMarker     :: !(Maybe Text)
+  , _dalrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

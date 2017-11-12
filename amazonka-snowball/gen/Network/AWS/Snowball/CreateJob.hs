@@ -57,18 +57,18 @@ import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'createJob' smart constructor.
 data CreateJob = CreateJob'
-  { _cjJobType                    :: {-# NOUNPACK #-}!(Maybe JobType)
-  , _cjKMSKeyARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjNotification               :: {-# NOUNPACK #-}!(Maybe Notification)
-  , _cjForwardingAddressId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjAddressId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjSnowballType               :: {-# NOUNPACK #-}!(Maybe SnowballType)
-  , _cjShippingOption             :: {-# NOUNPACK #-}!(Maybe ShippingOption)
-  , _cjResources                  :: {-# NOUNPACK #-}!(Maybe JobResource)
-  , _cjClusterId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjDescription                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjRoleARN                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjSnowballCapacityPreference :: {-# NOUNPACK #-}!(Maybe SnowballCapacity)
+  { _cjJobType                    :: !(Maybe JobType)
+  , _cjKMSKeyARN                  :: !(Maybe Text)
+  , _cjNotification               :: !(Maybe Notification)
+  , _cjForwardingAddressId        :: !(Maybe Text)
+  , _cjAddressId                  :: !(Maybe Text)
+  , _cjSnowballType               :: !(Maybe SnowballType)
+  , _cjShippingOption             :: !(Maybe ShippingOption)
+  , _cjResources                  :: !(Maybe JobResource)
+  , _cjClusterId                  :: !(Maybe Text)
+  , _cjDescription                :: !(Maybe Text)
+  , _cjRoleARN                    :: !(Maybe Text)
+  , _cjSnowballCapacityPreference :: !(Maybe SnowballCapacity)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -216,8 +216,8 @@ instance ToQuery CreateJob where
 
 -- | /See:/ 'createJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { _cjrsJobId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cjrsJobId          :: !(Maybe Text)
+  , _cjrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

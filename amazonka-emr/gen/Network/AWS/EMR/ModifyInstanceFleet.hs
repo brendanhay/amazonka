@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'modifyInstanceFleet' smart constructor.
 data ModifyInstanceFleet = ModifyInstanceFleet'
-  { _mifClusterId     :: {-# NOUNPACK #-}!Text
-  , _mifInstanceFleet :: {-# NOUNPACK #-}!InstanceFleetModifyConfig
+  { _mifClusterId     :: !Text
+  , _mifInstanceFleet :: !InstanceFleetModifyConfig
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

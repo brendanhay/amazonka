@@ -48,9 +48,9 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'stopExecution' smart constructor.
 data StopExecution = StopExecution'
-  { _seError        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seCause        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seExecutionARN :: {-# NOUNPACK #-}!Text
+  { _seError        :: !(Maybe Text)
+  , _seCause        :: !(Maybe Text)
+  , _seExecutionARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery StopExecution where
 
 -- | /See:/ 'stopExecutionResponse' smart constructor.
 data StopExecutionResponse = StopExecutionResponse'
-  { _sersResponseStatus :: {-# NOUNPACK #-}!Int
-  , _sersStopDate       :: {-# NOUNPACK #-}!POSIX
+  { _sersResponseStatus :: !Int
+  , _sersStopDate       :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

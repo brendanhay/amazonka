@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachToIndex' smart constructor.
 data AttachToIndex = AttachToIndex'
-  { _atiDirectoryARN    :: {-# NOUNPACK #-}!Text
-  , _atiIndexReference  :: {-# NOUNPACK #-}!ObjectReference
-  , _atiTargetReference :: {-# NOUNPACK #-}!ObjectReference
+  { _atiDirectoryARN    :: !Text
+  , _atiIndexReference  :: !ObjectReference
+  , _atiTargetReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery AttachToIndex where
 
 -- | /See:/ 'attachToIndexResponse' smart constructor.
 data AttachToIndexResponse = AttachToIndexResponse'
-  { _atirsAttachedObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atirsResponseStatus           :: {-# NOUNPACK #-}!Int
+  { _atirsAttachedObjectIdentifier :: !(Maybe Text)
+  , _atirsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

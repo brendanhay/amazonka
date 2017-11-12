@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDocumentationPart' smart constructor.
 data CreateDocumentationPart = CreateDocumentationPart'
-  { _cdpRestAPIId  :: {-# NOUNPACK #-}!Text
-  , _cdpLocation   :: {-# NOUNPACK #-}!DocumentationPartLocation
-  , _cdpProperties :: {-# NOUNPACK #-}!Text
+  { _cdpRestAPIId  :: !Text
+  , _cdpLocation   :: !DocumentationPartLocation
+  , _cdpProperties :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

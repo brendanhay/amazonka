@@ -49,9 +49,9 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeNotificationSubscriptions' smart constructor.
 data DescribeNotificationSubscriptions = DescribeNotificationSubscriptions'
-  { _dMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dOrganizationId :: {-# NOUNPACK #-}!Text
+  { _dMarker         :: !(Maybe Text)
+  , _dLimit          :: !(Maybe Nat)
+  , _dOrganizationId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery DescribeNotificationSubscriptions
 
 -- | /See:/ 'describeNotificationSubscriptionsResponse' smart constructor.
 data DescribeNotificationSubscriptionsResponse = DescribeNotificationSubscriptionsResponse'
-  { _dnsrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnsrsSubscriptions  :: {-# NOUNPACK #-}!(Maybe [Subscription])
-  , _dnsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dnsrsMarker         :: !(Maybe Text)
+  , _dnsrsSubscriptions  :: !(Maybe [Subscription])
+  , _dnsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

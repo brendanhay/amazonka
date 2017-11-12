@@ -104,9 +104,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateFleetPortSettings' smart constructor.
 data UpdateFleetPortSettings = UpdateFleetPortSettings'
-  { _ufpsInboundPermissionRevocations :: {-# NOUNPACK #-}!(Maybe [IPPermission])
-  , _ufpsInboundPermissionAuthorizations :: {-# NOUNPACK #-}!(Maybe [IPPermission])
-  , _ufpsFleetId :: {-# NOUNPACK #-}!Text
+  { _ufpsInboundPermissionRevocations    :: !(Maybe [IPPermission])
+  , _ufpsInboundPermissionAuthorizations :: !(Maybe [IPPermission])
+  , _ufpsFleetId                         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -187,8 +187,8 @@ instance ToQuery UpdateFleetPortSettings where
 --
 -- /See:/ 'updateFleetPortSettingsResponse' smart constructor.
 data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
-  { _ufpsrsFleetId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufpsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ufpsrsFleetId        :: !(Maybe Text)
+  , _ufpsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

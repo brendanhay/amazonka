@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachLoadBalancerTargetGroups' smart constructor.
 data AttachLoadBalancerTargetGroups = AttachLoadBalancerTargetGroups'
-  { _albtgAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _albtgTargetGroupARNs      :: {-# NOUNPACK #-}![Text]
+  { _albtgAutoScalingGroupName :: !Text
+  , _albtgTargetGroupARNs      :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

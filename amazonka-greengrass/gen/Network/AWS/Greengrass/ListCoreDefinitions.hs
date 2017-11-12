@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listCoreDefinitions' smart constructor.
 data ListCoreDefinitions = ListCoreDefinitions'
-  { _lcdNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcdMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lcdNextToken  :: !(Maybe Text)
+  , _lcdMaxResults :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -106,9 +106,9 @@ instance ToQuery ListCoreDefinitions where
 
 -- | /See:/ 'listCoreDefinitionsResponse' smart constructor.
 data ListCoreDefinitionsResponse = ListCoreDefinitionsResponse'
-  { _lcdrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcdrsDefinitions    :: {-# NOUNPACK #-}!(Maybe [DefinitionInformation])
-  , _lcdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcdrsNextToken      :: !(Maybe Text)
+  , _lcdrsDefinitions    :: !(Maybe [DefinitionInformation])
+  , _lcdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

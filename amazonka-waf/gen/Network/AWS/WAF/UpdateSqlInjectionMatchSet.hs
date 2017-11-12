@@ -74,9 +74,9 @@ import Network.AWS.WAF.Types.Product
 --
 -- /See:/ 'updateSqlInjectionMatchSet' smart constructor.
 data UpdateSqlInjectionMatchSet = UpdateSqlInjectionMatchSet'
-  { _usimsSqlInjectionMatchSetId :: {-# NOUNPACK #-}!Text
-  , _usimsChangeToken :: {-# NOUNPACK #-}!Text
-  , _usimsUpdates :: {-# NOUNPACK #-}!(List1 SqlInjectionMatchSetUpdate)
+  { _usimsSqlInjectionMatchSetId :: !Text
+  , _usimsChangeToken            :: !Text
+  , _usimsUpdates                :: !(List1 SqlInjectionMatchSetUpdate)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,8 +160,8 @@ instance ToQuery UpdateSqlInjectionMatchSet where
 --
 -- /See:/ 'updateSqlInjectionMatchSetResponse' smart constructor.
 data UpdateSqlInjectionMatchSetResponse = UpdateSqlInjectionMatchSetResponse'
-  { _usimsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usimsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _usimsrsChangeToken    :: !(Maybe Text)
+  , _usimsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

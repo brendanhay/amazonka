@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'registerElasticIP' smart constructor.
 data RegisterElasticIP = RegisterElasticIP'
-  { _reiElasticIP :: {-# NOUNPACK #-}!Text
-  , _reiStackId   :: {-# NOUNPACK #-}!Text
+  { _reiElasticIP :: !Text
+  , _reiStackId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,8 +119,8 @@ instance ToQuery RegisterElasticIP where
 --
 -- /See:/ 'registerElasticIPResponse' smart constructor.
 data RegisterElasticIPResponse = RegisterElasticIPResponse'
-  { _reirsElasticIP      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _reirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _reirsElasticIP      :: !(Maybe Text)
+  , _reirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

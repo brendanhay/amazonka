@@ -62,8 +62,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'createSizeConstraintSet' smart constructor.
 data CreateSizeConstraintSet = CreateSizeConstraintSet'
-  { _cscsName        :: {-# NOUNPACK #-}!Text
-  , _cscsChangeToken :: {-# NOUNPACK #-}!Text
+  { _cscsName        :: !Text
+  , _cscsChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,9 +131,9 @@ instance ToQuery CreateSizeConstraintSet where
 
 -- | /See:/ 'createSizeConstraintSetResponse' smart constructor.
 data CreateSizeConstraintSetResponse = CreateSizeConstraintSetResponse'
-  { _cscsrsSizeConstraintSet :: {-# NOUNPACK #-}!(Maybe SizeConstraintSet)
-  , _cscsrsChangeToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cscsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _cscsrsSizeConstraintSet :: !(Maybe SizeConstraintSet)
+  , _cscsrsChangeToken       :: !(Maybe Text)
+  , _cscsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

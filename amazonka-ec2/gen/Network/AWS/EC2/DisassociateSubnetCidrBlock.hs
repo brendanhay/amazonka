@@ -99,9 +99,9 @@ instance ToQuery DisassociateSubnetCidrBlock where
 
 -- | /See:/ 'disassociateSubnetCidrBlockResponse' smart constructor.
 data DisassociateSubnetCidrBlockResponse = DisassociateSubnetCidrBlockResponse'
-  { _dscbrsSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dscbrsIPv6CidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe SubnetIPv6CidrBlockAssociation)
-  , _dscbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dscbrsSubnetId                 :: !(Maybe Text)
+  , _dscbrsIPv6CidrBlockAssociation :: !(Maybe SubnetIPv6CidrBlockAssociation)
+  , _dscbrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

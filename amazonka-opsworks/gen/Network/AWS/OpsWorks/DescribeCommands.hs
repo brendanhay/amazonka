@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeCommands' smart constructor.
 data DescribeCommands = DescribeCommands'
-  { _dcDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcInstanceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcCommandIds   :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dcDeploymentId :: !(Maybe Text)
+  , _dcInstanceId   :: !(Maybe Text)
+  , _dcCommandIds   :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery DescribeCommands where
 --
 -- /See:/ 'describeCommandsResponse' smart constructor.
 data DescribeCommandsResponse = DescribeCommandsResponse'
-  { _dcrsCommands       :: {-# NOUNPACK #-}!(Maybe [Command])
-  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcrsCommands       :: !(Maybe [Command])
+  , _dcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

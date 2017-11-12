@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'alarm' smart constructor.
 data Alarm = Alarm'
-  { _aAlarmName :: {-# NOUNPACK #-}!Text
-  , _aAlarmARN  :: {-# NOUNPACK #-}!Text
+  { _aAlarmName :: !Text
+  , _aAlarmARN  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -71,11 +71,11 @@ instance NFData Alarm where
 --
 -- /See:/ 'customizedMetricSpecification' smart constructor.
 data CustomizedMetricSpecification = CustomizedMetricSpecification'
-  { _cmsDimensions :: {-# NOUNPACK #-}!(Maybe [MetricDimension])
-  , _cmsUnit       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmsMetricName :: {-# NOUNPACK #-}!Text
-  , _cmsNamespace  :: {-# NOUNPACK #-}!Text
-  , _cmsStatistic  :: {-# NOUNPACK #-}!MetricStatistic
+  { _cmsDimensions :: !(Maybe [MetricDimension])
+  , _cmsUnit       :: !(Maybe Text)
+  , _cmsMetricName :: !Text
+  , _cmsNamespace  :: !Text
+  , _cmsStatistic  :: !MetricStatistic
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -157,8 +157,8 @@ instance ToJSON CustomizedMetricSpecification where
 --
 -- /See:/ 'metricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-  { _mdName  :: {-# NOUNPACK #-}!Text
-  , _mdValue :: {-# NOUNPACK #-}!Text
+  { _mdName  :: !Text
+  , _mdValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -209,8 +209,8 @@ instance ToJSON MetricDimension where
 --
 -- /See:/ 'predefinedMetricSpecification' smart constructor.
 data PredefinedMetricSpecification = PredefinedMetricSpecification'
-  { _pmsResourceLabel        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmsPredefinedMetricType :: {-# NOUNPACK #-}!MetricType
+  { _pmsResourceLabel        :: !(Maybe Text)
+  , _pmsPredefinedMetricType :: !MetricType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -266,13 +266,13 @@ instance ToJSON PredefinedMetricSpecification where
 --
 -- /See:/ 'scalableTarget' smart constructor.
 data ScalableTarget = ScalableTarget'
-  { _stServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
-  , _stResourceId        :: {-# NOUNPACK #-}!Text
-  , _stScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
-  , _stMinCapacity       :: {-# NOUNPACK #-}!Int
-  , _stMaxCapacity       :: {-# NOUNPACK #-}!Int
-  , _stRoleARN           :: {-# NOUNPACK #-}!Text
-  , _stCreationTime      :: {-# NOUNPACK #-}!POSIX
+  { _stServiceNamespace  :: !ServiceNamespace
+  , _stResourceId        :: !Text
+  , _stScalableDimension :: !ScalableDimension
+  , _stMinCapacity       :: !Int
+  , _stMaxCapacity       :: !Int
+  , _stRoleARN           :: !Text
+  , _stCreationTime      :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -364,8 +364,8 @@ instance NFData ScalableTarget where
 --
 -- /See:/ 'scalableTargetAction' smart constructor.
 data ScalableTargetAction = ScalableTargetAction'
-  { _staMaxCapacity :: {-# NOUNPACK #-}!(Maybe Int)
-  , _staMinCapacity :: {-# NOUNPACK #-}!(Maybe Int)
+  { _staMaxCapacity :: !(Maybe Int)
+  , _staMinCapacity :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -414,17 +414,17 @@ instance ToJSON ScalableTargetAction where
 --
 -- /See:/ 'scalingActivity' smart constructor.
 data ScalingActivity = ScalingActivity'
-  { _sStatusMessage     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEndTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _sDetails           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sActivityId        :: {-# NOUNPACK #-}!Text
-  , _sServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
-  , _sResourceId        :: {-# NOUNPACK #-}!Text
-  , _sScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
-  , _sDescription       :: {-# NOUNPACK #-}!Text
-  , _sCause             :: {-# NOUNPACK #-}!Text
-  , _sStartTime         :: {-# NOUNPACK #-}!POSIX
-  , _sStatusCode        :: {-# NOUNPACK #-}!ScalingActivityStatusCode
+  { _sStatusMessage     :: !(Maybe Text)
+  , _sEndTime           :: !(Maybe POSIX)
+  , _sDetails           :: !(Maybe Text)
+  , _sActivityId        :: !Text
+  , _sServiceNamespace  :: !ServiceNamespace
+  , _sResourceId        :: !Text
+  , _sScalableDimension :: !ScalableDimension
+  , _sDescription       :: !Text
+  , _sCause             :: !Text
+  , _sStartTime         :: !POSIX
+  , _sStatusCode        :: !ScalingActivityStatusCode
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -549,16 +549,16 @@ instance NFData ScalingActivity where
 --
 -- /See:/ 'scalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-  { _spTargetTrackingScalingPolicyConfiguration :: {-# NOUNPACK #-}!(Maybe TargetTrackingScalingPolicyConfiguration)
-  , _spStepScalingPolicyConfiguration :: {-# NOUNPACK #-}!(Maybe StepScalingPolicyConfiguration)
-  , _spAlarms :: {-# NOUNPACK #-}!(Maybe [Alarm])
-  , _spPolicyARN :: {-# NOUNPACK #-}!Text
-  , _spPolicyName :: {-# NOUNPACK #-}!Text
-  , _spServiceNamespace :: {-# NOUNPACK #-}!ServiceNamespace
-  , _spResourceId :: {-# NOUNPACK #-}!Text
-  , _spScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
-  , _spPolicyType :: {-# NOUNPACK #-}!PolicyType
-  , _spCreationTime :: {-# NOUNPACK #-}!POSIX
+  { _spTargetTrackingScalingPolicyConfiguration :: !(Maybe TargetTrackingScalingPolicyConfiguration)
+  , _spStepScalingPolicyConfiguration :: !(Maybe StepScalingPolicyConfiguration)
+  , _spAlarms :: !(Maybe [Alarm])
+  , _spPolicyARN :: !Text
+  , _spPolicyName :: !Text
+  , _spServiceNamespace :: !ServiceNamespace
+  , _spResourceId :: !Text
+  , _spScalableDimension :: !ScalableDimension
+  , _spPolicyType :: !PolicyType
+  , _spCreationTime :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -675,16 +675,16 @@ instance NFData ScalingPolicy where
 --
 -- /See:/ 'scheduledAction' smart constructor.
 data ScheduledAction = ScheduledAction'
-  { _saScalableDimension    :: {-# NOUNPACK #-}!(Maybe ScalableDimension)
-  , _saStartTime            :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _saEndTime              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _saScalableTargetAction :: {-# NOUNPACK #-}!(Maybe ScalableTargetAction)
-  , _saScheduledActionName  :: {-# NOUNPACK #-}!Text
-  , _saScheduledActionARN   :: {-# NOUNPACK #-}!Text
-  , _saServiceNamespace     :: {-# NOUNPACK #-}!ServiceNamespace
-  , _saSchedule             :: {-# NOUNPACK #-}!Text
-  , _saResourceId           :: {-# NOUNPACK #-}!Text
-  , _saCreationTime         :: {-# NOUNPACK #-}!POSIX
+  { _saScalableDimension    :: !(Maybe ScalableDimension)
+  , _saStartTime            :: !(Maybe POSIX)
+  , _saEndTime              :: !(Maybe POSIX)
+  , _saScalableTargetAction :: !(Maybe ScalableTargetAction)
+  , _saScheduledActionName  :: !Text
+  , _saScheduledActionARN   :: !Text
+  , _saServiceNamespace     :: !ServiceNamespace
+  , _saSchedule             :: !Text
+  , _saResourceId           :: !Text
+  , _saCreationTime         :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -819,9 +819,9 @@ instance NFData ScheduledAction where
 --
 -- /See:/ 'stepAdjustment' smart constructor.
 data StepAdjustment = StepAdjustment'
-  { _saMetricIntervalLowerBound :: {-# NOUNPACK #-}!(Maybe Double)
-  , _saMetricIntervalUpperBound :: {-# NOUNPACK #-}!(Maybe Double)
-  , _saScalingAdjustment        :: {-# NOUNPACK #-}!Int
+  { _saMetricIntervalLowerBound :: !(Maybe Double)
+  , _saMetricIntervalUpperBound :: !(Maybe Double)
+  , _saScalingAdjustment        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -886,11 +886,11 @@ instance ToJSON StepAdjustment where
 --
 -- /See:/ 'stepScalingPolicyConfiguration' smart constructor.
 data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
-  { _sspcStepAdjustments :: {-# NOUNPACK #-}!(Maybe [StepAdjustment])
-  , _sspcAdjustmentType :: {-# NOUNPACK #-}!(Maybe AdjustmentType)
-  , _sspcCooldown :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sspcMetricAggregationType :: {-# NOUNPACK #-}!(Maybe MetricAggregationType)
-  , _sspcMinAdjustmentMagnitude :: {-# NOUNPACK #-}!(Maybe Int)
+  { _sspcStepAdjustments        :: !(Maybe [StepAdjustment])
+  , _sspcAdjustmentType         :: !(Maybe AdjustmentType)
+  , _sspcCooldown               :: !(Maybe Int)
+  , _sspcMetricAggregationType  :: !(Maybe MetricAggregationType)
+  , _sspcMinAdjustmentMagnitude :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -974,12 +974,12 @@ instance ToJSON StepScalingPolicyConfiguration where
 --
 -- /See:/ 'targetTrackingScalingPolicyConfiguration' smart constructor.
 data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfiguration'
-  { _ttspcPredefinedMetricSpecification :: {-# NOUNPACK #-}!(Maybe PredefinedMetricSpecification)
-  , _ttspcScaleInCooldown :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ttspcCustomizedMetricSpecification :: {-# NOUNPACK #-}!(Maybe CustomizedMetricSpecification)
-  , _ttspcDisableScaleIn :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ttspcScaleOutCooldown :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ttspcTargetValue :: {-# NOUNPACK #-}!Double
+  { _ttspcPredefinedMetricSpecification :: !(Maybe PredefinedMetricSpecification)
+  , _ttspcScaleInCooldown :: !(Maybe Int)
+  , _ttspcCustomizedMetricSpecification :: !(Maybe CustomizedMetricSpecification)
+  , _ttspcDisableScaleIn :: !(Maybe Bool)
+  , _ttspcScaleOutCooldown :: !(Maybe Int)
+  , _ttspcTargetValue :: !Double
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

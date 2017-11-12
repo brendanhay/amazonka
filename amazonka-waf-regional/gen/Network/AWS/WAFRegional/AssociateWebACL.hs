@@ -46,8 +46,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'associateWebACL' smart constructor.
 data AssociateWebACL = AssociateWebACL'
-  { _awaWebACLId    :: {-# NOUNPACK #-}!Text
-  , _awaResourceARN :: {-# NOUNPACK #-}!Text
+  { _awaWebACLId    :: !Text
+  , _awaResourceARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

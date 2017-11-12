@@ -53,10 +53,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listDocuments' smart constructor.
 data ListDocuments = ListDocuments'
-  { _ldDocumentFilterList :: {-# NOUNPACK #-}!(Maybe (List1 DocumentFilter))
-  , _ldFilters            :: {-# NOUNPACK #-}!(Maybe [DocumentKeyValuesFilter])
-  , _ldNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldMaxResults         :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _ldDocumentFilterList :: !(Maybe (List1 DocumentFilter))
+  , _ldFilters            :: !(Maybe [DocumentKeyValuesFilter])
+  , _ldNextToken          :: !(Maybe Text)
+  , _ldMaxResults         :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,9 +146,9 @@ instance ToQuery ListDocuments where
 
 -- | /See:/ 'listDocumentsResponse' smart constructor.
 data ListDocumentsResponse = ListDocumentsResponse'
-  { _ldrsDocumentIdentifiers :: {-# NOUNPACK #-}!(Maybe [DocumentIdentifier])
-  , _ldrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _ldrsDocumentIdentifiers :: !(Maybe [DocumentIdentifier])
+  , _ldrsNextToken           :: !(Maybe Text)
+  , _ldrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

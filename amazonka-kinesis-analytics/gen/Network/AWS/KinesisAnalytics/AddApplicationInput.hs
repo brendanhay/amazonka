@@ -57,9 +57,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'addApplicationInput' smart constructor.
 data AddApplicationInput = AddApplicationInput'
-  { _aaiApplicationName             :: {-# NOUNPACK #-}!Text
-  , _aaiCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
-  , _aaiInput                       :: {-# NOUNPACK #-}!Input
+  { _aaiApplicationName             :: !Text
+  , _aaiCurrentApplicationVersionId :: !Nat
+  , _aaiInput                       :: !Input
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

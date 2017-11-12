@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'validateTemplate' smart constructor.
 data ValidateTemplate = ValidateTemplate'
-  { _vtTemplateBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vtTemplateURL  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vtTemplateBody :: !(Maybe Text)
+  , _vtTemplateURL  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,12 +124,12 @@ instance ToQuery ValidateTemplate where
 --
 -- /See:/ 'validateTemplateResponse' smart constructor.
 data ValidateTemplateResponse = ValidateTemplateResponse'
-  { _vtrsDeclaredTransforms :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _vtrsCapabilitiesReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vtrsParameters         :: {-# NOUNPACK #-}!(Maybe [TemplateParameter])
-  , _vtrsDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vtrsCapabilities       :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _vtrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _vtrsDeclaredTransforms :: !(Maybe [Text])
+  , _vtrsCapabilitiesReason :: !(Maybe Text)
+  , _vtrsParameters         :: !(Maybe [TemplateParameter])
+  , _vtrsDescription        :: !(Maybe Text)
+  , _vtrsCapabilities       :: !(Maybe [Capability])
+  , _vtrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

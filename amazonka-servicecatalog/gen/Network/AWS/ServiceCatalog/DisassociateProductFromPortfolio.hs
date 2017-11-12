@@ -47,9 +47,9 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'disassociateProductFromPortfolio' smart constructor.
 data DisassociateProductFromPortfolio = DisassociateProductFromPortfolio'
-  { _dpfpAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpfpProductId      :: {-# NOUNPACK #-}!Text
-  , _dpfpPortfolioId    :: {-# NOUNPACK #-}!Text
+  { _dpfpAcceptLanguage :: !(Maybe Text)
+  , _dpfpProductId      :: !Text
+  , _dpfpPortfolioId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

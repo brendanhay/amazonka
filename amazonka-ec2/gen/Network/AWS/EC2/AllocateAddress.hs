@@ -60,9 +60,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'allocateAddress' smart constructor.
 data AllocateAddress = AllocateAddress'
-  { _aaDomain  :: {-# NOUNPACK #-}!(Maybe DomainType)
-  , _aaAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aaDryRun  :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _aaDomain  :: !(Maybe DomainType)
+  , _aaAddress :: !(Maybe Text)
+  , _aaDryRun  :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,10 +129,10 @@ instance ToQuery AllocateAddress where
 --
 -- /See:/ 'allocateAddressResponse' smart constructor.
 data AllocateAddressResponse = AllocateAddressResponse'
-  { _aarsAllocationId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aarsDomain         :: {-# NOUNPACK #-}!(Maybe DomainType)
-  , _aarsPublicIP       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _aarsAllocationId   :: !(Maybe Text)
+  , _aarsDomain         :: !(Maybe DomainType)
+  , _aarsPublicIP       :: !(Maybe Text)
+  , _aarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getUICustomization' smart constructor.
 data GetUICustomization = GetUICustomization'
-  { _guicClientId   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _guicUserPoolId :: {-# NOUNPACK #-}!Text
+  { _guicClientId   :: !(Maybe (Sensitive Text))
+  , _guicUserPoolId :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery GetUICustomization where
 
 -- | /See:/ 'getUICustomizationResponse' smart constructor.
 data GetUICustomizationResponse = GetUICustomizationResponse'
-  { _guicrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _guicrsUICustomization :: {-# NOUNPACK #-}!UICustomizationType
+  { _guicrsResponseStatus  :: !Int
+  , _guicrsUICustomization :: !UICustomizationType
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

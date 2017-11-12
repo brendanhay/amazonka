@@ -76,32 +76,32 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObject' smart constructor.
 data PutObject = PutObject'
-  { _poContentLength           :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _poExpires                 :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _poGrantReadACP            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poSSECustomerAlgorithm    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poSSECustomerKey          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _poRequestPayer            :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _poGrantWriteACP           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poWebsiteRedirectLocation :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poGrantRead               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poStorageClass            :: {-# NOUNPACK #-}!(Maybe StorageClass)
-  , _poSSECustomerKeyMD5       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poSSEKMSKeyId             :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _poGrantFullControl        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poContentEncoding         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poTagging                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poContentMD5              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poMetadata                :: {-# NOUNPACK #-}!(Map Text Text)
-  , _poCacheControl            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poContentLanguage         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poACL                     :: {-# NOUNPACK #-}!(Maybe ObjectCannedACL)
-  , _poContentDisposition      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poServerSideEncryption    :: {-# NOUNPACK #-}!(Maybe ServerSideEncryption)
-  , _poContentType             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poBucket                  :: {-# NOUNPACK #-}!BucketName
-  , _poKey                     :: {-# NOUNPACK #-}!ObjectKey
-  , _poBody                    :: {-# NOUNPACK #-}!RqBody
+  { _poContentLength           :: !(Maybe Integer)
+  , _poExpires                 :: !(Maybe RFC822)
+  , _poGrantReadACP            :: !(Maybe Text)
+  , _poSSECustomerAlgorithm    :: !(Maybe Text)
+  , _poSSECustomerKey          :: !(Maybe (Sensitive Text))
+  , _poRequestPayer            :: !(Maybe RequestPayer)
+  , _poGrantWriteACP           :: !(Maybe Text)
+  , _poWebsiteRedirectLocation :: !(Maybe Text)
+  , _poGrantRead               :: !(Maybe Text)
+  , _poStorageClass            :: !(Maybe StorageClass)
+  , _poSSECustomerKeyMD5       :: !(Maybe Text)
+  , _poSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+  , _poGrantFullControl        :: !(Maybe Text)
+  , _poContentEncoding         :: !(Maybe Text)
+  , _poTagging                 :: !(Maybe Text)
+  , _poContentMD5              :: !(Maybe Text)
+  , _poMetadata                :: !(Map Text Text)
+  , _poCacheControl            :: !(Maybe Text)
+  , _poContentLanguage         :: !(Maybe Text)
+  , _poACL                     :: !(Maybe ObjectCannedACL)
+  , _poContentDisposition      :: !(Maybe Text)
+  , _poServerSideEncryption    :: !(Maybe ServerSideEncryption)
+  , _poContentType             :: !(Maybe Text)
+  , _poBucket                  :: !BucketName
+  , _poKey                     :: !ObjectKey
+  , _poBody                    :: !RqBody
   } deriving (Show, Generic)
 
 
@@ -366,15 +366,15 @@ instance ToQuery PutObject where
 
 -- | /See:/ 'putObjectResponse' smart constructor.
 data PutObjectResponse = PutObjectResponse'
-  { _porsRequestCharged       :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _porsETag                 :: {-# NOUNPACK #-}!(Maybe ETag)
-  , _porsVersionId            :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _porsExpiration           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _porsSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
-  , _porsSSECustomerKeyMD5    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _porsSSEKMSKeyId          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _porsServerSideEncryption :: {-# NOUNPACK #-}!(Maybe ServerSideEncryption)
-  , _porsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _porsRequestCharged       :: !(Maybe RequestCharged)
+  , _porsETag                 :: !(Maybe ETag)
+  , _porsVersionId            :: !(Maybe ObjectVersionId)
+  , _porsExpiration           :: !(Maybe Text)
+  , _porsSSECustomerAlgorithm :: !(Maybe Text)
+  , _porsSSECustomerKeyMD5    :: !(Maybe Text)
+  , _porsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+  , _porsServerSideEncryption :: !(Maybe ServerSideEncryption)
+  , _porsResponseStatus       :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

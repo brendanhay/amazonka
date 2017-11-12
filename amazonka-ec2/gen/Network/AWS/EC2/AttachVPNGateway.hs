@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'attachVPNGateway' smart constructor.
 data AttachVPNGateway = AttachVPNGateway'
-  { _avgDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avgVPCId        :: {-# NOUNPACK #-}!Text
-  , _avgVPNGatewayId :: {-# NOUNPACK #-}!Text
+  { _avgDryRun       :: !(Maybe Bool)
+  , _avgVPCId        :: !Text
+  , _avgVPNGatewayId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery AttachVPNGateway where
 --
 -- /See:/ 'attachVPNGatewayResponse' smart constructor.
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
-  { _avgrsVPCAttachment  :: {-# NOUNPACK #-}!(Maybe VPCAttachment)
-  , _avgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _avgrsVPCAttachment  :: !(Maybe VPCAttachment)
+  , _avgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

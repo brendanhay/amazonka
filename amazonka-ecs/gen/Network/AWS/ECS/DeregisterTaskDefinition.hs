@@ -106,8 +106,8 @@ instance ToQuery DeregisterTaskDefinition where
 
 -- | /See:/ 'deregisterTaskDefinitionResponse' smart constructor.
 data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
-  { _dtdrsTaskDefinition :: {-# NOUNPACK #-}!(Maybe TaskDefinition)
-  , _dtdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dtdrsTaskDefinition :: !(Maybe TaskDefinition)
+  , _dtdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

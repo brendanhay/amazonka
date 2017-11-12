@@ -75,28 +75,28 @@ import Network.AWS.Response
 --
 -- /See:/ 'restoreDBInstanceFromDBSnapshot' smart constructor.
 data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
-  { _rdifdsPubliclyAccessible              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdifdsAutoMinorVersionUpgrade         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdifdsDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsIOPS                            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rdifdsDomain                          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsEngine                          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsTDECredentialPassword           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsDBInstanceClass                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsLicenseModel                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsAvailabilityZone                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsMultiAZ                         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdifdsOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsCopyTagsToSnapshot              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdifdsTDECredentialARN                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsDomainIAMRoleName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _rdifdsPort                            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rdifdsEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdifdsStorageType                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsDBName                          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdifdsDBInstanceIdentifier            :: {-# NOUNPACK #-}!Text
-  , _rdifdsDBSnapshotIdentifier            :: {-# NOUNPACK #-}!Text
+  { _rdifdsPubliclyAccessible              :: !(Maybe Bool)
+  , _rdifdsAutoMinorVersionUpgrade         :: !(Maybe Bool)
+  , _rdifdsDBSubnetGroupName               :: !(Maybe Text)
+  , _rdifdsIOPS                            :: !(Maybe Int)
+  , _rdifdsDomain                          :: !(Maybe Text)
+  , _rdifdsEngine                          :: !(Maybe Text)
+  , _rdifdsTDECredentialPassword           :: !(Maybe Text)
+  , _rdifdsDBInstanceClass                 :: !(Maybe Text)
+  , _rdifdsLicenseModel                    :: !(Maybe Text)
+  , _rdifdsAvailabilityZone                :: !(Maybe Text)
+  , _rdifdsMultiAZ                         :: !(Maybe Bool)
+  , _rdifdsOptionGroupName                 :: !(Maybe Text)
+  , _rdifdsCopyTagsToSnapshot              :: !(Maybe Bool)
+  , _rdifdsTDECredentialARN                :: !(Maybe Text)
+  , _rdifdsDomainIAMRoleName               :: !(Maybe Text)
+  , _rdifdsTags                            :: !(Maybe [Tag])
+  , _rdifdsPort                            :: !(Maybe Int)
+  , _rdifdsEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+  , _rdifdsStorageType                     :: !(Maybe Text)
+  , _rdifdsDBName                          :: !(Maybe Text)
+  , _rdifdsDBInstanceIdentifier            :: !Text
+  , _rdifdsDBSnapshotIdentifier            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -327,8 +327,8 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
 
 -- | /See:/ 'restoreDBInstanceFromDBSnapshotResponse' smart constructor.
 data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse'
-  { _rdifdsrsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
-  , _rdifdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rdifdsrsDBInstance     :: !(Maybe DBInstance)
+  , _rdifdsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

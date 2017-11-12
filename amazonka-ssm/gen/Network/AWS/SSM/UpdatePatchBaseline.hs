@@ -63,14 +63,14 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updatePatchBaseline' smart constructor.
 data UpdatePatchBaseline = UpdatePatchBaseline'
-  { _upbApprovalRules :: {-# NOUNPACK #-}!(Maybe PatchRuleGroup)
-  , _upbGlobalFilters :: {-# NOUNPACK #-}!(Maybe PatchFilterGroup)
-  , _upbApprovedPatchesComplianceLevel :: {-# NOUNPACK #-}!(Maybe PatchComplianceLevel)
-  , _upbApprovedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _upbRejectedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _upbName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upbDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upbBaselineId :: {-# NOUNPACK #-}!Text
+  { _upbApprovalRules                  :: !(Maybe PatchRuleGroup)
+  , _upbGlobalFilters                  :: !(Maybe PatchFilterGroup)
+  , _upbApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
+  , _upbApprovedPatches                :: !(Maybe [Text])
+  , _upbRejectedPatches                :: !(Maybe [Text])
+  , _upbName                           :: !(Maybe Text)
+  , _upbDescription                    :: !(Maybe Text)
+  , _upbBaselineId                     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -196,18 +196,18 @@ instance ToQuery UpdatePatchBaseline where
 
 -- | /See:/ 'updatePatchBaselineResponse' smart constructor.
 data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
-  { _upbrsApprovalRules :: {-# NOUNPACK #-}!(Maybe PatchRuleGroup)
-  , _upbrsOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
-  , _upbrsGlobalFilters :: {-# NOUNPACK #-}!(Maybe PatchFilterGroup)
-  , _upbrsApprovedPatchesComplianceLevel :: {-# NOUNPACK #-}!(Maybe PatchComplianceLevel)
-  , _upbrsApprovedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _upbrsRejectedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _upbrsCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _upbrsName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upbrsModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _upbrsDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upbrsBaselineId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _upbrsApprovalRules                  :: !(Maybe PatchRuleGroup)
+  , _upbrsOperatingSystem                :: !(Maybe OperatingSystem)
+  , _upbrsGlobalFilters                  :: !(Maybe PatchFilterGroup)
+  , _upbrsApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
+  , _upbrsApprovedPatches                :: !(Maybe [Text])
+  , _upbrsRejectedPatches                :: !(Maybe [Text])
+  , _upbrsCreatedDate                    :: !(Maybe POSIX)
+  , _upbrsName                           :: !(Maybe Text)
+  , _upbrsModifiedDate                   :: !(Maybe POSIX)
+  , _upbrsDescription                    :: !(Maybe Text)
+  , _upbrsBaselineId                     :: !(Maybe Text)
+  , _upbrsResponseStatus                 :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

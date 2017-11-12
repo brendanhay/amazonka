@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'rebootDBInstance' smart constructor.
 data RebootDBInstance = RebootDBInstance'
-  { _rdiForceFailover        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdiDBInstanceIdentifier :: {-# NOUNPACK #-}!Text
+  { _rdiForceFailover        :: !(Maybe Bool)
+  , _rdiDBInstanceIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery RebootDBInstance where
 
 -- | /See:/ 'rebootDBInstanceResponse' smart constructor.
 data RebootDBInstanceResponse = RebootDBInstanceResponse'
-  { _rdirsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
-  , _rdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rdirsDBInstance     :: !(Maybe DBInstance)
+  , _rdirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

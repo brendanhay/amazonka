@@ -49,9 +49,9 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'createStateMachine' smart constructor.
 data CreateStateMachine = CreateStateMachine'
-  { _csmName       :: {-# NOUNPACK #-}!Text
-  , _csmDefinition :: {-# NOUNPACK #-}!Text
-  , _csmRoleARN    :: {-# NOUNPACK #-}!Text
+  { _csmName       :: !Text
+  , _csmDefinition :: !Text
+  , _csmRoleARN    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,9 +127,9 @@ instance ToQuery CreateStateMachine where
 
 -- | /See:/ 'createStateMachineResponse' smart constructor.
 data CreateStateMachineResponse = CreateStateMachineResponse'
-  { _csmrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _csmrsStateMachineARN :: {-# NOUNPACK #-}!Text
-  , _csmrsCreationDate    :: {-# NOUNPACK #-}!POSIX
+  { _csmrsResponseStatus  :: !Int
+  , _csmrsStateMachineARN :: !Text
+  , _csmrsCreationDate    :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

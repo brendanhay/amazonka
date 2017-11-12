@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'detachLoadBalancerFromSubnets' smart constructor.
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
-  { _dlbfsLoadBalancerName :: {-# NOUNPACK #-}!Text
-  , _dlbfsSubnets          :: {-# NOUNPACK #-}![Text]
+  { _dlbfsLoadBalancerName :: !Text
+  , _dlbfsSubnets          :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 --
 -- /See:/ 'detachLoadBalancerFromSubnetsResponse' smart constructor.
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
-  { _dlbfsrsSubnets        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dlbfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dlbfsrsSubnets        :: !(Maybe [Text])
+  , _dlbfsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

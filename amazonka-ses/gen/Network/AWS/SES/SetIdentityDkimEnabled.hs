@@ -62,8 +62,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'setIdentityDkimEnabled' smart constructor.
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
-  { _sideIdentity    :: {-# NOUNPACK #-}!Text
-  , _sideDkimEnabled :: {-# NOUNPACK #-}!Bool
+  { _sideIdentity    :: !Text
+  , _sideDkimEnabled :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

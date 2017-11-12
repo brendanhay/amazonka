@@ -133,22 +133,22 @@ instance ToQuery GetEvaluation where
 --
 -- /See:/ 'getEvaluationResponse' smart constructor.
 data GetEvaluationResponse = GetEvaluationResponse'
-  { _gersStatus                 :: {-# NOUNPACK #-}!(Maybe EntityStatus)
-  , _gersPerformanceMetrics     :: {-# NOUNPACK #-}!(Maybe PerformanceMetrics)
-  , _gersLastUpdatedAt          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gersCreatedAt              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gersComputeTime            :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gersInputDataLocationS3    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersMLModelId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersStartedAt              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gersFinishedAt             :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gersCreatedByIAMUser       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersName                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersLogURI                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersEvaluationId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersMessage                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersEvaluationDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _gersStatus                 :: !(Maybe EntityStatus)
+  , _gersPerformanceMetrics     :: !(Maybe PerformanceMetrics)
+  , _gersLastUpdatedAt          :: !(Maybe POSIX)
+  , _gersCreatedAt              :: !(Maybe POSIX)
+  , _gersComputeTime            :: !(Maybe Integer)
+  , _gersInputDataLocationS3    :: !(Maybe Text)
+  , _gersMLModelId              :: !(Maybe Text)
+  , _gersStartedAt              :: !(Maybe POSIX)
+  , _gersFinishedAt             :: !(Maybe POSIX)
+  , _gersCreatedByIAMUser       :: !(Maybe Text)
+  , _gersName                   :: !(Maybe Text)
+  , _gersLogURI                 :: !(Maybe Text)
+  , _gersEvaluationId           :: !(Maybe Text)
+  , _gersMessage                :: !(Maybe Text)
+  , _gersEvaluationDataSourceId :: !(Maybe Text)
+  , _gersResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

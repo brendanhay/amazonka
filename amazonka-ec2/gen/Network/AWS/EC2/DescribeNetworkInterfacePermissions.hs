@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeNetworkInterfacePermissions' smart constructor.
 data DescribeNetworkInterfacePermissions = DescribeNetworkInterfacePermissions'
-  { _dnipFilters                       :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dnipNextToken                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnipNetworkInterfacePermissionIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dnipMaxResults                    :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dnipFilters                       :: !(Maybe [Filter])
+  , _dnipNextToken                     :: !(Maybe Text)
+  , _dnipNetworkInterfacePermissionIds :: !(Maybe [Text])
+  , _dnipMaxResults                    :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery DescribeNetworkInterfacePermissions
 --
 -- /See:/ 'describeNetworkInterfacePermissionsResponse' smart constructor.
 data DescribeNetworkInterfacePermissionsResponse = DescribeNetworkInterfacePermissionsResponse'
-  { _drsNetworkInterfacePermissions :: {-# NOUNPACK #-}!(Maybe [NetworkInterfacePermission])
-  , _drsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsNetworkInterfacePermissions :: !(Maybe [NetworkInterfacePermission])
+  , _drsNextToken                   :: !(Maybe Text)
+  , _drsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

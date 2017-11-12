@@ -68,19 +68,19 @@ import Network.AWS.Response
 --
 -- /See:/ 'restoreDBClusterFromSnapshot' smart constructor.
 data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
-  { _rdbcfsEngineVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdbcfsDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdbcfsAvailabilityZones               :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rdbcfsKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdbcfsVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rdbcfsDatabaseName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdbcfsOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdbcfsTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _rdbcfsPort                            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rdbcfsEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdbcfsDBClusterIdentifier             :: {-# NOUNPACK #-}!Text
-  , _rdbcfsSnapshotIdentifier              :: {-# NOUNPACK #-}!Text
-  , _rdbcfsEngine                          :: {-# NOUNPACK #-}!Text
+  { _rdbcfsEngineVersion                   :: !(Maybe Text)
+  , _rdbcfsDBSubnetGroupName               :: !(Maybe Text)
+  , _rdbcfsAvailabilityZones               :: !(Maybe [Text])
+  , _rdbcfsKMSKeyId                        :: !(Maybe Text)
+  , _rdbcfsVPCSecurityGroupIds             :: !(Maybe [Text])
+  , _rdbcfsDatabaseName                    :: !(Maybe Text)
+  , _rdbcfsOptionGroupName                 :: !(Maybe Text)
+  , _rdbcfsTags                            :: !(Maybe [Tag])
+  , _rdbcfsPort                            :: !(Maybe Int)
+  , _rdbcfsEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+  , _rdbcfsDBClusterIdentifier             :: !Text
+  , _rdbcfsSnapshotIdentifier              :: !Text
+  , _rdbcfsEngine                          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -240,8 +240,8 @@ instance ToQuery RestoreDBClusterFromSnapshot where
 
 -- | /See:/ 'restoreDBClusterFromSnapshotResponse' smart constructor.
 data RestoreDBClusterFromSnapshotResponse = RestoreDBClusterFromSnapshotResponse'
-  { _rdbcfsrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
-  , _rdbcfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rdbcfsrsDBCluster      :: !(Maybe DBCluster)
+  , _rdbcfsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

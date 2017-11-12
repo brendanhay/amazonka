@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createProgressUpdateStream' smart constructor.
 data CreateProgressUpdateStream = CreateProgressUpdateStream'
-  { _cpusDryRun                   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cpusProgressUpdateStreamName :: {-# NOUNPACK #-}!Text
+  { _cpusDryRun                   :: !(Maybe Bool)
+  , _cpusProgressUpdateStreamName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

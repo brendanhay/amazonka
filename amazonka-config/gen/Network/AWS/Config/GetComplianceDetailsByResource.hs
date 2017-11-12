@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'getComplianceDetailsByResource' smart constructor.
 data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
-  { _gcdbrComplianceTypes :: {-# NOUNPACK #-}!(Maybe [ComplianceType])
-  , _gcdbrNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdbrResourceType    :: {-# NOUNPACK #-}!Text
-  , _gcdbrResourceId      :: {-# NOUNPACK #-}!Text
+  { _gcdbrComplianceTypes :: !(Maybe [ComplianceType])
+  , _gcdbrNextToken       :: !(Maybe Text)
+  , _gcdbrResourceType    :: !Text
+  , _gcdbrResourceId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -162,9 +162,9 @@ instance ToQuery GetComplianceDetailsByResource where
 --
 -- /See:/ 'getComplianceDetailsByResourceResponse' smart constructor.
 data GetComplianceDetailsByResourceResponse = GetComplianceDetailsByResourceResponse'
-  { _gcdbrrsEvaluationResults :: {-# NOUNPACK #-}!(Maybe [EvaluationResult])
-  , _gcdbrrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdbrrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gcdbrrsEvaluationResults :: !(Maybe [EvaluationResult])
+  , _gcdbrrsNextToken         :: !(Maybe Text)
+  , _gcdbrrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

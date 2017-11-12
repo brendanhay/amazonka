@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'moveAddressToVPC' smart constructor.
 data MoveAddressToVPC = MoveAddressToVPC'
-  { _matvDryRun   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _matvPublicIP :: {-# NOUNPACK #-}!Text
+  { _matvDryRun   :: !(Maybe Bool)
+  , _matvPublicIP :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,9 +112,9 @@ instance ToQuery MoveAddressToVPC where
 --
 -- /See:/ 'moveAddressToVPCResponse' smart constructor.
 data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
-  { _matvrsStatus         :: {-# NOUNPACK #-}!(Maybe AddressStatus)
-  , _matvrsAllocationId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _matvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _matvrsStatus         :: !(Maybe AddressStatus)
+  , _matvrsAllocationId   :: !(Maybe Text)
+  , _matvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

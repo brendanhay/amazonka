@@ -114,8 +114,8 @@ instance ToQuery DeleteVirtualInterface where
 --
 -- /See:/ 'deleteVirtualInterfaceResponse' smart constructor.
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
-  { _dvirsVirtualInterfaceState :: {-# NOUNPACK #-}!(Maybe VirtualInterfaceState)
-  , _dvirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
+  , _dvirsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

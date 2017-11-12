@@ -53,10 +53,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-  { _uaFunctionVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaFunctionName    :: {-# NOUNPACK #-}!Text
-  , _uaName            :: {-# NOUNPACK #-}!Text
+  { _uaFunctionVersion :: !(Maybe Text)
+  , _uaDescription     :: !(Maybe Text)
+  , _uaFunctionName    :: !Text
+  , _uaName            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

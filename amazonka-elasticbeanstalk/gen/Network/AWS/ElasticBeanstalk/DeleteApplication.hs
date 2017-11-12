@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
-  { _daTerminateEnvByForce :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _daApplicationName     :: {-# NOUNPACK #-}!Text
+  { _daTerminateEnvByForce :: !(Maybe Bool)
+  , _daApplicationName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

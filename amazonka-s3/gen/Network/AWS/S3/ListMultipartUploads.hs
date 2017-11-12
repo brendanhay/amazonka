@@ -64,13 +64,13 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listMultipartUploads' smart constructor.
 data ListMultipartUploads = ListMultipartUploads'
-  { _lmuKeyMarker      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmuPrefix         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmuEncodingType   :: {-# NOUNPACK #-}!(Maybe EncodingType)
-  , _lmuUploadIdMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmuMaxUploads     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lmuDelimiter      :: {-# NOUNPACK #-}!(Maybe Delimiter)
-  , _lmuBucket         :: {-# NOUNPACK #-}!BucketName
+  { _lmuKeyMarker      :: !(Maybe Text)
+  , _lmuPrefix         :: !(Maybe Text)
+  , _lmuEncodingType   :: !(Maybe EncodingType)
+  , _lmuUploadIdMarker :: !(Maybe Text)
+  , _lmuMaxUploads     :: !(Maybe Int)
+  , _lmuDelimiter      :: !(Maybe Delimiter)
+  , _lmuBucket         :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -188,19 +188,19 @@ instance ToQuery ListMultipartUploads where
 
 -- | /See:/ 'listMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-  { _lmursKeyMarker          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmursPrefix             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmursCommonPrefixes     :: {-# NOUNPACK #-}!(Maybe [CommonPrefix])
-  , _lmursEncodingType       :: {-# NOUNPACK #-}!(Maybe EncodingType)
-  , _lmursBucket             :: {-# NOUNPACK #-}!(Maybe BucketName)
-  , _lmursUploadIdMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmursMaxUploads         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lmursNextKeyMarker      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmursUploads            :: {-# NOUNPACK #-}!(Maybe [MultipartUpload])
-  , _lmursIsTruncated        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lmursNextUploadIdMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmursDelimiter          :: {-# NOUNPACK #-}!(Maybe Delimiter)
-  , _lmursResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _lmursKeyMarker          :: !(Maybe Text)
+  , _lmursPrefix             :: !(Maybe Text)
+  , _lmursCommonPrefixes     :: !(Maybe [CommonPrefix])
+  , _lmursEncodingType       :: !(Maybe EncodingType)
+  , _lmursBucket             :: !(Maybe BucketName)
+  , _lmursUploadIdMarker     :: !(Maybe Text)
+  , _lmursMaxUploads         :: !(Maybe Int)
+  , _lmursNextKeyMarker      :: !(Maybe Text)
+  , _lmursUploads            :: !(Maybe [MultipartUpload])
+  , _lmursIsTruncated        :: !(Maybe Bool)
+  , _lmursNextUploadIdMarker :: !(Maybe Text)
+  , _lmursDelimiter          :: !(Maybe Delimiter)
+  , _lmursResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

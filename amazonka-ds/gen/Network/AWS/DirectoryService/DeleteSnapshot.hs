@@ -109,8 +109,8 @@ instance ToQuery DeleteSnapshot where
 --
 -- /See:/ 'deleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-  { _dsrsSnapshotId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsrsSnapshotId     :: !(Maybe Text)
+  , _dsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

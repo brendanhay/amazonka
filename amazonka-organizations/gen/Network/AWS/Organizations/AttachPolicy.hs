@@ -64,8 +64,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachPolicy' smart constructor.
 data AttachPolicy = AttachPolicy'
-  { _apPolicyId :: {-# NOUNPACK #-}!Text
-  , _apTargetId :: {-# NOUNPACK #-}!Text
+  { _apPolicyId :: !Text
+  , _apTargetId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'putImage' smart constructor.
 data PutImage = PutImage'
-  { _piRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _piImageTag       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _piRepositoryName :: {-# NOUNPACK #-}!Text
-  , _piImageManifest  :: {-# NOUNPACK #-}!Text
+  { _piRegistryId     :: !(Maybe Text)
+  , _piImageTag       :: !(Maybe Text)
+  , _piRepositoryName :: !Text
+  , _piImageManifest  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,8 +136,8 @@ instance ToQuery PutImage where
 
 -- | /See:/ 'putImageResponse' smart constructor.
 data PutImageResponse = PutImageResponse'
-  { _pirsImage          :: {-# NOUNPACK #-}!(Maybe Image)
-  , _pirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pirsImage          :: !(Maybe Image)
+  , _pirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -66,8 +66,8 @@ import Network.AWS.WAFRegional.Types.Product
 --
 -- /See:/ 'createSqlInjectionMatchSet' smart constructor.
 data CreateSqlInjectionMatchSet = CreateSqlInjectionMatchSet'
-  { _csimsName        :: {-# NOUNPACK #-}!Text
-  , _csimsChangeToken :: {-# NOUNPACK #-}!Text
+  { _csimsName        :: !Text
+  , _csimsChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToQuery CreateSqlInjectionMatchSet where
 --
 -- /See:/ 'createSqlInjectionMatchSetResponse' smart constructor.
 data CreateSqlInjectionMatchSetResponse = CreateSqlInjectionMatchSetResponse'
-  { _csimsrsSqlInjectionMatchSet :: {-# NOUNPACK #-}!(Maybe SqlInjectionMatchSet)
-  , _csimsrsChangeToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csimsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csimsrsSqlInjectionMatchSet :: !(Maybe SqlInjectionMatchSet)
+  , _csimsrsChangeToken          :: !(Maybe Text)
+  , _csimsrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

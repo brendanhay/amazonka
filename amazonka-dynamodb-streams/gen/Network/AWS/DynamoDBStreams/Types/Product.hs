@@ -29,16 +29,16 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'attributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-  { _avL    :: {-# NOUNPACK #-}!(Maybe [AttributeValue])
-  , _avNS   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _avM    :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _avNULL :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avBS   :: {-# NOUNPACK #-}!(Maybe [Base64])
-  , _avB    :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _avSS   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _avS    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avBOOL :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _avL    :: !(Maybe [AttributeValue])
+  , _avNS   :: !(Maybe [Text])
+  , _avM    :: !(Maybe (Map Text AttributeValue))
+  , _avNULL :: !(Maybe Bool)
+  , _avN    :: !(Maybe Text)
+  , _avBS   :: !(Maybe [Base64])
+  , _avB    :: !(Maybe Base64)
+  , _avSS   :: !(Maybe [Text])
+  , _avS    :: !(Maybe Text)
+  , _avBOOL :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,8 +147,8 @@ instance NFData AttributeValue where
 --
 -- /See:/ 'identity' smart constructor.
 data Identity = Identity'
-  { _iPrincipalId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iType        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iPrincipalId :: !(Maybe Text)
+  , _iType        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -191,8 +191,8 @@ instance NFData Identity where
 --
 -- /See:/ 'keySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
-  { _kseAttributeName :: {-# NOUNPACK #-}!Text
-  , _kseKeyType       :: {-# NOUNPACK #-}!KeyType
+  { _kseAttributeName :: !Text
+  , _kseKeyType       :: !KeyType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -237,13 +237,13 @@ instance NFData KeySchemaElement where
 --
 -- /See:/ 'record' smart constructor.
 data Record = Record'
-  { _rUserIdentity :: {-# NOUNPACK #-}!(Maybe Identity)
-  , _rEventVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rDynamodb     :: {-# NOUNPACK #-}!(Maybe StreamRecord)
-  , _rAwsRegion    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rEventName    :: {-# NOUNPACK #-}!(Maybe OperationType)
-  , _rEventSource  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rEventId      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rUserIdentity :: !(Maybe Identity)
+  , _rEventVersion :: !(Maybe Text)
+  , _rDynamodb     :: !(Maybe StreamRecord)
+  , _rAwsRegion    :: !(Maybe Text)
+  , _rEventName    :: !(Maybe OperationType)
+  , _rEventSource  :: !(Maybe Text)
+  , _rEventId      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -328,8 +328,8 @@ instance NFData Record where
 --
 -- /See:/ 'sequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
-  { _snrStartingSequenceNumber :: {-# NOUNPACK #-}!(Maybe Text)
-  , _snrEndingSequenceNumber   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _snrStartingSequenceNumber :: !(Maybe Text)
+  , _snrEndingSequenceNumber   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -373,9 +373,9 @@ instance NFData SequenceNumberRange where
 --
 -- /See:/ 'shard' smart constructor.
 data Shard = Shard'
-  { _sParentShardId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSequenceNumberRange :: {-# NOUNPACK #-}!(Maybe SequenceNumberRange)
-  , _sShardId             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sParentShardId       :: !(Maybe Text)
+  , _sSequenceNumberRange :: !(Maybe SequenceNumberRange)
+  , _sShardId             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -429,9 +429,9 @@ instance NFData Shard where
 --
 -- /See:/ 'stream' smart constructor.
 data Stream = Stream'
-  { _sStreamLabel :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sStreamARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sTableName   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sStreamLabel :: !(Maybe Text)
+  , _sStreamARN   :: !(Maybe Text)
+  , _sTableName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -481,15 +481,15 @@ instance NFData Stream where
 --
 -- /See:/ 'streamDescription' smart constructor.
 data StreamDescription = StreamDescription'
-  { _sdLastEvaluatedShardId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdStreamLabel :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdStreamStatus :: {-# NOUNPACK #-}!(Maybe StreamStatus)
-  , _sdKeySchema :: {-# NOUNPACK #-}!(Maybe (List1 KeySchemaElement))
-  , _sdStreamViewType :: {-# NOUNPACK #-}!(Maybe StreamViewType)
-  , _sdStreamARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdShards :: {-# NOUNPACK #-}!(Maybe [Shard])
-  , _sdTableName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdCreationRequestDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _sdLastEvaluatedShardId    :: !(Maybe Text)
+  , _sdStreamLabel             :: !(Maybe Text)
+  , _sdStreamStatus            :: !(Maybe StreamStatus)
+  , _sdKeySchema               :: !(Maybe (List1 KeySchemaElement))
+  , _sdStreamViewType          :: !(Maybe StreamViewType)
+  , _sdStreamARN               :: !(Maybe Text)
+  , _sdShards                  :: !(Maybe [Shard])
+  , _sdTableName               :: !(Maybe Text)
+  , _sdCreationRequestDateTime :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -591,13 +591,13 @@ instance NFData StreamDescription where
 --
 -- /See:/ 'streamRecord' smart constructor.
 data StreamRecord = StreamRecord'
-  { _srSizeBytes :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _srSequenceNumber :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srApproximateCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _srStreamViewType :: {-# NOUNPACK #-}!(Maybe StreamViewType)
-  , _srKeys :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _srOldImage :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _srNewImage :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
+  { _srSizeBytes                   :: !(Maybe Nat)
+  , _srSequenceNumber              :: !(Maybe Text)
+  , _srApproximateCreationDateTime :: !(Maybe POSIX)
+  , _srStreamViewType              :: !(Maybe StreamViewType)
+  , _srKeys                        :: !(Maybe (Map Text AttributeValue))
+  , _srOldImage                    :: !(Maybe (Map Text AttributeValue))
+  , _srNewImage                    :: !(Maybe (Map Text AttributeValue))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

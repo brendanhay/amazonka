@@ -45,9 +45,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'subscribeToEvent' smart constructor.
 data SubscribeToEvent = SubscribeToEvent'
-  { _steResourceARN :: {-# NOUNPACK #-}!Text
-  , _steEvent       :: {-# NOUNPACK #-}!InspectorEvent
-  , _steTopicARN    :: {-# NOUNPACK #-}!Text
+  { _steResourceARN :: !Text
+  , _steEvent       :: !InspectorEvent
+  , _steTopicARN    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

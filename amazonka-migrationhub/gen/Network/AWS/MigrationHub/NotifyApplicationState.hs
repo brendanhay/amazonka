@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'notifyApplicationState' smart constructor.
 data NotifyApplicationState = NotifyApplicationState'
-  { _nasDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _nasApplicationId :: {-# NOUNPACK #-}!Text
-  , _nasStatus        :: {-# NOUNPACK #-}!ApplicationStatus
+  { _nasDryRun        :: !(Maybe Bool)
+  , _nasApplicationId :: !Text
+  , _nasStatus        :: !ApplicationStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

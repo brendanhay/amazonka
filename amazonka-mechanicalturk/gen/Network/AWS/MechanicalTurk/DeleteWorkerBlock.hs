@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteWorkerBlock' smart constructor.
 data DeleteWorkerBlock = DeleteWorkerBlock'
-  { _dwbReason   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwbWorkerId :: {-# NOUNPACK #-}!Text
+  { _dwbReason   :: !(Maybe Text)
+  , _dwbWorkerId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -102,8 +102,8 @@ instance ToQuery ResetCache where
 
 -- | /See:/ 'resetCacheResponse' smart constructor.
 data ResetCacheResponse = ResetCacheResponse'
-  { _rrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rrsGatewayARN     :: !(Maybe Text)
+  , _rrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

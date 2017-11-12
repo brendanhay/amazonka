@@ -28,15 +28,15 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'apiKey' smart constructor.
 data APIKey = APIKey'
-  { _akEnabled         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _akValue           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _akCustomerId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _akCreatedDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _akName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _akId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _akStageKeys       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _akLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _akDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _akEnabled         :: !(Maybe Bool)
+  , _akValue           :: !(Maybe Text)
+  , _akCustomerId      :: !(Maybe Text)
+  , _akCreatedDate     :: !(Maybe POSIX)
+  , _akName            :: !(Maybe Text)
+  , _akId              :: !(Maybe Text)
+  , _akStageKeys       :: !(Maybe [Text])
+  , _akLastUpdatedDate :: !(Maybe POSIX)
+  , _akDescription     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,8 +137,8 @@ instance NFData APIKey where
 --
 -- /See:/ 'apiStage' smart constructor.
 data APIStage = APIStage'
-  { _asStage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asApiId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _asStage :: !(Maybe Text)
+  , _asApiId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -202,10 +202,10 @@ instance ToJSON APIStage where
 --
 -- /See:/ 'account' smart constructor.
 data Account = Account'
-  { _aApiKeyVersion     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aCloudwatchRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aFeatures          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _aThrottleSettings  :: {-# NOUNPACK #-}!(Maybe ThrottleSettings)
+  { _aApiKeyVersion     :: !(Maybe Text)
+  , _aCloudwatchRoleARN :: !(Maybe Text)
+  , _aFeatures          :: !(Maybe [Text])
+  , _aThrottleSettings  :: !(Maybe ThrottleSettings)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -268,16 +268,16 @@ instance NFData Account where
 --
 -- /See:/ 'authorizer' smart constructor.
 data Authorizer = Authorizer'
-  { _aAuthorizerURI                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aIdentityValidationExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aProviderARNs                 :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _aName                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aId                           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aAuthorizerResultTtlInSeconds :: {-# NOUNPACK #-}!(Maybe Int)
-  , _aAuthType                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aType                         :: {-# NOUNPACK #-}!(Maybe AuthorizerType)
-  , _aIdentitySource               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aAuthorizerCredentials        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aAuthorizerURI                :: !(Maybe Text)
+  , _aIdentityValidationExpression :: !(Maybe Text)
+  , _aProviderARNs                 :: !(Maybe [Text])
+  , _aName                         :: !(Maybe Text)
+  , _aId                           :: !(Maybe Text)
+  , _aAuthorizerResultTtlInSeconds :: !(Maybe Int)
+  , _aAuthType                     :: !(Maybe Text)
+  , _aType                         :: !(Maybe AuthorizerType)
+  , _aIdentitySource               :: !(Maybe Text)
+  , _aAuthorizerCredentials        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -388,9 +388,9 @@ instance NFData Authorizer where
 --
 -- /See:/ 'basePathMapping' smart constructor.
 data BasePathMapping = BasePathMapping'
-  { _bpmStage     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpmBasePath  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpmRestAPIId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bpmStage     :: !(Maybe Text)
+  , _bpmBasePath  :: !(Maybe Text)
+  , _bpmRestAPIId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -441,11 +441,11 @@ instance NFData BasePathMapping where
 --
 -- /See:/ 'clientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
-  { _ccPemEncodedCertificate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccClientCertificateId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccCreatedDate           :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ccExpirationDate        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ccDescription           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ccPemEncodedCertificate :: !(Maybe Text)
+  , _ccClientCertificateId   :: !(Maybe Text)
+  , _ccCreatedDate           :: !(Maybe POSIX)
+  , _ccExpirationDate        :: !(Maybe POSIX)
+  , _ccDescription           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -516,10 +516,10 @@ instance NFData ClientCertificate where
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
-  { _dApiSummary :: {-# NOUNPACK #-}!(Maybe (Map Text (Map Text MethodSnapshot)))
-  , _dCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dApiSummary  :: !(Maybe (Map Text (Map Text MethodSnapshot)))
+  , _dCreatedDate :: !(Maybe POSIX)
+  , _dId          :: !(Maybe Text)
+  , _dDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -586,9 +586,9 @@ instance NFData Deployment where
 --
 -- /See:/ 'documentationPart' smart constructor.
 data DocumentationPart = DocumentationPart'
-  { _dpLocation   :: {-# NOUNPACK #-}!(Maybe DocumentationPartLocation)
-  , _dpId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpProperties :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dpLocation   :: !(Maybe DocumentationPartLocation)
+  , _dpId         :: !(Maybe Text)
+  , _dpProperties :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -638,11 +638,11 @@ instance NFData DocumentationPart where
 --
 -- /See:/ 'documentationPartLocation' smart constructor.
 data DocumentationPartLocation = DocumentationPartLocation'
-  { _dplPath       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dplName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dplMethod     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dplStatusCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dplType       :: {-# NOUNPACK #-}!DocumentationPartType
+  { _dplPath       :: !(Maybe Text)
+  , _dplName       :: !(Maybe Text)
+  , _dplMethod     :: !(Maybe Text)
+  , _dplStatusCode :: !(Maybe Text)
+  , _dplType       :: !DocumentationPartType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -724,9 +724,9 @@ instance ToJSON DocumentationPartLocation where
 --
 -- /See:/ 'documentationVersion' smart constructor.
 data DocumentationVersion = DocumentationVersion'
-  { _dvCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dvVersion     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dvCreatedDate :: !(Maybe POSIX)
+  , _dvVersion     :: !(Maybe Text)
+  , _dvDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -779,15 +779,15 @@ instance NFData DocumentationVersion where
 --
 -- /See:/ 'domainName' smart constructor.
 data DomainName = DomainName'
-  { _dnCertificateName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnRegionalCertificateARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnCertificateARN          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnDomainName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnRegionalCertificateName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnRegionalDomainName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnCertificateUploadDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dnDistributionDomainName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnEndpointConfiguration   :: {-# NOUNPACK #-}!(Maybe EndpointConfiguration)
+  { _dnCertificateName         :: !(Maybe Text)
+  , _dnRegionalCertificateARN  :: !(Maybe Text)
+  , _dnCertificateARN          :: !(Maybe Text)
+  , _dnDomainName              :: !(Maybe Text)
+  , _dnRegionalCertificateName :: !(Maybe Text)
+  , _dnRegionalDomainName      :: !(Maybe Text)
+  , _dnCertificateUploadDate   :: !(Maybe POSIX)
+  , _dnDistributionDomainName  :: !(Maybe Text)
+  , _dnEndpointConfiguration   :: !(Maybe EndpointConfiguration)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -940,11 +940,11 @@ instance ToJSON EndpointConfiguration where
 --
 -- /See:/ 'gatewayResponse' smart constructor.
 data GatewayResponse = GatewayResponse'
-  { _gDefaultResponse    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gResponseTemplates  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gResponseType       :: {-# NOUNPACK #-}!(Maybe GatewayResponseType)
-  , _gStatusCode         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gResponseParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  { _gDefaultResponse    :: !(Maybe Bool)
+  , _gResponseTemplates  :: !(Maybe (Map Text Text))
+  , _gResponseType       :: !(Maybe GatewayResponseType)
+  , _gStatusCode         :: !(Maybe Text)
+  , _gResponseParameters :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1015,17 +1015,17 @@ instance NFData GatewayResponse where
 --
 -- /See:/ 'integration' smart constructor.
 data Integration = Integration'
-  { _iHttpMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iRequestTemplates :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _iCredentials :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iRequestParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _iContentHandling :: {-# NOUNPACK #-}!(Maybe ContentHandlingStrategy)
-  , _iPassthroughBehavior :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iUri :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iIntegrationResponses :: {-# NOUNPACK #-}!(Maybe (Map Text IntegrationResponse))
-  , _iCacheNamespace :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iType :: {-# NOUNPACK #-}!(Maybe IntegrationType)
-  , _iCacheKeyParameters :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _iHttpMethod           :: !(Maybe Text)
+  , _iRequestTemplates     :: !(Maybe (Map Text Text))
+  , _iCredentials          :: !(Maybe Text)
+  , _iRequestParameters    :: !(Maybe (Map Text Text))
+  , _iContentHandling      :: !(Maybe ContentHandlingStrategy)
+  , _iPassthroughBehavior  :: !(Maybe Text)
+  , _iUri                  :: !(Maybe Text)
+  , _iIntegrationResponses :: !(Maybe (Map Text IntegrationResponse))
+  , _iCacheNamespace       :: !(Maybe Text)
+  , _iType                 :: !(Maybe IntegrationType)
+  , _iCacheKeyParameters   :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1144,11 +1144,11 @@ instance NFData Integration where
 --
 -- /See:/ 'integrationResponse' smart constructor.
 data IntegrationResponse = IntegrationResponse'
-  { _intContentHandling    :: {-# NOUNPACK #-}!(Maybe ContentHandlingStrategy)
-  , _intResponseTemplates  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _intSelectionPattern   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _intStatusCode         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _intResponseParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  { _intContentHandling    :: !(Maybe ContentHandlingStrategy)
+  , _intResponseTemplates  :: !(Maybe (Map Text Text))
+  , _intSelectionPattern   :: !(Maybe Text)
+  , _intStatusCode         :: !(Maybe Text)
+  , _intResponseParameters :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1230,16 +1230,16 @@ instance NFData IntegrationResponse where
 --
 -- /See:/ 'method' smart constructor.
 data Method = Method'
-  { _mMethodResponses    :: {-# NOUNPACK #-}!(Maybe (Map Text MethodResponse))
-  , _mHttpMethod         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mRequestValidatorId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mRequestModels      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _mRequestParameters  :: {-# NOUNPACK #-}!(Maybe (Map Text Bool))
-  , _mAuthorizerId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mOperationName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mAuthorizationType  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mApiKeyRequired     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mMethodIntegration  :: {-# NOUNPACK #-}!(Maybe Integration)
+  { _mMethodResponses    :: !(Maybe (Map Text MethodResponse))
+  , _mHttpMethod         :: !(Maybe Text)
+  , _mRequestValidatorId :: !(Maybe Text)
+  , _mRequestModels      :: !(Maybe (Map Text Text))
+  , _mRequestParameters  :: !(Maybe (Map Text Bool))
+  , _mAuthorizerId       :: !(Maybe Text)
+  , _mOperationName      :: !(Maybe Text)
+  , _mAuthorizationType  :: !(Maybe Text)
+  , _mApiKeyRequired     :: !(Maybe Bool)
+  , _mMethodIntegration  :: !(Maybe Integration)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1361,9 +1361,9 @@ instance NFData Method where
 --
 -- /See:/ 'methodResponse' smart constructor.
 data MethodResponse = MethodResponse'
-  { _mResponseModels     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _mStatusCode         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mResponseParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Bool))
+  { _mResponseModels     :: !(Maybe (Map Text Text))
+  , _mStatusCode         :: !(Maybe Text)
+  , _mResponseParameters :: !(Maybe (Map Text Bool))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1417,16 +1417,16 @@ instance NFData MethodResponse where
 --
 -- /See:/ 'methodSetting' smart constructor.
 data MethodSetting = MethodSetting'
-  { _msCacheTtlInSeconds :: {-# NOUNPACK #-}!(Maybe Int)
-  , _msDataTraceEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _msThrottlingBurstLimit :: {-# NOUNPACK #-}!(Maybe Int)
-  , _msCacheDataEncrypted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _msLoggingLevel :: {-# NOUNPACK #-}!(Maybe Text)
-  , _msRequireAuthorizationForCacheControl :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _msCachingEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _msMetricsEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _msThrottlingRateLimit :: {-# NOUNPACK #-}!(Maybe Double)
-  , _msUnauthorizedCacheControlHeaderStrategy :: {-# NOUNPACK #-}!(Maybe UnauthorizedCacheControlHeaderStrategy)
+  { _msCacheTtlInSeconds :: !(Maybe Int)
+  , _msDataTraceEnabled :: !(Maybe Bool)
+  , _msThrottlingBurstLimit :: !(Maybe Int)
+  , _msCacheDataEncrypted :: !(Maybe Bool)
+  , _msLoggingLevel :: !(Maybe Text)
+  , _msRequireAuthorizationForCacheControl :: !(Maybe Bool)
+  , _msCachingEnabled :: !(Maybe Bool)
+  , _msMetricsEnabled :: !(Maybe Bool)
+  , _msThrottlingRateLimit :: !(Maybe Double)
+  , _msUnauthorizedCacheControlHeaderStrategy :: !(Maybe UnauthorizedCacheControlHeaderStrategy)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1536,8 +1536,8 @@ instance NFData MethodSetting where
 --
 -- /See:/ 'methodSnapshot' smart constructor.
 data MethodSnapshot = MethodSnapshot'
-  { _msAuthorizationType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _msApiKeyRequired    :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _msAuthorizationType :: !(Maybe Text)
+  , _msApiKeyRequired    :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1585,11 +1585,11 @@ instance NFData MethodSnapshot where
 --
 -- /See:/ 'model' smart constructor.
 data Model = Model'
-  { _mSchema      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mContentType :: {-# NOUNPACK #-}!(Maybe Text)
+  { _mSchema      :: !(Maybe Text)
+  , _mName        :: !(Maybe Text)
+  , _mId          :: !(Maybe Text)
+  , _mDescription :: !(Maybe Text)
+  , _mContentType :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1655,10 +1655,10 @@ instance NFData Model where
 --
 -- /See:/ 'patchOperation' smart constructor.
 data PatchOperation = PatchOperation'
-  { _poOp    :: {-# NOUNPACK #-}!(Maybe Op)
-  , _poPath  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _poFrom  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _poOp    :: !(Maybe Op)
+  , _poPath  :: !(Maybe Text)
+  , _poValue :: !(Maybe Text)
+  , _poFrom  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1713,9 +1713,9 @@ instance ToJSON PatchOperation where
 --
 -- /See:/ 'quotaSettings' smart constructor.
 data QuotaSettings = QuotaSettings'
-  { _qsOffset :: {-# NOUNPACK #-}!(Maybe Int)
-  , _qsPeriod :: {-# NOUNPACK #-}!(Maybe QuotaPeriodType)
-  , _qsLimit  :: {-# NOUNPACK #-}!(Maybe Int)
+  { _qsOffset :: !(Maybe Int)
+  , _qsPeriod :: !(Maybe QuotaPeriodType)
+  , _qsLimit  :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1775,10 +1775,10 @@ instance ToJSON QuotaSettings where
 --
 -- /See:/ 'requestValidator' smart constructor.
 data RequestValidator = RequestValidator'
-  { _rvValidateRequestParameters :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rvName                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rvValidateRequestBody       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rvId                        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rvValidateRequestParameters :: !(Maybe Bool)
+  , _rvName                      :: !(Maybe Text)
+  , _rvValidateRequestBody       :: !(Maybe Bool)
+  , _rvId                        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1841,11 +1841,11 @@ instance NFData RequestValidator where
 --
 -- /See:/ 'resource' smart constructor.
 data Resource = Resource'
-  { _rPathPart        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rPath            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rResourceMethods :: {-# NOUNPACK #-}!(Maybe (Map Text Method))
-  , _rParentId        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rPathPart        :: !(Maybe Text)
+  , _rPath            :: !(Maybe Text)
+  , _rId              :: !(Maybe Text)
+  , _rResourceMethods :: !(Maybe (Map Text Method))
+  , _rParentId        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1915,14 +1915,14 @@ instance NFData Resource where
 --
 -- /See:/ 'restAPI' smart constructor.
 data RestAPI = RestAPI'
-  { _raBinaryMediaTypes      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _raWarnings              :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _raCreatedDate           :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _raName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raVersion               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raId                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raEndpointConfiguration :: {-# NOUNPACK #-}!(Maybe EndpointConfiguration)
-  , _raDescription           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _raBinaryMediaTypes      :: !(Maybe [Text])
+  , _raWarnings              :: !(Maybe [Text])
+  , _raCreatedDate           :: !(Maybe POSIX)
+  , _raName                  :: !(Maybe Text)
+  , _raVersion               :: !(Maybe Text)
+  , _raId                    :: !(Maybe Text)
+  , _raEndpointConfiguration :: !(Maybe EndpointConfiguration)
+  , _raDescription           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2016,11 +2016,11 @@ instance NFData RestAPI where
 --
 -- /See:/ 'sdkConfigurationProperty' smart constructor.
 data SDKConfigurationProperty = SDKConfigurationProperty'
-  { _scpFriendlyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scpRequired     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _scpName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scpDefaultValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scpDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _scpFriendlyName :: !(Maybe Text)
+  , _scpRequired     :: !(Maybe Bool)
+  , _scpName         :: !(Maybe Text)
+  , _scpDefaultValue :: !(Maybe Text)
+  , _scpDescription  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2089,10 +2089,10 @@ instance NFData SDKConfigurationProperty where
 --
 -- /See:/ 'sdkType' smart constructor.
 data SDKType = SDKType'
-  { _stFriendlyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stConfigurationProperties :: {-# NOUNPACK #-}!(Maybe [SDKConfigurationProperty])
-  , _stId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _stFriendlyName            :: !(Maybe Text)
+  , _stConfigurationProperties :: !(Maybe [SDKConfigurationProperty])
+  , _stId                      :: !(Maybe Text)
+  , _stDescription             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2155,18 +2155,18 @@ instance NFData SDKType where
 --
 -- /See:/ 'stage' smart constructor.
 data Stage = Stage'
-  { _sDeploymentId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sVariables            :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _sDocumentationVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sClientCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCreatedDate          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _sCacheClusterStatus   :: {-# NOUNPACK #-}!(Maybe CacheClusterStatus)
-  , _sMethodSettings       :: {-# NOUNPACK #-}!(Maybe (Map Text MethodSetting))
-  , _sLastUpdatedDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _sCacheClusterSize     :: {-# NOUNPACK #-}!(Maybe CacheClusterSize)
-  , _sCacheClusterEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sStageName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sDeploymentId         :: !(Maybe Text)
+  , _sVariables            :: !(Maybe (Map Text Text))
+  , _sDocumentationVersion :: !(Maybe Text)
+  , _sClientCertificateId  :: !(Maybe Text)
+  , _sCreatedDate          :: !(Maybe POSIX)
+  , _sCacheClusterStatus   :: !(Maybe CacheClusterStatus)
+  , _sMethodSettings       :: !(Maybe (Map Text MethodSetting))
+  , _sLastUpdatedDate      :: !(Maybe POSIX)
+  , _sCacheClusterSize     :: !(Maybe CacheClusterSize)
+  , _sCacheClusterEnabled  :: !(Maybe Bool)
+  , _sStageName            :: !(Maybe Text)
+  , _sDescription          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2292,8 +2292,8 @@ instance NFData Stage where
 --
 -- /See:/ 'stageKey' smart constructor.
 data StageKey = StageKey'
-  { _skRestAPIId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _skStageName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _skRestAPIId :: !(Maybe Text)
+  , _skStageName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2334,8 +2334,8 @@ instance ToJSON StageKey where
 --
 -- /See:/ 'throttleSettings' smart constructor.
 data ThrottleSettings = ThrottleSettings'
-  { _tsBurstLimit :: {-# NOUNPACK #-}!(Maybe Int)
-  , _tsRateLimit  :: {-# NOUNPACK #-}!(Maybe Double)
+  { _tsBurstLimit :: !(Maybe Int)
+  , _tsRateLimit  :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2385,11 +2385,11 @@ instance ToJSON ThrottleSettings where
 --
 -- /See:/ 'usage' smart constructor.
 data Usage = Usage'
-  { _uUsagePlanId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uEndDate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uItems       :: {-# NOUNPACK #-}!(Maybe (Map Text [[Integer]]))
-  , _uStartDate   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uPosition    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _uUsagePlanId :: !(Maybe Text)
+  , _uEndDate     :: !(Maybe Text)
+  , _uItems       :: !(Maybe (Map Text [[Integer]]))
+  , _uStartDate   :: !(Maybe Text)
+  , _uPosition    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2461,13 +2461,13 @@ instance NFData Usage where
 --
 -- /See:/ 'usagePlan' smart constructor.
 data UsagePlan = UsagePlan'
-  { _upApiStages   :: {-# NOUNPACK #-}!(Maybe [APIStage])
-  , _upName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upThrottle    :: {-# NOUNPACK #-}!(Maybe ThrottleSettings)
-  , _upQuota       :: {-# NOUNPACK #-}!(Maybe QuotaSettings)
-  , _upDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upProductCode :: {-# NOUNPACK #-}!(Maybe Text)
+  { _upApiStages   :: !(Maybe [APIStage])
+  , _upName        :: !(Maybe Text)
+  , _upId          :: !(Maybe Text)
+  , _upThrottle    :: !(Maybe ThrottleSettings)
+  , _upQuota       :: !(Maybe QuotaSettings)
+  , _upDescription :: !(Maybe Text)
+  , _upProductCode :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2555,10 +2555,10 @@ instance NFData UsagePlan where
 --
 -- /See:/ 'usagePlanKey' smart constructor.
 data UsagePlanKey = UsagePlanKey'
-  { _upkValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upkName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upkId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upkType  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _upkValue :: !(Maybe Text)
+  , _upkName  :: !(Maybe Text)
+  , _upkId    :: !(Maybe Text)
+  , _upkType  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

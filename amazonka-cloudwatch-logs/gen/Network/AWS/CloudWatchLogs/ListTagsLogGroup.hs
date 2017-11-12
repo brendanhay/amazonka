@@ -102,8 +102,8 @@ instance ToQuery ListTagsLogGroup where
 
 -- | /See:/ 'listTagsLogGroupResponse' smart constructor.
 data ListTagsLogGroupResponse = ListTagsLogGroupResponse'
-  { _ltlgrsTags           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _ltlgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltlgrsTags           :: !(Maybe (Map Text Text))
+  , _ltlgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -91,9 +91,9 @@ instance ToQuery ListLexicons where
 
 -- | /See:/ 'listLexiconsResponse' smart constructor.
 data ListLexiconsResponse = ListLexiconsResponse'
-  { _llrsLexicons       :: {-# NOUNPACK #-}!(Maybe [LexiconDescription])
-  , _llrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _llrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _llrsLexicons       :: !(Maybe [LexiconDescription])
+  , _llrsNextToken      :: !(Maybe Text)
+  , _llrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

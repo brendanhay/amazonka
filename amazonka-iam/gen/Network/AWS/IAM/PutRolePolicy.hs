@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'putRolePolicy' smart constructor.
 data PutRolePolicy = PutRolePolicy'
-  { _prpRoleName       :: {-# NOUNPACK #-}!Text
-  , _prpPolicyName     :: {-# NOUNPACK #-}!Text
-  , _prpPolicyDocument :: {-# NOUNPACK #-}!Text
+  { _prpRoleName       :: !Text
+  , _prpPolicyName     :: !Text
+  , _prpPolicyDocument :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

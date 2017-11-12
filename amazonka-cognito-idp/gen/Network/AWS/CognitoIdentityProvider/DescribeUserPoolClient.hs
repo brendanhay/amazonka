@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeUserPoolClient' smart constructor.
 data DescribeUserPoolClient = DescribeUserPoolClient'
-  { _dupcuUserPoolId :: {-# NOUNPACK #-}!Text
-  , _dupcuClientId   :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _dupcuUserPoolId :: !Text
+  , _dupcuClientId   :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery DescribeUserPoolClient where
 --
 -- /See:/ 'describeUserPoolClientResponse' smart constructor.
 data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
-  { _dupcrsUserPoolClient :: {-# NOUNPACK #-}!(Maybe UserPoolClientType)
-  , _dupcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dupcrsUserPoolClient :: !(Maybe UserPoolClientType)
+  , _dupcrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

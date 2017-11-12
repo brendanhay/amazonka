@@ -80,15 +80,15 @@ import Network.AWS.Support.Types.Product
 --
 -- /See:/ 'createCase' smart constructor.
 data CreateCase = CreateCase'
-  { _ccSeverityCode      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccIssueType         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccCcEmailAddresses  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccLanguage          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccCategoryCode      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccServiceCode       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccAttachmentSetId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccSubject           :: {-# NOUNPACK #-}!Text
-  , _ccCommunicationBody :: {-# NOUNPACK #-}!Text
+  { _ccSeverityCode      :: !(Maybe Text)
+  , _ccIssueType         :: !(Maybe Text)
+  , _ccCcEmailAddresses  :: !(Maybe [Text])
+  , _ccLanguage          :: !(Maybe Text)
+  , _ccCategoryCode      :: !(Maybe Text)
+  , _ccServiceCode       :: !(Maybe Text)
+  , _ccAttachmentSetId   :: !(Maybe Text)
+  , _ccSubject           :: !Text
+  , _ccCommunicationBody :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -215,8 +215,8 @@ instance ToQuery CreateCase where
 --
 -- /See:/ 'createCaseResponse' smart constructor.
 data CreateCaseResponse = CreateCaseResponse'
-  { _ccrsCaseId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ccrsCaseId         :: !(Maybe Text)
+  , _ccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

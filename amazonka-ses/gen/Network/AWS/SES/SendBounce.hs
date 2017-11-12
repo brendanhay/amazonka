@@ -59,12 +59,12 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'sendBounce' smart constructor.
 data SendBounce = SendBounce'
-  { _sbMessageDsn               :: {-# NOUNPACK #-}!(Maybe MessageDsn)
-  , _sbExplanation              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbBounceSenderARN          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbOriginalMessageId        :: {-# NOUNPACK #-}!Text
-  , _sbBounceSender             :: {-# NOUNPACK #-}!Text
-  , _sbBouncedRecipientInfoList :: {-# NOUNPACK #-}![BouncedRecipientInfo]
+  { _sbMessageDsn               :: !(Maybe MessageDsn)
+  , _sbExplanation              :: !(Maybe Text)
+  , _sbBounceSenderARN          :: !(Maybe Text)
+  , _sbOriginalMessageId        :: !Text
+  , _sbBounceSender             :: !Text
+  , _sbBouncedRecipientInfoList :: ![BouncedRecipientInfo]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,8 +160,8 @@ instance ToQuery SendBounce where
 --
 -- /See:/ 'sendBounceResponse' smart constructor.
 data SendBounceResponse = SendBounceResponse'
-  { _sbrsMessageId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sbrsMessageId      :: !(Maybe Text)
+  , _sbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -58,14 +58,14 @@ import Network.AWS.Response
 
 -- | /See:/ 'runTask' smart constructor.
 data RunTask = RunTask'
-  { _rtOverrides            :: {-# NOUNPACK #-}!(Maybe TaskOverride)
-  , _rtGroup                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtCluster              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtCount                :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rtPlacementConstraints :: {-# NOUNPACK #-}!(Maybe [PlacementConstraint])
-  , _rtPlacementStrategy    :: {-# NOUNPACK #-}!(Maybe [PlacementStrategy])
-  , _rtStartedBy            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtTaskDefinition       :: {-# NOUNPACK #-}!Text
+  { _rtOverrides            :: !(Maybe TaskOverride)
+  , _rtGroup                :: !(Maybe Text)
+  , _rtCluster              :: !(Maybe Text)
+  , _rtCount                :: !(Maybe Int)
+  , _rtPlacementConstraints :: !(Maybe [PlacementConstraint])
+  , _rtPlacementStrategy    :: !(Maybe [PlacementStrategy])
+  , _rtStartedBy            :: !(Maybe Text)
+  , _rtTaskDefinition       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -183,9 +183,9 @@ instance ToQuery RunTask where
 
 -- | /See:/ 'runTaskResponse' smart constructor.
 data RunTaskResponse = RunTaskResponse'
-  { _rtrsFailures       :: {-# NOUNPACK #-}!(Maybe [Failure])
-  , _rtrsTasks          :: {-# NOUNPACK #-}!(Maybe [Task])
-  , _rtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rtrsFailures       :: !(Maybe [Failure])
+  , _rtrsTasks          :: !(Maybe [Task])
+  , _rtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

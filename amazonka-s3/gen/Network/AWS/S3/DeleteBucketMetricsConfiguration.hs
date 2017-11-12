@@ -42,8 +42,8 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketMetricsConfiguration' smart constructor.
 data DeleteBucketMetricsConfiguration = DeleteBucketMetricsConfiguration'
-  { _dbmcBucket :: {-# NOUNPACK #-}!BucketName
-  , _dbmcId     :: {-# NOUNPACK #-}!Text
+  { _dbmcBucket :: !BucketName
+  , _dbmcId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

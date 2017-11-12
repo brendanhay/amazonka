@@ -55,12 +55,12 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'searchProducts' smart constructor.
 data SearchProducts = SearchProducts'
-  { _spFilters :: {-# NOUNPACK #-}!(Maybe (Map ProductViewFilterBy [Text]))
-  , _spSortOrder :: {-# NOUNPACK #-}!(Maybe SortOrder)
-  , _spAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _spPageToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _spPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _spSortBy :: {-# NOUNPACK #-}!(Maybe ProductViewSortBy)
+  { _spFilters        :: !(Maybe (Map ProductViewFilterBy [Text]))
+  , _spSortOrder      :: !(Maybe SortOrder)
+  , _spAcceptLanguage :: !(Maybe Text)
+  , _spPageToken      :: !(Maybe Text)
+  , _spPageSize       :: !(Maybe Nat)
+  , _spSortBy         :: !(Maybe ProductViewSortBy)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -161,10 +161,10 @@ instance ToQuery SearchProducts where
 
 -- | /See:/ 'searchProductsResponse' smart constructor.
 data SearchProductsResponse = SearchProductsResponse'
-  { _sprsNextPageToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sprsProductViewAggregations :: {-# NOUNPACK #-}!(Maybe (Map Text [ProductViewAggregationValue]))
-  , _sprsProductViewSummaries :: {-# NOUNPACK #-}!(Maybe [ProductViewSummary])
-  , _sprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sprsNextPageToken :: !(Maybe Text)
+  , _sprsProductViewAggregations :: !(Maybe (Map Text [ProductViewAggregationValue]))
+  , _sprsProductViewSummaries :: !(Maybe [ProductViewSummary])
+  , _sprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

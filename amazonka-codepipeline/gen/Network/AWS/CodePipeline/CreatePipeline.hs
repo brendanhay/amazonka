@@ -109,8 +109,8 @@ instance ToQuery CreatePipeline where
 --
 -- /See:/ 'createPipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-  { _cprsPipeline       :: {-# NOUNPACK #-}!(Maybe PipelineDeclaration)
-  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cprsPipeline       :: !(Maybe PipelineDeclaration)
+  , _cprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

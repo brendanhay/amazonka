@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'deletePartition' smart constructor.
 data DeletePartition = DeletePartition'
-  { _dpCatalogId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpDatabaseName    :: {-# NOUNPACK #-}!Text
-  , _dpTableName       :: {-# NOUNPACK #-}!Text
-  , _dpPartitionValues :: {-# NOUNPACK #-}![Text]
+  { _dpCatalogId       :: !(Maybe Text)
+  , _dpDatabaseName    :: !Text
+  , _dpTableName       :: !Text
+  , _dpPartitionValues :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

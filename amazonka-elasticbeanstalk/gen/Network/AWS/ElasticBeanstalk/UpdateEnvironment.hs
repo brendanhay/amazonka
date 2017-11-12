@@ -83,18 +83,18 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { _ueTemplateName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ueOptionsToRemove :: {-# NOUNPACK #-}!(Maybe [OptionSpecification])
-  , _ueOptionSettings :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionSetting])
-  , _ueVersionLabel :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uePlatformARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ueTier :: {-# NOUNPACK #-}!(Maybe EnvironmentTier)
-  , _ueEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ueApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ueSolutionStackName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ueEnvironmentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ueGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ueDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ueTemplateName      :: !(Maybe Text)
+  , _ueOptionsToRemove   :: !(Maybe [OptionSpecification])
+  , _ueOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
+  , _ueVersionLabel      :: !(Maybe Text)
+  , _uePlatformARN       :: !(Maybe Text)
+  , _ueTier              :: !(Maybe EnvironmentTier)
+  , _ueEnvironmentName   :: !(Maybe Text)
+  , _ueApplicationName   :: !(Maybe Text)
+  , _ueSolutionStackName :: !(Maybe Text)
+  , _ueEnvironmentId     :: !(Maybe Text)
+  , _ueGroupName         :: !(Maybe Text)
+  , _ueDescription       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

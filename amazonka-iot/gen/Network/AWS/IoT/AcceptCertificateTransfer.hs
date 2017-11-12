@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'acceptCertificateTransfer' smart constructor.
 data AcceptCertificateTransfer = AcceptCertificateTransfer'
-  { _actSetAsActive   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _actCertificateId :: {-# NOUNPACK #-}!Text
+  { _actSetAsActive   :: !(Maybe Bool)
+  , _actCertificateId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

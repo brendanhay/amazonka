@@ -54,9 +54,9 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { _ltfrMarker      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltfrLimit       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ltfrResourceARN :: {-# NOUNPACK #-}!Text
+  { _ltfrMarker      :: !(Maybe Text)
+  , _ltfrLimit       :: !(Maybe Nat)
+  , _ltfrResourceARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,10 +138,10 @@ instance ToQuery ListTagsForResource where
 --
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { _ltfrrsResourceARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltfrrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltfrrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ltfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltfrrsResourceARN    :: !(Maybe Text)
+  , _ltfrrsMarker         :: !(Maybe Text)
+  , _ltfrrsTags           :: !(Maybe [Tag])
+  , _ltfrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

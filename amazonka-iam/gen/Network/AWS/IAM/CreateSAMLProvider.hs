@@ -53,8 +53,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createSAMLProvider' smart constructor.
 data CreateSAMLProvider = CreateSAMLProvider'
-  { _csamlpSAMLMetadataDocument :: {-# NOUNPACK #-}!Text
-  , _csamlpName                 :: {-# NOUNPACK #-}!Text
+  { _csamlpSAMLMetadataDocument :: !Text
+  , _csamlpName                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,8 +117,8 @@ instance ToQuery CreateSAMLProvider where
 --
 -- /See:/ 'createSAMLProviderResponse' smart constructor.
 data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
-  { _csamlprsSAMLProviderARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csamlprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _csamlprsSAMLProviderARN :: !(Maybe Text)
+  , _csamlprsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

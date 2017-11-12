@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listDashboards' smart constructor.
 data ListDashboards = ListDashboards'
-  { _ldDashboardNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ldDashboardNamePrefix :: !(Maybe Text)
+  , _ldNextToken           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -106,9 +106,9 @@ instance ToQuery ListDashboards where
 
 -- | /See:/ 'listDashboardsResponse' smart constructor.
 data ListDashboardsResponse = ListDashboardsResponse'
-  { _ldrsDashboardEntries :: {-# NOUNPACK #-}!(Maybe [DashboardEntry])
-  , _ldrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ldrsDashboardEntries :: !(Maybe [DashboardEntry])
+  , _ldrsNextToken        :: !(Maybe Text)
+  , _ldrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

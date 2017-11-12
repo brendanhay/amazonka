@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getFacet' smart constructor.
 data GetFacet = GetFacet'
-  { _gfSchemaARN :: {-# NOUNPACK #-}!Text
-  , _gfName      :: {-# NOUNPACK #-}!Text
+  { _gfSchemaARN :: !Text
+  , _gfName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -105,8 +105,8 @@ instance ToQuery GetFacet where
 
 -- | /See:/ 'getFacetResponse' smart constructor.
 data GetFacetResponse = GetFacetResponse'
-  { _gfrsFacet          :: {-# NOUNPACK #-}!(Maybe Facet)
-  , _gfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gfrsFacet          :: !(Maybe Facet)
+  , _gfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

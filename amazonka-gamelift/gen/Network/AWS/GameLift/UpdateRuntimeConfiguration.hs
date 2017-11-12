@@ -107,8 +107,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateRuntimeConfiguration' smart constructor.
 data UpdateRuntimeConfiguration = UpdateRuntimeConfiguration'
-  { _urcFleetId              :: {-# NOUNPACK #-}!Text
-  , _urcRuntimeConfiguration :: {-# NOUNPACK #-}!RuntimeConfiguration
+  { _urcFleetId              :: !Text
+  , _urcRuntimeConfiguration :: !RuntimeConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -182,8 +182,8 @@ instance ToQuery UpdateRuntimeConfiguration where
 --
 -- /See:/ 'updateRuntimeConfigurationResponse' smart constructor.
 data UpdateRuntimeConfigurationResponse = UpdateRuntimeConfigurationResponse'
-  { _urcrsRuntimeConfiguration :: {-# NOUNPACK #-}!(Maybe RuntimeConfiguration)
-  , _urcrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _urcrsRuntimeConfiguration :: !(Maybe RuntimeConfiguration)
+  , _urcrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

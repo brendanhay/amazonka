@@ -79,28 +79,28 @@ import Network.AWS.Response
 --
 -- /See:/ 'runJobFlow' smart constructor.
 data RunJobFlow = RunJobFlow'
-  { _rjfAMIVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rjfEBSRootVolumeSize :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rjfAdditionalInfo :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rjfConfigurations :: {-# NOUNPACK #-}!(Maybe [Configuration])
-  , _rjfCustomAMIId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rjfAutoScalingRole :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rjfSecurityConfiguration :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rjfScaleDownBehavior :: {-# NOUNPACK #-}!(Maybe ScaleDownBehavior)
-  , _rjfSteps :: {-# NOUNPACK #-}!(Maybe [StepConfig])
-  , _rjfJobFlowRole :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rjfBootstrapActions :: {-# NOUNPACK #-}!(Maybe [BootstrapActionConfig])
-  , _rjfReleaseLabel :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rjfRepoUpgradeOnBoot :: {-# NOUNPACK #-}!(Maybe RepoUpgradeOnBoot)
-  , _rjfLogURI :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rjfNewSupportedProducts :: {-# NOUNPACK #-}!(Maybe [SupportedProductConfig])
-  , _rjfVisibleToAllUsers :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rjfSupportedProducts :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rjfApplications :: {-# NOUNPACK #-}!(Maybe [Application])
-  , _rjfTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _rjfServiceRole :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rjfName :: {-# NOUNPACK #-}!Text
-  , _rjfInstances :: {-# NOUNPACK #-}!JobFlowInstancesConfig
+  { _rjfAMIVersion            :: !(Maybe Text)
+  , _rjfEBSRootVolumeSize     :: !(Maybe Int)
+  , _rjfAdditionalInfo        :: !(Maybe Text)
+  , _rjfConfigurations        :: !(Maybe [Configuration])
+  , _rjfCustomAMIId           :: !(Maybe Text)
+  , _rjfAutoScalingRole       :: !(Maybe Text)
+  , _rjfSecurityConfiguration :: !(Maybe Text)
+  , _rjfScaleDownBehavior     :: !(Maybe ScaleDownBehavior)
+  , _rjfSteps                 :: !(Maybe [StepConfig])
+  , _rjfJobFlowRole           :: !(Maybe Text)
+  , _rjfBootstrapActions      :: !(Maybe [BootstrapActionConfig])
+  , _rjfReleaseLabel          :: !(Maybe Text)
+  , _rjfRepoUpgradeOnBoot     :: !(Maybe RepoUpgradeOnBoot)
+  , _rjfLogURI                :: !(Maybe Text)
+  , _rjfNewSupportedProducts  :: !(Maybe [SupportedProductConfig])
+  , _rjfVisibleToAllUsers     :: !(Maybe Bool)
+  , _rjfSupportedProducts     :: !(Maybe [Text])
+  , _rjfApplications          :: !(Maybe [Application])
+  , _rjfTags                  :: !(Maybe [Tag])
+  , _rjfServiceRole           :: !(Maybe Text)
+  , _rjfName                  :: !Text
+  , _rjfInstances             :: !JobFlowInstancesConfig
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -333,8 +333,8 @@ instance ToQuery RunJobFlow where
 --
 -- /See:/ 'runJobFlowResponse' smart constructor.
 data RunJobFlowResponse = RunJobFlowResponse'
-  { _rjfrsJobFlowId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rjfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rjfrsJobFlowId      :: !(Maybe Text)
+  , _rjfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

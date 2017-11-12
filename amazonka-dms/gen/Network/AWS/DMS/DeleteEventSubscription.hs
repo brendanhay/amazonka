@@ -112,8 +112,8 @@ instance ToQuery DeleteEventSubscription where
 --
 -- /See:/ 'deleteEventSubscriptionResponse' smart constructor.
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
-  { _desersEventSubscription :: {-# NOUNPACK #-}!(Maybe EventSubscription)
-  , _desersResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _desersEventSubscription :: !(Maybe EventSubscription)
+  , _desersResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

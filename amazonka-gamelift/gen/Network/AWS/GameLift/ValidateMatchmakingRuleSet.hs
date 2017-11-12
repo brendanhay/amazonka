@@ -130,8 +130,8 @@ instance ToQuery ValidateMatchmakingRuleSet where
 --
 -- /See:/ 'validateMatchmakingRuleSetResponse' smart constructor.
 data ValidateMatchmakingRuleSetResponse = ValidateMatchmakingRuleSetResponse'
-  { _vmrsrsValid          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _vmrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _vmrsrsValid          :: !(Maybe Bool)
+  , _vmrsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

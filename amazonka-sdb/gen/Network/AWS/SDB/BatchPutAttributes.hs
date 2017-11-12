@@ -56,8 +56,8 @@ import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'batchPutAttributes' smart constructor.
 data BatchPutAttributes = BatchPutAttributes'
-  { _bpaDomainName :: {-# NOUNPACK #-}!Text
-  , _bpaItems      :: {-# NOUNPACK #-}![ReplaceableItem]
+  { _bpaDomainName :: !Text
+  , _bpaItems      :: ![ReplaceableItem]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

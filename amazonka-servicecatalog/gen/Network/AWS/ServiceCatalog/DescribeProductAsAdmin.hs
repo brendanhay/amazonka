@@ -50,8 +50,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProductAsAdmin' smart constructor.
 data DescribeProductAsAdmin = DescribeProductAsAdmin'
-  { _dpaaAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpaaId             :: {-# NOUNPACK #-}!Text
+  { _dpaaAcceptLanguage :: !(Maybe Text)
+  , _dpaaId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,11 +121,11 @@ instance ToQuery DescribeProductAsAdmin where
 
 -- | /See:/ 'describeProductAsAdminResponse' smart constructor.
 data DescribeProductAsAdminResponse = DescribeProductAsAdminResponse'
-  { _dpaarsProductViewDetail :: {-# NOUNPACK #-}!(Maybe ProductViewDetail)
-  , _dpaarsTagOptions :: {-# NOUNPACK #-}!(Maybe [TagOptionDetail])
-  , _dpaarsProvisioningArtifactSummaries :: {-# NOUNPACK #-}!(Maybe [ProvisioningArtifactSummary])
-  , _dpaarsTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _dpaarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dpaarsProductViewDetail :: !(Maybe ProductViewDetail)
+  , _dpaarsTagOptions :: !(Maybe [TagOptionDetail])
+  , _dpaarsProvisioningArtifactSummaries :: !(Maybe [ProvisioningArtifactSummary])
+  , _dpaarsTags :: !(Maybe [Tag])
+  , _dpaarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -116,8 +116,8 @@ instance ToQuery DescribeApplication where
 --
 -- /See:/ 'describeApplicationResponse' smart constructor.
 data DescribeApplicationResponse = DescribeApplicationResponse'
-  { _darsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _darsApplicationDetail :: {-# NOUNPACK #-}!ApplicationDetail
+  { _darsResponseStatus    :: !Int
+  , _darsApplicationDetail :: !ApplicationDetail
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -55,16 +55,16 @@ import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'createCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { _ccKMSKeyARN           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccNotification        :: {-# NOUNPACK #-}!(Maybe Notification)
-  , _ccForwardingAddressId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccSnowballType        :: {-# NOUNPACK #-}!(Maybe SnowballType)
-  , _ccDescription         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccJobType             :: {-# NOUNPACK #-}!JobType
-  , _ccResources           :: {-# NOUNPACK #-}!JobResource
-  , _ccAddressId           :: {-# NOUNPACK #-}!Text
-  , _ccRoleARN             :: {-# NOUNPACK #-}!Text
-  , _ccShippingOption      :: {-# NOUNPACK #-}!ShippingOption
+  { _ccKMSKeyARN           :: !(Maybe Text)
+  , _ccNotification        :: !(Maybe Notification)
+  , _ccForwardingAddressId :: !(Maybe Text)
+  , _ccSnowballType        :: !(Maybe SnowballType)
+  , _ccDescription         :: !(Maybe Text)
+  , _ccJobType             :: !JobType
+  , _ccResources           :: !JobResource
+  , _ccAddressId           :: !Text
+  , _ccRoleARN             :: !Text
+  , _ccShippingOption      :: !ShippingOption
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -200,8 +200,8 @@ instance ToQuery CreateCluster where
 
 -- | /See:/ 'createClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-  { _crersClusterId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crersClusterId      :: !(Maybe Text)
+  , _crersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

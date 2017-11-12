@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachInstances' smart constructor.
 data AttachInstances = AttachInstances'
-  { _aiInstanceIds          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _aiAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  { _aiInstanceIds          :: !(Maybe [Text])
+  , _aiAutoScalingGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

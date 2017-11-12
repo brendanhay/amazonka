@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'refreshSchemas' smart constructor.
 data RefreshSchemas = RefreshSchemas'
-  { _rsEndpointARN            :: {-# NOUNPACK #-}!Text
-  , _rsReplicationInstanceARN :: {-# NOUNPACK #-}!Text
+  { _rsEndpointARN            :: !Text
+  , _rsReplicationInstanceARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery RefreshSchemas where
 --
 -- /See:/ 'refreshSchemasResponse' smart constructor.
 data RefreshSchemasResponse = RefreshSchemasResponse'
-  { _rsrsRefreshSchemasStatus :: {-# NOUNPACK #-}!(Maybe RefreshSchemasStatus)
-  , _rsrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _rsrsRefreshSchemasStatus :: !(Maybe RefreshSchemasStatus)
+  , _rsrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putSchemaFromJSON' smart constructor.
 data PutSchemaFromJSON = PutSchemaFromJSON'
-  { _psfjSchemaARN :: {-# NOUNPACK #-}!Text
-  , _psfjDocument  :: {-# NOUNPACK #-}!Text
+  { _psfjSchemaARN :: !Text
+  , _psfjDocument  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -107,8 +107,8 @@ instance ToQuery PutSchemaFromJSON where
 
 -- | /See:/ 'putSchemaFromJSONResponse' smart constructor.
 data PutSchemaFromJSONResponse = PutSchemaFromJSONResponse'
-  { _psfjrsARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psfjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _psfjrsARN            :: !(Maybe Text)
+  , _psfjrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

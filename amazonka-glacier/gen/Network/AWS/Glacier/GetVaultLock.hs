@@ -68,8 +68,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getVaultLock' smart constructor.
 data GetVaultLock = GetVaultLock'
-  { _gvlAccountId :: {-# NOUNPACK #-}!Text
-  , _gvlVaultName :: {-# NOUNPACK #-}!Text
+  { _gvlAccountId :: !Text
+  , _gvlVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,11 +130,11 @@ instance ToQuery GetVaultLock where
 --
 -- /See:/ 'getVaultLockResponse' smart constructor.
 data GetVaultLockResponse = GetVaultLockResponse'
-  { _gvlrsState          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gvlrsExpirationDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gvlrsCreationDate   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gvlrsPolicy         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gvlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gvlrsState          :: !(Maybe Text)
+  , _gvlrsExpirationDate :: !(Maybe Text)
+  , _gvlrsCreationDate   :: !(Maybe Text)
+  , _gvlrsPolicy         :: !(Maybe Text)
+  , _gvlrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

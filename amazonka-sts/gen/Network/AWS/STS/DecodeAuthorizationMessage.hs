@@ -119,8 +119,8 @@ instance ToQuery DecodeAuthorizationMessage where
 --
 -- /See:/ 'decodeAuthorizationMessageResponse' smart constructor.
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
-  { _damrsDecodedMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _damrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _damrsDecodedMessage :: !(Maybe Text)
+  , _damrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

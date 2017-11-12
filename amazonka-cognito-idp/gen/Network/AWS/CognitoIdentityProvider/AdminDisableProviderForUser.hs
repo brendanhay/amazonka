@@ -56,8 +56,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'adminDisableProviderForUser' smart constructor.
 data AdminDisableProviderForUser = AdminDisableProviderForUser'
-  { _adpfuUserPoolId :: {-# NOUNPACK #-}!Text
-  , _adpfuUser       :: {-# NOUNPACK #-}!ProviderUserIdentifierType
+  { _adpfuUserPoolId :: !Text
+  , _adpfuUser       :: !ProviderUserIdentifierType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

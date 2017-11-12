@@ -45,9 +45,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'resendValidationEmail' smart constructor.
 data ResendValidationEmail = ResendValidationEmail'
-  { _rveCertificateARN   :: {-# NOUNPACK #-}!Text
-  , _rveDomain           :: {-# NOUNPACK #-}!Text
-  , _rveValidationDomain :: {-# NOUNPACK #-}!Text
+  { _rveCertificateARN   :: !Text
+  , _rveDomain           :: !Text
+  , _rveValidationDomain :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

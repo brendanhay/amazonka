@@ -92,9 +92,9 @@ instance ToQuery GetBucketACL where
 
 -- | /See:/ 'getBucketACLResponse' smart constructor.
 data GetBucketACLResponse = GetBucketACLResponse'
-  { _gbarsGrants         :: {-# NOUNPACK #-}!(Maybe [Grant])
-  , _gbarsOwner          :: {-# NOUNPACK #-}!(Maybe Owner)
-  , _gbarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbarsGrants         :: !(Maybe [Grant])
+  , _gbarsOwner          :: !(Maybe Owner)
+  , _gbarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

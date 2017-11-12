@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'enablePolicyType' smart constructor.
 data EnablePolicyType = EnablePolicyType'
-  { _eptRootId     :: {-# NOUNPACK #-}!Text
-  , _eptPolicyType :: {-# NOUNPACK #-}!PolicyType
+  { _eptRootId     :: !Text
+  , _eptPolicyType :: !PolicyType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery EnablePolicyType where
 
 -- | /See:/ 'enablePolicyTypeResponse' smart constructor.
 data EnablePolicyTypeResponse = EnablePolicyTypeResponse'
-  { _eptrsRoot           :: {-# NOUNPACK #-}!(Maybe Root)
-  , _eptrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _eptrsRoot           :: !(Maybe Root)
+  , _eptrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

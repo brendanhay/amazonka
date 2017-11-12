@@ -57,9 +57,9 @@ import Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'changeMessageVisibility' smart constructor.
 data ChangeMessageVisibility = ChangeMessageVisibility'
-  { _cmvQueueURL          :: {-# NOUNPACK #-}!Text
-  , _cmvReceiptHandle     :: {-# NOUNPACK #-}!Text
-  , _cmvVisibilityTimeout :: {-# NOUNPACK #-}!Int
+  { _cmvQueueURL          :: !Text
+  , _cmvReceiptHandle     :: !Text
+  , _cmvVisibilityTimeout :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

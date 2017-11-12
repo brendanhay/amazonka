@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listNetworkProfiles' smart constructor.
 data ListNetworkProfiles = ListNetworkProfiles'
-  { _lnpNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lnpType      :: {-# NOUNPACK #-}!(Maybe NetworkProfileType)
-  , _lnpArn       :: {-# NOUNPACK #-}!Text
+  { _lnpNextToken :: !(Maybe Text)
+  , _lnpType      :: !(Maybe NetworkProfileType)
+  , _lnpArn       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery ListNetworkProfiles where
 
 -- | /See:/ 'listNetworkProfilesResponse' smart constructor.
 data ListNetworkProfilesResponse = ListNetworkProfilesResponse'
-  { _lnprsNetworkProfiles :: {-# NOUNPACK #-}!(Maybe [NetworkProfile])
-  , _lnprsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lnprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _lnprsNetworkProfiles :: !(Maybe [NetworkProfile])
+  , _lnprsNextToken       :: !(Maybe Text)
+  , _lnprsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -60,14 +60,14 @@ import Network.AWS.Response
 
 -- | /See:/ 'filterLogEvents' smart constructor.
 data FilterLogEvents = FilterLogEvents'
-  { _fleStartTime      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _fleNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fleLogStreamNames :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _fleEndTime        :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _fleLimit          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _fleFilterPattern  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fleInterleaved    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _fleLogGroupName   :: {-# NOUNPACK #-}!Text
+  { _fleStartTime      :: !(Maybe Nat)
+  , _fleNextToken      :: !(Maybe Text)
+  , _fleLogStreamNames :: !(Maybe (List1 Text))
+  , _fleEndTime        :: !(Maybe Nat)
+  , _fleLimit          :: !(Maybe Nat)
+  , _fleFilterPattern  :: !(Maybe Text)
+  , _fleInterleaved    :: !(Maybe Bool)
+  , _fleLogGroupName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -190,10 +190,10 @@ instance ToQuery FilterLogEvents where
 
 -- | /See:/ 'filterLogEventsResponse' smart constructor.
 data FilterLogEventsResponse = FilterLogEventsResponse'
-  { _flersSearchedLogStreams :: {-# NOUNPACK #-}!(Maybe [SearchedLogStream])
-  , _flersNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _flersEvents             :: {-# NOUNPACK #-}!(Maybe [FilteredLogEvent])
-  , _flersResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _flersSearchedLogStreams :: !(Maybe [SearchedLogStream])
+  , _flersNextToken          :: !(Maybe Text)
+  , _flersEvents             :: !(Maybe [FilteredLogEvent])
+  , _flersResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

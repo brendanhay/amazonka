@@ -60,12 +60,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'putSubscriptionFilter' smart constructor.
 data PutSubscriptionFilter = PutSubscriptionFilter'
-  { _psfDistribution   :: {-# NOUNPACK #-}!(Maybe Distribution)
-  , _psfRoleARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psfLogGroupName   :: {-# NOUNPACK #-}!Text
-  , _psfFilterName     :: {-# NOUNPACK #-}!Text
-  , _psfFilterPattern  :: {-# NOUNPACK #-}!Text
-  , _psfDestinationARN :: {-# NOUNPACK #-}!Text
+  { _psfDistribution   :: !(Maybe Distribution)
+  , _psfRoleARN        :: !(Maybe Text)
+  , _psfLogGroupName   :: !Text
+  , _psfFilterName     :: !Text
+  , _psfFilterPattern  :: !Text
+  , _psfDestinationARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

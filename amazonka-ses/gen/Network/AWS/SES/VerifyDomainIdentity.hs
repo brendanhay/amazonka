@@ -104,8 +104,8 @@ instance ToQuery VerifyDomainIdentity where
 --
 -- /See:/ 'verifyDomainIdentityResponse' smart constructor.
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
-  { _vdirsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _vdirsVerificationToken :: {-# NOUNPACK #-}!Text
+  { _vdirsResponseStatus    :: !Int
+  , _vdirsVerificationToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

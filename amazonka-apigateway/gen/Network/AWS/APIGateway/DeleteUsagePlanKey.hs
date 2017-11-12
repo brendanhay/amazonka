@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteUsagePlanKey' smart constructor.
 data DeleteUsagePlanKey = DeleteUsagePlanKey'
-  { _dupkUsagePlanId :: {-# NOUNPACK #-}!Text
-  , _dupkKeyId       :: {-# NOUNPACK #-}!Text
+  { _dupkUsagePlanId :: !Text
+  , _dupkKeyId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

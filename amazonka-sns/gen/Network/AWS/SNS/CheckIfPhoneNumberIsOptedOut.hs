@@ -108,8 +108,8 @@ instance ToQuery CheckIfPhoneNumberIsOptedOut where
 --
 -- /See:/ 'checkIfPhoneNumberIsOptedOutResponse' smart constructor.
 data CheckIfPhoneNumberIsOptedOutResponse = CheckIfPhoneNumberIsOptedOutResponse'
-  { _cipnioorsIsOptedOut     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cipnioorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cipnioorsIsOptedOut     :: !(Maybe Bool)
+  , _cipnioorsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

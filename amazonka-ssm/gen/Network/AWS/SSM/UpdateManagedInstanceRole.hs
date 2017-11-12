@@ -46,8 +46,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateManagedInstanceRole' smart constructor.
 data UpdateManagedInstanceRole = UpdateManagedInstanceRole'
-  { _umirInstanceId :: {-# NOUNPACK #-}!Text
-  , _umirIAMRole    :: {-# NOUNPACK #-}!Text
+  { _umirInstanceId :: !Text
+  , _umirIAMRole    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

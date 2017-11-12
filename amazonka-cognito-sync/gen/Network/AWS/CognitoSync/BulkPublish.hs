@@ -106,8 +106,8 @@ instance ToQuery BulkPublish where
 --
 -- /See:/ 'bulkPublishResponse' smart constructor.
 data BulkPublishResponse = BulkPublishResponse'
-  { _bprsIdentityPoolId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bprsIdentityPoolId :: !(Maybe Text)
+  , _bprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

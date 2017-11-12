@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateDeviceDefinition' smart constructor.
 data UpdateDeviceDefinition = UpdateDeviceDefinition'
-  { _uddName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uddDeviceDefinitionId :: {-# NOUNPACK #-}!Text
+  { _uddName               :: !(Maybe Text)
+  , _uddDeviceDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -27,8 +27,8 @@ import Network.AWS.StepFunctions.Types.Sum
 --
 -- /See:/ 'activityFailedEventDetails' smart constructor.
 data ActivityFailedEventDetails = ActivityFailedEventDetails'
-  { _afedError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _afedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  { _afedError :: !(Maybe Text)
+  , _afedCause :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -70,9 +70,9 @@ instance NFData ActivityFailedEventDetails where
 --
 -- /See:/ 'activityListItem' smart constructor.
 data ActivityListItem = ActivityListItem'
-  { _aliActivityARN  :: {-# NOUNPACK #-}!Text
-  , _aliName         :: {-# NOUNPACK #-}!Text
-  , _aliCreationDate :: {-# NOUNPACK #-}!POSIX
+  { _aliActivityARN  :: !Text
+  , _aliName         :: !Text
+  , _aliCreationDate :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance NFData ActivityListItem where
 --
 -- /See:/ 'activityScheduleFailedEventDetails' smart constructor.
 data ActivityScheduleFailedEventDetails = ActivityScheduleFailedEventDetails'
-  { _asfedError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asfedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  { _asfedError :: !(Maybe Text)
+  , _asfedCause :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -175,10 +175,10 @@ instance NFData ActivityScheduleFailedEventDetails
 --
 -- /See:/ 'activityScheduledEventDetails' smart constructor.
 data ActivityScheduledEventDetails = ActivityScheduledEventDetails'
-  { _asedHeartbeatInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _asedInput              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asedTimeoutInSeconds   :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _asedResource           :: {-# NOUNPACK #-}!Text
+  { _asedHeartbeatInSeconds :: !(Maybe Integer)
+  , _asedInput              :: !(Maybe Text)
+  , _asedTimeoutInSeconds   :: !(Maybe Integer)
+  , _asedResource           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -311,8 +311,8 @@ instance NFData ActivitySucceededEventDetails where
 --
 -- /See:/ 'activityTimedOutEventDetails' smart constructor.
 data ActivityTimedOutEventDetails = ActivityTimedOutEventDetails'
-  { _atoedError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atoedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  { _atoedError :: !(Maybe Text)
+  , _atoedCause :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -354,8 +354,8 @@ instance NFData ActivityTimedOutEventDetails where
 --
 -- /See:/ 'executionAbortedEventDetails' smart constructor.
 data ExecutionAbortedEventDetails = ExecutionAbortedEventDetails'
-  { _eaedError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eaedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eaedError :: !(Maybe Text)
+  , _eaedCause :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -397,8 +397,8 @@ instance NFData ExecutionAbortedEventDetails where
 --
 -- /See:/ 'executionFailedEventDetails' smart constructor.
 data ExecutionFailedEventDetails = ExecutionFailedEventDetails'
-  { _efedError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _efedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  { _efedError :: !(Maybe Text)
+  , _efedCause :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -440,12 +440,12 @@ instance NFData ExecutionFailedEventDetails where
 --
 -- /See:/ 'executionListItem' smart constructor.
 data ExecutionListItem = ExecutionListItem'
-  { _eliStopDate        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _eliExecutionARN    :: {-# NOUNPACK #-}!Text
-  , _eliStateMachineARN :: {-# NOUNPACK #-}!Text
-  , _eliName            :: {-# NOUNPACK #-}!Text
-  , _eliStatus          :: {-# NOUNPACK #-}!ExecutionStatus
-  , _eliStartDate       :: {-# NOUNPACK #-}!POSIX
+  { _eliStopDate        :: !(Maybe POSIX)
+  , _eliExecutionARN    :: !Text
+  , _eliStateMachineARN :: !Text
+  , _eliName            :: !Text
+  , _eliStatus          :: !ExecutionStatus
+  , _eliStartDate       :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -527,8 +527,8 @@ instance NFData ExecutionListItem where
 --
 -- /See:/ 'executionStartedEventDetails' smart constructor.
 data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
-  { _esedInput   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esedRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _esedInput   :: !(Maybe Text)
+  , _esedRoleARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -607,8 +607,8 @@ instance NFData ExecutionSucceededEventDetails where
 --
 -- /See:/ 'executionTimedOutEventDetails' smart constructor.
 data ExecutionTimedOutEventDetails = ExecutionTimedOutEventDetails'
-  { _etoedError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _etoedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  { _etoedError :: !(Maybe Text)
+  , _etoedCause :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -650,29 +650,29 @@ instance NFData ExecutionTimedOutEventDetails where
 --
 -- /See:/ 'historyEvent' smart constructor.
 data HistoryEvent = HistoryEvent'
-  { _heActivityStartedEventDetails :: {-# NOUNPACK #-}!(Maybe ActivityStartedEventDetails)
-  , _heLambdaFunctionStartFailedEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionStartFailedEventDetails)
-  , _heStateExitedEventDetails :: {-# NOUNPACK #-}!(Maybe StateExitedEventDetails)
-  , _heLambdaFunctionSucceededEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionSucceededEventDetails)
-  , _heActivitySucceededEventDetails :: {-# NOUNPACK #-}!(Maybe ActivitySucceededEventDetails)
-  , _heLambdaFunctionTimedOutEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionTimedOutEventDetails)
-  , _heActivityTimedOutEventDetails :: {-# NOUNPACK #-}!(Maybe ActivityTimedOutEventDetails)
-  , _heExecutionFailedEventDetails :: {-# NOUNPACK #-}!(Maybe ExecutionFailedEventDetails)
-  , _heExecutionAbortedEventDetails :: {-# NOUNPACK #-}!(Maybe ExecutionAbortedEventDetails)
-  , _heExecutionSucceededEventDetails :: {-# NOUNPACK #-}!(Maybe ExecutionSucceededEventDetails)
-  , _heLambdaFunctionScheduledEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionScheduledEventDetails)
-  , _heActivityScheduledEventDetails :: {-# NOUNPACK #-}!(Maybe ActivityScheduledEventDetails)
-  , _heExecutionStartedEventDetails :: {-# NOUNPACK #-}!(Maybe ExecutionStartedEventDetails)
-  , _heActivityScheduleFailedEventDetails :: {-# NOUNPACK #-}!(Maybe ActivityScheduleFailedEventDetails)
-  , _heLambdaFunctionScheduleFailedEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionScheduleFailedEventDetails)
-  , _heStateEnteredEventDetails :: {-# NOUNPACK #-}!(Maybe StateEnteredEventDetails)
-  , _hePreviousEventId :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _heActivityFailedEventDetails :: {-# NOUNPACK #-}!(Maybe ActivityFailedEventDetails)
-  , _heLambdaFunctionFailedEventDetails :: {-# NOUNPACK #-}!(Maybe LambdaFunctionFailedEventDetails)
-  , _heExecutionTimedOutEventDetails :: {-# NOUNPACK #-}!(Maybe ExecutionTimedOutEventDetails)
-  , _heTimestamp :: {-# NOUNPACK #-}!POSIX
-  , _heType :: {-# NOUNPACK #-}!HistoryEventType
-  , _heId :: {-# NOUNPACK #-}!Integer
+  { _heActivityStartedEventDetails :: !(Maybe ActivityStartedEventDetails)
+  , _heLambdaFunctionStartFailedEventDetails :: !(Maybe LambdaFunctionStartFailedEventDetails)
+  , _heStateExitedEventDetails :: !(Maybe StateExitedEventDetails)
+  , _heLambdaFunctionSucceededEventDetails :: !(Maybe LambdaFunctionSucceededEventDetails)
+  , _heActivitySucceededEventDetails :: !(Maybe ActivitySucceededEventDetails)
+  , _heLambdaFunctionTimedOutEventDetails :: !(Maybe LambdaFunctionTimedOutEventDetails)
+  , _heActivityTimedOutEventDetails :: !(Maybe ActivityTimedOutEventDetails)
+  , _heExecutionFailedEventDetails :: !(Maybe ExecutionFailedEventDetails)
+  , _heExecutionAbortedEventDetails :: !(Maybe ExecutionAbortedEventDetails)
+  , _heExecutionSucceededEventDetails :: !(Maybe ExecutionSucceededEventDetails)
+  , _heLambdaFunctionScheduledEventDetails :: !(Maybe LambdaFunctionScheduledEventDetails)
+  , _heActivityScheduledEventDetails :: !(Maybe ActivityScheduledEventDetails)
+  , _heExecutionStartedEventDetails :: !(Maybe ExecutionStartedEventDetails)
+  , _heActivityScheduleFailedEventDetails :: !(Maybe ActivityScheduleFailedEventDetails)
+  , _heLambdaFunctionScheduleFailedEventDetails :: !(Maybe LambdaFunctionScheduleFailedEventDetails)
+  , _heStateEnteredEventDetails :: !(Maybe StateEnteredEventDetails)
+  , _hePreviousEventId :: !(Maybe Integer)
+  , _heActivityFailedEventDetails :: !(Maybe ActivityFailedEventDetails)
+  , _heLambdaFunctionFailedEventDetails :: !(Maybe LambdaFunctionFailedEventDetails)
+  , _heExecutionTimedOutEventDetails :: !(Maybe ExecutionTimedOutEventDetails)
+  , _heTimestamp :: !POSIX
+  , _heType :: !HistoryEventType
+  , _heId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -890,8 +890,8 @@ instance NFData HistoryEvent where
 --
 -- /See:/ 'lambdaFunctionFailedEventDetails' smart constructor.
 data LambdaFunctionFailedEventDetails = LambdaFunctionFailedEventDetails'
-  { _lffedError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lffedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lffedError :: !(Maybe Text)
+  , _lffedCause :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -937,8 +937,8 @@ instance NFData LambdaFunctionFailedEventDetails
 --
 -- /See:/ 'lambdaFunctionScheduleFailedEventDetails' smart constructor.
 data LambdaFunctionScheduleFailedEventDetails = LambdaFunctionScheduleFailedEventDetails'
-  { _lError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lCause :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lError :: !(Maybe Text)
+  , _lCause :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -988,9 +988,9 @@ instance NFData
 --
 -- /See:/ 'lambdaFunctionScheduledEventDetails' smart constructor.
 data LambdaFunctionScheduledEventDetails = LambdaFunctionScheduledEventDetails'
-  { _lfsedInput            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfsedTimeoutInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _lfsedResource         :: {-# NOUNPACK #-}!Text
+  { _lfsedInput            :: !(Maybe Text)
+  , _lfsedTimeoutInSeconds :: !(Maybe Integer)
+  , _lfsedResource         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1047,8 +1047,8 @@ instance NFData LambdaFunctionScheduledEventDetails
 --
 -- /See:/ 'lambdaFunctionStartFailedEventDetails' smart constructor.
 data LambdaFunctionStartFailedEventDetails = LambdaFunctionStartFailedEventDetails'
-  { _lfsfedError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfsfedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lfsfedError :: !(Maybe Text)
+  , _lfsfedCause :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1135,8 +1135,8 @@ instance NFData LambdaFunctionSucceededEventDetails
 --
 -- /See:/ 'lambdaFunctionTimedOutEventDetails' smart constructor.
 data LambdaFunctionTimedOutEventDetails = LambdaFunctionTimedOutEventDetails'
-  { _lftoedError :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lftoedCause :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lftoedError :: !(Maybe Text)
+  , _lftoedCause :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1182,8 +1182,8 @@ instance NFData LambdaFunctionTimedOutEventDetails
 --
 -- /See:/ 'stateEnteredEventDetails' smart constructor.
 data StateEnteredEventDetails = StateEnteredEventDetails'
-  { _sInput :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sName  :: {-# NOUNPACK #-}!Text
+  { _sInput :: !(Maybe Text)
+  , _sName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1226,8 +1226,8 @@ instance NFData StateEnteredEventDetails where
 --
 -- /See:/ 'stateExitedEventDetails' smart constructor.
 data StateExitedEventDetails = StateExitedEventDetails'
-  { _seedOutput :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seedName   :: {-# NOUNPACK #-}!Text
+  { _seedOutput :: !(Maybe Text)
+  , _seedName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1270,9 +1270,9 @@ instance NFData StateExitedEventDetails where
 --
 -- /See:/ 'stateMachineListItem' smart constructor.
 data StateMachineListItem = StateMachineListItem'
-  { _smliStateMachineARN :: {-# NOUNPACK #-}!Text
-  , _smliName            :: {-# NOUNPACK #-}!Text
-  , _smliCreationDate    :: {-# NOUNPACK #-}!POSIX
+  { _smliStateMachineARN :: !Text
+  , _smliName            :: !Text
+  , _smliCreationDate    :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

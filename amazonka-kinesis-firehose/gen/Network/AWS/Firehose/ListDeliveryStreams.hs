@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listDeliveryStreams' smart constructor.
 data ListDeliveryStreams = ListDeliveryStreams'
-  { _ldsLimit :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ldsDeliveryStreamType :: {-# NOUNPACK #-}!(Maybe DeliveryStreamType)
-  , _ldsExclusiveStartDeliveryStreamName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ldsLimit                            :: !(Maybe Nat)
+  , _ldsDeliveryStreamType               :: !(Maybe DeliveryStreamType)
+  , _ldsExclusiveStartDeliveryStreamName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,9 +131,9 @@ instance ToQuery ListDeliveryStreams where
 
 -- | /See:/ 'listDeliveryStreamsResponse' smart constructor.
 data ListDeliveryStreamsResponse = ListDeliveryStreamsResponse'
-  { _ldsrsResponseStatus         :: {-# NOUNPACK #-}!Int
-  , _ldsrsDeliveryStreamNames    :: {-# NOUNPACK #-}![Text]
-  , _ldsrsHasMoreDeliveryStreams :: {-# NOUNPACK #-}!Bool
+  { _ldsrsResponseStatus         :: !Int
+  , _ldsrsDeliveryStreamNames    :: ![Text]
+  , _ldsrsHasMoreDeliveryStreams :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

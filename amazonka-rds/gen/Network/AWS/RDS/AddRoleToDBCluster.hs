@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'addRoleToDBCluster' smart constructor.
 data AddRoleToDBCluster = AddRoleToDBCluster'
-  { _artdcDBClusterIdentifier :: {-# NOUNPACK #-}!Text
-  , _artdcRoleARN             :: {-# NOUNPACK #-}!Text
+  { _artdcDBClusterIdentifier :: !Text
+  , _artdcRoleARN             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

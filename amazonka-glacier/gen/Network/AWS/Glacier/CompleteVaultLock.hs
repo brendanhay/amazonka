@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'completeVaultLock' smart constructor.
 data CompleteVaultLock = CompleteVaultLock'
-  { _cvlAccountId :: {-# NOUNPACK #-}!Text
-  , _cvlVaultName :: {-# NOUNPACK #-}!Text
-  , _cvlLockId    :: {-# NOUNPACK #-}!Text
+  { _cvlAccountId :: !Text
+  , _cvlVaultName :: !Text
+  , _cvlLockId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

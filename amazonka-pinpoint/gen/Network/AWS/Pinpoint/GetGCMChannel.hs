@@ -95,8 +95,8 @@ instance ToQuery GetGCMChannel where
 
 -- | /See:/ 'getGCMChannelResponse' smart constructor.
 data GetGCMChannelResponse = GetGCMChannelResponse'
-  { _ggcrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _ggcrsGCMChannelResponse :: {-# NOUNPACK #-}!GCMChannelResponse
+  { _ggcrsResponseStatus     :: !Int
+  , _ggcrsGCMChannelResponse :: !GCMChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

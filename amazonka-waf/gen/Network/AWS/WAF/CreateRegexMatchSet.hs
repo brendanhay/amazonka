@@ -62,8 +62,8 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'createRegexMatchSet' smart constructor.
 data CreateRegexMatchSet = CreateRegexMatchSet'
-  { _crmsName        :: {-# NOUNPACK #-}!Text
-  , _crmsChangeToken :: {-# NOUNPACK #-}!Text
+  { _crmsName        :: !Text
+  , _crmsChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance ToQuery CreateRegexMatchSet where
 
 -- | /See:/ 'createRegexMatchSetResponse' smart constructor.
 data CreateRegexMatchSetResponse = CreateRegexMatchSetResponse'
-  { _crmsrsRegexMatchSet  :: {-# NOUNPACK #-}!(Maybe RegexMatchSet)
-  , _crmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crmsrsRegexMatchSet  :: !(Maybe RegexMatchSet)
+  , _crmsrsChangeToken    :: !(Maybe Text)
+  , _crmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

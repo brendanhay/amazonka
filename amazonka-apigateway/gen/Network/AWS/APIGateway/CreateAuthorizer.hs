@@ -68,16 +68,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'createAuthorizer' smart constructor.
 data CreateAuthorizer = CreateAuthorizer'
-  { _caAuthorizerURI                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caIdentityValidationExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caProviderARNs                 :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _caAuthorizerResultTtlInSeconds :: {-# NOUNPACK #-}!(Maybe Int)
-  , _caAuthType                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caIdentitySource               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caAuthorizerCredentials        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caRestAPIId                    :: {-# NOUNPACK #-}!Text
-  , _caName                         :: {-# NOUNPACK #-}!Text
-  , _caType                         :: {-# NOUNPACK #-}!AuthorizerType
+  { _caAuthorizerURI                :: !(Maybe Text)
+  , _caIdentityValidationExpression :: !(Maybe Text)
+  , _caProviderARNs                 :: !(Maybe [Text])
+  , _caAuthorizerResultTtlInSeconds :: !(Maybe Int)
+  , _caAuthType                     :: !(Maybe Text)
+  , _caIdentitySource               :: !(Maybe Text)
+  , _caAuthorizerCredentials        :: !(Maybe Text)
+  , _caRestAPIId                    :: !Text
+  , _caName                         :: !Text
+  , _caType                         :: !AuthorizerType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

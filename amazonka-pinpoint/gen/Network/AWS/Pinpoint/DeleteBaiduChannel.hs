@@ -96,8 +96,8 @@ instance ToQuery DeleteBaiduChannel where
 
 -- | /See:/ 'deleteBaiduChannelResponse' smart constructor.
 data DeleteBaiduChannelResponse = DeleteBaiduChannelResponse'
-  { _dbcrsResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _dbcrsBaiduChannelResponse :: {-# NOUNPACK #-}!BaiduChannelResponse
+  { _dbcrsResponseStatus       :: !Int
+  , _dbcrsBaiduChannelResponse :: !BaiduChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

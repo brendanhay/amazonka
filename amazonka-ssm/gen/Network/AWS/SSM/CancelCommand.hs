@@ -50,8 +50,8 @@ import Network.AWS.SSM.Types.Product
 --
 -- /See:/ 'cancelCommand' smart constructor.
 data CancelCommand = CancelCommand'
-  { _ccInstanceIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccCommandId   :: {-# NOUNPACK #-}!Text
+  { _ccInstanceIds :: !(Maybe [Text])
+  , _ccCommandId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -70,12 +70,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { _dtTagValues    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dtResourceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtResourceName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtTagKeys      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dtMarker       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtMaxRecords   :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dtTagValues    :: !(Maybe [Text])
+  , _dtResourceType :: !(Maybe Text)
+  , _dtResourceName :: !(Maybe Text)
+  , _dtTagKeys      :: !(Maybe [Text])
+  , _dtMarker       :: !(Maybe Text)
+  , _dtMaxRecords   :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -172,9 +172,9 @@ instance ToQuery DescribeTags where
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { _dtrsMarker          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtrsTaggedResources :: {-# NOUNPACK #-}!(Maybe [TaggedResource])
-  , _dtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dtrsMarker          :: !(Maybe Text)
+  , _dtrsTaggedResources :: !(Maybe [TaggedResource])
+  , _dtrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

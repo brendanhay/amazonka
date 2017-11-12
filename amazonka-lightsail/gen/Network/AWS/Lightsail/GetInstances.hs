@@ -112,9 +112,9 @@ instance ToQuery GetInstances where
 
 -- | /See:/ 'getInstancesResponse' smart constructor.
 data GetInstancesResponse = GetInstancesResponse'
-  { _grsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grsInstances      :: {-# NOUNPACK #-}!(Maybe [Instance])
-  , _grsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grsNextPageToken  :: !(Maybe Text)
+  , _grsInstances      :: !(Maybe [Instance])
+  , _grsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

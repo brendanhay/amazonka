@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeTableStatistics' smart constructor.
 data DescribeTableStatistics = DescribeTableStatistics'
-  { _dtsFilters            :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dtsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtsMaxRecords         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dtsReplicationTaskARN :: {-# NOUNPACK #-}!Text
+  { _dtsFilters            :: !(Maybe [Filter])
+  , _dtsMarker             :: !(Maybe Text)
+  , _dtsMaxRecords         :: !(Maybe Int)
+  , _dtsReplicationTaskARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,10 +151,10 @@ instance ToQuery DescribeTableStatistics where
 --
 -- /See:/ 'describeTableStatisticsResponse' smart constructor.
 data DescribeTableStatisticsResponse = DescribeTableStatisticsResponse'
-  { _dtsrsReplicationTaskARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtsrsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtsrsTableStatistics    :: {-# NOUNPACK #-}!(Maybe [TableStatistics])
-  , _dtsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _dtsrsReplicationTaskARN :: !(Maybe Text)
+  , _dtsrsMarker             :: !(Maybe Text)
+  , _dtsrsTableStatistics    :: !(Maybe [TableStatistics])
+  , _dtsrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

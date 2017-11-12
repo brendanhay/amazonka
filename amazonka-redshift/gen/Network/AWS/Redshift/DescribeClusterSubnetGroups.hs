@@ -62,11 +62,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeClusterSubnetGroups' smart constructor.
 data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
-  { _dcsgsTagValues              :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcsgsTagKeys                :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcsgsClusterSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsgsMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsgsMaxRecords             :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dcsgsTagValues              :: !(Maybe [Text])
+  , _dcsgsTagKeys                :: !(Maybe [Text])
+  , _dcsgsClusterSubnetGroupName :: !(Maybe Text)
+  , _dcsgsMarker                 :: !(Maybe Text)
+  , _dcsgsMaxRecords             :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -167,9 +167,9 @@ instance ToQuery DescribeClusterSubnetGroups where
 --
 -- /See:/ 'describeClusterSubnetGroupsResponse' smart constructor.
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
-  { _dcsgrsClusterSubnetGroups :: {-# NOUNPACK #-}!(Maybe [ClusterSubnetGroup])
-  , _dcsgrsMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsgrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _dcsgrsClusterSubnetGroups :: !(Maybe [ClusterSubnetGroup])
+  , _dcsgrsMarker              :: !(Maybe Text)
+  , _dcsgrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

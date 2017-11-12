@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getSDKTypes' smart constructor.
 data GetSDKTypes = GetSDKTypes'
-  { _gstLimit    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gstPosition :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gstLimit    :: !(Maybe Int)
+  , _gstPosition :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,9 +109,9 @@ instance ToQuery GetSDKTypes where
 --
 -- /See:/ 'getSDKTypesResponse' smart constructor.
 data GetSDKTypesResponse = GetSDKTypesResponse'
-  { _gstrsItems          :: {-# NOUNPACK #-}!(Maybe [SDKType])
-  , _gstrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gstrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gstrsItems          :: !(Maybe [SDKType])
+  , _gstrsPosition       :: !(Maybe Text)
+  , _gstrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

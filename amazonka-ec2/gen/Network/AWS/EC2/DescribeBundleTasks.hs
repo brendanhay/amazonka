@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeBundleTasks' smart constructor.
 data DescribeBundleTasks = DescribeBundleTasks'
-  { _dbtBundleIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dbtFilters   :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dbtDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dbtBundleIds :: !(Maybe [Text])
+  , _dbtFilters   :: !(Maybe [Filter])
+  , _dbtDryRun    :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery DescribeBundleTasks where
 --
 -- /See:/ 'describeBundleTasksResponse' smart constructor.
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
-  { _dbtrsBundleTasks    :: {-# NOUNPACK #-}!(Maybe [BundleTask])
-  , _dbtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dbtrsBundleTasks    :: !(Maybe [BundleTask])
+  , _dbtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

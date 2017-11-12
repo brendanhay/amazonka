@@ -57,12 +57,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeAlarmHistory' smart constructor.
 data DescribeAlarmHistory = DescribeAlarmHistory'
-  { _dahAlarmName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dahHistoryItemType :: {-# NOUNPACK #-}!(Maybe HistoryItemType)
-  , _dahEndDate         :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dahStartDate       :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dahNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dahMaxRecords      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dahAlarmName       :: !(Maybe Text)
+  , _dahHistoryItemType :: !(Maybe HistoryItemType)
+  , _dahEndDate         :: !(Maybe ISO8601)
+  , _dahStartDate       :: !(Maybe ISO8601)
+  , _dahNextToken       :: !(Maybe Text)
+  , _dahMaxRecords      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -162,9 +162,9 @@ instance ToQuery DescribeAlarmHistory where
 
 -- | /See:/ 'describeAlarmHistoryResponse' smart constructor.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
-  { _dahrsAlarmHistoryItems :: {-# NOUNPACK #-}!(Maybe [AlarmHistoryItem])
-  , _dahrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dahrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dahrsAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
+  , _dahrsNextToken         :: !(Maybe Text)
+  , _dahrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

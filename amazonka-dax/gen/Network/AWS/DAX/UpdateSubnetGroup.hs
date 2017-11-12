@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateSubnetGroup' smart constructor.
 data UpdateSubnetGroup = UpdateSubnetGroup'
-  { _usgSubnetIds       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _usgDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usgSubnetGroupName :: {-# NOUNPACK #-}!Text
+  { _usgSubnetIds       :: !(Maybe [Text])
+  , _usgDescription     :: !(Maybe Text)
+  , _usgSubnetGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery UpdateSubnetGroup where
 
 -- | /See:/ 'updateSubnetGroupResponse' smart constructor.
 data UpdateSubnetGroupResponse = UpdateSubnetGroupResponse'
-  { _usgrsSubnetGroup    :: {-# NOUNPACK #-}!(Maybe SubnetGroup)
-  , _usgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _usgrsSubnetGroup    :: !(Maybe SubnetGroup)
+  , _usgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

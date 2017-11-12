@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateKeyDescription' smart constructor.
 data UpdateKeyDescription = UpdateKeyDescription'
-  { _ukdKeyId       :: {-# NOUNPACK #-}!Text
-  , _ukdDescription :: {-# NOUNPACK #-}!Text
+  { _ukdKeyId       :: !Text
+  , _ukdDescription :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

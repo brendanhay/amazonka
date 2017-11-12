@@ -74,10 +74,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createFileSystem' smart constructor.
 data CreateFileSystem = CreateFileSystem'
-  { _cfsPerformanceMode :: {-# NOUNPACK #-}!(Maybe PerformanceMode)
-  , _cfsEncrypted       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cfsKMSKeyId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfsCreationToken   :: {-# NOUNPACK #-}!Text
+  { _cfsPerformanceMode :: !(Maybe PerformanceMode)
+  , _cfsEncrypted       :: !(Maybe Bool)
+  , _cfsKMSKeyId        :: !(Maybe Text)
+  , _cfsCreationToken   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

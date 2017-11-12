@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateConnection' smart constructor.
 data UpdateConnection = UpdateConnection'
-  { _ucCatalogId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucName            :: {-# NOUNPACK #-}!Text
-  , _ucConnectionInput :: {-# NOUNPACK #-}!ConnectionInput
+  { _ucCatalogId       :: !(Maybe Text)
+  , _ucName            :: !Text
+  , _ucConnectionInput :: !ConnectionInput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

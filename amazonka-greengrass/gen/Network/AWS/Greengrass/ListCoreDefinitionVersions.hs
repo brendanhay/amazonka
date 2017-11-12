@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listCoreDefinitionVersions' smart constructor.
 data ListCoreDefinitionVersions = ListCoreDefinitionVersions'
-  { _lcdvNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcdvMaxResults       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcdvCoreDefinitionId :: {-# NOUNPACK #-}!Text
+  { _lcdvNextToken        :: !(Maybe Text)
+  , _lcdvMaxResults       :: !(Maybe Text)
+  , _lcdvCoreDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,9 +121,9 @@ instance ToQuery ListCoreDefinitionVersions where
 
 -- | /See:/ 'listCoreDefinitionVersionsResponse' smart constructor.
 data ListCoreDefinitionVersionsResponse = ListCoreDefinitionVersionsResponse'
-  { _lcdvrsVersions       :: {-# NOUNPACK #-}!(Maybe [VersionInformation])
-  , _lcdvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcdvrsVersions       :: !(Maybe [VersionInformation])
+  , _lcdvrsNextToken      :: !(Maybe Text)
+  , _lcdvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

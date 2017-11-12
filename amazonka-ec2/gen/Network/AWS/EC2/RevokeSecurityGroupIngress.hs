@@ -60,16 +60,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'revokeSecurityGroupIngress' smart constructor.
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
-  { _rsgiFromPort                   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rsgiIPPermissions              :: {-# NOUNPACK #-}!(Maybe [IPPermission])
-  , _rsgiIPProtocol                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsgiGroupId                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsgiToPort                     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rsgiCidrIP                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsgiSourceSecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsgiGroupName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsgiSourceSecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsgiDryRun                     :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _rsgiFromPort                   :: !(Maybe Int)
+  , _rsgiIPPermissions              :: !(Maybe [IPPermission])
+  , _rsgiIPProtocol                 :: !(Maybe Text)
+  , _rsgiGroupId                    :: !(Maybe Text)
+  , _rsgiToPort                     :: !(Maybe Int)
+  , _rsgiCidrIP                     :: !(Maybe Text)
+  , _rsgiSourceSecurityGroupOwnerId :: !(Maybe Text)
+  , _rsgiGroupName                  :: !(Maybe Text)
+  , _rsgiSourceSecurityGroupName    :: !(Maybe Text)
+  , _rsgiDryRun                     :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

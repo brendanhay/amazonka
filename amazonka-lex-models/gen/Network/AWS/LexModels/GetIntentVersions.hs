@@ -55,9 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getIntentVersions' smart constructor.
 data GetIntentVersions = GetIntentVersions'
-  { _givNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _givMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _givName       :: {-# NOUNPACK #-}!Text
+  { _givNextToken  :: !(Maybe Text)
+  , _givMaxResults :: !(Maybe Nat)
+  , _givName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery GetIntentVersions where
 
 -- | /See:/ 'getIntentVersionsResponse' smart constructor.
 data GetIntentVersionsResponse = GetIntentVersionsResponse'
-  { _givrsIntents        :: {-# NOUNPACK #-}!(Maybe [IntentMetadata])
-  , _givrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _givrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _givrsIntents        :: !(Maybe [IntentMetadata])
+  , _givrsNextToken      :: !(Maybe Text)
+  , _givrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

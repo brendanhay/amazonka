@@ -113,8 +113,8 @@ instance ToQuery DescribeValidDBInstanceModifications
 
 -- | /See:/ 'describeValidDBInstanceModificationsResponse' smart constructor.
 data DescribeValidDBInstanceModificationsResponse = DescribeValidDBInstanceModificationsResponse'
-  { _dvdimrsValidDBInstanceModificationsMessage :: {-# NOUNPACK #-}!(Maybe ValidDBInstanceModificationsMessage)
-  , _dvdimrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvdimrsValidDBInstanceModificationsMessage :: !(Maybe ValidDBInstanceModificationsMessage)
+  , _dvdimrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

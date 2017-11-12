@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listProgressUpdateStreams' smart constructor.
 data ListProgressUpdateStreams = ListProgressUpdateStreams'
-  { _lpusNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpusMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lpusNextToken  :: !(Maybe Text)
+  , _lpusMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,9 +116,9 @@ instance ToQuery ListProgressUpdateStreams where
 
 -- | /See:/ 'listProgressUpdateStreamsResponse' smart constructor.
 data ListProgressUpdateStreamsResponse = ListProgressUpdateStreamsResponse'
-  { _lpusrsProgressUpdateStreamSummaryList :: {-# NOUNPACK #-}!(Maybe [ProgressUpdateStreamSummary])
-  , _lpusrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpusrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lpusrsProgressUpdateStreamSummaryList :: !(Maybe [ProgressUpdateStreamSummary])
+  , _lpusrsNextToken :: !(Maybe Text)
+  , _lpusrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

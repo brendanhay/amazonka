@@ -53,15 +53,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateCrawler' smart constructor.
 data UpdateCrawler = UpdateCrawler'
-  { _uSchemaChangePolicy :: {-# NOUNPACK #-}!(Maybe SchemaChangePolicy)
-  , _uSchedule           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uClassifiers        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uRole               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uTargets            :: {-# NOUNPACK #-}!(Maybe CrawlerTargets)
-  , _uDatabaseName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uTablePrefix        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uName               :: {-# NOUNPACK #-}!Text
+  { _uSchemaChangePolicy :: !(Maybe SchemaChangePolicy)
+  , _uSchedule           :: !(Maybe Text)
+  , _uClassifiers        :: !(Maybe [Text])
+  , _uRole               :: !(Maybe Text)
+  , _uTargets            :: !(Maybe CrawlerTargets)
+  , _uDatabaseName       :: !(Maybe Text)
+  , _uTablePrefix        :: !(Maybe Text)
+  , _uDescription        :: !(Maybe Text)
+  , _uName               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

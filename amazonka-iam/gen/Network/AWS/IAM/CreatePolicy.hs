@@ -53,10 +53,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createPolicy' smart constructor.
 data CreatePolicy = CreatePolicy'
-  { _cpPath           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpDescription    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpPolicyName     :: {-# NOUNPACK #-}!Text
-  , _cpPolicyDocument :: {-# NOUNPACK #-}!Text
+  { _cpPath           :: !(Maybe Text)
+  , _cpDescription    :: !(Maybe Text)
+  , _cpPolicyName     :: !Text
+  , _cpPolicyDocument :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery CreatePolicy where
 --
 -- /See:/ 'createPolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
-  { _cprsPolicy         :: {-# NOUNPACK #-}!(Maybe Policy)
-  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cprsPolicy         :: !(Maybe Policy)
+  , _cprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

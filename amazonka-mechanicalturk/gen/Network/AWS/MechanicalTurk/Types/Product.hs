@@ -27,18 +27,18 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'assignment' smart constructor.
 data Assignment = Assignment'
-  { _aAcceptTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _aAnswer            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aAssignmentStatus  :: {-# NOUNPACK #-}!(Maybe AssignmentStatus)
-  , _aRequesterFeedback :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aDeadline          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _aApprovalTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _aRejectionTime     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _aAutoApprovalTime  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _aHITId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aWorkerId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aAssignmentId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aSubmitTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _aAcceptTime        :: !(Maybe POSIX)
+  , _aAnswer            :: !(Maybe Text)
+  , _aAssignmentStatus  :: !(Maybe AssignmentStatus)
+  , _aRequesterFeedback :: !(Maybe Text)
+  , _aDeadline          :: !(Maybe POSIX)
+  , _aApprovalTime      :: !(Maybe POSIX)
+  , _aRejectionTime     :: !(Maybe POSIX)
+  , _aAutoApprovalTime  :: !(Maybe POSIX)
+  , _aHITId             :: !(Maybe Text)
+  , _aWorkerId          :: !(Maybe Text)
+  , _aAssignmentId      :: !(Maybe Text)
+  , _aSubmitTime        :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -163,11 +163,11 @@ instance NFData Assignment where
 --
 -- /See:/ 'bonusPayment' smart constructor.
 data BonusPayment = BonusPayment'
-  { _bpReason       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpGrantTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _bpWorkerId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpAssignmentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpBonusAmount  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bpReason       :: !(Maybe Text)
+  , _bpGrantTime    :: !(Maybe POSIX)
+  , _bpWorkerId     :: !(Maybe Text)
+  , _bpAssignmentId :: !(Maybe Text)
+  , _bpBonusAmount  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -236,27 +236,27 @@ instance NFData BonusPayment where
 --
 -- /See:/ 'hIT' smart constructor.
 data HIT = HIT'
-  { _hitCreationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _hitHITGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitNumberOfAssignmentsPending :: {-# NOUNPACK #-}!(Maybe Int)
-  , _hitHITTypeId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitExpiration :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _hitAutoApprovalDelayInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _hitRequesterAnnotation :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitHITStatus :: {-# NOUNPACK #-}!(Maybe HITStatus)
-  , _hitMaxAssignments :: {-# NOUNPACK #-}!(Maybe Int)
-  , _hitNumberOfAssignmentsCompleted :: {-# NOUNPACK #-}!(Maybe Int)
-  , _hitReward :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitKeywords :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitHITLayoutId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitQualificationRequirements :: {-# NOUNPACK #-}!(Maybe [QualificationRequirement])
-  , _hitTitle :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitHITId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitHITReviewStatus :: {-# NOUNPACK #-}!(Maybe HITReviewStatus)
-  , _hitNumberOfAssignmentsAvailable :: {-# NOUNPACK #-}!(Maybe Int)
-  , _hitDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitQuestion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitAssignmentDurationInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _hitCreationTime                 :: !(Maybe POSIX)
+  , _hitHITGroupId                   :: !(Maybe Text)
+  , _hitNumberOfAssignmentsPending   :: !(Maybe Int)
+  , _hitHITTypeId                    :: !(Maybe Text)
+  , _hitExpiration                   :: !(Maybe POSIX)
+  , _hitAutoApprovalDelayInSeconds   :: !(Maybe Integer)
+  , _hitRequesterAnnotation          :: !(Maybe Text)
+  , _hitHITStatus                    :: !(Maybe HITStatus)
+  , _hitMaxAssignments               :: !(Maybe Int)
+  , _hitNumberOfAssignmentsCompleted :: !(Maybe Int)
+  , _hitReward                       :: !(Maybe Text)
+  , _hitKeywords                     :: !(Maybe Text)
+  , _hitHITLayoutId                  :: !(Maybe Text)
+  , _hitQualificationRequirements    :: !(Maybe [QualificationRequirement])
+  , _hitTitle                        :: !(Maybe Text)
+  , _hitHITId                        :: !(Maybe Text)
+  , _hitHITReviewStatus              :: !(Maybe HITReviewStatus)
+  , _hitNumberOfAssignmentsAvailable :: !(Maybe Int)
+  , _hitDescription                  :: !(Maybe Text)
+  , _hitQuestion                     :: !(Maybe Text)
+  , _hitAssignmentDurationInSeconds  :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -453,8 +453,8 @@ instance NFData HIT where
 --
 -- /See:/ 'hITLayoutParameter' smart constructor.
 data HITLayoutParameter = HITLayoutParameter'
-  { _hitlpName  :: {-# NOUNPACK #-}!Text
-  , _hitlpValue :: {-# NOUNPACK #-}!Text
+  { _hitlpName  :: !Text
+  , _hitlpValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -498,8 +498,8 @@ instance ToJSON HITLayoutParameter where
 --
 -- /See:/ 'locale' smart constructor.
 data Locale = Locale'
-  { _lSubdivision :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lCountry     :: {-# NOUNPACK #-}!Text
+  { _lSubdivision :: !(Maybe Text)
+  , _lCountry     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -548,10 +548,10 @@ instance ToJSON Locale where
 --
 -- /See:/ 'notificationSpecification' smart constructor.
 data NotificationSpecification = NotificationSpecification'
-  { _nsDestination :: {-# NOUNPACK #-}!Text
-  , _nsTransport   :: {-# NOUNPACK #-}!NotificationTransport
-  , _nsVersion     :: {-# NOUNPACK #-}!Text
-  , _nsEventTypes  :: {-# NOUNPACK #-}![EventType]
+  { _nsDestination :: !Text
+  , _nsTransport   :: !NotificationTransport
+  , _nsVersion     :: !Text
+  , _nsEventTypes  :: ![EventType]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -615,9 +615,9 @@ instance ToJSON NotificationSpecification where
 --
 -- /See:/ 'notifyWorkersFailureStatus' smart constructor.
 data NotifyWorkersFailureStatus = NotifyWorkersFailureStatus'
-  { _nwfsNotifyWorkersFailureMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nwfsNotifyWorkersFailureCode :: {-# NOUNPACK #-}!(Maybe NotifyWorkersFailureCode)
-  , _nwfsWorkerId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _nwfsNotifyWorkersFailureMessage :: !(Maybe Text)
+  , _nwfsNotifyWorkersFailureCode    :: !(Maybe NotifyWorkersFailureCode)
+  , _nwfsWorkerId                    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -671,8 +671,8 @@ instance NFData NotifyWorkersFailureStatus where
 --
 -- /See:/ 'parameterMapEntry' smart constructor.
 data ParameterMapEntry = ParameterMapEntry'
-  { _pmeValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _pmeKey    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pmeValues :: !(Maybe [Text])
+  , _pmeKey    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -720,9 +720,9 @@ instance ToJSON ParameterMapEntry where
 --
 -- /See:/ 'policyParameter' smart constructor.
 data PolicyParameter = PolicyParameter'
-  { _ppValues     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ppMapEntries :: {-# NOUNPACK #-}!(Maybe [ParameterMapEntry])
-  , _ppKey        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ppValues     :: !(Maybe [Text])
+  , _ppMapEntries :: !(Maybe [ParameterMapEntry])
+  , _ppKey        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -781,12 +781,12 @@ instance ToJSON PolicyParameter where
 --
 -- /See:/ 'qualification' smart constructor.
 data Qualification = Qualification'
-  { _qStatus              :: {-# NOUNPACK #-}!(Maybe QualificationStatus)
-  , _qIntegerValue        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _qLocaleValue         :: {-# NOUNPACK #-}!(Maybe Locale)
-  , _qQualificationTypeId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qGrantTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _qWorkerId            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _qStatus              :: !(Maybe QualificationStatus)
+  , _qIntegerValue        :: !(Maybe Int)
+  , _qLocaleValue         :: !(Maybe Locale)
+  , _qQualificationTypeId :: !(Maybe Text)
+  , _qGrantTime           :: !(Maybe POSIX)
+  , _qWorkerId            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -863,12 +863,12 @@ instance NFData Qualification where
 --
 -- /See:/ 'qualificationRequest' smart constructor.
 data QualificationRequest = QualificationRequest'
-  { _quaQualificationRequestId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _quaTest                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _quaQualificationTypeId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _quaAnswer                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _quaWorkerId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _quaSubmitTime             :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _quaQualificationRequestId :: !(Maybe Text)
+  , _quaTest                   :: !(Maybe Text)
+  , _quaQualificationTypeId    :: !(Maybe Text)
+  , _quaAnswer                 :: !(Maybe Text)
+  , _quaWorkerId               :: !(Maybe Text)
+  , _quaSubmitTime             :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -945,11 +945,11 @@ instance NFData QualificationRequest where
 --
 -- /See:/ 'qualificationRequirement' smart constructor.
 data QualificationRequirement = QualificationRequirement'
-  { _qrLocaleValues        :: {-# NOUNPACK #-}!(Maybe [Locale])
-  , _qrRequiredToPreview   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _qrIntegerValues       :: {-# NOUNPACK #-}!(Maybe [Int])
-  , _qrQualificationTypeId :: {-# NOUNPACK #-}!Text
-  , _qrComparator          :: {-# NOUNPACK #-}!Comparator
+  { _qrLocaleValues        :: !(Maybe [Locale])
+  , _qrRequiredToPreview   :: !(Maybe Bool)
+  , _qrIntegerValues       :: !(Maybe [Int])
+  , _qrQualificationTypeId :: !Text
+  , _qrComparator          :: !Comparator
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1032,19 +1032,19 @@ instance ToJSON QualificationRequirement where
 --
 -- /See:/ 'qualificationType' smart constructor.
 data QualificationType = QualificationType'
-  { _qtCreationTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _qtTestDurationInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _qtQualificationTypeStatus :: {-# NOUNPACK #-}!(Maybe QualificationTypeStatus)
-  , _qtAnswerKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qtTest :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qtQualificationTypeId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qtName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qtKeywords :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qtAutoGranted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _qtAutoGrantedValue :: {-# NOUNPACK #-}!(Maybe Int)
-  , _qtDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qtIsRequestable :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _qtRetryDelayInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _qtCreationTime            :: !(Maybe POSIX)
+  , _qtTestDurationInSeconds   :: !(Maybe Integer)
+  , _qtQualificationTypeStatus :: !(Maybe QualificationTypeStatus)
+  , _qtAnswerKey               :: !(Maybe Text)
+  , _qtTest                    :: !(Maybe Text)
+  , _qtQualificationTypeId     :: !(Maybe Text)
+  , _qtName                    :: !(Maybe Text)
+  , _qtKeywords                :: !(Maybe Text)
+  , _qtAutoGranted             :: !(Maybe Bool)
+  , _qtAutoGrantedValue        :: !(Maybe Int)
+  , _qtDescription             :: !(Maybe Text)
+  , _qtIsRequestable           :: !(Maybe Bool)
+  , _qtRetryDelayInSeconds     :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1178,14 +1178,14 @@ instance NFData QualificationType where
 --
 -- /See:/ 'reviewActionDetail' smart constructor.
 data ReviewActionDetail = ReviewActionDetail'
-  { _radStatus       :: {-# NOUNPACK #-}!(Maybe ReviewActionStatus)
-  , _radTargetId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _radActionId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _radTargetType   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _radResult       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _radActionName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _radCompleteTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _radErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _radStatus       :: !(Maybe ReviewActionStatus)
+  , _radTargetId     :: !(Maybe Text)
+  , _radActionId     :: !(Maybe Text)
+  , _radTargetType   :: !(Maybe Text)
+  , _radResult       :: !(Maybe Text)
+  , _radActionName   :: !(Maybe Text)
+  , _radCompleteTime :: !(Maybe POSIX)
+  , _radErrorCode    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1278,8 +1278,8 @@ instance NFData ReviewActionDetail where
 --
 -- /See:/ 'reviewPolicy' smart constructor.
 data ReviewPolicy = ReviewPolicy'
-  { _rpParameters :: {-# NOUNPACK #-}!(Maybe [PolicyParameter])
-  , _rpPolicyName :: {-# NOUNPACK #-}!Text
+  { _rpParameters :: !(Maybe [PolicyParameter])
+  , _rpPolicyName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1330,8 +1330,8 @@ instance ToJSON ReviewPolicy where
 --
 -- /See:/ 'reviewReport' smart constructor.
 data ReviewReport = ReviewReport'
-  { _rrReviewActions :: {-# NOUNPACK #-}!(Maybe [ReviewActionDetail])
-  , _rrReviewResults :: {-# NOUNPACK #-}!(Maybe [ReviewResultDetail])
+  { _rrReviewActions :: !(Maybe [ReviewActionDetail])
+  , _rrReviewResults :: !(Maybe [ReviewResultDetail])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1374,12 +1374,12 @@ instance NFData ReviewReport where
 --
 -- /See:/ 'reviewResultDetail' smart constructor.
 data ReviewResultDetail = ReviewResultDetail'
-  { _rrdValue       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrdActionId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrdSubjectType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrdKey         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrdQuestionId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrdSubjectId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rrdValue       :: !(Maybe Text)
+  , _rrdActionId    :: !(Maybe Text)
+  , _rrdSubjectType :: !(Maybe Text)
+  , _rrdKey         :: !(Maybe Text)
+  , _rrdQuestionId  :: !(Maybe Text)
+  , _rrdSubjectId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1456,8 +1456,8 @@ instance NFData ReviewResultDetail where
 --
 -- /See:/ 'workerBlock' smart constructor.
 data WorkerBlock = WorkerBlock'
-  { _wbReason   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wbWorkerId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _wbReason   :: !(Maybe Text)
+  , _wbWorkerId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -89,8 +89,8 @@ instance ToQuery ListDomainNames where
 --
 -- /See:/ 'listDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'
-  { _ldnrsDomainNames    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _ldnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ldnrsDomainNames    :: !(Maybe (Map Text Text))
+  , _ldnrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

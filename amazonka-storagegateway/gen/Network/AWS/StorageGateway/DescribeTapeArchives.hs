@@ -58,9 +58,9 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'describeTapeArchives' smart constructor.
 data DescribeTapeArchives = DescribeTapeArchives'
-  { _dtaMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtaLimit    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dtaTapeARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dtaMarker   :: !(Maybe Text)
+  , _dtaLimit    :: !(Maybe Nat)
+  , _dtaTapeARNs :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -145,9 +145,9 @@ instance ToQuery DescribeTapeArchives where
 --
 -- /See:/ 'describeTapeArchivesResponse' smart constructor.
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
-  { _dtarsTapeArchives   :: {-# NOUNPACK #-}!(Maybe [TapeArchive])
-  , _dtarsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dtarsTapeArchives   :: !(Maybe [TapeArchive])
+  , _dtarsMarker         :: !(Maybe Text)
+  , _dtarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

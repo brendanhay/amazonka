@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listHITs' smart constructor.
 data ListHITs = ListHITs'
-  { _lhitNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhitMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lhitNextToken  :: !(Maybe Text)
+  , _lhitMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,10 +114,10 @@ instance ToQuery ListHITs where
 
 -- | /See:/ 'listHITsResponse' smart constructor.
 data ListHITsResponse = ListHITsResponse'
-  { _lhitrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhitrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lhitrsHITs           :: {-# NOUNPACK #-}!(Maybe [HIT])
-  , _lhitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lhitrsNextToken      :: !(Maybe Text)
+  , _lhitrsNumResults     :: !(Maybe Int)
+  , _lhitrsHITs           :: !(Maybe [HIT])
+  , _lhitrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

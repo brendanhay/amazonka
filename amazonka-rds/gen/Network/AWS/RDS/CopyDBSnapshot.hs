@@ -62,13 +62,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'copyDBSnapshot' smart constructor.
 data CopyDBSnapshot = CopyDBSnapshot'
-  { _cdsPreSignedURL               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdsCopyTags                   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdsKMSKeyId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdsOptionGroupName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdsTags                       :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cdsSourceDBSnapshotIdentifier :: {-# NOUNPACK #-}!Text
-  , _cdsTargetDBSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  { _cdsPreSignedURL               :: !(Maybe Text)
+  , _cdsCopyTags                   :: !(Maybe Bool)
+  , _cdsKMSKeyId                   :: !(Maybe Text)
+  , _cdsOptionGroupName            :: !(Maybe Text)
+  , _cdsTags                       :: !(Maybe [Tag])
+  , _cdsSourceDBSnapshotIdentifier :: !Text
+  , _cdsTargetDBSnapshotIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -169,8 +169,8 @@ instance ToQuery CopyDBSnapshot where
 
 -- | /See:/ 'copyDBSnapshotResponse' smart constructor.
 data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
-  { _cdsrsDBSnapshot     :: {-# NOUNPACK #-}!(Maybe DBSnapshot)
-  , _cdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdsrsDBSnapshot     :: !(Maybe DBSnapshot)
+  , _cdsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

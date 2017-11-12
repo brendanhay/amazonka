@@ -84,9 +84,9 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listHostedZonesByName' smart constructor.
 data ListHostedZonesByName = ListHostedZonesByName'
-  { _lhzbnHostedZoneId :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _lhzbnMaxItems     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhzbnDNSName      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lhzbnHostedZoneId :: !(Maybe ResourceId)
+  , _lhzbnMaxItems     :: !(Maybe Text)
+  , _lhzbnDNSName      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -162,14 +162,14 @@ instance ToQuery ListHostedZonesByName where
 --
 -- /See:/ 'listHostedZonesByNameResponse' smart constructor.
 data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
-  { _lhzbnrsHostedZoneId     :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _lhzbnrsNextHostedZoneId :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _lhzbnrsDNSName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhzbnrsNextDNSName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhzbnrsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _lhzbnrsHostedZones      :: {-# NOUNPACK #-}![HostedZone]
-  , _lhzbnrsIsTruncated      :: {-# NOUNPACK #-}!Bool
-  , _lhzbnrsMaxItems         :: {-# NOUNPACK #-}!Text
+  { _lhzbnrsHostedZoneId     :: !(Maybe ResourceId)
+  , _lhzbnrsNextHostedZoneId :: !(Maybe ResourceId)
+  , _lhzbnrsDNSName          :: !(Maybe Text)
+  , _lhzbnrsNextDNSName      :: !(Maybe Text)
+  , _lhzbnrsResponseStatus   :: !Int
+  , _lhzbnrsHostedZones      :: ![HostedZone]
+  , _lhzbnrsIsTruncated      :: !Bool
+  , _lhzbnrsMaxItems         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

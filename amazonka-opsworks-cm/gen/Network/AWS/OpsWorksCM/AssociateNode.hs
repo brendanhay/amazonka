@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'associateNode' smart constructor.
 data AssociateNode = AssociateNode'
-  { _anServerName       :: {-# NOUNPACK #-}!Text
-  , _anNodeName         :: {-# NOUNPACK #-}!Text
-  , _anEngineAttributes :: {-# NOUNPACK #-}![EngineAttribute]
+  { _anServerName       :: !Text
+  , _anNodeName         :: !Text
+  , _anEngineAttributes :: ![EngineAttribute]
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance ToQuery AssociateNode where
 
 -- | /See:/ 'associateNodeResponse' smart constructor.
 data AssociateNodeResponse = AssociateNodeResponse'
-  { _anrsNodeAssociationStatusToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _anrsResponseStatus             :: {-# NOUNPACK #-}!Int
+  { _anrsNodeAssociationStatusToken :: !(Maybe Text)
+  , _anrsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

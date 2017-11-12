@@ -102,8 +102,8 @@ instance ToQuery DescribeBundle where
 --
 -- /See:/ 'describeBundleResponse' smart constructor.
 data DescribeBundleResponse = DescribeBundleResponse'
-  { _dbrsDetails        :: {-# NOUNPACK #-}!(Maybe BundleDetails)
-  , _dbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dbrsDetails        :: !(Maybe BundleDetails)
+  , _dbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

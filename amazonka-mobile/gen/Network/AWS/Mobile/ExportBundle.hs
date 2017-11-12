@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'exportBundle' smart constructor.
 data ExportBundle = ExportBundle'
-  { _ebPlatform  :: {-# NOUNPACK #-}!(Maybe Platform)
-  , _ebProjectId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ebBundleId  :: {-# NOUNPACK #-}!Text
+  { _ebPlatform  :: !(Maybe Platform)
+  , _ebProjectId :: !(Maybe Text)
+  , _ebBundleId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery ExportBundle where
 --
 -- /See:/ 'exportBundleResponse' smart constructor.
 data ExportBundleResponse = ExportBundleResponse'
-  { _ebrsDownloadURL    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ebrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ebrsDownloadURL    :: !(Maybe Text)
+  , _ebrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

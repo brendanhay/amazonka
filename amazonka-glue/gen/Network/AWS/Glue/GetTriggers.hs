@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getTriggers' smart constructor.
 data GetTriggers = GetTriggers'
-  { _gtsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gtsDependentJobName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gtsNextToken        :: !(Maybe Text)
+  , _gtsMaxResults       :: !(Maybe Nat)
+  , _gtsDependentJobName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery GetTriggers where
 
 -- | /See:/ 'getTriggersResponse' smart constructor.
 data GetTriggersResponse = GetTriggersResponse'
-  { _gttrsTriggers       :: {-# NOUNPACK #-}!(Maybe [Trigger])
-  , _gttrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gttrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gttrsTriggers       :: !(Maybe [Trigger])
+  , _gttrsNextToken      :: !(Maybe Text)
+  , _gttrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

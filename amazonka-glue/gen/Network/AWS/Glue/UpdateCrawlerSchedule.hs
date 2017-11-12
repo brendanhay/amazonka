@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateCrawlerSchedule' smart constructor.
 data UpdateCrawlerSchedule = UpdateCrawlerSchedule'
-  { _ucsSchedule    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucsCrawlerName :: {-# NOUNPACK #-}!Text
+  { _ucsSchedule    :: !(Maybe Text)
+  , _ucsCrawlerName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

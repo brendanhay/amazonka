@@ -57,11 +57,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'putGatewayResponse' smart constructor.
 data PutGatewayResponse = PutGatewayResponse'
-  { _pgResponseTemplates  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _pgStatusCode         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pgResponseParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _pgRestAPIId          :: {-# NOUNPACK #-}!Text
-  , _pgResponseType       :: {-# NOUNPACK #-}!GatewayResponseType
+  { _pgResponseTemplates  :: !(Maybe (Map Text Text))
+  , _pgStatusCode         :: !(Maybe Text)
+  , _pgResponseParameters :: !(Maybe (Map Text Text))
+  , _pgRestAPIId          :: !Text
+  , _pgResponseType       :: !GatewayResponseType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

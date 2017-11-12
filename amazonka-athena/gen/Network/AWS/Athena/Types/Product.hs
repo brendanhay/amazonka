@@ -27,16 +27,16 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'columnInfo' smart constructor.
 data ColumnInfo = ColumnInfo'
-  { _ciScale         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ciPrecision     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ciSchemaName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciCatalogName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciCaseSensitive :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ciLabel         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciTableName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciNullable      :: {-# NOUNPACK #-}!(Maybe ColumnNullable)
-  , _ciName          :: {-# NOUNPACK #-}!Text
-  , _ciType          :: {-# NOUNPACK #-}!Text
+  { _ciScale         :: !(Maybe Int)
+  , _ciPrecision     :: !(Maybe Int)
+  , _ciSchemaName    :: !(Maybe Text)
+  , _ciCatalogName   :: !(Maybe Text)
+  , _ciCaseSensitive :: !(Maybe Bool)
+  , _ciLabel         :: !(Maybe Text)
+  , _ciTableName     :: !(Maybe Text)
+  , _ciNullable      :: !(Maybe ColumnNullable)
+  , _ciName          :: !Text
+  , _ciType          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -180,8 +180,8 @@ instance NFData Datum where
 --
 -- /See:/ 'encryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-  { _ecKMSKey           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecEncryptionOption :: {-# NOUNPACK #-}!EncryptionOption
+  { _ecKMSKey           :: !(Maybe Text)
+  , _ecEncryptionOption :: !EncryptionOption
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -232,11 +232,11 @@ instance ToJSON EncryptionConfiguration where
 --
 -- /See:/ 'namedQuery' smart constructor.
 data NamedQuery = NamedQuery'
-  { _nqNamedQueryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nqDescription  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nqName         :: {-# NOUNPACK #-}!Text
-  , _nqDatabase     :: {-# NOUNPACK #-}!Text
-  , _nqQueryString  :: {-# NOUNPACK #-}!Text
+  { _nqNamedQueryId :: !(Maybe Text)
+  , _nqDescription  :: !(Maybe Text)
+  , _nqName         :: !Text
+  , _nqDatabase     :: !Text
+  , _nqQueryString  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -308,12 +308,12 @@ instance NFData NamedQuery where
 --
 -- /See:/ 'queryExecution' smart constructor.
 data QueryExecution = QueryExecution'
-  { _qeStatus :: {-# NOUNPACK #-}!(Maybe QueryExecutionStatus)
-  , _qeQueryExecutionContext :: {-# NOUNPACK #-}!(Maybe QueryExecutionContext)
-  , _qeResultConfiguration :: {-# NOUNPACK #-}!(Maybe ResultConfiguration)
-  , _qeQuery :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qeStatistics :: {-# NOUNPACK #-}!(Maybe QueryExecutionStatistics)
-  , _qeQueryExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _qeStatus                :: !(Maybe QueryExecutionStatus)
+  , _qeQueryExecutionContext :: !(Maybe QueryExecutionContext)
+  , _qeResultConfiguration   :: !(Maybe ResultConfiguration)
+  , _qeQuery                 :: !(Maybe Text)
+  , _qeStatistics            :: !(Maybe QueryExecutionStatistics)
+  , _qeQueryExecutionId      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -429,8 +429,8 @@ instance ToJSON QueryExecutionContext where
 --
 -- /See:/ 'queryExecutionStatistics' smart constructor.
 data QueryExecutionStatistics = QueryExecutionStatistics'
-  { _qesEngineExecutionTimeInMillis :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _qesDataScannedInBytes          :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _qesEngineExecutionTimeInMillis :: !(Maybe Integer)
+  , _qesDataScannedInBytes          :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -474,10 +474,10 @@ instance NFData QueryExecutionStatistics where
 --
 -- /See:/ 'queryExecutionStatus' smart constructor.
 data QueryExecutionStatus = QueryExecutionStatus'
-  { _qesState              :: {-# NOUNPACK #-}!(Maybe QueryExecutionState)
-  , _qesStateChangeReason  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qesSubmissionDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _qesCompletionDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _qesState              :: !(Maybe QueryExecutionState)
+  , _qesStateChangeReason  :: !(Maybe Text)
+  , _qesSubmissionDateTime :: !(Maybe POSIX)
+  , _qesCompletionDateTime :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -538,8 +538,8 @@ instance NFData QueryExecutionStatus where
 --
 -- /See:/ 'resultConfiguration' smart constructor.
 data ResultConfiguration = ResultConfiguration'
-  { _rcEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
-  , _rcOutputLocation :: {-# NOUNPACK #-}!Text
+  { _rcEncryptionConfiguration :: !(Maybe EncryptionConfiguration)
+  , _rcOutputLocation          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -592,8 +592,8 @@ instance ToJSON ResultConfiguration where
 --
 -- /See:/ 'resultSet' smart constructor.
 data ResultSet = ResultSet'
-  { _rsRows              :: {-# NOUNPACK #-}!(Maybe [Row])
-  , _rsResultSetMetadata :: {-# NOUNPACK #-}!(Maybe ResultSetMetadata)
+  { _rsRows              :: !(Maybe [Row])
+  , _rsResultSetMetadata :: !(Maybe ResultSetMetadata)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -703,9 +703,9 @@ instance NFData Row where
 --
 -- /See:/ 'unprocessedNamedQueryId' smart constructor.
 data UnprocessedNamedQueryId = UnprocessedNamedQueryId'
-  { _unqiNamedQueryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _unqiErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _unqiErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _unqiNamedQueryId :: !(Maybe Text)
+  , _unqiErrorCode    :: !(Maybe Text)
+  , _unqiErrorMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -758,9 +758,9 @@ instance NFData UnprocessedNamedQueryId where
 --
 -- /See:/ 'unprocessedQueryExecutionId' smart constructor.
 data UnprocessedQueryExecutionId = UnprocessedQueryExecutionId'
-  { _uqeiErrorCode        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uqeiQueryExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uqeiErrorMessage     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _uqeiErrorCode        :: !(Maybe Text)
+  , _uqeiQueryExecutionId :: !(Maybe Text)
+  , _uqeiErrorMessage     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -61,9 +61,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createLogGroup' smart constructor.
 data CreateLogGroup = CreateLogGroup'
-  { _clgKmsKeyId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clgTags         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _clgLogGroupName :: {-# NOUNPACK #-}!Text
+  { _clgKmsKeyId     :: !(Maybe Text)
+  , _clgTags         :: !(Maybe (Map Text Text))
+  , _clgLogGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

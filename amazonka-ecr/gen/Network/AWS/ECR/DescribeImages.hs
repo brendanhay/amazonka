@@ -55,12 +55,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeImages' smart constructor.
 data DescribeImages = DescribeImages'
-  { _diRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diImageIds       :: {-# NOUNPACK #-}!(Maybe [ImageIdentifier])
-  , _diNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diFilter         :: {-# NOUNPACK #-}!(Maybe DescribeImagesFilter)
-  , _diMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _diRepositoryName :: {-# NOUNPACK #-}!Text
+  { _diRegistryId     :: !(Maybe Text)
+  , _diImageIds       :: !(Maybe [ImageIdentifier])
+  , _diNextToken      :: !(Maybe Text)
+  , _diFilter         :: !(Maybe DescribeImagesFilter)
+  , _diMaxResults     :: !(Maybe Nat)
+  , _diRepositoryName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -168,9 +168,9 @@ instance ToQuery DescribeImages where
 
 -- | /See:/ 'describeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-  { _dirsImageDetails   :: {-# NOUNPACK #-}!(Maybe [ImageDetail])
-  , _dirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dirsImageDetails   :: !(Maybe [ImageDetail])
+  , _dirsNextToken      :: !(Maybe Text)
+  , _dirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

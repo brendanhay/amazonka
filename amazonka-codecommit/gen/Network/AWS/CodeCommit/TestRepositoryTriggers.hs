@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'testRepositoryTriggers' smart constructor.
 data TestRepositoryTriggers = TestRepositoryTriggers'
-  { _trtRepositoryName :: {-# NOUNPACK #-}!Text
-  , _trtTriggers       :: {-# NOUNPACK #-}![RepositoryTrigger]
+  { _trtRepositoryName :: !Text
+  , _trtTriggers       :: ![RepositoryTrigger]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery TestRepositoryTriggers where
 --
 -- /See:/ 'testRepositoryTriggersResponse' smart constructor.
 data TestRepositoryTriggersResponse = TestRepositoryTriggersResponse'
-  { _trtrsFailedExecutions :: {-# NOUNPACK #-}!(Maybe [RepositoryTriggerExecutionFailure])
-  , _trtrsSuccessfulExecutions :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _trtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _trtrsFailedExecutions     :: !(Maybe [RepositoryTriggerExecutionFailure])
+  , _trtrsSuccessfulExecutions :: !(Maybe [Text])
+  , _trtrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

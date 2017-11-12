@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteChangeSet' smart constructor.
 data DeleteChangeSet = DeleteChangeSet'
-  { _dcsStackName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsChangeSetName :: {-# NOUNPACK #-}!Text
+  { _dcsStackName     :: !(Maybe Text)
+  , _dcsChangeSetName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

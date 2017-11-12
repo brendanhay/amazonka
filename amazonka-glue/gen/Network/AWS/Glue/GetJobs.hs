@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getJobs' smart constructor.
 data GetJobs = GetJobs'
-  { _gjNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gjNextToken  :: !(Maybe Text)
+  , _gjMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,9 +110,9 @@ instance ToQuery GetJobs where
 
 -- | /See:/ 'getJobsResponse' smart constructor.
 data GetJobsResponse = GetJobsResponse'
-  { _gjsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjsrsJobs           :: {-# NOUNPACK #-}!(Maybe [Job])
-  , _gjsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gjsrsNextToken      :: !(Maybe Text)
+  , _gjsrsJobs           :: !(Maybe [Job])
+  , _gjsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'detachUserPolicy' smart constructor.
 data DetachUserPolicy = DetachUserPolicy'
-  { _dUserName  :: {-# NOUNPACK #-}!Text
-  , _dPolicyARN :: {-# NOUNPACK #-}!Text
+  { _dUserName  :: !Text
+  , _dPolicyARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'cancelSpotInstanceRequests' smart constructor.
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
-  { _csirDryRun                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _csirSpotInstanceRequestIds :: {-# NOUNPACK #-}![Text]
+  { _csirDryRun                 :: !(Maybe Bool)
+  , _csirSpotInstanceRequestIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery CancelSpotInstanceRequests where
 --
 -- /See:/ 'cancelSpotInstanceRequestsResponse' smart constructor.
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
-  { _csirrsCancelledSpotInstanceRequests :: {-# NOUNPACK #-}!(Maybe [CancelledSpotInstanceRequest])
-  , _csirrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csirrsCancelledSpotInstanceRequests :: !(Maybe [CancelledSpotInstanceRequest])
+  , _csirrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

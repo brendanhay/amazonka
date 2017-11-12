@@ -67,10 +67,10 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'listDomains' smart constructor.
 data ListDomains = ListDomains'
-  { _ldNextPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldReverseOrder       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ldMaximumPageSize    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ldRegistrationStatus :: {-# NOUNPACK #-}!RegistrationStatus
+  { _ldNextPageToken      :: !(Maybe Text)
+  , _ldReverseOrder       :: !(Maybe Bool)
+  , _ldMaximumPageSize    :: !(Maybe Nat)
+  , _ldRegistrationStatus :: !RegistrationStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -166,9 +166,9 @@ instance ToQuery ListDomains where
 --
 -- /See:/ 'listDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { _ldrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ldrsDomainInfos    :: {-# NOUNPACK #-}![DomainInfo]
+  { _ldrsNextPageToken  :: !(Maybe Text)
+  , _ldrsResponseStatus :: !Int
+  , _ldrsDomainInfos    :: ![DomainInfo]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

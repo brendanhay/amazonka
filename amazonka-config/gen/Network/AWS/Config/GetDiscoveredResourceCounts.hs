@@ -70,9 +70,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getDiscoveredResourceCounts' smart constructor.
 data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
-  { _gdrcNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdrcLimit         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gdrcResourceTypes :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _gdrcNextToken     :: !(Maybe Text)
+  , _gdrcLimit         :: !(Maybe Nat)
+  , _gdrcResourceTypes :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,10 +147,10 @@ instance ToQuery GetDiscoveredResourceCounts where
 
 -- | /See:/ 'getDiscoveredResourceCountsResponse' smart constructor.
 data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
-  { _gdrcrsTotalDiscoveredResources :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gdrcrsNextToken                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdrcrsResourceCounts           :: {-# NOUNPACK #-}!(Maybe [ResourceCount])
-  , _gdrcrsResponseStatus           :: {-# NOUNPACK #-}!Int
+  { _gdrcrsTotalDiscoveredResources :: !(Maybe Integer)
+  , _gdrcrsNextToken                :: !(Maybe Text)
+  , _gdrcrsResourceCounts           :: !(Maybe [ResourceCount])
+  , _gdrcrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

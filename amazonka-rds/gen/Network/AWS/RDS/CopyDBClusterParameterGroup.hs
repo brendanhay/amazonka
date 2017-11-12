@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'copyDBClusterParameterGroup' smart constructor.
 data CopyDBClusterParameterGroup = CopyDBClusterParameterGroup'
-  { _cdbcpgTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cdbcpgSourceDBClusterParameterGroupIdentifier :: {-# NOUNPACK #-}!Text
-  , _cdbcpgTargetDBClusterParameterGroupIdentifier :: {-# NOUNPACK #-}!Text
-  , _cdbcpgTargetDBClusterParameterGroupDescription :: {-# NOUNPACK #-}!Text
+  { _cdbcpgTags                                     :: !(Maybe [Tag])
+  , _cdbcpgSourceDBClusterParameterGroupIdentifier  :: !Text
+  , _cdbcpgTargetDBClusterParameterGroupIdentifier  :: !Text
+  , _cdbcpgTargetDBClusterParameterGroupDescription :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,8 +139,8 @@ instance ToQuery CopyDBClusterParameterGroup where
 
 -- | /See:/ 'copyDBClusterParameterGroupResponse' smart constructor.
 data CopyDBClusterParameterGroupResponse = CopyDBClusterParameterGroupResponse'
-  { _cdcpgrsDBClusterParameterGroup :: {-# NOUNPACK #-}!(Maybe DBClusterParameterGroup)
-  , _cdcpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdcpgrsDBClusterParameterGroup :: !(Maybe DBClusterParameterGroup)
+  , _cdcpgrsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

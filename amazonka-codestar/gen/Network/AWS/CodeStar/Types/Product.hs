@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'projectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
-  { _psProjectARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psProjectId  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _psProjectARN :: !(Maybe Text)
+  , _psProjectId  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -104,9 +104,9 @@ instance NFData Resource where
 --
 -- /See:/ 'teamMember' smart constructor.
 data TeamMember = TeamMember'
-  { _tmRemoteAccessAllowed :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tmUserARN             :: {-# NOUNPACK #-}!Text
-  , _tmProjectRole         :: {-# NOUNPACK #-}!Text
+  { _tmRemoteAccessAllowed :: !(Maybe Bool)
+  , _tmUserARN             :: !Text
+  , _tmProjectRole         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -161,10 +161,10 @@ instance NFData TeamMember where
 --
 -- /See:/ 'userProfileSummary' smart constructor.
 data UserProfileSummary = UserProfileSummary'
-  { _upsSshPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upsUserARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upsEmailAddress :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _upsDisplayName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _upsSshPublicKey :: !(Maybe Text)
+  , _upsUserARN      :: !(Maybe Text)
+  , _upsEmailAddress :: !(Maybe (Sensitive Text))
+  , _upsDisplayName  :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

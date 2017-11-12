@@ -53,15 +53,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateAccountPasswordPolicy' smart constructor.
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
-  { _uappMinimumPasswordLength      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _uappRequireNumbers             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uappPasswordReusePrevention    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _uappRequireLowercaseCharacters :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uappMaxPasswordAge             :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _uappHardExpiry                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uappRequireSymbols             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uappRequireUppercaseCharacters :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uappAllowUsersToChangePassword :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _uappMinimumPasswordLength      :: !(Maybe Nat)
+  , _uappRequireNumbers             :: !(Maybe Bool)
+  , _uappPasswordReusePrevention    :: !(Maybe Nat)
+  , _uappRequireLowercaseCharacters :: !(Maybe Bool)
+  , _uappMaxPasswordAge             :: !(Maybe Nat)
+  , _uappHardExpiry                 :: !(Maybe Bool)
+  , _uappRequireSymbols             :: !(Maybe Bool)
+  , _uappRequireUppercaseCharacters :: !(Maybe Bool)
+  , _uappAllowUsersToChangePassword :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

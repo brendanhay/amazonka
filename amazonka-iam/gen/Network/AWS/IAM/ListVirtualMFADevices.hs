@@ -55,9 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listVirtualMFADevices' smart constructor.
 data ListVirtualMFADevices = ListVirtualMFADevices'
-  { _lvmdAssignmentStatus :: {-# NOUNPACK #-}!(Maybe AssignmentStatusType)
-  , _lvmdMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lvmdMaxItems         :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lvmdAssignmentStatus :: !(Maybe AssignmentStatusType)
+  , _lvmdMarker           :: !(Maybe Text)
+  , _lvmdMaxItems         :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,10 +137,10 @@ instance ToQuery ListVirtualMFADevices where
 --
 -- /See:/ 'listVirtualMFADevicesResponse' smart constructor.
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
-  { _lvmdrsMarker            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lvmdrsIsTruncated       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lvmdrsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _lvmdrsVirtualMFADevices :: {-# NOUNPACK #-}![VirtualMFADevice]
+  { _lvmdrsMarker            :: !(Maybe Text)
+  , _lvmdrsIsTruncated       :: !(Maybe Bool)
+  , _lvmdrsResponseStatus    :: !Int
+  , _lvmdrsVirtualMFADevices :: ![VirtualMFADevice]
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

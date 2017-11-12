@@ -119,10 +119,10 @@ instance ToQuery CreateStreamingDistribution where
 --
 -- /See:/ 'createStreamingDistributionResponse' smart constructor.
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
-  { _csdrsETag :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdrsLocation :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdrsStreamingDistribution :: {-# NOUNPACK #-}!(Maybe StreamingDistribution)
-  , _csdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csdrsETag                  :: !(Maybe Text)
+  , _csdrsLocation              :: !(Maybe Text)
+  , _csdrsStreamingDistribution :: !(Maybe StreamingDistribution)
+  , _csdrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

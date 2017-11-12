@@ -107,8 +107,8 @@ instance ToQuery ListDeadLetterSourceQueues where
 --
 -- /See:/ 'listDeadLetterSourceQueuesResponse' smart constructor.
 data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
-  { _ldlsqrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ldlsqrsQueueURLs      :: {-# NOUNPACK #-}![Text]
+  { _ldlsqrsResponseStatus :: !Int
+  , _ldlsqrsQueueURLs      :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

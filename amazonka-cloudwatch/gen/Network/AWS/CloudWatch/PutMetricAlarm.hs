@@ -84,24 +84,24 @@ import Network.AWS.Response
 
 -- | /See:/ 'putMetricAlarm' smart constructor.
 data PutMetricAlarm = PutMetricAlarm'
-  { _pmaTreatMissingData :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmaAlarmDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmaOKActions :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _pmaEvaluateLowSampleCountPercentile :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmaActionsEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pmaInsufficientDataActions :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _pmaDimensions :: {-# NOUNPACK #-}!(Maybe [Dimension])
-  , _pmaAlarmActions :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _pmaUnit :: {-# NOUNPACK #-}!(Maybe StandardUnit)
-  , _pmaStatistic :: {-# NOUNPACK #-}!(Maybe Statistic)
-  , _pmaExtendedStatistic :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmaAlarmName :: {-# NOUNPACK #-}!Text
-  , _pmaMetricName :: {-# NOUNPACK #-}!Text
-  , _pmaNamespace :: {-# NOUNPACK #-}!Text
-  , _pmaPeriod :: {-# NOUNPACK #-}!Nat
-  , _pmaEvaluationPeriods :: {-# NOUNPACK #-}!Nat
-  , _pmaThreshold :: {-# NOUNPACK #-}!Double
-  , _pmaComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
+  { _pmaTreatMissingData                 :: !(Maybe Text)
+  , _pmaAlarmDescription                 :: !(Maybe Text)
+  , _pmaOKActions                        :: !(Maybe [Text])
+  , _pmaEvaluateLowSampleCountPercentile :: !(Maybe Text)
+  , _pmaActionsEnabled                   :: !(Maybe Bool)
+  , _pmaInsufficientDataActions          :: !(Maybe [Text])
+  , _pmaDimensions                       :: !(Maybe [Dimension])
+  , _pmaAlarmActions                     :: !(Maybe [Text])
+  , _pmaUnit                             :: !(Maybe StandardUnit)
+  , _pmaStatistic                        :: !(Maybe Statistic)
+  , _pmaExtendedStatistic                :: !(Maybe Text)
+  , _pmaAlarmName                        :: !Text
+  , _pmaMetricName                       :: !Text
+  , _pmaNamespace                        :: !Text
+  , _pmaPeriod                           :: !Nat
+  , _pmaEvaluationPeriods                :: !Nat
+  , _pmaThreshold                        :: !Double
+  , _pmaComparisonOperator               :: !ComparisonOperator
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

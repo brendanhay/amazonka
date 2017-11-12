@@ -93,14 +93,14 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'sendRawEmail' smart constructor.
 data SendRawEmail = SendRawEmail'
-  { _sreConfigurationSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sreSourceARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sreDestinations         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sreReturnPathARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sreSource               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sreFromARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sreTags                 :: {-# NOUNPACK #-}!(Maybe [MessageTag])
-  , _sreRawMessage           :: {-# NOUNPACK #-}!RawMessage
+  { _sreConfigurationSetName :: !(Maybe Text)
+  , _sreSourceARN            :: !(Maybe Text)
+  , _sreDestinations         :: !(Maybe [Text])
+  , _sreReturnPathARN        :: !(Maybe Text)
+  , _sreSource               :: !(Maybe Text)
+  , _sreFromARN              :: !(Maybe Text)
+  , _sreTags                 :: !(Maybe [MessageTag])
+  , _sreRawMessage           :: !RawMessage
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -211,8 +211,8 @@ instance ToQuery SendRawEmail where
 --
 -- /See:/ 'sendRawEmailResponse' smart constructor.
 data SendRawEmailResponse = SendRawEmailResponse'
-  { _srersResponseStatus :: {-# NOUNPACK #-}!Int
-  , _srersMessageId      :: {-# NOUNPACK #-}!Text
+  { _srersResponseStatus :: !Int
+  , _srersMessageId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

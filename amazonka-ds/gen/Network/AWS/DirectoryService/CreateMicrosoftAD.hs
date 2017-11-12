@@ -56,11 +56,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'createMicrosoftAD' smart constructor.
 data CreateMicrosoftAD = CreateMicrosoftAD'
-  { _cmadShortName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmadDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmadName        :: {-# NOUNPACK #-}!Text
-  , _cmadPassword    :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _cmadVPCSettings :: {-# NOUNPACK #-}!DirectoryVPCSettings
+  { _cmadShortName   :: !(Maybe Text)
+  , _cmadDescription :: !(Maybe Text)
+  , _cmadName        :: !Text
+  , _cmadPassword    :: !(Sensitive Text)
+  , _cmadVPCSettings :: !DirectoryVPCSettings
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -157,8 +157,8 @@ instance ToQuery CreateMicrosoftAD where
 --
 -- /See:/ 'createMicrosoftADResponse' smart constructor.
 data CreateMicrosoftADResponse = CreateMicrosoftADResponse'
-  { _cmadrsDirectoryId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmadrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cmadrsDirectoryId    :: !(Maybe Text)
+  , _cmadrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

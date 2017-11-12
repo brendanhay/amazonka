@@ -29,11 +29,11 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'accessKeyInfo' smart constructor.
 data AccessKeyInfo = AccessKeyInfo'
-  { _akiCreateDate      :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _akiUserName        :: {-# NOUNPACK #-}!Text
-  , _akiAccessKeyId     :: {-# NOUNPACK #-}!AccessKey
-  , _akiStatus          :: {-# NOUNPACK #-}!StatusType
-  , _akiSecretAccessKey :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _akiCreateDate      :: !(Maybe ISO8601)
+  , _akiUserName        :: !Text
+  , _akiAccessKeyId     :: !AccessKey
+  , _akiStatus          :: !StatusType
+  , _akiSecretAccessKey :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -106,9 +106,9 @@ instance NFData AccessKeyInfo where
 --
 -- /See:/ 'accessKeyLastUsed' smart constructor.
 data AccessKeyLastUsed = AccessKeyLastUsed'
-  { _akluLastUsedDate :: {-# NOUNPACK #-}!ISO8601
-  , _akluServiceName  :: {-# NOUNPACK #-}!Text
-  , _akluRegion       :: {-# NOUNPACK #-}!Text
+  { _akluLastUsedDate :: !ISO8601
+  , _akluServiceName  :: !Text
+  , _akluRegion       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -164,10 +164,10 @@ instance NFData AccessKeyLastUsed where
 --
 -- /See:/ 'accessKeyMetadata' smart constructor.
 data AccessKeyMetadata = AccessKeyMetadata'
-  { _akmStatus      :: {-# NOUNPACK #-}!(Maybe StatusType)
-  , _akmCreateDate  :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _akmUserName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _akmAccessKeyId :: {-# NOUNPACK #-}!(Maybe AccessKey)
+  { _akmStatus      :: !(Maybe StatusType)
+  , _akmCreateDate  :: !(Maybe ISO8601)
+  , _akmUserName    :: !(Maybe Text)
+  , _akmAccessKeyId :: !(Maybe AccessKey)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -230,8 +230,8 @@ instance NFData AccessKeyMetadata where
 --
 -- /See:/ 'attachedPolicy' smart constructor.
 data AttachedPolicy = AttachedPolicy'
-  { _apPolicyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _apPolicyARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _apPolicyName :: !(Maybe Text)
+  , _apPolicyARN  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -273,9 +273,9 @@ instance NFData AttachedPolicy where
 --
 -- /See:/ 'contextEntry' smart constructor.
 data ContextEntry = ContextEntry'
-  { _ceContextKeyValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ceContextKeyName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ceContextKeyType   :: {-# NOUNPACK #-}!(Maybe ContextKeyTypeEnum)
+  { _ceContextKeyValues :: !(Maybe [Text])
+  , _ceContextKeyName   :: !(Maybe Text)
+  , _ceContextKeyType   :: !(Maybe ContextKeyTypeEnum)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -331,8 +331,8 @@ instance ToQuery ContextEntry where
 --
 -- /See:/ 'deletionTaskFailureReasonType' smart constructor.
 data DeletionTaskFailureReasonType = DeletionTaskFailureReasonType'
-  { _dtfrtRoleUsageList :: {-# NOUNPACK #-}!(Maybe [RoleUsageType])
-  , _dtfrtReason        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dtfrtRoleUsageList :: !(Maybe [RoleUsageType])
+  , _dtfrtReason        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -377,14 +377,14 @@ instance NFData DeletionTaskFailureReasonType where
 --
 -- /See:/ 'evaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { _erMatchedStatements :: {-# NOUNPACK #-}!(Maybe [Statement])
-  , _erEvalDecisionDetails :: {-# NOUNPACK #-}!(Maybe (Map Text PolicyEvaluationDecisionType))
-  , _erResourceSpecificResults :: {-# NOUNPACK #-}!(Maybe [ResourceSpecificResult])
-  , _erEvalResourceName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _erMissingContextValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _erOrganizationsDecisionDetail :: {-# NOUNPACK #-}!(Maybe OrganizationsDecisionDetail)
-  , _erEvalActionName :: {-# NOUNPACK #-}!Text
-  , _erEvalDecision :: {-# NOUNPACK #-}!PolicyEvaluationDecisionType
+  { _erMatchedStatements :: !(Maybe [Statement])
+  , _erEvalDecisionDetails :: !(Maybe (Map Text PolicyEvaluationDecisionType))
+  , _erResourceSpecificResults :: !(Maybe [ResourceSpecificResult])
+  , _erEvalResourceName :: !(Maybe Text)
+  , _erMissingContextValues :: !(Maybe [Text])
+  , _erOrganizationsDecisionDetail :: !(Maybe OrganizationsDecisionDetail)
+  , _erEvalActionName :: !Text
+  , _erEvalDecision :: !PolicyEvaluationDecisionType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -532,11 +532,11 @@ instance NFData GetContextKeysForPolicyResponse where
 --
 -- /See:/ 'group'' smart constructor.
 data Group = Group'
-  { _gPath       :: {-# NOUNPACK #-}!Text
-  , _gGroupName  :: {-# NOUNPACK #-}!Text
-  , _gGroupId    :: {-# NOUNPACK #-}!Text
-  , _gARN        :: {-# NOUNPACK #-}!Text
-  , _gCreateDate :: {-# NOUNPACK #-}!ISO8601
+  { _gPath       :: !Text
+  , _gGroupName  :: !Text
+  , _gGroupId    :: !Text
+  , _gARN        :: !Text
+  , _gCreateDate :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -610,13 +610,13 @@ instance NFData Group where
 --
 -- /See:/ 'groupDetail' smart constructor.
 data GroupDetail = GroupDetail'
-  { _gdARN                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdPath                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdCreateDate              :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _gdGroupId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdGroupPolicyList         :: {-# NOUNPACK #-}!(Maybe [PolicyDetail])
-  , _gdGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdAttachedManagedPolicies :: {-# NOUNPACK #-}!(Maybe [AttachedPolicy])
+  { _gdARN                     :: !(Maybe Text)
+  , _gdPath                    :: !(Maybe Text)
+  , _gdCreateDate              :: !(Maybe ISO8601)
+  , _gdGroupId                 :: !(Maybe Text)
+  , _gdGroupPolicyList         :: !(Maybe [PolicyDetail])
+  , _gdGroupName               :: !(Maybe Text)
+  , _gdAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -715,12 +715,12 @@ instance NFData GroupDetail where
 --
 -- /See:/ 'instanceProfile' smart constructor.
 data InstanceProfile = InstanceProfile'
-  { _ipPath                :: {-# NOUNPACK #-}!Text
-  , _ipInstanceProfileName :: {-# NOUNPACK #-}!Text
-  , _ipInstanceProfileId   :: {-# NOUNPACK #-}!Text
-  , _ipARN                 :: {-# NOUNPACK #-}!Text
-  , _ipCreateDate          :: {-# NOUNPACK #-}!ISO8601
-  , _ipRoles               :: {-# NOUNPACK #-}![Role]
+  { _ipPath                :: !Text
+  , _ipInstanceProfileName :: !Text
+  , _ipInstanceProfileId   :: !Text
+  , _ipARN                 :: !Text
+  , _ipCreateDate          :: !ISO8601
+  , _ipRoles               :: ![Role]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -803,9 +803,9 @@ instance NFData InstanceProfile where
 --
 -- /See:/ 'loginProfile' smart constructor.
 data LoginProfile = LoginProfile'
-  { _lpPasswordResetRequired :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lpUserName              :: {-# NOUNPACK #-}!Text
-  , _lpCreateDate            :: {-# NOUNPACK #-}!ISO8601
+  { _lpPasswordResetRequired :: !(Maybe Bool)
+  , _lpUserName              :: !Text
+  , _lpCreateDate            :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -860,9 +860,9 @@ instance NFData LoginProfile where
 --
 -- /See:/ 'mfaDevice' smart constructor.
 data MFADevice = MFADevice'
-  { _mdUserName     :: {-# NOUNPACK #-}!Text
-  , _mdSerialNumber :: {-# NOUNPACK #-}!Text
-  , _mdEnableDate   :: {-# NOUNPACK #-}!ISO8601
+  { _mdUserName     :: !Text
+  , _mdSerialNumber :: !Text
+  , _mdEnableDate   :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -920,17 +920,17 @@ instance NFData MFADevice where
 --
 -- /See:/ 'managedPolicyDetail' smart constructor.
 data ManagedPolicyDetail = ManagedPolicyDetail'
-  { _mpdPolicyName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mpdARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mpdUpdateDate        :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _mpdPolicyId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mpdPath              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mpdPolicyVersionList :: {-# NOUNPACK #-}!(Maybe [PolicyVersion])
-  , _mpdCreateDate        :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _mpdIsAttachable      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mpdDefaultVersionId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mpdAttachmentCount   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _mpdDescription       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _mpdPolicyName        :: !(Maybe Text)
+  , _mpdARN               :: !(Maybe Text)
+  , _mpdUpdateDate        :: !(Maybe ISO8601)
+  , _mpdPolicyId          :: !(Maybe Text)
+  , _mpdPath              :: !(Maybe Text)
+  , _mpdPolicyVersionList :: !(Maybe [PolicyVersion])
+  , _mpdCreateDate        :: !(Maybe ISO8601)
+  , _mpdIsAttachable      :: !(Maybe Bool)
+  , _mpdDefaultVersionId  :: !(Maybe Text)
+  , _mpdAttachmentCount   :: !(Maybe Int)
+  , _mpdDescription       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1117,16 +1117,16 @@ instance NFData OrganizationsDecisionDetail where
 --
 -- /See:/ 'passwordPolicy' smart constructor.
 data PasswordPolicy = PasswordPolicy'
-  { _ppExpirePasswords            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ppMinimumPasswordLength      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ppRequireNumbers             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ppPasswordReusePrevention    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ppRequireLowercaseCharacters :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ppMaxPasswordAge             :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ppHardExpiry                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ppRequireSymbols             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ppRequireUppercaseCharacters :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ppAllowUsersToChangePassword :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _ppExpirePasswords            :: !(Maybe Bool)
+  , _ppMinimumPasswordLength      :: !(Maybe Nat)
+  , _ppRequireNumbers             :: !(Maybe Bool)
+  , _ppPasswordReusePrevention    :: !(Maybe Nat)
+  , _ppRequireLowercaseCharacters :: !(Maybe Bool)
+  , _ppMaxPasswordAge             :: !(Maybe Nat)
+  , _ppHardExpiry                 :: !(Maybe Bool)
+  , _ppRequireSymbols             :: !(Maybe Bool)
+  , _ppRequireUppercaseCharacters :: !(Maybe Bool)
+  , _ppAllowUsersToChangePassword :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1238,16 +1238,16 @@ instance NFData PasswordPolicy where
 --
 -- /See:/ 'policy' smart constructor.
 data Policy = Policy'
-  { _pPolicyName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pUpdateDate       :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _pPolicyId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pPath             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pCreateDate       :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _pIsAttachable     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pDefaultVersionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pAttachmentCount  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pPolicyName       :: !(Maybe Text)
+  , _pARN              :: !(Maybe Text)
+  , _pUpdateDate       :: !(Maybe ISO8601)
+  , _pPolicyId         :: !(Maybe Text)
+  , _pPath             :: !(Maybe Text)
+  , _pCreateDate       :: !(Maybe ISO8601)
+  , _pIsAttachable     :: !(Maybe Bool)
+  , _pDefaultVersionId :: !(Maybe Text)
+  , _pAttachmentCount  :: !(Maybe Int)
+  , _pDescription      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1356,8 +1356,8 @@ instance NFData Policy where
 --
 -- /See:/ 'policyDetail' smart constructor.
 data PolicyDetail = PolicyDetail'
-  { _pdPolicyDocument :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdPolicyName     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pdPolicyDocument :: !(Maybe Text)
+  , _pdPolicyName     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1401,8 +1401,8 @@ instance NFData PolicyDetail where
 --
 -- /See:/ 'policyGroup' smart constructor.
 data PolicyGroup = PolicyGroup'
-  { _pgGroupId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pgGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pgGroupId   :: !(Maybe Text)
+  , _pgGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1445,8 +1445,8 @@ instance NFData PolicyGroup where
 --
 -- /See:/ 'policyRole' smart constructor.
 data PolicyRole = PolicyRole'
-  { _prRoleName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prRoleId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _prRoleName :: !(Maybe Text)
+  , _prRoleId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1489,8 +1489,8 @@ instance NFData PolicyRole where
 --
 -- /See:/ 'policyUser' smart constructor.
 data PolicyUser = PolicyUser'
-  { _puUserName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _puUserId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _puUserName :: !(Maybe Text)
+  , _puUserId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1533,10 +1533,10 @@ instance NFData PolicyUser where
 --
 -- /See:/ 'policyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
-  { _pvVersionId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvCreateDate       :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _pvDocument         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvIsDefaultVersion :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _pvVersionId        :: !(Maybe Text)
+  , _pvCreateDate       :: !(Maybe ISO8601)
+  , _pvDocument         :: !(Maybe Text)
+  , _pvIsDefaultVersion :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1597,8 +1597,8 @@ instance NFData PolicyVersion where
 --
 -- /See:/ 'position' smart constructor.
 data Position = Position'
-  { _pLine   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pColumn :: {-# NOUNPACK #-}!(Maybe Int)
+  { _pLine   :: !(Maybe Int)
+  , _pColumn :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1638,11 +1638,11 @@ instance NFData Position where
 --
 -- /See:/ 'resourceSpecificResult' smart constructor.
 data ResourceSpecificResult = ResourceSpecificResult'
-  { _rsrMatchedStatements :: {-# NOUNPACK #-}!(Maybe [Statement])
-  , _rsrEvalDecisionDetails :: {-# NOUNPACK #-}!(Maybe (Map Text PolicyEvaluationDecisionType))
-  , _rsrMissingContextValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rsrEvalResourceName :: {-# NOUNPACK #-}!Text
-  , _rsrEvalResourceDecision :: {-# NOUNPACK #-}!PolicyEvaluationDecisionType
+  { _rsrMatchedStatements    :: !(Maybe [Statement])
+  , _rsrEvalDecisionDetails  :: !(Maybe (Map Text PolicyEvaluationDecisionType))
+  , _rsrMissingContextValues :: !(Maybe [Text])
+  , _rsrEvalResourceName     :: !Text
+  , _rsrEvalResourceDecision :: !PolicyEvaluationDecisionType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1717,13 +1717,13 @@ instance NFData ResourceSpecificResult where
 --
 -- /See:/ 'role'' smart constructor.
 data Role = Role'
-  { _rAssumeRolePolicyDocument :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rDescription              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rPath                     :: {-# NOUNPACK #-}!Text
-  , _rRoleName                 :: {-# NOUNPACK #-}!Text
-  , _rRoleId                   :: {-# NOUNPACK #-}!Text
-  , _rARN                      :: {-# NOUNPACK #-}!Text
-  , _rCreateDate               :: {-# NOUNPACK #-}!ISO8601
+  { _rAssumeRolePolicyDocument :: !(Maybe Text)
+  , _rDescription              :: !(Maybe Text)
+  , _rPath                     :: !Text
+  , _rRoleName                 :: !Text
+  , _rRoleId                   :: !Text
+  , _rARN                      :: !Text
+  , _rCreateDate               :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1814,15 +1814,15 @@ instance NFData Role where
 --
 -- /See:/ 'roleDetail' smart constructor.
 data RoleDetail = RoleDetail'
-  { _rdAssumeRolePolicyDocument :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdARN                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdPath                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdInstanceProfileList      :: {-# NOUNPACK #-}!(Maybe [InstanceProfile])
-  , _rdCreateDate               :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _rdRoleName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdRoleId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdRolePolicyList           :: {-# NOUNPACK #-}!(Maybe [PolicyDetail])
-  , _rdAttachedManagedPolicies  :: {-# NOUNPACK #-}!(Maybe [AttachedPolicy])
+  { _rdAssumeRolePolicyDocument :: !(Maybe Text)
+  , _rdARN                      :: !(Maybe Text)
+  , _rdPath                     :: !(Maybe Text)
+  , _rdInstanceProfileList      :: !(Maybe [InstanceProfile])
+  , _rdCreateDate               :: !(Maybe ISO8601)
+  , _rdRoleName                 :: !(Maybe Text)
+  , _rdRoleId                   :: !(Maybe Text)
+  , _rdRolePolicyList           :: !(Maybe [PolicyDetail])
+  , _rdAttachedManagedPolicies  :: !(Maybe [AttachedPolicy])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1929,8 +1929,8 @@ instance NFData RoleDetail where
 --
 -- /See:/ 'roleUsageType' smart constructor.
 data RoleUsageType = RoleUsageType'
-  { _rutResources :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rutRegion    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rutResources :: !(Maybe [Text])
+  , _rutRegion    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1971,9 +1971,9 @@ instance NFData RoleUsageType where
 --
 -- /See:/ 'sAMLProviderListEntry' smart constructor.
 data SAMLProviderListEntry = SAMLProviderListEntry'
-  { _samlpleARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _samlpleCreateDate :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _samlpleValidUntil :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  { _samlpleARN        :: !(Maybe Text)
+  , _samlpleCreateDate :: !(Maybe ISO8601)
+  , _samlpleValidUntil :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2026,12 +2026,12 @@ instance NFData SAMLProviderListEntry where
 --
 -- /See:/ 'sshPublicKey' smart constructor.
 data SSHPublicKey = SSHPublicKey'
-  { _spkUploadDate       :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _spkUserName         :: {-# NOUNPACK #-}!Text
-  , _spkSSHPublicKeyId   :: {-# NOUNPACK #-}!Text
-  , _spkFingerprint      :: {-# NOUNPACK #-}!Text
-  , _spkSSHPublicKeyBody :: {-# NOUNPACK #-}!Text
-  , _spkStatus           :: {-# NOUNPACK #-}!StatusType
+  { _spkUploadDate       :: !(Maybe ISO8601)
+  , _spkUserName         :: !Text
+  , _spkSSHPublicKeyId   :: !Text
+  , _spkFingerprint      :: !Text
+  , _spkSSHPublicKeyBody :: !Text
+  , _spkStatus           :: !StatusType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2113,10 +2113,10 @@ instance NFData SSHPublicKey where
 --
 -- /See:/ 'sshPublicKeyMetadata' smart constructor.
 data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
-  { _spkmUserName       :: {-# NOUNPACK #-}!Text
-  , _spkmSSHPublicKeyId :: {-# NOUNPACK #-}!Text
-  , _spkmStatus         :: {-# NOUNPACK #-}!StatusType
-  , _spkmUploadDate     :: {-# NOUNPACK #-}!ISO8601
+  { _spkmUserName       :: !Text
+  , _spkmSSHPublicKeyId :: !Text
+  , _spkmStatus         :: !StatusType
+  , _spkmUploadDate     :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2181,9 +2181,9 @@ instance NFData SSHPublicKeyMetadata where
 --
 -- /See:/ 'serverCertificate' smart constructor.
 data ServerCertificate = ServerCertificate'
-  { _sCertificateChain          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sServerCertificateMetadata :: {-# NOUNPACK #-}!ServerCertificateMetadata
-  , _sCertificateBody           :: {-# NOUNPACK #-}!Text
+  { _sCertificateChain          :: !(Maybe Text)
+  , _sServerCertificateMetadata :: !ServerCertificateMetadata
+  , _sCertificateBody           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2239,12 +2239,12 @@ instance NFData ServerCertificate where
 --
 -- /See:/ 'serverCertificateMetadata' smart constructor.
 data ServerCertificateMetadata = ServerCertificateMetadata'
-  { _scmUploadDate            :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _scmExpiration            :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _scmPath                  :: {-# NOUNPACK #-}!Text
-  , _scmServerCertificateName :: {-# NOUNPACK #-}!Text
-  , _scmServerCertificateId   :: {-# NOUNPACK #-}!Text
-  , _scmARN                   :: {-# NOUNPACK #-}!Text
+  { _scmUploadDate            :: !(Maybe ISO8601)
+  , _scmExpiration            :: !(Maybe ISO8601)
+  , _scmPath                  :: !Text
+  , _scmServerCertificateName :: !Text
+  , _scmServerCertificateId   :: !Text
+  , _scmARN                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2323,13 +2323,13 @@ instance NFData ServerCertificateMetadata where
 --
 -- /See:/ 'serviceSpecificCredential' smart constructor.
 data ServiceSpecificCredential = ServiceSpecificCredential'
-  { _sscCreateDate                  :: {-# NOUNPACK #-}!ISO8601
-  , _sscServiceName                 :: {-# NOUNPACK #-}!Text
-  , _sscServiceUserName             :: {-# NOUNPACK #-}!Text
-  , _sscServicePassword             :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _sscServiceSpecificCredentialId :: {-# NOUNPACK #-}!Text
-  , _sscUserName                    :: {-# NOUNPACK #-}!Text
-  , _sscStatus                      :: {-# NOUNPACK #-}!StatusType
+  { _sscCreateDate                  :: !ISO8601
+  , _sscServiceName                 :: !Text
+  , _sscServiceUserName             :: !Text
+  , _sscServicePassword             :: !(Sensitive Text)
+  , _sscServiceSpecificCredentialId :: !Text
+  , _sscUserName                    :: !Text
+  , _sscStatus                      :: !StatusType
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -2419,12 +2419,12 @@ instance NFData ServiceSpecificCredential where
 --
 -- /See:/ 'serviceSpecificCredentialMetadata' smart constructor.
 data ServiceSpecificCredentialMetadata = ServiceSpecificCredentialMetadata'
-  { _sscmUserName                    :: {-# NOUNPACK #-}!Text
-  , _sscmStatus                      :: {-# NOUNPACK #-}!StatusType
-  , _sscmServiceUserName             :: {-# NOUNPACK #-}!Text
-  , _sscmCreateDate                  :: {-# NOUNPACK #-}!ISO8601
-  , _sscmServiceSpecificCredentialId :: {-# NOUNPACK #-}!Text
-  , _sscmServiceName                 :: {-# NOUNPACK #-}!Text
+  { _sscmUserName                    :: !Text
+  , _sscmStatus                      :: !StatusType
+  , _sscmServiceUserName             :: !Text
+  , _sscmCreateDate                  :: !ISO8601
+  , _sscmServiceSpecificCredentialId :: !Text
+  , _sscmServiceName                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2510,11 +2510,11 @@ instance NFData ServiceSpecificCredentialMetadata
 --
 -- /See:/ 'signingCertificate' smart constructor.
 data SigningCertificate = SigningCertificate'
-  { _scUploadDate      :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _scUserName        :: {-# NOUNPACK #-}!Text
-  , _scCertificateId   :: {-# NOUNPACK #-}!Text
-  , _scCertificateBody :: {-# NOUNPACK #-}!Text
-  , _scStatus          :: {-# NOUNPACK #-}!StatusType
+  { _scUploadDate      :: !(Maybe ISO8601)
+  , _scUserName        :: !Text
+  , _scCertificateId   :: !Text
+  , _scCertificateBody :: !Text
+  , _scStatus          :: !StatusType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2585,9 +2585,9 @@ instance NFData SigningCertificate where
 --
 -- /See:/ 'simulatePolicyResponse' smart constructor.
 data SimulatePolicyResponse = SimulatePolicyResponse'
-  { _spEvaluationResults :: {-# NOUNPACK #-}!(Maybe [EvaluationResult])
-  , _spMarker            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _spIsTruncated       :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _spEvaluationResults :: !(Maybe [EvaluationResult])
+  , _spMarker            :: !(Maybe Text)
+  , _spIsTruncated       :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2642,10 +2642,10 @@ instance NFData SimulatePolicyResponse where
 --
 -- /See:/ 'statement' smart constructor.
 data Statement = Statement'
-  { _sSourcePolicyType :: {-# NOUNPACK #-}!(Maybe PolicySourceType)
-  , _sSourcePolicyId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEndPosition      :: {-# NOUNPACK #-}!(Maybe Position)
-  , _sStartPosition    :: {-# NOUNPACK #-}!(Maybe Position)
+  { _sSourcePolicyType :: !(Maybe PolicySourceType)
+  , _sSourcePolicyId   :: !(Maybe Text)
+  , _sEndPosition      :: !(Maybe Position)
+  , _sStartPosition    :: !(Maybe Position)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2715,12 +2715,12 @@ instance NFData Statement where
 --
 -- /See:/ 'user' smart constructor.
 data User = User'
-  { _uPasswordLastUsed :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _uPath             :: {-# NOUNPACK #-}!Text
-  , _uUserName         :: {-# NOUNPACK #-}!Text
-  , _uUserId           :: {-# NOUNPACK #-}!Text
-  , _uARN              :: {-# NOUNPACK #-}!Text
-  , _uCreateDate       :: {-# NOUNPACK #-}!ISO8601
+  { _uPasswordLastUsed :: !(Maybe ISO8601)
+  , _uPath             :: !Text
+  , _uUserName         :: !Text
+  , _uUserId           :: !Text
+  , _uARN              :: !Text
+  , _uCreateDate       :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2802,14 +2802,14 @@ instance NFData User where
 --
 -- /See:/ 'userDetail' smart constructor.
 data UserDetail = UserDetail'
-  { _udGroupList               :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _udARN                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udPath                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udCreateDate              :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _udUserName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udUserId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udUserPolicyList          :: {-# NOUNPACK #-}!(Maybe [PolicyDetail])
-  , _udAttachedManagedPolicies :: {-# NOUNPACK #-}!(Maybe [AttachedPolicy])
+  { _udGroupList               :: !(Maybe [Text])
+  , _udARN                     :: !(Maybe Text)
+  , _udPath                    :: !(Maybe Text)
+  , _udCreateDate              :: !(Maybe ISO8601)
+  , _udUserName                :: !(Maybe Text)
+  , _udUserId                  :: !(Maybe Text)
+  , _udUserPolicyList          :: !(Maybe [PolicyDetail])
+  , _udAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2906,11 +2906,11 @@ instance NFData UserDetail where
 --
 -- /See:/ 'virtualMFADevice' smart constructor.
 data VirtualMFADevice = VirtualMFADevice'
-  { _vmdQRCodePNG        :: {-# NOUNPACK #-}!(Maybe (Sensitive Base64))
-  , _vmdBase32StringSeed :: {-# NOUNPACK #-}!(Maybe (Sensitive Base64))
-  , _vmdUser             :: {-# NOUNPACK #-}!(Maybe User)
-  , _vmdEnableDate       :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _vmdSerialNumber     :: {-# NOUNPACK #-}!Text
+  { _vmdQRCodePNG        :: !(Maybe (Sensitive Base64))
+  , _vmdBase32StringSeed :: !(Maybe (Sensitive Base64))
+  , _vmdUser             :: !(Maybe User)
+  , _vmdEnableDate       :: !(Maybe ISO8601)
+  , _vmdSerialNumber     :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

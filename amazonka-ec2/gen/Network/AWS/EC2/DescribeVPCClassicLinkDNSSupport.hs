@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeVPCClassicLinkDNSSupport' smart constructor.
 data DescribeVPCClassicLinkDNSSupport = DescribeVPCClassicLinkDNSSupport'
-  { _dvcldsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvcldsVPCIds     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvcldsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dvcldsNextToken  :: !(Maybe Text)
+  , _dvcldsVPCIds     :: !(Maybe [Text])
+  , _dvcldsMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery DescribeVPCClassicLinkDNSSupport
 --
 -- /See:/ 'describeVPCClassicLinkDNSSupportResponse' smart constructor.
 data DescribeVPCClassicLinkDNSSupportResponse = DescribeVPCClassicLinkDNSSupportResponse'
-  { _dvpccldnssrsVPCs :: {-# NOUNPACK #-}!(Maybe [ClassicLinkDNSSupport])
-  , _dvpccldnssrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvpccldnssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvpccldnssrsVPCs           :: !(Maybe [ClassicLinkDNSSupport])
+  , _dvpccldnssrsNextToken      :: !(Maybe Text)
+  , _dvpccldnssrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

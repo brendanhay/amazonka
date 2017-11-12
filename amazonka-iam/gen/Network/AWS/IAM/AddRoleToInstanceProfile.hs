@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'addRoleToInstanceProfile' smart constructor.
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
-  { _artipInstanceProfileName :: {-# NOUNPACK #-}!Text
-  , _artipRoleName            :: {-# NOUNPACK #-}!Text
+  { _artipInstanceProfileName :: !Text
+  , _artipRoleName            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

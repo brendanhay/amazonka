@@ -93,8 +93,8 @@ instance ToQuery DeletePlatformVersion where
 
 -- | /See:/ 'deletePlatformVersionResponse' smart constructor.
 data DeletePlatformVersionResponse = DeletePlatformVersionResponse'
-  { _dpvrsPlatformSummary :: {-# NOUNPACK #-}!(Maybe PlatformSummary)
-  , _dpvrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dpvrsPlatformSummary :: !(Maybe PlatformSummary)
+  , _dpvrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

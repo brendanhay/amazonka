@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachGroupPolicy' smart constructor.
 data AttachGroupPolicy = AttachGroupPolicy'
-  { _agpGroupName :: {-# NOUNPACK #-}!Text
-  , _agpPolicyARN :: {-# NOUNPACK #-}!Text
+  { _agpGroupName :: !Text
+  , _agpPolicyARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'deleteConstraint' smart constructor.
 data DeleteConstraint = DeleteConstraint'
-  { _dcAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcId             :: {-# NOUNPACK #-}!Text
+  { _dcAcceptLanguage :: !(Maybe Text)
+  , _dcId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

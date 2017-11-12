@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createSecurityConfiguration' smart constructor.
 data CreateSecurityConfiguration = CreateSecurityConfiguration'
-  { _cscName                  :: {-# NOUNPACK #-}!Text
-  , _cscSecurityConfiguration :: {-# NOUNPACK #-}!Text
+  { _cscName                  :: !Text
+  , _cscSecurityConfiguration :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,9 +119,9 @@ instance ToQuery CreateSecurityConfiguration where
 
 -- | /See:/ 'createSecurityConfigurationResponse' smart constructor.
 data CreateSecurityConfigurationResponse = CreateSecurityConfigurationResponse'
-  { _cscrsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _cscrsName             :: {-# NOUNPACK #-}!Text
-  , _cscrsCreationDateTime :: {-# NOUNPACK #-}!POSIX
+  { _cscrsResponseStatus   :: !Int
+  , _cscrsName             :: !Text
+  , _cscrsCreationDateTime :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,8 +52,8 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'deleteVPCAssociationAuthorization' smart constructor.
 data DeleteVPCAssociationAuthorization = DeleteVPCAssociationAuthorization'
-  { _dvaaHostedZoneId :: {-# NOUNPACK #-}!ResourceId
-  , _dvaaVPC          :: {-# NOUNPACK #-}!VPC
+  { _dvaaHostedZoneId :: !ResourceId
+  , _dvaaVPC          :: !VPC
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

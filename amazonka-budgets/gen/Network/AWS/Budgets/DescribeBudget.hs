@@ -47,8 +47,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeBudget' smart constructor.
 data DescribeBudget = DescribeBudget'
-  { _desAccountId  :: {-# NOUNPACK #-}!Text
-  , _desBudgetName :: {-# NOUNPACK #-}!Text
+  { _desAccountId  :: !Text
+  , _desBudgetName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery DescribeBudget where
 --
 -- /See:/ 'describeBudgetResponse' smart constructor.
 data DescribeBudgetResponse = DescribeBudgetResponse'
-  { _desrsBudget         :: {-# NOUNPACK #-}!(Maybe Budget)
-  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _desrsBudget         :: !(Maybe Budget)
+  , _desrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,11 +52,11 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getFolderPath' smart constructor.
 data GetFolderPath = GetFolderPath'
-  { _gfpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _gfpMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfpLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gfpFields              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfpFolderId            :: {-# NOUNPACK #-}!Text
+  { _gfpAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _gfpMarker              :: !(Maybe Text)
+  , _gfpLimit               :: !(Maybe Nat)
+  , _gfpFields              :: !(Maybe Text)
+  , _gfpFolderId            :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -139,8 +139,8 @@ instance ToQuery GetFolderPath where
 
 -- | /See:/ 'getFolderPathResponse' smart constructor.
 data GetFolderPathResponse = GetFolderPathResponse'
-  { _gfprsPath           :: {-# NOUNPACK #-}!(Maybe ResourcePath)
-  , _gfprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gfprsPath           :: !(Maybe ResourcePath)
+  , _gfprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

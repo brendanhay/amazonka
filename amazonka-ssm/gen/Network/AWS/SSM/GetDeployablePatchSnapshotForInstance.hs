@@ -50,8 +50,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getDeployablePatchSnapshotForInstance' smart constructor.
 data GetDeployablePatchSnapshotForInstance = GetDeployablePatchSnapshotForInstance'
-  { _gdpsfiInstanceId :: {-# NOUNPACK #-}!Text
-  , _gdpsfiSnapshotId :: {-# NOUNPACK #-}!Text
+  { _gdpsfiInstanceId :: !Text
+  , _gdpsfiSnapshotId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,11 +132,11 @@ instance ToQuery
 
 -- | /See:/ 'getDeployablePatchSnapshotForInstanceResponse' smart constructor.
 data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotForInstanceResponse'
-  { _gdpsfirsInstanceId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdpsfirsProduct             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdpsfirsSnapshotDownloadURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdpsfirsSnapshotId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdpsfirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _gdpsfirsInstanceId          :: !(Maybe Text)
+  , _gdpsfirsProduct             :: !(Maybe Text)
+  , _gdpsfirsSnapshotDownloadURL :: !(Maybe Text)
+  , _gdpsfirsSnapshotId          :: !(Maybe Text)
+  , _gdpsfirsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

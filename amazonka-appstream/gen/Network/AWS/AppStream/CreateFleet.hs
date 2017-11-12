@@ -57,18 +57,18 @@ import Network.AWS.Response
 
 -- | /See:/ 'createFleet' smart constructor.
 data CreateFleet = CreateFleet'
-  { _cfDomainJoinInfo              :: {-# NOUNPACK #-}!(Maybe DomainJoinInfo)
-  , _cfDisconnectTimeoutInSeconds  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cfMaxUserDurationInSeconds    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cfFleetType                   :: {-# NOUNPACK #-}!(Maybe FleetType)
-  , _cfVPCConfig                   :: {-# NOUNPACK #-}!(Maybe VPCConfig)
-  , _cfDisplayName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfEnableDefaultInternetAccess :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cfDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfName                        :: {-# NOUNPACK #-}!Text
-  , _cfImageName                   :: {-# NOUNPACK #-}!Text
-  , _cfInstanceType                :: {-# NOUNPACK #-}!Text
-  , _cfComputeCapacity             :: {-# NOUNPACK #-}!ComputeCapacity
+  { _cfDomainJoinInfo              :: !(Maybe DomainJoinInfo)
+  , _cfDisconnectTimeoutInSeconds  :: !(Maybe Int)
+  , _cfMaxUserDurationInSeconds    :: !(Maybe Int)
+  , _cfFleetType                   :: !(Maybe FleetType)
+  , _cfVPCConfig                   :: !(Maybe VPCConfig)
+  , _cfDisplayName                 :: !(Maybe Text)
+  , _cfEnableDefaultInternetAccess :: !(Maybe Bool)
+  , _cfDescription                 :: !(Maybe Text)
+  , _cfName                        :: !Text
+  , _cfImageName                   :: !Text
+  , _cfInstanceType                :: !Text
+  , _cfComputeCapacity             :: !ComputeCapacity
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -221,8 +221,8 @@ instance ToQuery CreateFleet where
 
 -- | /See:/ 'createFleetResponse' smart constructor.
 data CreateFleetResponse = CreateFleetResponse'
-  { _cfrsFleet          :: {-# NOUNPACK #-}!(Maybe Fleet)
-  , _cfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cfrsFleet          :: !(Maybe Fleet)
+  , _cfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

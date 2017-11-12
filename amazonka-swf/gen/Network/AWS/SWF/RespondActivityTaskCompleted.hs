@@ -62,8 +62,8 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'respondActivityTaskCompleted' smart constructor.
 data RespondActivityTaskCompleted = RespondActivityTaskCompleted'
-  { _ratcResult    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ratcTaskToken :: {-# NOUNPACK #-}!Text
+  { _ratcResult    :: !(Maybe Text)
+  , _ratcTaskToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,8 +54,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
-  { _atLoadBalancerNames :: {-# NOUNPACK #-}![Text]
-  , _atTags              :: {-# NOUNPACK #-}!(List1 Tag)
+  { _atLoadBalancerNames :: ![Text]
+  , _atTags              :: !(List1 Tag)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

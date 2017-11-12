@@ -100,12 +100,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'searchGameSessions' smart constructor.
 data SearchGameSessions = SearchGameSessions'
-  { _sgsFilterExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sgsSortExpression   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sgsAliasId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sgsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sgsLimit            :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _sgsFleetId          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sgsFilterExpression :: !(Maybe Text)
+  , _sgsSortExpression   :: !(Maybe Text)
+  , _sgsAliasId          :: !(Maybe Text)
+  , _sgsNextToken        :: !(Maybe Text)
+  , _sgsLimit            :: !(Maybe Nat)
+  , _sgsFleetId          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -209,9 +209,9 @@ instance ToQuery SearchGameSessions where
 --
 -- /See:/ 'searchGameSessionsResponse' smart constructor.
 data SearchGameSessionsResponse = SearchGameSessionsResponse'
-  { _sgsrsGameSessions   :: {-# NOUNPACK #-}!(Maybe [GameSession])
-  , _sgsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sgsrsGameSessions   :: !(Maybe [GameSession])
+  , _sgsrsNextToken      :: !(Maybe Text)
+  , _sgsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

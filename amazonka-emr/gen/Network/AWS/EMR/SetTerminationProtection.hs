@@ -54,8 +54,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'setTerminationProtection' smart constructor.
 data SetTerminationProtection = SetTerminationProtection'
-  { _stpJobFlowIds           :: {-# NOUNPACK #-}![Text]
-  , _stpTerminationProtected :: {-# NOUNPACK #-}!Bool
+  { _stpJobFlowIds           :: ![Text]
+  , _stpTerminationProtected :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

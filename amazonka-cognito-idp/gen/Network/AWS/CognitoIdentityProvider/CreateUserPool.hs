@@ -67,24 +67,24 @@ import Network.AWS.Response
 --
 -- /See:/ 'createUserPool' smart constructor.
 data CreateUserPool = CreateUserPool'
-  { _cupUserPoolTags :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cupVerificationMessageTemplate :: {-# NOUNPACK #-}!(Maybe VerificationMessageTemplateType)
-  , _cupEmailVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cupSmsAuthenticationMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cupEmailVerificationSubject :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cupUsernameAttributes :: {-# NOUNPACK #-}!(Maybe [UsernameAttributeType])
-  , _cupAliasAttributes :: {-# NOUNPACK #-}!(Maybe [AliasAttributeType])
-  , _cupSchema :: {-# NOUNPACK #-}!(Maybe (List1 SchemaAttributeType))
-  , _cupEmailConfiguration :: {-# NOUNPACK #-}!(Maybe EmailConfigurationType)
-  , _cupSmsVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cupMFAConfiguration :: {-# NOUNPACK #-}!(Maybe UserPoolMFAType)
-  , _cupLambdaConfig :: {-# NOUNPACK #-}!(Maybe LambdaConfigType)
-  , _cupSmsConfiguration :: {-# NOUNPACK #-}!(Maybe SmsConfigurationType)
-  , _cupAdminCreateUserConfig :: {-# NOUNPACK #-}!(Maybe AdminCreateUserConfigType)
-  , _cupDeviceConfiguration :: {-# NOUNPACK #-}!(Maybe DeviceConfigurationType)
-  , _cupAutoVerifiedAttributes :: {-# NOUNPACK #-}!(Maybe [VerifiedAttributeType])
-  , _cupPolicies :: {-# NOUNPACK #-}!(Maybe UserPoolPolicyType)
-  , _cupPoolName :: {-# NOUNPACK #-}!Text
+  { _cupUserPoolTags                :: !(Maybe (Map Text Text))
+  , _cupVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
+  , _cupEmailVerificationMessage    :: !(Maybe Text)
+  , _cupSmsAuthenticationMessage    :: !(Maybe Text)
+  , _cupEmailVerificationSubject    :: !(Maybe Text)
+  , _cupUsernameAttributes          :: !(Maybe [UsernameAttributeType])
+  , _cupAliasAttributes             :: !(Maybe [AliasAttributeType])
+  , _cupSchema                      :: !(Maybe (List1 SchemaAttributeType))
+  , _cupEmailConfiguration          :: !(Maybe EmailConfigurationType)
+  , _cupSmsVerificationMessage      :: !(Maybe Text)
+  , _cupMFAConfiguration            :: !(Maybe UserPoolMFAType)
+  , _cupLambdaConfig                :: !(Maybe LambdaConfigType)
+  , _cupSmsConfiguration            :: !(Maybe SmsConfigurationType)
+  , _cupAdminCreateUserConfig       :: !(Maybe AdminCreateUserConfigType)
+  , _cupDeviceConfiguration         :: !(Maybe DeviceConfigurationType)
+  , _cupAutoVerifiedAttributes      :: !(Maybe [VerifiedAttributeType])
+  , _cupPolicies                    :: !(Maybe UserPoolPolicyType)
+  , _cupPoolName                    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -291,8 +291,8 @@ instance ToQuery CreateUserPool where
 --
 -- /See:/ 'createUserPoolResponse' smart constructor.
 data CreateUserPoolResponse = CreateUserPoolResponse'
-  { _cuprsUserPool       :: {-# NOUNPACK #-}!(Maybe UserPoolType)
-  , _cuprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cuprsUserPool       :: !(Maybe UserPoolType)
+  , _cuprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

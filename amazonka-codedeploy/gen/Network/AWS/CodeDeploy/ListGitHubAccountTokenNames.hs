@@ -113,9 +113,9 @@ instance ToQuery ListGitHubAccountTokenNames where
 --
 -- /See:/ 'listGitHubAccountTokenNamesResponse' smart constructor.
 data ListGitHubAccountTokenNamesResponse = ListGitHubAccountTokenNamesResponse'
-  { _lghatnrsTokenNameList  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lghatnrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lghatnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lghatnrsTokenNameList  :: !(Maybe [Text])
+  , _lghatnrsNextToken      :: !(Maybe Text)
+  , _lghatnrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

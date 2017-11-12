@@ -107,8 +107,8 @@ instance ToQuery GetCognitoEvents where
 --
 -- /See:/ 'getCognitoEventsResponse' smart constructor.
 data GetCognitoEventsResponse = GetCognitoEventsResponse'
-  { _gcersEvents         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gcersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcersEvents         :: !(Maybe (Map Text Text))
+  , _gcersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

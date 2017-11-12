@@ -65,10 +65,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateGameSessionQueue' smart constructor.
 data UpdateGameSessionQueue = UpdateGameSessionQueue'
-  { _ugsqPlayerLatencyPolicies :: {-# NOUNPACK #-}!(Maybe [PlayerLatencyPolicy])
-  , _ugsqTimeoutInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ugsqDestinations :: {-# NOUNPACK #-}!(Maybe [GameSessionQueueDestination])
-  , _ugsqName :: {-# NOUNPACK #-}!Text
+  { _ugsqPlayerLatencyPolicies :: !(Maybe [PlayerLatencyPolicy])
+  , _ugsqTimeoutInSeconds      :: !(Maybe Nat)
+  , _ugsqDestinations          :: !(Maybe [GameSessionQueueDestination])
+  , _ugsqName                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,8 +156,8 @@ instance ToQuery UpdateGameSessionQueue where
 --
 -- /See:/ 'updateGameSessionQueueResponse' smart constructor.
 data UpdateGameSessionQueueResponse = UpdateGameSessionQueueResponse'
-  { _ugsqrsGameSessionQueue :: {-# NOUNPACK #-}!(Maybe GameSessionQueue)
-  , _ugsqrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ugsqrsGameSessionQueue :: !(Maybe GameSessionQueue)
+  , _ugsqrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

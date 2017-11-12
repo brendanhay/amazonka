@@ -63,9 +63,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'mergeShards' smart constructor.
 data MergeShards = MergeShards'
-  { _msStreamName           :: {-# NOUNPACK #-}!Text
-  , _msShardToMerge         :: {-# NOUNPACK #-}!Text
-  , _msAdjacentShardToMerge :: {-# NOUNPACK #-}!Text
+  { _msStreamName           :: !Text
+  , _msShardToMerge         :: !Text
+  , _msAdjacentShardToMerge :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

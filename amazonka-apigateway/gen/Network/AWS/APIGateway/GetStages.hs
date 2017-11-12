@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getStages' smart constructor.
 data GetStages = GetStages'
-  { _gsDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsRestAPIId    :: {-# NOUNPACK #-}!Text
+  { _gsDeploymentId :: !(Maybe Text)
+  , _gsRestAPIId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery GetStages where
 --
 -- /See:/ 'getStagesResponse' smart constructor.
 data GetStagesResponse = GetStagesResponse'
-  { _gsrsItem           :: {-# NOUNPACK #-}!(Maybe [Stage])
-  , _gsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsrsItem           :: !(Maybe [Stage])
+  , _gsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

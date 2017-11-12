@@ -103,8 +103,8 @@ instance ToQuery DeleteInstance where
 
 -- | /See:/ 'deleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse = DeleteInstanceResponse'
-  { _dirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _dirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dirsOperations     :: !(Maybe [Operation])
+  , _dirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

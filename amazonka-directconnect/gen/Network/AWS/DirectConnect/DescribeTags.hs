@@ -109,8 +109,8 @@ instance ToQuery DescribeTags where
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { _dtrsResourceTags   :: {-# NOUNPACK #-}!(Maybe [ResourceTag])
-  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dtrsResourceTags   :: !(Maybe [ResourceTag])
+  , _dtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

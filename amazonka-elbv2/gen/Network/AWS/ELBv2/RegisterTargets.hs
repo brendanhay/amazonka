@@ -54,8 +54,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'registerTargets' smart constructor.
 data RegisterTargets = RegisterTargets'
-  { _rtTargetGroupARN :: {-# NOUNPACK #-}!Text
-  , _rtTargets        :: {-# NOUNPACK #-}![TargetDescription]
+  { _rtTargetGroupARN :: !Text
+  , _rtTargets        :: ![TargetDescription]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

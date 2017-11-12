@@ -59,12 +59,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyReplicationTask' smart constructor.
 data ModifyReplicationTask = ModifyReplicationTask'
-  { _mrtReplicationTaskSettings   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrtReplicationTaskIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrtTableMappings             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrtMigrationType             :: {-# NOUNPACK #-}!(Maybe MigrationTypeValue)
-  , _mrtCdcStartTime              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _mrtReplicationTaskARN        :: {-# NOUNPACK #-}!Text
+  { _mrtReplicationTaskSettings   :: !(Maybe Text)
+  , _mrtReplicationTaskIdentifier :: !(Maybe Text)
+  , _mrtTableMappings             :: !(Maybe Text)
+  , _mrtMigrationType             :: !(Maybe MigrationTypeValue)
+  , _mrtCdcStartTime              :: !(Maybe POSIX)
+  , _mrtReplicationTaskARN        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -171,8 +171,8 @@ instance ToQuery ModifyReplicationTask where
 --
 -- /See:/ 'modifyReplicationTaskResponse' smart constructor.
 data ModifyReplicationTaskResponse = ModifyReplicationTaskResponse'
-  { _mrtrsReplicationTask :: {-# NOUNPACK #-}!(Maybe ReplicationTask)
-  , _mrtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _mrtrsReplicationTask :: !(Maybe ReplicationTask)
+  , _mrtrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

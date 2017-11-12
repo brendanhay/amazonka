@@ -91,9 +91,9 @@ instance ToQuery GetBucketVersioning where
 
 -- | /See:/ 'getBucketVersioningResponse' smart constructor.
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
-  { _gbvrsStatus         :: {-# NOUNPACK #-}!(Maybe BucketVersioningStatus)
-  , _gbvrsMFADelete      :: {-# NOUNPACK #-}!(Maybe MFADeleteStatus)
-  , _gbvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbvrsStatus         :: !(Maybe BucketVersioningStatus)
+  , _gbvrsMFADelete      :: !(Maybe MFADeleteStatus)
+  , _gbvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

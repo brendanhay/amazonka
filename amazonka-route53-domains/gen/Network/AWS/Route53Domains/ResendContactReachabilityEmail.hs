@@ -109,10 +109,10 @@ instance ToQuery ResendContactReachabilityEmail where
 
 -- | /See:/ 'resendContactReachabilityEmailResponse' smart constructor.
 data ResendContactReachabilityEmailResponse = ResendContactReachabilityEmailResponse'
-  { _rcrersDomainName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcrersEmailAddress      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcrersIsAlreadyVerified :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rcrersResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _rcrersDomainName        :: !(Maybe Text)
+  , _rcrersEmailAddress      :: !(Maybe Text)
+  , _rcrersIsAlreadyVerified :: !(Maybe Bool)
+  , _rcrersResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

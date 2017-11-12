@@ -114,8 +114,8 @@ instance ToQuery DeleteTable where
 --
 -- /See:/ 'deleteTableResponse' smart constructor.
 data DeleteTableResponse = DeleteTableResponse'
-  { _dtrsTableDescription :: {-# NOUNPACK #-}!(Maybe TableDescription)
-  , _dtrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _dtrsTableDescription :: !(Maybe TableDescription)
+  , _dtrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -56,13 +56,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'registerInstance' smart constructor.
 data RegisterInstance = RegisterInstance'
-  { _riPrivateIP               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riHostname                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riInstanceIdentity        :: {-# NOUNPACK #-}!(Maybe InstanceIdentity)
-  , _riPublicIP                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riRsaPublicKeyFingerprint :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riRsaPublicKey            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riStackId                 :: {-# NOUNPACK #-}!Text
+  { _riPrivateIP               :: !(Maybe Text)
+  , _riHostname                :: !(Maybe Text)
+  , _riInstanceIdentity        :: !(Maybe InstanceIdentity)
+  , _riPublicIP                :: !(Maybe Text)
+  , _riRsaPublicKeyFingerprint :: !(Maybe Text)
+  , _riRsaPublicKey            :: !(Maybe Text)
+  , _riStackId                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -173,8 +173,8 @@ instance ToQuery RegisterInstance where
 --
 -- /See:/ 'registerInstanceResponse' smart constructor.
 data RegisterInstanceResponse = RegisterInstanceResponse'
-  { _rirsInstanceId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rirsInstanceId     :: !(Maybe Text)
+  , _rirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

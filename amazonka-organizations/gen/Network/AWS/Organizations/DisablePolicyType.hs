@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'disablePolicyType' smart constructor.
 data DisablePolicyType = DisablePolicyType'
-  { _dptRootId     :: {-# NOUNPACK #-}!Text
-  , _dptPolicyType :: {-# NOUNPACK #-}!PolicyType
+  { _dptRootId     :: !Text
+  , _dptPolicyType :: !PolicyType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery DisablePolicyType where
 
 -- | /See:/ 'disablePolicyTypeResponse' smart constructor.
 data DisablePolicyTypeResponse = DisablePolicyTypeResponse'
-  { _dptrsRoot           :: {-# NOUNPACK #-}!(Maybe Root)
-  , _dptrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dptrsRoot           :: !(Maybe Root)
+  , _dptrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

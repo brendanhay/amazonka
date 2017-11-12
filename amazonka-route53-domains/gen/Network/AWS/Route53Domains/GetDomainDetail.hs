@@ -149,28 +149,28 @@ instance ToQuery GetDomainDetail where
 --
 -- /See:/ 'getDomainDetailResponse' smart constructor.
 data GetDomainDetailResponse = GetDomainDetailResponse'
-  { _gddrsTechPrivacy       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gddrsDNSSec            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsWhoIsServer       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsRegistryDomainId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsRegistrantPrivacy :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gddrsUpdatedDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gddrsAdminPrivacy      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gddrsAutoRenew         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gddrsAbuseContactPhone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsRegistrarURL      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsAbuseContactEmail :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsExpirationDate    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gddrsCreationDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gddrsRegistrarName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsReseller          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddrsStatusList        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gddrsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _gddrsDomainName        :: {-# NOUNPACK #-}!Text
-  , _gddrsNameservers       :: {-# NOUNPACK #-}![Nameserver]
-  , _gddrsAdminContact      :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
-  , _gddrsRegistrantContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
-  , _gddrsTechContact       :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  { _gddrsTechPrivacy       :: !(Maybe Bool)
+  , _gddrsDNSSec            :: !(Maybe Text)
+  , _gddrsWhoIsServer       :: !(Maybe Text)
+  , _gddrsRegistryDomainId  :: !(Maybe Text)
+  , _gddrsRegistrantPrivacy :: !(Maybe Bool)
+  , _gddrsUpdatedDate       :: !(Maybe POSIX)
+  , _gddrsAdminPrivacy      :: !(Maybe Bool)
+  , _gddrsAutoRenew         :: !(Maybe Bool)
+  , _gddrsAbuseContactPhone :: !(Maybe Text)
+  , _gddrsRegistrarURL      :: !(Maybe Text)
+  , _gddrsAbuseContactEmail :: !(Maybe Text)
+  , _gddrsExpirationDate    :: !(Maybe POSIX)
+  , _gddrsCreationDate      :: !(Maybe POSIX)
+  , _gddrsRegistrarName     :: !(Maybe Text)
+  , _gddrsReseller          :: !(Maybe Text)
+  , _gddrsStatusList        :: !(Maybe [Text])
+  , _gddrsResponseStatus    :: !Int
+  , _gddrsDomainName        :: !Text
+  , _gddrsNameservers       :: ![Nameserver]
+  , _gddrsAdminContact      :: !(Sensitive ContactDetail)
+  , _gddrsRegistrantContact :: !(Sensitive ContactDetail)
+  , _gddrsTechContact       :: !(Sensitive ContactDetail)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

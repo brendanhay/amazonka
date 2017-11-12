@@ -55,9 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getParametersForImport' smart constructor.
 data GetParametersForImport = GetParametersForImport'
-  { _gpfiKeyId             :: {-# NOUNPACK #-}!Text
-  , _gpfiWrappingAlgorithm :: {-# NOUNPACK #-}!AlgorithmSpec
-  , _gpfiWrappingKeySpec   :: {-# NOUNPACK #-}!WrappingKeySpec
+  { _gpfiKeyId             :: !Text
+  , _gpfiWrappingAlgorithm :: !AlgorithmSpec
+  , _gpfiWrappingKeySpec   :: !WrappingKeySpec
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,11 +138,11 @@ instance ToQuery GetParametersForImport where
 
 -- | /See:/ 'getParametersForImportResponse' smart constructor.
 data GetParametersForImportResponse = GetParametersForImportResponse'
-  { _gpfirsKeyId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpfirsPublicKey         :: {-# NOUNPACK #-}!(Maybe (Sensitive Base64))
-  , _gpfirsParametersValidTo :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gpfirsImportToken       :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _gpfirsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gpfirsKeyId             :: !(Maybe Text)
+  , _gpfirsPublicKey         :: !(Maybe (Sensitive Base64))
+  , _gpfirsParametersValidTo :: !(Maybe POSIX)
+  , _gpfirsImportToken       :: !(Maybe Base64)
+  , _gpfirsResponseStatus    :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

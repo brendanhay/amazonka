@@ -42,8 +42,8 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketAnalyticsConfiguration' smart constructor.
 data DeleteBucketAnalyticsConfiguration = DeleteBucketAnalyticsConfiguration'
-  { _dbacBucket :: {-# NOUNPACK #-}!BucketName
-  , _dbacId     :: {-# NOUNPACK #-}!Text
+  { _dbacBucket :: !BucketName
+  , _dbacId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

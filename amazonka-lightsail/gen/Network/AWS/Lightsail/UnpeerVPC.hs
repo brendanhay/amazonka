@@ -88,8 +88,8 @@ instance ToQuery UnpeerVPC where
 
 -- | /See:/ 'unpeerVPCResponse' smart constructor.
 data UnpeerVPCResponse = UnpeerVPCResponse'
-  { _uvrsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _uvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uvrsOperation      :: !(Maybe Operation)
+  , _uvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

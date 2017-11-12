@@ -51,8 +51,8 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'cancelRetrieval' smart constructor.
 data CancelRetrieval = CancelRetrieval'
-  { _crGatewayARN :: {-# NOUNPACK #-}!Text
-  , _crTapeARN    :: {-# NOUNPACK #-}!Text
+  { _crGatewayARN :: !Text
+  , _crTapeARN    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery CancelRetrieval where
 --
 -- /See:/ 'cancelRetrievalResponse' smart constructor.
 data CancelRetrievalResponse = CancelRetrievalResponse'
-  { _crrsTapeARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crrsTapeARN        :: !(Maybe Text)
+  , _crrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

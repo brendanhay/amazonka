@@ -104,9 +104,9 @@ instance ToQuery GetDefaultPatchBaseline where
 
 -- | /See:/ 'getDefaultPatchBaselineResponse' smart constructor.
 data GetDefaultPatchBaselineResponse = GetDefaultPatchBaselineResponse'
-  { _gdpbrsOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
-  , _gdpbrsBaselineId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdpbrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gdpbrsOperatingSystem :: !(Maybe OperatingSystem)
+  , _gdpbrsBaselineId      :: !(Maybe Text)
+  , _gdpbrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

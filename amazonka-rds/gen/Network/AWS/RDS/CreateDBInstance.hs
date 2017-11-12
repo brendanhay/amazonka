@@ -90,47 +90,47 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDBInstance' smart constructor.
 data CreateDBInstance = CreateDBInstance'
-  { _cdiEngineVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiDBSecurityGroups                :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdiStorageEncrypted                :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdiDBClusterIdentifier             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiMasterUserPassword              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiPubliclyAccessible              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdiAutoMinorVersionUpgrade         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdiMasterUsername                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiMonitoringRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiIOPS                            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdiDomain                          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiMonitoringInterval              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdiTDECredentialPassword           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiPromotionTier                   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdiLicenseModel                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiPreferredMaintenanceWindow      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiCharacterSetName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiEnablePerformanceInsights       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdiKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiDBParameterGroupName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiPreferredBackupWindow           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiAvailabilityZone                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiBackupRetentionPeriod           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdiPerformanceInsightsKMSKeyId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdiMultiAZ                         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdiAllocatedStorage                :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdiOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiCopyTagsToSnapshot              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdiTimezone                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiTDECredentialARN                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiDomainIAMRoleName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cdiPort                            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdiEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdiStorageType                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiDBName                          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdiDBInstanceIdentifier            :: {-# NOUNPACK #-}!Text
-  , _cdiDBInstanceClass                 :: {-# NOUNPACK #-}!Text
-  , _cdiEngine                          :: {-# NOUNPACK #-}!Text
+  { _cdiEngineVersion                   :: !(Maybe Text)
+  , _cdiDBSecurityGroups                :: !(Maybe [Text])
+  , _cdiStorageEncrypted                :: !(Maybe Bool)
+  , _cdiDBClusterIdentifier             :: !(Maybe Text)
+  , _cdiMasterUserPassword              :: !(Maybe Text)
+  , _cdiPubliclyAccessible              :: !(Maybe Bool)
+  , _cdiAutoMinorVersionUpgrade         :: !(Maybe Bool)
+  , _cdiMasterUsername                  :: !(Maybe Text)
+  , _cdiDBSubnetGroupName               :: !(Maybe Text)
+  , _cdiMonitoringRoleARN               :: !(Maybe Text)
+  , _cdiIOPS                            :: !(Maybe Int)
+  , _cdiDomain                          :: !(Maybe Text)
+  , _cdiMonitoringInterval              :: !(Maybe Int)
+  , _cdiTDECredentialPassword           :: !(Maybe Text)
+  , _cdiPromotionTier                   :: !(Maybe Int)
+  , _cdiLicenseModel                    :: !(Maybe Text)
+  , _cdiPreferredMaintenanceWindow      :: !(Maybe Text)
+  , _cdiCharacterSetName                :: !(Maybe Text)
+  , _cdiEnablePerformanceInsights       :: !(Maybe Bool)
+  , _cdiKMSKeyId                        :: !(Maybe Text)
+  , _cdiDBParameterGroupName            :: !(Maybe Text)
+  , _cdiPreferredBackupWindow           :: !(Maybe Text)
+  , _cdiAvailabilityZone                :: !(Maybe Text)
+  , _cdiBackupRetentionPeriod           :: !(Maybe Int)
+  , _cdiPerformanceInsightsKMSKeyId     :: !(Maybe Text)
+  , _cdiVPCSecurityGroupIds             :: !(Maybe [Text])
+  , _cdiMultiAZ                         :: !(Maybe Bool)
+  , _cdiAllocatedStorage                :: !(Maybe Int)
+  , _cdiOptionGroupName                 :: !(Maybe Text)
+  , _cdiCopyTagsToSnapshot              :: !(Maybe Bool)
+  , _cdiTimezone                        :: !(Maybe Text)
+  , _cdiTDECredentialARN                :: !(Maybe Text)
+  , _cdiDomainIAMRoleName               :: !(Maybe Text)
+  , _cdiTags                            :: !(Maybe [Tag])
+  , _cdiPort                            :: !(Maybe Int)
+  , _cdiEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+  , _cdiStorageType                     :: !(Maybe Text)
+  , _cdiDBName                          :: !(Maybe Text)
+  , _cdiDBInstanceIdentifier            :: !Text
+  , _cdiDBInstanceClass                 :: !Text
+  , _cdiEngine                          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -512,8 +512,8 @@ instance ToQuery CreateDBInstance where
 
 -- | /See:/ 'createDBInstanceResponse' smart constructor.
 data CreateDBInstanceResponse = CreateDBInstanceResponse'
-  { _cdirsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
-  , _cdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdirsDBInstance     :: !(Maybe DBInstance)
+  , _cdirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

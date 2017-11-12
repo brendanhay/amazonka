@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'resetNetworkInterfaceAttribute' smart constructor.
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
-  { _rniaSourceDestCheck    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rniaDryRun             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rniaNetworkInterfaceId :: {-# NOUNPACK #-}!Text
+  { _rniaSourceDestCheck    :: !(Maybe Text)
+  , _rniaDryRun             :: !(Maybe Bool)
+  , _rniaNetworkInterfaceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

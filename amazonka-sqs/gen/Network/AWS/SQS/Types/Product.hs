@@ -27,10 +27,10 @@ import Network.AWS.SQS.Types.Sum
 --
 -- /See:/ 'batchResultErrorEntry' smart constructor.
 data BatchResultErrorEntry = BatchResultErrorEntry'
-  { _breeMessage     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _breeId          :: {-# NOUNPACK #-}!Text
-  , _breeSenderFault :: {-# NOUNPACK #-}!Bool
-  , _breeCode        :: {-# NOUNPACK #-}!Text
+  { _breeMessage     :: !(Maybe Text)
+  , _breeId          :: !Text
+  , _breeSenderFault :: !Bool
+  , _breeCode        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -100,9 +100,9 @@ instance NFData BatchResultErrorEntry where
 --
 -- /See:/ 'changeMessageVisibilityBatchRequestEntry' smart constructor.
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
-  { _cVisibilityTimeout :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cId                :: {-# NOUNPACK #-}!Text
-  , _cReceiptHandle     :: {-# NOUNPACK #-}!Text
+  { _cVisibilityTimeout :: !(Maybe Int)
+  , _cId                :: !Text
+  , _cReceiptHandle     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -202,8 +202,8 @@ instance NFData
 --
 -- /See:/ 'deleteMessageBatchRequestEntry' smart constructor.
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
-  { _dmbreId            :: {-# NOUNPACK #-}!Text
-  , _dmbreReceiptHandle :: {-# NOUNPACK #-}!Text
+  { _dmbreId            :: !Text
+  , _dmbreReceiptHandle :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -282,13 +282,13 @@ instance NFData DeleteMessageBatchResultEntry where
 --
 -- /See:/ 'message' smart constructor.
 data Message = Message'
-  { _mMessageAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text MessageAttributeValue))
-  , _mMD5OfBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mAttributes :: {-# NOUNPACK #-}!(Maybe (Map MessageAttribute Text))
-  , _mReceiptHandle :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mMessageId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mMD5OfMessageAttributes :: {-# NOUNPACK #-}!(Maybe Text)
+  { _mMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
+  , _mMD5OfBody              :: !(Maybe Text)
+  , _mBody                   :: !(Maybe Text)
+  , _mAttributes             :: !(Maybe (Map MessageAttribute Text))
+  , _mReceiptHandle          :: !(Maybe Text)
+  , _mMessageId              :: !(Maybe Text)
+  , _mMD5OfMessageAttributes :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -375,11 +375,11 @@ instance NFData Message where
 --
 -- /See:/ 'messageAttributeValue' smart constructor.
 data MessageAttributeValue = MessageAttributeValue'
-  { _mavBinaryValue      :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _mavStringListValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mavStringValue      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mavBinaryListValues :: {-# NOUNPACK #-}!(Maybe [Base64])
-  , _mavDataType         :: {-# NOUNPACK #-}!Text
+  { _mavBinaryValue      :: !(Maybe Base64)
+  , _mavStringListValues :: !(Maybe [Text])
+  , _mavStringValue      :: !(Maybe Text)
+  , _mavBinaryListValues :: !(Maybe [Base64])
+  , _mavDataType         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -466,12 +466,12 @@ instance ToQuery MessageAttributeValue where
 --
 -- /See:/ 'sendMessageBatchRequestEntry' smart constructor.
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
-  { _sMessageAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text MessageAttributeValue))
-  , _sDelaySeconds :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sMessageDeduplicationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sMessageGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sId :: {-# NOUNPACK #-}!Text
-  , _sMessageBody :: {-# NOUNPACK #-}!Text
+  { _sMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
+  , _sDelaySeconds           :: !(Maybe Int)
+  , _sMessageDeduplicationId :: !(Maybe Text)
+  , _sMessageGroupId         :: !(Maybe Text)
+  , _sId                     :: !Text
+  , _sMessageBody            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -550,11 +550,11 @@ instance ToQuery SendMessageBatchRequestEntry where
 --
 -- /See:/ 'sendMessageBatchResultEntry' smart constructor.
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
-  { _smbreSequenceNumber         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smbreMD5OfMessageAttributes :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smbreId                     :: {-# NOUNPACK #-}!Text
-  , _smbreMessageId              :: {-# NOUNPACK #-}!Text
-  , _smbreMD5OfMessageBody       :: {-# NOUNPACK #-}!Text
+  { _smbreSequenceNumber         :: !(Maybe Text)
+  , _smbreMD5OfMessageAttributes :: !(Maybe Text)
+  , _smbreId                     :: !Text
+  , _smbreMessageId              :: !Text
+  , _smbreMD5OfMessageBody       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

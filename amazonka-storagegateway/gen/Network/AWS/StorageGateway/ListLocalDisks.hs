@@ -109,9 +109,9 @@ instance ToQuery ListLocalDisks where
 
 -- | /See:/ 'listLocalDisksResponse' smart constructor.
 data ListLocalDisksResponse = ListLocalDisksResponse'
-  { _lldrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lldrsDisks          :: {-# NOUNPACK #-}!(Maybe [Disk])
-  , _lldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lldrsGatewayARN     :: !(Maybe Text)
+  , _lldrsDisks          :: !(Maybe [Disk])
+  , _lldrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

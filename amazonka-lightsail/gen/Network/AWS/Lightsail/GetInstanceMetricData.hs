@@ -53,13 +53,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'getInstanceMetricData' smart constructor.
 data GetInstanceMetricData = GetInstanceMetricData'
-  { _gimdInstanceName :: {-# NOUNPACK #-}!Text
-  , _gimdMetricName   :: {-# NOUNPACK #-}!InstanceMetricName
-  , _gimdPeriod       :: {-# NOUNPACK #-}!Nat
-  , _gimdStartTime    :: {-# NOUNPACK #-}!POSIX
-  , _gimdEndTime      :: {-# NOUNPACK #-}!POSIX
-  , _gimdUnit         :: {-# NOUNPACK #-}!MetricUnit
-  , _gimdStatistics   :: {-# NOUNPACK #-}![MetricStatistic]
+  { _gimdInstanceName :: !Text
+  , _gimdMetricName   :: !InstanceMetricName
+  , _gimdPeriod       :: !Nat
+  , _gimdStartTime    :: !POSIX
+  , _gimdEndTime      :: !POSIX
+  , _gimdUnit         :: !MetricUnit
+  , _gimdStatistics   :: ![MetricStatistic]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -174,9 +174,9 @@ instance ToQuery GetInstanceMetricData where
 
 -- | /See:/ 'getInstanceMetricDataResponse' smart constructor.
 data GetInstanceMetricDataResponse = GetInstanceMetricDataResponse'
-  { _gimdrsMetricName     :: {-# NOUNPACK #-}!(Maybe InstanceMetricName)
-  , _gimdrsMetricData     :: {-# NOUNPACK #-}!(Maybe [MetricDatapoint])
-  , _gimdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gimdrsMetricName     :: !(Maybe InstanceMetricName)
+  , _gimdrsMetricData     :: !(Maybe [MetricDatapoint])
+  , _gimdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

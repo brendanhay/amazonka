@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifySnapshotCopyRetentionPeriod' smart constructor.
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
-  { _mscrpClusterIdentifier :: {-# NOUNPACK #-}!Text
-  , _mscrpRetentionPeriod   :: {-# NOUNPACK #-}!Int
+  { _mscrpClusterIdentifier :: !Text
+  , _mscrpRetentionPeriod   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,8 +120,8 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod
 
 -- | /See:/ 'modifySnapshotCopyRetentionPeriodResponse' smart constructor.
 data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'
-  { _mscrprsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
-  , _mscrprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mscrprsCluster        :: !(Maybe Cluster)
+  , _mscrprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

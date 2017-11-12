@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createAdditionalAssignmentsForHIT' smart constructor.
 data CreateAdditionalAssignmentsForHIT = CreateAdditionalAssignmentsForHIT'
-  { _caafhitUniqueRequestToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caafhitHITId                         :: {-# NOUNPACK #-}!Text
-  , _caafhitNumberOfAdditionalAssignments :: {-# NOUNPACK #-}!Int
+  { _caafhitUniqueRequestToken            :: !(Maybe Text)
+  , _caafhitHITId                         :: !Text
+  , _caafhitNumberOfAdditionalAssignments :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

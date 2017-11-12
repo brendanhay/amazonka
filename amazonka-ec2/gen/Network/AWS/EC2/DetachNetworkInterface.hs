@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'detachNetworkInterface' smart constructor.
 data DetachNetworkInterface = DetachNetworkInterface'
-  { _dniForce        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dniDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dniAttachmentId :: {-# NOUNPACK #-}!Text
+  { _dniForce        :: !(Maybe Bool)
+  , _dniDryRun       :: !(Maybe Bool)
+  , _dniAttachmentId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

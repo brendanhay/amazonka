@@ -108,9 +108,9 @@ instance ToQuery DescribeResourceGroups where
 
 -- | /See:/ 'describeResourceGroupsResponse' smart constructor.
 data DescribeResourceGroupsResponse = DescribeResourceGroupsResponse'
-  { _drgrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _drgrsResourceGroups :: {-# NOUNPACK #-}![ResourceGroup]
-  , _drgrsFailedItems    :: {-# NOUNPACK #-}!(Map Text FailedItemDetails)
+  { _drgrsResponseStatus :: !Int
+  , _drgrsResourceGroups :: ![ResourceGroup]
+  , _drgrsFailedItems    :: !(Map Text FailedItemDetails)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getApps' smart constructor.
 data GetApps = GetApps'
-  { _gaToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gaPageSize :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gaToken    :: !(Maybe Text)
+  , _gaPageSize :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -100,8 +100,8 @@ instance ToQuery GetApps where
 
 -- | /See:/ 'getAppsResponse' smart constructor.
 data GetAppsResponse = GetAppsResponse'
-  { _gasrsResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _gasrsApplicationsResponse :: {-# NOUNPACK #-}!ApplicationsResponse
+  { _gasrsResponseStatus       :: !Int
+  , _gasrsApplicationsResponse :: !ApplicationsResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteInstance' smart constructor.
 data DeleteInstance = DeleteInstance'
-  { _diDeleteVolumes   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diDeleteElasticIP :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diInstanceId      :: {-# NOUNPACK #-}!Text
+  { _diDeleteVolumes   :: !(Maybe Bool)
+  , _diDeleteElasticIP :: !(Maybe Bool)
+  , _diInstanceId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

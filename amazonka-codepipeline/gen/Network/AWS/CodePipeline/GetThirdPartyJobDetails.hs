@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getThirdPartyJobDetails' smart constructor.
 data GetThirdPartyJobDetails = GetThirdPartyJobDetails'
-  { _gtpjdJobId       :: {-# NOUNPACK #-}!Text
-  , _gtpjdClientToken :: {-# NOUNPACK #-}!Text
+  { _gtpjdJobId       :: !Text
+  , _gtpjdClientToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToQuery GetThirdPartyJobDetails where
 --
 -- /See:/ 'getThirdPartyJobDetailsResponse' smart constructor.
 data GetThirdPartyJobDetailsResponse = GetThirdPartyJobDetailsResponse'
-  { _gtpjdrsJobDetails     :: {-# NOUNPACK #-}!(Maybe ThirdPartyJobDetails)
-  , _gtpjdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gtpjdrsJobDetails     :: !(Maybe ThirdPartyJobDetails)
+  , _gtpjdrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

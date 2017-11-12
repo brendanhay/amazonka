@@ -65,12 +65,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'getClusterCredentials' smart constructor.
 data GetClusterCredentials = GetClusterCredentials'
-  { _gccDBGroups          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gccDurationSeconds   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gccAutoCreate        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gccDBName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gccDBUser            :: {-# NOUNPACK #-}!Text
-  , _gccClusterIdentifier :: {-# NOUNPACK #-}!Text
+  { _gccDBGroups          :: !(Maybe [Text])
+  , _gccDurationSeconds   :: !(Maybe Int)
+  , _gccAutoCreate        :: !(Maybe Bool)
+  , _gccDBName            :: !(Maybe Text)
+  , _gccDBUser            :: !Text
+  , _gccClusterIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -168,10 +168,10 @@ instance ToQuery GetClusterCredentials where
 --
 -- /See:/ 'getClusterCredentialsResponse' smart constructor.
 data GetClusterCredentialsResponse = GetClusterCredentialsResponse'
-  { _gccrsDBUser         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gccrsExpiration     :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _gccrsDBPassword     :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _gccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gccrsDBUser         :: !(Maybe Text)
+  , _gccrsExpiration     :: !(Maybe ISO8601)
+  , _gccrsDBPassword     :: !(Maybe (Sensitive Text))
+  , _gccrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

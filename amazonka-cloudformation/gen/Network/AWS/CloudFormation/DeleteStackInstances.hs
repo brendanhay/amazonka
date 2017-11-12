@@ -51,12 +51,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteStackInstances' smart constructor.
 data DeleteStackInstances = DeleteStackInstances'
-  { _dsiOperationPreferences :: {-# NOUNPACK #-}!(Maybe StackSetOperationPreferences)
-  , _dsiOperationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsiStackSetName :: {-# NOUNPACK #-}!Text
-  , _dsiAccounts :: {-# NOUNPACK #-}![Text]
-  , _dsiRegions :: {-# NOUNPACK #-}![Text]
-  , _dsiRetainStacks :: {-# NOUNPACK #-}!Bool
+  { _dsiOperationPreferences :: !(Maybe StackSetOperationPreferences)
+  , _dsiOperationId          :: !(Maybe Text)
+  , _dsiStackSetName         :: !Text
+  , _dsiAccounts             :: ![Text]
+  , _dsiRegions              :: ![Text]
+  , _dsiRetainStacks         :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,8 +148,8 @@ instance ToQuery DeleteStackInstances where
 
 -- | /See:/ 'deleteStackInstancesResponse' smart constructor.
 data DeleteStackInstancesResponse = DeleteStackInstancesResponse'
-  { _dsirsOperationId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsirsOperationId    :: !(Maybe Text)
+  , _dsirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

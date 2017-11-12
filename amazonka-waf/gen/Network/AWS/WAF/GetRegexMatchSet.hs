@@ -102,8 +102,8 @@ instance ToQuery GetRegexMatchSet where
 
 -- | /See:/ 'getRegexMatchSetResponse' smart constructor.
 data GetRegexMatchSetResponse = GetRegexMatchSetResponse'
-  { _grmsrsRegexMatchSet  :: {-# NOUNPACK #-}!(Maybe RegexMatchSet)
-  , _grmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grmsrsRegexMatchSet  :: !(Maybe RegexMatchSet)
+  , _grmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

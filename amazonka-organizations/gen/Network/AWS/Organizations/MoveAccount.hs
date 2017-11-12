@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'moveAccount' smart constructor.
 data MoveAccount = MoveAccount'
-  { _maAccountId           :: {-# NOUNPACK #-}!Text
-  , _maSourceParentId      :: {-# NOUNPACK #-}!Text
-  , _maDestinationParentId :: {-# NOUNPACK #-}!Text
+  { _maAccountId           :: !Text
+  , _maSourceParentId      :: !Text
+  , _maDestinationParentId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -63,8 +63,8 @@ import Network.AWS.WAF.Types.Product
 --
 -- /See:/ 'deleteXSSMatchSet' smart constructor.
 data DeleteXSSMatchSet = DeleteXSSMatchSet'
-  { _dxmsXSSMatchSetId :: {-# NOUNPACK #-}!Text
-  , _dxmsChangeToken   :: {-# NOUNPACK #-}!Text
+  { _dxmsXSSMatchSetId :: !Text
+  , _dxmsChangeToken   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,8 +133,8 @@ instance ToQuery DeleteXSSMatchSet where
 --
 -- /See:/ 'deleteXSSMatchSetResponse' smart constructor.
 data DeleteXSSMatchSetResponse = DeleteXSSMatchSetResponse'
-  { _dxmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dxmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dxmsrsChangeToken    :: !(Maybe Text)
+  , _dxmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

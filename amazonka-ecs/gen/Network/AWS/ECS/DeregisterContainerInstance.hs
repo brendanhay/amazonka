@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deregisterContainerInstance' smart constructor.
 data DeregisterContainerInstance = DeregisterContainerInstance'
-  { _derCluster           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _derForce             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _derContainerInstance :: {-# NOUNPACK #-}!Text
+  { _derCluster           :: !(Maybe Text)
+  , _derForce             :: !(Maybe Bool)
+  , _derContainerInstance :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,8 +130,8 @@ instance ToQuery DeregisterContainerInstance where
 
 -- | /See:/ 'deregisterContainerInstanceResponse' smart constructor.
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
-  { _dcirsContainerInstance :: {-# NOUNPACK #-}!(Maybe ContainerInstance)
-  , _dcirsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dcirsContainerInstance :: !(Maybe ContainerInstance)
+  , _dcirsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

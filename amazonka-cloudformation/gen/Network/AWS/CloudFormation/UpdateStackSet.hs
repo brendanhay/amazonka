@@ -57,16 +57,16 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateStackSet' smart constructor.
 data UpdateStackSet = UpdateStackSet'
-  { _ussUsePreviousTemplate :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ussParameters :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _ussOperationPreferences :: {-# NOUNPACK #-}!(Maybe StackSetOperationPreferences)
-  , _ussOperationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ussTemplateBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ussTemplateURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ussDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ussCapabilities :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _ussTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ussStackSetName :: {-# NOUNPACK #-}!Text
+  { _ussUsePreviousTemplate  :: !(Maybe Bool)
+  , _ussParameters           :: !(Maybe [Parameter])
+  , _ussOperationPreferences :: !(Maybe StackSetOperationPreferences)
+  , _ussOperationId          :: !(Maybe Text)
+  , _ussTemplateBody         :: !(Maybe Text)
+  , _ussTemplateURL          :: !(Maybe Text)
+  , _ussDescription          :: !(Maybe Text)
+  , _ussCapabilities         :: !(Maybe [Capability])
+  , _ussTags                 :: !(Maybe [Tag])
+  , _ussStackSetName         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -191,8 +191,8 @@ instance ToQuery UpdateStackSet where
 
 -- | /See:/ 'updateStackSetResponse' smart constructor.
 data UpdateStackSetResponse = UpdateStackSetResponse'
-  { _ussrsOperationId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ussrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ussrsOperationId    :: !(Maybe Text)
+  , _ussrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

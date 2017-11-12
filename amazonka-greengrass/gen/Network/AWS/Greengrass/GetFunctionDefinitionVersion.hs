@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getFunctionDefinitionVersion' smart constructor.
 data GetFunctionDefinitionVersion = GetFunctionDefinitionVersion'
-  { _gfdvFunctionDefinitionId        :: {-# NOUNPACK #-}!Text
-  , _gfdvFunctionDefinitionVersionId :: {-# NOUNPACK #-}!Text
+  { _gfdvFunctionDefinitionId        :: !Text
+  , _gfdvFunctionDefinitionVersionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,12 +118,12 @@ instance ToQuery GetFunctionDefinitionVersion where
 
 -- | /See:/ 'getFunctionDefinitionVersionResponse' smart constructor.
 data GetFunctionDefinitionVersionResponse = GetFunctionDefinitionVersionResponse'
-  { _gfdvrsDefinition :: {-# NOUNPACK #-}!(Maybe FunctionDefinitionVersion)
-  , _gfdvrsARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfdvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfdvrsVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfdvrsId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gfdvrsDefinition        :: !(Maybe FunctionDefinitionVersion)
+  , _gfdvrsARN               :: !(Maybe Text)
+  , _gfdvrsCreationTimestamp :: !(Maybe Text)
+  , _gfdvrsVersion           :: !(Maybe Text)
+  , _gfdvrsId                :: !(Maybe Text)
+  , _gfdvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

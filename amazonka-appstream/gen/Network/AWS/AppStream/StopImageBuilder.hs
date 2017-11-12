@@ -98,8 +98,8 @@ instance ToQuery StopImageBuilder where
 
 -- | /See:/ 'stopImageBuilderResponse' smart constructor.
 data StopImageBuilderResponse = StopImageBuilderResponse'
-  { _sibrsImageBuilder   :: {-# NOUNPACK #-}!(Maybe ImageBuilder)
-  , _sibrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sibrsImageBuilder   :: !(Maybe ImageBuilder)
+  , _sibrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

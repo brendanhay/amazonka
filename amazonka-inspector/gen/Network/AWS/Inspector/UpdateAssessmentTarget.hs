@@ -45,9 +45,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateAssessmentTarget' smart constructor.
 data UpdateAssessmentTarget = UpdateAssessmentTarget'
-  { _uatAssessmentTargetARN  :: {-# NOUNPACK #-}!Text
-  , _uatAssessmentTargetName :: {-# NOUNPACK #-}!Text
-  , _uatResourceGroupARN     :: {-# NOUNPACK #-}!Text
+  { _uatAssessmentTargetARN  :: !Text
+  , _uatAssessmentTargetName :: !Text
+  , _uatResourceGroupARN     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

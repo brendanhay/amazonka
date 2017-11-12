@@ -61,9 +61,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'addApplicationOutput' smart constructor.
 data AddApplicationOutput = AddApplicationOutput'
-  { _aaoApplicationName             :: {-# NOUNPACK #-}!Text
-  , _aaoCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
-  , _aaoOutput                      :: {-# NOUNPACK #-}!Output
+  { _aaoApplicationName             :: !Text
+  , _aaoCurrentApplicationVersionId :: !Nat
+  , _aaoOutput                      :: !Output
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

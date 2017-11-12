@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createCacheSecurityGroup' smart constructor.
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
-  { _ccsgCacheSecurityGroupName :: {-# NOUNPACK #-}!Text
-  , _ccsgDescription            :: {-# NOUNPACK #-}!Text
+  { _ccsgCacheSecurityGroupName :: !Text
+  , _ccsgDescription            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,8 +116,8 @@ instance ToQuery CreateCacheSecurityGroup where
 
 -- | /See:/ 'createCacheSecurityGroupResponse' smart constructor.
 data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
-  { _ccsgrsCacheSecurityGroup :: {-# NOUNPACK #-}!(Maybe CacheSecurityGroup)
-  , _ccsgrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _ccsgrsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
+  , _ccsgrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

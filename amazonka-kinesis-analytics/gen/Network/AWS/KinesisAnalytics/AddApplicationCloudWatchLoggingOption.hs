@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'addApplicationCloudWatchLoggingOption' smart constructor.
 data AddApplicationCloudWatchLoggingOption = AddApplicationCloudWatchLoggingOption'
-  { _aacwloApplicationName :: {-# NOUNPACK #-}!Text
-  , _aacwloCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
-  , _aacwloCloudWatchLoggingOption :: {-# NOUNPACK #-}!CloudWatchLoggingOption
+  { _aacwloApplicationName             :: !Text
+  , _aacwloCurrentApplicationVersionId :: !Nat
+  , _aacwloCloudWatchLoggingOption     :: !CloudWatchLoggingOption
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -96,8 +96,8 @@ instance ToQuery DeleteAPNSVoipChannel where
 
 -- | /See:/ 'deleteAPNSVoipChannelResponse' smart constructor.
 data DeleteAPNSVoipChannelResponse = DeleteAPNSVoipChannelResponse'
-  { _davcrsResponseStatus          :: {-# NOUNPACK #-}!Int
-  , _davcrsAPNSVoipChannelResponse :: {-# NOUNPACK #-}!APNSVoipChannelResponse
+  { _davcrsResponseStatus          :: !Int
+  , _davcrsAPNSVoipChannelResponse :: !APNSVoipChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -98,8 +98,8 @@ instance ToQuery ReadPreset where
 --
 -- /See:/ 'readPresetResponse' smart constructor.
 data ReadPresetResponse = ReadPresetResponse'
-  { _rprsPreset         :: {-# NOUNPACK #-}!(Maybe Preset)
-  , _rprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rprsPreset         :: !(Maybe Preset)
+  , _rprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

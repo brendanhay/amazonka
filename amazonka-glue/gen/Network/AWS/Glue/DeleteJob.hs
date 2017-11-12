@@ -99,8 +99,8 @@ instance ToQuery DeleteJob where
 
 -- | /See:/ 'deleteJobResponse' smart constructor.
 data DeleteJobResponse = DeleteJobResponse'
-  { _djrsJobName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _djrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _djrsJobName        :: !(Maybe Text)
+  , _djrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

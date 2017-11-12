@@ -57,14 +57,14 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createAssociation' smart constructor.
 data CreateAssociation = CreateAssociation'
-  { _caInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caOutputLocation :: {-# NOUNPACK #-}!(Maybe InstanceAssociationOutputLocation)
-  , _caTargets :: {-# NOUNPACK #-}!(Maybe [Target])
-  , _caParameters :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _caDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caAssociationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caName :: {-# NOUNPACK #-}!Text
+  { _caInstanceId         :: !(Maybe Text)
+  , _caScheduleExpression :: !(Maybe Text)
+  , _caOutputLocation     :: !(Maybe InstanceAssociationOutputLocation)
+  , _caTargets            :: !(Maybe [Target])
+  , _caParameters         :: !(Maybe (Map Text [Text]))
+  , _caDocumentVersion    :: !(Maybe Text)
+  , _caAssociationName    :: !(Maybe Text)
+  , _caName               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -179,8 +179,8 @@ instance ToQuery CreateAssociation where
 
 -- | /See:/ 'createAssociationResponse' smart constructor.
 data CreateAssociationResponse = CreateAssociationResponse'
-  { _crsAssociationDescription :: {-# NOUNPACK #-}!(Maybe AssociationDescription)
-  , _crsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crsAssociationDescription :: !(Maybe AssociationDescription)
+  , _crsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

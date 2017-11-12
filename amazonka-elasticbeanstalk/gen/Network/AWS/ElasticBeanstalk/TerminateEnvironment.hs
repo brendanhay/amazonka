@@ -71,10 +71,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'terminateEnvironment' smart constructor.
 data TerminateEnvironment = TerminateEnvironment'
-  { _teForceTerminate     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _teTerminateResources :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _teEnvironmentName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _teEnvironmentId      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _teForceTerminate     :: !(Maybe Bool)
+  , _teTerminateResources :: !(Maybe Bool)
+  , _teEnvironmentName    :: !(Maybe Text)
+  , _teEnvironmentId      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

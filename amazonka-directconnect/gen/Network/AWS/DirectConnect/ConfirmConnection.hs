@@ -112,8 +112,8 @@ instance ToQuery ConfirmConnection where
 --
 -- /See:/ 'confirmConnectionResponse' smart constructor.
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
-  { _ccrsConnectionState :: {-# NOUNPACK #-}!(Maybe ConnectionState)
-  , _ccrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _ccrsConnectionState :: !(Maybe ConnectionState)
+  , _ccrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

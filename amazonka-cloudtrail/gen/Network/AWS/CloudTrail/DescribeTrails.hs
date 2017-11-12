@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeTrails' smart constructor.
 data DescribeTrails = DescribeTrails'
-  { _dtIncludeShadowTrails :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dtTrailNameList       :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dtIncludeShadowTrails :: !(Maybe Bool)
+  , _dtTrailNameList       :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery DescribeTrails where
 --
 -- /See:/ 'describeTrailsResponse' smart constructor.
 data DescribeTrailsResponse = DescribeTrailsResponse'
-  { _dtrsTrailList      :: {-# NOUNPACK #-}!(Maybe [Trail])
-  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dtrsTrailList      :: !(Maybe [Trail])
+  , _dtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

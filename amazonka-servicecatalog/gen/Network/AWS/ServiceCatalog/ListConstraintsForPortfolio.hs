@@ -51,11 +51,11 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listConstraintsForPortfolio' smart constructor.
 data ListConstraintsForPortfolio = ListConstraintsForPortfolio'
-  { _lcfpAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcfpPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcfpPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lcfpProductId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcfpPortfolioId    :: {-# NOUNPACK #-}!Text
+  { _lcfpAcceptLanguage :: !(Maybe Text)
+  , _lcfpPageToken      :: !(Maybe Text)
+  , _lcfpPageSize       :: !(Maybe Nat)
+  , _lcfpProductId      :: !(Maybe Text)
+  , _lcfpPortfolioId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery ListConstraintsForPortfolio where
 
 -- | /See:/ 'listConstraintsForPortfolioResponse' smart constructor.
 data ListConstraintsForPortfolioResponse = ListConstraintsForPortfolioResponse'
-  { _lcfprsNextPageToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcfprsConstraintDetails :: {-# NOUNPACK #-}!(Maybe [ConstraintDetail])
-  , _lcfprsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _lcfprsNextPageToken     :: !(Maybe Text)
+  , _lcfprsConstraintDetails :: !(Maybe [ConstraintDetail])
+  , _lcfprsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

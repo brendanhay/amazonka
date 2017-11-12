@@ -68,9 +68,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeComplianceByConfigRule' smart constructor.
 data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
-  { _dcbcrConfigRuleNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcbcrComplianceTypes :: {-# NOUNPACK #-}!(Maybe [ComplianceType])
-  , _dcbcrNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dcbcrConfigRuleNames :: !(Maybe [Text])
+  , _dcbcrComplianceTypes :: !(Maybe [ComplianceType])
+  , _dcbcrNextToken       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -163,9 +163,9 @@ instance ToQuery DescribeComplianceByConfigRule where
 --
 -- /See:/ 'describeComplianceByConfigRuleResponse' smart constructor.
 data DescribeComplianceByConfigRuleResponse = DescribeComplianceByConfigRuleResponse'
-  { _dcbcrrsComplianceByConfigRules :: {-# NOUNPACK #-}!(Maybe [ComplianceByConfigRule])
-  , _dcbcrrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcbcrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcbcrrsComplianceByConfigRules :: !(Maybe [ComplianceByConfigRule])
+  , _dcbcrrsNextToken               :: !(Maybe Text)
+  , _dcbcrrsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

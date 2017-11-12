@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteNetworkInterfacePermission' smart constructor.
 data DeleteNetworkInterfacePermission = DeleteNetworkInterfacePermission'
-  { _dnipForce                        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dnipDryRun                       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dnipNetworkInterfacePermissionId :: {-# NOUNPACK #-}!Text
+  { _dnipForce                        :: !(Maybe Bool)
+  , _dnipDryRun                       :: !(Maybe Bool)
+  , _dnipNetworkInterfacePermissionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,8 +132,8 @@ instance ToQuery DeleteNetworkInterfacePermission
 --
 -- /See:/ 'deleteNetworkInterfacePermissionResponse' smart constructor.
 data DeleteNetworkInterfacePermissionResponse = DeleteNetworkInterfacePermissionResponse'
-  { _dniprsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dniprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dniprsReturn         :: !(Maybe Bool)
+  , _dniprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

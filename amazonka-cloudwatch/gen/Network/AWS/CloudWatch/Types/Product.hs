@@ -27,11 +27,11 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'alarmHistoryItem' smart constructor.
 data AlarmHistoryItem = AlarmHistoryItem'
-  { _ahiAlarmName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ahiHistoryItemType :: {-# NOUNPACK #-}!(Maybe HistoryItemType)
-  , _ahiHistoryData     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ahiHistorySummary  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ahiTimestamp       :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  { _ahiAlarmName       :: !(Maybe Text)
+  , _ahiHistoryItemType :: !(Maybe HistoryItemType)
+  , _ahiHistoryData     :: !(Maybe Text)
+  , _ahiHistorySummary  :: !(Maybe Text)
+  , _ahiTimestamp       :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -98,10 +98,10 @@ instance NFData AlarmHistoryItem where
 --
 -- /See:/ 'dashboardEntry' smart constructor.
 data DashboardEntry = DashboardEntry'
-  { _deSize          :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _deDashboardName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deLastModified  :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _deDashboardARN  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _deSize          :: !(Maybe Integer)
+  , _deDashboardName :: !(Maybe Text)
+  , _deLastModified  :: !(Maybe ISO8601)
+  , _deDashboardARN  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,8 +160,8 @@ instance NFData DashboardEntry where
 --
 -- /See:/ 'dashboardValidationMessage' smart constructor.
 data DashboardValidationMessage = DashboardValidationMessage'
-  { _dvmDataPath :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvmMessage  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dvmDataPath :: !(Maybe Text)
+  , _dvmMessage  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -201,14 +201,14 @@ instance NFData DashboardValidationMessage where
 --
 -- /See:/ 'datapoint' smart constructor.
 data Datapoint = Datapoint'
-  { _dSampleCount        :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dMaximum            :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dAverage            :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dMinimum            :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dExtendedStatistics :: {-# NOUNPACK #-}!(Maybe (Map Text Double))
-  , _dSum                :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dUnit               :: {-# NOUNPACK #-}!(Maybe StandardUnit)
-  , _dTimestamp          :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  { _dSampleCount        :: !(Maybe Double)
+  , _dMaximum            :: !(Maybe Double)
+  , _dAverage            :: !(Maybe Double)
+  , _dMinimum            :: !(Maybe Double)
+  , _dExtendedStatistics :: !(Maybe (Map Text Double))
+  , _dSum                :: !(Maybe Double)
+  , _dUnit               :: !(Maybe StandardUnit)
+  , _dTimestamp          :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -301,8 +301,8 @@ instance NFData Datapoint where
 --
 -- /See:/ 'dimension' smart constructor.
 data Dimension = Dimension'
-  { _dName  :: {-# NOUNPACK #-}!Text
-  , _dValue :: {-# NOUNPACK #-}!Text
+  { _dName  :: !Text
+  , _dValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -346,8 +346,8 @@ instance ToQuery Dimension where
 --
 -- /See:/ 'dimensionFilter' smart constructor.
 data DimensionFilter = DimensionFilter'
-  { _dfValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfName  :: {-# NOUNPACK #-}!Text
+  { _dfValue :: !(Maybe Text)
+  , _dfName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -386,9 +386,9 @@ instance ToQuery DimensionFilter where
 --
 -- /See:/ 'metric' smart constructor.
 data Metric = Metric'
-  { _mMetricName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mNamespace  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mDimensions :: {-# NOUNPACK #-}!(Maybe [Dimension])
+  { _mMetricName :: !(Maybe Text)
+  , _mNamespace  :: !(Maybe Text)
+  , _mDimensions :: !(Maybe [Dimension])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -437,30 +437,30 @@ instance NFData Metric where
 --
 -- /See:/ 'metricAlarm' smart constructor.
 data MetricAlarm = MetricAlarm'
-  { _maAlarmName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _maStateUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _maTreatMissingData :: {-# NOUNPACK #-}!(Maybe Text)
-  , _maPeriod :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _maAlarmDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _maEvaluationPeriods :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _maMetricName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _maNamespace :: {-# NOUNPACK #-}!(Maybe Text)
-  , _maComparisonOperator :: {-# NOUNPACK #-}!(Maybe ComparisonOperator)
-  , _maOKActions :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _maEvaluateLowSampleCountPercentile :: {-# NOUNPACK #-}!(Maybe Text)
-  , _maStateValue :: {-# NOUNPACK #-}!(Maybe StateValue)
-  , _maThreshold :: {-# NOUNPACK #-}!(Maybe Double)
-  , _maAlarmConfigurationUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _maActionsEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _maInsufficientDataActions :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _maStateReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _maStateReasonData :: {-# NOUNPACK #-}!(Maybe Text)
-  , _maDimensions :: {-# NOUNPACK #-}!(Maybe [Dimension])
-  , _maAlarmARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _maAlarmActions :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _maUnit :: {-# NOUNPACK #-}!(Maybe StandardUnit)
-  , _maStatistic :: {-# NOUNPACK #-}!(Maybe Statistic)
-  , _maExtendedStatistic :: {-# NOUNPACK #-}!(Maybe Text)
+  { _maAlarmName                          :: !(Maybe Text)
+  , _maStateUpdatedTimestamp              :: !(Maybe ISO8601)
+  , _maTreatMissingData                   :: !(Maybe Text)
+  , _maPeriod                             :: !(Maybe Nat)
+  , _maAlarmDescription                   :: !(Maybe Text)
+  , _maEvaluationPeriods                  :: !(Maybe Nat)
+  , _maMetricName                         :: !(Maybe Text)
+  , _maNamespace                          :: !(Maybe Text)
+  , _maComparisonOperator                 :: !(Maybe ComparisonOperator)
+  , _maOKActions                          :: !(Maybe [Text])
+  , _maEvaluateLowSampleCountPercentile   :: !(Maybe Text)
+  , _maStateValue                         :: !(Maybe StateValue)
+  , _maThreshold                          :: !(Maybe Double)
+  , _maAlarmConfigurationUpdatedTimestamp :: !(Maybe ISO8601)
+  , _maActionsEnabled                     :: !(Maybe Bool)
+  , _maInsufficientDataActions            :: !(Maybe [Text])
+  , _maStateReason                        :: !(Maybe Text)
+  , _maStateReasonData                    :: !(Maybe Text)
+  , _maDimensions                         :: !(Maybe [Dimension])
+  , _maAlarmARN                           :: !(Maybe Text)
+  , _maAlarmActions                       :: !(Maybe [Text])
+  , _maUnit                               :: !(Maybe StandardUnit)
+  , _maStatistic                          :: !(Maybe Statistic)
+  , _maExtendedStatistic                  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -688,13 +688,13 @@ instance NFData MetricAlarm where
 --
 -- /See:/ 'metricDatum' smart constructor.
 data MetricDatum = MetricDatum'
-  { _mdValue             :: {-# NOUNPACK #-}!(Maybe Double)
-  , _mdStorageResolution :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _mdDimensions        :: {-# NOUNPACK #-}!(Maybe [Dimension])
-  , _mdUnit              :: {-# NOUNPACK #-}!(Maybe StandardUnit)
-  , _mdTimestamp         :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _mdStatisticValues   :: {-# NOUNPACK #-}!(Maybe StatisticSet)
-  , _mdMetricName        :: {-# NOUNPACK #-}!Text
+  { _mdValue             :: !(Maybe Double)
+  , _mdStorageResolution :: !(Maybe Nat)
+  , _mdDimensions        :: !(Maybe [Dimension])
+  , _mdUnit              :: !(Maybe StandardUnit)
+  , _mdTimestamp         :: !(Maybe ISO8601)
+  , _mdStatisticValues   :: !(Maybe StatisticSet)
+  , _mdMetricName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -779,10 +779,10 @@ instance ToQuery MetricDatum where
 --
 -- /See:/ 'statisticSet' smart constructor.
 data StatisticSet = StatisticSet'
-  { _ssSampleCount :: {-# NOUNPACK #-}!Double
-  , _ssSum         :: {-# NOUNPACK #-}!Double
-  , _ssMinimum     :: {-# NOUNPACK #-}!Double
-  , _ssMaximum     :: {-# NOUNPACK #-}!Double
+  { _ssSampleCount :: !Double
+  , _ssSum         :: !Double
+  , _ssMinimum     :: !Double
+  , _ssMaximum     :: !Double
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -100,8 +100,8 @@ instance ToQuery GetNetworkProfile where
 
 -- | /See:/ 'getNetworkProfileResponse' smart constructor.
 data GetNetworkProfileResponse = GetNetworkProfileResponse'
-  { _gnprsNetworkProfile :: {-# NOUNPACK #-}!(Maybe NetworkProfile)
-  , _gnprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gnprsNetworkProfile :: !(Maybe NetworkProfile)
+  , _gnprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,11 +54,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'getResources' smart constructor.
 data GetResources = GetResources'
-  { _grPaginationToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grResourcesPerPage    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _grResourceTypeFilters :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _grTagFilters          :: {-# NOUNPACK #-}!(Maybe [TagFilter])
-  , _grTagsPerPage         :: {-# NOUNPACK #-}!(Maybe Int)
+  { _grPaginationToken     :: !(Maybe Text)
+  , _grResourcesPerPage    :: !(Maybe Int)
+  , _grResourceTypeFilters :: !(Maybe [Text])
+  , _grTagFilters          :: !(Maybe [TagFilter])
+  , _grTagsPerPage         :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -159,9 +159,9 @@ instance ToQuery GetResources where
 
 -- | /See:/ 'getResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
-  { _grrsPaginationToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grrsResourceTagMappingList :: {-# NOUNPACK #-}!(Maybe [ResourceTagMapping])
-  , _grrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _grrsPaginationToken        :: !(Maybe Text)
+  , _grrsResourceTagMappingList :: !(Maybe [ResourceTagMapping])
+  , _grrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -27,10 +27,10 @@ import Network.AWS.SDB.Types.Sum
 --
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
-  { _aAlternateValueEncoding :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aAlternateNameEncoding  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aName                   :: {-# NOUNPACK #-}!Text
-  , _aValue                  :: {-# NOUNPACK #-}!Text
+  { _aAlternateValueEncoding :: !(Maybe Text)
+  , _aAlternateNameEncoding  :: !(Maybe Text)
+  , _aName                   :: !Text
+  , _aValue                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -96,8 +96,8 @@ instance ToQuery Attribute where
 
 -- | /See:/ 'deletableItem' smart constructor.
 data DeletableItem = DeletableItem'
-  { _diAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _diName       :: {-# NOUNPACK #-}!Text
+  { _diAttributes :: !(Maybe [Attribute])
+  , _diName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery DeletableItem where
 --
 -- /See:/ 'item' smart constructor.
 data Item = Item'
-  { _iAlternateNameEncoding :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iName                  :: {-# NOUNPACK #-}!Text
-  , _iAttributes            :: {-# NOUNPACK #-}![Attribute]
+  { _iAlternateNameEncoding :: !(Maybe Text)
+  , _iName                  :: !Text
+  , _iAttributes            :: ![Attribute]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -190,9 +190,9 @@ instance NFData Item where
 --
 -- /See:/ 'replaceableAttribute' smart constructor.
 data ReplaceableAttribute = ReplaceableAttribute'
-  { _raReplace :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _raName    :: {-# NOUNPACK #-}!Text
-  , _raValue   :: {-# NOUNPACK #-}!Text
+  { _raReplace :: !(Maybe Bool)
+  , _raName    :: !Text
+  , _raValue   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -242,8 +242,8 @@ instance ToQuery ReplaceableAttribute where
 --
 -- /See:/ 'replaceableItem' smart constructor.
 data ReplaceableItem = ReplaceableItem'
-  { _riName       :: {-# NOUNPACK #-}!Text
-  , _riAttributes :: {-# NOUNPACK #-}![ReplaceableAttribute]
+  { _riName       :: !Text
+  , _riAttributes :: ![ReplaceableAttribute]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -285,9 +285,9 @@ instance ToQuery ReplaceableItem where
 --
 -- /See:/ 'updateCondition' smart constructor.
 data UpdateCondition = UpdateCondition'
-  { _ucExists :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ucValue  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucName   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ucExists :: !(Maybe Bool)
+  , _ucValue  :: !(Maybe Text)
+  , _ucName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

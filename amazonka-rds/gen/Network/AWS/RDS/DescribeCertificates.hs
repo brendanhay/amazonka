@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeCertificates' smart constructor.
 data DescribeCertificates = DescribeCertificates'
-  { _dcFilters               :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dcCertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcMarker                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcMaxRecords            :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dcFilters               :: !(Maybe [Filter])
+  , _dcCertificateIdentifier :: !(Maybe Text)
+  , _dcMarker                :: !(Maybe Text)
+  , _dcMaxRecords            :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery DescribeCertificates where
 --
 -- /See:/ 'describeCertificatesResponse' smart constructor.
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
-  { _dcrsCertificates   :: {-# NOUNPACK #-}!(Maybe [Certificate])
-  , _dcrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcrsCertificates   :: !(Maybe [Certificate])
+  , _dcrsMarker         :: !(Maybe Text)
+  , _dcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

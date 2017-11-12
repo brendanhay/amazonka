@@ -100,8 +100,8 @@ instance ToQuery GetHIT where
 
 -- | /See:/ 'getHITResponse' smart constructor.
 data GetHITResponse = GetHITResponse'
-  { _ghitrsHIT            :: {-# NOUNPACK #-}!(Maybe HIT)
-  , _ghitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ghitrsHIT            :: !(Maybe HIT)
+  , _ghitrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

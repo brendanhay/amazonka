@@ -55,8 +55,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'describeReceiptRule' smart constructor.
 data DescribeReceiptRule = DescribeReceiptRule'
-  { _drrRuleSetName :: {-# NOUNPACK #-}!Text
-  , _drrRuleName    :: {-# NOUNPACK #-}!Text
+  { _drrRuleSetName :: !Text
+  , _drrRuleName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery DescribeReceiptRule where
 --
 -- /See:/ 'describeReceiptRuleResponse' smart constructor.
 data DescribeReceiptRuleResponse = DescribeReceiptRuleResponse'
-  { _drrrsRule           :: {-# NOUNPACK #-}!(Maybe ReceiptRule)
-  , _drrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drrrsRule           :: !(Maybe ReceiptRule)
+  , _drrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

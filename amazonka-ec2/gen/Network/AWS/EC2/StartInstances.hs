@@ -60,9 +60,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'startInstances' smart constructor.
 data StartInstances = StartInstances'
-  { _sAdditionalInfo :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sDryRun         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sInstanceIds    :: {-# NOUNPACK #-}![Text]
+  { _sAdditionalInfo :: !(Maybe Text)
+  , _sDryRun         :: !(Maybe Bool)
+  , _sInstanceIds    :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,8 +130,8 @@ instance ToQuery StartInstances where
 --
 -- /See:/ 'startInstancesResponse' smart constructor.
 data StartInstancesResponse = StartInstancesResponse'
-  { _srsStartingInstances :: {-# NOUNPACK #-}!(Maybe [InstanceStateChange])
-  , _srsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _srsStartingInstances :: !(Maybe [InstanceStateChange])
+  , _srsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

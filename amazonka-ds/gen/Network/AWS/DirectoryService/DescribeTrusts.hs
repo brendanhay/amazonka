@@ -56,10 +56,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeTrusts' smart constructor.
 data DescribeTrusts = DescribeTrusts'
-  { _dtDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtTrustIds    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dtLimit       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dtDirectoryId :: !(Maybe Text)
+  , _dtNextToken   :: !(Maybe Text)
+  , _dtTrustIds    :: !(Maybe [Text])
+  , _dtLimit       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,9 +146,9 @@ instance ToQuery DescribeTrusts where
 --
 -- /See:/ 'describeTrustsResponse' smart constructor.
 data DescribeTrustsResponse = DescribeTrustsResponse'
-  { _dtrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtrsTrusts         :: {-# NOUNPACK #-}!(Maybe [Trust])
-  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dtrsNextToken      :: !(Maybe Text)
+  , _dtrsTrusts         :: !(Maybe [Trust])
+  , _dtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

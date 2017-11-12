@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'adminDeleteUserAttributes' smart constructor.
 data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
-  { _aduaUserPoolId         :: {-# NOUNPACK #-}!Text
-  , _aduaUsername           :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _aduaUserAttributeNames :: {-# NOUNPACK #-}![Text]
+  { _aduaUserPoolId         :: !Text
+  , _aduaUsername           :: !(Sensitive Text)
+  , _aduaUserAttributeNames :: ![Text]
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

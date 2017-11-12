@@ -97,9 +97,9 @@ instance ToQuery GetSchemaAsJSON where
 
 -- | /See:/ 'getSchemaAsJSONResponse' smart constructor.
 data GetSchemaAsJSONResponse = GetSchemaAsJSONResponse'
-  { _gsajrsDocument       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsajrsName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsajrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsajrsDocument       :: !(Maybe Text)
+  , _gsajrsName           :: !(Maybe Text)
+  , _gsajrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

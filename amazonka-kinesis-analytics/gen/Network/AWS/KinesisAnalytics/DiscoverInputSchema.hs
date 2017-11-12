@@ -57,11 +57,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'discoverInputSchema' smart constructor.
 data DiscoverInputSchema = DiscoverInputSchema'
-  { _disInputStartingPositionConfiguration :: {-# NOUNPACK #-}!(Maybe InputStartingPositionConfiguration)
-  , _disInputProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe InputProcessingConfiguration)
-  , _disS3Configuration :: {-# NOUNPACK #-}!(Maybe S3Configuration)
-  , _disResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _disRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _disInputStartingPositionConfiguration :: !(Maybe InputStartingPositionConfiguration)
+  , _disInputProcessingConfiguration :: !(Maybe InputProcessingConfiguration)
+  , _disS3Configuration :: !(Maybe S3Configuration)
+  , _disResourceARN :: !(Maybe Text)
+  , _disRoleARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -162,11 +162,11 @@ instance ToQuery DiscoverInputSchema where
 --
 -- /See:/ 'discoverInputSchemaResponse' smart constructor.
 data DiscoverInputSchemaResponse = DiscoverInputSchemaResponse'
-  { _disrsRawInputRecords       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _disrsInputSchema           :: {-# NOUNPACK #-}!(Maybe SourceSchema)
-  , _disrsProcessedInputRecords :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _disrsParsedInputRecords    :: {-# NOUNPACK #-}!(Maybe [[Text]])
-  , _disrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _disrsRawInputRecords       :: !(Maybe [Text])
+  , _disrsInputSchema           :: !(Maybe SourceSchema)
+  , _disrsProcessedInputRecords :: !(Maybe [Text])
+  , _disrsParsedInputRecords    :: !(Maybe [[Text]])
+  , _disrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

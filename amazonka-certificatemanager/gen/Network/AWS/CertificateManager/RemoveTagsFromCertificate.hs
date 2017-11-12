@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'removeTagsFromCertificate' smart constructor.
 data RemoveTagsFromCertificate = RemoveTagsFromCertificate'
-  { _rtfcCertificateARN :: {-# NOUNPACK #-}!Text
-  , _rtfcTags           :: {-# NOUNPACK #-}!(List1 Tag)
+  { _rtfcCertificateARN :: !Text
+  , _rtfcTags           :: !(List1 Tag)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

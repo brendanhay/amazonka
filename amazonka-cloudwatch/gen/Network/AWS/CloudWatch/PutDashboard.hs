@@ -53,8 +53,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putDashboard' smart constructor.
 data PutDashboard = PutDashboard'
-  { _pdDashboardName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdDashboardBody :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pdDashboardName :: !(Maybe Text)
+  , _pdDashboardBody :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,8 +110,8 @@ instance ToQuery PutDashboard where
 
 -- | /See:/ 'putDashboardResponse' smart constructor.
 data PutDashboardResponse = PutDashboardResponse'
-  { _pdrsDashboardValidationMessages :: {-# NOUNPACK #-}!(Maybe [DashboardValidationMessage])
-  , _pdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pdrsDashboardValidationMessages :: !(Maybe [DashboardValidationMessage])
+  , _pdrsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

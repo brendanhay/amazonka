@@ -102,8 +102,8 @@ instance ToQuery GetDevEndpoint where
 
 -- | /See:/ 'getDevEndpointResponse' smart constructor.
 data GetDevEndpointResponse = GetDevEndpointResponse'
-  { _gdedrsDevEndpoint    :: {-# NOUNPACK #-}!(Maybe DevEndpoint)
-  , _gdedrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdedrsDevEndpoint    :: !(Maybe DevEndpoint)
+  , _gdedrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

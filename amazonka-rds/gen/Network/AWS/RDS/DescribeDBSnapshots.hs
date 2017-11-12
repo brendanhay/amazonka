@@ -61,14 +61,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDBSnapshots' smart constructor.
 data DescribeDBSnapshots = DescribeDBSnapshots'
-  { _ddsIncludeShared        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ddsFilters              :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _ddsDBSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsSnapshotType         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsDBInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsMarker               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ddsIncludePublic        :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _ddsIncludeShared        :: !(Maybe Bool)
+  , _ddsFilters              :: !(Maybe [Filter])
+  , _ddsDBSnapshotIdentifier :: !(Maybe Text)
+  , _ddsSnapshotType         :: !(Maybe Text)
+  , _ddsDBInstanceIdentifier :: !(Maybe Text)
+  , _ddsMarker               :: !(Maybe Text)
+  , _ddsMaxRecords           :: !(Maybe Int)
+  , _ddsIncludePublic        :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -189,9 +189,9 @@ instance ToQuery DescribeDBSnapshots where
 --
 -- /See:/ 'describeDBSnapshotsResponse' smart constructor.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
-  { _ddsrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsrsDBSnapshots    :: {-# NOUNPACK #-}!(Maybe [DBSnapshot])
-  , _ddsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddsrsMarker         :: !(Maybe Text)
+  , _ddsrsDBSnapshots    :: !(Maybe [DBSnapshot])
+  , _ddsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

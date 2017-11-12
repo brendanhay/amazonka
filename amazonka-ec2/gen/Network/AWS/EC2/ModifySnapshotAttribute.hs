@@ -55,13 +55,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifySnapshotAttribute' smart constructor.
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
-  { _msaAttribute :: {-# NOUNPACK #-}!(Maybe SnapshotAttributeName)
-  , _msaCreateVolumePermission :: {-# NOUNPACK #-}!(Maybe CreateVolumePermissionModifications)
-  , _msaUserIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _msaGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _msaOperationType :: {-# NOUNPACK #-}!(Maybe OperationType)
-  , _msaDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _msaSnapshotId :: {-# NOUNPACK #-}!Text
+  { _msaAttribute              :: !(Maybe SnapshotAttributeName)
+  , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
+  , _msaUserIds                :: !(Maybe [Text])
+  , _msaGroupNames             :: !(Maybe [Text])
+  , _msaOperationType          :: !(Maybe OperationType)
+  , _msaDryRun                 :: !(Maybe Bool)
+  , _msaSnapshotId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

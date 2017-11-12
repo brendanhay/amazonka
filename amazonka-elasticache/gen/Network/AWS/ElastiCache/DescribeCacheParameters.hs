@@ -58,10 +58,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeCacheParameters' smart constructor.
 data DescribeCacheParameters = DescribeCacheParameters'
-  { _dcpMarker                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpMaxRecords              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dcpSource                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpCacheParameterGroupName :: {-# NOUNPACK #-}!Text
+  { _dcpMarker                  :: !(Maybe Text)
+  , _dcpMaxRecords              :: !(Maybe Int)
+  , _dcpSource                  :: !(Maybe Text)
+  , _dcpCacheParameterGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,10 +156,10 @@ instance ToQuery DescribeCacheParameters where
 --
 -- /See:/ 'describeCacheParametersResponse' smart constructor.
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
-  { _dcprsCacheNodeTypeSpecificParameters :: {-# NOUNPACK #-}!(Maybe [CacheNodeTypeSpecificParameter])
-  , _dcprsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcprsParameters :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _dcprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcprsCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
+  , _dcprsMarker :: !(Maybe Text)
+  , _dcprsParameters :: !(Maybe [Parameter])
+  , _dcprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

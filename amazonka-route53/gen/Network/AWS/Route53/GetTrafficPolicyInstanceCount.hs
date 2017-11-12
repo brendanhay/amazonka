@@ -92,8 +92,8 @@ instance ToQuery GetTrafficPolicyInstanceCount where
 --
 -- /See:/ 'getTrafficPolicyInstanceCountResponse' smart constructor.
 data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountResponse'
-  { _gtpicrsResponseStatus             :: {-# NOUNPACK #-}!Int
-  , _gtpicrsTrafficPolicyInstanceCount :: {-# NOUNPACK #-}!Int
+  { _gtpicrsResponseStatus             :: !Int
+  , _gtpicrsTrafficPolicyInstanceCount :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDatabase' smart constructor.
 data CreateDatabase = CreateDatabase'
-  { _cdCatalogId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdDatabaseInput :: {-# NOUNPACK #-}!DatabaseInput
+  { _cdCatalogId     :: !(Maybe Text)
+  , _cdDatabaseInput :: !DatabaseInput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

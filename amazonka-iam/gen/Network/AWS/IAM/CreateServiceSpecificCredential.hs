@@ -55,8 +55,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createServiceSpecificCredential' smart constructor.
 data CreateServiceSpecificCredential = CreateServiceSpecificCredential'
-  { _csscUserName    :: {-# NOUNPACK #-}!Text
-  , _csscServiceName :: {-# NOUNPACK #-}!Text
+  { _csscUserName    :: !Text
+  , _csscServiceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery CreateServiceSpecificCredential
 
 -- | /See:/ 'createServiceSpecificCredentialResponse' smart constructor.
 data CreateServiceSpecificCredentialResponse = CreateServiceSpecificCredentialResponse'
-  { _csscrsServiceSpecificCredential :: {-# NOUNPACK #-}!(Maybe ServiceSpecificCredential)
-  , _csscrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csscrsServiceSpecificCredential :: !(Maybe ServiceSpecificCredential)
+  , _csscrsResponseStatus            :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

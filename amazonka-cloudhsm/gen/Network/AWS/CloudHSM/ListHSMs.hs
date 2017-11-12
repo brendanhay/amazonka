@@ -111,9 +111,9 @@ instance ToQuery ListHSMs where
 --
 -- /See:/ 'listHSMsResponse' smart constructor.
 data ListHSMsResponse = ListHSMsResponse'
-  { _lhsmrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhsmrsHSMList        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lhsmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lhsmrsNextToken      :: !(Maybe Text)
+  , _lhsmrsHSMList        :: !(Maybe [Text])
+  , _lhsmrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

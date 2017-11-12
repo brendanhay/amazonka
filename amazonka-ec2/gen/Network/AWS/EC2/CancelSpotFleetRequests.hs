@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'cancelSpotFleetRequests' smart constructor.
 data CancelSpotFleetRequests = CancelSpotFleetRequests'
-  { _csfrDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _csfrSpotFleetRequestIds :: {-# NOUNPACK #-}![Text]
-  , _csfrTerminateInstances  :: {-# NOUNPACK #-}!Bool
+  { _csfrDryRun              :: !(Maybe Bool)
+  , _csfrSpotFleetRequestIds :: ![Text]
+  , _csfrTerminateInstances  :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery CancelSpotFleetRequests where
 --
 -- /See:/ 'cancelSpotFleetRequestsResponse' smart constructor.
 data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
-  { _csfrrsSuccessfulFleetRequests :: {-# NOUNPACK #-}!(Maybe [CancelSpotFleetRequestsSuccessItem])
-  , _csfrrsUnsuccessfulFleetRequests :: {-# NOUNPACK #-}!(Maybe [CancelSpotFleetRequestsErrorItem])
-  , _csfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csfrrsSuccessfulFleetRequests :: !(Maybe [CancelSpotFleetRequestsSuccessItem])
+  , _csfrrsUnsuccessfulFleetRequests :: !(Maybe [CancelSpotFleetRequestsErrorItem])
+  , _csfrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

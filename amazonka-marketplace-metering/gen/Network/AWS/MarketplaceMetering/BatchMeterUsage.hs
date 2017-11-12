@@ -58,8 +58,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'batchMeterUsage' smart constructor.
 data BatchMeterUsage = BatchMeterUsage'
-  { _bmuUsageRecords :: {-# NOUNPACK #-}![UsageRecord]
-  , _bmuProductCode  :: {-# NOUNPACK #-}!Text
+  { _bmuUsageRecords :: ![UsageRecord]
+  , _bmuProductCode  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,9 +129,9 @@ instance ToQuery BatchMeterUsage where
 --
 -- /See:/ 'batchMeterUsageResponse' smart constructor.
 data BatchMeterUsageResponse = BatchMeterUsageResponse'
-  { _bmursResults            :: {-# NOUNPACK #-}!(Maybe [UsageRecordResult])
-  , _bmursUnprocessedRecords :: {-# NOUNPACK #-}!(Maybe [UsageRecord])
-  , _bmursResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _bmursResults            :: !(Maybe [UsageRecordResult])
+  , _bmursUnprocessedRecords :: !(Maybe [UsageRecord])
+  , _bmursResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

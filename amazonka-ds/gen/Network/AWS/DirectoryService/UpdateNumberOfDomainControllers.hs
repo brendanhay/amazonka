@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateNumberOfDomainControllers' smart constructor.
 data UpdateNumberOfDomainControllers = UpdateNumberOfDomainControllers'
-  { _unodcDirectoryId   :: {-# NOUNPACK #-}!Text
-  , _unodcDesiredNumber :: {-# NOUNPACK #-}!Nat
+  { _unodcDirectoryId   :: !Text
+  , _unodcDesiredNumber :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

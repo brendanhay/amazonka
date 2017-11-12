@@ -88,8 +88,8 @@ instance ToQuery PeerVPC where
 
 -- | /See:/ 'peerVPCResponse' smart constructor.
 data PeerVPCResponse = PeerVPCResponse'
-  { _pvrsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _pvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pvrsOperation      :: !(Maybe Operation)
+  , _pvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

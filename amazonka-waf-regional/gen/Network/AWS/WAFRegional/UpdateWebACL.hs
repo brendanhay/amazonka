@@ -77,10 +77,10 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'updateWebACL' smart constructor.
 data UpdateWebACL = UpdateWebACL'
-  { _uwaUpdates       :: {-# NOUNPACK #-}!(Maybe [WebACLUpdate])
-  , _uwaDefaultAction :: {-# NOUNPACK #-}!(Maybe WafAction)
-  , _uwaWebACLId      :: {-# NOUNPACK #-}!Text
-  , _uwaChangeToken   :: {-# NOUNPACK #-}!Text
+  { _uwaUpdates       :: !(Maybe [WebACLUpdate])
+  , _uwaDefaultAction :: !(Maybe WafAction)
+  , _uwaWebACLId      :: !Text
+  , _uwaChangeToken   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -164,8 +164,8 @@ instance ToQuery UpdateWebACL where
 
 -- | /See:/ 'updateWebACLResponse' smart constructor.
 data UpdateWebACLResponse = UpdateWebACLResponse'
-  { _uwarsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uwarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uwarsChangeToken    :: !(Maybe Text)
+  , _uwarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

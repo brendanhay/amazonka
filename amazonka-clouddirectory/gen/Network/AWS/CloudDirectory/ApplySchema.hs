@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'applySchema' smart constructor.
 data ApplySchema = ApplySchema'
-  { _asPublishedSchemaARN :: {-# NOUNPACK #-}!Text
-  , _asDirectoryARN       :: {-# NOUNPACK #-}!Text
+  { _asPublishedSchemaARN :: !Text
+  , _asDirectoryARN       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,9 +114,9 @@ instance ToQuery ApplySchema where
 
 -- | /See:/ 'applySchemaResponse' smart constructor.
 data ApplySchemaResponse = ApplySchemaResponse'
-  { _asrsDirectoryARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asrsAppliedSchemaARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _asrsDirectoryARN     :: !(Maybe Text)
+  , _asrsAppliedSchemaARN :: !(Maybe Text)
+  , _asrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

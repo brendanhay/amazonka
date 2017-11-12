@@ -70,11 +70,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeComplianceByResource' smart constructor.
 data DescribeComplianceByResource = DescribeComplianceByResource'
-  { _dcbrResourceId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcbrResourceType    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcbrComplianceTypes :: {-# NOUNPACK #-}!(Maybe [ComplianceType])
-  , _dcbrNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcbrLimit           :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dcbrResourceId      :: !(Maybe Text)
+  , _dcbrResourceType    :: !(Maybe Text)
+  , _dcbrComplianceTypes :: !(Maybe [ComplianceType])
+  , _dcbrNextToken       :: !(Maybe Text)
+  , _dcbrLimit           :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -179,9 +179,9 @@ instance ToQuery DescribeComplianceByResource where
 --
 -- /See:/ 'describeComplianceByResourceResponse' smart constructor.
 data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse'
-  { _dcbrrsComplianceByResources :: {-# NOUNPACK #-}!(Maybe [ComplianceByResource])
-  , _dcbrrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcbrrsComplianceByResources :: !(Maybe [ComplianceByResource])
+  , _dcbrrsNextToken             :: !(Maybe Text)
+  , _dcbrrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

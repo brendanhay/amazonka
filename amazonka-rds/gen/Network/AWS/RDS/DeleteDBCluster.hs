@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteDBCluster' smart constructor.
 data DeleteDBCluster = DeleteDBCluster'
-  { _ddbcFinalDBSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbcSkipFinalSnapshot         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ddbcDBClusterIdentifier       :: {-# NOUNPACK #-}!Text
+  { _ddbcFinalDBSnapshotIdentifier :: !(Maybe Text)
+  , _ddbcSkipFinalSnapshot         :: !(Maybe Bool)
+  , _ddbcDBClusterIdentifier       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToQuery DeleteDBCluster where
 
 -- | /See:/ 'deleteDBClusterResponse' smart constructor.
 data DeleteDBClusterResponse = DeleteDBClusterResponse'
-  { _ddbcrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
-  , _ddbcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddbcrsDBCluster      :: !(Maybe DBCluster)
+  , _ddbcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

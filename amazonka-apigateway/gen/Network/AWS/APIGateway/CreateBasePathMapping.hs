@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createBasePathMapping' smart constructor.
 data CreateBasePathMapping = CreateBasePathMapping'
-  { _cbpmStage      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbpmBasePath   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbpmDomainName :: {-# NOUNPACK #-}!Text
-  , _cbpmRestAPIId  :: {-# NOUNPACK #-}!Text
+  { _cbpmStage      :: !(Maybe Text)
+  , _cbpmBasePath   :: !(Maybe Text)
+  , _cbpmDomainName :: !Text
+  , _cbpmRestAPIId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

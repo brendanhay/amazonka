@@ -65,10 +65,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateEventSourceMapping' smart constructor.
 data UpdateEventSourceMapping = UpdateEventSourceMapping'
-  { _uesmEnabled      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uesmBatchSize    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _uesmFunctionName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uesmUUId         :: {-# NOUNPACK #-}!Text
+  { _uesmEnabled      :: !(Maybe Bool)
+  , _uesmBatchSize    :: !(Maybe Nat)
+  , _uesmFunctionName :: !(Maybe Text)
+  , _uesmUUId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

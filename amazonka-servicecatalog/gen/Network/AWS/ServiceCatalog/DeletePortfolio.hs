@@ -46,8 +46,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'deletePortfolio' smart constructor.
 data DeletePortfolio = DeletePortfolio'
-  { _dppAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dppId             :: {-# NOUNPACK #-}!Text
+  { _dppAcceptLanguage :: !(Maybe Text)
+  , _dppId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

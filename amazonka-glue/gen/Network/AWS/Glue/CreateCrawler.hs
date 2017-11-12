@@ -53,15 +53,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'createCrawler' smart constructor.
 data CreateCrawler = CreateCrawler'
-  { _ccSchemaChangePolicy :: {-# NOUNPACK #-}!(Maybe SchemaChangePolicy)
-  , _ccSchedule           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccClassifiers        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccTablePrefix        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccName               :: {-# NOUNPACK #-}!Text
-  , _ccRole               :: {-# NOUNPACK #-}!Text
-  , _ccDatabaseName       :: {-# NOUNPACK #-}!Text
-  , _ccTargets            :: {-# NOUNPACK #-}!CrawlerTargets
+  { _ccSchemaChangePolicy :: !(Maybe SchemaChangePolicy)
+  , _ccSchedule           :: !(Maybe Text)
+  , _ccClassifiers        :: !(Maybe [Text])
+  , _ccTablePrefix        :: !(Maybe Text)
+  , _ccDescription        :: !(Maybe Text)
+  , _ccName               :: !Text
+  , _ccRole               :: !Text
+  , _ccDatabaseName       :: !Text
+  , _ccTargets            :: !CrawlerTargets
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -119,11 +119,11 @@ instance ToQuery DescribeWorkingStorage where
 --
 -- /See:/ 'describeWorkingStorageResponse' smart constructor.
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
-  { _dwsrsGatewayARN                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwsrsDiskIds                        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dwsrsWorkingStorageAllocatedInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dwsrsWorkingStorageUsedInBytes      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dwsrsResponseStatus                 :: {-# NOUNPACK #-}!Int
+  { _dwsrsGatewayARN                     :: !(Maybe Text)
+  , _dwsrsDiskIds                        :: !(Maybe [Text])
+  , _dwsrsWorkingStorageAllocatedInBytes :: !(Maybe Integer)
+  , _dwsrsWorkingStorageUsedInBytes      :: !(Maybe Integer)
+  , _dwsrsResponseStatus                 :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

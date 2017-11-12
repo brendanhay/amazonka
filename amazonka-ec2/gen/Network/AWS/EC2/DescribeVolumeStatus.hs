@@ -66,11 +66,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeVolumeStatus' smart constructor.
 data DescribeVolumeStatus = DescribeVolumeStatus'
-  { _dvssFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dvssVolumeIds  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvssNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvssDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dvssMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dvssFilters    :: !(Maybe [Filter])
+  , _dvssVolumeIds  :: !(Maybe [Text])
+  , _dvssNextToken  :: !(Maybe Text)
+  , _dvssDryRun     :: !(Maybe Bool)
+  , _dvssMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -166,9 +166,9 @@ instance ToQuery DescribeVolumeStatus where
 --
 -- /See:/ 'describeVolumeStatusResponse' smart constructor.
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
-  { _dvsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvsrsVolumeStatuses :: {-# NOUNPACK #-}!(Maybe [VolumeStatusItem])
-  , _dvsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvsrsNextToken      :: !(Maybe Text)
+  , _dvsrsVolumeStatuses :: !(Maybe [VolumeStatusItem])
+  , _dvsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

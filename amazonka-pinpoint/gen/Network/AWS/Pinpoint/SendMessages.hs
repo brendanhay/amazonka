@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'sendMessages' smart constructor.
 data SendMessages = SendMessages'
-  { _smApplicationId  :: {-# NOUNPACK #-}!Text
-  , _smMessageRequest :: {-# NOUNPACK #-}!MessageRequest
+  { _smApplicationId  :: !Text
+  , _smMessageRequest :: !MessageRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,8 +110,8 @@ instance ToQuery SendMessages where
 
 -- | /See:/ 'sendMessagesResponse' smart constructor.
 data SendMessagesResponse = SendMessagesResponse'
-  { _smrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _smrsMessageResponse :: {-# NOUNPACK #-}!MessageResponse
+  { _smrsResponseStatus  :: !Int
+  , _smrsMessageResponse :: !MessageResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

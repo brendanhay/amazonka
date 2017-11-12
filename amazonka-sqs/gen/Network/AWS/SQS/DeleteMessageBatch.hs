@@ -54,8 +54,8 @@ import Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'deleteMessageBatch' smart constructor.
 data DeleteMessageBatch = DeleteMessageBatch'
-  { _dmbQueueURL :: {-# NOUNPACK #-}!Text
-  , _dmbEntries  :: {-# NOUNPACK #-}![DeleteMessageBatchRequestEntry]
+  { _dmbQueueURL :: !Text
+  , _dmbEntries  :: ![DeleteMessageBatchRequestEntry]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,9 +118,9 @@ instance ToQuery DeleteMessageBatch where
 --
 -- /See:/ 'deleteMessageBatchResponse' smart constructor.
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
-  { _dmbrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dmbrsSuccessful     :: {-# NOUNPACK #-}![DeleteMessageBatchResultEntry]
-  , _dmbrsFailed         :: {-# NOUNPACK #-}![BatchResultErrorEntry]
+  { _dmbrsResponseStatus :: !Int
+  , _dmbrsSuccessful     :: ![DeleteMessageBatchResultEntry]
+  , _dmbrsFailed         :: ![BatchResultErrorEntry]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

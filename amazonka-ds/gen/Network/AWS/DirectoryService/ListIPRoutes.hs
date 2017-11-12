@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listIPRoutes' smart constructor.
 data ListIPRoutes = ListIPRoutes'
-  { _lirNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lirLimit       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lirDirectoryId :: {-# NOUNPACK #-}!Text
+  { _lirNextToken   :: !(Maybe Text)
+  , _lirLimit       :: !(Maybe Nat)
+  , _lirDirectoryId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery ListIPRoutes where
 
 -- | /See:/ 'listIPRoutesResponse' smart constructor.
 data ListIPRoutesResponse = ListIPRoutesResponse'
-  { _lirrsIPRoutesInfo   :: {-# NOUNPACK #-}!(Maybe [IPRouteInfo])
-  , _lirrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lirrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lirrsIPRoutesInfo   :: !(Maybe [IPRouteInfo])
+  , _lirrsNextToken      :: !(Maybe Text)
+  , _lirrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

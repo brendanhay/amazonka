@@ -66,25 +66,25 @@ import Network.AWS.Response
 
 -- | /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
-  { _csDefaultRootDeviceType :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
-  , _csVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csChefConfiguration :: {-# NOUNPACK #-}!(Maybe ChefConfiguration)
-  , _csAgentVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csDefaultSSHKeyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csCustomCookbooksSource :: {-# NOUNPACK #-}!(Maybe Source)
-  , _csDefaultAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csAttributes :: {-# NOUNPACK #-}!(Maybe (Map StackAttributesKeys Text))
-  , _csDefaultOS :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csUseOpsworksSecurityGroups :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _csUseCustomCookbooks :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _csDefaultSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csConfigurationManager :: {-# NOUNPACK #-}!(Maybe StackConfigurationManager)
-  , _csHostnameTheme :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csName :: {-# NOUNPACK #-}!Text
-  , _csRegion :: {-# NOUNPACK #-}!Text
-  , _csServiceRoleARN :: {-# NOUNPACK #-}!Text
-  , _csDefaultInstanceProfileARN :: {-# NOUNPACK #-}!Text
+  { _csDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+  , _csVPCId                     :: !(Maybe Text)
+  , _csChefConfiguration         :: !(Maybe ChefConfiguration)
+  , _csAgentVersion              :: !(Maybe Text)
+  , _csDefaultSSHKeyName         :: !(Maybe Text)
+  , _csCustomJSON                :: !(Maybe Text)
+  , _csCustomCookbooksSource     :: !(Maybe Source)
+  , _csDefaultAvailabilityZone   :: !(Maybe Text)
+  , _csAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+  , _csDefaultOS                 :: !(Maybe Text)
+  , _csUseOpsworksSecurityGroups :: !(Maybe Bool)
+  , _csUseCustomCookbooks        :: !(Maybe Bool)
+  , _csDefaultSubnetId           :: !(Maybe Text)
+  , _csConfigurationManager      :: !(Maybe StackConfigurationManager)
+  , _csHostnameTheme             :: !(Maybe Text)
+  , _csName                      :: !Text
+  , _csRegion                    :: !Text
+  , _csServiceRoleARN            :: !Text
+  , _csDefaultInstanceProfileARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -300,8 +300,8 @@ instance ToQuery CreateStack where
 --
 -- /See:/ 'createStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'
-  { _crsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crsStackId        :: !(Maybe Text)
+  , _crsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,10 +50,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'swapEnvironmentCNAMEs' smart constructor.
 data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
-  { _secnameDestinationEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _secnameDestinationEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _secnameSourceEnvironmentName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _secnameSourceEnvironmentId        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _secnameDestinationEnvironmentName :: !(Maybe Text)
+  , _secnameDestinationEnvironmentId   :: !(Maybe Text)
+  , _secnameSourceEnvironmentName      :: !(Maybe Text)
+  , _secnameSourceEnvironmentId        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

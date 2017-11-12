@@ -116,8 +116,8 @@ instance ToQuery RebootWorkspaces where
 --
 -- /See:/ 'rebootWorkspacesResponse' smart constructor.
 data RebootWorkspacesResponse = RebootWorkspacesResponse'
-  { _rrsFailedRequests :: {-# NOUNPACK #-}!(Maybe [FailedWorkspaceChangeRequest])
-  , _rrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
+  , _rrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

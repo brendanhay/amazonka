@@ -102,8 +102,8 @@ instance ToQuery DisassociateIAMInstanceProfile where
 
 -- | /See:/ 'disassociateIAMInstanceProfileResponse' smart constructor.
 data DisassociateIAMInstanceProfileResponse = DisassociateIAMInstanceProfileResponse'
-  { _diaprsIAMInstanceProfileAssociation :: {-# NOUNPACK #-}!(Maybe IAMInstanceProfileAssociation)
-  , _diaprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _diaprsIAMInstanceProfileAssociation :: !(Maybe IAMInstanceProfileAssociation)
+  , _diaprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

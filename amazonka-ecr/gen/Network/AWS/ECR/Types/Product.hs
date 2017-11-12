@@ -27,9 +27,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'authorizationData' smart constructor.
 data AuthorizationData = AuthorizationData'
-  { _adExpiresAt          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _adProxyEndpoint      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _adAuthorizationToken :: {-# NOUNPACK #-}!(Maybe Text)
+  { _adExpiresAt          :: !(Maybe POSIX)
+  , _adProxyEndpoint      :: !(Maybe Text)
+  , _adAuthorizationToken :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,10 +115,10 @@ instance ToJSON DescribeImagesFilter where
 --
 -- /See:/ 'image' smart constructor.
 data Image = Image'
-  { _iRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iImageId        :: {-# NOUNPACK #-}!(Maybe ImageIdentifier)
-  , _iRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iImageManifest  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iRegistryId     :: !(Maybe Text)
+  , _iImageId        :: !(Maybe ImageIdentifier)
+  , _iRepositoryName :: !(Maybe Text)
+  , _iImageManifest  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -179,12 +179,12 @@ instance NFData Image where
 --
 -- /See:/ 'imageDetail' smart constructor.
 data ImageDetail = ImageDetail'
-  { _idRegistryId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _idImageTags        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _idImageSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _idImageDigest      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _idImagePushedAt    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _idRepositoryName   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _idRegistryId       :: !(Maybe Text)
+  , _idImageTags        :: !(Maybe [Text])
+  , _idImageSizeInBytes :: !(Maybe Integer)
+  , _idImageDigest      :: !(Maybe Text)
+  , _idImagePushedAt    :: !(Maybe POSIX)
+  , _idRepositoryName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -262,9 +262,9 @@ instance NFData ImageDetail where
 --
 -- /See:/ 'imageFailure' smart constructor.
 data ImageFailure = ImageFailure'
-  { _ifFailureReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ifFailureCode   :: {-# NOUNPACK #-}!(Maybe ImageFailureCode)
-  , _ifImageId       :: {-# NOUNPACK #-}!(Maybe ImageIdentifier)
+  { _ifFailureReason :: !(Maybe Text)
+  , _ifFailureCode   :: !(Maybe ImageFailureCode)
+  , _ifImageId       :: !(Maybe ImageIdentifier)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -314,8 +314,8 @@ instance NFData ImageFailure where
 --
 -- /See:/ 'imageIdentifier' smart constructor.
 data ImageIdentifier = ImageIdentifier'
-  { _iiImageDigest :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iiImageTag    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iiImageDigest :: !(Maybe Text)
+  , _iiImageTag    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -364,10 +364,10 @@ instance ToJSON ImageIdentifier where
 --
 -- /See:/ 'layer' smart constructor.
 data Layer = Layer'
-  { _lMediaType         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lLayerDigest       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lLayerSize         :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _lLayerAvailability :: {-# NOUNPACK #-}!(Maybe LayerAvailability)
+  { _lMediaType         :: !(Maybe Text)
+  , _lLayerDigest       :: !(Maybe Text)
+  , _lLayerSize         :: !(Maybe Integer)
+  , _lLayerAvailability :: !(Maybe LayerAvailability)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -428,9 +428,9 @@ instance NFData Layer where
 --
 -- /See:/ 'layerFailure' smart constructor.
 data LayerFailure = LayerFailure'
-  { _lfFailureReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfFailureCode   :: {-# NOUNPACK #-}!(Maybe LayerFailureCode)
-  , _lfLayerDigest   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lfFailureReason :: !(Maybe Text)
+  , _lfFailureCode   :: !(Maybe LayerFailureCode)
+  , _lfLayerDigest   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -517,11 +517,11 @@ instance ToJSON LifecyclePolicyPreviewFilter where
 --
 -- /See:/ 'lifecyclePolicyPreviewResult' smart constructor.
 data LifecyclePolicyPreviewResult = LifecyclePolicyPreviewResult'
-  { _lpprImageTags :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lpprAction :: {-# NOUNPACK #-}!(Maybe LifecyclePolicyRuleAction)
-  , _lpprImageDigest :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpprImagePushedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _lpprAppliedRulePriority :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lpprImageTags           :: !(Maybe [Text])
+  , _lpprAction              :: !(Maybe LifecyclePolicyRuleAction)
+  , _lpprImageDigest         :: !(Maybe Text)
+  , _lpprImagePushedAt       :: !(Maybe POSIX)
+  , _lpprAppliedRulePriority :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -693,11 +693,11 @@ instance ToJSON ListImagesFilter where
 --
 -- /See:/ 'repository' smart constructor.
 data Repository = Repository'
-  { _rRepositoryARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rCreatedAt      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rRepositoryURI  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rRepositoryARN  :: !(Maybe Text)
+  , _rCreatedAt      :: !(Maybe POSIX)
+  , _rRegistryId     :: !(Maybe Text)
+  , _rRepositoryURI  :: !(Maybe Text)
+  , _rRepositoryName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

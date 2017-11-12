@@ -101,8 +101,8 @@ instance ToQuery GetInstance where
 
 -- | /See:/ 'getInstanceResponse' smart constructor.
 data GetInstanceResponse = GetInstanceResponse'
-  { _girsInstance       :: {-# NOUNPACK #-}!(Maybe Instance)
-  , _girsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _girsInstance       :: !(Maybe Instance)
+  , _girsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

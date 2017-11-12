@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'publish' smart constructor.
 data Publish = Publish'
-  { _pPayload :: {-# NOUNPACK #-}!(Maybe (HashMap Text Value))
-  , _pQos     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _pTopic   :: {-# NOUNPACK #-}!Text
+  { _pPayload :: !(Maybe (HashMap Text Value))
+  , _pQos     :: !(Maybe Nat)
+  , _pTopic   :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

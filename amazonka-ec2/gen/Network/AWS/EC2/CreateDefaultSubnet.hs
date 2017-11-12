@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDefaultSubnet' smart constructor.
 data CreateDefaultSubnet = CreateDefaultSubnet'
-  { _cdsDryRun           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdsAvailabilityZone :: {-# NOUNPACK #-}!Text
+  { _cdsDryRun           :: !(Maybe Bool)
+  , _cdsAvailabilityZone :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -105,8 +105,8 @@ instance ToQuery CreateDefaultSubnet where
 
 -- | /See:/ 'createDefaultSubnetResponse' smart constructor.
 data CreateDefaultSubnetResponse = CreateDefaultSubnetResponse'
-  { _cdsrsSubnet         :: {-# NOUNPACK #-}!(Maybe Subnet)
-  , _cdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdsrsSubnet         :: !(Maybe Subnet)
+  , _cdsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

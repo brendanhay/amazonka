@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeDeliveryStream' smart constructor.
 data DescribeDeliveryStream = DescribeDeliveryStream'
-  { _ddsExclusiveStartDestinationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddsLimit                       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ddsDeliveryStreamName          :: {-# NOUNPACK #-}!Text
+  { _ddsExclusiveStartDestinationId :: !(Maybe Text)
+  , _ddsLimit                       :: !(Maybe Nat)
+  , _ddsDeliveryStreamName          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,8 +129,8 @@ instance ToQuery DescribeDeliveryStream where
 
 -- | /See:/ 'describeDeliveryStreamResponse' smart constructor.
 data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
-  { _ddsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ddsrsDeliveryStreamDescription :: {-# NOUNPACK #-}!DeliveryStreamDescription
+  { _ddsrsResponseStatus            :: !Int
+  , _ddsrsDeliveryStreamDescription :: !DeliveryStreamDescription
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

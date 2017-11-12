@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'registerApplicationRevision' smart constructor.
 data RegisterApplicationRevision = RegisterApplicationRevision'
-  { _rarDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rarApplicationName :: {-# NOUNPACK #-}!Text
-  , _rarRevision        :: {-# NOUNPACK #-}!RevisionLocation
+  { _rarDescription     :: !(Maybe Text)
+  , _rarApplicationName :: !Text
+  , _rarRevision        :: !RevisionLocation
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'setUserSettings' smart constructor.
 data SetUserSettings = SetUserSettings'
-  { _susAccessToken :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _susMFAOptions  :: {-# NOUNPACK #-}![MFAOptionType]
+  { _susAccessToken :: !(Sensitive Text)
+  , _susMFAOptions  :: ![MFAOptionType]
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

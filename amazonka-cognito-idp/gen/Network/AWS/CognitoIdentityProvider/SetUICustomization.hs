@@ -51,10 +51,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'setUICustomization' smart constructor.
 data SetUICustomization = SetUICustomization'
-  { _suicClientId   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _suicCSS        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _suicImageFile  :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _suicUserPoolId :: {-# NOUNPACK #-}!Text
+  { _suicClientId   :: !(Maybe (Sensitive Text))
+  , _suicCSS        :: !(Maybe Text)
+  , _suicImageFile  :: !(Maybe Base64)
+  , _suicUserPoolId :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery SetUICustomization where
 
 -- | /See:/ 'setUICustomizationResponse' smart constructor.
 data SetUICustomizationResponse = SetUICustomizationResponse'
-  { _suicrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _suicrsUICustomization :: {-# NOUNPACK #-}!UICustomizationType
+  { _suicrsResponseStatus  :: !Int
+  , _suicrsUICustomization :: !UICustomizationType
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

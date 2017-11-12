@@ -51,11 +51,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeJobDefinitions' smart constructor.
 data DescribeJobDefinitions = DescribeJobDefinitions'
-  { _djdStatus            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _djdJobDefinitionName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _djdJobDefinitions    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _djdNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _djdMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
+  { _djdStatus            :: !(Maybe Text)
+  , _djdJobDefinitionName :: !(Maybe Text)
+  , _djdJobDefinitions    :: !(Maybe [Text])
+  , _djdNextToken         :: !(Maybe Text)
+  , _djdMaxResults        :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -145,9 +145,9 @@ instance ToQuery DescribeJobDefinitions where
 
 -- | /See:/ 'describeJobDefinitionsResponse' smart constructor.
 data DescribeJobDefinitionsResponse = DescribeJobDefinitionsResponse'
-  { _djdrsJobDefinitions :: {-# NOUNPACK #-}!(Maybe [JobDefinition])
-  , _djdrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _djdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _djdrsJobDefinitions :: !(Maybe [JobDefinition])
+  , _djdrsNextToken      :: !(Maybe Text)
+  , _djdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

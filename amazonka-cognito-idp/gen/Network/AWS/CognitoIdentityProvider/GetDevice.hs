@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDevice' smart constructor.
 data GetDevice = GetDevice'
-  { _gdAccessToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _gdDeviceKey   :: {-# NOUNPACK #-}!Text
+  { _gdAccessToken :: !(Maybe (Sensitive Text))
+  , _gdDeviceKey   :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -120,8 +120,8 @@ instance ToQuery GetDevice where
 --
 -- /See:/ 'getDeviceResponse' smart constructor.
 data GetDeviceResponse = GetDeviceResponse'
-  { _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gdrsDevice         :: {-# NOUNPACK #-}!DeviceType
+  { _gdrsResponseStatus :: !Int
+  , _gdrsDevice         :: !DeviceType
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

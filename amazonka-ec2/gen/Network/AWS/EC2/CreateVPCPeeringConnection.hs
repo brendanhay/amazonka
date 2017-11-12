@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVPCPeeringConnection' smart constructor.
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
-  { _cvpcPeerVPCId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cvpcVPCId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cvpcPeerOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cvpcDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _cvpcPeerVPCId   :: !(Maybe Text)
+  , _cvpcVPCId       :: !(Maybe Text)
+  , _cvpcPeerOwnerId :: !(Maybe Text)
+  , _cvpcDryRun      :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,8 +139,8 @@ instance ToQuery CreateVPCPeeringConnection where
 --
 -- /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
-  { _cvpcrsVPCPeeringConnection :: {-# NOUNPACK #-}!(Maybe VPCPeeringConnection)
-  , _cvpcrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _cvpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
+  , _cvpcrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

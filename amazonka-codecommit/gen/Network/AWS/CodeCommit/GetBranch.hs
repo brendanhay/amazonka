@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getBranch' smart constructor.
 data GetBranch = GetBranch'
-  { _gbBranchName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gbBranchName     :: !(Maybe Text)
+  , _gbRepositoryName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,8 +117,8 @@ instance ToQuery GetBranch where
 --
 -- /See:/ 'getBranchResponse' smart constructor.
 data GetBranchResponse = GetBranchResponse'
-  { _grsBranch         :: {-# NOUNPACK #-}!(Maybe BranchInfo)
-  , _grsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grsBranch         :: !(Maybe BranchInfo)
+  , _grsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

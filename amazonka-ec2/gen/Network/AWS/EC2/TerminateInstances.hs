@@ -61,8 +61,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'terminateInstances' smart constructor.
 data TerminateInstances = TerminateInstances'
-  { _tiDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tiInstanceIds :: {-# NOUNPACK #-}![Text]
+  { _tiDryRun      :: !(Maybe Bool)
+  , _tiInstanceIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery TerminateInstances where
 --
 -- /See:/ 'terminateInstancesResponse' smart constructor.
 data TerminateInstancesResponse = TerminateInstancesResponse'
-  { _tirsTerminatingInstances :: {-# NOUNPACK #-}!(Maybe [InstanceStateChange])
-  , _tirsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _tirsTerminatingInstances :: !(Maybe [InstanceStateChange])
+  , _tirsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

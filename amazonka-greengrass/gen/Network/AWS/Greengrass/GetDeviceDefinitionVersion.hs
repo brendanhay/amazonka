@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getDeviceDefinitionVersion' smart constructor.
 data GetDeviceDefinitionVersion = GetDeviceDefinitionVersion'
-  { _gddvDeviceDefinitionVersionId :: {-# NOUNPACK #-}!Text
-  , _gddvDeviceDefinitionId        :: {-# NOUNPACK #-}!Text
+  { _gddvDeviceDefinitionVersionId :: !Text
+  , _gddvDeviceDefinitionId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,12 +117,12 @@ instance ToQuery GetDeviceDefinitionVersion where
 
 -- | /See:/ 'getDeviceDefinitionVersionResponse' smart constructor.
 data GetDeviceDefinitionVersionResponse = GetDeviceDefinitionVersionResponse'
-  { _gddvrsDefinition        :: {-# NOUNPACK #-}!(Maybe DeviceDefinitionVersion)
-  , _gddvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gddvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gddvrsDefinition        :: !(Maybe DeviceDefinitionVersion)
+  , _gddvrsARN               :: !(Maybe Text)
+  , _gddvrsCreationTimestamp :: !(Maybe Text)
+  , _gddvrsVersion           :: !(Maybe Text)
+  , _gddvrsId                :: !(Maybe Text)
+  , _gddvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

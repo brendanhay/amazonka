@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'confirmPrivateVirtualInterface' smart constructor.
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
-  { _cpviVirtualGatewayId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpviDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpviVirtualInterfaceId     :: {-# NOUNPACK #-}!Text
+  { _cpviVirtualGatewayId       :: !(Maybe Text)
+  , _cpviDirectConnectGatewayId :: !(Maybe Text)
+  , _cpviVirtualInterfaceId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,8 +142,8 @@ instance ToQuery ConfirmPrivateVirtualInterface where
 --
 -- /See:/ 'confirmPrivateVirtualInterfaceResponse' smart constructor.
 data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
-  { _cpvirsVirtualInterfaceState :: {-# NOUNPACK #-}!(Maybe VirtualInterfaceState)
-  , _cpvirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cpvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
+  , _cpvirsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

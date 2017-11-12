@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeExpressions' smart constructor.
 data DescribeExpressions = DescribeExpressions'
-  { _deDeployed        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _deExpressionNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _deDomainName      :: {-# NOUNPACK #-}!Text
+  { _deDeployed        :: !(Maybe Bool)
+  , _deExpressionNames :: !(Maybe [Text])
+  , _deDomainName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,8 +129,8 @@ instance ToQuery DescribeExpressions where
 --
 -- /See:/ 'describeExpressionsResponse' smart constructor.
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
-  { _drsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _drsExpressions    :: {-# NOUNPACK #-}![ExpressionStatus]
+  { _drsResponseStatus :: !Int
+  , _drsExpressions    :: ![ExpressionStatus]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

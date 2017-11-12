@@ -67,11 +67,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'importKeyMaterial' smart constructor.
 data ImportKeyMaterial = ImportKeyMaterial'
-  { _ikmExpirationModel      :: {-# NOUNPACK #-}!(Maybe ExpirationModelType)
-  , _ikmValidTo              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ikmKeyId                :: {-# NOUNPACK #-}!Text
-  , _ikmImportToken          :: {-# NOUNPACK #-}!Base64
-  , _ikmEncryptedKeyMaterial :: {-# NOUNPACK #-}!Base64
+  { _ikmExpirationModel      :: !(Maybe ExpirationModelType)
+  , _ikmValidTo              :: !(Maybe POSIX)
+  , _ikmKeyId                :: !Text
+  , _ikmImportToken          :: !Base64
+  , _ikmEncryptedKeyMaterial :: !Base64
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

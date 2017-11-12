@@ -53,10 +53,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'copyDBParameterGroup' smart constructor.
 data CopyDBParameterGroup = CopyDBParameterGroup'
-  { _cdpgTags                              :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cdpgSourceDBParameterGroupIdentifier  :: {-# NOUNPACK #-}!Text
-  , _cdpgTargetDBParameterGroupIdentifier  :: {-# NOUNPACK #-}!Text
-  , _cdpgTargetDBParameterGroupDescription :: {-# NOUNPACK #-}!Text
+  { _cdpgTags                              :: !(Maybe [Tag])
+  , _cdpgSourceDBParameterGroupIdentifier  :: !Text
+  , _cdpgTargetDBParameterGroupIdentifier  :: !Text
+  , _cdpgTargetDBParameterGroupDescription :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,8 +136,8 @@ instance ToQuery CopyDBParameterGroup where
 
 -- | /See:/ 'copyDBParameterGroupResponse' smart constructor.
 data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
-  { _cdbpgrsDBParameterGroup :: {-# NOUNPACK #-}!(Maybe DBParameterGroup)
-  , _cdbpgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _cdbpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
+  , _cdbpgrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

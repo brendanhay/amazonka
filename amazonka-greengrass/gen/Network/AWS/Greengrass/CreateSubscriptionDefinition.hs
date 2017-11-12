@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createSubscriptionDefinition' smart constructor.
 data CreateSubscriptionDefinition = CreateSubscriptionDefinition'
-  { _csdAmznClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdInitialVersion :: {-# NOUNPACK #-}!(Maybe SubscriptionDefinitionVersion)
-  , _csdName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csdAmznClientToken :: !(Maybe Text)
+  , _csdInitialVersion  :: !(Maybe SubscriptionDefinitionVersion)
+  , _csdName            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,14 +132,14 @@ instance ToQuery CreateSubscriptionDefinition where
 
 -- | /See:/ 'createSubscriptionDefinitionResponse' smart constructor.
 data CreateSubscriptionDefinitionResponse = CreateSubscriptionDefinitionResponse'
-  { _csdrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csdrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _csdrsLatestVersionARN     :: !(Maybe Text)
+  , _csdrsARN                  :: !(Maybe Text)
+  , _csdrsName                 :: !(Maybe Text)
+  , _csdrsCreationTimestamp    :: !(Maybe Text)
+  , _csdrsId                   :: !(Maybe Text)
+  , _csdrsLatestVersion        :: !(Maybe Text)
+  , _csdrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _csdrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

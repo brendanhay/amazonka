@@ -107,12 +107,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateFleetAttributes' smart constructor.
 data UpdateFleetAttributes = UpdateFleetAttributes'
-  { _ufaNewGameSessionProtectionPolicy :: {-# NOUNPACK #-}!(Maybe ProtectionPolicy)
-  , _ufaName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufaMetricGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ufaDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufaResourceCreationLimitPolicy :: {-# NOUNPACK #-}!(Maybe ResourceCreationLimitPolicy)
-  , _ufaFleetId :: {-# NOUNPACK #-}!Text
+  { _ufaNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
+  , _ufaName                           :: !(Maybe Text)
+  , _ufaMetricGroups                   :: !(Maybe [Text])
+  , _ufaDescription                    :: !(Maybe Text)
+  , _ufaResourceCreationLimitPolicy    :: !(Maybe ResourceCreationLimitPolicy)
+  , _ufaFleetId                        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -217,8 +217,8 @@ instance ToQuery UpdateFleetAttributes where
 --
 -- /See:/ 'updateFleetAttributesResponse' smart constructor.
 data UpdateFleetAttributesResponse = UpdateFleetAttributesResponse'
-  { _ufarsFleetId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ufarsFleetId        :: !(Maybe Text)
+  , _ufarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

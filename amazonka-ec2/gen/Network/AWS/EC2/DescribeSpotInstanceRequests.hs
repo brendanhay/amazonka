@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeSpotInstanceRequests' smart constructor.
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
-  { _dsirFilters                :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dsirSpotInstanceRequestIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dsirDryRun                 :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dsirFilters                :: !(Maybe [Filter])
+  , _dsirSpotInstanceRequestIds :: !(Maybe [Text])
+  , _dsirDryRun                 :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery DescribeSpotInstanceRequests where
 --
 -- /See:/ 'describeSpotInstanceRequestsResponse' smart constructor.
 data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'
-  { _dsirrsSpotInstanceRequests :: {-# NOUNPACK #-}!(Maybe [SpotInstanceRequest])
-  , _dsirrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsirrsSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
+  , _dsirrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

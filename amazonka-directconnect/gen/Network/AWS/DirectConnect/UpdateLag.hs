@@ -72,9 +72,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateLag' smart constructor.
 data UpdateLag = UpdateLag'
-  { _ulMinimumLinks :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ulLagName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ulLagId        :: {-# NOUNPACK #-}!Text
+  { _ulMinimumLinks :: !(Maybe Int)
+  , _ulLagName      :: !(Maybe Text)
+  , _ulLagId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

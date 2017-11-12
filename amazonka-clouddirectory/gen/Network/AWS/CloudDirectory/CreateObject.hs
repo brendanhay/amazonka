@@ -50,11 +50,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createObject' smart constructor.
 data CreateObject = CreateObject'
-  { _coParentReference     :: {-# NOUNPACK #-}!(Maybe ObjectReference)
-  , _coObjectAttributeList :: {-# NOUNPACK #-}!(Maybe [AttributeKeyAndValue])
-  , _coLinkName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _coDirectoryARN        :: {-# NOUNPACK #-}!Text
-  , _coSchemaFacets        :: {-# NOUNPACK #-}![SchemaFacet]
+  { _coParentReference     :: !(Maybe ObjectReference)
+  , _coObjectAttributeList :: !(Maybe [AttributeKeyAndValue])
+  , _coLinkName            :: !(Maybe Text)
+  , _coDirectoryARN        :: !Text
+  , _coSchemaFacets        :: ![SchemaFacet]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,8 +140,8 @@ instance ToQuery CreateObject where
 
 -- | /See:/ 'createObjectResponse' smart constructor.
 data CreateObjectResponse = CreateObjectResponse'
-  { _corsObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _corsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _corsObjectIdentifier :: !(Maybe Text)
+  , _corsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'addApplicationInputProcessingConfiguration' smart constructor.
 data AddApplicationInputProcessingConfiguration = AddApplicationInputProcessingConfiguration'
-  { _aaipcApplicationName :: {-# NOUNPACK #-}!Text
-  , _aaipcCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
-  , _aaipcInputId :: {-# NOUNPACK #-}!Text
-  , _aaipcInputProcessingConfiguration :: {-# NOUNPACK #-}!InputProcessingConfiguration
+  { _aaipcApplicationName              :: !Text
+  , _aaipcCurrentApplicationVersionId  :: !Nat
+  , _aaipcInputId                      :: !Text
+  , _aaipcInputProcessingConfiguration :: !InputProcessingConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

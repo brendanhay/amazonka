@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeInstancePatchStates' smart constructor.
 data DescribeInstancePatchStates = DescribeInstancePatchStates'
-  { _dipsNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dipsMaxResults  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dipsInstanceIds :: {-# NOUNPACK #-}![Text]
+  { _dipsNextToken   :: !(Maybe Text)
+  , _dipsMaxResults  :: !(Maybe Nat)
+  , _dipsInstanceIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery DescribeInstancePatchStates where
 
 -- | /See:/ 'describeInstancePatchStatesResponse' smart constructor.
 data DescribeInstancePatchStatesResponse = DescribeInstancePatchStatesResponse'
-  { _dipsrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dipsrsInstancePatchStates :: {-# NOUNPACK #-}!(Maybe [InstancePatchState])
-  , _dipsrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _dipsrsNextToken           :: !(Maybe Text)
+  , _dipsrsInstancePatchStates :: !(Maybe [InstancePatchState])
+  , _dipsrsResponseStatus      :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

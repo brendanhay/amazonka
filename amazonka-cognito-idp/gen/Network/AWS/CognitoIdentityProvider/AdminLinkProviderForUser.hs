@@ -55,9 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'adminLinkProviderForUser' smart constructor.
 data AdminLinkProviderForUser = AdminLinkProviderForUser'
-  { _alpfuUserPoolId      :: {-# NOUNPACK #-}!Text
-  , _alpfuDestinationUser :: {-# NOUNPACK #-}!ProviderUserIdentifierType
-  , _alpfuSourceUser      :: {-# NOUNPACK #-}!ProviderUserIdentifierType
+  { _alpfuUserPoolId      :: !Text
+  , _alpfuDestinationUser :: !ProviderUserIdentifierType
+  , _alpfuSourceUser      :: !ProviderUserIdentifierType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

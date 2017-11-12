@@ -50,11 +50,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createAssessmentTemplate' smart constructor.
 data CreateAssessmentTemplate = CreateAssessmentTemplate'
-  { _catUserAttributesForFindings :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _catAssessmentTargetARN       :: {-# NOUNPACK #-}!Text
-  , _catAssessmentTemplateName    :: {-# NOUNPACK #-}!Text
-  , _catDurationInSeconds         :: {-# NOUNPACK #-}!Nat
-  , _catRulesPackageARNs          :: {-# NOUNPACK #-}![Text]
+  { _catUserAttributesForFindings :: !(Maybe [Attribute])
+  , _catAssessmentTargetARN       :: !Text
+  , _catAssessmentTemplateName    :: !Text
+  , _catDurationInSeconds         :: !Nat
+  , _catRulesPackageARNs          :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -153,8 +153,8 @@ instance ToQuery CreateAssessmentTemplate where
 
 -- | /See:/ 'createAssessmentTemplateResponse' smart constructor.
 data CreateAssessmentTemplateResponse = CreateAssessmentTemplateResponse'
-  { _crsResponseStatus        :: {-# NOUNPACK #-}!Int
-  , _crsAssessmentTemplateARN :: {-# NOUNPACK #-}!Text
+  { _crsResponseStatus        :: !Int
+  , _crsAssessmentTemplateARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

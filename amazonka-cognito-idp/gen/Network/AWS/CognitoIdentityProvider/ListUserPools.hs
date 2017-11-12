@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listUserPools' smart constructor.
 data ListUserPools = ListUserPools'
-  { _lupNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lupMaxResults :: {-# NOUNPACK #-}!Nat
+  { _lupNextToken  :: !(Maybe Text)
+  , _lupMaxResults :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery ListUserPools where
 --
 -- /See:/ 'listUserPoolsResponse' smart constructor.
 data ListUserPoolsResponse = ListUserPoolsResponse'
-  { _luprsUserPools      :: {-# NOUNPACK #-}!(Maybe [UserPoolDescriptionType])
-  , _luprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _luprsUserPools      :: !(Maybe [UserPoolDescriptionType])
+  , _luprsNextToken      :: !(Maybe Text)
+  , _luprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

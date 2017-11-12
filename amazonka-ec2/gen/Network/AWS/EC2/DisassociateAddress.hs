@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'disassociateAddress' smart constructor.
 data DisassociateAddress = DisassociateAddress'
-  { _dasAssociationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dasPublicIP      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dasDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dasAssociationId :: !(Maybe Text)
+  , _dasPublicIP      :: !(Maybe Text)
+  , _dasDryRun        :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

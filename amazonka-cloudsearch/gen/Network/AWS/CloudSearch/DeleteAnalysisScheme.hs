@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteAnalysisScheme' smart constructor.
 data DeleteAnalysisScheme = DeleteAnalysisScheme'
-  { _dasDomainName         :: {-# NOUNPACK #-}!Text
-  , _dasAnalysisSchemeName :: {-# NOUNPACK #-}!Text
+  { _dasDomainName         :: !Text
+  , _dasAnalysisSchemeName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery DeleteAnalysisScheme where
 --
 -- /See:/ 'deleteAnalysisSchemeResponse' smart constructor.
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
-  { _dasarsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dasarsAnalysisScheme :: {-# NOUNPACK #-}!AnalysisSchemeStatus
+  { _dasarsResponseStatus :: !Int
+  , _dasarsAnalysisScheme :: !AnalysisSchemeStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

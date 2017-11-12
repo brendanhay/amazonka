@@ -59,18 +59,18 @@ import Network.AWS.Response
 
 -- | /See:/ 'createApp' smart constructor.
 data CreateApp = CreateApp'
-  { _caSSLConfiguration :: {-# NOUNPACK #-}!(Maybe SSLConfiguration)
-  , _caEnvironment      :: {-# NOUNPACK #-}!(Maybe [EnvironmentVariable])
-  , _caEnableSSL        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _caShortname        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caDataSources      :: {-# NOUNPACK #-}!(Maybe [DataSource])
-  , _caAppSource        :: {-# NOUNPACK #-}!(Maybe Source)
-  , _caAttributes       :: {-# NOUNPACK #-}!(Maybe (Map AppAttributesKeys Text))
-  , _caDomains          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _caDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caStackId          :: {-# NOUNPACK #-}!Text
-  , _caName             :: {-# NOUNPACK #-}!Text
-  , _caType             :: {-# NOUNPACK #-}!AppType
+  { _caSSLConfiguration :: !(Maybe SSLConfiguration)
+  , _caEnvironment      :: !(Maybe [EnvironmentVariable])
+  , _caEnableSSL        :: !(Maybe Bool)
+  , _caShortname        :: !(Maybe Text)
+  , _caDataSources      :: !(Maybe [DataSource])
+  , _caAppSource        :: !(Maybe Source)
+  , _caAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+  , _caDomains          :: !(Maybe [Text])
+  , _caDescription      :: !(Maybe Text)
+  , _caStackId          :: !Text
+  , _caName             :: !Text
+  , _caType             :: !AppType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -221,8 +221,8 @@ instance ToQuery CreateApp where
 --
 -- /See:/ 'createAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-  { _carsAppId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _carsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _carsAppId          :: !(Maybe Text)
+  , _carsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -66,14 +66,14 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDevEndpoint' smart constructor.
 data CreateDevEndpoint = CreateDevEndpoint'
-  { _cdeExtraPythonLibsS3Path :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdeSecurityGroupIds      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdeSubnetId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdeNumberOfNodes         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdeExtraJARsS3Path       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdeEndpointName          :: {-# NOUNPACK #-}!Text
-  , _cdeRoleARN               :: {-# NOUNPACK #-}!Text
-  , _cdePublicKey             :: {-# NOUNPACK #-}!Text
+  { _cdeExtraPythonLibsS3Path :: !(Maybe Text)
+  , _cdeSecurityGroupIds      :: !(Maybe [Text])
+  , _cdeSubnetId              :: !(Maybe Text)
+  , _cdeNumberOfNodes         :: !(Maybe Int)
+  , _cdeExtraJARsS3Path       :: !(Maybe Text)
+  , _cdeEndpointName          :: !Text
+  , _cdeRoleARN               :: !Text
+  , _cdePublicKey             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -203,21 +203,21 @@ instance ToQuery CreateDevEndpoint where
 
 -- | /See:/ 'createDevEndpointResponse' smart constructor.
 data CreateDevEndpointResponse = CreateDevEndpointResponse'
-  { _cdersStatus                             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdersFailureReason                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdersEndpointName                       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdersExtraPythonLibsS3Path              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdersSecurityGroupIds                   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdersVPCId                              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdersSubnetId                           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdersNumberOfNodes                      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdersAvailabilityZone                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdersZeppelinRemoteSparkInterpreterPort :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdersExtraJARsS3Path                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdersCreatedTimestamp                   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cdersYarnEndpointAddress                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdersRoleARN                            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdersResponseStatus                     :: {-# NOUNPACK #-}!Int
+  { _cdersStatus                             :: !(Maybe Text)
+  , _cdersFailureReason                      :: !(Maybe Text)
+  , _cdersEndpointName                       :: !(Maybe Text)
+  , _cdersExtraPythonLibsS3Path              :: !(Maybe Text)
+  , _cdersSecurityGroupIds                   :: !(Maybe [Text])
+  , _cdersVPCId                              :: !(Maybe Text)
+  , _cdersSubnetId                           :: !(Maybe Text)
+  , _cdersNumberOfNodes                      :: !(Maybe Int)
+  , _cdersAvailabilityZone                   :: !(Maybe Text)
+  , _cdersZeppelinRemoteSparkInterpreterPort :: !(Maybe Int)
+  , _cdersExtraJARsS3Path                    :: !(Maybe Text)
+  , _cdersCreatedTimestamp                   :: !(Maybe POSIX)
+  , _cdersYarnEndpointAddress                :: !(Maybe Text)
+  , _cdersRoleARN                            :: !(Maybe Text)
+  , _cdersResponseStatus                     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

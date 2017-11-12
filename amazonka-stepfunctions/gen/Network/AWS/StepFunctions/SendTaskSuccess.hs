@@ -46,8 +46,8 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'sendTaskSuccess' smart constructor.
 data SendTaskSuccess = SendTaskSuccess'
-  { _stsTaskToken :: {-# NOUNPACK #-}!Text
-  , _stsOutput    :: {-# NOUNPACK #-}!Text
+  { _stsTaskToken :: !Text
+  , _stsOutput    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

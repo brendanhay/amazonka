@@ -97,8 +97,8 @@ instance ToQuery EnableAllFeatures where
 
 -- | /See:/ 'enableAllFeaturesResponse' smart constructor.
 data EnableAllFeaturesResponse = EnableAllFeaturesResponse'
-  { _eafrsHandshake      :: {-# NOUNPACK #-}!(Maybe Handshake)
-  , _eafrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _eafrsHandshake      :: !(Maybe Handshake)
+  , _eafrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

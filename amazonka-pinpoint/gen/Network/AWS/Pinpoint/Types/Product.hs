@@ -25,9 +25,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'aDMChannelRequest' smart constructor.
 data ADMChannelRequest = ADMChannelRequest'
-  { _admcrClientId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admcrClientSecret :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admcrEnabled      :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _admcrClientId     :: !(Maybe Text)
+  , _admcrClientSecret :: !(Maybe Text)
+  , _admcrEnabled      :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -78,16 +78,16 @@ instance ToJSON ADMChannelRequest where
 --
 -- /See:/ 'aDMChannelResponse' smart constructor.
 data ADMChannelResponse = ADMChannelResponse'
-  { _admcPlatform         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admcLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admcEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _admcIsArchived       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _admcApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admcVersion          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _admcId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admcCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admcLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admcHasCredential    :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _admcPlatform         :: !(Maybe Text)
+  , _admcLastModifiedDate :: !(Maybe Text)
+  , _admcEnabled          :: !(Maybe Bool)
+  , _admcIsArchived       :: !(Maybe Bool)
+  , _admcApplicationId    :: !(Maybe Text)
+  , _admcVersion          :: !(Maybe Int)
+  , _admcId               :: !(Maybe Text)
+  , _admcCreationDate     :: !(Maybe Text)
+  , _admcLastModifiedBy   :: !(Maybe Text)
+  , _admcHasCredential    :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -194,22 +194,22 @@ instance NFData ADMChannelResponse where
 --
 -- /See:/ 'aDMMessage' smart constructor.
 data ADMMessage = ADMMessage'
-  { _admmSubstitutions     :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _admmExpiresAfter      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admmMD5               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admmSilentPush        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _admmImageIconURL      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admmRawContent        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admmData              :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _admmSmallImageIconURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admmBody              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admmURL               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admmSound             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admmAction            :: {-# NOUNPACK #-}!(Maybe Action)
-  , _admmImageURL          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admmConsolidationKey  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admmTitle             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _admmIconReference     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _admmSubstitutions     :: !(Maybe (Map Text [Text]))
+  , _admmExpiresAfter      :: !(Maybe Text)
+  , _admmMD5               :: !(Maybe Text)
+  , _admmSilentPush        :: !(Maybe Bool)
+  , _admmImageIconURL      :: !(Maybe Text)
+  , _admmRawContent        :: !(Maybe Text)
+  , _admmData              :: !(Maybe (Map Text Text))
+  , _admmSmallImageIconURL :: !(Maybe Text)
+  , _admmBody              :: !(Maybe Text)
+  , _admmURL               :: !(Maybe Text)
+  , _admmSound             :: !(Maybe Text)
+  , _admmAction            :: !(Maybe Action)
+  , _admmImageURL          :: !(Maybe Text)
+  , _admmConsolidationKey  :: !(Maybe Text)
+  , _admmTitle             :: !(Maybe Text)
+  , _admmIconReference     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -363,14 +363,14 @@ instance ToJSON ADMMessage where
 --
 -- /See:/ 'apnsChannelRequest' smart constructor.
 data APNSChannelRequest = APNSChannelRequest'
-  { _acrTokenKey                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acrPrivateKey                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acrEnabled                     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _acrTeamId                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acrBundleId                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acrDefaultAuthenticationMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acrCertificate                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acrTokenKeyId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _acrTokenKey                    :: !(Maybe Text)
+  , _acrPrivateKey                  :: !(Maybe Text)
+  , _acrEnabled                     :: !(Maybe Bool)
+  , _acrTeamId                      :: !(Maybe Text)
+  , _acrBundleId                    :: !(Maybe Text)
+  , _acrDefaultAuthenticationMethod :: !(Maybe Text)
+  , _acrCertificate                 :: !(Maybe Text)
+  , _acrTokenKeyId                  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -462,18 +462,18 @@ instance ToJSON APNSChannelRequest where
 --
 -- /See:/ 'apnsChannelResponse' smart constructor.
 data APNSChannelResponse = APNSChannelResponse'
-  { _acPlatform                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acLastModifiedDate            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acEnabled                     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _acHasTokenKey                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _acDefaultAuthenticationMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acIsArchived                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _acApplicationId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acVersion                     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _acId                          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acCreationDate                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acLastModifiedBy              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acHasCredential               :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _acPlatform                    :: !(Maybe Text)
+  , _acLastModifiedDate            :: !(Maybe Text)
+  , _acEnabled                     :: !(Maybe Bool)
+  , _acHasTokenKey                 :: !(Maybe Bool)
+  , _acDefaultAuthenticationMethod :: !(Maybe Text)
+  , _acIsArchived                  :: !(Maybe Bool)
+  , _acApplicationId               :: !(Maybe Text)
+  , _acVersion                     :: !(Maybe Int)
+  , _acId                          :: !(Maybe Text)
+  , _acCreationDate                :: !(Maybe Text)
+  , _acLastModifiedBy              :: !(Maybe Text)
+  , _acHasCredential               :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -596,23 +596,23 @@ instance NFData APNSChannelResponse where
 --
 -- /See:/ 'apnsMessage' smart constructor.
 data APNSMessage = APNSMessage'
-  { _amSubstitutions :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _amSilentPush :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _amPriority :: {-# NOUNPACK #-}!(Maybe Text)
-  , _amRawContent :: {-# NOUNPACK #-}!(Maybe Text)
-  , _amData :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _amBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _amCategory :: {-# NOUNPACK #-}!(Maybe Text)
-  , _amTimeToLive :: {-# NOUNPACK #-}!(Maybe Int)
-  , _amURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _amSound :: {-# NOUNPACK #-}!(Maybe Text)
-  , _amAction :: {-# NOUNPACK #-}!(Maybe Action)
-  , _amMediaURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _amPreferredAuthenticationMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _amBadge :: {-# NOUNPACK #-}!(Maybe Int)
-  , _amTitle :: {-# NOUNPACK #-}!(Maybe Text)
-  , _amThreadId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _amCollapseId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _amSubstitutions                 :: !(Maybe (Map Text [Text]))
+  , _amSilentPush                    :: !(Maybe Bool)
+  , _amPriority                      :: !(Maybe Text)
+  , _amRawContent                    :: !(Maybe Text)
+  , _amData                          :: !(Maybe (Map Text Text))
+  , _amBody                          :: !(Maybe Text)
+  , _amCategory                      :: !(Maybe Text)
+  , _amTimeToLive                    :: !(Maybe Int)
+  , _amURL                           :: !(Maybe Text)
+  , _amSound                         :: !(Maybe Text)
+  , _amAction                        :: !(Maybe Action)
+  , _amMediaURL                      :: !(Maybe Text)
+  , _amPreferredAuthenticationMethod :: !(Maybe Text)
+  , _amBadge                         :: !(Maybe Int)
+  , _amTitle                         :: !(Maybe Text)
+  , _amThreadId                      :: !(Maybe Text)
+  , _amCollapseId                    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -773,14 +773,14 @@ instance ToJSON APNSMessage where
 --
 -- /See:/ 'apnsSandboxChannelRequest' smart constructor.
 data APNSSandboxChannelRequest = APNSSandboxChannelRequest'
-  { _ascrTokenKey                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascrPrivateKey                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascrEnabled                     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ascrTeamId                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascrBundleId                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascrDefaultAuthenticationMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascrCertificate                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascrTokenKeyId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ascrTokenKey                    :: !(Maybe Text)
+  , _ascrPrivateKey                  :: !(Maybe Text)
+  , _ascrEnabled                     :: !(Maybe Bool)
+  , _ascrTeamId                      :: !(Maybe Text)
+  , _ascrBundleId                    :: !(Maybe Text)
+  , _ascrDefaultAuthenticationMethod :: !(Maybe Text)
+  , _ascrCertificate                 :: !(Maybe Text)
+  , _ascrTokenKeyId                  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -872,18 +872,18 @@ instance ToJSON APNSSandboxChannelRequest where
 --
 -- /See:/ 'apnsSandboxChannelResponse' smart constructor.
 data APNSSandboxChannelResponse = APNSSandboxChannelResponse'
-  { _ascPlatform                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascLastModifiedDate            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascEnabled                     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ascHasTokenKey                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ascDefaultAuthenticationMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascIsArchived                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ascApplicationId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascVersion                     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ascId                          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascCreationDate                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascLastModifiedBy              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ascHasCredential               :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _ascPlatform                    :: !(Maybe Text)
+  , _ascLastModifiedDate            :: !(Maybe Text)
+  , _ascEnabled                     :: !(Maybe Bool)
+  , _ascHasTokenKey                 :: !(Maybe Bool)
+  , _ascDefaultAuthenticationMethod :: !(Maybe Text)
+  , _ascIsArchived                  :: !(Maybe Bool)
+  , _ascApplicationId               :: !(Maybe Text)
+  , _ascVersion                     :: !(Maybe Int)
+  , _ascId                          :: !(Maybe Text)
+  , _ascCreationDate                :: !(Maybe Text)
+  , _ascLastModifiedBy              :: !(Maybe Text)
+  , _ascHasCredential               :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1006,14 +1006,14 @@ instance NFData APNSSandboxChannelResponse where
 --
 -- /See:/ 'apnsVoipChannelRequest' smart constructor.
 data APNSVoipChannelRequest = APNSVoipChannelRequest'
-  { _avcrTokenKey                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcrPrivateKey                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcrEnabled                     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avcrTeamId                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcrBundleId                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcrDefaultAuthenticationMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcrCertificate                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcrTokenKeyId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _avcrTokenKey                    :: !(Maybe Text)
+  , _avcrPrivateKey                  :: !(Maybe Text)
+  , _avcrEnabled                     :: !(Maybe Bool)
+  , _avcrTeamId                      :: !(Maybe Text)
+  , _avcrBundleId                    :: !(Maybe Text)
+  , _avcrDefaultAuthenticationMethod :: !(Maybe Text)
+  , _avcrCertificate                 :: !(Maybe Text)
+  , _avcrTokenKeyId                  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1105,18 +1105,18 @@ instance ToJSON APNSVoipChannelRequest where
 --
 -- /See:/ 'apnsVoipChannelResponse' smart constructor.
 data APNSVoipChannelResponse = APNSVoipChannelResponse'
-  { _avcPlatform                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcLastModifiedDate            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcEnabled                     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avcHasTokenKey                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avcDefaultAuthenticationMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcIsArchived                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avcApplicationId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcVersion                     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _avcId                          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcCreationDate                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcLastModifiedBy              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcHasCredential               :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _avcPlatform                    :: !(Maybe Text)
+  , _avcLastModifiedDate            :: !(Maybe Text)
+  , _avcEnabled                     :: !(Maybe Bool)
+  , _avcHasTokenKey                 :: !(Maybe Bool)
+  , _avcDefaultAuthenticationMethod :: !(Maybe Text)
+  , _avcIsArchived                  :: !(Maybe Bool)
+  , _avcApplicationId               :: !(Maybe Text)
+  , _avcVersion                     :: !(Maybe Int)
+  , _avcId                          :: !(Maybe Text)
+  , _avcCreationDate                :: !(Maybe Text)
+  , _avcLastModifiedBy              :: !(Maybe Text)
+  , _avcHasCredential               :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1239,14 +1239,14 @@ instance NFData APNSVoipChannelResponse where
 --
 -- /See:/ 'apnsVoipSandboxChannelRequest' smart constructor.
 data APNSVoipSandboxChannelRequest = APNSVoipSandboxChannelRequest'
-  { _avscrTokenKey                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscrPrivateKey                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscrEnabled                     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avscrTeamId                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscrBundleId                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscrDefaultAuthenticationMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscrCertificate                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscrTokenKeyId                  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _avscrTokenKey                    :: !(Maybe Text)
+  , _avscrPrivateKey                  :: !(Maybe Text)
+  , _avscrEnabled                     :: !(Maybe Bool)
+  , _avscrTeamId                      :: !(Maybe Text)
+  , _avscrBundleId                    :: !(Maybe Text)
+  , _avscrDefaultAuthenticationMethod :: !(Maybe Text)
+  , _avscrCertificate                 :: !(Maybe Text)
+  , _avscrTokenKeyId                  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1338,18 +1338,18 @@ instance ToJSON APNSVoipSandboxChannelRequest where
 --
 -- /See:/ 'apnsVoipSandboxChannelResponse' smart constructor.
 data APNSVoipSandboxChannelResponse = APNSVoipSandboxChannelResponse'
-  { _avscPlatform                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscLastModifiedDate            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscEnabled                     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avscHasTokenKey                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avscDefaultAuthenticationMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscIsArchived                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avscApplicationId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscVersion                     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _avscId                          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscCreationDate                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscLastModifiedBy              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avscHasCredential               :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _avscPlatform                    :: !(Maybe Text)
+  , _avscLastModifiedDate            :: !(Maybe Text)
+  , _avscEnabled                     :: !(Maybe Bool)
+  , _avscHasTokenKey                 :: !(Maybe Bool)
+  , _avscDefaultAuthenticationMethod :: !(Maybe Text)
+  , _avscIsArchived                  :: !(Maybe Bool)
+  , _avscApplicationId               :: !(Maybe Text)
+  , _avscVersion                     :: !(Maybe Int)
+  , _avscId                          :: !(Maybe Text)
+  , _avscCreationDate                :: !(Maybe Text)
+  , _avscLastModifiedBy              :: !(Maybe Text)
+  , _avscHasCredential               :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1506,19 +1506,19 @@ instance NFData ActivitiesResponse where
 --
 -- /See:/ 'activityResponse' smart constructor.
 data ActivityResponse = ActivityResponse'
-  { _aState                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aStart                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aCampaignId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aTimezonesCompletedCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _aTimezonesTotalCount     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _aResult                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aTreatmentId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aSuccessfulEndpointCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _aEnd                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aApplicationId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aTotalEndpointCount      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _aId                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aScheduledStart          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aState                   :: !(Maybe Text)
+  , _aStart                   :: !(Maybe Text)
+  , _aCampaignId              :: !(Maybe Text)
+  , _aTimezonesCompletedCount :: !(Maybe Int)
+  , _aTimezonesTotalCount     :: !(Maybe Int)
+  , _aResult                  :: !(Maybe Text)
+  , _aTreatmentId             :: !(Maybe Text)
+  , _aSuccessfulEndpointCount :: !(Maybe Int)
+  , _aEnd                     :: !(Maybe Text)
+  , _aApplicationId           :: !(Maybe Text)
+  , _aTotalEndpointCount      :: !(Maybe Int)
+  , _aId                      :: !(Maybe Text)
+  , _aScheduledStart          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1649,12 +1649,12 @@ instance NFData ActivityResponse where
 --
 -- /See:/ 'addressConfiguration' smart constructor.
 data AddressConfiguration = AddressConfiguration'
-  { _acSubstitutions :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _acTitleOverride :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acContext       :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _acRawContent    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acBodyOverride  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acChannelType   :: {-# NOUNPACK #-}!(Maybe ChannelType)
+  { _acSubstitutions :: !(Maybe (Map Text [Text]))
+  , _acTitleOverride :: !(Maybe Text)
+  , _acContext       :: !(Maybe (Map Text Text))
+  , _acRawContent    :: !(Maybe Text)
+  , _acBodyOverride  :: !(Maybe Text)
+  , _acChannelType   :: !(Maybe ChannelType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1729,8 +1729,8 @@ instance ToJSON AddressConfiguration where
 --
 -- /See:/ 'applicationResponse' smart constructor.
 data ApplicationResponse = ApplicationResponse'
-  { _appName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _appId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _appName :: !(Maybe Text)
+  , _appId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1770,10 +1770,10 @@ instance NFData ApplicationResponse where
 --
 -- /See:/ 'applicationSettingsResource' smart constructor.
 data ApplicationSettingsResource = ApplicationSettingsResource'
-  { _asrLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asrLimits           :: {-# NOUNPACK #-}!(Maybe CampaignLimits)
-  , _asrQuietTime        :: {-# NOUNPACK #-}!(Maybe QuietTime)
-  , _asrApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _asrLastModifiedDate :: !(Maybe Text)
+  , _asrLimits           :: !(Maybe CampaignLimits)
+  , _asrQuietTime        :: !(Maybe QuietTime)
+  , _asrApplicationId    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1832,8 +1832,8 @@ instance NFData ApplicationSettingsResource where
 --
 -- /See:/ 'applicationsResponse' smart constructor.
 data ApplicationsResponse = ApplicationsResponse'
-  { _appNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _appItem      :: {-# NOUNPACK #-}!(Maybe [ApplicationResponse])
+  { _appNextToken :: !(Maybe Text)
+  , _appItem      :: !(Maybe [ApplicationResponse])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1873,8 +1873,8 @@ instance NFData ApplicationsResponse where
 --
 -- /See:/ 'attributeDimension' smart constructor.
 data AttributeDimension = AttributeDimension'
-  { _adValues        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _adAttributeType :: {-# NOUNPACK #-}!(Maybe AttributeType)
+  { _adValues        :: !(Maybe [Text])
+  , _adAttributeType :: !(Maybe AttributeType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1922,9 +1922,9 @@ instance ToJSON AttributeDimension where
 --
 -- /See:/ 'baiduChannelRequest' smart constructor.
 data BaiduChannelRequest = BaiduChannelRequest'
-  { _bcrAPIKey    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bcrEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _bcrSecretKey :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bcrAPIKey    :: !(Maybe Text)
+  , _bcrEnabled   :: !(Maybe Bool)
+  , _bcrSecretKey :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1972,17 +1972,17 @@ instance ToJSON BaiduChannelRequest where
 --
 -- /See:/ 'baiduChannelResponse' smart constructor.
 data BaiduChannelResponse = BaiduChannelResponse'
-  { _bcPlatform         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bcLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bcEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _bcCredential       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bcIsArchived       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _bcApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bcVersion          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _bcId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bcCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bcLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bcHasCredential    :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _bcPlatform         :: !(Maybe Text)
+  , _bcLastModifiedDate :: !(Maybe Text)
+  , _bcEnabled          :: !(Maybe Bool)
+  , _bcCredential       :: !(Maybe Text)
+  , _bcIsArchived       :: !(Maybe Bool)
+  , _bcApplicationId    :: !(Maybe Text)
+  , _bcVersion          :: !(Maybe Int)
+  , _bcId               :: !(Maybe Text)
+  , _bcCreationDate     :: !(Maybe Text)
+  , _bcLastModifiedBy   :: !(Maybe Text)
+  , _bcHasCredential    :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2097,19 +2097,19 @@ instance NFData BaiduChannelResponse where
 --
 -- /See:/ 'baiduMessage' smart constructor.
 data BaiduMessage = BaiduMessage'
-  { _bmSubstitutions     :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _bmSilentPush        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _bmImageIconURL      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bmRawContent        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bmData              :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _bmSmallImageIconURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bmBody              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bmURL               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bmSound             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bmAction            :: {-# NOUNPACK #-}!(Maybe Action)
-  , _bmImageURL          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bmTitle             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bmIconReference     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bmSubstitutions     :: !(Maybe (Map Text [Text]))
+  , _bmSilentPush        :: !(Maybe Bool)
+  , _bmImageIconURL      :: !(Maybe Text)
+  , _bmRawContent        :: !(Maybe Text)
+  , _bmData              :: !(Maybe (Map Text Text))
+  , _bmSmallImageIconURL :: !(Maybe Text)
+  , _bmBody              :: !(Maybe Text)
+  , _bmURL               :: !(Maybe Text)
+  , _bmSound             :: !(Maybe Text)
+  , _bmAction            :: !(Maybe Action)
+  , _bmImageURL          :: !(Maybe Text)
+  , _bmTitle             :: !(Maybe Text)
+  , _bmIconReference     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2239,10 +2239,10 @@ instance ToJSON BaiduMessage where
 --
 -- /See:/ 'campaignEmailMessage' smart constructor.
 data CampaignEmailMessage = CampaignEmailMessage'
-  { _cemBody        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cemFromAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cemHTMLBody    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cemTitle       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cemBody        :: !(Maybe Text)
+  , _cemFromAddress :: !(Maybe Text)
+  , _cemHTMLBody    :: !(Maybe Text)
+  , _cemTitle       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2310,10 +2310,10 @@ instance ToJSON CampaignEmailMessage where
 --
 -- /See:/ 'campaignLimits' smart constructor.
 data CampaignLimits = CampaignLimits'
-  { _clMessagesPerSecond :: {-# NOUNPACK #-}!(Maybe Int)
-  , _clDaily             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _clTotal             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _clMaximumDuration   :: {-# NOUNPACK #-}!(Maybe Int)
+  { _clMessagesPerSecond :: !(Maybe Int)
+  , _clDaily             :: !(Maybe Int)
+  , _clTotal             :: !(Maybe Int)
+  , _clMaximumDuration   :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2380,25 +2380,25 @@ instance ToJSON CampaignLimits where
 --
 -- /See:/ 'campaignResponse' smart constructor.
 data CampaignResponse = CampaignResponse'
-  { _cState                :: {-# NOUNPACK #-}!(Maybe CampaignState)
-  , _cLastModifiedDate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cSchedule             :: {-# NOUNPACK #-}!(Maybe Schedule)
-  , _cTreatmentName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cLimits               :: {-# NOUNPACK #-}!(Maybe CampaignLimits)
-  , _cIsPaused             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cDefaultState         :: {-# NOUNPACK #-}!(Maybe CampaignState)
-  , _cApplicationId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cVersion              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cHoldoutPercent       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cTreatmentDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCreationDate         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cMessageConfiguration :: {-# NOUNPACK #-}!(Maybe MessageConfiguration)
-  , _cDescription          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cSegmentId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cAdditionalTreatments :: {-# NOUNPACK #-}!(Maybe [TreatmentResource])
-  , _cSegmentVersion       :: {-# NOUNPACK #-}!(Maybe Int)
+  { _cState                :: !(Maybe CampaignState)
+  , _cLastModifiedDate     :: !(Maybe Text)
+  , _cSchedule             :: !(Maybe Schedule)
+  , _cTreatmentName        :: !(Maybe Text)
+  , _cLimits               :: !(Maybe CampaignLimits)
+  , _cIsPaused             :: !(Maybe Bool)
+  , _cDefaultState         :: !(Maybe CampaignState)
+  , _cApplicationId        :: !(Maybe Text)
+  , _cName                 :: !(Maybe Text)
+  , _cVersion              :: !(Maybe Int)
+  , _cHoldoutPercent       :: !(Maybe Int)
+  , _cTreatmentDescription :: !(Maybe Text)
+  , _cId                   :: !(Maybe Text)
+  , _cCreationDate         :: !(Maybe Text)
+  , _cMessageConfiguration :: !(Maybe MessageConfiguration)
+  , _cDescription          :: !(Maybe Text)
+  , _cSegmentId            :: !(Maybe Text)
+  , _cAdditionalTreatments :: !(Maybe [TreatmentResource])
+  , _cSegmentVersion       :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2577,9 +2577,9 @@ instance NFData CampaignResponse where
 --
 -- /See:/ 'campaignSmsMessage' smart constructor.
 data CampaignSmsMessage = CampaignSmsMessage'
-  { _csmBody        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csmMessageType :: {-# NOUNPACK #-}!(Maybe MessageType)
-  , _csmSenderId    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csmBody        :: !(Maybe Text)
+  , _csmMessageType :: !(Maybe MessageType)
+  , _csmSenderId    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2666,8 +2666,8 @@ instance NFData CampaignState where
 --
 -- /See:/ 'campaignsResponse' smart constructor.
 data CampaignsResponse = CampaignsResponse'
-  { _cNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cItem      :: {-# NOUNPACK #-}!(Maybe [CampaignResponse])
+  { _cNextToken :: !(Maybe Text)
+  , _cItem      :: !(Maybe [CampaignResponse])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2736,8 +2736,8 @@ instance ToJSON CreateApplicationRequest where
 --
 -- /See:/ 'defaultMessage' smart constructor.
 data DefaultMessage = DefaultMessage'
-  { _dmSubstitutions :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _dmBody          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dmSubstitutions :: !(Maybe (Map Text [Text]))
+  , _dmBody          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2776,13 +2776,13 @@ instance ToJSON DefaultMessage where
 --
 -- /See:/ 'defaultPushNotificationMessage' smart constructor.
 data DefaultPushNotificationMessage = DefaultPushNotificationMessage'
-  { _dpnmSubstitutions :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _dpnmSilentPush    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dpnmData          :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _dpnmBody          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpnmURL           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpnmAction        :: {-# NOUNPACK #-}!(Maybe Action)
-  , _dpnmTitle         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dpnmSubstitutions :: !(Maybe (Map Text [Text]))
+  , _dpnmSilentPush    :: !(Maybe Bool)
+  , _dpnmData          :: !(Maybe (Map Text Text))
+  , _dpnmBody          :: !(Maybe Text)
+  , _dpnmURL           :: !(Maybe Text)
+  , _dpnmAction        :: !(Maybe Action)
+  , _dpnmTitle         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2865,13 +2865,13 @@ instance ToJSON DefaultPushNotificationMessage where
 --
 -- /See:/ 'directMessageConfiguration' smart constructor.
 data DirectMessageConfiguration = DirectMessageConfiguration'
-  { _dmcAPNSMessage :: {-# NOUNPACK #-}!(Maybe APNSMessage)
-  , _dmcGCMMessage :: {-# NOUNPACK #-}!(Maybe GCMMessage)
-  , _dmcDefaultMessage :: {-# NOUNPACK #-}!(Maybe DefaultMessage)
-  , _dmcADMMessage :: {-# NOUNPACK #-}!(Maybe ADMMessage)
-  , _dmcSMSMessage :: {-# NOUNPACK #-}!(Maybe SMSMessage)
-  , _dmcBaiduMessage :: {-# NOUNPACK #-}!(Maybe BaiduMessage)
-  , _dmcDefaultPushNotificationMessage :: {-# NOUNPACK #-}!(Maybe DefaultPushNotificationMessage)
+  { _dmcAPNSMessage :: !(Maybe APNSMessage)
+  , _dmcGCMMessage :: !(Maybe GCMMessage)
+  , _dmcDefaultMessage :: !(Maybe DefaultMessage)
+  , _dmcADMMessage :: !(Maybe ADMMessage)
+  , _dmcSMSMessage :: !(Maybe SMSMessage)
+  , _dmcBaiduMessage :: !(Maybe BaiduMessage)
+  , _dmcDefaultPushNotificationMessage :: !(Maybe DefaultPushNotificationMessage)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2955,10 +2955,10 @@ instance ToJSON DirectMessageConfiguration where
 --
 -- /See:/ 'emailChannelRequest' smart constructor.
 data EmailChannelRequest = EmailChannelRequest'
-  { _ecrEnabled     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ecrFromAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecrIdentity    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecrRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ecrEnabled     :: !(Maybe Bool)
+  , _ecrFromAddress :: !(Maybe Text)
+  , _ecrIdentity    :: !(Maybe Text)
+  , _ecrRoleARN     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3017,19 +3017,19 @@ instance ToJSON EmailChannelRequest where
 --
 -- /See:/ 'emailChannelResponse' smart constructor.
 data EmailChannelResponse = EmailChannelResponse'
-  { _ecPlatform         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ecFromAddress      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecIsArchived       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ecApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecVersion          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ecId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecIdentity         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecHasCredential    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ecRoleARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ecPlatform         :: !(Maybe Text)
+  , _ecLastModifiedDate :: !(Maybe Text)
+  , _ecEnabled          :: !(Maybe Bool)
+  , _ecFromAddress      :: !(Maybe Text)
+  , _ecIsArchived       :: !(Maybe Bool)
+  , _ecApplicationId    :: !(Maybe Text)
+  , _ecVersion          :: !(Maybe Int)
+  , _ecId               :: !(Maybe Text)
+  , _ecCreationDate     :: !(Maybe Text)
+  , _ecLastModifiedBy   :: !(Maybe Text)
+  , _ecIdentity         :: !(Maybe Text)
+  , _ecHasCredential    :: !(Maybe Bool)
+  , _ecRoleARN          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3160,18 +3160,18 @@ instance NFData EmailChannelResponse where
 --
 -- /See:/ 'endpointBatchItem' smart constructor.
 data EndpointBatchItem = EndpointBatchItem'
-  { _ebiRequestId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ebiMetrics        :: {-# NOUNPACK #-}!(Maybe (Map Text Double))
-  , _ebiLocation       :: {-# NOUNPACK #-}!(Maybe EndpointLocation)
-  , _ebiDemographic    :: {-# NOUNPACK #-}!(Maybe EndpointDemographic)
-  , _ebiAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ebiEffectiveDate  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ebiUser           :: {-# NOUNPACK #-}!(Maybe EndpointUser)
-  , _ebiAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _ebiEndpointStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ebiOptOut         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ebiId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ebiChannelType    :: {-# NOUNPACK #-}!(Maybe ChannelType)
+  { _ebiRequestId      :: !(Maybe Text)
+  , _ebiMetrics        :: !(Maybe (Map Text Double))
+  , _ebiLocation       :: !(Maybe EndpointLocation)
+  , _ebiDemographic    :: !(Maybe EndpointDemographic)
+  , _ebiAddress        :: !(Maybe Text)
+  , _ebiEffectiveDate  :: !(Maybe Text)
+  , _ebiUser           :: !(Maybe EndpointUser)
+  , _ebiAttributes     :: !(Maybe (Map Text [Text]))
+  , _ebiEndpointStatus :: !(Maybe Text)
+  , _ebiOptOut         :: !(Maybe Text)
+  , _ebiId             :: !(Maybe Text)
+  , _ebiChannelType    :: !(Maybe ChannelType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3323,14 +3323,14 @@ instance ToJSON EndpointBatchRequest where
 --
 -- /See:/ 'endpointDemographic' smart constructor.
 data EndpointDemographic = EndpointDemographic'
-  { _edPlatform        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edPlatformVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edLocale          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edAppVersion      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edModel           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edMake            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edModelVersion    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edTimezone        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _edPlatform        :: !(Maybe Text)
+  , _edPlatformVersion :: !(Maybe Text)
+  , _edLocale          :: !(Maybe Text)
+  , _edAppVersion      :: !(Maybe Text)
+  , _edModel           :: !(Maybe Text)
+  , _edMake            :: !(Maybe Text)
+  , _edModelVersion    :: !(Maybe Text)
+  , _edTimezone        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3433,12 +3433,12 @@ instance ToJSON EndpointDemographic where
 --
 -- /See:/ 'endpointLocation' smart constructor.
 data EndpointLocation = EndpointLocation'
-  { _elPostalCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _elLatitude   :: {-# NOUNPACK #-}!(Maybe Double)
-  , _elCountry    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _elCity       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _elRegion     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _elLongitude  :: {-# NOUNPACK #-}!(Maybe Double)
+  { _elPostalCode :: !(Maybe Text)
+  , _elLatitude   :: !(Maybe Double)
+  , _elCountry    :: !(Maybe Text)
+  , _elCity       :: !(Maybe Text)
+  , _elRegion     :: !(Maybe Text)
+  , _elLongitude  :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3523,11 +3523,11 @@ instance ToJSON EndpointLocation where
 --
 -- /See:/ 'endpointMessageResult' smart constructor.
 data EndpointMessageResult = EndpointMessageResult'
-  { _emrDeliveryStatus :: {-# NOUNPACK #-}!(Maybe DeliveryStatus)
-  , _emrAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _emrStatusMessage  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _emrUpdatedToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _emrStatusCode     :: {-# NOUNPACK #-}!(Maybe Int)
+  { _emrDeliveryStatus :: !(Maybe DeliveryStatus)
+  , _emrAddress        :: !(Maybe Text)
+  , _emrStatusMessage  :: !(Maybe Text)
+  , _emrUpdatedToken   :: !(Maybe Text)
+  , _emrStatusCode     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3594,17 +3594,17 @@ instance NFData EndpointMessageResult where
 --
 -- /See:/ 'endpointRequest' smart constructor.
 data EndpointRequest = EndpointRequest'
-  { _erRequestId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _erMetrics        :: {-# NOUNPACK #-}!(Maybe (Map Text Double))
-  , _erLocation       :: {-# NOUNPACK #-}!(Maybe EndpointLocation)
-  , _erDemographic    :: {-# NOUNPACK #-}!(Maybe EndpointDemographic)
-  , _erAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _erEffectiveDate  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _erUser           :: {-# NOUNPACK #-}!(Maybe EndpointUser)
-  , _erAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _erEndpointStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _erOptOut         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _erChannelType    :: {-# NOUNPACK #-}!(Maybe ChannelType)
+  { _erRequestId      :: !(Maybe Text)
+  , _erMetrics        :: !(Maybe (Map Text Double))
+  , _erLocation       :: !(Maybe EndpointLocation)
+  , _erDemographic    :: !(Maybe EndpointDemographic)
+  , _erAddress        :: !(Maybe Text)
+  , _erEffectiveDate  :: !(Maybe Text)
+  , _erUser           :: !(Maybe EndpointUser)
+  , _erAttributes     :: !(Maybe (Map Text [Text]))
+  , _erEndpointStatus :: !(Maybe Text)
+  , _erOptOut         :: !(Maybe Text)
+  , _erChannelType    :: !(Maybe ChannelType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3719,21 +3719,21 @@ instance ToJSON EndpointRequest where
 --
 -- /See:/ 'endpointResponse' smart constructor.
 data EndpointResponse = EndpointResponse'
-  { _eRequestId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eMetrics        :: {-# NOUNPACK #-}!(Maybe (Map Text Double))
-  , _eLocation       :: {-# NOUNPACK #-}!(Maybe EndpointLocation)
-  , _eDemographic    :: {-# NOUNPACK #-}!(Maybe EndpointDemographic)
-  , _eCohortId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eEffectiveDate  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eUser           :: {-# NOUNPACK #-}!(Maybe EndpointUser)
-  , _eApplicationId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _eEndpointStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eOptOut         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eCreationDate   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eChannelType    :: {-# NOUNPACK #-}!(Maybe ChannelType)
+  { _eRequestId      :: !(Maybe Text)
+  , _eMetrics        :: !(Maybe (Map Text Double))
+  , _eLocation       :: !(Maybe EndpointLocation)
+  , _eDemographic    :: !(Maybe EndpointDemographic)
+  , _eCohortId       :: !(Maybe Text)
+  , _eAddress        :: !(Maybe Text)
+  , _eEffectiveDate  :: !(Maybe Text)
+  , _eUser           :: !(Maybe EndpointUser)
+  , _eApplicationId  :: !(Maybe Text)
+  , _eAttributes     :: !(Maybe (Map Text [Text]))
+  , _eEndpointStatus :: !(Maybe Text)
+  , _eOptOut         :: !(Maybe Text)
+  , _eId             :: !(Maybe Text)
+  , _eCreationDate   :: !(Maybe Text)
+  , _eChannelType    :: !(Maybe ChannelType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3880,11 +3880,11 @@ instance NFData EndpointResponse where
 --
 -- /See:/ 'endpointSendConfiguration' smart constructor.
 data EndpointSendConfiguration = EndpointSendConfiguration'
-  { _escSubstitutions :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _escTitleOverride :: {-# NOUNPACK #-}!(Maybe Text)
-  , _escContext       :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _escRawContent    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _escBodyOverride  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _escSubstitutions :: !(Maybe (Map Text [Text]))
+  , _escTitleOverride :: !(Maybe Text)
+  , _escContext       :: !(Maybe (Map Text Text))
+  , _escRawContent    :: !(Maybe Text)
+  , _escBodyOverride  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3951,8 +3951,8 @@ instance ToJSON EndpointSendConfiguration where
 --
 -- /See:/ 'endpointUser' smart constructor.
 data EndpointUser = EndpointUser'
-  { _euUserAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _euUserId         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _euUserAttributes :: !(Maybe (Map Text [Text]))
+  , _euUserId         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3999,12 +3999,12 @@ instance ToJSON EndpointUser where
 --
 -- /See:/ 'eventStream' smart constructor.
 data EventStream = EventStream'
-  { _esLastUpdatedBy        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esLastModifiedDate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esDestinationStreamARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esApplicationId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esExternalId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esRoleARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _esLastUpdatedBy        :: !(Maybe Text)
+  , _esLastModifiedDate     :: !(Maybe Text)
+  , _esDestinationStreamARN :: !(Maybe Text)
+  , _esApplicationId        :: !(Maybe Text)
+  , _esExternalId           :: !(Maybe Text)
+  , _esRoleARN              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4080,8 +4080,8 @@ instance NFData EventStream where
 --
 -- /See:/ 'gcmChannelRequest' smart constructor.
 data GCMChannelRequest = GCMChannelRequest'
-  { _gcrAPIKey  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcrEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _gcrAPIKey  :: !(Maybe Text)
+  , _gcrEnabled :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4121,17 +4121,17 @@ instance ToJSON GCMChannelRequest where
 --
 -- /See:/ 'gcmChannelResponse' smart constructor.
 data GCMChannelResponse = GCMChannelResponse'
-  { _gcPlatform         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gcCredential       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcIsArchived       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gcApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcVersion          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gcId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcHasCredential    :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _gcPlatform         :: !(Maybe Text)
+  , _gcLastModifiedDate :: !(Maybe Text)
+  , _gcEnabled          :: !(Maybe Bool)
+  , _gcCredential       :: !(Maybe Text)
+  , _gcIsArchived       :: !(Maybe Bool)
+  , _gcApplicationId    :: !(Maybe Text)
+  , _gcVersion          :: !(Maybe Int)
+  , _gcId               :: !(Maybe Text)
+  , _gcCreationDate     :: !(Maybe Text)
+  , _gcLastModifiedBy   :: !(Maybe Text)
+  , _gcHasCredential    :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4246,23 +4246,23 @@ instance NFData GCMChannelResponse where
 --
 -- /See:/ 'gcmMessage' smart constructor.
 data GCMMessage = GCMMessage'
-  { _gmSubstitutions         :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _gmSilentPush            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gmImageIconURL          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmPriority              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmRawContent            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmData                  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gmRestrictedPackageName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmSmallImageIconURL     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmBody                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmTimeToLive            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gmURL                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmSound                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmAction                :: {-# NOUNPACK #-}!(Maybe Action)
-  , _gmCollapseKey           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmImageURL              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmTitle                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmIconReference         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gmSubstitutions         :: !(Maybe (Map Text [Text]))
+  , _gmSilentPush            :: !(Maybe Bool)
+  , _gmImageIconURL          :: !(Maybe Text)
+  , _gmPriority              :: !(Maybe Text)
+  , _gmRawContent            :: !(Maybe Text)
+  , _gmData                  :: !(Maybe (Map Text Text))
+  , _gmRestrictedPackageName :: !(Maybe Text)
+  , _gmSmallImageIconURL     :: !(Maybe Text)
+  , _gmBody                  :: !(Maybe Text)
+  , _gmTimeToLive            :: !(Maybe Int)
+  , _gmURL                   :: !(Maybe Text)
+  , _gmSound                 :: !(Maybe Text)
+  , _gmAction                :: !(Maybe Action)
+  , _gmCollapseKey           :: !(Maybe Text)
+  , _gmImageURL              :: !(Maybe Text)
+  , _gmTitle                 :: !(Maybe Text)
+  , _gmIconReference         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4423,14 +4423,14 @@ instance ToJSON GCMMessage where
 
 -- | /See:/ 'importJobRequest' smart constructor.
 data ImportJobRequest = ImportJobRequest'
-  { _iSegmentName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iFormat            :: {-# NOUNPACK #-}!(Maybe DefinitionFormat)
-  , _iDefineSegment     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _iRegisterEndpoints :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _iExternalId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iS3URL             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iSegmentId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iRoleARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iSegmentName       :: !(Maybe Text)
+  , _iFormat            :: !(Maybe DefinitionFormat)
+  , _iDefineSegment     :: !(Maybe Bool)
+  , _iRegisterEndpoints :: !(Maybe Bool)
+  , _iExternalId        :: !(Maybe Text)
+  , _iS3URL             :: !(Maybe Text)
+  , _iSegmentId         :: !(Maybe Text)
+  , _iRoleARN           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4519,14 +4519,14 @@ instance ToJSON ImportJobRequest where
 
 -- | /See:/ 'importJobResource' smart constructor.
 data ImportJobResource = ImportJobResource'
-  { _ijrSegmentName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ijrFormat            :: {-# NOUNPACK #-}!(Maybe DefinitionFormat)
-  , _ijrDefineSegment     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ijrRegisterEndpoints :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ijrExternalId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ijrS3URL             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ijrSegmentId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ijrRoleARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ijrSegmentName       :: !(Maybe Text)
+  , _ijrFormat            :: !(Maybe DefinitionFormat)
+  , _ijrDefineSegment     :: !(Maybe Bool)
+  , _ijrRegisterEndpoints :: !(Maybe Bool)
+  , _ijrExternalId        :: !(Maybe Text)
+  , _ijrS3URL             :: !(Maybe Text)
+  , _ijrSegmentId         :: !(Maybe Text)
+  , _ijrRoleARN           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4615,19 +4615,19 @@ instance NFData ImportJobResource where
 
 -- | /See:/ 'importJobResponse' smart constructor.
 data ImportJobResponse = ImportJobResponse'
-  { _ijCompletedPieces :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ijFailedPieces    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ijDefinition      :: {-# NOUNPACK #-}!(Maybe ImportJobResource)
-  , _ijTotalProcessed  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ijFailures        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ijTotalPieces     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ijApplicationId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ijId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ijCreationDate    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ijType            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ijCompletionDate  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ijJobStatus       :: {-# NOUNPACK #-}!(Maybe JobStatus)
-  , _ijTotalFailures   :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ijCompletedPieces :: !(Maybe Int)
+  , _ijFailedPieces    :: !(Maybe Int)
+  , _ijDefinition      :: !(Maybe ImportJobResource)
+  , _ijTotalProcessed  :: !(Maybe Int)
+  , _ijFailures        :: !(Maybe [Text])
+  , _ijTotalPieces     :: !(Maybe Int)
+  , _ijApplicationId   :: !(Maybe Text)
+  , _ijId              :: !(Maybe Text)
+  , _ijCreationDate    :: !(Maybe Text)
+  , _ijType            :: !(Maybe Text)
+  , _ijCompletionDate  :: !(Maybe Text)
+  , _ijJobStatus       :: !(Maybe JobStatus)
+  , _ijTotalFailures   :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4758,8 +4758,8 @@ instance NFData ImportJobResponse where
 --
 -- /See:/ 'importJobsResponse' smart constructor.
 data ImportJobsResponse = ImportJobsResponse'
-  { _ijNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ijItem      :: {-# NOUNPACK #-}!(Maybe [ImportJobResponse])
+  { _ijNextToken :: !(Maybe Text)
+  , _ijItem      :: !(Maybe [ImportJobResponse])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4797,17 +4797,17 @@ instance NFData ImportJobsResponse where
 
 -- | /See:/ 'message' smart constructor.
 data Message = Message'
-  { _mSilentPush        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mImageIconURL      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mRawContent        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mBody              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mImageSmallIconURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mJSONBody          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mURL               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mAction            :: {-# NOUNPACK #-}!(Maybe Action)
-  , _mImageURL          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mMediaURL          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mTitle             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _mSilentPush        :: !(Maybe Bool)
+  , _mImageIconURL      :: !(Maybe Text)
+  , _mRawContent        :: !(Maybe Text)
+  , _mBody              :: !(Maybe Text)
+  , _mImageSmallIconURL :: !(Maybe Text)
+  , _mJSONBody          :: !(Maybe Text)
+  , _mURL               :: !(Maybe Text)
+  , _mAction            :: !(Maybe Action)
+  , _mImageURL          :: !(Maybe Text)
+  , _mMediaURL          :: !(Maybe Text)
+  , _mTitle             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4937,8 +4937,8 @@ instance ToJSON Message where
 --
 -- /See:/ 'messageBody' smart constructor.
 data MessageBody = MessageBody'
-  { _mbRequestId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mbMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _mbRequestId :: !(Maybe Text)
+  , _mbMessage   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4977,13 +4977,13 @@ instance NFData MessageBody where
 --
 -- /See:/ 'messageConfiguration' smart constructor.
 data MessageConfiguration = MessageConfiguration'
-  { _mcAPNSMessage    :: {-# NOUNPACK #-}!(Maybe Message)
-  , _mcGCMMessage     :: {-# NOUNPACK #-}!(Maybe Message)
-  , _mcDefaultMessage :: {-# NOUNPACK #-}!(Maybe Message)
-  , _mcADMMessage     :: {-# NOUNPACK #-}!(Maybe Message)
-  , _mcSMSMessage     :: {-# NOUNPACK #-}!(Maybe CampaignSmsMessage)
-  , _mcEmailMessage   :: {-# NOUNPACK #-}!(Maybe CampaignEmailMessage)
-  , _mcBaiduMessage   :: {-# NOUNPACK #-}!(Maybe Message)
+  { _mcAPNSMessage    :: !(Maybe Message)
+  , _mcGCMMessage     :: !(Maybe Message)
+  , _mcDefaultMessage :: !(Maybe Message)
+  , _mcADMMessage     :: !(Maybe Message)
+  , _mcSMSMessage     :: !(Maybe CampaignSmsMessage)
+  , _mcEmailMessage   :: !(Maybe CampaignEmailMessage)
+  , _mcBaiduMessage   :: !(Maybe Message)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5078,10 +5078,10 @@ instance ToJSON MessageConfiguration where
 --
 -- /See:/ 'messageRequest' smart constructor.
 data MessageRequest = MessageRequest'
-  { _mrContext :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _mrAddresses :: {-# NOUNPACK #-}!(Maybe (Map Text AddressConfiguration))
-  , _mrEndpoints :: {-# NOUNPACK #-}!(Maybe (Map Text EndpointSendConfiguration))
-  , _mrMessageConfiguration :: {-# NOUNPACK #-}!(Maybe DirectMessageConfiguration)
+  { _mrContext              :: !(Maybe (Map Text Text))
+  , _mrAddresses            :: !(Maybe (Map Text AddressConfiguration))
+  , _mrEndpoints            :: !(Maybe (Map Text EndpointSendConfiguration))
+  , _mrMessageConfiguration :: !(Maybe DirectMessageConfiguration)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5141,10 +5141,10 @@ instance ToJSON MessageRequest where
 --
 -- /See:/ 'messageResponse' smart constructor.
 data MessageResponse = MessageResponse'
-  { _mRequestId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mResult :: {-# NOUNPACK #-}!(Maybe (Map Text MessageResult))
-  , _mApplicationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mEndpointResult :: {-# NOUNPACK #-}!(Maybe (Map Text EndpointMessageResult))
+  { _mRequestId      :: !(Maybe Text)
+  , _mResult         :: !(Maybe (Map Text MessageResult))
+  , _mApplicationId  :: !(Maybe Text)
+  , _mEndpointResult :: !(Maybe (Map Text EndpointMessageResult))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5203,10 +5203,10 @@ instance NFData MessageResponse where
 --
 -- /See:/ 'messageResult' smart constructor.
 data MessageResult = MessageResult'
-  { _mrDeliveryStatus :: {-# NOUNPACK #-}!(Maybe DeliveryStatus)
-  , _mrStatusMessage  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrUpdatedToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrStatusCode     :: {-# NOUNPACK #-}!(Maybe Int)
+  { _mrDeliveryStatus :: !(Maybe DeliveryStatus)
+  , _mrStatusMessage  :: !(Maybe Text)
+  , _mrUpdatedToken   :: !(Maybe Text)
+  , _mrStatusCode     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5265,8 +5265,8 @@ instance NFData MessageResult where
 --
 -- /See:/ 'quietTime' smart constructor.
 data QuietTime = QuietTime'
-  { _qtStart :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qtEnd   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _qtStart :: !(Maybe Text)
+  , _qtEnd   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5310,8 +5310,8 @@ instance ToJSON QuietTime where
 --
 -- /See:/ 'recencyDimension' smart constructor.
 data RecencyDimension = RecencyDimension'
-  { _rdRecencyType :: {-# NOUNPACK #-}!(Maybe RecencyType)
-  , _rdDuration    :: {-# NOUNPACK #-}!(Maybe Duration)
+  { _rdRecencyType :: !(Maybe RecencyType)
+  , _rdDuration    :: !(Maybe Duration)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5358,9 +5358,9 @@ instance ToJSON RecencyDimension where
 --
 -- /See:/ 'sMSChannelRequest' smart constructor.
 data SMSChannelRequest = SMSChannelRequest'
-  { _smscrShortCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smscrEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _smscrSenderId  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _smscrShortCode :: !(Maybe Text)
+  , _smscrEnabled   :: !(Maybe Bool)
+  , _smscrSenderId  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5408,18 +5408,18 @@ instance ToJSON SMSChannelRequest where
 --
 -- /See:/ 'sMSChannelResponse' smart constructor.
 data SMSChannelResponse = SMSChannelResponse'
-  { _smscPlatform         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smscShortCode        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smscLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smscEnabled          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _smscSenderId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smscIsArchived       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _smscApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smscVersion          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _smscId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smscCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smscLastModifiedBy   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smscHasCredential    :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _smscPlatform         :: !(Maybe Text)
+  , _smscShortCode        :: !(Maybe Text)
+  , _smscLastModifiedDate :: !(Maybe Text)
+  , _smscEnabled          :: !(Maybe Bool)
+  , _smscSenderId         :: !(Maybe Text)
+  , _smscIsArchived       :: !(Maybe Bool)
+  , _smscApplicationId    :: !(Maybe Text)
+  , _smscVersion          :: !(Maybe Int)
+  , _smscId               :: !(Maybe Text)
+  , _smscCreationDate     :: !(Maybe Text)
+  , _smscLastModifiedBy   :: !(Maybe Text)
+  , _smscHasCredential    :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5542,10 +5542,10 @@ instance NFData SMSChannelResponse where
 --
 -- /See:/ 'sMSMessage' smart constructor.
 data SMSMessage = SMSMessage'
-  { _smsmSubstitutions :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _smsmBody          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smsmMessageType   :: {-# NOUNPACK #-}!(Maybe MessageType)
-  , _smsmSenderId      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _smsmSubstitutions :: !(Maybe (Map Text [Text]))
+  , _smsmBody          :: !(Maybe Text)
+  , _smsmMessageType   :: !(Maybe MessageType)
+  , _smsmSenderId      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5604,12 +5604,12 @@ instance ToJSON SMSMessage where
 --
 -- /See:/ 'schedule' smart constructor.
 data Schedule = Schedule'
-  { _sFrequency   :: {-# NOUNPACK #-}!(Maybe Frequency)
-  , _sStartTime   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sQuietTime   :: {-# NOUNPACK #-}!(Maybe QuietTime)
-  , _sIsLocalTime :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sEndTime     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sTimezone    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sFrequency   :: !(Maybe Frequency)
+  , _sStartTime   :: !(Maybe Text)
+  , _sQuietTime   :: !(Maybe QuietTime)
+  , _sIsLocalTime :: !(Maybe Bool)
+  , _sEndTime     :: !(Maybe Text)
+  , _sTimezone    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5730,12 +5730,12 @@ instance ToJSON SegmentBehaviors where
 --
 -- /See:/ 'segmentDemographics' smart constructor.
 data SegmentDemographics = SegmentDemographics'
-  { _sdPlatform   :: {-# NOUNPACK #-}!(Maybe SetDimension)
-  , _sdAppVersion :: {-# NOUNPACK #-}!(Maybe SetDimension)
-  , _sdChannel    :: {-# NOUNPACK #-}!(Maybe SetDimension)
-  , _sdModel      :: {-# NOUNPACK #-}!(Maybe SetDimension)
-  , _sdMake       :: {-# NOUNPACK #-}!(Maybe SetDimension)
-  , _sdDeviceType :: {-# NOUNPACK #-}!(Maybe SetDimension)
+  { _sdPlatform   :: !(Maybe SetDimension)
+  , _sdAppVersion :: !(Maybe SetDimension)
+  , _sdChannel    :: !(Maybe SetDimension)
+  , _sdModel      :: !(Maybe SetDimension)
+  , _sdMake       :: !(Maybe SetDimension)
+  , _sdDeviceType :: !(Maybe SetDimension)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5820,11 +5820,11 @@ instance ToJSON SegmentDemographics where
 --
 -- /See:/ 'segmentDimensions' smart constructor.
 data SegmentDimensions = SegmentDimensions'
-  { _sdLocation       :: {-# NOUNPACK #-}!(Maybe SegmentLocation)
-  , _sdDemographic    :: {-# NOUNPACK #-}!(Maybe SegmentDemographics)
-  , _sdUserAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeDimension))
-  , _sdBehavior       :: {-# NOUNPACK #-}!(Maybe SegmentBehaviors)
-  , _sdAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeDimension))
+  { _sdLocation       :: !(Maybe SegmentLocation)
+  , _sdDemographic    :: !(Maybe SegmentDemographics)
+  , _sdUserAttributes :: !(Maybe (Map Text AttributeDimension))
+  , _sdBehavior       :: !(Maybe SegmentBehaviors)
+  , _sdAttributes     :: !(Maybe (Map Text AttributeDimension))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5901,12 +5901,12 @@ instance ToJSON SegmentDimensions where
 --
 -- /See:/ 'segmentImportResource' smart constructor.
 data SegmentImportResource = SegmentImportResource'
-  { _sirSize          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sirFormat        :: {-# NOUNPACK #-}!(Maybe DefinitionFormat)
-  , _sirChannelCounts :: {-# NOUNPACK #-}!(Maybe (Map Text Int))
-  , _sirExternalId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sirS3URL         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sirRoleARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sirSize          :: !(Maybe Int)
+  , _sirFormat        :: !(Maybe DefinitionFormat)
+  , _sirChannelCounts :: !(Maybe (Map Text Int))
+  , _sirExternalId    :: !(Maybe Text)
+  , _sirS3URL         :: !(Maybe Text)
+  , _sirRoleARN       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6016,15 +6016,15 @@ instance ToJSON SegmentLocation where
 --
 -- /See:/ 'segmentResponse' smart constructor.
 data SegmentResponse = SegmentResponse'
-  { _sLastModifiedDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSegmentType      :: {-# NOUNPACK #-}!(Maybe SegmentType)
-  , _sApplicationId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sVersion          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCreationDate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sImportDefinition :: {-# NOUNPACK #-}!(Maybe SegmentImportResource)
-  , _sDimensions       :: {-# NOUNPACK #-}!(Maybe SegmentDimensions)
+  { _sLastModifiedDate :: !(Maybe Text)
+  , _sSegmentType      :: !(Maybe SegmentType)
+  , _sApplicationId    :: !(Maybe Text)
+  , _sName             :: !(Maybe Text)
+  , _sVersion          :: !(Maybe Int)
+  , _sId               :: !(Maybe Text)
+  , _sCreationDate     :: !(Maybe Text)
+  , _sImportDefinition :: !(Maybe SegmentImportResource)
+  , _sDimensions       :: !(Maybe SegmentDimensions)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6123,8 +6123,8 @@ instance NFData SegmentResponse where
 --
 -- /See:/ 'segmentsResponse' smart constructor.
 data SegmentsResponse = SegmentsResponse'
-  { _sNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sItem      :: {-# NOUNPACK #-}!(Maybe [SegmentResponse])
+  { _sNextToken :: !(Maybe Text)
+  , _sItem      :: !(Maybe [SegmentResponse])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6163,9 +6163,9 @@ instance NFData SegmentsResponse where
 --
 -- /See:/ 'sendUsersMessageRequest' smart constructor.
 data SendUsersMessageRequest = SendUsersMessageRequest'
-  { _sumrContext :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _sumrUsers :: {-# NOUNPACK #-}!(Maybe (Map Text EndpointSendConfiguration))
-  , _sumrMessageConfiguration :: {-# NOUNPACK #-}!(Maybe DirectMessageConfiguration)
+  { _sumrContext              :: !(Maybe (Map Text Text))
+  , _sumrUsers                :: !(Maybe (Map Text EndpointSendConfiguration))
+  , _sumrMessageConfiguration :: !(Maybe DirectMessageConfiguration)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6217,9 +6217,9 @@ instance ToJSON SendUsersMessageRequest where
 --
 -- /See:/ 'sendUsersMessageResponse' smart constructor.
 data SendUsersMessageResponse = SendUsersMessageResponse'
-  { _sumRequestId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sumResult :: {-# NOUNPACK #-}!(Maybe (Map Text (Map Text EndpointMessageResult)))
-  , _sumApplicationId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sumRequestId     :: !(Maybe Text)
+  , _sumResult        :: !(Maybe (Map Text (Map Text EndpointMessageResult)))
+  , _sumApplicationId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6267,8 +6267,8 @@ instance NFData SendUsersMessageResponse where
 --
 -- /See:/ 'setDimension' smart constructor.
 data SetDimension = SetDimension'
-  { _sdValues        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sdDimensionType :: {-# NOUNPACK #-}!(Maybe DimensionType)
+  { _sdValues        :: !(Maybe [Text])
+  , _sdDimensionType :: !(Maybe DimensionType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6315,13 +6315,13 @@ instance ToJSON SetDimension where
 --
 -- /See:/ 'treatmentResource' smart constructor.
 data TreatmentResource = TreatmentResource'
-  { _trState                :: {-# NOUNPACK #-}!(Maybe CampaignState)
-  , _trSchedule             :: {-# NOUNPACK #-}!(Maybe Schedule)
-  , _trTreatmentName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trSizePercent          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _trTreatmentDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trMessageConfiguration :: {-# NOUNPACK #-}!(Maybe MessageConfiguration)
+  { _trState                :: !(Maybe CampaignState)
+  , _trSchedule             :: !(Maybe Schedule)
+  , _trTreatmentName        :: !(Maybe Text)
+  , _trSizePercent          :: !(Maybe Int)
+  , _trTreatmentDescription :: !(Maybe Text)
+  , _trId                   :: !(Maybe Text)
+  , _trMessageConfiguration :: !(Maybe MessageConfiguration)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6404,8 +6404,8 @@ instance NFData TreatmentResource where
 --
 -- /See:/ 'writeApplicationSettingsRequest' smart constructor.
 data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
-  { _wasrLimits    :: {-# NOUNPACK #-}!(Maybe CampaignLimits)
-  , _wasrQuietTime :: {-# NOUNPACK #-}!(Maybe QuietTime)
+  { _wasrLimits    :: !(Maybe CampaignLimits)
+  , _wasrQuietTime :: !(Maybe QuietTime)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6447,18 +6447,18 @@ instance ToJSON WriteApplicationSettingsRequest where
 --
 -- /See:/ 'writeCampaignRequest' smart constructor.
 data WriteCampaignRequest = WriteCampaignRequest'
-  { _wcrSchedule :: {-# NOUNPACK #-}!(Maybe Schedule)
-  , _wcrTreatmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wcrLimits :: {-# NOUNPACK #-}!(Maybe CampaignLimits)
-  , _wcrIsPaused :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _wcrName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wcrHoldoutPercent :: {-# NOUNPACK #-}!(Maybe Int)
-  , _wcrTreatmentDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wcrMessageConfiguration :: {-# NOUNPACK #-}!(Maybe MessageConfiguration)
-  , _wcrDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wcrSegmentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wcrAdditionalTreatments :: {-# NOUNPACK #-}!(Maybe [WriteTreatmentResource])
-  , _wcrSegmentVersion :: {-# NOUNPACK #-}!(Maybe Int)
+  { _wcrSchedule             :: !(Maybe Schedule)
+  , _wcrTreatmentName        :: !(Maybe Text)
+  , _wcrLimits               :: !(Maybe CampaignLimits)
+  , _wcrIsPaused             :: !(Maybe Bool)
+  , _wcrName                 :: !(Maybe Text)
+  , _wcrHoldoutPercent       :: !(Maybe Int)
+  , _wcrTreatmentDescription :: !(Maybe Text)
+  , _wcrMessageConfiguration :: !(Maybe MessageConfiguration)
+  , _wcrDescription          :: !(Maybe Text)
+  , _wcrSegmentId            :: !(Maybe Text)
+  , _wcrAdditionalTreatments :: !(Maybe [WriteTreatmentResource])
+  , _wcrSegmentVersion       :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6584,8 +6584,8 @@ instance ToJSON WriteCampaignRequest where
 --
 -- /See:/ 'writeEventStream' smart constructor.
 data WriteEventStream = WriteEventStream'
-  { _wesDestinationStreamARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wesRoleARN              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _wesDestinationStreamARN :: !(Maybe Text)
+  , _wesRoleARN              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6626,8 +6626,8 @@ instance ToJSON WriteEventStream where
 --
 -- /See:/ 'writeSegmentRequest' smart constructor.
 data WriteSegmentRequest = WriteSegmentRequest'
-  { _wsrName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wsrDimensions :: {-# NOUNPACK #-}!(Maybe SegmentDimensions)
+  { _wsrName       :: !(Maybe Text)
+  , _wsrDimensions :: !(Maybe SegmentDimensions)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6667,11 +6667,11 @@ instance ToJSON WriteSegmentRequest where
 --
 -- /See:/ 'writeTreatmentResource' smart constructor.
 data WriteTreatmentResource = WriteTreatmentResource'
-  { _wtrSchedule             :: {-# NOUNPACK #-}!(Maybe Schedule)
-  , _wtrTreatmentName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wtrSizePercent          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _wtrTreatmentDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wtrMessageConfiguration :: {-# NOUNPACK #-}!(Maybe MessageConfiguration)
+  { _wtrSchedule             :: !(Maybe Schedule)
+  , _wtrTreatmentName        :: !(Maybe Text)
+  , _wtrSizePercent          :: !(Maybe Int)
+  , _wtrTreatmentDescription :: !(Maybe Text)
+  , _wtrMessageConfiguration :: !(Maybe MessageConfiguration)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,8 +53,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAccounts' smart constructor.
 data ListAccounts = ListAccounts'
-  { _laNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _laNextToken  :: !(Maybe Text)
+  , _laMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery ListAccounts where
 
 -- | /See:/ 'listAccountsResponse' smart constructor.
 data ListAccountsResponse = ListAccountsResponse'
-  { _larsAccounts       :: {-# NOUNPACK #-}!(Maybe [Account])
-  , _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _larsAccounts       :: !(Maybe [Account])
+  , _larsNextToken      :: !(Maybe Text)
+  , _larsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

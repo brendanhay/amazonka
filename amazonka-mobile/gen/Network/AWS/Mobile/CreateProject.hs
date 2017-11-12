@@ -53,10 +53,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createProject' smart constructor.
 data CreateProject = CreateProject'
-  { _cpContents   :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _cpName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpRegion     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpSnapshotId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cpContents   :: !(Maybe Base64)
+  , _cpName       :: !(Maybe Text)
+  , _cpRegion     :: !(Maybe Text)
+  , _cpSnapshotId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,8 +136,8 @@ instance ToQuery CreateProject where
 --
 -- /See:/ 'createProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-  { _cprsDetails        :: {-# NOUNPACK #-}!(Maybe ProjectDetails)
-  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cprsDetails        :: !(Maybe ProjectDetails)
+  , _cprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

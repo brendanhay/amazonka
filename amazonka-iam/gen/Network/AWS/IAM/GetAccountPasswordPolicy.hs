@@ -89,8 +89,8 @@ instance ToQuery GetAccountPasswordPolicy where
 --
 -- /See:/ 'getAccountPasswordPolicyResponse' smart constructor.
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
-  { _gapprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gapprsPasswordPolicy :: {-# NOUNPACK #-}!PasswordPolicy
+  { _gapprsResponseStatus :: !Int
+  , _gapprsPasswordPolicy :: !PasswordPolicy
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listChangeSets' smart constructor.
 data ListChangeSets = ListChangeSets'
-  { _lcsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcsStackName :: {-# NOUNPACK #-}!Text
+  { _lcsNextToken :: !(Maybe Text)
+  , _lcsStackName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,9 +115,9 @@ instance ToQuery ListChangeSets where
 --
 -- /See:/ 'listChangeSetsResponse' smart constructor.
 data ListChangeSetsResponse = ListChangeSetsResponse'
-  { _lcsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcsrsSummaries      :: {-# NOUNPACK #-}!(Maybe [ChangeSetSummary])
-  , _lcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcsrsNextToken      :: !(Maybe Text)
+  , _lcsrsSummaries      :: !(Maybe [ChangeSetSummary])
+  , _lcsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

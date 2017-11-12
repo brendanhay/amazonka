@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEventCategories' smart constructor.
 data DescribeEventCategories = DescribeEventCategories'
-  { _decSourceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _decFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
+  { _decSourceType :: !(Maybe Text)
+  , _decFilters    :: !(Maybe [Filter])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery DescribeEventCategories where
 --
 -- /See:/ 'describeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-  { _decrsEventCategoryGroupList :: {-# NOUNPACK #-}!(Maybe [EventCategoryGroup])
-  , _decrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _decrsEventCategoryGroupList :: !(Maybe [EventCategoryGroup])
+  , _decrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

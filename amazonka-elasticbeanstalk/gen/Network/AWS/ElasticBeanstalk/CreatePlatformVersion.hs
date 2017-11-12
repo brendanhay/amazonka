@@ -55,11 +55,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'createPlatformVersion' smart constructor.
 data CreatePlatformVersion = CreatePlatformVersion'
-  { _cpvOptionSettings :: {-# NOUNPACK #-}!(Maybe [ConfigurationOptionSetting])
-  , _cpvEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpvPlatformName :: {-# NOUNPACK #-}!Text
-  , _cpvPlatformVersion :: {-# NOUNPACK #-}!Text
-  , _cpvPlatformDefinitionBundle :: {-# NOUNPACK #-}!S3Location
+  { _cpvOptionSettings           :: !(Maybe [ConfigurationOptionSetting])
+  , _cpvEnvironmentName          :: !(Maybe Text)
+  , _cpvPlatformName             :: !Text
+  , _cpvPlatformVersion          :: !Text
+  , _cpvPlatformDefinitionBundle :: !S3Location
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,9 +148,9 @@ instance ToQuery CreatePlatformVersion where
 
 -- | /See:/ 'createPlatformVersionResponse' smart constructor.
 data CreatePlatformVersionResponse = CreatePlatformVersionResponse'
-  { _cpvrsBuilder         :: {-# NOUNPACK #-}!(Maybe Builder)
-  , _cpvrsPlatformSummary :: {-# NOUNPACK #-}!(Maybe PlatformSummary)
-  , _cpvrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _cpvrsBuilder         :: !(Maybe Builder)
+  , _cpvrsPlatformSummary :: !(Maybe PlatformSummary)
+  , _cpvrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

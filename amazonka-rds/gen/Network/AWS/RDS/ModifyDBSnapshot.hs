@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'modifyDBSnapshot' smart constructor.
 data ModifyDBSnapshot = ModifyDBSnapshot'
-  { _mdsEngineVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mdsOptionGroupName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mdsDBSnapshotIdentifier :: {-# NOUNPACK #-}!Text
+  { _mdsEngineVersion        :: !(Maybe Text)
+  , _mdsOptionGroupName      :: !(Maybe Text)
+  , _mdsDBSnapshotIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery ModifyDBSnapshot where
 
 -- | /See:/ 'modifyDBSnapshotResponse' smart constructor.
 data ModifyDBSnapshotResponse = ModifyDBSnapshotResponse'
-  { _mdsrsDBSnapshot     :: {-# NOUNPACK #-}!(Maybe DBSnapshot)
-  , _mdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mdsrsDBSnapshot     :: !(Maybe DBSnapshot)
+  , _mdsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

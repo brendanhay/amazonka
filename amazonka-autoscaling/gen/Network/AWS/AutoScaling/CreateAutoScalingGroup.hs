@@ -64,24 +64,24 @@ import Network.AWS.Response
 
 -- | /See:/ 'createAutoScalingGroup' smart constructor.
 data CreateAutoScalingGroup = CreateAutoScalingGroup'
-  { _casgInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _casgTerminationPolicies :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _casgHealthCheckGracePeriod :: {-# NOUNPACK #-}!(Maybe Int)
-  , _casgNewInstancesProtectedFromScaleIn :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _casgVPCZoneIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _casgTargetGroupARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _casgDefaultCooldown :: {-# NOUNPACK #-}!(Maybe Int)
-  , _casgAvailabilityZones :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _casgDesiredCapacity :: {-# NOUNPACK #-}!(Maybe Int)
-  , _casgLaunchConfigurationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _casgLifecycleHookSpecificationList :: {-# NOUNPACK #-}!(Maybe [LifecycleHookSpecification])
-  , _casgHealthCheckType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _casgPlacementGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _casgLoadBalancerNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _casgTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _casgAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _casgMinSize :: {-# NOUNPACK #-}!Int
-  , _casgMaxSize :: {-# NOUNPACK #-}!Int
+  { _casgInstanceId :: !(Maybe Text)
+  , _casgTerminationPolicies :: !(Maybe [Text])
+  , _casgHealthCheckGracePeriod :: !(Maybe Int)
+  , _casgNewInstancesProtectedFromScaleIn :: !(Maybe Bool)
+  , _casgVPCZoneIdentifier :: !(Maybe Text)
+  , _casgTargetGroupARNs :: !(Maybe [Text])
+  , _casgDefaultCooldown :: !(Maybe Int)
+  , _casgAvailabilityZones :: !(Maybe (List1 Text))
+  , _casgDesiredCapacity :: !(Maybe Int)
+  , _casgLaunchConfigurationName :: !(Maybe Text)
+  , _casgLifecycleHookSpecificationList :: !(Maybe [LifecycleHookSpecification])
+  , _casgHealthCheckType :: !(Maybe Text)
+  , _casgPlacementGroup :: !(Maybe Text)
+  , _casgLoadBalancerNames :: !(Maybe [Text])
+  , _casgTags :: !(Maybe [Tag])
+  , _casgAutoScalingGroupName :: !Text
+  , _casgMinSize :: !Int
+  , _casgMaxSize :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

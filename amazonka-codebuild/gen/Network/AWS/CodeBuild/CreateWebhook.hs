@@ -102,8 +102,8 @@ instance ToQuery CreateWebhook where
 
 -- | /See:/ 'createWebhookResponse' smart constructor.
 data CreateWebhookResponse = CreateWebhookResponse'
-  { _cwrsWebhook        :: {-# NOUNPACK #-}!(Maybe Webhook)
-  , _cwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cwrsWebhook        :: !(Maybe Webhook)
+  , _cwrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

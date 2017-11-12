@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'setTagsForResource' smart constructor.
 data SetTagsForResource = SetTagsForResource'
-  { _stfrTags        :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _stfrResourceARN :: {-# NOUNPACK #-}!Text
+  { _stfrTags        :: !(Maybe [Tag])
+  , _stfrResourceARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

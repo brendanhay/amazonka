@@ -48,8 +48,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deregisterPatchBaselineForPatchGroup' smart constructor.
 data DeregisterPatchBaselineForPatchGroup = DeregisterPatchBaselineForPatchGroup'
-  { _dpbfpgBaselineId :: {-# NOUNPACK #-}!Text
-  , _dpbfpgPatchGroup :: {-# NOUNPACK #-}!Text
+  { _dpbfpgBaselineId :: !Text
+  , _dpbfpgPatchGroup :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,9 +127,9 @@ instance ToQuery DeregisterPatchBaselineForPatchGroup
 
 -- | /See:/ 'deregisterPatchBaselineForPatchGroupResponse' smart constructor.
 data DeregisterPatchBaselineForPatchGroupResponse = DeregisterPatchBaselineForPatchGroupResponse'
-  { _dpbfpgrsBaselineId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpbfpgrsPatchGroup     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpbfpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dpbfpgrsBaselineId     :: !(Maybe Text)
+  , _dpbfpgrsPatchGroup     :: !(Maybe Text)
+  , _dpbfpgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

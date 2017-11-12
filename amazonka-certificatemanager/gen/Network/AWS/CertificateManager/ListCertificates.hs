@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { _lcCertificateStatuses :: {-# NOUNPACK #-}!(Maybe [CertificateStatus])
-  , _lcNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcMaxItems            :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lcCertificateStatuses :: !(Maybe [CertificateStatus])
+  , _lcNextToken           :: !(Maybe Text)
+  , _lcMaxItems            :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery ListCertificates where
 
 -- | /See:/ 'listCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-  { _lcrsCertificateSummaryList :: {-# NOUNPACK #-}!(Maybe [CertificateSummary])
-  , _lcrsNextToken              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _lcrsCertificateSummaryList :: !(Maybe [CertificateSummary])
+  , _lcrsNextToken              :: !(Maybe Text)
+  , _lcrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

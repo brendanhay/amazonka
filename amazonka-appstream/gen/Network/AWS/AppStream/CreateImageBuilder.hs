@@ -51,14 +51,14 @@ import Network.AWS.Response
 
 -- | /See:/ 'createImageBuilder' smart constructor.
 data CreateImageBuilder = CreateImageBuilder'
-  { _cibDomainJoinInfo              :: {-# NOUNPACK #-}!(Maybe DomainJoinInfo)
-  , _cibVPCConfig                   :: {-# NOUNPACK #-}!(Maybe VPCConfig)
-  , _cibDisplayName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cibEnableDefaultInternetAccess :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cibDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cibName                        :: {-# NOUNPACK #-}!Text
-  , _cibImageName                   :: {-# NOUNPACK #-}!Text
-  , _cibInstanceType                :: {-# NOUNPACK #-}!Text
+  { _cibDomainJoinInfo              :: !(Maybe DomainJoinInfo)
+  , _cibVPCConfig                   :: !(Maybe VPCConfig)
+  , _cibDisplayName                 :: !(Maybe Text)
+  , _cibEnableDefaultInternetAccess :: !(Maybe Bool)
+  , _cibDescription                 :: !(Maybe Text)
+  , _cibName                        :: !Text
+  , _cibImageName                   :: !Text
+  , _cibInstanceType                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -177,8 +177,8 @@ instance ToQuery CreateImageBuilder where
 
 -- | /See:/ 'createImageBuilderResponse' smart constructor.
 data CreateImageBuilderResponse = CreateImageBuilderResponse'
-  { _cibrsImageBuilder   :: {-# NOUNPACK #-}!(Maybe ImageBuilder)
-  , _cibrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cibrsImageBuilder   :: !(Maybe ImageBuilder)
+  , _cibrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -95,8 +95,8 @@ instance ToQuery GetTemplate where
 
 -- | /See:/ 'getTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
-  { _gtrsTemplate       :: {-# NOUNPACK #-}!(Maybe Template)
-  , _gtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gtrsTemplate       :: !(Maybe Template)
+  , _gtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

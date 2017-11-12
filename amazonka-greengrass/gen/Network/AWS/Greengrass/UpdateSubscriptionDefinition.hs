@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateSubscriptionDefinition' smart constructor.
 data UpdateSubscriptionDefinition = UpdateSubscriptionDefinition'
-  { _usdName                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usdSubscriptionDefinitionId :: {-# NOUNPACK #-}!Text
+  { _usdName                     :: !(Maybe Text)
+  , _usdSubscriptionDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

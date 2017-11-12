@@ -113,9 +113,9 @@ instance ToQuery BatchGetRepositories where
 --
 -- /See:/ 'batchGetRepositoriesResponse' smart constructor.
 data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
-  { _bgrrsRepositories         :: {-# NOUNPACK #-}!(Maybe [RepositoryMetadata])
-  , _bgrrsRepositoriesNotFound :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _bgrrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _bgrrsRepositories         :: !(Maybe [RepositoryMetadata])
+  , _bgrrsRepositoriesNotFound :: !(Maybe [Text])
+  , _bgrrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

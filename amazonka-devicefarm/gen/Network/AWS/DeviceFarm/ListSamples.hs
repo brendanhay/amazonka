@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listSamples' smart constructor.
 data ListSamples = ListSamples'
-  { _lsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsArn       :: {-# NOUNPACK #-}!Text
+  { _lsNextToken :: !(Maybe Text)
+  , _lsArn       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance ToQuery ListSamples where
 --
 -- /See:/ 'listSamplesResponse' smart constructor.
 data ListSamplesResponse = ListSamplesResponse'
-  { _lrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsSamples        :: {-# NOUNPACK #-}!(Maybe [Sample])
-  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrsNextToken      :: !(Maybe Text)
+  , _lrsSamples        :: !(Maybe [Sample])
+  , _lrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

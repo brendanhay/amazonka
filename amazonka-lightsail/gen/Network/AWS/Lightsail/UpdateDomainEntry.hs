@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateDomainEntry' smart constructor.
 data UpdateDomainEntry = UpdateDomainEntry'
-  { _udeDomainName  :: {-# NOUNPACK #-}!Text
-  , _udeDomainEntry :: {-# NOUNPACK #-}!DomainEntry
+  { _udeDomainName  :: !Text
+  , _udeDomainEntry :: !DomainEntry
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery UpdateDomainEntry where
 
 -- | /See:/ 'updateDomainEntryResponse' smart constructor.
 data UpdateDomainEntryResponse = UpdateDomainEntryResponse'
-  { _udersOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _udersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _udersOperations     :: !(Maybe [Operation])
+  , _udersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

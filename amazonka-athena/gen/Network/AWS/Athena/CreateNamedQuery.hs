@@ -52,11 +52,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createNamedQuery' smart constructor.
 data CreateNamedQuery = CreateNamedQuery'
-  { _cnqClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnqDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnqName               :: {-# NOUNPACK #-}!Text
-  , _cnqDatabase           :: {-# NOUNPACK #-}!Text
-  , _cnqQueryString        :: {-# NOUNPACK #-}!Text
+  { _cnqClientRequestToken :: !(Maybe Text)
+  , _cnqDescription        :: !(Maybe Text)
+  , _cnqName               :: !Text
+  , _cnqDatabase           :: !Text
+  , _cnqQueryString        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,8 +149,8 @@ instance ToQuery CreateNamedQuery where
 
 -- | /See:/ 'createNamedQueryResponse' smart constructor.
 data CreateNamedQueryResponse = CreateNamedQueryResponse'
-  { _cnqrsNamedQueryId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cnqrsNamedQueryId   :: !(Maybe Text)
+  , _cnqrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

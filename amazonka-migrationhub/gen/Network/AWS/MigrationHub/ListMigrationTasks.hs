@@ -57,9 +57,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listMigrationTasks' smart constructor.
 data ListMigrationTasks = ListMigrationTasks'
-  { _lmtResourceName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmtNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmtMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lmtResourceName :: !(Maybe Text)
+  , _lmtNextToken    :: !(Maybe Text)
+  , _lmtMaxResults   :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery ListMigrationTasks where
 
 -- | /See:/ 'listMigrationTasksResponse' smart constructor.
 data ListMigrationTasksResponse = ListMigrationTasksResponse'
-  { _lmtrsMigrationTaskSummaryList :: {-# NOUNPACK #-}!(Maybe [MigrationTaskSummary])
-  , _lmtrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lmtrsMigrationTaskSummaryList :: !(Maybe [MigrationTaskSummary])
+  , _lmtrsNextToken                :: !(Maybe Text)
+  , _lmtrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

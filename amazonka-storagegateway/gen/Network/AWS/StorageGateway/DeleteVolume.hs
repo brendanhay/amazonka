@@ -113,8 +113,8 @@ instance ToQuery DeleteVolume where
 --
 -- /See:/ 'deleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse = DeleteVolumeResponse'
-  { _dvrsVolumeARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvrsVolumeARN      :: !(Maybe Text)
+  , _dvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

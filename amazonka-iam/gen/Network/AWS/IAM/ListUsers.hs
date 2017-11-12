@@ -55,9 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listUsers' smart constructor.
 data ListUsers = ListUsers'
-  { _luPathPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luMaxItems   :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _luPathPrefix :: !(Maybe Text)
+  , _luMarker     :: !(Maybe Text)
+  , _luMaxItems   :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,10 +132,10 @@ instance ToQuery ListUsers where
 --
 -- /See:/ 'listUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { _lursMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lursIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lursResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lursUsers          :: {-# NOUNPACK #-}![User]
+  { _lursMarker         :: !(Maybe Text)
+  , _lursIsTruncated    :: !(Maybe Bool)
+  , _lursResponseStatus :: !Int
+  , _lursUsers          :: ![User]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

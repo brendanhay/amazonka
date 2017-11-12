@@ -55,11 +55,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeImportImageTasks' smart constructor.
 data DescribeImportImageTasks = DescribeImportImageTasks'
-  { _diitFilters       :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _diitImportTaskIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _diitNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diitDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diitMaxResults    :: {-# NOUNPACK #-}!(Maybe Int)
+  { _diitFilters       :: !(Maybe [Filter])
+  , _diitImportTaskIds :: !(Maybe [Text])
+  , _diitNextToken     :: !(Maybe Text)
+  , _diitDryRun        :: !(Maybe Bool)
+  , _diitMaxResults    :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery DescribeImportImageTasks where
 --
 -- /See:/ 'describeImportImageTasksResponse' smart constructor.
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
-  { _diitrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diitrsImportImageTasks :: {-# NOUNPACK #-}!(Maybe [ImportImageTask])
-  , _diitrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _diitrsNextToken        :: !(Maybe Text)
+  , _diitrsImportImageTasks :: !(Maybe [ImportImageTask])
+  , _diitrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

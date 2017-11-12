@@ -113,8 +113,8 @@ instance ToQuery DisableGateway where
 --
 -- /See:/ 'disableGatewayResponse' smart constructor.
 data DisableGatewayResponse = DisableGatewayResponse'
-  { _disrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _disrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _disrsGatewayARN     :: !(Maybe Text)
+  , _disrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

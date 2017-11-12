@@ -140,8 +140,8 @@ instance ToQuery DescribeGameSessionPlacement where
 --
 -- /See:/ 'describeGameSessionPlacementResponse' smart constructor.
 data DescribeGameSessionPlacementResponse = DescribeGameSessionPlacementResponse'
-  { _dgsprsGameSessionPlacement :: {-# NOUNPACK #-}!(Maybe GameSessionPlacement)
-  , _dgsprsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _dgsprsGameSessionPlacement :: !(Maybe GameSessionPlacement)
+  , _dgsprsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

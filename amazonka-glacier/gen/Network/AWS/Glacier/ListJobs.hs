@@ -69,12 +69,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'listJobs' smart constructor.
 data ListJobs = ListJobs'
-  { _ljMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ljCompleted  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ljLimit      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ljStatuscode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ljAccountId  :: {-# NOUNPACK #-}!Text
-  , _ljVaultName  :: {-# NOUNPACK #-}!Text
+  { _ljMarker     :: !(Maybe Text)
+  , _ljCompleted  :: !(Maybe Text)
+  , _ljLimit      :: !(Maybe Text)
+  , _ljStatuscode :: !(Maybe Text)
+  , _ljAccountId  :: !Text
+  , _ljVaultName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -174,9 +174,9 @@ instance ToQuery ListJobs where
 --
 -- /See:/ 'listJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { _ljrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ljrsJobList        :: {-# NOUNPACK #-}!(Maybe [GlacierJobDescription])
-  , _ljrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ljrsMarker         :: !(Maybe Text)
+  , _ljrsJobList        :: !(Maybe [GlacierJobDescription])
+  , _ljrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

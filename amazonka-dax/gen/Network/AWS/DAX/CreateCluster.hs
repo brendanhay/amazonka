@@ -57,18 +57,18 @@ import Network.AWS.Response
 
 -- | /See:/ 'createCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { _ccSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccSubnetGroupName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccAvailabilityZones          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccDescription                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccNotificationTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccTags                       :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ccParameterGroupName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccClusterName                :: {-# NOUNPACK #-}!Text
-  , _ccNodeType                   :: {-# NOUNPACK #-}!Text
-  , _ccReplicationFactor          :: {-# NOUNPACK #-}!Int
-  , _ccIAMRoleARN                 :: {-# NOUNPACK #-}!Text
+  { _ccSecurityGroupIds           :: !(Maybe [Text])
+  , _ccSubnetGroupName            :: !(Maybe Text)
+  , _ccPreferredMaintenanceWindow :: !(Maybe Text)
+  , _ccAvailabilityZones          :: !(Maybe [Text])
+  , _ccDescription                :: !(Maybe Text)
+  , _ccNotificationTopicARN       :: !(Maybe Text)
+  , _ccTags                       :: !(Maybe [Tag])
+  , _ccParameterGroupName         :: !(Maybe Text)
+  , _ccClusterName                :: !Text
+  , _ccNodeType                   :: !Text
+  , _ccReplicationFactor          :: !Int
+  , _ccIAMRoleARN                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -219,8 +219,8 @@ instance ToQuery CreateCluster where
 
 -- | /See:/ 'createClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-  { _ccrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
-  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ccrsCluster        :: !(Maybe Cluster)
+  , _ccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -51,11 +51,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'putThirdPartyJobSuccessResult' smart constructor.
 data PutThirdPartyJobSuccessResult = PutThirdPartyJobSuccessResult'
-  { _ptpjsrContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ptpjsrExecutionDetails  :: {-# NOUNPACK #-}!(Maybe ExecutionDetails)
-  , _ptpjsrCurrentRevision   :: {-# NOUNPACK #-}!(Maybe CurrentRevision)
-  , _ptpjsrJobId             :: {-# NOUNPACK #-}!Text
-  , _ptpjsrClientToken       :: {-# NOUNPACK #-}!Text
+  { _ptpjsrContinuationToken :: !(Maybe Text)
+  , _ptpjsrExecutionDetails  :: !(Maybe ExecutionDetails)
+  , _ptpjsrCurrentRevision   :: !(Maybe CurrentRevision)
+  , _ptpjsrJobId             :: !Text
+  , _ptpjsrClientToken       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

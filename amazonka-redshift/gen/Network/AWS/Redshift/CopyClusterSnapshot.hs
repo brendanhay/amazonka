@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'copyClusterSnapshot' smart constructor.
 data CopyClusterSnapshot = CopyClusterSnapshot'
-  { _ccsSourceSnapshotClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccsSourceSnapshotIdentifier        :: {-# NOUNPACK #-}!Text
-  , _ccsTargetSnapshotIdentifier        :: {-# NOUNPACK #-}!Text
+  { _ccsSourceSnapshotClusterIdentifier :: !(Maybe Text)
+  , _ccsSourceSnapshotIdentifier        :: !Text
+  , _ccsTargetSnapshotIdentifier        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,8 +129,8 @@ instance ToQuery CopyClusterSnapshot where
 
 -- | /See:/ 'copyClusterSnapshotResponse' smart constructor.
 data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
-  { _ccsrsSnapshot       :: {-# NOUNPACK #-}!(Maybe Snapshot)
-  , _ccsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ccsrsSnapshot       :: !(Maybe Snapshot)
+  , _ccsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

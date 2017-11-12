@@ -116,15 +116,15 @@ instance ToQuery DescribeExecution where
 
 -- | /See:/ 'describeExecutionResponse' smart constructor.
 data DescribeExecutionResponse = DescribeExecutionResponse'
-  { _dersStopDate        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dersName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dersOutput          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dersResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _dersExecutionARN    :: {-# NOUNPACK #-}!Text
-  , _dersStateMachineARN :: {-# NOUNPACK #-}!Text
-  , _dersStatus          :: {-# NOUNPACK #-}!ExecutionStatus
-  , _dersStartDate       :: {-# NOUNPACK #-}!POSIX
-  , _dersInput           :: {-# NOUNPACK #-}!Text
+  { _dersStopDate        :: !(Maybe POSIX)
+  , _dersName            :: !(Maybe Text)
+  , _dersOutput          :: !(Maybe Text)
+  , _dersResponseStatus  :: !Int
+  , _dersExecutionARN    :: !Text
+  , _dersStateMachineARN :: !Text
+  , _dersStatus          :: !ExecutionStatus
+  , _dersStartDate       :: !POSIX
+  , _dersInput           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

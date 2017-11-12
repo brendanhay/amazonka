@@ -51,14 +51,14 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'createBucket' smart constructor.
 data CreateBucket = CreateBucket'
-  { _cbGrantReadACP :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbGrantWriteACP :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbGrantRead :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbGrantFullControl :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbCreateBucketConfiguration :: {-# NOUNPACK #-}!(Maybe CreateBucketConfiguration)
-  , _cbGrantWrite :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbACL :: {-# NOUNPACK #-}!(Maybe BucketCannedACL)
-  , _cbBucket :: {-# NOUNPACK #-}!BucketName
+  { _cbGrantReadACP              :: !(Maybe Text)
+  , _cbGrantWriteACP             :: !(Maybe Text)
+  , _cbGrantRead                 :: !(Maybe Text)
+  , _cbGrantFullControl          :: !(Maybe Text)
+  , _cbCreateBucketConfiguration :: !(Maybe CreateBucketConfiguration)
+  , _cbGrantWrite                :: !(Maybe Text)
+  , _cbACL                       :: !(Maybe BucketCannedACL)
+  , _cbBucket                    :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -168,8 +168,8 @@ instance ToQuery CreateBucket where
 
 -- | /See:/ 'createBucketResponse' smart constructor.
 data CreateBucketResponse = CreateBucketResponse'
-  { _cbrsLocation       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cbrsLocation       :: !(Maybe Text)
+  , _cbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

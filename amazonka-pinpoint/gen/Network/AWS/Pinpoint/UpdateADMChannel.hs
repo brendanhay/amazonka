@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateADMChannel' smart constructor.
 data UpdateADMChannel = UpdateADMChannel'
-  { _uadmcApplicationId     :: {-# NOUNPACK #-}!Text
-  , _uadmcADMChannelRequest :: {-# NOUNPACK #-}!ADMChannelRequest
+  { _uadmcApplicationId     :: !Text
+  , _uadmcADMChannelRequest :: !ADMChannelRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery UpdateADMChannel where
 
 -- | /See:/ 'updateADMChannelResponse' smart constructor.
 data UpdateADMChannelResponse = UpdateADMChannelResponse'
-  { _uadmcrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _uadmcrsADMChannelResponse :: {-# NOUNPACK #-}!ADMChannelResponse
+  { _uadmcrsResponseStatus     :: !Int
+  , _uadmcrsADMChannelResponse :: !ADMChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

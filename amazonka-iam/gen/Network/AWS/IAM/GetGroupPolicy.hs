@@ -53,8 +53,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getGroupPolicy' smart constructor.
 data GetGroupPolicy = GetGroupPolicy'
-  { _ggpGroupName  :: {-# NOUNPACK #-}!Text
-  , _ggpPolicyName :: {-# NOUNPACK #-}!Text
+  { _ggpGroupName  :: !Text
+  , _ggpPolicyName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,10 +116,10 @@ instance ToQuery GetGroupPolicy where
 --
 -- /See:/ 'getGroupPolicyResponse' smart constructor.
 data GetGroupPolicyResponse = GetGroupPolicyResponse'
-  { _ggprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ggprsGroupName      :: {-# NOUNPACK #-}!Text
-  , _ggprsPolicyName     :: {-# NOUNPACK #-}!Text
-  , _ggprsPolicyDocument :: {-# NOUNPACK #-}!Text
+  { _ggprsResponseStatus :: !Int
+  , _ggprsGroupName      :: !Text
+  , _ggprsPolicyName     :: !Text
+  , _ggprsPolicyDocument :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

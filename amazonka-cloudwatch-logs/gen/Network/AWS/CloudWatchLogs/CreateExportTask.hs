@@ -56,13 +56,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'createExportTask' smart constructor.
 data CreateExportTask = CreateExportTask'
-  { _cetDestinationPrefix   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cetTaskName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cetLogStreamNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cetLogGroupName        :: {-# NOUNPACK #-}!Text
-  , _cetFrom                :: {-# NOUNPACK #-}!Nat
-  , _cetTo                  :: {-# NOUNPACK #-}!Nat
-  , _cetDestination         :: {-# NOUNPACK #-}!Text
+  { _cetDestinationPrefix   :: !(Maybe Text)
+  , _cetTaskName            :: !(Maybe Text)
+  , _cetLogStreamNamePrefix :: !(Maybe Text)
+  , _cetLogGroupName        :: !Text
+  , _cetFrom                :: !Nat
+  , _cetTo                  :: !Nat
+  , _cetDestination         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -171,8 +171,8 @@ instance ToQuery CreateExportTask where
 
 -- | /See:/ 'createExportTaskResponse' smart constructor.
 data CreateExportTaskResponse = CreateExportTaskResponse'
-  { _cetrsTaskId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cetrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cetrsTaskId         :: !(Maybe Text)
+  , _cetrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -55,10 +55,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateSecurityGroupRuleDescriptionsEgress' smart constructor.
 data UpdateSecurityGroupRuleDescriptionsEgress = UpdateSecurityGroupRuleDescriptionsEgress'
-  { _usgrdeGroupId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usgrdeGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usgrdeDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _usgrdeIPPermissions :: {-# NOUNPACK #-}![IPPermission]
+  { _usgrdeGroupId       :: !(Maybe Text)
+  , _usgrdeGroupName     :: !(Maybe Text)
+  , _usgrdeDryRun        :: !(Maybe Bool)
+  , _usgrdeIPPermissions :: ![IPPermission]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,8 +151,8 @@ instance ToQuery
 --
 -- /See:/ 'updateSecurityGroupRuleDescriptionsEgressResponse' smart constructor.
 data UpdateSecurityGroupRuleDescriptionsEgressResponse = UpdateSecurityGroupRuleDescriptionsEgressResponse'
-  { _usgrdersReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _usgrdersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _usgrdersReturn         :: !(Maybe Bool)
+  , _usgrdersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

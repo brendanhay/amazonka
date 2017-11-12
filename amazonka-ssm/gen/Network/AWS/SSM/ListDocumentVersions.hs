@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listDocumentVersions' smart constructor.
 data ListDocumentVersions = ListDocumentVersions'
-  { _ldvNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldvMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ldvName       :: {-# NOUNPACK #-}!Text
+  { _ldvNextToken  :: !(Maybe Text)
+  , _ldvMaxResults :: !(Maybe Nat)
+  , _ldvName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery ListDocumentVersions where
 
 -- | /See:/ 'listDocumentVersionsResponse' smart constructor.
 data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
-  { _ldvrsDocumentVersions :: {-# NOUNPACK #-}!(Maybe (List1 DocumentVersionInfo))
-  , _ldvrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ldvrsDocumentVersions :: !(Maybe (List1 DocumentVersionInfo))
+  , _ldvrsNextToken        :: !(Maybe Text)
+  , _ldvrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

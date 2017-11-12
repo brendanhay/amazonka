@@ -57,11 +57,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateIntegrationResponse' smart constructor.
 data UpdateIntegrationResponse = UpdateIntegrationResponse'
-  { _uiPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
-  , _uiRestAPIId       :: {-# NOUNPACK #-}!Text
-  , _uiResourceId      :: {-# NOUNPACK #-}!Text
-  , _uiHttpMethod      :: {-# NOUNPACK #-}!Text
-  , _uiStatusCode      :: {-# NOUNPACK #-}!Text
+  { _uiPatchOperations :: !(Maybe [PatchOperation])
+  , _uiRestAPIId       :: !Text
+  , _uiResourceId      :: !Text
+  , _uiHttpMethod      :: !Text
+  , _uiStatusCode      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

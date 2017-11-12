@@ -121,8 +121,8 @@ instance ToQuery DeliverConfigSnapshot where
 --
 -- /See:/ 'deliverConfigSnapshotResponse' smart constructor.
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
-  { _dcsrsConfigSnapshotId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _dcsrsConfigSnapshotId :: !(Maybe Text)
+  , _dcsrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

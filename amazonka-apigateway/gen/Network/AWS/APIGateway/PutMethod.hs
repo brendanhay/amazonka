@@ -67,16 +67,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'putMethod' smart constructor.
 data PutMethod = PutMethod'
-  { _putRequestValidatorId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _putRequestModels      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _putRequestParameters  :: {-# NOUNPACK #-}!(Maybe (Map Text Bool))
-  , _putAuthorizerId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _putOperationName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _putApiKeyRequired     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _putRestAPIId          :: {-# NOUNPACK #-}!Text
-  , _putResourceId         :: {-# NOUNPACK #-}!Text
-  , _putHttpMethod         :: {-# NOUNPACK #-}!Text
-  , _putAuthorizationType  :: {-# NOUNPACK #-}!Text
+  { _putRequestValidatorId :: !(Maybe Text)
+  , _putRequestModels      :: !(Maybe (Map Text Text))
+  , _putRequestParameters  :: !(Maybe (Map Text Bool))
+  , _putAuthorizerId       :: !(Maybe Text)
+  , _putOperationName      :: !(Maybe Text)
+  , _putApiKeyRequired     :: !(Maybe Bool)
+  , _putRestAPIId          :: !Text
+  , _putResourceId         :: !Text
+  , _putHttpMethod         :: !Text
+  , _putAuthorizationType  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

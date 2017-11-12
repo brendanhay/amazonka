@@ -58,9 +58,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listCACertificates' smart constructor.
 data ListCACertificates = ListCACertificates'
-  { _lcacMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcacAscendingOrder :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lcacPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lcacMarker         :: !(Maybe Text)
+  , _lcacAscendingOrder :: !(Maybe Bool)
+  , _lcacPageSize       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery ListCACertificates where
 --
 -- /See:/ 'listCACertificatesResponse' smart constructor.
 data ListCACertificatesResponse = ListCACertificatesResponse'
-  { _lcacrsCertificates   :: {-# NOUNPACK #-}!(Maybe [CACertificate])
-  , _lcacrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcacrsCertificates   :: !(Maybe [CACertificate])
+  , _lcacrsNextMarker     :: !(Maybe Text)
+  , _lcacrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

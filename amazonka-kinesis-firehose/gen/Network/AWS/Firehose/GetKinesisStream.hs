@@ -104,9 +104,9 @@ instance ToQuery GetKinesisStream where
 
 -- | /See:/ 'getKinesisStreamResponse' smart constructor.
 data GetKinesisStreamResponse = GetKinesisStreamResponse'
-  { _gksrsCredentialsForReadingKinesisStream :: {-# NOUNPACK #-}!(Maybe SessionCredentials)
-  , _gksrsKinesisStreamARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gksrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gksrsCredentialsForReadingKinesisStream :: !(Maybe SessionCredentials)
+  , _gksrsKinesisStreamARN                   :: !(Maybe Text)
+  , _gksrsResponseStatus                     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

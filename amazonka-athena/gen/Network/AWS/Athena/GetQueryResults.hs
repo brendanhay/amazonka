@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getQueryResults' smart constructor.
 data GetQueryResults = GetQueryResults'
-  { _gqrNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gqrMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gqrQueryExecutionId :: {-# NOUNPACK #-}!Text
+  { _gqrNextToken        :: !(Maybe Text)
+  , _gqrMaxResults       :: !(Maybe Nat)
+  , _gqrQueryExecutionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery GetQueryResults where
 
 -- | /See:/ 'getQueryResultsResponse' smart constructor.
 data GetQueryResultsResponse = GetQueryResultsResponse'
-  { _gqrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gqrrsResultSet      :: {-# NOUNPACK #-}!(Maybe ResultSet)
-  , _gqrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gqrrsNextToken      :: !(Maybe Text)
+  , _gqrrsResultSet      :: !(Maybe ResultSet)
+  , _gqrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

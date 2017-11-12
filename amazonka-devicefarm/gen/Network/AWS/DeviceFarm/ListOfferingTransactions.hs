@@ -122,9 +122,9 @@ instance ToQuery ListOfferingTransactions where
 --
 -- /See:/ 'listOfferingTransactionsResponse' smart constructor.
 data ListOfferingTransactionsResponse = ListOfferingTransactionsResponse'
-  { _lotrsOfferingTransactions :: {-# NOUNPACK #-}!(Maybe [OfferingTransaction])
-  , _lotrsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lotrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _lotrsOfferingTransactions :: !(Maybe [OfferingTransaction])
+  , _lotrsNextToken            :: !(Maybe Text)
+  , _lotrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

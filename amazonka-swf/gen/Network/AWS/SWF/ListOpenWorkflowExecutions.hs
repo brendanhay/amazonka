@@ -78,14 +78,14 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'listOpenWorkflowExecutions' smart constructor.
 data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions'
-  { _loweNextPageToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _loweExecutionFilter :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionFilter)
-  , _loweTypeFilter      :: {-# NOUNPACK #-}!(Maybe WorkflowTypeFilter)
-  , _loweReverseOrder    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _loweTagFilter       :: {-# NOUNPACK #-}!(Maybe TagFilter)
-  , _loweMaximumPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _loweDomain          :: {-# NOUNPACK #-}!Text
-  , _loweStartTimeFilter :: {-# NOUNPACK #-}!ExecutionTimeFilter
+  { _loweNextPageToken   :: !(Maybe Text)
+  , _loweExecutionFilter :: !(Maybe WorkflowExecutionFilter)
+  , _loweTypeFilter      :: !(Maybe WorkflowTypeFilter)
+  , _loweReverseOrder    :: !(Maybe Bool)
+  , _loweTagFilter       :: !(Maybe TagFilter)
+  , _loweMaximumPageSize :: !(Maybe Nat)
+  , _loweDomain          :: !Text
+  , _loweStartTimeFilter :: !ExecutionTimeFilter
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

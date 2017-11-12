@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateBasePathMapping' smart constructor.
 data UpdateBasePathMapping = UpdateBasePathMapping'
-  { _ubpmPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
-  , _ubpmDomainName      :: {-# NOUNPACK #-}!Text
-  , _ubpmBasePath        :: {-# NOUNPACK #-}!Text
+  { _ubpmPatchOperations :: !(Maybe [PatchOperation])
+  , _ubpmDomainName      :: !Text
+  , _ubpmBasePath        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -58,10 +58,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAttachedGroupPolicies' smart constructor.
 data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
-  { _lagpPathPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lagpMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lagpMaxItems   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lagpGroupName  :: {-# NOUNPACK #-}!Text
+  { _lagpPathPrefix :: !(Maybe Text)
+  , _lagpMarker     :: !(Maybe Text)
+  , _lagpMaxItems   :: !(Maybe Nat)
+  , _lagpGroupName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,10 +151,10 @@ instance ToQuery ListAttachedGroupPolicies where
 --
 -- /See:/ 'listAttachedGroupPoliciesResponse' smart constructor.
 data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
-  { _lagprsAttachedPolicies :: {-# NOUNPACK #-}!(Maybe [AttachedPolicy])
-  , _lagprsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lagprsIsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lagprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _lagprsAttachedPolicies :: !(Maybe [AttachedPolicy])
+  , _lagprsMarker           :: !(Maybe Text)
+  , _lagprsIsTruncated      :: !(Maybe Bool)
+  , _lagprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

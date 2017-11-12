@@ -108,8 +108,8 @@ instance ToQuery GetHealthCheckLastFailureReason
 --
 -- /See:/ 'getHealthCheckLastFailureReasonResponse' smart constructor.
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
-  { _ghclfrrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ghclfrrsHealthCheckObservations :: {-# NOUNPACK #-}![HealthCheckObservation]
+  { _ghclfrrsResponseStatus          :: !Int
+  , _ghclfrrsHealthCheckObservations :: ![HealthCheckObservation]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'authorizeCacheSecurityGroupIngress' smart constructor.
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
-  { _acsgiCacheSecurityGroupName  :: {-# NOUNPACK #-}!Text
-  , _acsgiEC2SecurityGroupName    :: {-# NOUNPACK #-}!Text
-  , _acsgiEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!Text
+  { _acsgiCacheSecurityGroupName  :: !Text
+  , _acsgiEC2SecurityGroupName    :: !Text
+  , _acsgiEC2SecurityGroupOwnerId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
 
 -- | /See:/ 'authorizeCacheSecurityGroupIngressResponse' smart constructor.
 data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
-  { _acsgirsCacheSecurityGroup :: {-# NOUNPACK #-}!(Maybe CacheSecurityGroup)
-  , _acsgirsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _acsgirsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
+  , _acsgirsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -64,17 +64,17 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyReplicationInstance' smart constructor.
 data ModifyReplicationInstance = ModifyReplicationInstance'
-  { _mriEngineVersion                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mriAutoMinorVersionUpgrade       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mriAllowMajorVersionUpgrade      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mriPreferredMaintenanceWindow    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mriVPCSecurityGroupIds           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mriMultiAZ                       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mriAllocatedStorage              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _mriApplyImmediately              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mriReplicationInstanceClass      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mriReplicationInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mriReplicationInstanceARN        :: {-# NOUNPACK #-}!Text
+  { _mriEngineVersion                 :: !(Maybe Text)
+  , _mriAutoMinorVersionUpgrade       :: !(Maybe Bool)
+  , _mriAllowMajorVersionUpgrade      :: !(Maybe Bool)
+  , _mriPreferredMaintenanceWindow    :: !(Maybe Text)
+  , _mriVPCSecurityGroupIds           :: !(Maybe [Text])
+  , _mriMultiAZ                       :: !(Maybe Bool)
+  , _mriAllocatedStorage              :: !(Maybe Int)
+  , _mriApplyImmediately              :: !(Maybe Bool)
+  , _mriReplicationInstanceClass      :: !(Maybe Text)
+  , _mriReplicationInstanceIdentifier :: !(Maybe Text)
+  , _mriReplicationInstanceARN        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -227,8 +227,8 @@ instance ToQuery ModifyReplicationInstance where
 --
 -- /See:/ 'modifyReplicationInstanceResponse' smart constructor.
 data ModifyReplicationInstanceResponse = ModifyReplicationInstanceResponse'
-  { _mrirsReplicationInstance :: {-# NOUNPACK #-}!(Maybe ReplicationInstance)
-  , _mrirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _mrirsReplicationInstance :: !(Maybe ReplicationInstance)
+  , _mrirsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

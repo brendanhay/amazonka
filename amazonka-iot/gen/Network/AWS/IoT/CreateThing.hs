@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createThing' smart constructor.
 data CreateThing = CreateThing'
-  { _ctThingTypeName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctAttributePayload :: {-# NOUNPACK #-}!(Maybe AttributePayload)
-  , _ctThingName        :: {-# NOUNPACK #-}!Text
+  { _ctThingTypeName    :: !(Maybe Text)
+  , _ctAttributePayload :: !(Maybe AttributePayload)
+  , _ctThingName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery CreateThing where
 --
 -- /See:/ 'createThingResponse' smart constructor.
 data CreateThingResponse = CreateThingResponse'
-  { _ctrsThingARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsThingName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ctrsThingARN       :: !(Maybe Text)
+  , _ctrsThingName      :: !(Maybe Text)
+  , _ctrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

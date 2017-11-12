@@ -103,8 +103,8 @@ instance ToQuery DetachStaticIP where
 
 -- | /See:/ 'detachStaticIPResponse' smart constructor.
 data DetachStaticIPResponse = DetachStaticIPResponse'
-  { _dsirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _dsirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsirsOperations     :: !(Maybe [Operation])
+  , _dsirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

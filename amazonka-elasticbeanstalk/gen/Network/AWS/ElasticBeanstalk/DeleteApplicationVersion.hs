@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteApplicationVersion' smart constructor.
 data DeleteApplicationVersion = DeleteApplicationVersion'
-  { _davDeleteSourceBundle :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _davApplicationName    :: {-# NOUNPACK #-}!Text
-  , _davVersionLabel       :: {-# NOUNPACK #-}!Text
+  { _davDeleteSourceBundle :: !(Maybe Bool)
+  , _davApplicationName    :: !Text
+  , _davVersionLabel       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

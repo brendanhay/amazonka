@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeMaintenanceWindows' smart constructor.
 data DescribeMaintenanceWindows = DescribeMaintenanceWindows'
-  { _dmwFilters    :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowFilter])
-  , _dmwNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmwMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dmwFilters    :: !(Maybe [MaintenanceWindowFilter])
+  , _dmwNextToken  :: !(Maybe Text)
+  , _dmwMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery DescribeMaintenanceWindows where
 
 -- | /See:/ 'describeMaintenanceWindowsResponse' smart constructor.
 data DescribeMaintenanceWindowsResponse = DescribeMaintenanceWindowsResponse'
-  { _dmwsrsWindowIdentities :: {-# NOUNPACK #-}!(Maybe [MaintenanceWindowIdentity])
-  , _dmwsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmwsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmwsrsWindowIdentities :: !(Maybe [MaintenanceWindowIdentity])
+  , _dmwsrsNextToken        :: !(Maybe Text)
+  , _dmwsrsResponseStatus   :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

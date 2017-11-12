@@ -60,9 +60,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'transferCertificate' smart constructor.
 data TransferCertificate = TransferCertificate'
-  { _tcTransferMessage  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tcCertificateId    :: {-# NOUNPACK #-}!Text
-  , _tcTargetAWSAccount :: {-# NOUNPACK #-}!Text
+  { _tcTransferMessage  :: !(Maybe Text)
+  , _tcCertificateId    :: !Text
+  , _tcTargetAWSAccount :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery TransferCertificate where
 --
 -- /See:/ 'transferCertificateResponse' smart constructor.
 data TransferCertificateResponse = TransferCertificateResponse'
-  { _tcrsTransferredCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tcrsResponseStatus            :: {-# NOUNPACK #-}!Int
+  { _tcrsTransferredCertificateARN :: !(Maybe Text)
+  , _tcrsResponseStatus            :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

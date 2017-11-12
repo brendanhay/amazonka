@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getCoreDefinitionVersion' smart constructor.
 data GetCoreDefinitionVersion = GetCoreDefinitionVersion'
-  { _gcdvCoreDefinitionId        :: {-# NOUNPACK #-}!Text
-  , _gcdvCoreDefinitionVersionId :: {-# NOUNPACK #-}!Text
+  { _gcdvCoreDefinitionId        :: !Text
+  , _gcdvCoreDefinitionVersionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,12 +117,12 @@ instance ToQuery GetCoreDefinitionVersion where
 
 -- | /See:/ 'getCoreDefinitionVersionResponse' smart constructor.
 data GetCoreDefinitionVersionResponse = GetCoreDefinitionVersionResponse'
-  { _gcdvrsDefinition        :: {-# NOUNPACK #-}!(Maybe CoreDefinitionVersion)
-  , _gcdvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gcdvrsDefinition        :: !(Maybe CoreDefinitionVersion)
+  , _gcdvrsARN               :: !(Maybe Text)
+  , _gcdvrsCreationTimestamp :: !(Maybe Text)
+  , _gcdvrsVersion           :: !(Maybe Text)
+  , _gcdvrsId                :: !(Maybe Text)
+  , _gcdvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

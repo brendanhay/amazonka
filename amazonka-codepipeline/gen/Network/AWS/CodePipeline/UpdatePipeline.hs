@@ -109,8 +109,8 @@ instance ToQuery UpdatePipeline where
 --
 -- /See:/ 'updatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
-  { _uprsPipeline       :: {-# NOUNPACK #-}!(Maybe PipelineDeclaration)
-  , _uprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uprsPipeline       :: !(Maybe PipelineDeclaration)
+  , _uprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

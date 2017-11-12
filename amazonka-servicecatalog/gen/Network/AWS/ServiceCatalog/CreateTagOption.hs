@@ -47,8 +47,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createTagOption' smart constructor.
 data CreateTagOption = CreateTagOption'
-  { _ctoKey   :: {-# NOUNPACK #-}!Text
-  , _ctoValue :: {-# NOUNPACK #-}!Text
+  { _ctoKey   :: !Text
+  , _ctoValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery CreateTagOption where
 
 -- | /See:/ 'createTagOptionResponse' smart constructor.
 data CreateTagOptionResponse = CreateTagOptionResponse'
-  { _ctorsTagOptionDetail :: {-# NOUNPACK #-}!(Maybe TagOptionDetail)
-  , _ctorsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _ctorsTagOptionDetail :: !(Maybe TagOptionDetail)
+  , _ctorsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

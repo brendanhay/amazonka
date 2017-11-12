@@ -50,10 +50,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteNetworkACLEntry' smart constructor.
 data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
-  { _dnaeDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dnaeEgress       :: {-# NOUNPACK #-}!Bool
-  , _dnaeNetworkACLId :: {-# NOUNPACK #-}!Text
-  , _dnaeRuleNumber   :: {-# NOUNPACK #-}!Int
+  { _dnaeDryRun       :: !(Maybe Bool)
+  , _dnaeEgress       :: !Bool
+  , _dnaeNetworkACLId :: !Text
+  , _dnaeRuleNumber   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

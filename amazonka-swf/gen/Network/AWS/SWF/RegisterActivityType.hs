@@ -76,16 +76,16 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'registerActivityType' smart constructor.
 data RegisterActivityType = RegisterActivityType'
-  { _ratDefaultTaskScheduleToStartTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ratDefaultTaskList                   :: {-# NOUNPACK #-}!(Maybe TaskList)
-  , _ratDefaultTaskPriority               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ratDefaultTaskHeartbeatTimeout       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ratDefaultTaskScheduleToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ratDefaultTaskStartToCloseTimeout    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ratDescription                       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ratDomain                            :: {-# NOUNPACK #-}!Text
-  , _ratName                              :: {-# NOUNPACK #-}!Text
-  , _ratVersion                           :: {-# NOUNPACK #-}!Text
+  { _ratDefaultTaskScheduleToStartTimeout :: !(Maybe Text)
+  , _ratDefaultTaskList                   :: !(Maybe TaskList)
+  , _ratDefaultTaskPriority               :: !(Maybe Text)
+  , _ratDefaultTaskHeartbeatTimeout       :: !(Maybe Text)
+  , _ratDefaultTaskScheduleToCloseTimeout :: !(Maybe Text)
+  , _ratDefaultTaskStartToCloseTimeout    :: !(Maybe Text)
+  , _ratDescription                       :: !(Maybe Text)
+  , _ratDomain                            :: !Text
+  , _ratName                              :: !Text
+  , _ratVersion                           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

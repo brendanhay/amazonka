@@ -70,10 +70,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'listAliases' smart constructor.
 data ListAliases = ListAliases'
-  { _laRoutingStrategyType :: {-# NOUNPACK #-}!(Maybe RoutingStrategyType)
-  , _laNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _laRoutingStrategyType :: !(Maybe RoutingStrategyType)
+  , _laNextToken           :: !(Maybe Text)
+  , _laName                :: !(Maybe Text)
+  , _laLimit               :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -159,9 +159,9 @@ instance ToQuery ListAliases where
 --
 -- /See:/ 'listAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { _larsAliases        :: {-# NOUNPACK #-}!(Maybe [Alias])
-  , _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _larsAliases        :: !(Maybe [Alias])
+  , _larsNextToken      :: !(Maybe Text)
+  , _larsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

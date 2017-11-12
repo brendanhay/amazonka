@@ -103,9 +103,9 @@ instance ToQuery BatchDeleteBuilds where
 
 -- | /See:/ 'batchDeleteBuildsResponse' smart constructor.
 data BatchDeleteBuildsResponse = BatchDeleteBuildsResponse'
-  { _bdbrsBuildsNotDeleted :: {-# NOUNPACK #-}!(Maybe [BuildNotDeleted])
-  , _bdbrsBuildsDeleted    :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _bdbrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _bdbrsBuildsNotDeleted :: !(Maybe [BuildNotDeleted])
+  , _bdbrsBuildsDeleted    :: !(Maybe (List1 Text))
+  , _bdbrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

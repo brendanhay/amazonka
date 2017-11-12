@@ -63,8 +63,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'disassociateConnectionFromLag' smart constructor.
 data DisassociateConnectionFromLag = DisassociateConnectionFromLag'
-  { _dcflConnectionId :: {-# NOUNPACK #-}!Text
-  , _dcflLagId        :: {-# NOUNPACK #-}!Text
+  { _dcflConnectionId :: !Text
+  , _dcflLagId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'
-  { _dsaAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _dsaScheduledActionName  :: {-# NOUNPACK #-}!Text
+  { _dsaAutoScalingGroupName :: !Text
+  , _dsaScheduledActionName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

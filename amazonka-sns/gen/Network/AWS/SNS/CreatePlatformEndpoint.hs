@@ -55,10 +55,10 @@ import Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'createPlatformEndpoint' smart constructor.
 data CreatePlatformEndpoint = CreatePlatformEndpoint'
-  { _cpeCustomUserData         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpeAttributes             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cpePlatformApplicationARN :: {-# NOUNPACK #-}!Text
-  , _cpeToken                  :: {-# NOUNPACK #-}!Text
+  { _cpeCustomUserData         :: !(Maybe Text)
+  , _cpeAttributes             :: !(Maybe (Map Text Text))
+  , _cpePlatformApplicationARN :: !Text
+  , _cpeToken                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -143,8 +143,8 @@ instance ToQuery CreatePlatformEndpoint where
 --
 -- /See:/ 'createPlatformEndpointResponse' smart constructor.
 data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
-  { _cpersEndpointARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cpersEndpointARN    :: !(Maybe Text)
+  , _cpersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

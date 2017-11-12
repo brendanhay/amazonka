@@ -91,8 +91,8 @@ instance ToQuery GetSendStatistics where
 --
 -- /See:/ 'getSendStatisticsResponse' smart constructor.
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
-  { _gssrsSendDataPoints :: {-# NOUNPACK #-}!(Maybe [SendDataPoint])
-  , _gssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gssrsSendDataPoints :: !(Maybe [SendDataPoint])
+  , _gssrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

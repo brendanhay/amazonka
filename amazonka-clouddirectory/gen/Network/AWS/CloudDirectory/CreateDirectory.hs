@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDirectory' smart constructor.
 data CreateDirectory = CreateDirectory'
-  { _cdName      :: {-# NOUNPACK #-}!Text
-  , _cdSchemaARN :: {-# NOUNPACK #-}!Text
+  { _cdName      :: !Text
+  , _cdSchemaARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,11 +112,11 @@ instance ToQuery CreateDirectory where
 
 -- | /See:/ 'createDirectoryResponse' smart constructor.
 data CreateDirectoryResponse = CreateDirectoryResponse'
-  { _cdrsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _cdrsDirectoryARN     :: {-# NOUNPACK #-}!Text
-  , _cdrsName             :: {-# NOUNPACK #-}!Text
-  , _cdrsObjectIdentifier :: {-# NOUNPACK #-}!Text
-  , _cdrsAppliedSchemaARN :: {-# NOUNPACK #-}!Text
+  { _cdrsResponseStatus   :: !Int
+  , _cdrsDirectoryARN     :: !Text
+  , _cdrsName             :: !Text
+  , _cdrsObjectIdentifier :: !Text
+  , _cdrsAppliedSchemaARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

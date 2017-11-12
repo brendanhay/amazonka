@@ -57,8 +57,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getFunction' smart constructor.
 data GetFunction = GetFunction'
-  { _gfQualifier    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gfFunctionName :: {-# NOUNPACK #-}!Text
+  { _gfQualifier    :: !(Maybe Text)
+  , _gfFunctionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,10 +117,10 @@ instance ToQuery GetFunction where
 --
 -- /See:/ 'getFunctionResponse' smart constructor.
 data GetFunctionResponse = GetFunctionResponse'
-  { _gfrsCode           :: {-# NOUNPACK #-}!(Maybe FunctionCodeLocation)
-  , _gfrsConfiguration  :: {-# NOUNPACK #-}!(Maybe FunctionConfiguration)
-  , _gfrsTags           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gfrsCode           :: !(Maybe FunctionCodeLocation)
+  , _gfrsConfiguration  :: !(Maybe FunctionConfiguration)
+  , _gfrsTags           :: !(Maybe (Map Text Text))
+  , _gfrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

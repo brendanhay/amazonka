@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'addTagsToOnPremisesInstances' smart constructor.
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
-  { _attopiTags          :: {-# NOUNPACK #-}![Tag]
-  , _attopiInstanceNames :: {-# NOUNPACK #-}![Text]
+  { _attopiTags          :: ![Tag]
+  , _attopiInstanceNames :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

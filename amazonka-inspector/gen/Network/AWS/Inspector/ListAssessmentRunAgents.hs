@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAssessmentRunAgents' smart constructor.
 data ListAssessmentRunAgents = ListAssessmentRunAgents'
-  { _laraNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laraFilter           :: {-# NOUNPACK #-}!(Maybe AgentFilter)
-  , _laraMaxResults       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _laraAssessmentRunARN :: {-# NOUNPACK #-}!Text
+  { _laraNextToken        :: !(Maybe Text)
+  , _laraFilter           :: !(Maybe AgentFilter)
+  , _laraMaxResults       :: !(Maybe Int)
+  , _laraAssessmentRunARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery ListAssessmentRunAgents where
 
 -- | /See:/ 'listAssessmentRunAgentsResponse' smart constructor.
 data ListAssessmentRunAgentsResponse = ListAssessmentRunAgentsResponse'
-  { _lararsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lararsResponseStatus      :: {-# NOUNPACK #-}!Int
-  , _lararsAssessmentRunAgents :: {-# NOUNPACK #-}![AssessmentRunAgent]
+  { _lararsNextToken           :: !(Maybe Text)
+  , _lararsResponseStatus      :: !Int
+  , _lararsAssessmentRunAgents :: ![AssessmentRunAgent]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

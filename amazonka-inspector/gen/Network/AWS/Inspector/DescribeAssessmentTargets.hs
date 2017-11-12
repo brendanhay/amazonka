@@ -110,9 +110,9 @@ instance ToQuery DescribeAssessmentTargets where
 
 -- | /See:/ 'describeAssessmentTargetsResponse' smart constructor.
 data DescribeAssessmentTargetsResponse = DescribeAssessmentTargetsResponse'
-  { _drsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _drsAssessmentTargets :: {-# NOUNPACK #-}![AssessmentTarget]
-  , _drsFailedItems       :: {-# NOUNPACK #-}!(Map Text FailedItemDetails)
+  { _drsResponseStatus    :: !Int
+  , _drsAssessmentTargets :: ![AssessmentTarget]
+  , _drsFailedItems       :: !(Map Text FailedItemDetails)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

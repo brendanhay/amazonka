@@ -50,8 +50,8 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'deleteTrafficPolicy' smart constructor.
 data DeleteTrafficPolicy = DeleteTrafficPolicy'
-  { _dtpId      :: {-# NOUNPACK #-}!Text
-  , _dtpVersion :: {-# NOUNPACK #-}!Nat
+  { _dtpId      :: !Text
+  , _dtpVersion :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

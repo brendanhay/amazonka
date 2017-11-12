@@ -44,8 +44,8 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deactivateUser' smart constructor.
 data DeactivateUser = DeactivateUser'
-  { _dAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _dUserId              :: {-# NOUNPACK #-}!Text
+  { _dAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _dUserId              :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

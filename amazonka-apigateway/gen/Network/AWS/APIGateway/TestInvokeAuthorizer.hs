@@ -63,13 +63,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'testInvokeAuthorizer' smart constructor.
 data TestInvokeAuthorizer = TestInvokeAuthorizer'
-  { _tiaPathWithQueryString :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiaBody                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiaAdditionalContext   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _tiaStageVariables      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _tiaHeaders             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _tiaRestAPIId           :: {-# NOUNPACK #-}!Text
-  , _tiaAuthorizerId        :: {-# NOUNPACK #-}!Text
+  { _tiaPathWithQueryString :: !(Maybe Text)
+  , _tiaBody                :: !(Maybe Text)
+  , _tiaAdditionalContext   :: !(Maybe (Map Text Text))
+  , _tiaStageVariables      :: !(Maybe (Map Text Text))
+  , _tiaHeaders             :: !(Maybe (Map Text Text))
+  , _tiaRestAPIId           :: !Text
+  , _tiaAuthorizerId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -186,14 +186,14 @@ instance ToQuery TestInvokeAuthorizer where
 --
 -- /See:/ 'testInvokeAuthorizerResponse' smart constructor.
 data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
-  { _tiarsLog            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiarsPrincipalId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiarsLatency        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _tiarsAuthorization  :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _tiarsClaims         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _tiarsClientStatus   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _tiarsPolicy         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tiarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _tiarsLog            :: !(Maybe Text)
+  , _tiarsPrincipalId    :: !(Maybe Text)
+  , _tiarsLatency        :: !(Maybe Integer)
+  , _tiarsAuthorization  :: !(Maybe (Map Text [Text]))
+  , _tiarsClaims         :: !(Maybe (Map Text Text))
+  , _tiarsClientStatus   :: !(Maybe Int)
+  , _tiarsPolicy         :: !(Maybe Text)
+  , _tiarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

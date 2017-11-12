@@ -64,10 +64,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'recordLifecycleActionHeartbeat' smart constructor.
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
-  { _rlahInstanceId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rlahLifecycleActionToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rlahLifecycleHookName    :: {-# NOUNPACK #-}!Text
-  , _rlahAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  { _rlahInstanceId           :: !(Maybe Text)
+  , _rlahLifecycleActionToken :: !(Maybe Text)
+  , _rlahLifecycleHookName    :: !Text
+  , _rlahAutoScalingGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

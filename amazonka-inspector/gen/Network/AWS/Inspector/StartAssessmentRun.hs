@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'startAssessmentRun' smart constructor.
 data StartAssessmentRun = StartAssessmentRun'
-  { _sarAssessmentRunName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sarAssessmentTemplateARN :: {-# NOUNPACK #-}!Text
+  { _sarAssessmentRunName     :: !(Maybe Text)
+  , _sarAssessmentTemplateARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery StartAssessmentRun where
 
 -- | /See:/ 'startAssessmentRunResponse' smart constructor.
 data StartAssessmentRunResponse = StartAssessmentRunResponse'
-  { _sarrsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _sarrsAssessmentRunARN :: {-# NOUNPACK #-}!Text
+  { _sarrsResponseStatus   :: !Int
+  , _sarrsAssessmentRunARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getKeyPolicy' smart constructor.
 data GetKeyPolicy = GetKeyPolicy'
-  { _gkpKeyId      :: {-# NOUNPACK #-}!Text
-  , _gkpPolicyName :: {-# NOUNPACK #-}!Text
+  { _gkpKeyId      :: !Text
+  , _gkpPolicyName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery GetKeyPolicy where
 
 -- | /See:/ 'getKeyPolicyResponse' smart constructor.
 data GetKeyPolicyResponse = GetKeyPolicyResponse'
-  { _gkprsPolicy         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gkprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gkprsPolicy         :: !(Maybe Text)
+  , _gkprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

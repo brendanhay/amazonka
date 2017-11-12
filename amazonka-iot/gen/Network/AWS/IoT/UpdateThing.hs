@@ -53,11 +53,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateThing' smart constructor.
 data UpdateThing = UpdateThing'
-  { _utRemoveThingType  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _utThingTypeName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _utExpectedVersion  :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _utAttributePayload :: {-# NOUNPACK #-}!(Maybe AttributePayload)
-  , _utThingName        :: {-# NOUNPACK #-}!Text
+  { _utRemoveThingType  :: !(Maybe Bool)
+  , _utThingTypeName    :: !(Maybe Text)
+  , _utExpectedVersion  :: !(Maybe Integer)
+  , _utAttributePayload :: !(Maybe AttributePayload)
+  , _utThingName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

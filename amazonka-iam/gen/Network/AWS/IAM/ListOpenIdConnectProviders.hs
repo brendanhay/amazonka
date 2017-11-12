@@ -92,8 +92,8 @@ instance ToQuery ListOpenIdConnectProviders where
 --
 -- /See:/ 'listOpenIdConnectProvidersResponse' smart constructor.
 data ListOpenIdConnectProvidersResponse = ListOpenIdConnectProvidersResponse'
-  { _loicprsOpenIdConnectProviderList :: {-# NOUNPACK #-}!(Maybe [OpenIdConnectProviderListEntry])
-  , _loicprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _loicprsOpenIdConnectProviderList :: !(Maybe [OpenIdConnectProviderListEntry])
+  , _loicprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

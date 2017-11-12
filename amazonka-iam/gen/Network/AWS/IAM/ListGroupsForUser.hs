@@ -55,9 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listGroupsForUser' smart constructor.
 data ListGroupsForUser = ListGroupsForUser'
-  { _lgfuMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgfuMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lgfuUserName :: {-# NOUNPACK #-}!Text
+  { _lgfuMarker   :: !(Maybe Text)
+  , _lgfuMaxItems :: !(Maybe Nat)
+  , _lgfuUserName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,10 +134,10 @@ instance ToQuery ListGroupsForUser where
 --
 -- /See:/ 'listGroupsForUserResponse' smart constructor.
 data ListGroupsForUserResponse = ListGroupsForUserResponse'
-  { _lgfursMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgfursIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lgfursResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lgfursGroups         :: {-# NOUNPACK #-}![Group]
+  { _lgfursMarker         :: !(Maybe Text)
+  , _lgfursIsTruncated    :: !(Maybe Bool)
+  , _lgfursResponseStatus :: !Int
+  , _lgfursGroups         :: ![Group]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

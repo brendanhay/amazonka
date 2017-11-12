@@ -104,8 +104,8 @@ instance ToQuery DescribeTaskDefinition where
 
 -- | /See:/ 'describeTaskDefinitionResponse' smart constructor.
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
-  { _desrsTaskDefinition :: {-# NOUNPACK #-}!(Maybe TaskDefinition)
-  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _desrsTaskDefinition :: !(Maybe TaskDefinition)
+  , _desrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

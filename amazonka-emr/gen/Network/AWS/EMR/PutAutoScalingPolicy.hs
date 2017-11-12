@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'putAutoScalingPolicy' smart constructor.
 data PutAutoScalingPolicy = PutAutoScalingPolicy'
-  { _paspClusterId         :: {-# NOUNPACK #-}!Text
-  , _paspInstanceGroupId   :: {-# NOUNPACK #-}!Text
-  , _paspAutoScalingPolicy :: {-# NOUNPACK #-}!AutoScalingPolicy
+  { _paspClusterId         :: !Text
+  , _paspInstanceGroupId   :: !Text
+  , _paspAutoScalingPolicy :: !AutoScalingPolicy
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,10 +133,10 @@ instance ToQuery PutAutoScalingPolicy where
 
 -- | /See:/ 'putAutoScalingPolicyResponse' smart constructor.
 data PutAutoScalingPolicyResponse = PutAutoScalingPolicyResponse'
-  { _pasprsClusterId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pasprsAutoScalingPolicy :: {-# NOUNPACK #-}!(Maybe AutoScalingPolicyDescription)
-  , _pasprsInstanceGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pasprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pasprsClusterId         :: !(Maybe Text)
+  , _pasprsAutoScalingPolicy :: !(Maybe AutoScalingPolicyDescription)
+  , _pasprsInstanceGroupId   :: !(Maybe Text)
+  , _pasprsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

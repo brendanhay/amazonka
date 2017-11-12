@@ -58,8 +58,8 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listHealthChecks' smart constructor.
 data ListHealthChecks = ListHealthChecks'
-  { _lhcMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhcMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lhcMarker   :: !(Maybe Text)
+  , _lhcMaxItems :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,12 +126,12 @@ instance ToQuery ListHealthChecks where
 --
 -- /See:/ 'listHealthChecksResponse' smart constructor.
 data ListHealthChecksResponse = ListHealthChecksResponse'
-  { _lhcrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhcrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lhcrsHealthChecks   :: {-# NOUNPACK #-}![HealthCheck]
-  , _lhcrsMarker         :: {-# NOUNPACK #-}!Text
-  , _lhcrsIsTruncated    :: {-# NOUNPACK #-}!Bool
-  , _lhcrsMaxItems       :: {-# NOUNPACK #-}!Text
+  { _lhcrsNextMarker     :: !(Maybe Text)
+  , _lhcrsResponseStatus :: !Int
+  , _lhcrsHealthChecks   :: ![HealthCheck]
+  , _lhcrsMarker         :: !Text
+  , _lhcrsIsTruncated    :: !Bool
+  , _lhcrsMaxItems       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

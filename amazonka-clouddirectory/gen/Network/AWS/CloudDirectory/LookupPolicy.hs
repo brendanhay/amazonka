@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'lookupPolicy' smart constructor.
 data LookupPolicy = LookupPolicy'
-  { _lpNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lpDirectoryARN    :: {-# NOUNPACK #-}!Text
-  , _lpObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _lpNextToken       :: !(Maybe Text)
+  , _lpMaxResults      :: !(Maybe Nat)
+  , _lpDirectoryARN    :: !Text
+  , _lpObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,9 +134,9 @@ instance ToQuery LookupPolicy where
 
 -- | /See:/ 'lookupPolicyResponse' smart constructor.
 data LookupPolicyResponse = LookupPolicyResponse'
-  { _lprsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lprsPolicyToPathList :: {-# NOUNPACK #-}!(Maybe [PolicyToPath])
-  , _lprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _lprsNextToken        :: !(Maybe Text)
+  , _lprsPolicyToPathList :: !(Maybe [PolicyToPath])
+  , _lprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

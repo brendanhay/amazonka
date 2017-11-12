@@ -61,9 +61,9 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'respondActivityTaskFailed' smart constructor.
 data RespondActivityTaskFailed = RespondActivityTaskFailed'
-  { _ratfReason    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ratfDetails   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ratfTaskToken :: {-# NOUNPACK #-}!Text
+  { _ratfReason    :: !(Maybe Text)
+  , _ratfDetails   :: !(Maybe Text)
+  , _ratfTaskToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

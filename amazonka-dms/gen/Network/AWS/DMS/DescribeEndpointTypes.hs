@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEndpointTypes' smart constructor.
 data DescribeEndpointTypes = DescribeEndpointTypes'
-  { _detFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _detMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _detMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  { _detFilters    :: !(Maybe [Filter])
+  , _detMarker     :: !(Maybe Text)
+  , _detMaxRecords :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,9 +133,9 @@ instance ToQuery DescribeEndpointTypes where
 --
 -- /See:/ 'describeEndpointTypesResponse' smart constructor.
 data DescribeEndpointTypesResponse = DescribeEndpointTypesResponse'
-  { _detrsSupportedEndpointTypes :: {-# NOUNPACK #-}!(Maybe [SupportedEndpointType])
-  , _detrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _detrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _detrsSupportedEndpointTypes :: !(Maybe [SupportedEndpointType])
+  , _detrsMarker                 :: !(Maybe Text)
+  , _detrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,9 +53,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'addTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { _attrResourceType :: {-# NOUNPACK #-}!ResourceTypeForTagging
-  , _attrResourceId   :: {-# NOUNPACK #-}!Text
-  , _attrTags         :: {-# NOUNPACK #-}![Tag]
+  { _attrResourceType :: !ResourceTypeForTagging
+  , _attrResourceId   :: !Text
+  , _attrTags         :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

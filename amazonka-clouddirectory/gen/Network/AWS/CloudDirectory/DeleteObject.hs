@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteObject' smart constructor.
 data DeleteObject = DeleteObject'
-  { _doDirectoryARN    :: {-# NOUNPACK #-}!Text
-  , _doObjectReference :: {-# NOUNPACK #-}!ObjectReference
+  { _doDirectoryARN    :: !Text
+  , _doObjectReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

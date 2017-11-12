@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'setVaultAccessPolicy' smart constructor.
 data SetVaultAccessPolicy = SetVaultAccessPolicy'
-  { _svapPolicy    :: {-# NOUNPACK #-}!(Maybe VaultAccessPolicy)
-  , _svapAccountId :: {-# NOUNPACK #-}!Text
-  , _svapVaultName :: {-# NOUNPACK #-}!Text
+  { _svapPolicy    :: !(Maybe VaultAccessPolicy)
+  , _svapAccountId :: !Text
+  , _svapVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -92,10 +92,10 @@ instance ToQuery GetCredentialReport where
 --
 -- /See:/ 'getCredentialReportResponse' smart constructor.
 data GetCredentialReportResponse = GetCredentialReportResponse'
-  { _grsContent        :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _grsGeneratedTime  :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _grsReportFormat   :: {-# NOUNPACK #-}!(Maybe ReportFormatType)
-  , _grsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grsContent        :: !(Maybe Base64)
+  , _grsGeneratedTime  :: !(Maybe ISO8601)
+  , _grsReportFormat   :: !(Maybe ReportFormatType)
+  , _grsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'putInventory' smart constructor.
 data PutInventory = PutInventory'
-  { _piInstanceId :: {-# NOUNPACK #-}!Text
-  , _piItems      :: {-# NOUNPACK #-}!(List1 InventoryItem)
+  { _piInstanceId :: !Text
+  , _piItems      :: !(List1 InventoryItem)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

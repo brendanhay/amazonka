@@ -112,9 +112,9 @@ instance ToQuery GetStaticIPs where
 
 -- | /See:/ 'getStaticIPsResponse' smart constructor.
 data GetStaticIPsResponse = GetStaticIPsResponse'
-  { _gsiprsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsiprsStaticIPs      :: {-# NOUNPACK #-}!(Maybe [StaticIP])
-  , _gsiprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsiprsNextPageToken  :: !(Maybe Text)
+  , _gsiprsStaticIPs      :: !(Maybe [StaticIP])
+  , _gsiprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeBudgets' smart constructor.
 data DescribeBudgets = DescribeBudgets'
-  { _dbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dbAccountId  :: {-# NOUNPACK #-}!Text
+  { _dbNextToken  :: !(Maybe Text)
+  , _dbMaxResults :: !(Maybe Nat)
+  , _dbAccountId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,9 +126,9 @@ instance ToQuery DescribeBudgets where
 --
 -- /See:/ 'describeBudgetsResponse' smart constructor.
 data DescribeBudgetsResponse = DescribeBudgetsResponse'
-  { _dbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbrsBudgets        :: {-# NOUNPACK #-}!(Maybe [Budget])
-  , _dbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dbrsNextToken      :: !(Maybe Text)
+  , _dbrsBudgets        :: !(Maybe [Budget])
+  , _dbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

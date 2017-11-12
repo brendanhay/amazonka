@@ -53,8 +53,8 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listTagsForResources' smart constructor.
 data ListTagsForResources = ListTagsForResources'
-  { _lResourceType :: {-# NOUNPACK #-}!TagResourceType
-  , _lResourceIds  :: {-# NOUNPACK #-}!(List1 Text)
+  { _lResourceType :: !TagResourceType
+  , _lResourceIds  :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToXML ListTagsForResources where
 --
 -- /See:/ 'listTagsForResourcesResponse' smart constructor.
 data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
-  { _lrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _lrsResourceTagSets :: {-# NOUNPACK #-}![ResourceTagSet]
+  { _lrsResponseStatus  :: !Int
+  , _lrsResourceTagSets :: ![ResourceTagSet]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

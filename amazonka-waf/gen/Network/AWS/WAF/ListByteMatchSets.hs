@@ -51,8 +51,8 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'listByteMatchSets' smart constructor.
 data ListByteMatchSets = ListByteMatchSets'
-  { _lbmsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbmsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lbmsNextMarker :: !(Maybe Text)
+  , _lbmsLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery ListByteMatchSets where
 
 -- | /See:/ 'listByteMatchSetsResponse' smart constructor.
 data ListByteMatchSetsResponse = ListByteMatchSetsResponse'
-  { _lbmsrsByteMatchSets  :: {-# NOUNPACK #-}!(Maybe [ByteMatchSetSummary])
-  , _lbmsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lbmsrsByteMatchSets  :: !(Maybe [ByteMatchSetSummary])
+  , _lbmsrsNextMarker     :: !(Maybe Text)
+  , _lbmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

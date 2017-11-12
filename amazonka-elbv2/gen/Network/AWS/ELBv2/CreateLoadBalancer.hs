@@ -63,14 +63,14 @@ import Network.AWS.Response
 
 -- | /See:/ 'createLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { _clbSubnetMappings :: {-# NOUNPACK #-}!(Maybe [SubnetMapping])
-  , _clbSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _clbSubnets        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _clbIPAddressType  :: {-# NOUNPACK #-}!(Maybe IPAddressType)
-  , _clbScheme         :: {-# NOUNPACK #-}!(Maybe LoadBalancerSchemeEnum)
-  , _clbType           :: {-# NOUNPACK #-}!(Maybe LoadBalancerTypeEnum)
-  , _clbTags           :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
-  , _clbName           :: {-# NOUNPACK #-}!Text
+  { _clbSubnetMappings :: !(Maybe [SubnetMapping])
+  , _clbSecurityGroups :: !(Maybe [Text])
+  , _clbSubnets        :: !(Maybe [Text])
+  , _clbIPAddressType  :: !(Maybe IPAddressType)
+  , _clbScheme         :: !(Maybe LoadBalancerSchemeEnum)
+  , _clbType           :: !(Maybe LoadBalancerTypeEnum)
+  , _clbTags           :: !(Maybe (List1 Tag))
+  , _clbName           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -184,8 +184,8 @@ instance ToQuery CreateLoadBalancer where
 
 -- | /See:/ 'createLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
-  { _clbrsLoadBalancers  :: {-# NOUNPACK #-}!(Maybe [LoadBalancer])
-  , _clbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _clbrsLoadBalancers  :: !(Maybe [LoadBalancer])
+  , _clbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

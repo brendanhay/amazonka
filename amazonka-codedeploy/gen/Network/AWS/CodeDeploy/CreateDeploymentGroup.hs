@@ -64,21 +64,21 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDeploymentGroup' smart constructor.
 data CreateDeploymentGroup = CreateDeploymentGroup'
-  { _cdgEc2TagSet :: {-# NOUNPACK #-}!(Maybe EC2TagSet)
-  , _cdgDeploymentConfigName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdgOnPremisesTagSet :: {-# NOUNPACK #-}!(Maybe OnPremisesTagSet)
-  , _cdgEc2TagFilters :: {-# NOUNPACK #-}!(Maybe [EC2TagFilter])
-  , _cdgBlueGreenDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe BlueGreenDeploymentConfiguration)
-  , _cdgLoadBalancerInfo :: {-# NOUNPACK #-}!(Maybe LoadBalancerInfo)
-  , _cdgOnPremisesInstanceTagFilters :: {-# NOUNPACK #-}!(Maybe [TagFilter])
-  , _cdgAlarmConfiguration :: {-# NOUNPACK #-}!(Maybe AlarmConfiguration)
-  , _cdgTriggerConfigurations :: {-# NOUNPACK #-}!(Maybe [TriggerConfig])
-  , _cdgAutoScalingGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdgDeploymentStyle :: {-# NOUNPACK #-}!(Maybe DeploymentStyle)
-  , _cdgAutoRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe AutoRollbackConfiguration)
-  , _cdgApplicationName :: {-# NOUNPACK #-}!Text
-  , _cdgDeploymentGroupName :: {-# NOUNPACK #-}!Text
-  , _cdgServiceRoleARN :: {-# NOUNPACK #-}!Text
+  { _cdgEc2TagSet :: !(Maybe EC2TagSet)
+  , _cdgDeploymentConfigName :: !(Maybe Text)
+  , _cdgOnPremisesTagSet :: !(Maybe OnPremisesTagSet)
+  , _cdgEc2TagFilters :: !(Maybe [EC2TagFilter])
+  , _cdgBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
+  , _cdgLoadBalancerInfo :: !(Maybe LoadBalancerInfo)
+  , _cdgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+  , _cdgAlarmConfiguration :: !(Maybe AlarmConfiguration)
+  , _cdgTriggerConfigurations :: !(Maybe [TriggerConfig])
+  , _cdgAutoScalingGroups :: !(Maybe [Text])
+  , _cdgDeploymentStyle :: !(Maybe DeploymentStyle)
+  , _cdgAutoRollbackConfiguration :: !(Maybe AutoRollbackConfiguration)
+  , _cdgApplicationName :: !Text
+  , _cdgDeploymentGroupName :: !Text
+  , _cdgServiceRoleARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -262,8 +262,8 @@ instance ToQuery CreateDeploymentGroup where
 --
 -- /See:/ 'createDeploymentGroupResponse' smart constructor.
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
-  { _cdgrsDeploymentGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdgrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _cdgrsDeploymentGroupId :: !(Maybe Text)
+  , _cdgrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

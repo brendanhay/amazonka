@@ -58,10 +58,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAttachedUserPolicies' smart constructor.
 data ListAttachedUserPolicies = ListAttachedUserPolicies'
-  { _laupPathPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laupMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laupMaxItems   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _laupUserName   :: {-# NOUNPACK #-}!Text
+  { _laupPathPrefix :: !(Maybe Text)
+  , _laupMarker     :: !(Maybe Text)
+  , _laupMaxItems   :: !(Maybe Nat)
+  , _laupUserName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,10 +151,10 @@ instance ToQuery ListAttachedUserPolicies where
 --
 -- /See:/ 'listAttachedUserPoliciesResponse' smart constructor.
 data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'
-  { _lauprsAttachedPolicies :: {-# NOUNPACK #-}!(Maybe [AttachedPolicy])
-  , _lauprsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lauprsIsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lauprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _lauprsAttachedPolicies :: !(Maybe [AttachedPolicy])
+  , _lauprsMarker           :: !(Maybe Text)
+  , _lauprsIsTruncated      :: !(Maybe Bool)
+  , _lauprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

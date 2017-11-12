@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'associateFleet' smart constructor.
 data AssociateFleet = AssociateFleet'
-  { _afFleetName :: {-# NOUNPACK #-}!Text
-  , _afStackName :: {-# NOUNPACK #-}!Text
+  { _afFleetName :: !Text
+  , _afStackName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

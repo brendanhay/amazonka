@@ -111,8 +111,8 @@ instance ToQuery DisableDomainTransferLock where
 --
 -- /See:/ 'disableDomainTransferLockResponse' smart constructor.
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
-  { _ddtlrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ddtlrsOperationId    :: {-# NOUNPACK #-}!Text
+  { _ddtlrsResponseStatus :: !Int
+  , _ddtlrsOperationId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -61,14 +61,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeOrderableDBInstanceOptions' smart constructor.
 data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
-  { _dodioEngineVersion   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dodioFilters         :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dodioDBInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dodioLicenseModel    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dodioMarker          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dodioMaxRecords      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dodioVPC             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dodioEngine          :: {-# NOUNPACK #-}!Text
+  { _dodioEngineVersion   :: !(Maybe Text)
+  , _dodioFilters         :: !(Maybe [Filter])
+  , _dodioDBInstanceClass :: !(Maybe Text)
+  , _dodioLicenseModel    :: !(Maybe Text)
+  , _dodioMarker          :: !(Maybe Text)
+  , _dodioMaxRecords      :: !(Maybe Int)
+  , _dodioVPC             :: !(Maybe Bool)
+  , _dodioEngine          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -200,9 +200,9 @@ instance ToQuery DescribeOrderableDBInstanceOptions
 --
 -- /See:/ 'describeOrderableDBInstanceOptionsResponse' smart constructor.
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
-  { _dodiorsOrderableDBInstanceOptions :: {-# NOUNPACK #-}!(Maybe [OrderableDBInstanceOption])
-  , _dodiorsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dodiorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dodiorsOrderableDBInstanceOptions :: !(Maybe [OrderableDBInstanceOption])
+  , _dodiorsMarker                     :: !(Maybe Text)
+  , _dodiorsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

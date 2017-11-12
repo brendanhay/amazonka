@@ -55,11 +55,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateMethodResponse' smart constructor.
 data UpdateMethodResponse = UpdateMethodResponse'
-  { _umPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
-  , _umRestAPIId       :: {-# NOUNPACK #-}!Text
-  , _umResourceId      :: {-# NOUNPACK #-}!Text
-  , _umHttpMethod      :: {-# NOUNPACK #-}!Text
-  , _umStatusCode      :: {-# NOUNPACK #-}!Text
+  { _umPatchOperations :: !(Maybe [PatchOperation])
+  , _umRestAPIId       :: !Text
+  , _umResourceId      :: !Text
+  , _umHttpMethod      :: !Text
+  , _umStatusCode      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

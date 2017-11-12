@@ -99,8 +99,8 @@ instance ToQuery StartTrigger where
 
 -- | /See:/ 'startTriggerResponse' smart constructor.
 data StartTriggerResponse = StartTriggerResponse'
-  { _starsName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _starsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _starsName           :: !(Maybe Text)
+  , _starsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

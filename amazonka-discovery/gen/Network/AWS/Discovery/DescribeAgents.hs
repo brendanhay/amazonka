@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeAgents' smart constructor.
 data DescribeAgents = DescribeAgents'
-  { _daAgentIds   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _daFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _daNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _daAgentIds   :: !(Maybe [Text])
+  , _daFilters    :: !(Maybe [Filter])
+  , _daNextToken  :: !(Maybe Text)
+  , _daMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery DescribeAgents where
 
 -- | /See:/ 'describeAgentsResponse' smart constructor.
 data DescribeAgentsResponse = DescribeAgentsResponse'
-  { _dasrsAgentsInfo     :: {-# NOUNPACK #-}!(Maybe [AgentInfo])
-  , _dasrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dasrsAgentsInfo     :: !(Maybe [AgentInfo])
+  , _dasrsNextToken      :: !(Maybe Text)
+  , _dasrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

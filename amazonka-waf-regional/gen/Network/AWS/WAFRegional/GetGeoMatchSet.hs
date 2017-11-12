@@ -103,8 +103,8 @@ instance ToQuery GetGeoMatchSet where
 
 -- | /See:/ 'getGeoMatchSetResponse' smart constructor.
 data GetGeoMatchSetResponse = GetGeoMatchSetResponse'
-  { _ggmsrsGeoMatchSet    :: {-# NOUNPACK #-}!(Maybe GeoMatchSet)
-  , _ggmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ggmsrsGeoMatchSet    :: !(Maybe GeoMatchSet)
+  , _ggmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

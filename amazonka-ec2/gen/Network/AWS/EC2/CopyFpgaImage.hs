@@ -51,12 +51,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'copyFpgaImage' smart constructor.
 data CopyFpgaImage = CopyFpgaImage'
-  { _cfiClientToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfiName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfiDescription       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfiDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cfiSourceFpgaImageId :: {-# NOUNPACK #-}!Text
-  , _cfiSourceRegion      :: {-# NOUNPACK #-}!Text
+  { _cfiClientToken       :: !(Maybe Text)
+  , _cfiName              :: !(Maybe Text)
+  , _cfiDescription       :: !(Maybe Text)
+  , _cfiDryRun            :: !(Maybe Bool)
+  , _cfiSourceFpgaImageId :: !Text
+  , _cfiSourceRegion      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,8 +146,8 @@ instance ToQuery CopyFpgaImage where
 
 -- | /See:/ 'copyFpgaImageResponse' smart constructor.
 data CopyFpgaImageResponse = CopyFpgaImageResponse'
-  { _crsFpgaImageId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crsFpgaImageId    :: !(Maybe Text)
+  , _crsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

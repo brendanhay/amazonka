@@ -55,10 +55,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listChildren' smart constructor.
 data ListChildren = ListChildren'
-  { _lcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lcParentId   :: {-# NOUNPACK #-}!Text
-  , _lcChildType  :: {-# NOUNPACK #-}!ChildType
+  { _lcNextToken  :: !(Maybe Text)
+  , _lcMaxResults :: !(Maybe Nat)
+  , _lcParentId   :: !Text
+  , _lcChildType  :: !ChildType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery ListChildren where
 
 -- | /See:/ 'listChildrenResponse' smart constructor.
 data ListChildrenResponse = ListChildrenResponse'
-  { _lcrsChildren       :: {-# NOUNPACK #-}!(Maybe [Child])
-  , _lcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcrsChildren       :: !(Maybe [Child])
+  , _lcrsNextToken      :: !(Maybe Text)
+  , _lcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

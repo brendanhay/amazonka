@@ -52,10 +52,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'restoreServer' smart constructor.
 data RestoreServer = RestoreServer'
-  { _rsKeyPair      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsBackupId     :: {-# NOUNPACK #-}!Text
-  , _rsServerName   :: {-# NOUNPACK #-}!Text
+  { _rsKeyPair      :: !(Maybe Text)
+  , _rsInstanceType :: !(Maybe Text)
+  , _rsBackupId     :: !Text
+  , _rsServerName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

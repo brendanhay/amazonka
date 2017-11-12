@@ -27,9 +27,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'cognitoIdentityProvider' smart constructor.
 data CognitoIdentityProvider = CognitoIdentityProvider'
-  { _cipClientId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cipServerSideTokenCheck :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cipProviderName         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cipClientId             :: !(Maybe Text)
+  , _cipServerSideTokenCheck :: !(Maybe Bool)
+  , _cipProviderName         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -91,10 +91,10 @@ instance ToJSON CognitoIdentityProvider where
 --
 -- /See:/ 'credentials' smart constructor.
 data Credentials = Credentials'
-  { _cSessionToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cExpiration   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cSecretKey    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cAccessKeyId  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cSessionToken :: !(Maybe Text)
+  , _cExpiration   :: !(Maybe POSIX)
+  , _cSecretKey    :: !(Maybe Text)
+  , _cAccessKeyId  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -155,10 +155,10 @@ instance NFData Credentials where
 --
 -- /See:/ 'identityDescription' smart constructor.
 data IdentityDescription = IdentityDescription'
-  { _idLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _idCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _idLogins           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _idIdentityId       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _idLastModifiedDate :: !(Maybe POSIX)
+  , _idCreationDate     :: !(Maybe POSIX)
+  , _idLogins           :: !(Maybe [Text])
+  , _idIdentityId       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -219,14 +219,14 @@ instance NFData IdentityDescription where
 --
 -- /See:/ 'identityPool' smart constructor.
 data IdentityPool = IdentityPool'
-  { _ipSamlProviderARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ipSupportedLoginProviders :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _ipDeveloperProviderName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ipOpenIdConnectProviderARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ipCognitoIdentityProviders :: {-# NOUNPACK #-}!(Maybe [CognitoIdentityProvider])
-  , _ipIdentityPoolId :: {-# NOUNPACK #-}!Text
-  , _ipIdentityPoolName :: {-# NOUNPACK #-}!Text
-  , _ipAllowUnauthenticatedIdentities :: {-# NOUNPACK #-}!Bool
+  { _ipSamlProviderARNs               :: !(Maybe [Text])
+  , _ipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+  , _ipDeveloperProviderName          :: !(Maybe Text)
+  , _ipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+  , _ipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
+  , _ipIdentityPoolId                 :: !Text
+  , _ipIdentityPoolName               :: !Text
+  , _ipAllowUnauthenticatedIdentities :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -342,8 +342,8 @@ instance ToJSON IdentityPool where
 --
 -- /See:/ 'identityPoolShortDescription' smart constructor.
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
-  { _ipsdIdentityPoolId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ipsdIdentityPoolName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ipsdIdentityPoolId   :: !(Maybe Text)
+  , _ipsdIdentityPoolName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -387,10 +387,10 @@ instance NFData IdentityPoolShortDescription where
 --
 -- /See:/ 'mappingRule' smart constructor.
 data MappingRule = MappingRule'
-  { _mrClaim     :: {-# NOUNPACK #-}!Text
-  , _mrMatchType :: {-# NOUNPACK #-}!MappingRuleMatchType
-  , _mrValue     :: {-# NOUNPACK #-}!Text
-  , _mrRoleARN   :: {-# NOUNPACK #-}!Text
+  { _mrClaim     :: !Text
+  , _mrMatchType :: !MappingRuleMatchType
+  , _mrValue     :: !Text
+  , _mrRoleARN   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -464,9 +464,9 @@ instance ToJSON MappingRule where
 --
 -- /See:/ 'roleMapping' smart constructor.
 data RoleMapping = RoleMapping'
-  { _rmRulesConfiguration :: {-# NOUNPACK #-}!(Maybe RulesConfigurationType)
-  , _rmAmbiguousRoleResolution :: {-# NOUNPACK #-}!(Maybe AmbiguousRoleResolutionType)
-  , _rmType :: {-# NOUNPACK #-}!RoleMappingType
+  { _rmRulesConfiguration      :: !(Maybe RulesConfigurationType)
+  , _rmAmbiguousRoleResolution :: !(Maybe AmbiguousRoleResolutionType)
+  , _rmType                    :: !RoleMappingType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -569,8 +569,8 @@ instance ToJSON RulesConfigurationType where
 --
 -- /See:/ 'unprocessedIdentityId' smart constructor.
 data UnprocessedIdentityId = UnprocessedIdentityId'
-  { _uiiErrorCode  :: {-# NOUNPACK #-}!(Maybe CognitoErrorCode)
-  , _uiiIdentityId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _uiiErrorCode  :: !(Maybe CognitoErrorCode)
+  , _uiiIdentityId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

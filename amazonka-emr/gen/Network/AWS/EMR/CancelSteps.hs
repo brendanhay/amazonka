@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'cancelSteps' smart constructor.
 data CancelSteps = CancelSteps'
-  { _csStepIds   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _csClusterId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csStepIds   :: !(Maybe [Text])
+  , _csClusterId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery CancelSteps where
 --
 -- /See:/ 'cancelStepsResponse' smart constructor.
 data CancelStepsResponse = CancelStepsResponse'
-  { _csrsCancelStepsInfoList :: {-# NOUNPACK #-}!(Maybe [CancelStepsInfo])
-  , _csrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _csrsCancelStepsInfoList :: !(Maybe [CancelStepsInfo])
+  , _csrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

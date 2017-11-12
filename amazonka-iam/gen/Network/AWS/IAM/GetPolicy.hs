@@ -101,8 +101,8 @@ instance ToQuery GetPolicy where
 --
 -- /See:/ 'getPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-  { _gprsPolicy         :: {-# NOUNPACK #-}!(Maybe Policy)
-  , _gprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gprsPolicy         :: !(Maybe Policy)
+  , _gprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

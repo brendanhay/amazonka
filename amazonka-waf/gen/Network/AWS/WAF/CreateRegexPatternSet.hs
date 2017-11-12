@@ -62,8 +62,8 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'createRegexPatternSet' smart constructor.
 data CreateRegexPatternSet = CreateRegexPatternSet'
-  { _crpsName        :: {-# NOUNPACK #-}!Text
-  , _crpsChangeToken :: {-# NOUNPACK #-}!Text
+  { _crpsName        :: !Text
+  , _crpsChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance ToQuery CreateRegexPatternSet where
 
 -- | /See:/ 'createRegexPatternSetResponse' smart constructor.
 data CreateRegexPatternSetResponse = CreateRegexPatternSetResponse'
-  { _crpsrsRegexPatternSet :: {-# NOUNPACK #-}!(Maybe RegexPatternSet)
-  , _crpsrsChangeToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crpsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _crpsrsRegexPatternSet :: !(Maybe RegexPatternSet)
+  , _crpsrsChangeToken     :: !(Maybe Text)
+  , _crpsrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

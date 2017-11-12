@@ -103,8 +103,8 @@ instance ToQuery GetInstanceState where
 
 -- | /See:/ 'getInstanceStateResponse' smart constructor.
 data GetInstanceStateResponse = GetInstanceStateResponse'
-  { _getrsState          :: {-# NOUNPACK #-}!(Maybe InstanceState)
-  , _getrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _getrsState          :: !(Maybe InstanceState)
+  , _getrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

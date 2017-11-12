@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { _caDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caName        :: {-# NOUNPACK #-}!Text
+  { _caDescription :: !(Maybe Text)
+  , _caName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery CreateApplication where
 
 -- | /See:/ 'createApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-  { _carsConfigurationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _carsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _carsConfigurationId :: !(Maybe Text)
+  , _carsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

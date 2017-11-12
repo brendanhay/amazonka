@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listTargetsByRule' smart constructor.
 data ListTargetsByRule = ListTargetsByRule'
-  { _ltbrNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltbrLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ltbrRule      :: {-# NOUNPACK #-}!Text
+  { _ltbrNextToken :: !(Maybe Text)
+  , _ltbrLimit     :: !(Maybe Nat)
+  , _ltbrRule      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery ListTargetsByRule where
 
 -- | /See:/ 'listTargetsByRuleResponse' smart constructor.
 data ListTargetsByRuleResponse = ListTargetsByRuleResponse'
-  { _ltbrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltbrrsTargets        :: {-# NOUNPACK #-}!(Maybe (List1 Target))
-  , _ltbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltbrrsNextToken      :: !(Maybe Text)
+  , _ltbrrsTargets        :: !(Maybe (List1 Target))
+  , _ltbrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

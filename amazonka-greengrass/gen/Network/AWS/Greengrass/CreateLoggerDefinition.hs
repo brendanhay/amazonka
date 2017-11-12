@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createLoggerDefinition' smart constructor.
 data CreateLoggerDefinition = CreateLoggerDefinition'
-  { _cldAmznClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldInitialVersion  :: {-# NOUNPACK #-}!(Maybe LoggerDefinitionVersion)
-  , _cldName            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cldAmznClientToken :: !(Maybe Text)
+  , _cldInitialVersion  :: !(Maybe LoggerDefinitionVersion)
+  , _cldName            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,14 +131,14 @@ instance ToQuery CreateLoggerDefinition where
 
 -- | /See:/ 'createLoggerDefinitionResponse' smart constructor.
 data CreateLoggerDefinitionResponse = CreateLoggerDefinitionResponse'
-  { _cldrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cldrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _cldrsLatestVersionARN     :: !(Maybe Text)
+  , _cldrsARN                  :: !(Maybe Text)
+  , _cldrsName                 :: !(Maybe Text)
+  , _cldrsCreationTimestamp    :: !(Maybe Text)
+  , _cldrsId                   :: !(Maybe Text)
+  , _cldrsLatestVersion        :: !(Maybe Text)
+  , _cldrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _cldrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

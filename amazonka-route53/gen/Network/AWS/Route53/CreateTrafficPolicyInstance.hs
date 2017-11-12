@@ -55,11 +55,11 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'createTrafficPolicyInstance' smart constructor.
 data CreateTrafficPolicyInstance = CreateTrafficPolicyInstance'
-  { _ctpiHostedZoneId         :: {-# NOUNPACK #-}!ResourceId
-  , _ctpiName                 :: {-# NOUNPACK #-}!Text
-  , _ctpiTTL                  :: {-# NOUNPACK #-}!Nat
-  , _ctpiTrafficPolicyId      :: {-# NOUNPACK #-}!Text
-  , _ctpiTrafficPolicyVersion :: {-# NOUNPACK #-}!Nat
+  { _ctpiHostedZoneId         :: !ResourceId
+  , _ctpiName                 :: !Text
+  , _ctpiTTL                  :: !Nat
+  , _ctpiTrafficPolicyId      :: !Text
+  , _ctpiTrafficPolicyVersion :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -157,9 +157,9 @@ instance ToXML CreateTrafficPolicyInstance where
 --
 -- /See:/ 'createTrafficPolicyInstanceResponse' smart constructor.
 data CreateTrafficPolicyInstanceResponse = CreateTrafficPolicyInstanceResponse'
-  { _ctpirsResponseStatus        :: {-# NOUNPACK #-}!Int
-  , _ctpirsTrafficPolicyInstance :: {-# NOUNPACK #-}!TrafficPolicyInstance
-  , _ctpirsLocation              :: {-# NOUNPACK #-}!Text
+  { _ctpirsResponseStatus        :: !Int
+  , _ctpirsTrafficPolicyInstance :: !TrafficPolicyInstance
+  , _ctpirsLocation              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

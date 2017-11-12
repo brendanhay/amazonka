@@ -56,9 +56,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getBotChannelAssociation' smart constructor.
 data GetBotChannelAssociation = GetBotChannelAssociation'
-  { _gName     :: {-# NOUNPACK #-}!Text
-  , _gBotName  :: {-# NOUNPACK #-}!Text
-  , _gBotAlias :: {-# NOUNPACK #-}!Text
+  { _gName     :: !Text
+  , _gBotName  :: !Text
+  , _gBotAlias :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,14 +131,14 @@ instance ToQuery GetBotChannelAssociation where
 
 -- | /See:/ 'getBotChannelAssociationResponse' smart constructor.
 data GetBotChannelAssociationResponse = GetBotChannelAssociationResponse'
-  { _gbcarsBotAlias :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbcarsBotName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbcarsBotConfiguration :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text Text)))
-  , _gbcarsCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gbcarsName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbcarsType :: {-# NOUNPACK #-}!(Maybe ChannelType)
-  , _gbcarsDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbcarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbcarsBotAlias         :: !(Maybe Text)
+  , _gbcarsBotName          :: !(Maybe Text)
+  , _gbcarsBotConfiguration :: !(Maybe (Sensitive (Map Text Text)))
+  , _gbcarsCreatedDate      :: !(Maybe POSIX)
+  , _gbcarsName             :: !(Maybe Text)
+  , _gbcarsType             :: !(Maybe ChannelType)
+  , _gbcarsDescription      :: !(Maybe Text)
+  , _gbcarsResponseStatus   :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

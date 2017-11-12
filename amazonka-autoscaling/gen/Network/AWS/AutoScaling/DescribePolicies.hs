@@ -54,11 +54,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'describePolicies' smart constructor.
 data DescribePolicies = DescribePolicies'
-  { _dpsPolicyNames          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dpsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpsAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpsMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dpsPolicyTypes          :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dpsPolicyNames          :: !(Maybe [Text])
+  , _dpsNextToken            :: !(Maybe Text)
+  , _dpsAutoScalingGroupName :: !(Maybe Text)
+  , _dpsMaxRecords           :: !(Maybe Int)
+  , _dpsPolicyTypes          :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,9 +151,9 @@ instance ToQuery DescribePolicies where
 
 -- | /See:/ 'describePoliciesResponse' smart constructor.
 data DescribePoliciesResponse = DescribePoliciesResponse'
-  { _dprsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dprsScalingPolicies :: {-# NOUNPACK #-}!(Maybe [ScalingPolicy])
-  , _dprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dprsNextToken       :: !(Maybe Text)
+  , _dprsScalingPolicies :: !(Maybe [ScalingPolicy])
+  , _dprsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

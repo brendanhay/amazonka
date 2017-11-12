@@ -60,11 +60,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDataSourceFromRedshift' smart constructor.
 data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
-  { _cdsfrDataSourceName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdsfrComputeStatistics :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdsfrDataSourceId      :: {-# NOUNPACK #-}!Text
-  , _cdsfrDataSpec          :: {-# NOUNPACK #-}!RedshiftDataSpec
-  , _cdsfrRoleARN           :: {-# NOUNPACK #-}!Text
+  { _cdsfrDataSourceName    :: !(Maybe Text)
+  , _cdsfrComputeStatistics :: !(Maybe Bool)
+  , _cdsfrDataSourceId      :: !Text
+  , _cdsfrDataSpec          :: !RedshiftDataSpec
+  , _cdsfrRoleARN           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -165,8 +165,8 @@ instance ToQuery CreateDataSourceFromRedshift where
 --
 -- /See:/ 'createDataSourceFromRedshiftResponse' smart constructor.
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
-  { _cdsfrrsDataSourceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdsfrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdsfrrsDataSourceId   :: !(Maybe Text)
+  , _cdsfrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

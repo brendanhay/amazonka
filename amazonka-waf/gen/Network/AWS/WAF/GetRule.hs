@@ -99,8 +99,8 @@ instance ToQuery GetRule where
 
 -- | /See:/ 'getRuleResponse' smart constructor.
 data GetRuleResponse = GetRuleResponse'
-  { _grrsRule           :: {-# NOUNPACK #-}!(Maybe Rule)
-  , _grrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grrsRule           :: !(Maybe Rule)
+  , _grrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -110,8 +110,8 @@ instance ToQuery GetRepository where
 --
 -- /See:/ 'getRepositoryResponse' smart constructor.
 data GetRepositoryResponse = GetRepositoryResponse'
-  { _grrsRepositoryMetadata :: {-# NOUNPACK #-}!(Maybe RepositoryMetadata)
-  , _grrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _grrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
+  , _grrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

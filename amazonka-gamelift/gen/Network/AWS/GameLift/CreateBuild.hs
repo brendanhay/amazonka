@@ -73,10 +73,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createBuild' smart constructor.
 data CreateBuild = CreateBuild'
-  { _cbStorageLocation :: {-# NOUNPACK #-}!(Maybe S3Location)
-  , _cbOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
-  , _cbName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cbVersion         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cbStorageLocation :: !(Maybe S3Location)
+  , _cbOperatingSystem :: !(Maybe OperatingSystem)
+  , _cbName            :: !(Maybe Text)
+  , _cbVersion         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -164,10 +164,10 @@ instance ToQuery CreateBuild where
 --
 -- /See:/ 'createBuildResponse' smart constructor.
 data CreateBuildResponse = CreateBuildResponse'
-  { _cbrsStorageLocation :: {-# NOUNPACK #-}!(Maybe S3Location)
-  , _cbrsUploadCredentials :: {-# NOUNPACK #-}!(Maybe (Sensitive AWSCredentials))
-  , _cbrsBuild :: {-# NOUNPACK #-}!(Maybe Build)
-  , _cbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cbrsStorageLocation   :: !(Maybe S3Location)
+  , _cbrsUploadCredentials :: !(Maybe (Sensitive AWSCredentials))
+  , _cbrsBuild             :: !(Maybe Build)
+  , _cbrsResponseStatus    :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

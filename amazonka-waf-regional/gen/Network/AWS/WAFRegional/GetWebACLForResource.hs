@@ -104,8 +104,8 @@ instance ToQuery GetWebACLForResource where
 
 -- | /See:/ 'getWebACLForResourceResponse' smart constructor.
 data GetWebACLForResourceResponse = GetWebACLForResourceResponse'
-  { _gwafrrsWebACLSummary  :: {-# NOUNPACK #-}!(Maybe WebACLSummary)
-  , _gwafrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gwafrrsWebACLSummary  :: !(Maybe WebACLSummary)
+  , _gwafrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

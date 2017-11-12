@@ -54,11 +54,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'purchaseHostReservation' smart constructor.
 data PurchaseHostReservation = PurchaseHostReservation'
-  { _phrCurrencyCode :: {-# NOUNPACK #-}!(Maybe CurrencyCodeValues)
-  , _phrClientToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _phrLimitPrice   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _phrHostIdSet    :: {-# NOUNPACK #-}![Text]
-  , _phrOfferingId   :: {-# NOUNPACK #-}!Text
+  { _phrCurrencyCode :: !(Maybe CurrencyCodeValues)
+  , _phrClientToken  :: !(Maybe Text)
+  , _phrLimitPrice   :: !(Maybe Text)
+  , _phrHostIdSet    :: ![Text]
+  , _phrOfferingId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,12 +148,12 @@ instance ToQuery PurchaseHostReservation where
 
 -- | /See:/ 'purchaseHostReservationResponse' smart constructor.
 data PurchaseHostReservationResponse = PurchaseHostReservationResponse'
-  { _phrrsCurrencyCode      :: {-# NOUNPACK #-}!(Maybe CurrencyCodeValues)
-  , _phrrsClientToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _phrrsTotalHourlyPrice  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _phrrsTotalUpfrontPrice :: {-# NOUNPACK #-}!(Maybe Text)
-  , _phrrsPurchase          :: {-# NOUNPACK #-}!(Maybe [Purchase])
-  , _phrrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _phrrsCurrencyCode      :: !(Maybe CurrencyCodeValues)
+  , _phrrsClientToken       :: !(Maybe Text)
+  , _phrrsTotalHourlyPrice  :: !(Maybe Text)
+  , _phrrsTotalUpfrontPrice :: !(Maybe Text)
+  , _phrrsPurchase          :: !(Maybe [Purchase])
+  , _phrrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

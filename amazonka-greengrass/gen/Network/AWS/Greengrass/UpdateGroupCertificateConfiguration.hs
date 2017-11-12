@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateGroupCertificateConfiguration' smart constructor.
 data UpdateGroupCertificateConfiguration = UpdateGroupCertificateConfiguration'
-  { _ugccCertificateExpiryInMilliseconds :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugccGroupId                         :: {-# NOUNPACK #-}!Text
+  { _ugccCertificateExpiryInMilliseconds :: !(Maybe Text)
+  , _ugccGroupId                         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,10 +126,10 @@ instance ToQuery UpdateGroupCertificateConfiguration
 
 -- | /See:/ 'updateGroupCertificateConfigurationResponse' smart constructor.
 data UpdateGroupCertificateConfigurationResponse = UpdateGroupCertificateConfigurationResponse'
-  { _ugccrsCertificateAuthorityExpiryInMilliseconds :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugccrsGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugccrsCertificateExpiryInMilliseconds :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ugccrsCertificateAuthorityExpiryInMilliseconds :: !(Maybe Text)
+  , _ugccrsGroupId                                  :: !(Maybe Text)
+  , _ugccrsCertificateExpiryInMilliseconds          :: !(Maybe Text)
+  , _ugccrsResponseStatus                           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

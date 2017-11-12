@@ -84,9 +84,9 @@ instance ToQuery GetAccountSettings where
 
 -- | /See:/ 'getAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
-  { _gasrsAccountLimit   :: {-# NOUNPACK #-}!(Maybe AccountLimit)
-  , _gasrsAccountUsage   :: {-# NOUNPACK #-}!(Maybe AccountUsage)
-  , _gasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gasrsAccountLimit   :: !(Maybe AccountLimit)
+  , _gasrsAccountUsage   :: !(Maybe AccountUsage)
+  , _gasrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deregisterTargets' smart constructor.
 data DeregisterTargets = DeregisterTargets'
-  { _dtTargetGroupARN :: {-# NOUNPACK #-}!Text
-  , _dtTargets        :: {-# NOUNPACK #-}![TargetDescription]
+  { _dtTargetGroupARN :: !Text
+  , _dtTargets        :: ![TargetDescription]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

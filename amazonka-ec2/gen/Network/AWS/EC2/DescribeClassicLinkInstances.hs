@@ -55,11 +55,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeClassicLinkInstances' smart constructor.
 data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
-  { _dcliFilters     :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dcliNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcliInstanceIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcliDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dcliMaxResults  :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dcliFilters     :: !(Maybe [Filter])
+  , _dcliNextToken   :: !(Maybe Text)
+  , _dcliInstanceIds :: !(Maybe [Text])
+  , _dcliDryRun      :: !(Maybe Bool)
+  , _dcliMaxResults  :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,9 +151,9 @@ instance ToQuery DescribeClassicLinkInstances where
 --
 -- /See:/ 'describeClassicLinkInstancesResponse' smart constructor.
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
-  { _dclirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dclirsInstances      :: {-# NOUNPACK #-}!(Maybe [ClassicLinkInstance])
-  , _dclirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dclirsNextToken      :: !(Maybe Text)
+  , _dclirsInstances      :: !(Maybe [ClassicLinkInstance])
+  , _dclirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

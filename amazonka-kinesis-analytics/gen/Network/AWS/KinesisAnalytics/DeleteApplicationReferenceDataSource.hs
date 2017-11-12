@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteApplicationReferenceDataSource' smart constructor.
 data DeleteApplicationReferenceDataSource = DeleteApplicationReferenceDataSource'
-  { _dardsApplicationName             :: {-# NOUNPACK #-}!Text
-  , _dardsCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
-  , _dardsReferenceId                 :: {-# NOUNPACK #-}!Text
+  { _dardsApplicationName             :: !Text
+  , _dardsCurrentApplicationVersionId :: !Nat
+  , _dardsReferenceId                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

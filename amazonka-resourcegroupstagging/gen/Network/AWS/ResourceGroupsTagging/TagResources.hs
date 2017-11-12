@@ -57,8 +57,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'tagResources' smart constructor.
 data TagResources = TagResources'
-  { _trResourceARNList :: {-# NOUNPACK #-}!(List1 Text)
-  , _trTags            :: {-# NOUNPACK #-}!(Map Text Text)
+  { _trResourceARNList :: !(List1 Text)
+  , _trTags            :: !(Map Text Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery TagResources where
 
 -- | /See:/ 'tagResourcesResponse' smart constructor.
 data TagResourcesResponse = TagResourcesResponse'
-  { _trrsFailedResourcesMap :: {-# NOUNPACK #-}!(Maybe (Map Text FailureInfo))
-  , _trrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _trrsFailedResourcesMap :: !(Maybe (Map Text FailureInfo))
+  , _trrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

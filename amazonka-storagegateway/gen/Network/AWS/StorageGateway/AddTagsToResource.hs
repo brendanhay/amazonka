@@ -65,8 +65,8 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'addTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { _attrResourceARN :: {-# NOUNPACK #-}!Text
-  , _attrTags        :: {-# NOUNPACK #-}![Tag]
+  { _attrResourceARN :: !Text
+  , _attrTags        :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery AddTagsToResource where
 --
 -- /See:/ 'addTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse = AddTagsToResourceResponse'
-  { _attrrsResourceARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _attrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _attrrsResourceARN    :: !(Maybe Text)
+  , _attrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

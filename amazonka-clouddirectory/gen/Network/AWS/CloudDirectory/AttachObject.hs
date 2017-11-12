@@ -55,10 +55,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachObject' smart constructor.
 data AttachObject = AttachObject'
-  { _aoDirectoryARN    :: {-# NOUNPACK #-}!Text
-  , _aoParentReference :: {-# NOUNPACK #-}!ObjectReference
-  , _aoChildReference  :: {-# NOUNPACK #-}!ObjectReference
-  , _aoLinkName        :: {-# NOUNPACK #-}!Text
+  { _aoDirectoryARN    :: !Text
+  , _aoParentReference :: !ObjectReference
+  , _aoChildReference  :: !ObjectReference
+  , _aoLinkName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,8 +140,8 @@ instance ToQuery AttachObject where
 
 -- | /See:/ 'attachObjectResponse' smart constructor.
 data AttachObjectResponse = AttachObjectResponse'
-  { _aorsAttachedObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aorsResponseStatus           :: {-# NOUNPACK #-}!Int
+  { _aorsAttachedObjectIdentifier :: !(Maybe Text)
+  , _aorsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

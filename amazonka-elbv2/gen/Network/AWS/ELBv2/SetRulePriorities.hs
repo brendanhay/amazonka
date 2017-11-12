@@ -97,8 +97,8 @@ instance ToQuery SetRulePriorities where
 
 -- | /See:/ 'setRulePrioritiesResponse' smart constructor.
 data SetRulePrioritiesResponse = SetRulePrioritiesResponse'
-  { _srprsRules          :: {-# NOUNPACK #-}!(Maybe [Rule])
-  , _srprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _srprsRules          :: !(Maybe [Rule])
+  , _srprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

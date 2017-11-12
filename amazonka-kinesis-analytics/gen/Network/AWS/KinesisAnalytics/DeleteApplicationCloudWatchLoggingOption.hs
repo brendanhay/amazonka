@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteApplicationCloudWatchLoggingOption' smart constructor.
 data DeleteApplicationCloudWatchLoggingOption = DeleteApplicationCloudWatchLoggingOption'
-  { _dacwloApplicationName             :: {-# NOUNPACK #-}!Text
-  , _dacwloCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
-  , _dacwloCloudWatchLoggingOptionId   :: {-# NOUNPACK #-}!Text
+  { _dacwloApplicationName             :: !Text
+  , _dacwloCurrentApplicationVersionId :: !Nat
+  , _dacwloCloudWatchLoggingOptionId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

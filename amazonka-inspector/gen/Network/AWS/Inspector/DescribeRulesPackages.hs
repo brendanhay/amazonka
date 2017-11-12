@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeRulesPackages' smart constructor.
 data DescribeRulesPackages = DescribeRulesPackages'
-  { _drpLocale           :: {-# NOUNPACK #-}!(Maybe Locale)
-  , _drpRulesPackageARNs :: {-# NOUNPACK #-}!(List1 Text)
+  { _drpLocale           :: !(Maybe Locale)
+  , _drpRulesPackageARNs :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,9 +117,9 @@ instance ToQuery DescribeRulesPackages where
 
 -- | /See:/ 'describeRulesPackagesResponse' smart constructor.
 data DescribeRulesPackagesResponse = DescribeRulesPackagesResponse'
-  { _drprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _drprsRulesPackages  :: {-# NOUNPACK #-}![RulesPackage]
-  , _drprsFailedItems    :: {-# NOUNPACK #-}!(Map Text FailedItemDetails)
+  { _drprsResponseStatus :: !Int
+  , _drprsRulesPackages  :: ![RulesPackage]
+  , _drprsFailedItems    :: !(Map Text FailedItemDetails)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

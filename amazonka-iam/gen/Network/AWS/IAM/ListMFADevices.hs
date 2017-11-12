@@ -55,9 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listMFADevices' smart constructor.
 data ListMFADevices = ListMFADevices'
-  { _lmdUserName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmdMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmdMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lmdUserName :: !(Maybe Text)
+  , _lmdMarker   :: !(Maybe Text)
+  , _lmdMaxItems :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,10 +133,10 @@ instance ToQuery ListMFADevices where
 --
 -- /See:/ 'listMFADevicesResponse' smart constructor.
 data ListMFADevicesResponse = ListMFADevicesResponse'
-  { _lmdrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmdrsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lmdrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lmdrsMFADevices     :: {-# NOUNPACK #-}![MFADevice]
+  { _lmdrsMarker         :: !(Maybe Text)
+  , _lmdrsIsTruncated    :: !(Maybe Bool)
+  , _lmdrsResponseStatus :: !Int
+  , _lmdrsMFADevices     :: ![MFADevice]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

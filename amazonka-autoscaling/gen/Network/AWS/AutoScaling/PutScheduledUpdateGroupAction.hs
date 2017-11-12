@@ -53,15 +53,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'putScheduledUpdateGroupAction' smart constructor.
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
-  { _psugaStartTime            :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _psugaTime                 :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _psugaMaxSize              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _psugaRecurrence           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psugaDesiredCapacity      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _psugaMinSize              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _psugaEndTime              :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _psugaAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _psugaScheduledActionName  :: {-# NOUNPACK #-}!Text
+  { _psugaStartTime            :: !(Maybe ISO8601)
+  , _psugaTime                 :: !(Maybe ISO8601)
+  , _psugaMaxSize              :: !(Maybe Int)
+  , _psugaRecurrence           :: !(Maybe Text)
+  , _psugaDesiredCapacity      :: !(Maybe Int)
+  , _psugaMinSize              :: !(Maybe Int)
+  , _psugaEndTime              :: !(Maybe ISO8601)
+  , _psugaAutoScalingGroupName :: !Text
+  , _psugaScheduledActionName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

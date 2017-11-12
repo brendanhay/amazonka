@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeParameters' smart constructor.
 data DescribeParameters = DescribeParameters'
-  { _dpNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpSource             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpMaxResults         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dpParameterGroupName :: {-# NOUNPACK #-}!Text
+  { _dpNextToken          :: !(Maybe Text)
+  , _dpSource             :: !(Maybe Text)
+  , _dpMaxResults         :: !(Maybe Int)
+  , _dpParameterGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery DescribeParameters where
 
 -- | /See:/ 'describeParametersResponse' smart constructor.
 data DescribeParametersResponse = DescribeParametersResponse'
-  { _dprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dprsParameters     :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _dprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dprsNextToken      :: !(Maybe Text)
+  , _dprsParameters     :: !(Maybe [Parameter])
+  , _dprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

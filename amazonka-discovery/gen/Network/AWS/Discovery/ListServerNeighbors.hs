@@ -52,11 +52,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'listServerNeighbors' smart constructor.
 data ListServerNeighbors = ListServerNeighbors'
-  { _lsnPortInformationNeeded    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lsnNeighborConfigurationIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lsnNextToken                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsnMaxResults               :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lsnConfigurationId          :: {-# NOUNPACK #-}!Text
+  { _lsnPortInformationNeeded    :: !(Maybe Bool)
+  , _lsnNeighborConfigurationIds :: !(Maybe [Text])
+  , _lsnNextToken                :: !(Maybe Text)
+  , _lsnMaxResults               :: !(Maybe Int)
+  , _lsnConfigurationId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -153,10 +153,10 @@ instance ToQuery ListServerNeighbors where
 
 -- | /See:/ 'listServerNeighborsResponse' smart constructor.
 data ListServerNeighborsResponse = ListServerNeighborsResponse'
-  { _lsnrsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsnrsKnownDependencyCount :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _lsnrsResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _lsnrsNeighbors            :: {-# NOUNPACK #-}![NeighborConnectionDetail]
+  { _lsnrsNextToken            :: !(Maybe Text)
+  , _lsnrsKnownDependencyCount :: !(Maybe Integer)
+  , _lsnrsResponseStatus       :: !Int
+  , _lsnrsNeighbors            :: ![NeighborConnectionDetail]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

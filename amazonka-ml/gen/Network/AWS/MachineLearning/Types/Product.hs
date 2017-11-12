@@ -29,22 +29,22 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'batchPrediction' smart constructor.
 data BatchPrediction = BatchPrediction'
-  { _bpStatus                      :: {-# NOUNPACK #-}!(Maybe EntityStatus)
-  , _bpLastUpdatedAt               :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _bpCreatedAt                   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _bpComputeTime                 :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _bpInputDataLocationS3         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpMLModelId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpBatchPredictionDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpTotalRecordCount            :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _bpStartedAt                   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _bpBatchPredictionId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpFinishedAt                  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _bpInvalidRecordCount          :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _bpCreatedByIAMUser            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpName                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpMessage                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bpOutputURI                   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bpStatus                      :: !(Maybe EntityStatus)
+  , _bpLastUpdatedAt               :: !(Maybe POSIX)
+  , _bpCreatedAt                   :: !(Maybe POSIX)
+  , _bpComputeTime                 :: !(Maybe Integer)
+  , _bpInputDataLocationS3         :: !(Maybe Text)
+  , _bpMLModelId                   :: !(Maybe Text)
+  , _bpBatchPredictionDataSourceId :: !(Maybe Text)
+  , _bpTotalRecordCount            :: !(Maybe Integer)
+  , _bpStartedAt                   :: !(Maybe POSIX)
+  , _bpBatchPredictionId           :: !(Maybe Text)
+  , _bpFinishedAt                  :: !(Maybe POSIX)
+  , _bpInvalidRecordCount          :: !(Maybe Integer)
+  , _bpCreatedByIAMUser            :: !(Maybe Text)
+  , _bpName                        :: !(Maybe Text)
+  , _bpMessage                     :: !(Maybe Text)
+  , _bpOutputURI                   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -203,24 +203,24 @@ instance NFData BatchPrediction where
 --
 -- /See:/ 'dataSource' smart constructor.
 data DataSource = DataSource'
-  { _dsStatus            :: {-# NOUNPACK #-}!(Maybe EntityStatus)
-  , _dsNumberOfFiles     :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dsLastUpdatedAt     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dsCreatedAt         :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dsComputeTime       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dsDataSourceId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsRDSMetadata       :: {-# NOUNPACK #-}!(Maybe RDSMetadata)
-  , _dsDataSizeInBytes   :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dsStartedAt         :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dsFinishedAt        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dsCreatedByIAMUser  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsDataLocationS3    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsComputeStatistics :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsMessage           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsRedshiftMetadata  :: {-# NOUNPACK #-}!(Maybe RedshiftMetadata)
-  , _dsDataRearrangement :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsRoleARN           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dsStatus            :: !(Maybe EntityStatus)
+  , _dsNumberOfFiles     :: !(Maybe Integer)
+  , _dsLastUpdatedAt     :: !(Maybe POSIX)
+  , _dsCreatedAt         :: !(Maybe POSIX)
+  , _dsComputeTime       :: !(Maybe Integer)
+  , _dsDataSourceId      :: !(Maybe Text)
+  , _dsRDSMetadata       :: !(Maybe RDSMetadata)
+  , _dsDataSizeInBytes   :: !(Maybe Integer)
+  , _dsStartedAt         :: !(Maybe POSIX)
+  , _dsFinishedAt        :: !(Maybe POSIX)
+  , _dsCreatedByIAMUser  :: !(Maybe Text)
+  , _dsName              :: !(Maybe Text)
+  , _dsDataLocationS3    :: !(Maybe Text)
+  , _dsComputeStatistics :: !(Maybe Bool)
+  , _dsMessage           :: !(Maybe Text)
+  , _dsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
+  , _dsDataRearrangement :: !(Maybe Text)
+  , _dsRoleARN           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -395,20 +395,20 @@ instance NFData DataSource where
 --
 -- /See:/ 'evaluation' smart constructor.
 data Evaluation = Evaluation'
-  { _eStatus                 :: {-# NOUNPACK #-}!(Maybe EntityStatus)
-  , _ePerformanceMetrics     :: {-# NOUNPACK #-}!(Maybe PerformanceMetrics)
-  , _eLastUpdatedAt          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _eCreatedAt              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _eComputeTime            :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _eInputDataLocationS3    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eMLModelId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eStartedAt              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _eFinishedAt             :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _eCreatedByIAMUser       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eName                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eEvaluationId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eMessage                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eEvaluationDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eStatus                 :: !(Maybe EntityStatus)
+  , _ePerformanceMetrics     :: !(Maybe PerformanceMetrics)
+  , _eLastUpdatedAt          :: !(Maybe POSIX)
+  , _eCreatedAt              :: !(Maybe POSIX)
+  , _eComputeTime            :: !(Maybe Integer)
+  , _eInputDataLocationS3    :: !(Maybe Text)
+  , _eMLModelId              :: !(Maybe Text)
+  , _eStartedAt              :: !(Maybe POSIX)
+  , _eFinishedAt             :: !(Maybe POSIX)
+  , _eCreatedByIAMUser       :: !(Maybe Text)
+  , _eName                   :: !(Maybe Text)
+  , _eEvaluationId           :: !(Maybe Text)
+  , _eMessage                :: !(Maybe Text)
+  , _eEvaluationDataSourceId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -551,25 +551,25 @@ instance NFData Evaluation where
 --
 -- /See:/ 'mLModel' smart constructor.
 data MLModel = MLModel'
-  { _mlmStatus :: {-# NOUNPACK #-}!(Maybe EntityStatus)
-  , _mlmLastUpdatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _mlmTrainingParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _mlmScoreThresholdLastUpdatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _mlmCreatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _mlmComputeTime :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _mlmInputDataLocationS3 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mlmMLModelId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mlmSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _mlmStartedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _mlmScoreThreshold :: {-# NOUNPACK #-}!(Maybe Double)
-  , _mlmFinishedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _mlmAlgorithm :: {-# NOUNPACK #-}!(Maybe Algorithm)
-  , _mlmCreatedByIAMUser :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mlmName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mlmEndpointInfo :: {-# NOUNPACK #-}!(Maybe RealtimeEndpointInfo)
-  , _mlmTrainingDataSourceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mlmMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mlmMLModelType :: {-# NOUNPACK #-}!(Maybe MLModelType)
+  { _mlmStatus                      :: !(Maybe EntityStatus)
+  , _mlmLastUpdatedAt               :: !(Maybe POSIX)
+  , _mlmTrainingParameters          :: !(Maybe (Map Text Text))
+  , _mlmScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
+  , _mlmCreatedAt                   :: !(Maybe POSIX)
+  , _mlmComputeTime                 :: !(Maybe Integer)
+  , _mlmInputDataLocationS3         :: !(Maybe Text)
+  , _mlmMLModelId                   :: !(Maybe Text)
+  , _mlmSizeInBytes                 :: !(Maybe Integer)
+  , _mlmStartedAt                   :: !(Maybe POSIX)
+  , _mlmScoreThreshold              :: !(Maybe Double)
+  , _mlmFinishedAt                  :: !(Maybe POSIX)
+  , _mlmAlgorithm                   :: !(Maybe Algorithm)
+  , _mlmCreatedByIAMUser            :: !(Maybe Text)
+  , _mlmName                        :: !(Maybe Text)
+  , _mlmEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
+  , _mlmTrainingDataSourceId        :: !(Maybe Text)
+  , _mlmMessage                     :: !(Maybe Text)
+  , _mlmMLModelType                 :: !(Maybe MLModelType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -805,10 +805,10 @@ instance NFData PerformanceMetrics where
 --
 -- /See:/ 'prediction' smart constructor.
 data Prediction = Prediction'
-  { _pPredictedValue  :: {-# NOUNPACK #-}!(Maybe Double)
-  , _pPredictedLabel  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pPredictedScores :: {-# NOUNPACK #-}!(Maybe (Map Text Double))
-  , _pDetails         :: {-# NOUNPACK #-}!(Maybe (Map DetailsAttributes Text))
+  { _pPredictedValue  :: !(Maybe Double)
+  , _pPredictedLabel  :: !(Maybe Text)
+  , _pPredictedScores :: !(Maybe (Map Text Double))
+  , _pDetails         :: !(Maybe (Map DetailsAttributes Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -869,17 +869,17 @@ instance NFData Prediction where
 --
 -- /See:/ 'rdsDataSpec' smart constructor.
 data RDSDataSpec = RDSDataSpec'
-  { _rdsdsDataSchemaURI       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdsdsDataSchema          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdsdsDataRearrangement   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdsdsDatabaseInformation :: {-# NOUNPACK #-}!RDSDatabase
-  , _rdsdsSelectSqlQuery      :: {-# NOUNPACK #-}!Text
-  , _rdsdsDatabaseCredentials :: {-# NOUNPACK #-}!RDSDatabaseCredentials
-  , _rdsdsS3StagingLocation   :: {-# NOUNPACK #-}!Text
-  , _rdsdsResourceRole        :: {-# NOUNPACK #-}!Text
-  , _rdsdsServiceRole         :: {-# NOUNPACK #-}!Text
-  , _rdsdsSubnetId            :: {-# NOUNPACK #-}!Text
-  , _rdsdsSecurityGroupIds    :: {-# NOUNPACK #-}![Text]
+  { _rdsdsDataSchemaURI       :: !(Maybe Text)
+  , _rdsdsDataSchema          :: !(Maybe Text)
+  , _rdsdsDataRearrangement   :: !(Maybe Text)
+  , _rdsdsDatabaseInformation :: !RDSDatabase
+  , _rdsdsSelectSqlQuery      :: !Text
+  , _rdsdsDatabaseCredentials :: !RDSDatabaseCredentials
+  , _rdsdsS3StagingLocation   :: !Text
+  , _rdsdsResourceRole        :: !Text
+  , _rdsdsServiceRole         :: !Text
+  , _rdsdsSubnetId            :: !Text
+  , _rdsdsSecurityGroupIds    :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1006,8 +1006,8 @@ instance ToJSON RDSDataSpec where
 --
 -- /See:/ 'rdsDatabase' smart constructor.
 data RDSDatabase = RDSDatabase'
-  { _rdsdInstanceIdentifier :: {-# NOUNPACK #-}!Text
-  , _rdsdDatabaseName       :: {-# NOUNPACK #-}!Text
+  { _rdsdInstanceIdentifier :: !Text
+  , _rdsdDatabaseName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1063,8 +1063,8 @@ instance ToJSON RDSDatabase where
 --
 -- /See:/ 'rdsDatabaseCredentials' smart constructor.
 data RDSDatabaseCredentials = RDSDatabaseCredentials'
-  { _rdsdcUsername :: {-# NOUNPACK #-}!Text
-  , _rdsdcPassword :: {-# NOUNPACK #-}!Text
+  { _rdsdcUsername :: !Text
+  , _rdsdcPassword :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1109,12 +1109,12 @@ instance ToJSON RDSDatabaseCredentials where
 --
 -- /See:/ 'rdsMetadata' smart constructor.
 data RDSMetadata = RDSMetadata'
-  { _rmSelectSqlQuery   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmDataPipelineId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmDatabase         :: {-# NOUNPACK #-}!(Maybe RDSDatabase)
-  , _rmDatabaseUserName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmResourceRole     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmServiceRole      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rmSelectSqlQuery   :: !(Maybe Text)
+  , _rmDataPipelineId   :: !(Maybe Text)
+  , _rmDatabase         :: !(Maybe RDSDatabase)
+  , _rmDatabaseUserName :: !(Maybe Text)
+  , _rmResourceRole     :: !(Maybe Text)
+  , _rmServiceRole      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1191,10 +1191,10 @@ instance NFData RDSMetadata where
 --
 -- /See:/ 'realtimeEndpointInfo' smart constructor.
 data RealtimeEndpointInfo = RealtimeEndpointInfo'
-  { _reiCreatedAt             :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _reiEndpointURL           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _reiEndpointStatus        :: {-# NOUNPACK #-}!(Maybe RealtimeEndpointStatus)
-  , _reiPeakRequestsPerSecond :: {-# NOUNPACK #-}!(Maybe Int)
+  { _reiCreatedAt             :: !(Maybe POSIX)
+  , _reiEndpointURL           :: !(Maybe Text)
+  , _reiEndpointStatus        :: !(Maybe RealtimeEndpointStatus)
+  , _reiPeakRequestsPerSecond :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1255,13 +1255,13 @@ instance NFData RealtimeEndpointInfo where
 --
 -- /See:/ 'redshiftDataSpec' smart constructor.
 data RedshiftDataSpec = RedshiftDataSpec'
-  { _rDataSchemaURI       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rDataSchema          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rDataRearrangement   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rDatabaseInformation :: {-# NOUNPACK #-}!RedshiftDatabase
-  , _rSelectSqlQuery      :: {-# NOUNPACK #-}!Text
-  , _rDatabaseCredentials :: {-# NOUNPACK #-}!RedshiftDatabaseCredentials
-  , _rS3StagingLocation   :: {-# NOUNPACK #-}!Text
+  { _rDataSchemaURI       :: !(Maybe Text)
+  , _rDataSchema          :: !(Maybe Text)
+  , _rDataRearrangement   :: !(Maybe Text)
+  , _rDatabaseInformation :: !RedshiftDatabase
+  , _rSelectSqlQuery      :: !Text
+  , _rDatabaseCredentials :: !RedshiftDatabaseCredentials
+  , _rS3StagingLocation   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1352,8 +1352,8 @@ instance ToJSON RedshiftDataSpec where
 --
 -- /See:/ 'redshiftDatabase' smart constructor.
 data RedshiftDatabase = RedshiftDatabase'
-  { _rdDatabaseName      :: {-# NOUNPACK #-}!Text
-  , _rdClusterIdentifier :: {-# NOUNPACK #-}!Text
+  { _rdDatabaseName      :: !Text
+  , _rdClusterIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1405,8 +1405,8 @@ instance ToJSON RedshiftDatabase where
 --
 -- /See:/ 'redshiftDatabaseCredentials' smart constructor.
 data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'
-  { _rdcUsername :: {-# NOUNPACK #-}!Text
-  , _rdcPassword :: {-# NOUNPACK #-}!Text
+  { _rdcUsername :: !Text
+  , _rdcPassword :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1451,9 +1451,9 @@ instance ToJSON RedshiftDatabaseCredentials where
 --
 -- /See:/ 'redshiftMetadata' smart constructor.
 data RedshiftMetadata = RedshiftMetadata'
-  { _redSelectSqlQuery   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _redRedshiftDatabase :: {-# NOUNPACK #-}!(Maybe RedshiftDatabase)
-  , _redDatabaseUserName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _redSelectSqlQuery   :: !(Maybe Text)
+  , _redRedshiftDatabase :: !(Maybe RedshiftDatabase)
+  , _redDatabaseUserName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1507,10 +1507,10 @@ instance NFData RedshiftMetadata where
 --
 -- /See:/ 's3DataSpec' smart constructor.
 data S3DataSpec = S3DataSpec'
-  { _sdsDataSchema           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdsDataSchemaLocationS3 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdsDataRearrangement    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdsDataLocationS3       :: {-# NOUNPACK #-}!Text
+  { _sdsDataSchema           :: !(Maybe Text)
+  , _sdsDataSchemaLocationS3 :: !(Maybe Text)
+  , _sdsDataRearrangement    :: !(Maybe Text)
+  , _sdsDataLocationS3       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1573,8 +1573,8 @@ instance ToJSON S3DataSpec where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

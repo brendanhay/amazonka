@@ -104,9 +104,9 @@ instance ToQuery GetAssignment where
 
 -- | /See:/ 'getAssignmentResponse' smart constructor.
 data GetAssignmentResponse = GetAssignmentResponse'
-  { _garsHIT            :: {-# NOUNPACK #-}!(Maybe HIT)
-  , _garsAssignment     :: {-# NOUNPACK #-}!(Maybe Assignment)
-  , _garsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _garsHIT            :: !(Maybe HIT)
+  , _garsAssignment     :: !(Maybe Assignment)
+  , _garsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

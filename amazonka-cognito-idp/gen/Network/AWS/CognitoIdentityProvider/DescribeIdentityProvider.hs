@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeIdentityProvider' smart constructor.
 data DescribeIdentityProvider = DescribeIdentityProvider'
-  { _dipUserPoolId   :: {-# NOUNPACK #-}!Text
-  , _dipProviderName :: {-# NOUNPACK #-}!Text
+  { _dipUserPoolId   :: !Text
+  , _dipProviderName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery DescribeIdentityProvider where
 
 -- | /See:/ 'describeIdentityProviderResponse' smart constructor.
 data DescribeIdentityProviderResponse = DescribeIdentityProviderResponse'
-  { _diprsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _diprsIdentityProvider :: {-# NOUNPACK #-}!IdentityProviderType
+  { _diprsResponseStatus   :: !Int
+  , _diprsIdentityProvider :: !IdentityProviderType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

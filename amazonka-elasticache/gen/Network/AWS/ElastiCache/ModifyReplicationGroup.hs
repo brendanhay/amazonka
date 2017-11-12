@@ -69,24 +69,24 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyReplicationGroup' smart constructor.
 data ModifyReplicationGroup = ModifyReplicationGroup'
-  { _mrgAutomaticFailoverEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mrgEngineVersion               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrgCacheNodeType               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrgSnapshottingClusterId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrgSecurityGroupIds            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mrgAutoMinorVersionUpgrade     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mrgCacheParameterGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrgReplicationGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrgSnapshotWindow              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrgPrimaryClusterId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrgPreferredMaintenanceWindow  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrgNodeGroupId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrgSnapshotRetentionLimit      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _mrgNotificationTopicStatus     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrgApplyImmediately            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mrgNotificationTopicARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrgCacheSecurityGroupNames     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mrgReplicationGroupId          :: {-# NOUNPACK #-}!Text
+  { _mrgAutomaticFailoverEnabled    :: !(Maybe Bool)
+  , _mrgEngineVersion               :: !(Maybe Text)
+  , _mrgCacheNodeType               :: !(Maybe Text)
+  , _mrgSnapshottingClusterId       :: !(Maybe Text)
+  , _mrgSecurityGroupIds            :: !(Maybe [Text])
+  , _mrgAutoMinorVersionUpgrade     :: !(Maybe Bool)
+  , _mrgCacheParameterGroupName     :: !(Maybe Text)
+  , _mrgReplicationGroupDescription :: !(Maybe Text)
+  , _mrgSnapshotWindow              :: !(Maybe Text)
+  , _mrgPrimaryClusterId            :: !(Maybe Text)
+  , _mrgPreferredMaintenanceWindow  :: !(Maybe Text)
+  , _mrgNodeGroupId                 :: !(Maybe Text)
+  , _mrgSnapshotRetentionLimit      :: !(Maybe Int)
+  , _mrgNotificationTopicStatus     :: !(Maybe Text)
+  , _mrgApplyImmediately            :: !(Maybe Bool)
+  , _mrgNotificationTopicARN        :: !(Maybe Text)
+  , _mrgCacheSecurityGroupNames     :: !(Maybe [Text])
+  , _mrgReplicationGroupId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -287,8 +287,8 @@ instance ToQuery ModifyReplicationGroup where
 
 -- | /See:/ 'modifyReplicationGroupResponse' smart constructor.
 data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
-  { _mrgrsReplicationGroup :: {-# NOUNPACK #-}!(Maybe ReplicationGroup)
-  , _mrgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _mrgrsReplicationGroup :: !(Maybe ReplicationGroup)
+  , _mrgrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

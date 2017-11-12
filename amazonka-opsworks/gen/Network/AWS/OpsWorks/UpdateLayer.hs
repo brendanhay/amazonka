@@ -61,23 +61,23 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateLayer' smart constructor.
 data UpdateLayer = UpdateLayer'
-  { _ulCustomInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ulCustomSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ulInstallUpdatesOnBoot :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ulCloudWatchLogsConfiguration :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsConfiguration)
-  , _ulLifecycleEventConfiguration :: {-# NOUNPACK #-}!(Maybe LifecycleEventConfiguration)
-  , _ulShortname :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ulCustomRecipes :: {-# NOUNPACK #-}!(Maybe Recipes)
-  , _ulCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ulVolumeConfigurations :: {-# NOUNPACK #-}!(Maybe [VolumeConfiguration])
-  , _ulEnableAutoHealing :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ulPackages :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ulAttributes :: {-# NOUNPACK #-}!(Maybe (Map LayerAttributesKeys Text))
-  , _ulName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ulAutoAssignPublicIPs :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ulUseEBSOptimizedInstances :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ulAutoAssignElasticIPs :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ulLayerId :: {-# NOUNPACK #-}!Text
+  { _ulCustomInstanceProfileARN :: !(Maybe Text)
+  , _ulCustomSecurityGroupIds :: !(Maybe [Text])
+  , _ulInstallUpdatesOnBoot :: !(Maybe Bool)
+  , _ulCloudWatchLogsConfiguration :: !(Maybe CloudWatchLogsConfiguration)
+  , _ulLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+  , _ulShortname :: !(Maybe Text)
+  , _ulCustomRecipes :: !(Maybe Recipes)
+  , _ulCustomJSON :: !(Maybe Text)
+  , _ulVolumeConfigurations :: !(Maybe [VolumeConfiguration])
+  , _ulEnableAutoHealing :: !(Maybe Bool)
+  , _ulPackages :: !(Maybe [Text])
+  , _ulAttributes :: !(Maybe (Map LayerAttributesKeys (Maybe Text)))
+  , _ulName :: !(Maybe Text)
+  , _ulAutoAssignPublicIPs :: !(Maybe Bool)
+  , _ulUseEBSOptimizedInstances :: !(Maybe Bool)
+  , _ulAutoAssignElasticIPs :: !(Maybe Bool)
+  , _ulLayerId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -188,7 +188,7 @@ ulPackages :: Lens' UpdateLayer [Text]
 ulPackages = lens _ulPackages (\ s a -> s{_ulPackages = a}) . _Default . _Coerce;
 
 -- | One or more user-defined key/value pairs to be added to the stack attributes.
-ulAttributes :: Lens' UpdateLayer (HashMap LayerAttributesKeys Text)
+ulAttributes :: Lens' UpdateLayer (HashMap LayerAttributesKeys (Maybe Text))
 ulAttributes = lens _ulAttributes (\ s a -> s{_ulAttributes = a}) . _Default . _Map;
 
 -- | The layer name, which is used by the console.

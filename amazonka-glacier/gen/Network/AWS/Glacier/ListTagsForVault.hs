@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listTagsForVault' smart constructor.
 data ListTagsForVault = ListTagsForVault'
-  { _ltfvAccountId :: {-# NOUNPACK #-}!Text
-  , _ltfvVaultName :: {-# NOUNPACK #-}!Text
+  { _ltfvAccountId :: !Text
+  , _ltfvVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,8 +110,8 @@ instance ToQuery ListTagsForVault where
 --
 -- /See:/ 'listTagsForVaultResponse' smart constructor.
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
-  { _ltfvrsTags           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _ltfvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltfvrsTags           :: !(Maybe (Map Text Text))
+  , _ltfvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

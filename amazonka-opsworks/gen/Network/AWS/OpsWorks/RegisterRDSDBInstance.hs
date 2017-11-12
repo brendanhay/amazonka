@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'registerRDSDBInstance' smart constructor.
 data RegisterRDSDBInstance = RegisterRDSDBInstance'
-  { _rrdiStackId          :: {-# NOUNPACK #-}!Text
-  , _rrdiRDSDBInstanceARN :: {-# NOUNPACK #-}!Text
-  , _rrdiDBUser           :: {-# NOUNPACK #-}!Text
-  , _rrdiDBPassword       :: {-# NOUNPACK #-}!Text
+  { _rrdiStackId          :: !Text
+  , _rrdiRDSDBInstanceARN :: !Text
+  , _rrdiDBUser           :: !Text
+  , _rrdiDBPassword       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'batchGetImage' smart constructor.
 data BatchGetImage = BatchGetImage'
-  { _bgiRegistryId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bgiAcceptedMediaTypes :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _bgiRepositoryName     :: {-# NOUNPACK #-}!Text
-  , _bgiImageIds           :: {-# NOUNPACK #-}![ImageIdentifier]
+  { _bgiRegistryId         :: !(Maybe Text)
+  , _bgiAcceptedMediaTypes :: !(Maybe (List1 Text))
+  , _bgiRepositoryName     :: !Text
+  , _bgiImageIds           :: ![ImageIdentifier]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery BatchGetImage where
 
 -- | /See:/ 'batchGetImageResponse' smart constructor.
 data BatchGetImageResponse = BatchGetImageResponse'
-  { _bgirsImages         :: {-# NOUNPACK #-}!(Maybe [Image])
-  , _bgirsFailures       :: {-# NOUNPACK #-}!(Maybe [ImageFailure])
-  , _bgirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bgirsImages         :: !(Maybe [Image])
+  , _bgirsFailures       :: !(Maybe [ImageFailure])
+  , _bgirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

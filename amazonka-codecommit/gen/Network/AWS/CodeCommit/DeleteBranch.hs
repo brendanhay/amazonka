@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteBranch' smart constructor.
 data DeleteBranch = DeleteBranch'
-  { _dbRepositoryName :: {-# NOUNPACK #-}!Text
-  , _dbBranchName     :: {-# NOUNPACK #-}!Text
+  { _dbRepositoryName :: !Text
+  , _dbBranchName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery DeleteBranch where
 --
 -- /See:/ 'deleteBranchResponse' smart constructor.
 data DeleteBranchResponse = DeleteBranchResponse'
-  { _dbrsDeletedBranch  :: {-# NOUNPACK #-}!(Maybe BranchInfo)
-  , _dbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dbrsDeletedBranch  :: !(Maybe BranchInfo)
+  , _dbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
-  { _csStorageConnectors :: {-# NOUNPACK #-}!(Maybe [StorageConnector])
-  , _csDisplayName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csDescription       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csName              :: {-# NOUNPACK #-}!Text
+  { _csStorageConnectors :: !(Maybe [StorageConnector])
+  , _csDisplayName       :: !(Maybe Text)
+  , _csDescription       :: !(Maybe Text)
+  , _csName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,8 +135,8 @@ instance ToQuery CreateStack where
 
 -- | /See:/ 'createStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'
-  { _csrsStack          :: {-# NOUNPACK #-}!(Maybe Stack)
-  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csrsStack          :: !(Maybe Stack)
+  , _csrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

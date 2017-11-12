@@ -55,9 +55,9 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'setIdentityMailFromDomain' smart constructor.
 data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
-  { _simfdMailFromDomain      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _simfdBehaviorOnMXFailure :: {-# NOUNPACK #-}!(Maybe BehaviorOnMXFailure)
-  , _simfdIdentity            :: {-# NOUNPACK #-}!Text
+  { _simfdMailFromDomain      :: !(Maybe Text)
+  , _simfdBehaviorOnMXFailure :: !(Maybe BehaviorOnMXFailure)
+  , _simfdIdentity            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

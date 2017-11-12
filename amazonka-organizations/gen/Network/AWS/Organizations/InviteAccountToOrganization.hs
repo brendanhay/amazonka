@@ -53,8 +53,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'inviteAccountToOrganization' smart constructor.
 data InviteAccountToOrganization = InviteAccountToOrganization'
-  { _iatoNotes  :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _iatoTarget :: {-# NOUNPACK #-}!HandshakeParty
+  { _iatoNotes  :: !(Maybe (Sensitive Text))
+  , _iatoTarget :: !HandshakeParty
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -119,8 +119,8 @@ instance ToQuery InviteAccountToOrganization where
 
 -- | /See:/ 'inviteAccountToOrganizationResponse' smart constructor.
 data InviteAccountToOrganizationResponse = InviteAccountToOrganizationResponse'
-  { _iatorsHandshake      :: {-# NOUNPACK #-}!(Maybe Handshake)
-  , _iatorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _iatorsHandshake      :: !(Maybe Handshake)
+  , _iatorsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

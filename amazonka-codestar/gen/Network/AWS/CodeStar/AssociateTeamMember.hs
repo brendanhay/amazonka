@@ -50,11 +50,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'associateTeamMember' smart constructor.
 data AssociateTeamMember = AssociateTeamMember'
-  { _atmRemoteAccessAllowed :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _atmClientRequestToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atmProjectId           :: {-# NOUNPACK #-}!Text
-  , _atmUserARN             :: {-# NOUNPACK #-}!Text
-  , _atmProjectRole         :: {-# NOUNPACK #-}!Text
+  { _atmRemoteAccessAllowed :: !(Maybe Bool)
+  , _atmClientRequestToken  :: !(Maybe Text)
+  , _atmProjectId           :: !Text
+  , _atmUserARN             :: !Text
+  , _atmProjectRole         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,8 +149,8 @@ instance ToQuery AssociateTeamMember where
 
 -- | /See:/ 'associateTeamMemberResponse' smart constructor.
 data AssociateTeamMemberResponse = AssociateTeamMemberResponse'
-  { _atmrsClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atmrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _atmrsClientRequestToken :: !(Maybe Text)
+  , _atmrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

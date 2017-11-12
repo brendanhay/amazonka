@@ -43,9 +43,9 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketLogging' smart constructor.
 data PutBucketLogging = PutBucketLogging'
-  { _pblContentMD5          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pblBucket              :: {-# NOUNPACK #-}!BucketName
-  , _pblBucketLoggingStatus :: {-# NOUNPACK #-}!BucketLoggingStatus
+  { _pblContentMD5          :: !(Maybe Text)
+  , _pblBucket              :: !BucketName
+  , _pblBucketLoggingStatus :: !BucketLoggingStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

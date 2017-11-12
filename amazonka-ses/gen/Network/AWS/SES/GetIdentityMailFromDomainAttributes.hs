@@ -118,8 +118,8 @@ instance ToQuery GetIdentityMailFromDomainAttributes
 --
 -- /See:/ 'getIdentityMailFromDomainAttributesResponse' smart constructor.
 data GetIdentityMailFromDomainAttributesResponse = GetIdentityMailFromDomainAttributesResponse'
-  { _gimfdarsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gimfdarsMailFromDomainAttributes :: {-# NOUNPACK #-}!(Map Text IdentityMailFromDomainAttributes)
+  { _gimfdarsResponseStatus :: !Int
+  , _gimfdarsMailFromDomainAttributes :: !(Map Text IdentityMailFromDomainAttributes)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

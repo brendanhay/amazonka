@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateNotificationSettings' smart constructor.
 data UpdateNotificationSettings = UpdateNotificationSettings'
-  { _unsNotification :: {-# NOUNPACK #-}!(Maybe NotificationSpecification)
-  , _unsActive       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _unsHITTypeId    :: {-# NOUNPACK #-}!Text
+  { _unsNotification :: !(Maybe NotificationSpecification)
+  , _unsActive       :: !(Maybe Bool)
+  , _unsHITTypeId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

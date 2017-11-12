@@ -50,11 +50,11 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteObject' smart constructor.
 data DeleteObject = DeleteObject'
-  { _doVersionId    :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _doMFA          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _doRequestPayer :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _doBucket       :: {-# NOUNPACK #-}!BucketName
-  , _doKey          :: {-# NOUNPACK #-}!ObjectKey
+  { _doVersionId    :: !(Maybe ObjectVersionId)
+  , _doMFA          :: !(Maybe Text)
+  , _doRequestPayer :: !(Maybe RequestPayer)
+  , _doBucket       :: !BucketName
+  , _doKey          :: !ObjectKey
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,10 +137,10 @@ instance ToQuery DeleteObject where
 
 -- | /See:/ 'deleteObjectResponse' smart constructor.
 data DeleteObjectResponse = DeleteObjectResponse'
-  { _dorsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _dorsVersionId      :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _dorsDeleteMarker   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dorsRequestCharged :: !(Maybe RequestCharged)
+  , _dorsVersionId      :: !(Maybe ObjectVersionId)
+  , _dorsDeleteMarker   :: !(Maybe Bool)
+  , _dorsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

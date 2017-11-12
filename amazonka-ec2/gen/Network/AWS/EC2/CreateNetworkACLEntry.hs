@@ -62,16 +62,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'createNetworkACLEntry' smart constructor.
 data CreateNetworkACLEntry = CreateNetworkACLEntry'
-  { _cnaeIPv6CidrBlock :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnaeICMPTypeCode  :: {-# NOUNPACK #-}!(Maybe ICMPTypeCode)
-  , _cnaePortRange     :: {-# NOUNPACK #-}!(Maybe PortRange)
-  , _cnaeCidrBlock     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnaeDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cnaeEgress        :: {-# NOUNPACK #-}!Bool
-  , _cnaeNetworkACLId  :: {-# NOUNPACK #-}!Text
-  , _cnaeProtocol      :: {-# NOUNPACK #-}!Text
-  , _cnaeRuleAction    :: {-# NOUNPACK #-}!RuleAction
-  , _cnaeRuleNumber    :: {-# NOUNPACK #-}!Int
+  { _cnaeIPv6CidrBlock :: !(Maybe Text)
+  , _cnaeICMPTypeCode  :: !(Maybe ICMPTypeCode)
+  , _cnaePortRange     :: !(Maybe PortRange)
+  , _cnaeCidrBlock     :: !(Maybe Text)
+  , _cnaeDryRun        :: !(Maybe Bool)
+  , _cnaeEgress        :: !Bool
+  , _cnaeNetworkACLId  :: !Text
+  , _cnaeProtocol      :: !Text
+  , _cnaeRuleAction    :: !RuleAction
+  , _cnaeRuleNumber    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

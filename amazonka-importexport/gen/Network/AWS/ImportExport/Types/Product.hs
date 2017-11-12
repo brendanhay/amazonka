@@ -25,8 +25,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'artifact' smart constructor.
 data Artifact = Artifact'
-  { _aURL         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aURL         :: !(Maybe Text)
+  , _aDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -63,10 +63,10 @@ instance NFData Artifact where
 --
 -- /See:/ 'job' smart constructor.
 data Job = Job'
-  { _jobJobType      :: {-# NOUNPACK #-}!JobType
-  , _jobJobId        :: {-# NOUNPACK #-}!Text
-  , _jobIsCanceled   :: {-# NOUNPACK #-}!Bool
-  , _jobCreationDate :: {-# NOUNPACK #-}!ISO8601
+  { _jobJobType      :: !JobType
+  , _jobJobId        :: !Text
+  , _jobIsCanceled   :: !Bool
+  , _jobCreationDate :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

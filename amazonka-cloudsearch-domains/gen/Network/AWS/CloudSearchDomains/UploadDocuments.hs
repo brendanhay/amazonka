@@ -58,8 +58,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'uploadDocuments' smart constructor.
 data UploadDocuments = UploadDocuments'
-  { _udContentType :: {-# NOUNPACK #-}!ContentType
-  , _udDocuments   :: {-# NOUNPACK #-}!HashedBody
+  { _udContentType :: !ContentType
+  , _udDocuments   :: !HashedBody
   } deriving (Show, Generic)
 
 
@@ -120,11 +120,11 @@ instance ToQuery UploadDocuments where
 --
 -- /See:/ 'uploadDocumentsResponse' smart constructor.
 data UploadDocumentsResponse = UploadDocumentsResponse'
-  { _udrsStatus         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _udrsAdds           :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _udrsWarnings       :: {-# NOUNPACK #-}!(Maybe [DocumentServiceWarning])
-  , _udrsDeletes        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _udrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _udrsStatus         :: !(Maybe Text)
+  , _udrsAdds           :: !(Maybe Integer)
+  , _udrsWarnings       :: !(Maybe [DocumentServiceWarning])
+  , _udrsDeletes        :: !(Maybe Integer)
+  , _udrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

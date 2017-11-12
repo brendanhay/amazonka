@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteConditionalForwarder' smart constructor.
 data DeleteConditionalForwarder = DeleteConditionalForwarder'
-  { _delDirectoryId      :: {-# NOUNPACK #-}!Text
-  , _delRemoteDomainName :: {-# NOUNPACK #-}!Text
+  { _delDirectoryId      :: !Text
+  , _delRemoteDomainName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

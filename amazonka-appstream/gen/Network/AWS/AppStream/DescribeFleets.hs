@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeFleets' smart constructor.
 data DescribeFleets = DescribeFleets'
-  { _dfNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfNames     :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dfNextToken :: !(Maybe Text)
+  , _dfNames     :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,9 +112,9 @@ instance ToQuery DescribeFleets where
 
 -- | /See:/ 'describeFleetsResponse' smart constructor.
 data DescribeFleetsResponse = DescribeFleetsResponse'
-  { _dfsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfsrsFleets         :: {-# NOUNPACK #-}!(Maybe [Fleet])
-  , _dfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dfsrsNextToken      :: !(Maybe Text)
+  , _dfsrsFleets         :: !(Maybe [Fleet])
+  , _dfsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

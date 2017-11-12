@@ -55,12 +55,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'registerTaskDefinition' smart constructor.
 data RegisterTaskDefinition = RegisterTaskDefinition'
-  { _rtdTaskRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtdPlacementConstraints :: {-# NOUNPACK #-}!(Maybe [TaskDefinitionPlacementConstraint])
-  , _rtdNetworkMode :: {-# NOUNPACK #-}!(Maybe NetworkMode)
-  , _rtdVolumes :: {-# NOUNPACK #-}!(Maybe [Volume])
-  , _rtdFamily :: {-# NOUNPACK #-}!Text
-  , _rtdContainerDefinitions :: {-# NOUNPACK #-}![ContainerDefinition]
+  { _rtdTaskRoleARN          :: !(Maybe Text)
+  , _rtdPlacementConstraints :: !(Maybe [TaskDefinitionPlacementConstraint])
+  , _rtdNetworkMode          :: !(Maybe NetworkMode)
+  , _rtdVolumes              :: !(Maybe [Volume])
+  , _rtdFamily               :: !Text
+  , _rtdContainerDefinitions :: ![ContainerDefinition]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -163,8 +163,8 @@ instance ToQuery RegisterTaskDefinition where
 
 -- | /See:/ 'registerTaskDefinitionResponse' smart constructor.
 data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
-  { _rtdrsTaskDefinition :: {-# NOUNPACK #-}!(Maybe TaskDefinition)
-  , _rtdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rtdrsTaskDefinition :: !(Maybe TaskDefinition)
+  , _rtdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

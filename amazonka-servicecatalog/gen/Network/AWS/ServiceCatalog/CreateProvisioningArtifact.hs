@@ -51,10 +51,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createProvisioningArtifact' smart constructor.
 data CreateProvisioningArtifact = CreateProvisioningArtifact'
-  { _cpaAcceptLanguage   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpaProductId        :: {-# NOUNPACK #-}!Text
-  , _cpaParameters       :: {-# NOUNPACK #-}!ProvisioningArtifactProperties
-  , _cpaIdempotencyToken :: {-# NOUNPACK #-}!Text
+  { _cpaAcceptLanguage   :: !(Maybe Text)
+  , _cpaProductId        :: !Text
+  , _cpaParameters       :: !ProvisioningArtifactProperties
+  , _cpaIdempotencyToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,10 +142,10 @@ instance ToQuery CreateProvisioningArtifact where
 
 -- | /See:/ 'createProvisioningArtifactResponse' smart constructor.
 data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
-  { _cparsStatus :: {-# NOUNPACK #-}!(Maybe RequestStatus)
-  , _cparsInfo :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cparsProvisioningArtifactDetail :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactDetail)
-  , _cparsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cparsStatus                     :: !(Maybe RequestStatus)
+  , _cparsInfo                       :: !(Maybe (Map Text Text))
+  , _cparsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
+  , _cparsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

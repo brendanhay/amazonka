@@ -65,13 +65,13 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listObjectVersions' smart constructor.
 data ListObjectVersions = ListObjectVersions'
-  { _lovKeyMarker       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lovPrefix          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lovEncodingType    :: {-# NOUNPACK #-}!(Maybe EncodingType)
-  , _lovVersionIdMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lovMaxKeys         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lovDelimiter       :: {-# NOUNPACK #-}!(Maybe Delimiter)
-  , _lovBucket          :: {-# NOUNPACK #-}!BucketName
+  { _lovKeyMarker       :: !(Maybe Text)
+  , _lovPrefix          :: !(Maybe Text)
+  , _lovEncodingType    :: !(Maybe EncodingType)
+  , _lovVersionIdMarker :: !(Maybe Text)
+  , _lovMaxKeys         :: !(Maybe Int)
+  , _lovDelimiter       :: !(Maybe Delimiter)
+  , _lovBucket          :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -191,20 +191,20 @@ instance ToQuery ListObjectVersions where
 
 -- | /See:/ 'listObjectVersionsResponse' smart constructor.
 data ListObjectVersionsResponse = ListObjectVersionsResponse'
-  { _lovrsNextVersionIdMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lovrsKeyMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lovrsDeleteMarkers       :: {-# NOUNPACK #-}!(Maybe [DeleteMarkerEntry])
-  , _lovrsPrefix              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lovrsCommonPrefixes      :: {-# NOUNPACK #-}!(Maybe [CommonPrefix])
-  , _lovrsEncodingType        :: {-# NOUNPACK #-}!(Maybe EncodingType)
-  , _lovrsVersions            :: {-# NOUNPACK #-}!(Maybe [ObjectVersion])
-  , _lovrsName                :: {-# NOUNPACK #-}!(Maybe BucketName)
-  , _lovrsNextKeyMarker       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lovrsVersionIdMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lovrsMaxKeys             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lovrsIsTruncated         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lovrsDelimiter           :: {-# NOUNPACK #-}!(Maybe Delimiter)
-  , _lovrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _lovrsNextVersionIdMarker :: !(Maybe Text)
+  , _lovrsKeyMarker           :: !(Maybe Text)
+  , _lovrsDeleteMarkers       :: !(Maybe [DeleteMarkerEntry])
+  , _lovrsPrefix              :: !(Maybe Text)
+  , _lovrsCommonPrefixes      :: !(Maybe [CommonPrefix])
+  , _lovrsEncodingType        :: !(Maybe EncodingType)
+  , _lovrsVersions            :: !(Maybe [ObjectVersion])
+  , _lovrsName                :: !(Maybe BucketName)
+  , _lovrsNextKeyMarker       :: !(Maybe Text)
+  , _lovrsVersionIdMarker     :: !(Maybe Text)
+  , _lovrsMaxKeys             :: !(Maybe Int)
+  , _lovrsIsTruncated         :: !(Maybe Bool)
+  , _lovrsDelimiter           :: !(Maybe Delimiter)
+  , _lovrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

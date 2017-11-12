@@ -108,8 +108,8 @@ instance ToQuery DescribeUserProfiles where
 --
 -- /See:/ 'describeUserProfilesResponse' smart constructor.
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
-  { _duprsUserProfiles   :: {-# NOUNPACK #-}!(Maybe [UserProfile])
-  , _duprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _duprsUserProfiles   :: !(Maybe [UserProfile])
+  , _duprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

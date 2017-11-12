@@ -115,9 +115,9 @@ instance ToQuery GetTagKeys where
 
 -- | /See:/ 'getTagKeysResponse' smart constructor.
 data GetTagKeysResponse = GetTagKeysResponse'
-  { _gtkrsPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtkrsTagKeys         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gtkrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gtkrsPaginationToken :: !(Maybe Text)
+  , _gtkrsTagKeys         :: !(Maybe [Text])
+  , _gtkrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

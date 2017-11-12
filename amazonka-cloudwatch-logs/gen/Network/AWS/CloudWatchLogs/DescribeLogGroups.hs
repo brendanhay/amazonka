@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeLogGroups' smart constructor.
 data DescribeLogGroups = DescribeLogGroups'
-  { _dlgLogGroupNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlgNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlgLimit              :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dlgLogGroupNamePrefix :: !(Maybe Text)
+  , _dlgNextToken          :: !(Maybe Text)
+  , _dlgLimit              :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery DescribeLogGroups where
 
 -- | /See:/ 'describeLogGroupsResponse' smart constructor.
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
-  { _dlgrsLogGroups      :: {-# NOUNPACK #-}!(Maybe [LogGroup])
-  , _dlgrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dlgrsLogGroups      :: !(Maybe [LogGroup])
+  , _dlgrsNextToken      :: !(Maybe Text)
+  , _dlgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -108,9 +108,9 @@ instance ToQuery ListPhoneNumbersOptedOut where
 --
 -- /See:/ 'listPhoneNumbersOptedOutResponse' smart constructor.
 data ListPhoneNumbersOptedOutResponse = ListPhoneNumbersOptedOutResponse'
-  { _lpnoorsPhoneNumbers   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lpnoorsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpnoorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lpnoorsPhoneNumbers   :: !(Maybe [Text])
+  , _lpnoorsNextToken      :: !(Maybe Text)
+  , _lpnoorsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

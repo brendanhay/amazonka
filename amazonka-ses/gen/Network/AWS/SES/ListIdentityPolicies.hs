@@ -109,8 +109,8 @@ instance ToQuery ListIdentityPolicies where
 --
 -- /See:/ 'listIdentityPoliciesResponse' smart constructor.
 data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
-  { _liprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _liprsPolicyNames    :: {-# NOUNPACK #-}![Text]
+  { _liprsResponseStatus :: !Int
+  , _liprsPolicyNames    :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

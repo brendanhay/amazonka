@@ -112,9 +112,9 @@ instance ToQuery GetActiveNames where
 
 -- | /See:/ 'getActiveNamesResponse' smart constructor.
 data GetActiveNamesResponse = GetActiveNamesResponse'
-  { _ganrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ganrsActiveNames    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ganrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ganrsNextPageToken  :: !(Maybe Text)
+  , _ganrsActiveNames    :: !(Maybe [Text])
+  , _ganrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

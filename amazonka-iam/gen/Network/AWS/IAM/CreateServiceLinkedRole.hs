@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createServiceLinkedRole' smart constructor.
 data CreateServiceLinkedRole = CreateServiceLinkedRole'
-  { _cslrCustomSuffix   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cslrDescription    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cslrAWSServiceName :: {-# NOUNPACK #-}!Text
+  { _cslrCustomSuffix   :: !(Maybe Text)
+  , _cslrDescription    :: !(Maybe Text)
+  , _cslrAWSServiceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery CreateServiceLinkedRole where
 
 -- | /See:/ 'createServiceLinkedRoleResponse' smart constructor.
 data CreateServiceLinkedRoleResponse = CreateServiceLinkedRoleResponse'
-  { _cslrrsRole           :: {-# NOUNPACK #-}!(Maybe Role)
-  , _cslrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cslrrsRole           :: !(Maybe Role)
+  , _cslrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

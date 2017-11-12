@@ -102,8 +102,8 @@ instance ToQuery ListThingPrincipals where
 --
 -- /See:/ 'listThingPrincipalsResponse' smart constructor.
 data ListThingPrincipalsResponse = ListThingPrincipalsResponse'
-  { _ltprsPrincipals     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ltprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltprsPrincipals     :: !(Maybe [Text])
+  , _ltprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

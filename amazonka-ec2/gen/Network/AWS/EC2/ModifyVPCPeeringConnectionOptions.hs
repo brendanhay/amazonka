@@ -60,10 +60,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'modifyVPCPeeringConnectionOptions' smart constructor.
 data ModifyVPCPeeringConnectionOptions = ModifyVPCPeeringConnectionOptions'
-  { _mvpcoRequesterPeeringConnectionOptions :: {-# NOUNPACK #-}!(Maybe PeeringConnectionOptionsRequest)
-  , _mvpcoAccepterPeeringConnectionOptions :: {-# NOUNPACK #-}!(Maybe PeeringConnectionOptionsRequest)
-  , _mvpcoDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mvpcoVPCPeeringConnectionId :: {-# NOUNPACK #-}!Text
+  { _mvpcoRequesterPeeringConnectionOptions :: !(Maybe PeeringConnectionOptionsRequest)
+  , _mvpcoAccepterPeeringConnectionOptions :: !(Maybe PeeringConnectionOptionsRequest)
+  , _mvpcoDryRun :: !(Maybe Bool)
+  , _mvpcoVPCPeeringConnectionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery ModifyVPCPeeringConnectionOptions
 
 -- | /See:/ 'modifyVPCPeeringConnectionOptionsResponse' smart constructor.
 data ModifyVPCPeeringConnectionOptionsResponse = ModifyVPCPeeringConnectionOptionsResponse'
-  { _mvpcorsRequesterPeeringConnectionOptions :: {-# NOUNPACK #-}!(Maybe PeeringConnectionOptions)
-  , _mvpcorsAccepterPeeringConnectionOptions :: {-# NOUNPACK #-}!(Maybe PeeringConnectionOptions)
-  , _mvpcorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mvpcorsRequesterPeeringConnectionOptions :: !(Maybe PeeringConnectionOptions)
+  , _mvpcorsAccepterPeeringConnectionOptions :: !(Maybe PeeringConnectionOptions)
+  , _mvpcorsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

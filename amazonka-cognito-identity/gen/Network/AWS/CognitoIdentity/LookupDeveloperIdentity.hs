@@ -58,11 +58,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'lookupDeveloperIdentity' smart constructor.
 data LookupDeveloperIdentity = LookupDeveloperIdentity'
-  { _ldiDeveloperUserIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldiNextToken               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldiIdentityId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldiMaxResults              :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ldiIdentityPoolId          :: {-# NOUNPACK #-}!Text
+  { _ldiDeveloperUserIdentifier :: !(Maybe Text)
+  , _ldiNextToken               :: !(Maybe Text)
+  , _ldiIdentityId              :: !(Maybe Text)
+  , _ldiMaxResults              :: !(Maybe Nat)
+  , _ldiIdentityPoolId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -161,10 +161,10 @@ instance ToQuery LookupDeveloperIdentity where
 --
 -- /See:/ 'lookupDeveloperIdentityResponse' smart constructor.
 data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
-  { _ldirsNextToken                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldirsIdentityId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldirsDeveloperUserIdentifierList :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ldirsResponseStatus              :: {-# NOUNPACK #-}!Int
+  { _ldirsNextToken                   :: !(Maybe Text)
+  , _ldirsIdentityId                  :: !(Maybe Text)
+  , _ldirsDeveloperUserIdentifierList :: !(Maybe [Text])
+  , _ldirsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

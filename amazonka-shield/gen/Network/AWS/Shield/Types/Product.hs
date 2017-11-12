@@ -27,13 +27,13 @@ import Network.AWS.Shield.Types.Sum
 --
 -- /See:/ 'attackDetail' smart constructor.
 data AttackDetail = AttackDetail'
-  { _adAttackId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _adStartTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _adSubResources   :: {-# NOUNPACK #-}!(Maybe [SubResourceSummary])
-  , _adMitigations    :: {-# NOUNPACK #-}!(Maybe [Mitigation])
-  , _adAttackCounters :: {-# NOUNPACK #-}!(Maybe [SummarizedCounter])
-  , _adResourceARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _adEndTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _adAttackId       :: !(Maybe Text)
+  , _adStartTime      :: !(Maybe POSIX)
+  , _adSubResources   :: !(Maybe [SubResourceSummary])
+  , _adMitigations    :: !(Maybe [Mitigation])
+  , _adAttackCounters :: !(Maybe [SummarizedCounter])
+  , _adResourceARN    :: !(Maybe Text)
+  , _adEndTime        :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,11 +118,11 @@ instance NFData AttackDetail where
 --
 -- /See:/ 'attackSummary' smart constructor.
 data AttackSummary = AttackSummary'
-  { _asAttackVectors :: {-# NOUNPACK #-}!(Maybe [AttackVectorDescription])
-  , _asAttackId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asStartTime     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _asResourceARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asEndTime       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _asAttackVectors :: !(Maybe [AttackVectorDescription])
+  , _asAttackId      :: !(Maybe Text)
+  , _asStartTime     :: !(Maybe POSIX)
+  , _asResourceARN   :: !(Maybe Text)
+  , _asEndTime       :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -261,9 +261,9 @@ instance NFData Mitigation where
 --
 -- /See:/ 'protection' smart constructor.
 data Protection = Protection'
-  { _pResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pId          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pResourceARN :: !(Maybe Text)
+  , _pName        :: !(Maybe Text)
+  , _pId          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -312,10 +312,10 @@ instance NFData Protection where
 --
 -- /See:/ 'subResourceSummary' smart constructor.
 data SubResourceSummary = SubResourceSummary'
-  { _srsCounters      :: {-# NOUNPACK #-}!(Maybe [SummarizedCounter])
-  , _srsAttackVectors :: {-# NOUNPACK #-}!(Maybe [SummarizedAttackVector])
-  , _srsId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srsType          :: {-# NOUNPACK #-}!(Maybe SubResourceType)
+  { _srsCounters      :: !(Maybe [SummarizedCounter])
+  , _srsAttackVectors :: !(Maybe [SummarizedAttackVector])
+  , _srsId            :: !(Maybe Text)
+  , _srsType          :: !(Maybe SubResourceType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -377,8 +377,8 @@ instance NFData SubResourceSummary where
 --
 -- /See:/ 'subscription' smart constructor.
 data Subscription = Subscription'
-  { _sTimeCommitmentInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _sStartTime               :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _sTimeCommitmentInSeconds :: !(Maybe Nat)
+  , _sStartTime               :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -421,8 +421,8 @@ instance NFData Subscription where
 --
 -- /See:/ 'summarizedAttackVector' smart constructor.
 data SummarizedAttackVector = SummarizedAttackVector'
-  { _savVectorCounters :: {-# NOUNPACK #-}!(Maybe [SummarizedCounter])
-  , _savVectorType     :: {-# NOUNPACK #-}!Text
+  { _savVectorCounters :: !(Maybe [SummarizedCounter])
+  , _savVectorType     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -467,12 +467,12 @@ instance NFData SummarizedAttackVector where
 --
 -- /See:/ 'summarizedCounter' smart constructor.
 data SummarizedCounter = SummarizedCounter'
-  { _scMax     :: {-# NOUNPACK #-}!(Maybe Double)
-  , _scAverage :: {-# NOUNPACK #-}!(Maybe Double)
-  , _scN       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _scName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scSum     :: {-# NOUNPACK #-}!(Maybe Double)
-  , _scUnit    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _scMax     :: !(Maybe Double)
+  , _scAverage :: !(Maybe Double)
+  , _scN       :: !(Maybe Int)
+  , _scName    :: !(Maybe Text)
+  , _scSum     :: !(Maybe Double)
+  , _scUnit    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -548,8 +548,8 @@ instance NFData SummarizedCounter where
 --
 -- /See:/ 'timeRange' smart constructor.
 data TimeRange = TimeRange'
-  { _trFromInclusive :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _trToExclusive   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _trFromInclusive :: !(Maybe POSIX)
+  , _trToExclusive   :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

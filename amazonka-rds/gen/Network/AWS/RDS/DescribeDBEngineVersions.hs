@@ -58,15 +58,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeDBEngineVersions' smart constructor.
 data DescribeDBEngineVersions = DescribeDBEngineVersions'
-  { _ddevEngineVersion              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddevListSupportedTimezones     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ddevDefaultOnly                :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ddevFilters                    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _ddevEngine                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddevDBParameterGroupFamily     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddevListSupportedCharacterSets :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ddevMarker                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddevMaxRecords                 :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ddevEngineVersion              :: !(Maybe Text)
+  , _ddevListSupportedTimezones     :: !(Maybe Bool)
+  , _ddevDefaultOnly                :: !(Maybe Bool)
+  , _ddevFilters                    :: !(Maybe [Filter])
+  , _ddevEngine                     :: !(Maybe Text)
+  , _ddevDBParameterGroupFamily     :: !(Maybe Text)
+  , _ddevListSupportedCharacterSets :: !(Maybe Bool)
+  , _ddevMarker                     :: !(Maybe Text)
+  , _ddevMaxRecords                 :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -199,9 +199,9 @@ instance ToQuery DescribeDBEngineVersions where
 --
 -- /See:/ 'describeDBEngineVersionsResponse' smart constructor.
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
-  { _ddevrsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddevrsDBEngineVersions :: {-# NOUNPACK #-}!(Maybe [DBEngineVersion])
-  , _ddevrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ddevrsMarker           :: !(Maybe Text)
+  , _ddevrsDBEngineVersions :: !(Maybe [DBEngineVersion])
+  , _ddevrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

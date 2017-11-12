@@ -51,11 +51,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'getTableVersions' smart constructor.
 data GetTableVersions = GetTableVersions'
-  { _gtvCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtvNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtvMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gtvDatabaseName :: {-# NOUNPACK #-}!Text
-  , _gtvTableName    :: {-# NOUNPACK #-}!Text
+  { _gtvCatalogId    :: !(Maybe Text)
+  , _gtvNextToken    :: !(Maybe Text)
+  , _gtvMaxResults   :: !(Maybe Nat)
+  , _gtvDatabaseName :: !Text
+  , _gtvTableName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,9 +148,9 @@ instance ToQuery GetTableVersions where
 
 -- | /See:/ 'getTableVersionsResponse' smart constructor.
 data GetTableVersionsResponse = GetTableVersionsResponse'
-  { _gtvrsTableVersions  :: {-# NOUNPACK #-}!(Maybe [TableVersion])
-  , _gtvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gtvrsTableVersions  :: !(Maybe [TableVersion])
+  , _gtvrsNextToken      :: !(Maybe Text)
+  , _gtvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

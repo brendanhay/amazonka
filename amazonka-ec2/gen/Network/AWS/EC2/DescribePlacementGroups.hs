@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describePlacementGroups' smart constructor.
 data DescribePlacementGroups = DescribePlacementGroups'
-  { _dpgsFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dpgsGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dpgsDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dpgsFilters    :: !(Maybe [Filter])
+  , _dpgsGroupNames :: !(Maybe [Text])
+  , _dpgsDryRun     :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToQuery DescribePlacementGroups where
 --
 -- /See:/ 'describePlacementGroupsResponse' smart constructor.
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
-  { _dpgrsPlacementGroups :: {-# NOUNPACK #-}!(Maybe [PlacementGroup])
-  , _dpgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dpgrsPlacementGroups :: !(Maybe [PlacementGroup])
+  , _dpgrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

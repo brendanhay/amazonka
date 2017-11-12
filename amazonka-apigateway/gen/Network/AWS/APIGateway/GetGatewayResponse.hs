@@ -54,8 +54,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getGatewayResponse' smart constructor.
 data GetGatewayResponse = GetGatewayResponse'
-  { _gggRestAPIId    :: {-# NOUNPACK #-}!Text
-  , _gggResponseType :: {-# NOUNPACK #-}!GatewayResponseType
+  { _gggRestAPIId    :: !Text
+  , _gggResponseType :: !GatewayResponseType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { _upName                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upDefaultJobTimeoutMinutes :: {-# NOUNPACK #-}!(Maybe Int)
-  , _upArn                      :: {-# NOUNPACK #-}!Text
+  { _upName                     :: !(Maybe Text)
+  , _upDefaultJobTimeoutMinutes :: !(Maybe Int)
+  , _upArn                      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,8 +130,8 @@ instance ToQuery UpdateProject where
 --
 -- /See:/ 'updateProjectResponse' smart constructor.
 data UpdateProjectResponse = UpdateProjectResponse'
-  { _uprsProject        :: {-# NOUNPACK #-}!(Maybe Project)
-  , _uprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uprsProject        :: !(Maybe Project)
+  , _uprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

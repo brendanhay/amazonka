@@ -54,11 +54,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'putApprovalResult' smart constructor.
 data PutApprovalResult = PutApprovalResult'
-  { _parPipelineName :: {-# NOUNPACK #-}!Text
-  , _parStageName    :: {-# NOUNPACK #-}!Text
-  , _parActionName   :: {-# NOUNPACK #-}!Text
-  , _parResult       :: {-# NOUNPACK #-}!ApprovalResult
-  , _parToken        :: {-# NOUNPACK #-}!Text
+  { _parPipelineName :: !Text
+  , _parStageName    :: !Text
+  , _parActionName   :: !Text
+  , _parResult       :: !ApprovalResult
+  , _parToken        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -157,8 +157,8 @@ instance ToQuery PutApprovalResult where
 --
 -- /See:/ 'putApprovalResultResponse' smart constructor.
 data PutApprovalResultResponse = PutApprovalResultResponse'
-  { _parrsApprovedAt     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _parrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _parrsApprovedAt     :: !(Maybe POSIX)
+  , _parrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

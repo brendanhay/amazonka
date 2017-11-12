@@ -55,8 +55,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listCollections' smart constructor.
 data ListCollections = ListCollections'
-  { _lcNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lcNextToken  :: !(Maybe Text)
+  , _lcMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,9 +127,9 @@ instance ToQuery ListCollections where
 
 -- | /See:/ 'listCollectionsResponse' smart constructor.
 data ListCollectionsResponse = ListCollectionsResponse'
-  { _lcrsCollectionIds  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcrsCollectionIds  :: !(Maybe [Text])
+  , _lcrsNextToken      :: !(Maybe Text)
+  , _lcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -90,8 +90,8 @@ instance ToQuery GetBucketRequestPayment where
 
 -- | /See:/ 'getBucketRequestPaymentResponse' smart constructor.
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
-  { _gbrprsPayer          :: {-# NOUNPACK #-}!(Maybe Payer)
-  , _gbrprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbrprsPayer          :: !(Maybe Payer)
+  , _gbrprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

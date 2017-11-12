@@ -115,8 +115,8 @@ instance ToQuery ShutdownGateway where
 --
 -- /See:/ 'shutdownGatewayResponse' smart constructor.
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
-  { _srsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _srsGatewayARN     :: !(Maybe Text)
+  , _srsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

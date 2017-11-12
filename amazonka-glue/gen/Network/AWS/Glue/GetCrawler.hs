@@ -99,8 +99,8 @@ instance ToQuery GetCrawler where
 
 -- | /See:/ 'getCrawlerResponse' smart constructor.
 data GetCrawlerResponse = GetCrawlerResponse'
-  { _getersCrawler        :: {-# NOUNPACK #-}!(Maybe Crawler)
-  , _getersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _getersCrawler        :: !(Maybe Crawler)
+  , _getersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

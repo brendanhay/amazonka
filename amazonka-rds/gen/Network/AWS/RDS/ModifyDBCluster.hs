@@ -61,18 +61,18 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyDBCluster' smart constructor.
 data ModifyDBCluster = ModifyDBCluster'
-  { _mdcMasterUserPassword              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mdcPreferredMaintenanceWindow      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mdcPreferredBackupWindow           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mdcBackupRetentionPeriod           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _mdcVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mdcDBClusterParameterGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mdcApplyImmediately                :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mdcOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mdcNewDBClusterIdentifier          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mdcPort                            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _mdcEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mdcDBClusterIdentifier             :: {-# NOUNPACK #-}!Text
+  { _mdcMasterUserPassword              :: !(Maybe Text)
+  , _mdcPreferredMaintenanceWindow      :: !(Maybe Text)
+  , _mdcPreferredBackupWindow           :: !(Maybe Text)
+  , _mdcBackupRetentionPeriod           :: !(Maybe Int)
+  , _mdcVPCSecurityGroupIds             :: !(Maybe [Text])
+  , _mdcDBClusterParameterGroupName     :: !(Maybe Text)
+  , _mdcApplyImmediately                :: !(Maybe Bool)
+  , _mdcOptionGroupName                 :: !(Maybe Text)
+  , _mdcNewDBClusterIdentifier          :: !(Maybe Text)
+  , _mdcPort                            :: !(Maybe Int)
+  , _mdcEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+  , _mdcDBClusterIdentifier             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -217,8 +217,8 @@ instance ToQuery ModifyDBCluster where
 
 -- | /See:/ 'modifyDBClusterResponse' smart constructor.
 data ModifyDBClusterResponse = ModifyDBClusterResponse'
-  { _mdcrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
-  , _mdcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mdcrsDBCluster      :: !(Maybe DBCluster)
+  , _mdcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

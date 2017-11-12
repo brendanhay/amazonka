@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeClusterVersions' smart constructor.
 data DescribeClusterVersions = DescribeClusterVersions'
-  { _dcvClusterParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcvMarker                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcvMaxRecords                  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dcvClusterVersion              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dcvClusterParameterGroupFamily :: !(Maybe Text)
+  , _dcvMarker                      :: !(Maybe Text)
+  , _dcvMaxRecords                  :: !(Maybe Int)
+  , _dcvClusterVersion              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery DescribeClusterVersions where
 --
 -- /See:/ 'describeClusterVersionsResponse' smart constructor.
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
-  { _dcvrsClusterVersions :: {-# NOUNPACK #-}!(Maybe [ClusterVersion])
-  , _dcvrsMarker          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcvrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dcvrsClusterVersions :: !(Maybe [ClusterVersion])
+  , _dcvrsMarker          :: !(Maybe Text)
+  , _dcvrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,12 +54,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'createStreamingURL' smart constructor.
 data CreateStreamingURL = CreateStreamingURL'
-  { _csuSessionContext :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csuApplicationId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csuValidity       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _csuStackName      :: {-# NOUNPACK #-}!Text
-  , _csuFleetName      :: {-# NOUNPACK #-}!Text
-  , _csuUserId         :: {-# NOUNPACK #-}!Text
+  { _csuSessionContext :: !(Maybe Text)
+  , _csuApplicationId  :: !(Maybe Text)
+  , _csuValidity       :: !(Maybe Integer)
+  , _csuStackName      :: !Text
+  , _csuFleetName      :: !Text
+  , _csuUserId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -162,9 +162,9 @@ instance ToQuery CreateStreamingURL where
 
 -- | /See:/ 'createStreamingURLResponse' smart constructor.
 data CreateStreamingURLResponse = CreateStreamingURLResponse'
-  { _csursStreamingURL   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csursExpires        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _csursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csursStreamingURL   :: !(Maybe Text)
+  , _csursExpires        :: !(Maybe POSIX)
+  , _csursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

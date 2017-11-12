@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createParameterGroup' smart constructor.
 data CreateParameterGroup = CreateParameterGroup'
-  { _cpgDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpgParameterGroupName :: {-# NOUNPACK #-}!Text
+  { _cpgDescription        :: !(Maybe Text)
+  , _cpgParameterGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery CreateParameterGroup where
 
 -- | /See:/ 'createParameterGroupResponse' smart constructor.
 data CreateParameterGroupResponse = CreateParameterGroupResponse'
-  { _cpgrsParameterGroup :: {-# NOUNPACK #-}!(Maybe ParameterGroup)
-  , _cpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cpgrsParameterGroup :: !(Maybe ParameterGroup)
+  , _cpgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

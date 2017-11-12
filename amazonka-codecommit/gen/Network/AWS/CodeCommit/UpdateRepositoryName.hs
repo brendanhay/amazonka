@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateRepositoryName' smart constructor.
 data UpdateRepositoryName = UpdateRepositoryName'
-  { _urnOldName :: {-# NOUNPACK #-}!Text
-  , _urnNewName :: {-# NOUNPACK #-}!Text
+  { _urnOldName :: !Text
+  , _urnNewName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

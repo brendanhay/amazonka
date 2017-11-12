@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'pollForThirdPartyJobs' smart constructor.
 data PollForThirdPartyJobs = PollForThirdPartyJobs'
-  { _pftpjMaxBatchSize :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _pftpjActionTypeId :: {-# NOUNPACK #-}!ActionTypeId
+  { _pftpjMaxBatchSize :: !(Maybe Nat)
+  , _pftpjActionTypeId :: !ActionTypeId
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery PollForThirdPartyJobs where
 --
 -- /See:/ 'pollForThirdPartyJobsResponse' smart constructor.
 data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
-  { _pftpjrsJobs           :: {-# NOUNPACK #-}!(Maybe [ThirdPartyJob])
-  , _pftpjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pftpjrsJobs           :: !(Maybe [ThirdPartyJob])
+  , _pftpjrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

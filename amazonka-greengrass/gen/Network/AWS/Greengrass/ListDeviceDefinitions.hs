@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listDeviceDefinitions' smart constructor.
 data ListDeviceDefinitions = ListDeviceDefinitions'
-  { _lddNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lddMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lddNextToken  :: !(Maybe Text)
+  , _lddMaxResults :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -106,9 +106,9 @@ instance ToQuery ListDeviceDefinitions where
 
 -- | /See:/ 'listDeviceDefinitionsResponse' smart constructor.
 data ListDeviceDefinitionsResponse = ListDeviceDefinitionsResponse'
-  { _lddrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lddrsDefinitions    :: {-# NOUNPACK #-}!(Maybe [DefinitionInformation])
-  , _lddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lddrsNextToken      :: !(Maybe Text)
+  , _lddrsDefinitions    :: !(Maybe [DefinitionInformation])
+  , _lddrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

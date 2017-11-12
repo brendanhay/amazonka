@@ -56,11 +56,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'importInstance' smart constructor.
 data ImportInstance = ImportInstance'
-  { _iiLaunchSpecification :: {-# NOUNPACK #-}!(Maybe ImportInstanceLaunchSpecification)
-  , _iiDiskImages :: {-# NOUNPACK #-}!(Maybe [DiskImage])
-  , _iiDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iiDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _iiPlatform :: {-# NOUNPACK #-}!PlatformValues
+  { _iiLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
+  , _iiDiskImages          :: !(Maybe [DiskImage])
+  , _iiDescription         :: !(Maybe Text)
+  , _iiDryRun              :: !(Maybe Bool)
+  , _iiPlatform            :: !PlatformValues
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -145,8 +145,8 @@ instance ToQuery ImportInstance where
 --
 -- /See:/ 'importInstanceResponse' smart constructor.
 data ImportInstanceResponse = ImportInstanceResponse'
-  { _iirsConversionTask :: {-# NOUNPACK #-}!(Maybe ConversionTask)
-  , _iirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _iirsConversionTask :: !(Maybe ConversionTask)
+  , _iirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

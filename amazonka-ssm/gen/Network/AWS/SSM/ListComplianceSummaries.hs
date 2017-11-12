@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listComplianceSummaries' smart constructor.
 data ListComplianceSummaries = ListComplianceSummaries'
-  { _lcsFilters    :: {-# NOUNPACK #-}!(Maybe [ComplianceStringFilter])
-  , _lcsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcsMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lcsFilters    :: !(Maybe [ComplianceStringFilter])
+  , _lcsNextToken  :: !(Maybe Text)
+  , _lcsMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery ListComplianceSummaries where
 
 -- | /See:/ 'listComplianceSummariesResponse' smart constructor.
 data ListComplianceSummariesResponse = ListComplianceSummariesResponse'
-  { _lcsrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcsrsComplianceSummaryItems :: {-# NOUNPACK #-}!(Maybe [ComplianceSummaryItem])
-  , _lcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcsrsNextToken              :: !(Maybe Text)
+  , _lcsrsComplianceSummaryItems :: !(Maybe [ComplianceSummaryItem])
+  , _lcsrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

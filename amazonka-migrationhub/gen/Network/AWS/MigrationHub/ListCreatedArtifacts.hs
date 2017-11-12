@@ -58,10 +58,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listCreatedArtifacts' smart constructor.
 data ListCreatedArtifacts = ListCreatedArtifacts'
-  { _lcaNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcaMaxResults           :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lcaProgressUpdateStream :: {-# NOUNPACK #-}!Text
-  , _lcaMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  { _lcaNextToken            :: !(Maybe Text)
+  , _lcaMaxResults           :: !(Maybe Nat)
+  , _lcaProgressUpdateStream :: !Text
+  , _lcaMigrationTaskName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery ListCreatedArtifacts where
 
 -- | /See:/ 'listCreatedArtifactsResponse' smart constructor.
 data ListCreatedArtifactsResponse = ListCreatedArtifactsResponse'
-  { _lcarsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcarsCreatedArtifactList :: {-# NOUNPACK #-}!(Maybe [CreatedArtifact])
-  , _lcarsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _lcarsNextToken           :: !(Maybe Text)
+  , _lcarsCreatedArtifactList :: !(Maybe [CreatedArtifact])
+  , _lcarsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

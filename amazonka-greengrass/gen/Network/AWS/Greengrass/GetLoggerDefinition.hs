@@ -108,14 +108,14 @@ instance ToQuery GetLoggerDefinition where
 
 -- | /See:/ 'getLoggerDefinitionResponse' smart constructor.
 data GetLoggerDefinitionResponse = GetLoggerDefinitionResponse'
-  { _gldrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _gldrsLatestVersionARN     :: !(Maybe Text)
+  , _gldrsARN                  :: !(Maybe Text)
+  , _gldrsName                 :: !(Maybe Text)
+  , _gldrsCreationTimestamp    :: !(Maybe Text)
+  , _gldrsId                   :: !(Maybe Text)
+  , _gldrsLatestVersion        :: !(Maybe Text)
+  , _gldrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _gldrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

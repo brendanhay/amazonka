@@ -59,8 +59,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putRecord' smart constructor.
 data PutRecord = PutRecord'
-  { _prDeliveryStreamName :: {-# NOUNPACK #-}!Text
-  , _prRecord             :: {-# NOUNPACK #-}!Record
+  { _prDeliveryStreamName :: !Text
+  , _prRecord             :: !Record
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery PutRecord where
 
 -- | /See:/ 'putRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'
-  { _prrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _prrsRecordId       :: {-# NOUNPACK #-}!Text
+  { _prrsResponseStatus :: !Int
+  , _prrsRecordId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

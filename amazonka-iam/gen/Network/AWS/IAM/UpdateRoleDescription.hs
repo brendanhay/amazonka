@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateRoleDescription' smart constructor.
 data UpdateRoleDescription = UpdateRoleDescription'
-  { _urdRoleName    :: {-# NOUNPACK #-}!Text
-  , _urdDescription :: {-# NOUNPACK #-}!Text
+  { _urdRoleName    :: !Text
+  , _urdDescription :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -106,8 +106,8 @@ instance ToQuery UpdateRoleDescription where
 
 -- | /See:/ 'updateRoleDescriptionResponse' smart constructor.
 data UpdateRoleDescriptionResponse = UpdateRoleDescriptionResponse'
-  { _urdrsRole           :: {-# NOUNPACK #-}!(Maybe Role)
-  , _urdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _urdrsRole           :: !(Maybe Role)
+  , _urdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

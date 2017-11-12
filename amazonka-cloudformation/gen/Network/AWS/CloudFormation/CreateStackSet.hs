@@ -53,14 +53,14 @@ import Network.AWS.Response
 
 -- | /See:/ 'createStackSet' smart constructor.
 data CreateStackSet = CreateStackSet'
-  { _cssParameters         :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _cssTemplateBody       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cssTemplateURL        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cssClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cssDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cssCapabilities       :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _cssTags               :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cssStackSetName       :: {-# NOUNPACK #-}!Text
+  { _cssParameters         :: !(Maybe [Parameter])
+  , _cssTemplateBody       :: !(Maybe Text)
+  , _cssTemplateURL        :: !(Maybe Text)
+  , _cssClientRequestToken :: !(Maybe Text)
+  , _cssDescription        :: !(Maybe Text)
+  , _cssCapabilities       :: !(Maybe [Capability])
+  , _cssTags               :: !(Maybe [Tag])
+  , _cssStackSetName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -169,8 +169,8 @@ instance ToQuery CreateStackSet where
 
 -- | /See:/ 'createStackSetResponse' smart constructor.
 data CreateStackSetResponse = CreateStackSetResponse'
-  { _cssrsStackSetId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cssrsStackSetId     :: !(Maybe Text)
+  , _cssrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

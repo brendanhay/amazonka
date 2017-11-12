@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateOrganizationalUnit' smart constructor.
 data UpdateOrganizationalUnit = UpdateOrganizationalUnit'
-  { _uouName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uouOrganizationalUnitId :: {-# NOUNPACK #-}!Text
+  { _uouName                 :: !(Maybe Text)
+  , _uouOrganizationalUnitId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery UpdateOrganizationalUnit where
 
 -- | /See:/ 'updateOrganizationalUnitResponse' smart constructor.
 data UpdateOrganizationalUnitResponse = UpdateOrganizationalUnitResponse'
-  { _uoursOrganizationalUnit :: {-# NOUNPACK #-}!(Maybe OrganizationalUnit)
-  , _uoursResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _uoursOrganizationalUnit :: !(Maybe OrganizationalUnit)
+  , _uoursResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

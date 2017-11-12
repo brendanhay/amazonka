@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDeployments' smart constructor.
 data GetDeployments = GetDeployments'
-  { _gdLimit     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gdPosition  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdRestAPIId :: {-# NOUNPACK #-}!Text
+  { _gdLimit     :: !(Maybe Int)
+  , _gdPosition  :: !(Maybe Text)
+  , _gdRestAPIId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery GetDeployments where
 --
 -- /See:/ 'getDeploymentsResponse' smart constructor.
 data GetDeploymentsResponse = GetDeploymentsResponse'
-  { _gdrsItems          :: {-# NOUNPACK #-}!(Maybe [Deployment])
-  , _gdrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdrsItems          :: !(Maybe [Deployment])
+  , _gdrsPosition       :: !(Maybe Text)
+  , _gdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

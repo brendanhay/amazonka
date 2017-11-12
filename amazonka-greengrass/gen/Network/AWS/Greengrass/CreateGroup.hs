@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { _cgAmznClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgInitialVersion  :: {-# NOUNPACK #-}!(Maybe GroupVersion)
-  , _cgName            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cgAmznClientToken :: !(Maybe Text)
+  , _cgInitialVersion  :: !(Maybe GroupVersion)
+  , _cgName            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,14 +127,14 @@ instance ToQuery CreateGroup where
 
 -- | /See:/ 'createGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-  { _cgrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _cgrsLatestVersionARN     :: !(Maybe Text)
+  , _cgrsARN                  :: !(Maybe Text)
+  , _cgrsName                 :: !(Maybe Text)
+  , _cgrsCreationTimestamp    :: !(Maybe Text)
+  , _cgrsId                   :: !(Maybe Text)
+  , _cgrsLatestVersion        :: !(Maybe Text)
+  , _cgrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _cgrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

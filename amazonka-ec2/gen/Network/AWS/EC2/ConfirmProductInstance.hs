@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'confirmProductInstance' smart constructor.
 data ConfirmProductInstance = ConfirmProductInstance'
-  { _cpiDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cpiInstanceId  :: {-# NOUNPACK #-}!Text
-  , _cpiProductCode :: {-# NOUNPACK #-}!Text
+  { _cpiDryRun      :: !(Maybe Bool)
+  , _cpiInstanceId  :: !Text
+  , _cpiProductCode :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,9 +129,9 @@ instance ToQuery ConfirmProductInstance where
 --
 -- /See:/ 'confirmProductInstanceResponse' smart constructor.
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
-  { _cpirsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cpirsOwnerId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cpirsReturn         :: !(Maybe Bool)
+  , _cpirsOwnerId        :: !(Maybe Text)
+  , _cpirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

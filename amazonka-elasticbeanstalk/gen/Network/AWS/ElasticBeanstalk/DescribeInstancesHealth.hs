@@ -55,10 +55,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeInstancesHealth' smart constructor.
 data DescribeInstancesHealth = DescribeInstancesHealth'
-  { _dihNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dihEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dihAttributeNames  :: {-# NOUNPACK #-}!(Maybe [InstancesHealthAttribute])
-  , _dihEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dihNextToken       :: !(Maybe Text)
+  , _dihEnvironmentName :: !(Maybe Text)
+  , _dihAttributeNames  :: !(Maybe [InstancesHealthAttribute])
+  , _dihEnvironmentId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -143,10 +143,10 @@ instance ToQuery DescribeInstancesHealth where
 --
 -- /See:/ 'describeInstancesHealthResponse' smart constructor.
 data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
-  { _dihrsInstanceHealthList :: {-# NOUNPACK #-}!(Maybe [SingleInstanceHealth])
-  , _dihrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dihrsRefreshedAt        :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dihrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _dihrsInstanceHealthList :: !(Maybe [SingleInstanceHealth])
+  , _dihrsNextToken          :: !(Maybe Text)
+  , _dihrsRefreshedAt        :: !(Maybe ISO8601)
+  , _dihrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

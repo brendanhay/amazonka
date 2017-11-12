@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listServices' smart constructor.
 data ListServices = ListServices'
-  { _lsCluster    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _lsCluster    :: !(Maybe Text)
+  , _lsNextToken  :: !(Maybe Text)
+  , _lsMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,9 +134,9 @@ instance ToQuery ListServices where
 
 -- | /See:/ 'listServicesResponse' smart constructor.
 data ListServicesResponse = ListServicesResponse'
-  { _lsrsServiceARNs    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lsrsServiceARNs    :: !(Maybe [Text])
+  , _lsrsNextToken      :: !(Maybe Text)
+  , _lsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

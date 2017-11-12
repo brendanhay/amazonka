@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'stopDBInstance' smart constructor.
 data StopDBInstance = StopDBInstance'
-  { _sdiDBSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdiDBInstanceIdentifier :: {-# NOUNPACK #-}!Text
+  { _sdiDBSnapshotIdentifier :: !(Maybe Text)
+  , _sdiDBInstanceIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -106,8 +106,8 @@ instance ToQuery StopDBInstance where
 
 -- | /See:/ 'stopDBInstanceResponse' smart constructor.
 data StopDBInstanceResponse = StopDBInstanceResponse'
-  { _sdirsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
-  , _sdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sdirsDBInstance     :: !(Maybe DBInstance)
+  , _sdirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

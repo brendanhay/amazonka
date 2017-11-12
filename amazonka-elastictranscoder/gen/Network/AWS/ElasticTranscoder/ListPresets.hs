@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listPresets' smart constructor.
 data ListPresets = ListPresets'
-  { _lAscending :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lPageToken :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lAscending :: !(Maybe Text)
+  , _lPageToken :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,9 +120,9 @@ instance ToQuery ListPresets where
 --
 -- /See:/ 'listPresetsResponse' smart constructor.
 data ListPresetsResponse = ListPresetsResponse'
-  { _lrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsPresets        :: {-# NOUNPACK #-}!(Maybe [Preset])
-  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrsNextPageToken  :: !(Maybe Text)
+  , _lrsPresets        :: !(Maybe [Preset])
+  , _lrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

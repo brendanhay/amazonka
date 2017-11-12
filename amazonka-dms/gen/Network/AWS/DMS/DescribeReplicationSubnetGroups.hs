@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeReplicationSubnetGroups' smart constructor.
 data DescribeReplicationSubnetGroups = DescribeReplicationSubnetGroups'
-  { _drsgFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _drsgMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsgMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  { _drsgFilters    :: !(Maybe [Filter])
+  , _drsgMarker     :: !(Maybe Text)
+  , _drsgMaxRecords :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery DescribeReplicationSubnetGroups
 --
 -- /See:/ 'describeReplicationSubnetGroupsResponse' smart constructor.
 data DescribeReplicationSubnetGroupsResponse = DescribeReplicationSubnetGroupsResponse'
-  { _drsgsrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsgsrsReplicationSubnetGroups :: {-# NOUNPACK #-}!(Maybe [ReplicationSubnetGroup])
-  , _drsgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsgsrsMarker                  :: !(Maybe Text)
+  , _drsgsrsReplicationSubnetGroups :: !(Maybe [ReplicationSubnetGroup])
+  , _drsgsrsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

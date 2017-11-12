@@ -47,8 +47,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeDocumentPermission' smart constructor.
 data DescribeDocumentPermission = DescribeDocumentPermission'
-  { _ddpName           :: {-# NOUNPACK #-}!Text
-  , _ddpPermissionType :: {-# NOUNPACK #-}!DocumentPermissionType
+  { _ddpName           :: !Text
+  , _ddpPermissionType :: !DocumentPermissionType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,8 +116,8 @@ instance ToQuery DescribeDocumentPermission where
 
 -- | /See:/ 'describeDocumentPermissionResponse' smart constructor.
 data DescribeDocumentPermissionResponse = DescribeDocumentPermissionResponse'
-  { _ddprsAccountIds     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ddprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddprsAccountIds     :: !(Maybe [Text])
+  , _ddprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

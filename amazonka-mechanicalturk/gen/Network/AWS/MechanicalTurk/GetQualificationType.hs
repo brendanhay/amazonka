@@ -105,8 +105,8 @@ instance ToQuery GetQualificationType where
 
 -- | /See:/ 'getQualificationTypeResponse' smart constructor.
 data GetQualificationTypeResponse = GetQualificationTypeResponse'
-  { _gqtrsQualificationType :: {-# NOUNPACK #-}!(Maybe QualificationType)
-  , _gqtrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gqtrsQualificationType :: !(Maybe QualificationType)
+  , _gqtrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

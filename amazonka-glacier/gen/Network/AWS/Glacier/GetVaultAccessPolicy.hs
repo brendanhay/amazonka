@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getVaultAccessPolicy' smart constructor.
 data GetVaultAccessPolicy = GetVaultAccessPolicy'
-  { _gvapAccountId :: {-# NOUNPACK #-}!Text
-  , _gvapVaultName :: {-# NOUNPACK #-}!Text
+  { _gvapAccountId :: !Text
+  , _gvapVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery GetVaultAccessPolicy where
 --
 -- /See:/ 'getVaultAccessPolicyResponse' smart constructor.
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
-  { _gvaprsPolicy         :: {-# NOUNPACK #-}!(Maybe VaultAccessPolicy)
-  , _gvaprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gvaprsPolicy         :: !(Maybe VaultAccessPolicy)
+  , _gvaprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

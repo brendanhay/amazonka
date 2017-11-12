@@ -54,12 +54,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDocumentationParts' smart constructor.
 data GetDocumentationParts = GetDocumentationParts'
-  { _gdpPath      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdpNameQuery :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdpLimit     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gdpType      :: {-# NOUNPACK #-}!(Maybe DocumentationPartType)
-  , _gdpPosition  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdpRestAPIId :: {-# NOUNPACK #-}!Text
+  { _gdpPath      :: !(Maybe Text)
+  , _gdpNameQuery :: !(Maybe Text)
+  , _gdpLimit     :: !(Maybe Int)
+  , _gdpType      :: !(Maybe DocumentationPartType)
+  , _gdpPosition  :: !(Maybe Text)
+  , _gdpRestAPIId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -157,9 +157,9 @@ instance ToQuery GetDocumentationParts where
 --
 -- /See:/ 'getDocumentationPartsResponse' smart constructor.
 data GetDocumentationPartsResponse = GetDocumentationPartsResponse'
-  { _gdprsItems          :: {-# NOUNPACK #-}!(Maybe [DocumentationPart])
-  , _gdprsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdprsItems          :: !(Maybe [DocumentationPart])
+  , _gdprsPosition       :: !(Maybe Text)
+  , _gdprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

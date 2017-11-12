@@ -116,8 +116,8 @@ instance ToQuery DeleteDirectConnectGateway where
 --
 -- /See:/ 'deleteDirectConnectGatewayResponse' smart constructor.
 data DeleteDirectConnectGatewayResponse = DeleteDirectConnectGatewayResponse'
-  { _ddcgdrsDirectConnectGateway :: {-# NOUNPACK #-}!(Maybe DirectConnectGateway)
-  , _ddcgdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddcgdrsDirectConnectGateway :: !(Maybe DirectConnectGateway)
+  , _ddcgdrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

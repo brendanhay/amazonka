@@ -80,16 +80,16 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'listClosedWorkflowExecutions' smart constructor.
 data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
-  { _lcweNextPageToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcweExecutionFilter   :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionFilter)
-  , _lcweCloseStatusFilter :: {-# NOUNPACK #-}!(Maybe CloseStatusFilter)
-  , _lcweTypeFilter        :: {-# NOUNPACK #-}!(Maybe WorkflowTypeFilter)
-  , _lcweCloseTimeFilter   :: {-# NOUNPACK #-}!(Maybe ExecutionTimeFilter)
-  , _lcweReverseOrder      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lcweTagFilter         :: {-# NOUNPACK #-}!(Maybe TagFilter)
-  , _lcweStartTimeFilter   :: {-# NOUNPACK #-}!(Maybe ExecutionTimeFilter)
-  , _lcweMaximumPageSize   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lcweDomain            :: {-# NOUNPACK #-}!Text
+  { _lcweNextPageToken     :: !(Maybe Text)
+  , _lcweExecutionFilter   :: !(Maybe WorkflowExecutionFilter)
+  , _lcweCloseStatusFilter :: !(Maybe CloseStatusFilter)
+  , _lcweTypeFilter        :: !(Maybe WorkflowTypeFilter)
+  , _lcweCloseTimeFilter   :: !(Maybe ExecutionTimeFilter)
+  , _lcweReverseOrder      :: !(Maybe Bool)
+  , _lcweTagFilter         :: !(Maybe TagFilter)
+  , _lcweStartTimeFilter   :: !(Maybe ExecutionTimeFilter)
+  , _lcweMaximumPageSize   :: !(Maybe Nat)
+  , _lcweDomain            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

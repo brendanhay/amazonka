@@ -59,14 +59,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'createJob' smart constructor.
 data CreateJob = CreateJob'
-  { _cjInputs          :: {-# NOUNPACK #-}!(Maybe [JobInput])
-  , _cjInput           :: {-# NOUNPACK #-}!(Maybe JobInput)
-  , _cjUserMetadata    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cjOutputs         :: {-# NOUNPACK #-}!(Maybe [CreateJobOutput])
-  , _cjOutput          :: {-# NOUNPACK #-}!(Maybe CreateJobOutput)
-  , _cjPlaylists       :: {-# NOUNPACK #-}!(Maybe [CreateJobPlaylist])
-  , _cjOutputKeyPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cjPipelineId      :: {-# NOUNPACK #-}!Text
+  { _cjInputs          :: !(Maybe [JobInput])
+  , _cjInput           :: !(Maybe JobInput)
+  , _cjUserMetadata    :: !(Maybe (Map Text Text))
+  , _cjOutputs         :: !(Maybe [CreateJobOutput])
+  , _cjOutput          :: !(Maybe CreateJobOutput)
+  , _cjPlaylists       :: !(Maybe [CreateJobPlaylist])
+  , _cjOutputKeyPrefix :: !(Maybe Text)
+  , _cjPipelineId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -178,8 +178,8 @@ instance ToQuery CreateJob where
 --
 -- /See:/ 'createJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { _cjrsJob            :: {-# NOUNPACK #-}!(Maybe Job')
-  , _cjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cjrsJob            :: !(Maybe Job')
+  , _cjrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

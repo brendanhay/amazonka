@@ -53,10 +53,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'startExportTask' smart constructor.
 data StartExportTask = StartExportTask'
-  { _setExportDataFormat :: {-# NOUNPACK #-}!(Maybe [ExportDataFormat])
-  , _setStartTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _setFilters          :: {-# NOUNPACK #-}!(Maybe [ExportFilter])
-  , _setEndTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _setExportDataFormat :: !(Maybe [ExportDataFormat])
+  , _setStartTime        :: !(Maybe POSIX)
+  , _setFilters          :: !(Maybe [ExportFilter])
+  , _setEndTime          :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery StartExportTask where
 
 -- | /See:/ 'startExportTaskResponse' smart constructor.
 data StartExportTaskResponse = StartExportTaskResponse'
-  { _setrsExportId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _setrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _setrsExportId       :: !(Maybe Text)
+  , _setrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

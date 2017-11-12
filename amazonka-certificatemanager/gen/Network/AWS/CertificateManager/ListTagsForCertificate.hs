@@ -104,8 +104,8 @@ instance ToQuery ListTagsForCertificate where
 
 -- | /See:/ 'listTagsForCertificateResponse' smart constructor.
 data ListTagsForCertificateResponse = ListTagsForCertificateResponse'
-  { _ltfcrsTags           :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
-  , _ltfcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltfcrsTags           :: !(Maybe (List1 Tag))
+  , _ltfcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

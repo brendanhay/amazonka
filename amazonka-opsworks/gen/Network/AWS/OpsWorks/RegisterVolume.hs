@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'registerVolume' smart constructor.
 data RegisterVolume = RegisterVolume'
-  { _rvEC2VolumeId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rvStackId     :: {-# NOUNPACK #-}!Text
+  { _rvEC2VolumeId :: !(Maybe Text)
+  , _rvStackId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,8 +117,8 @@ instance ToQuery RegisterVolume where
 --
 -- /See:/ 'registerVolumeResponse' smart constructor.
 data RegisterVolumeResponse = RegisterVolumeResponse'
-  { _rvrsVolumeId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rvrsVolumeId       :: !(Maybe Text)
+  , _rvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

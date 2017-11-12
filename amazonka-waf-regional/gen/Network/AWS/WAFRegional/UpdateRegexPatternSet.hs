@@ -78,9 +78,9 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'updateRegexPatternSet' smart constructor.
 data UpdateRegexPatternSet = UpdateRegexPatternSet'
-  { _urpsRegexPatternSetId :: {-# NOUNPACK #-}!Text
-  , _urpsUpdates           :: {-# NOUNPACK #-}!(List1 RegexPatternSetUpdate)
-  , _urpsChangeToken       :: {-# NOUNPACK #-}!Text
+  { _urpsRegexPatternSetId :: !Text
+  , _urpsUpdates           :: !(List1 RegexPatternSetUpdate)
+  , _urpsChangeToken       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -159,8 +159,8 @@ instance ToQuery UpdateRegexPatternSet where
 
 -- | /See:/ 'updateRegexPatternSetResponse' smart constructor.
 data UpdateRegexPatternSetResponse = UpdateRegexPatternSetResponse'
-  { _urpsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _urpsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _urpsrsChangeToken    :: !(Maybe Text)
+  , _urpsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

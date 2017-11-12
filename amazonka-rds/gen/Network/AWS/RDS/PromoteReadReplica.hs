@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'promoteReadReplica' smart constructor.
 data PromoteReadReplica = PromoteReadReplica'
-  { _prrPreferredBackupWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prrBackupRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
-  , _prrDBInstanceIdentifier  :: {-# NOUNPACK #-}!Text
+  { _prrPreferredBackupWindow :: !(Maybe Text)
+  , _prrBackupRetentionPeriod :: !(Maybe Int)
+  , _prrDBInstanceIdentifier  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery PromoteReadReplica where
 
 -- | /See:/ 'promoteReadReplicaResponse' smart constructor.
 data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
-  { _prrrsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
-  , _prrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _prrrsDBInstance     :: !(Maybe DBInstance)
+  , _prrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

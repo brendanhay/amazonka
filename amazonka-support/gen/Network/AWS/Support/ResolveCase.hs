@@ -109,9 +109,9 @@ instance ToQuery ResolveCase where
 --
 -- /See:/ 'resolveCaseResponse' smart constructor.
 data ResolveCaseResponse = ResolveCaseResponse'
-  { _rcrsInitialCaseStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcrsFinalCaseStatus   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _rcrsInitialCaseStatus :: !(Maybe Text)
+  , _rcrsFinalCaseStatus   :: !(Maybe Text)
+  , _rcrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

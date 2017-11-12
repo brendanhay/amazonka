@@ -100,8 +100,8 @@ instance ToQuery GetHealthCheck where
 --
 -- /See:/ 'getHealthCheckResponse' smart constructor.
 data GetHealthCheckResponse = GetHealthCheckResponse'
-  { _ghcrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ghcrsHealthCheck    :: {-# NOUNPACK #-}!HealthCheck
+  { _ghcrsResponseStatus :: !Int
+  , _ghcrsHealthCheck    :: !HealthCheck
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

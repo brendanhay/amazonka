@@ -54,10 +54,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
-  { _uupSshPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uupEmailAddress :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _uupDisplayName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uupUserARN      :: {-# NOUNPACK #-}!Text
+  { _uupSshPublicKey :: !(Maybe Text)
+  , _uupEmailAddress :: !(Maybe (Sensitive Text))
+  , _uupDisplayName  :: !(Maybe Text)
+  , _uupUserARN      :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -146,13 +146,13 @@ instance ToQuery UpdateUserProfile where
 
 -- | /See:/ 'updateUserProfileResponse' smart constructor.
 data UpdateUserProfileResponse = UpdateUserProfileResponse'
-  { _uuprsLastModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _uuprsSshPublicKey          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uuprsEmailAddress          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _uuprsDisplayName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uuprsCreatedTimestamp      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _uuprsResponseStatus        :: {-# NOUNPACK #-}!Int
-  , _uuprsUserARN               :: {-# NOUNPACK #-}!Text
+  { _uuprsLastModifiedTimestamp :: !(Maybe POSIX)
+  , _uuprsSshPublicKey          :: !(Maybe Text)
+  , _uuprsEmailAddress          :: !(Maybe (Sensitive Text))
+  , _uuprsDisplayName           :: !(Maybe Text)
+  , _uuprsCreatedTimestamp      :: !(Maybe POSIX)
+  , _uuprsResponseStatus        :: !Int
+  , _uuprsUserARN               :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

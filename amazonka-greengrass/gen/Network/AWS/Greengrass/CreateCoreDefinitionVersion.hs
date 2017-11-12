@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createCoreDefinitionVersion' smart constructor.
 data CreateCoreDefinitionVersion = CreateCoreDefinitionVersion'
-  { _ccdvAmznClientToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdvCores            :: {-# NOUNPACK #-}!(Maybe [Core])
-  , _ccdvCoreDefinitionId :: {-# NOUNPACK #-}!Text
+  { _ccdvAmznClientToken  :: !(Maybe Text)
+  , _ccdvCores            :: !(Maybe [Core])
+  , _ccdvCoreDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,11 +126,11 @@ instance ToQuery CreateCoreDefinitionVersion where
 
 -- | /See:/ 'createCoreDefinitionVersionResponse' smart constructor.
 data CreateCoreDefinitionVersionResponse = CreateCoreDefinitionVersionResponse'
-  { _ccdvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _ccdvrsARN               :: !(Maybe Text)
+  , _ccdvrsCreationTimestamp :: !(Maybe Text)
+  , _ccdvrsVersion           :: !(Maybe Text)
+  , _ccdvrsId                :: !(Maybe Text)
+  , _ccdvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

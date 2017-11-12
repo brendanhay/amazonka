@@ -105,9 +105,9 @@ instance ToQuery CheckDNSAvailability where
 --
 -- /See:/ 'checkDNSAvailabilityResponse' smart constructor.
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
-  { _cdarsFullyQualifiedCNAME :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdarsAvailable           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdarsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _cdarsFullyQualifiedCNAME :: !(Maybe Text)
+  , _cdarsAvailable           :: !(Maybe Bool)
+  , _cdarsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'abortEnvironmentUpdate' smart constructor.
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
-  { _aeuEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aeuEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aeuEnvironmentName :: !(Maybe Text)
+  , _aeuEnvironmentId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

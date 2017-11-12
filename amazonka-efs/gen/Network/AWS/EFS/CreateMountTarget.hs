@@ -120,10 +120,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createMountTarget' smart constructor.
 data CreateMountTarget = CreateMountTarget'
-  { _cmtIPAddress      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmtSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cmtFileSystemId   :: {-# NOUNPACK #-}!Text
-  , _cmtSubnetId       :: {-# NOUNPACK #-}!Text
+  { _cmtIPAddress      :: !(Maybe Text)
+  , _cmtSecurityGroups :: !(Maybe [Text])
+  , _cmtFileSystemId   :: !Text
+  , _cmtSubnetId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

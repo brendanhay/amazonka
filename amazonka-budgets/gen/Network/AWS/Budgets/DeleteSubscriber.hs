@@ -48,10 +48,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteSubscriber' smart constructor.
 data DeleteSubscriber = DeleteSubscriber'
-  { _dsAccountId    :: {-# NOUNPACK #-}!Text
-  , _dsBudgetName   :: {-# NOUNPACK #-}!Text
-  , _dsNotification :: {-# NOUNPACK #-}!Notification
-  , _dsSubscriber   :: {-# NOUNPACK #-}!Subscriber
+  { _dsAccountId    :: !Text
+  , _dsBudgetName   :: !Text
+  , _dsNotification :: !Notification
+  , _dsSubscriber   :: !Subscriber
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

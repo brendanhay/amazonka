@@ -84,9 +84,9 @@ instance ToQuery GetServiceRoleForAccount where
 
 -- | /See:/ 'getServiceRoleForAccountResponse' smart constructor.
 data GetServiceRoleForAccountResponse = GetServiceRoleForAccountResponse'
-  { _gsrfarsAssociatedAt   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsrfarsRoleARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsrfarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsrfarsAssociatedAt   :: !(Maybe Text)
+  , _gsrfarsRoleARN        :: !(Maybe Text)
+  , _gsrfarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

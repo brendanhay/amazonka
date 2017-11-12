@@ -51,8 +51,8 @@ import Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'listDomains' smart constructor.
 data ListDomains = ListDomains'
-  { _ldMaxNumberOfDomains :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ldNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ldMaxNumberOfDomains :: !(Maybe Int)
+  , _ldNextToken          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,9 +115,9 @@ instance ToQuery ListDomains where
 
 -- | /See:/ 'listDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { _ldrsDomainNames    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ldrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ldrsDomainNames    :: !(Maybe [Text])
+  , _ldrsNextToken      :: !(Maybe Text)
+  , _ldrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

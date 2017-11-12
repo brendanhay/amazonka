@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listUserProfiles' smart constructor.
 data ListUserProfiles = ListUserProfiles'
-  { _lupNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lupMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lupNextToken  :: !(Maybe Text)
+  , _lupMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,9 +112,9 @@ instance ToQuery ListUserProfiles where
 
 -- | /See:/ 'listUserProfilesResponse' smart constructor.
 data ListUserProfilesResponse = ListUserProfilesResponse'
-  { _luprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _luprsUserProfiles   :: {-# NOUNPACK #-}![UserProfileSummary]
+  { _luprsNextToken      :: !(Maybe Text)
+  , _luprsResponseStatus :: !Int
+  , _luprsUserProfiles   :: ![UserProfileSummary]
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeConnections' smart constructor.
 data DescribeConnections = DescribeConnections'
-  { _dcFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dcMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dcFilters    :: !(Maybe [Filter])
+  , _dcMarker     :: !(Maybe Text)
+  , _dcMaxRecords :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,9 +132,9 @@ instance ToQuery DescribeConnections where
 --
 -- /See:/ 'describeConnectionsResponse' smart constructor.
 data DescribeConnectionsResponse = DescribeConnectionsResponse'
-  { _drsConnections    :: {-# NOUNPACK #-}!(Maybe [Connection])
-  , _drsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsConnections    :: !(Maybe [Connection])
+  , _drsMarker         :: !(Maybe Text)
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

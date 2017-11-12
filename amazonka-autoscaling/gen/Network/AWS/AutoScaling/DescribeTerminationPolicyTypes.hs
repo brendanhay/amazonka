@@ -91,8 +91,8 @@ instance ToQuery DescribeTerminationPolicyTypes where
 
 -- | /See:/ 'describeTerminationPolicyTypesResponse' smart constructor.
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
-  { _dtptrsTerminationPolicyTypes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dtptrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _dtptrsTerminationPolicyTypes :: !(Maybe [Text])
+  , _dtptrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

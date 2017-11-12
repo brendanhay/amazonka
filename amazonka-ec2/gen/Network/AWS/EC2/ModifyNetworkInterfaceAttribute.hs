@@ -52,12 +52,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyNetworkInterfaceAttribute' smart constructor.
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
-  { _mniaGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mniaSourceDestCheck :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _mniaAttachment :: {-# NOUNPACK #-}!(Maybe NetworkInterfaceAttachmentChanges)
-  , _mniaDescription :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _mniaDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mniaNetworkInterfaceId :: {-# NOUNPACK #-}!Text
+  { _mniaGroups             :: !(Maybe [Text])
+  , _mniaSourceDestCheck    :: !(Maybe AttributeBooleanValue)
+  , _mniaAttachment         :: !(Maybe NetworkInterfaceAttachmentChanges)
+  , _mniaDescription        :: !(Maybe AttributeValue)
+  , _mniaDryRun             :: !(Maybe Bool)
+  , _mniaNetworkInterfaceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

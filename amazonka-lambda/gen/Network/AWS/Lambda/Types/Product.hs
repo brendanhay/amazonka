@@ -27,10 +27,10 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'accountLimit' smart constructor.
 data AccountLimit = AccountLimit'
-  { _alConcurrentExecutions :: {-# NOUNPACK #-}!(Maybe Int)
-  , _alTotalCodeSize        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _alCodeSizeUnzipped     :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _alCodeSizeZipped       :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _alConcurrentExecutions :: !(Maybe Int)
+  , _alTotalCodeSize        :: !(Maybe Integer)
+  , _alCodeSizeUnzipped     :: !(Maybe Integer)
+  , _alCodeSizeZipped       :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -92,8 +92,8 @@ instance NFData AccountLimit where
 --
 -- /See:/ 'accountUsage' smart constructor.
 data AccountUsage = AccountUsage'
-  { _auTotalCodeSize :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _auFunctionCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _auTotalCodeSize :: !(Maybe Integer)
+  , _auFunctionCount :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,10 +135,10 @@ instance NFData AccountUsage where
 --
 -- /See:/ 'aliasConfiguration' smart constructor.
 data AliasConfiguration = AliasConfiguration'
-  { _acName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acFunctionVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acAliasARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acDescription     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _acName            :: !(Maybe Text)
+  , _acFunctionVersion :: !(Maybe Text)
+  , _acAliasARN        :: !(Maybe Text)
+  , _acDescription     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -270,8 +270,8 @@ instance ToJSON Environment where
 --
 -- /See:/ 'environmentError' smart constructor.
 data EnvironmentError = EnvironmentError'
-  { _eeErrorCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eeMessage   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  { _eeErrorCode :: !(Maybe Text)
+  , _eeMessage   :: !(Maybe (Sensitive Text))
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -313,8 +313,8 @@ instance NFData EnvironmentError where
 --
 -- /See:/ 'environmentResponse' smart constructor.
 data EnvironmentResponse = EnvironmentResponse'
-  { _envVariables :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text (Sensitive Text))))
-  , _envError :: {-# NOUNPACK #-}!(Maybe EnvironmentError)
+  { _envVariables :: !(Maybe (Sensitive (Map Text (Sensitive Text))))
+  , _envError     :: !(Maybe EnvironmentError)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -356,14 +356,14 @@ instance NFData EnvironmentResponse where
 --
 -- /See:/ 'eventSourceMappingConfiguration' smart constructor.
 data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
-  { _esmcEventSourceARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esmcState                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esmcFunctionARN           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esmcUUId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esmcLastProcessingResult  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esmcBatchSize             :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _esmcStateTransitionReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esmcLastModified          :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _esmcEventSourceARN        :: !(Maybe Text)
+  , _esmcState                 :: !(Maybe Text)
+  , _esmcFunctionARN           :: !(Maybe Text)
+  , _esmcUUId                  :: !(Maybe Text)
+  , _esmcLastProcessingResult  :: !(Maybe Text)
+  , _esmcBatchSize             :: !(Maybe Nat)
+  , _esmcStateTransitionReason :: !(Maybe Text)
+  , _esmcLastModified          :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -458,10 +458,10 @@ instance NFData EventSourceMappingConfiguration where
 --
 -- /See:/ 'functionCode' smart constructor.
 data FunctionCode = FunctionCode'
-  { _fcS3ObjectVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcS3Key           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcZipFile         :: {-# NOUNPACK #-}!(Maybe (Sensitive Base64))
-  , _fcS3Bucket        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fcS3ObjectVersion :: !(Maybe Text)
+  , _fcS3Key           :: !(Maybe Text)
+  , _fcZipFile         :: !(Maybe (Sensitive Base64))
+  , _fcS3Bucket        :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -522,8 +522,8 @@ instance ToJSON FunctionCode where
 --
 -- /See:/ 'functionCodeLocation' smart constructor.
 data FunctionCodeLocation = FunctionCodeLocation'
-  { _fclLocation       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fclRepositoryType :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fclLocation       :: !(Maybe Text)
+  , _fclRepositoryType :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -565,24 +565,24 @@ instance NFData FunctionCodeLocation where
 --
 -- /See:/ 'functionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-  { _fcMemorySize       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _fcRuntime          :: {-# NOUNPACK #-}!(Maybe Runtime)
-  , _fcFunctionARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcKMSKeyARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcEnvironment      :: {-# NOUNPACK #-}!(Maybe EnvironmentResponse)
-  , _fcDeadLetterConfig :: {-# NOUNPACK #-}!(Maybe DeadLetterConfig)
-  , _fcRole             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcVPCConfig        :: {-# NOUNPACK #-}!(Maybe VPCConfigResponse)
-  , _fcVersion          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcFunctionName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcCodeSize         :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _fcHandler          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcTimeout          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _fcLastModified     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcCodeSha256       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcTracingConfig    :: {-# NOUNPACK #-}!(Maybe TracingConfigResponse)
-  , _fcDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcMasterARN        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fcMemorySize       :: !(Maybe Nat)
+  , _fcRuntime          :: !(Maybe Runtime)
+  , _fcFunctionARN      :: !(Maybe Text)
+  , _fcKMSKeyARN        :: !(Maybe Text)
+  , _fcEnvironment      :: !(Maybe EnvironmentResponse)
+  , _fcDeadLetterConfig :: !(Maybe DeadLetterConfig)
+  , _fcRole             :: !(Maybe Text)
+  , _fcVPCConfig        :: !(Maybe VPCConfigResponse)
+  , _fcVersion          :: !(Maybe Text)
+  , _fcFunctionName     :: !(Maybe Text)
+  , _fcCodeSize         :: !(Maybe Integer)
+  , _fcHandler          :: !(Maybe Text)
+  , _fcTimeout          :: !(Maybe Nat)
+  , _fcLastModified     :: !(Maybe Text)
+  , _fcCodeSha256       :: !(Maybe Text)
+  , _fcTracingConfig    :: !(Maybe TracingConfigResponse)
+  , _fcDescription      :: !(Maybe Text)
+  , _fcMasterARN        :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -820,8 +820,8 @@ instance NFData TracingConfigResponse where
 --
 -- /See:/ 'vpcConfig' smart constructor.
 data VPCConfig = VPCConfig'
-  { _vpccSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _vpccSubnetIds        :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _vpccSecurityGroupIds :: !(Maybe [Text])
+  , _vpccSubnetIds        :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -863,9 +863,9 @@ instance ToJSON VPCConfig where
 --
 -- /See:/ 'vpcConfigResponse' smart constructor.
 data VPCConfigResponse = VPCConfigResponse'
-  { _vcSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _vcSubnetIds        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _vcVPCId            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vcSecurityGroupIds :: !(Maybe [Text])
+  , _vcSubnetIds        :: !(Maybe [Text])
+  , _vcVPCId            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -109,9 +109,9 @@ instance ToQuery BatchGetQueryExecution where
 
 -- | /See:/ 'batchGetQueryExecutionResponse' smart constructor.
 data BatchGetQueryExecutionResponse = BatchGetQueryExecutionResponse'
-  { _bgqersUnprocessedQueryExecutionIds :: {-# NOUNPACK #-}!(Maybe [UnprocessedQueryExecutionId])
-  , _bgqersQueryExecutions :: {-# NOUNPACK #-}!(Maybe [QueryExecution])
-  , _bgqersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bgqersUnprocessedQueryExecutionIds :: !(Maybe [UnprocessedQueryExecutionId])
+  , _bgqersQueryExecutions :: !(Maybe [QueryExecution])
+  , _bgqersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

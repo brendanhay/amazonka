@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listBundles' smart constructor.
 data ListBundles = ListBundles'
-  { _lbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _lbNextToken  :: !(Maybe Text)
+  , _lbMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,9 +114,9 @@ instance ToQuery ListBundles where
 --
 -- /See:/ 'listBundlesResponse' smart constructor.
 data ListBundlesResponse = ListBundlesResponse'
-  { _lbrsBundleList     :: {-# NOUNPACK #-}!(Maybe [BundleDetails])
-  , _lbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lbrsBundleList     :: !(Maybe [BundleDetails])
+  , _lbrsNextToken      :: !(Maybe Text)
+  , _lbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -51,10 +51,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updatePolicy' smart constructor.
 data UpdatePolicy = UpdatePolicy'
-  { _upContent     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upPolicyId    :: {-# NOUNPACK #-}!Text
+  { _upContent     :: !(Maybe Text)
+  , _upName        :: !(Maybe Text)
+  , _upDescription :: !(Maybe Text)
+  , _upPolicyId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,8 +137,8 @@ instance ToQuery UpdatePolicy where
 
 -- | /See:/ 'updatePolicyResponse' smart constructor.
 data UpdatePolicyResponse = UpdatePolicyResponse'
-  { _uprsPolicy         :: {-# NOUNPACK #-}!(Maybe Policy)
-  , _uprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uprsPolicy         :: !(Maybe Policy)
+  , _uprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

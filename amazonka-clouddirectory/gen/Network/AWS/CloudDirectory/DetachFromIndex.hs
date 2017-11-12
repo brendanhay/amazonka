@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'detachFromIndex' smart constructor.
 data DetachFromIndex = DetachFromIndex'
-  { _dfiDirectoryARN    :: {-# NOUNPACK #-}!Text
-  , _dfiIndexReference  :: {-# NOUNPACK #-}!ObjectReference
-  , _dfiTargetReference :: {-# NOUNPACK #-}!ObjectReference
+  { _dfiDirectoryARN    :: !Text
+  , _dfiIndexReference  :: !ObjectReference
+  , _dfiTargetReference :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery DetachFromIndex where
 
 -- | /See:/ 'detachFromIndexResponse' smart constructor.
 data DetachFromIndexResponse = DetachFromIndexResponse'
-  { _dfirsDetachedObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfirsResponseStatus           :: {-# NOUNPACK #-}!Int
+  { _dfirsDetachedObjectIdentifier :: !(Maybe Text)
+  , _dfirsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -113,8 +113,8 @@ instance ToQuery DescribeMountTargetSecurityGroups
 
 -- | /See:/ 'describeMountTargetSecurityGroupsResponse' smart constructor.
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
-  { _dmtsgrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dmtsgrsSecurityGroups :: {-# NOUNPACK #-}![Text]
+  { _dmtsgrsResponseStatus :: !Int
+  , _dmtsgrsSecurityGroups :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

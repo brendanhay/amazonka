@@ -75,8 +75,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVPCPeeringAuthorization' smart constructor.
 data CreateVPCPeeringAuthorization = CreateVPCPeeringAuthorization'
-  { _cvpaGameLiftAWSAccountId :: {-# NOUNPACK #-}!Text
-  , _cvpaPeerVPCId            :: {-# NOUNPACK #-}!Text
+  { _cvpaGameLiftAWSAccountId :: !Text
+  , _cvpaPeerVPCId            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,8 +154,8 @@ instance ToQuery CreateVPCPeeringAuthorization where
 --
 -- /See:/ 'createVPCPeeringAuthorizationResponse' smart constructor.
 data CreateVPCPeeringAuthorizationResponse = CreateVPCPeeringAuthorizationResponse'
-  { _cvparsVPCPeeringAuthorization :: {-# NOUNPACK #-}!(Maybe VPCPeeringAuthorization)
-  , _cvparsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cvparsVPCPeeringAuthorization :: !(Maybe VPCPeeringAuthorization)
+  , _cvparsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

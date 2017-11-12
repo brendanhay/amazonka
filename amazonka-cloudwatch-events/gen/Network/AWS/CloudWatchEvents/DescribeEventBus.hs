@@ -91,10 +91,10 @@ instance ToQuery DescribeEventBus where
 
 -- | /See:/ 'describeEventBusResponse' smart constructor.
 data DescribeEventBusResponse = DescribeEventBusResponse'
-  { _debrsARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _debrsName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _debrsPolicy         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _debrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _debrsARN            :: !(Maybe Text)
+  , _debrsName           :: !(Maybe Text)
+  , _debrsPolicy         :: !(Maybe Text)
+  , _debrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

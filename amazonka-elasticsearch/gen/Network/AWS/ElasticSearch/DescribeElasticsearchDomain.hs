@@ -101,8 +101,8 @@ instance ToQuery DescribeElasticsearchDomain where
 --
 -- /See:/ 'describeElasticsearchDomainResponse' smart constructor.
 data DescribeElasticsearchDomainResponse = DescribeElasticsearchDomainResponse'
-  { _dedrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dedrsDomainStatus   :: {-# NOUNPACK #-}!ElasticsearchDomainStatus
+  { _dedrsResponseStatus :: !Int
+  , _dedrsDomainStatus   :: !ElasticsearchDomainStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

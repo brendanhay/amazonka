@@ -70,9 +70,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'initiateVaultLock' smart constructor.
 data InitiateVaultLock = InitiateVaultLock'
-  { _ivlPolicy    :: {-# NOUNPACK #-}!(Maybe VaultLockPolicy)
-  , _ivlAccountId :: {-# NOUNPACK #-}!Text
-  , _ivlVaultName :: {-# NOUNPACK #-}!Text
+  { _ivlPolicy    :: !(Maybe VaultLockPolicy)
+  , _ivlAccountId :: !Text
+  , _ivlVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,8 +144,8 @@ instance ToQuery InitiateVaultLock where
 --
 -- /See:/ 'initiateVaultLockResponse' smart constructor.
 data InitiateVaultLockResponse = InitiateVaultLockResponse'
-  { _ivlrsLockId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ivlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ivlrsLockId         :: !(Maybe Text)
+  , _ivlrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

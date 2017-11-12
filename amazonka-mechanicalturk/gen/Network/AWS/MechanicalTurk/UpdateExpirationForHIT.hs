@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateExpirationForHIT' smart constructor.
 data UpdateExpirationForHIT = UpdateExpirationForHIT'
-  { _uefhitHITId    :: {-# NOUNPACK #-}!Text
-  , _uefhitExpireAt :: {-# NOUNPACK #-}!POSIX
+  { _uefhitHITId    :: !Text
+  , _uefhitExpireAt :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

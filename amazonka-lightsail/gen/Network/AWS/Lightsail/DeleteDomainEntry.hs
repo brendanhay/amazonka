@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteDomainEntry' smart constructor.
 data DeleteDomainEntry = DeleteDomainEntry'
-  { _ddeDomainName  :: {-# NOUNPACK #-}!Text
-  , _ddeDomainEntry :: {-# NOUNPACK #-}!DomainEntry
+  { _ddeDomainName  :: !Text
+  , _ddeDomainEntry :: !DomainEntry
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery DeleteDomainEntry where
 
 -- | /See:/ 'deleteDomainEntryResponse' smart constructor.
 data DeleteDomainEntryResponse = DeleteDomainEntryResponse'
-  { _ddersOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _ddersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddersOperation      :: !(Maybe Operation)
+  , _ddersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

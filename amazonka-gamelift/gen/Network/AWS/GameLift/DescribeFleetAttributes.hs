@@ -105,9 +105,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeFleetAttributes' smart constructor.
 data DescribeFleetAttributes = DescribeFleetAttributes'
-  { _dfaNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfaLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dfaFleetIds  :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  { _dfaNextToken :: !(Maybe Text)
+  , _dfaLimit     :: !(Maybe Nat)
+  , _dfaFleetIds  :: !(Maybe (List1 Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -184,9 +184,9 @@ instance ToQuery DescribeFleetAttributes where
 --
 -- /See:/ 'describeFleetAttributesResponse' smart constructor.
 data DescribeFleetAttributesResponse = DescribeFleetAttributesResponse'
-  { _dfarsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfarsFleetAttributes :: {-# NOUNPACK #-}!(Maybe [FleetAttributes])
-  , _dfarsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dfarsNextToken       :: !(Maybe Text)
+  , _dfarsFleetAttributes :: !(Maybe [FleetAttributes])
+  , _dfarsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

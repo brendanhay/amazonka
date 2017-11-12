@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachElasticLoadBalancer' smart constructor.
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
-  { _aelbElasticLoadBalancerName :: {-# NOUNPACK #-}!Text
-  , _aelbLayerId                 :: {-# NOUNPACK #-}!Text
+  { _aelbElasticLoadBalancerName :: !Text
+  , _aelbLayerId                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -101,8 +101,8 @@ instance ToQuery StartInstance where
 
 -- | /See:/ 'startInstanceResponse' smart constructor.
 data StartInstanceResponse = StartInstanceResponse'
-  { _srsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _srsOperations     :: !(Maybe [Operation])
+  , _srsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

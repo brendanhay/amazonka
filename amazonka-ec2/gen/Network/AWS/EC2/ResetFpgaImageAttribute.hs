@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'resetFpgaImageAttribute' smart constructor.
 data ResetFpgaImageAttribute = ResetFpgaImageAttribute'
-  { _rfiaAttribute   :: {-# NOUNPACK #-}!(Maybe ResetFpgaImageAttributeName)
-  , _rfiaDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rfiaFpgaImageId :: {-# NOUNPACK #-}!Text
+  { _rfiaAttribute   :: !(Maybe ResetFpgaImageAttributeName)
+  , _rfiaDryRun      :: !(Maybe Bool)
+  , _rfiaFpgaImageId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery ResetFpgaImageAttribute where
 
 -- | /See:/ 'resetFpgaImageAttributeResponse' smart constructor.
 data ResetFpgaImageAttributeResponse = ResetFpgaImageAttributeResponse'
-  { _rfiarsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rfiarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rfiarsReturn         :: !(Maybe Bool)
+  , _rfiarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

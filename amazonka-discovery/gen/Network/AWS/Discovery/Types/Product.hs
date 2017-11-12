@@ -27,9 +27,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'agentConfigurationStatus' smart constructor.
 data AgentConfigurationStatus = AgentConfigurationStatus'
-  { _acsAgentId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acsOperationSucceeded :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _acsDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _acsAgentId            :: !(Maybe Text)
+  , _acsOperationSucceeded :: !(Maybe Bool)
+  , _acsDescription        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -82,16 +82,16 @@ instance NFData AgentConfigurationStatus where
 --
 -- /See:/ 'agentInfo' smart constructor.
 data AgentInfo = AgentInfo'
-  { _aiHostName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aiLastHealthPingTime   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aiAgentNetworkInfoList :: {-# NOUNPACK #-}!(Maybe [AgentNetworkInfo])
-  , _aiConnectorId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aiHealth               :: {-# NOUNPACK #-}!(Maybe AgentStatus)
-  , _aiAgentId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aiVersion              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aiCollectionStatus     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aiRegisteredTime       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aiAgentType            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aiHostName             :: !(Maybe Text)
+  , _aiLastHealthPingTime   :: !(Maybe Text)
+  , _aiAgentNetworkInfoList :: !(Maybe [AgentNetworkInfo])
+  , _aiConnectorId          :: !(Maybe Text)
+  , _aiHealth               :: !(Maybe AgentStatus)
+  , _aiAgentId              :: !(Maybe Text)
+  , _aiVersion              :: !(Maybe Text)
+  , _aiCollectionStatus     :: !(Maybe Text)
+  , _aiRegisteredTime       :: !(Maybe Text)
+  , _aiAgentType            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -200,8 +200,8 @@ instance NFData AgentInfo where
 --
 -- /See:/ 'agentNetworkInfo' smart constructor.
 data AgentNetworkInfo = AgentNetworkInfo'
-  { _aniIpAddress  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aniMacAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aniIpAddress  :: !(Maybe Text)
+  , _aniMacAddress :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -243,11 +243,11 @@ instance NFData AgentNetworkInfo where
 --
 -- /See:/ 'configurationTag' smart constructor.
 data ConfigurationTag = ConfigurationTag'
-  { _ctTimeOfCreation    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ctConfigurationId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctConfigurationType :: {-# NOUNPACK #-}!(Maybe ConfigurationItemType)
-  , _ctValue             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctKey               :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ctTimeOfCreation    :: !(Maybe POSIX)
+  , _ctConfigurationId   :: !(Maybe Text)
+  , _ctConfigurationType :: !(Maybe ConfigurationItemType)
+  , _ctValue             :: !(Maybe Text)
+  , _ctKey               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -317,13 +317,13 @@ instance NFData ConfigurationTag where
 --
 -- /See:/ 'customerAgentInfo' smart constructor.
 data CustomerAgentInfo = CustomerAgentInfo'
-  { _caiActiveAgents      :: {-# NOUNPACK #-}!Int
-  , _caiHealthyAgents     :: {-# NOUNPACK #-}!Int
-  , _caiBlackListedAgents :: {-# NOUNPACK #-}!Int
-  , _caiShutdownAgents    :: {-# NOUNPACK #-}!Int
-  , _caiUnhealthyAgents   :: {-# NOUNPACK #-}!Int
-  , _caiTotalAgents       :: {-# NOUNPACK #-}!Int
-  , _caiUnknownAgents     :: {-# NOUNPACK #-}!Int
+  { _caiActiveAgents      :: !Int
+  , _caiHealthyAgents     :: !Int
+  , _caiBlackListedAgents :: !Int
+  , _caiShutdownAgents    :: !Int
+  , _caiUnhealthyAgents   :: !Int
+  , _caiTotalAgents       :: !Int
+  , _caiUnknownAgents     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -415,13 +415,13 @@ instance NFData CustomerAgentInfo where
 --
 -- /See:/ 'customerConnectorInfo' smart constructor.
 data CustomerConnectorInfo = CustomerConnectorInfo'
-  { _cciActiveConnectors      :: {-# NOUNPACK #-}!Int
-  , _cciHealthyConnectors     :: {-# NOUNPACK #-}!Int
-  , _cciBlackListedConnectors :: {-# NOUNPACK #-}!Int
-  , _cciShutdownConnectors    :: {-# NOUNPACK #-}!Int
-  , _cciUnhealthyConnectors   :: {-# NOUNPACK #-}!Int
-  , _cciTotalConnectors       :: {-# NOUNPACK #-}!Int
-  , _cciUnknownConnectors     :: {-# NOUNPACK #-}!Int
+  { _cciActiveConnectors      :: !Int
+  , _cciHealthyConnectors     :: !Int
+  , _cciBlackListedConnectors :: !Int
+  , _cciShutdownConnectors    :: !Int
+  , _cciUnhealthyConnectors   :: !Int
+  , _cciTotalConnectors       :: !Int
+  , _cciUnknownConnectors     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -514,9 +514,9 @@ instance NFData CustomerConnectorInfo where
 --
 -- /See:/ 'exportFilter' smart constructor.
 data ExportFilter = ExportFilter'
-  { _efName      :: {-# NOUNPACK #-}!Text
-  , _efValues    :: {-# NOUNPACK #-}![Text]
-  , _efCondition :: {-# NOUNPACK #-}!Text
+  { _efName      :: !Text
+  , _efValues    :: ![Text]
+  , _efCondition :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -568,14 +568,14 @@ instance ToJSON ExportFilter where
 --
 -- /See:/ 'exportInfo' smart constructor.
 data ExportInfo = ExportInfo'
-  { _eiConfigurationsDownloadURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eiRequestedStartTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _eiRequestedEndTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _eiIsTruncated               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _eiExportId                  :: {-# NOUNPACK #-}!Text
-  , _eiExportStatus              :: {-# NOUNPACK #-}!ExportStatus
-  , _eiStatusMessage             :: {-# NOUNPACK #-}!Text
-  , _eiExportRequestTime         :: {-# NOUNPACK #-}!POSIX
+  { _eiConfigurationsDownloadURL :: !(Maybe Text)
+  , _eiRequestedStartTime        :: !(Maybe POSIX)
+  , _eiRequestedEndTime          :: !(Maybe POSIX)
+  , _eiIsTruncated               :: !(Maybe Bool)
+  , _eiExportId                  :: !Text
+  , _eiExportStatus              :: !ExportStatus
+  , _eiStatusMessage             :: !Text
+  , _eiExportRequestTime         :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -675,9 +675,9 @@ instance NFData ExportInfo where
 --
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
-  { _fName      :: {-# NOUNPACK #-}!Text
-  , _fValues    :: {-# NOUNPACK #-}![Text]
-  , _fCondition :: {-# NOUNPACK #-}!Text
+  { _fName      :: !Text
+  , _fValues    :: ![Text]
+  , _fCondition :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -728,11 +728,11 @@ instance ToJSON Filter where
 --
 -- /See:/ 'neighborConnectionDetail' smart constructor.
 data NeighborConnectionDetail = NeighborConnectionDetail'
-  { _ncdTransportProtocol   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ncdDestinationPort     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ncdSourceServerId      :: {-# NOUNPACK #-}!Text
-  , _ncdDestinationServerId :: {-# NOUNPACK #-}!Text
-  , _ncdConnectionsCount    :: {-# NOUNPACK #-}!Integer
+  { _ncdTransportProtocol   :: !(Maybe Text)
+  , _ncdDestinationPort     :: !(Maybe Int)
+  , _ncdSourceServerId      :: !Text
+  , _ncdDestinationServerId :: !Text
+  , _ncdConnectionsCount    :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -805,8 +805,8 @@ instance NFData NeighborConnectionDetail where
 --
 -- /See:/ 'orderByElement' smart constructor.
 data OrderByElement = OrderByElement'
-  { _obeSortOrder :: {-# NOUNPACK #-}!(Maybe OrderString)
-  , _obeFieldName :: {-# NOUNPACK #-}!Text
+  { _obeSortOrder :: !(Maybe OrderString)
+  , _obeFieldName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -849,8 +849,8 @@ instance ToJSON OrderByElement where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!Text
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -893,8 +893,8 @@ instance ToJSON Tag where
 --
 -- /See:/ 'tagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { _tfName   :: {-# NOUNPACK #-}!Text
-  , _tfValues :: {-# NOUNPACK #-}![Text]
+  { _tfName   :: !Text
+  , _tfValues :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

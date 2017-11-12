@@ -64,9 +64,9 @@ instance ToJSON Alarm where
 --
 -- /See:/ 'alarmConfiguration' smart constructor.
 data AlarmConfiguration = AlarmConfiguration'
-  { _acIgnorePollAlarmFailure :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _acEnabled                :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _acAlarms                 :: {-# NOUNPACK #-}!(Maybe [Alarm])
+  { _acIgnorePollAlarmFailure :: !(Maybe Bool)
+  , _acEnabled                :: !(Maybe Bool)
+  , _acAlarms                 :: !(Maybe [Alarm])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,11 +129,11 @@ instance ToJSON AlarmConfiguration where
 --
 -- /See:/ 'applicationInfo' smart constructor.
 data ApplicationInfo = ApplicationInfo'
-  { _aiLinkedToGitHub    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _aiApplicationId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aiApplicationName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aiGitHubAccountName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aiCreateTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _aiLinkedToGitHub    :: !(Maybe Bool)
+  , _aiApplicationId     :: !(Maybe Text)
+  , _aiApplicationName   :: !(Maybe Text)
+  , _aiGitHubAccountName :: !(Maybe Text)
+  , _aiCreateTime        :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -202,8 +202,8 @@ instance NFData ApplicationInfo where
 --
 -- /See:/ 'autoRollbackConfiguration' smart constructor.
 data AutoRollbackConfiguration = AutoRollbackConfiguration'
-  { _arcEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _arcEvents  :: {-# NOUNPACK #-}!(Maybe [AutoRollbackEvent])
+  { _arcEnabled :: !(Maybe Bool)
+  , _arcEvents  :: !(Maybe [AutoRollbackEvent])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -252,8 +252,8 @@ instance ToJSON AutoRollbackConfiguration where
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
-  { _asgHook :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _asgHook :: !(Maybe Text)
+  , _asgName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -294,9 +294,9 @@ instance NFData AutoScalingGroup where
 --
 -- /See:/ 'blueGreenDeploymentConfiguration' smart constructor.
 data BlueGreenDeploymentConfiguration = BlueGreenDeploymentConfiguration'
-  { _bgdcDeploymentReadyOption :: {-# NOUNPACK #-}!(Maybe DeploymentReadyOption)
-  , _bgdcGreenFleetProvisioningOption :: {-# NOUNPACK #-}!(Maybe GreenFleetProvisioningOption)
-  , _bgdcTerminateBlueInstancesOnDeploymentSuccess :: {-# NOUNPACK #-}!(Maybe BlueInstanceTerminationOption)
+  { _bgdcDeploymentReadyOption :: !(Maybe DeploymentReadyOption)
+  , _bgdcGreenFleetProvisioningOption :: !(Maybe GreenFleetProvisioningOption)
+  , _bgdcTerminateBlueInstancesOnDeploymentSuccess :: !(Maybe BlueInstanceTerminationOption)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -366,8 +366,8 @@ instance ToJSON BlueGreenDeploymentConfiguration
 --
 -- /See:/ 'blueInstanceTerminationOption' smart constructor.
 data BlueInstanceTerminationOption = BlueInstanceTerminationOption'
-  { _bitoAction                       :: {-# NOUNPACK #-}!(Maybe InstanceAction)
-  , _bitoTerminationWaitTimeInMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  { _bitoAction                       :: !(Maybe InstanceAction)
+  , _bitoTerminationWaitTimeInMinutes :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -419,10 +419,10 @@ instance ToJSON BlueInstanceTerminationOption where
 --
 -- /See:/ 'deploymentConfigInfo' smart constructor.
 data DeploymentConfigInfo = DeploymentConfigInfo'
-  { _dciDeploymentConfigName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dciMinimumHealthyHosts  :: {-# NOUNPACK #-}!(Maybe MinimumHealthyHosts)
-  , _dciDeploymentConfigId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dciCreateTime           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _dciDeploymentConfigName :: !(Maybe Text)
+  , _dciMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
+  , _dciDeploymentConfigId   :: !(Maybe Text)
+  , _dciCreateTime           :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -484,25 +484,25 @@ instance NFData DeploymentConfigInfo where
 --
 -- /See:/ 'deploymentGroupInfo' smart constructor.
 data DeploymentGroupInfo = DeploymentGroupInfo'
-  { _dgiServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgiEc2TagSet :: {-# NOUNPACK #-}!(Maybe EC2TagSet)
-  , _dgiDeploymentConfigName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgiLastAttemptedDeployment :: {-# NOUNPACK #-}!(Maybe LastDeploymentInfo)
-  , _dgiOnPremisesTagSet :: {-# NOUNPACK #-}!(Maybe OnPremisesTagSet)
-  , _dgiTargetRevision :: {-# NOUNPACK #-}!(Maybe RevisionLocation)
-  , _dgiEc2TagFilters :: {-# NOUNPACK #-}!(Maybe [EC2TagFilter])
-  , _dgiBlueGreenDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe BlueGreenDeploymentConfiguration)
-  , _dgiLoadBalancerInfo :: {-# NOUNPACK #-}!(Maybe LoadBalancerInfo)
-  , _dgiOnPremisesInstanceTagFilters :: {-# NOUNPACK #-}!(Maybe [TagFilter])
-  , _dgiLastSuccessfulDeployment :: {-# NOUNPACK #-}!(Maybe LastDeploymentInfo)
-  , _dgiApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgiAlarmConfiguration :: {-# NOUNPACK #-}!(Maybe AlarmConfiguration)
-  , _dgiTriggerConfigurations :: {-# NOUNPACK #-}!(Maybe [TriggerConfig])
-  , _dgiDeploymentGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgiAutoScalingGroups :: {-# NOUNPACK #-}!(Maybe [AutoScalingGroup])
-  , _dgiDeploymentStyle :: {-# NOUNPACK #-}!(Maybe DeploymentStyle)
-  , _dgiAutoRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe AutoRollbackConfiguration)
-  , _dgiDeploymentGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dgiServiceRoleARN :: !(Maybe Text)
+  , _dgiEc2TagSet :: !(Maybe EC2TagSet)
+  , _dgiDeploymentConfigName :: !(Maybe Text)
+  , _dgiLastAttemptedDeployment :: !(Maybe LastDeploymentInfo)
+  , _dgiOnPremisesTagSet :: !(Maybe OnPremisesTagSet)
+  , _dgiTargetRevision :: !(Maybe RevisionLocation)
+  , _dgiEc2TagFilters :: !(Maybe [EC2TagFilter])
+  , _dgiBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
+  , _dgiLoadBalancerInfo :: !(Maybe LoadBalancerInfo)
+  , _dgiOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+  , _dgiLastSuccessfulDeployment :: !(Maybe LastDeploymentInfo)
+  , _dgiApplicationName :: !(Maybe Text)
+  , _dgiAlarmConfiguration :: !(Maybe AlarmConfiguration)
+  , _dgiTriggerConfigurations :: !(Maybe [TriggerConfig])
+  , _dgiDeploymentGroupId :: !(Maybe Text)
+  , _dgiAutoScalingGroups :: !(Maybe [AutoScalingGroup])
+  , _dgiDeploymentStyle :: !(Maybe DeploymentStyle)
+  , _dgiAutoRollbackConfiguration :: !(Maybe AutoRollbackConfiguration)
+  , _dgiDeploymentGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -683,31 +683,31 @@ instance NFData DeploymentGroupInfo where
 --
 -- /See:/ 'deploymentInfo' smart constructor.
 data DeploymentInfo = DeploymentInfo'
-  { _diCreator :: {-# NOUNPACK #-}!(Maybe DeploymentCreator)
-  , _diStatus :: {-# NOUNPACK #-}!(Maybe DeploymentStatus)
-  , _diDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diDeploymentConfigName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diPreviousRevision :: {-# NOUNPACK #-}!(Maybe RevisionLocation)
-  , _diInstanceTerminationWaitTimeStarted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _diCompleteTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _diBlueGreenDeploymentConfiguration :: {-# NOUNPACK #-}!(Maybe BlueGreenDeploymentConfiguration)
-  , _diErrorInformation :: {-# NOUNPACK #-}!(Maybe ErrorInformation)
-  , _diLoadBalancerInfo :: {-# NOUNPACK #-}!(Maybe LoadBalancerInfo)
-  , _diAdditionalDeploymentStatusInfo :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diDeploymentOverview :: {-# NOUNPACK #-}!(Maybe DeploymentOverview)
-  , _diFileExistsBehavior :: {-# NOUNPACK #-}!(Maybe FileExistsBehavior)
-  , _diApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diRollbackInfo :: {-# NOUNPACK #-}!(Maybe RollbackInfo)
-  , _diTargetInstances :: {-# NOUNPACK #-}!(Maybe TargetInstances)
-  , _diRevision :: {-# NOUNPACK #-}!(Maybe RevisionLocation)
-  , _diDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diDeploymentStyle :: {-# NOUNPACK #-}!(Maybe DeploymentStyle)
-  , _diCreateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _diAutoRollbackConfiguration :: {-# NOUNPACK #-}!(Maybe AutoRollbackConfiguration)
-  , _diUpdateOutdatedInstancesOnly :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diDeploymentGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diIgnoreApplicationStopFailures :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _diCreator :: !(Maybe DeploymentCreator)
+  , _diStatus :: !(Maybe DeploymentStatus)
+  , _diDeploymentId :: !(Maybe Text)
+  , _diDeploymentConfigName :: !(Maybe Text)
+  , _diPreviousRevision :: !(Maybe RevisionLocation)
+  , _diInstanceTerminationWaitTimeStarted :: !(Maybe Bool)
+  , _diStartTime :: !(Maybe POSIX)
+  , _diCompleteTime :: !(Maybe POSIX)
+  , _diBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
+  , _diErrorInformation :: !(Maybe ErrorInformation)
+  , _diLoadBalancerInfo :: !(Maybe LoadBalancerInfo)
+  , _diAdditionalDeploymentStatusInfo :: !(Maybe Text)
+  , _diDeploymentOverview :: !(Maybe DeploymentOverview)
+  , _diFileExistsBehavior :: !(Maybe FileExistsBehavior)
+  , _diApplicationName :: !(Maybe Text)
+  , _diRollbackInfo :: !(Maybe RollbackInfo)
+  , _diTargetInstances :: !(Maybe TargetInstances)
+  , _diRevision :: !(Maybe RevisionLocation)
+  , _diDescription :: !(Maybe Text)
+  , _diDeploymentStyle :: !(Maybe DeploymentStyle)
+  , _diCreateTime :: !(Maybe POSIX)
+  , _diAutoRollbackConfiguration :: !(Maybe AutoRollbackConfiguration)
+  , _diUpdateOutdatedInstancesOnly :: !(Maybe Bool)
+  , _diDeploymentGroupName :: !(Maybe Text)
+  , _diIgnoreApplicationStopFailures :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -936,12 +936,12 @@ instance NFData DeploymentInfo where
 --
 -- /See:/ 'deploymentOverview' smart constructor.
 data DeploymentOverview = DeploymentOverview'
-  { _doPending    :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _doSkipped    :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _doInProgress :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _doSucceeded  :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _doReady      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _doFailed     :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _doPending    :: !(Maybe Integer)
+  , _doSkipped    :: !(Maybe Integer)
+  , _doInProgress :: !(Maybe Integer)
+  , _doSucceeded  :: !(Maybe Integer)
+  , _doReady      :: !(Maybe Integer)
+  , _doFailed     :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1018,8 +1018,8 @@ instance NFData DeploymentOverview where
 --
 -- /See:/ 'deploymentReadyOption' smart constructor.
 data DeploymentReadyOption = DeploymentReadyOption'
-  { _droActionOnTimeout   :: {-# NOUNPACK #-}!(Maybe DeploymentReadyAction)
-  , _droWaitTimeInMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  { _droActionOnTimeout   :: !(Maybe DeploymentReadyAction)
+  , _droWaitTimeInMinutes :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1070,8 +1070,8 @@ instance ToJSON DeploymentReadyOption where
 --
 -- /See:/ 'deploymentStyle' smart constructor.
 data DeploymentStyle = DeploymentStyle'
-  { _dsDeploymentOption :: {-# NOUNPACK #-}!(Maybe DeploymentOption)
-  , _dsDeploymentType   :: {-# NOUNPACK #-}!(Maybe DeploymentType)
+  { _dsDeploymentOption :: !(Maybe DeploymentOption)
+  , _dsDeploymentType   :: !(Maybe DeploymentType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1121,10 +1121,10 @@ instance ToJSON DeploymentStyle where
 --
 -- /See:/ 'diagnostics' smart constructor.
 data Diagnostics = Diagnostics'
-  { _dLogTail    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dErrorCode  :: {-# NOUNPACK #-}!(Maybe LifecycleErrorCode)
-  , _dScriptName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dLogTail    :: !(Maybe Text)
+  , _dErrorCode  :: !(Maybe LifecycleErrorCode)
+  , _dScriptName :: !(Maybe Text)
+  , _dMessage    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1185,9 +1185,9 @@ instance NFData Diagnostics where
 --
 -- /See:/ 'ec2TagFilter' smart constructor.
 data EC2TagFilter = EC2TagFilter'
-  { _etfValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _etfKey   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _etfType  :: {-# NOUNPACK #-}!(Maybe EC2TagFilterType)
+  { _etfValue :: !(Maybe Text)
+  , _etfKey   :: !(Maybe Text)
+  , _etfType  :: !(Maybe EC2TagFilterType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1319,8 +1319,8 @@ instance ToJSON ELBInfo where
 --
 -- /See:/ 'errorInformation' smart constructor.
 data ErrorInformation = ErrorInformation'
-  { _eiCode    :: {-# NOUNPACK #-}!(Maybe DeployErrorCode)
-  , _eiMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eiCode    :: !(Maybe DeployErrorCode)
+  , _eiMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1361,11 +1361,11 @@ instance NFData ErrorInformation where
 --
 -- /See:/ 'genericRevisionInfo' smart constructor.
 data GenericRevisionInfo = GenericRevisionInfo'
-  { _griRegisterTime     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _griFirstUsedTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _griDeploymentGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _griLastUsedTime     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _griDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _griRegisterTime     :: !(Maybe POSIX)
+  , _griFirstUsedTime    :: !(Maybe POSIX)
+  , _griDeploymentGroups :: !(Maybe [Text])
+  , _griLastUsedTime     :: !(Maybe POSIX)
+  , _griDescription      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1434,8 +1434,8 @@ instance NFData GenericRevisionInfo where
 --
 -- /See:/ 'gitHubLocation' smart constructor.
 data GitHubLocation = GitHubLocation'
-  { _ghlCommitId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ghlRepository :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ghlCommitId   :: !(Maybe Text)
+  , _ghlRepository :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1523,13 +1523,13 @@ instance ToJSON GreenFleetProvisioningOption where
 --
 -- /See:/ 'instanceInfo' smart constructor.
 data InstanceInfo = InstanceInfo'
-  { _iiRegisterTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _iiInstanceARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iiDeregisterTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _iiIamUserARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iiInstanceName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iiIamSessionARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iiTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _iiRegisterTime   :: !(Maybe POSIX)
+  , _iiInstanceARN    :: !(Maybe Text)
+  , _iiDeregisterTime :: !(Maybe POSIX)
+  , _iiIamUserARN     :: !(Maybe Text)
+  , _iiInstanceName   :: !(Maybe Text)
+  , _iiIamSessionARN  :: !(Maybe Text)
+  , _iiTags           :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1614,12 +1614,12 @@ instance NFData InstanceInfo where
 --
 -- /See:/ 'instanceSummary' smart constructor.
 data InstanceSummary = InstanceSummary'
-  { _isInstanceId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isStatus          :: {-# NOUNPACK #-}!(Maybe InstanceStatus)
-  , _isDeploymentId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isLastUpdatedAt   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _isLifecycleEvents :: {-# NOUNPACK #-}!(Maybe [LifecycleEvent])
-  , _isInstanceType    :: {-# NOUNPACK #-}!(Maybe InstanceType)
+  { _isInstanceId      :: !(Maybe Text)
+  , _isStatus          :: !(Maybe InstanceStatus)
+  , _isDeploymentId    :: !(Maybe Text)
+  , _isLastUpdatedAt   :: !(Maybe POSIX)
+  , _isLifecycleEvents :: !(Maybe [LifecycleEvent])
+  , _isInstanceType    :: !(Maybe InstanceType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1696,10 +1696,10 @@ instance NFData InstanceSummary where
 --
 -- /See:/ 'lastDeploymentInfo' smart constructor.
 data LastDeploymentInfo = LastDeploymentInfo'
-  { _ldiStatus       :: {-# NOUNPACK #-}!(Maybe DeploymentStatus)
-  , _ldiDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldiEndTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ldiCreateTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _ldiStatus       :: !(Maybe DeploymentStatus)
+  , _ldiDeploymentId :: !(Maybe Text)
+  , _ldiEndTime      :: !(Maybe POSIX)
+  , _ldiCreateTime   :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1760,11 +1760,11 @@ instance NFData LastDeploymentInfo where
 --
 -- /See:/ 'lifecycleEvent' smart constructor.
 data LifecycleEvent = LifecycleEvent'
-  { _leStatus             :: {-# NOUNPACK #-}!(Maybe LifecycleEventStatus)
-  , _leLifecycleEventName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _leStartTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _leDiagnostics        :: {-# NOUNPACK #-}!(Maybe Diagnostics)
-  , _leEndTime            :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _leStatus             :: !(Maybe LifecycleEventStatus)
+  , _leLifecycleEventName :: !(Maybe Text)
+  , _leStartTime          :: !(Maybe POSIX)
+  , _leDiagnostics        :: !(Maybe Diagnostics)
+  , _leEndTime            :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1833,8 +1833,8 @@ instance NFData LifecycleEvent where
 --
 -- /See:/ 'loadBalancerInfo' smart constructor.
 data LoadBalancerInfo = LoadBalancerInfo'
-  { _lbiElbInfoList         :: {-# NOUNPACK #-}!(Maybe [ELBInfo])
-  , _lbiTargetGroupInfoList :: {-# NOUNPACK #-}!(Maybe [TargetGroupInfo])
+  { _lbiElbInfoList         :: !(Maybe [ELBInfo])
+  , _lbiTargetGroupInfoList :: !(Maybe [TargetGroupInfo])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1886,8 +1886,8 @@ instance ToJSON LoadBalancerInfo where
 --
 -- /See:/ 'minimumHealthyHosts' smart constructor.
 data MinimumHealthyHosts = MinimumHealthyHosts'
-  { _mhhValue :: {-# NOUNPACK #-}!(Maybe Int)
-  , _mhhType  :: {-# NOUNPACK #-}!(Maybe MinimumHealthyHostsType)
+  { _mhhValue :: !(Maybe Int)
+  , _mhhType  :: !(Maybe MinimumHealthyHostsType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1978,8 +1978,8 @@ instance ToJSON OnPremisesTagSet where
 --
 -- /See:/ 'revisionInfo' smart constructor.
 data RevisionInfo = RevisionInfo'
-  { _riGenericRevisionInfo :: {-# NOUNPACK #-}!(Maybe GenericRevisionInfo)
-  , _riRevisionLocation    :: {-# NOUNPACK #-}!(Maybe RevisionLocation)
+  { _riGenericRevisionInfo :: !(Maybe GenericRevisionInfo)
+  , _riRevisionLocation    :: !(Maybe RevisionLocation)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2023,9 +2023,9 @@ instance NFData RevisionInfo where
 --
 -- /See:/ 'revisionLocation' smart constructor.
 data RevisionLocation = RevisionLocation'
-  { _rlRevisionType   :: {-# NOUNPACK #-}!(Maybe RevisionLocationType)
-  , _rlS3Location     :: {-# NOUNPACK #-}!(Maybe S3Location)
-  , _rlGitHubLocation :: {-# NOUNPACK #-}!(Maybe GitHubLocation)
+  { _rlRevisionType   :: !(Maybe RevisionLocationType)
+  , _rlS3Location     :: !(Maybe S3Location)
+  , _rlGitHubLocation :: !(Maybe GitHubLocation)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2086,9 +2086,9 @@ instance ToJSON RevisionLocation where
 --
 -- /See:/ 'rollbackInfo' smart constructor.
 data RollbackInfo = RollbackInfo'
-  { _riRollbackTriggeringDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riRollbackMessage                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _riRollbackDeploymentId           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _riRollbackTriggeringDeploymentId :: !(Maybe Text)
+  , _riRollbackMessage                :: !(Maybe Text)
+  , _riRollbackDeploymentId           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2142,11 +2142,11 @@ instance NFData RollbackInfo where
 --
 -- /See:/ 's3Location' smart constructor.
 data S3Location = S3Location'
-  { _slBundleType :: {-# NOUNPACK #-}!(Maybe BundleType)
-  , _slETag       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slBucket     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slKey        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slVersion    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _slBundleType :: !(Maybe BundleType)
+  , _slETag       :: !(Maybe Text)
+  , _slBucket     :: !(Maybe Text)
+  , _slKey        :: !(Maybe Text)
+  , _slVersion    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2224,8 +2224,8 @@ instance ToJSON S3Location where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2270,9 +2270,9 @@ instance ToJSON Tag where
 --
 -- /See:/ 'tagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { _tfValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tfKey   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tfType  :: {-# NOUNPACK #-}!(Maybe TagFilterType)
+  { _tfValue :: !(Maybe Text)
+  , _tfKey   :: !(Maybe Text)
+  , _tfType  :: !(Maybe TagFilterType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2363,9 +2363,9 @@ instance ToJSON TargetGroupInfo where
 --
 -- /See:/ 'targetInstances' smart constructor.
 data TargetInstances = TargetInstances'
-  { _tiEc2TagSet         :: {-# NOUNPACK #-}!(Maybe EC2TagSet)
-  , _tiTagFilters        :: {-# NOUNPACK #-}!(Maybe [EC2TagFilter])
-  , _tiAutoScalingGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _tiEc2TagSet         :: !(Maybe EC2TagSet)
+  , _tiTagFilters        :: !(Maybe [EC2TagFilter])
+  , _tiAutoScalingGroups :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2427,8 +2427,8 @@ instance ToJSON TargetInstances where
 --
 -- /See:/ 'timeRange' smart constructor.
 data TimeRange = TimeRange'
-  { _trStart :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _trEnd   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _trStart :: !(Maybe POSIX)
+  , _trEnd   :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2468,9 +2468,9 @@ instance ToJSON TimeRange where
 --
 -- /See:/ 'triggerConfig' smart constructor.
 data TriggerConfig = TriggerConfig'
-  { _tcTriggerName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tcTriggerEvents    :: {-# NOUNPACK #-}!(Maybe [TriggerEventType])
-  , _tcTriggerTargetARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tcTriggerName      :: !(Maybe Text)
+  , _tcTriggerEvents    :: !(Maybe [TriggerEventType])
+  , _tcTriggerTargetARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

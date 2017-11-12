@@ -47,9 +47,9 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getObjectTorrent' smart constructor.
 data GetObjectTorrent = GetObjectTorrent'
-  { _gotRequestPayer :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _gotBucket       :: {-# NOUNPACK #-}!BucketName
-  , _gotKey          :: {-# NOUNPACK #-}!ObjectKey
+  { _gotRequestPayer :: !(Maybe RequestPayer)
+  , _gotBucket       :: !BucketName
+  , _gotKey          :: !ObjectKey
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -111,9 +111,9 @@ instance ToQuery GetObjectTorrent where
 
 -- | /See:/ 'getObjectTorrentResponse' smart constructor.
 data GetObjectTorrentResponse = GetObjectTorrentResponse'
-  { _getrsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _getrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _getrsBody           :: {-# NOUNPACK #-}!RsBody
+  { _getrsRequestCharged :: !(Maybe RequestCharged)
+  , _getrsResponseStatus :: !Int
+  , _getrsBody           :: !RsBody
   } deriving (Show, Generic)
 
 

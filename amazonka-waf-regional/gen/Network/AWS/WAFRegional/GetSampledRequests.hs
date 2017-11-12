@@ -53,10 +53,10 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'getSampledRequests' smart constructor.
 data GetSampledRequests = GetSampledRequests'
-  { _gsrWebACLId   :: {-# NOUNPACK #-}!Text
-  , _gsrRuleId     :: {-# NOUNPACK #-}!Text
-  , _gsrTimeWindow :: {-# NOUNPACK #-}!TimeWindow
-  , _gsrMaxItems   :: {-# NOUNPACK #-}!Nat
+  { _gsrWebACLId   :: !Text
+  , _gsrRuleId     :: !Text
+  , _gsrTimeWindow :: !TimeWindow
+  , _gsrMaxItems   :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,10 +146,10 @@ instance ToQuery GetSampledRequests where
 
 -- | /See:/ 'getSampledRequestsResponse' smart constructor.
 data GetSampledRequestsResponse = GetSampledRequestsResponse'
-  { _gsrrsSampledRequests :: {-# NOUNPACK #-}!(Maybe [SampledHTTPRequest])
-  , _gsrrsPopulationSize  :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gsrrsTimeWindow      :: {-# NOUNPACK #-}!(Maybe TimeWindow)
-  , _gsrrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gsrrsSampledRequests :: !(Maybe [SampledHTTPRequest])
+  , _gsrrsPopulationSize  :: !(Maybe Integer)
+  , _gsrrsTimeWindow      :: !(Maybe TimeWindow)
+  , _gsrrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

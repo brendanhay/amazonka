@@ -119,8 +119,8 @@ instance ToQuery GetIdentityDkimAttributes where
 --
 -- /See:/ 'getIdentityDkimAttributesResponse' smart constructor.
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
-  { _gidarsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gidarsDkimAttributes :: {-# NOUNPACK #-}!(Map Text IdentityDkimAttributes)
+  { _gidarsResponseStatus :: !Int
+  , _gidarsDkimAttributes :: !(Map Text IdentityDkimAttributes)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

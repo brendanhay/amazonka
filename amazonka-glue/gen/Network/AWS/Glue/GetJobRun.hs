@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getJobRun' smart constructor.
 data GetJobRun = GetJobRun'
-  { _gPredecessorsIncluded :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gJobName              :: {-# NOUNPACK #-}!Text
-  , _gRunId                :: {-# NOUNPACK #-}!Text
+  { _gPredecessorsIncluded :: !(Maybe Bool)
+  , _gJobName              :: !Text
+  , _gRunId                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery GetJobRun where
 
 -- | /See:/ 'getJobRunResponse' smart constructor.
 data GetJobRunResponse = GetJobRunResponse'
-  { _gjrjrsJobRun         :: {-# NOUNPACK #-}!(Maybe JobRun)
-  , _gjrjrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gjrjrsJobRun         :: !(Maybe JobRun)
+  , _gjrjrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

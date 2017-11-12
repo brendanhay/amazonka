@@ -116,12 +116,12 @@ instance ToQuery GetBulkPublishDetails where
 --
 -- /See:/ 'getBulkPublishDetailsResponse' smart constructor.
 data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
-  { _gbpdrsBulkPublishStartTime    :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gbpdrsIdentityPoolId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbpdrsBulkPublishCompleteTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gbpdrsFailureMessage          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbpdrsBulkPublishStatus       :: {-# NOUNPACK #-}!(Maybe BulkPublishStatus)
-  , _gbpdrsResponseStatus          :: {-# NOUNPACK #-}!Int
+  { _gbpdrsBulkPublishStartTime    :: !(Maybe POSIX)
+  , _gbpdrsIdentityPoolId          :: !(Maybe Text)
+  , _gbpdrsBulkPublishCompleteTime :: !(Maybe POSIX)
+  , _gbpdrsFailureMessage          :: !(Maybe Text)
+  , _gbpdrsBulkPublishStatus       :: !(Maybe BulkPublishStatus)
+  , _gbpdrsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

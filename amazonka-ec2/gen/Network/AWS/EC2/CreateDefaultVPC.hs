@@ -104,8 +104,8 @@ instance ToQuery CreateDefaultVPC where
 --
 -- /See:/ 'createDefaultVPCResponse' smart constructor.
 data CreateDefaultVPCResponse = CreateDefaultVPCResponse'
-  { _cdvrsVPC            :: {-# NOUNPACK #-}!(Maybe VPC)
-  , _cdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdvrsVPC            :: !(Maybe VPC)
+  , _cdvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

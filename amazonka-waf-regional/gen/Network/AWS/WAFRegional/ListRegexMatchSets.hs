@@ -48,8 +48,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'listRegexMatchSets' smart constructor.
 data ListRegexMatchSets = ListRegexMatchSets'
-  { _lrmsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrmsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lrmsNextMarker :: !(Maybe Text)
+  , _lrmsLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,9 +115,9 @@ instance ToQuery ListRegexMatchSets where
 
 -- | /See:/ 'listRegexMatchSetsResponse' smart constructor.
 data ListRegexMatchSetsResponse = ListRegexMatchSetsResponse'
-  { _lrmsrsRegexMatchSets :: {-# NOUNPACK #-}!(Maybe [RegexMatchSetSummary])
-  , _lrmsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrmsrsRegexMatchSets :: !(Maybe [RegexMatchSetSummary])
+  , _lrmsrsNextMarker     :: !(Maybe Text)
+  , _lrmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

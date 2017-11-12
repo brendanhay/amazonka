@@ -51,10 +51,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeRecord' smart constructor.
 data DescribeRecord = DescribeRecord'
-  { _drAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _drId             :: {-# NOUNPACK #-}!Text
+  { _drAcceptLanguage :: !(Maybe Text)
+  , _drPageToken      :: !(Maybe Text)
+  , _drPageSize       :: !(Maybe Nat)
+  , _drId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,10 +139,10 @@ instance ToQuery DescribeRecord where
 
 -- | /See:/ 'describeRecordResponse' smart constructor.
 data DescribeRecordResponse = DescribeRecordResponse'
-  { _drrsRecordDetail   :: {-# NOUNPACK #-}!(Maybe RecordDetail)
-  , _drrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsRecordOutputs  :: {-# NOUNPACK #-}!(Maybe [RecordOutput])
-  , _drrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drrsRecordDetail   :: !(Maybe RecordDetail)
+  , _drrsNextPageToken  :: !(Maybe Text)
+  , _drrsRecordOutputs  :: !(Maybe [RecordOutput])
+  , _drrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

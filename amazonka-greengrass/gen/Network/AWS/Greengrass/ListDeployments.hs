@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { _lNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lGroupId    :: {-# NOUNPACK #-}!Text
+  { _lNextToken  :: !(Maybe Text)
+  , _lMaxResults :: !(Maybe Text)
+  , _lGroupId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,9 +118,9 @@ instance ToQuery ListDeployments where
 
 -- | /See:/ 'listDeploymentsResponse' smart constructor.
 data ListDeploymentsResponse = ListDeploymentsResponse'
-  { _ldrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrsDeployments    :: {-# NOUNPACK #-}!(Maybe [Deployment])
-  , _ldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ldrsNextToken      :: !(Maybe Text)
+  , _ldrsDeployments    :: !(Maybe [Deployment])
+  , _ldrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

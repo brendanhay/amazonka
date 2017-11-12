@@ -65,8 +65,8 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeWorkflowExecution' smart constructor.
 data DescribeWorkflowExecution = DescribeWorkflowExecution'
-  { _dweDomain    :: {-# NOUNPACK #-}!Text
-  , _dweExecution :: {-# NOUNPACK #-}!WorkflowExecution
+  { _dweDomain    :: !Text
+  , _dweExecution :: !WorkflowExecution
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,12 +142,12 @@ instance ToQuery DescribeWorkflowExecution where
 --
 -- /See:/ 'describeWorkflowExecutionResponse' smart constructor.
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
-  { _dwersLatestActivityTaskTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dwersLatestExecutionContext :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwersResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dwersExecutionInfo :: {-# NOUNPACK #-}!WorkflowExecutionInfo
-  , _dwersExecutionConfiguration :: {-# NOUNPACK #-}!WorkflowExecutionConfiguration
-  , _dwersOpenCounts :: {-# NOUNPACK #-}!WorkflowExecutionOpenCounts
+  { _dwersLatestActivityTaskTimestamp :: !(Maybe POSIX)
+  , _dwersLatestExecutionContext      :: !(Maybe Text)
+  , _dwersResponseStatus              :: !Int
+  , _dwersExecutionInfo               :: !WorkflowExecutionInfo
+  , _dwersExecutionConfiguration      :: !WorkflowExecutionConfiguration
+  , _dwersOpenCounts                  :: !WorkflowExecutionOpenCounts
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

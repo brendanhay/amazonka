@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeServiceErrors' smart constructor.
 data DescribeServiceErrors = DescribeServiceErrors'
-  { _dseInstanceId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dseStackId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dseServiceErrorIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dseInstanceId      :: !(Maybe Text)
+  , _dseStackId         :: !(Maybe Text)
+  , _dseServiceErrorIds :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery DescribeServiceErrors where
 --
 -- /See:/ 'describeServiceErrorsResponse' smart constructor.
 data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
-  { _dsersServiceErrors  :: {-# NOUNPACK #-}!(Maybe [ServiceError'])
-  , _dsersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsersServiceErrors  :: !(Maybe [ServiceError'])
+  , _dsersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,17 +57,17 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updateProduct' smart constructor.
 data UpdateProduct = UpdateProduct'
-  { _upRemoveTags         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _upOwner              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upSupportURL         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upDistributor        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upAcceptLanguage     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upAddTags            :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _upSupportEmail       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upSupportDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upId                 :: {-# NOUNPACK #-}!Text
+  { _upRemoveTags         :: !(Maybe [Text])
+  , _upOwner              :: !(Maybe Text)
+  , _upSupportURL         :: !(Maybe Text)
+  , _upDistributor        :: !(Maybe Text)
+  , _upName               :: !(Maybe Text)
+  , _upAcceptLanguage     :: !(Maybe Text)
+  , _upAddTags            :: !(Maybe [Tag])
+  , _upSupportEmail       :: !(Maybe Text)
+  , _upDescription        :: !(Maybe Text)
+  , _upSupportDescription :: !(Maybe Text)
+  , _upId                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -208,9 +208,9 @@ instance ToQuery UpdateProduct where
 
 -- | /See:/ 'updateProductResponse' smart constructor.
 data UpdateProductResponse = UpdateProductResponse'
-  { _ursProductViewDetail :: {-# NOUNPACK #-}!(Maybe ProductViewDetail)
-  , _ursTags              :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ursResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _ursProductViewDetail :: !(Maybe ProductViewDetail)
+  , _ursTags              :: !(Maybe [Tag])
+  , _ursResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

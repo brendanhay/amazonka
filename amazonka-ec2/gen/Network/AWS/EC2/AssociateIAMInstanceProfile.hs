@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'associateIAMInstanceProfile' smart constructor.
 data AssociateIAMInstanceProfile = AssociateIAMInstanceProfile'
-  { _aiapIAMInstanceProfile :: {-# NOUNPACK #-}!IAMInstanceProfileSpecification
-  , _aiapInstanceId         :: {-# NOUNPACK #-}!Text
+  { _aiapIAMInstanceProfile :: !IAMInstanceProfileSpecification
+  , _aiapInstanceId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,8 +110,8 @@ instance ToQuery AssociateIAMInstanceProfile where
 
 -- | /See:/ 'associateIAMInstanceProfileResponse' smart constructor.
 data AssociateIAMInstanceProfileResponse = AssociateIAMInstanceProfileResponse'
-  { _aiaprsIAMInstanceProfileAssociation :: {-# NOUNPACK #-}!(Maybe IAMInstanceProfileAssociation)
-  , _aiaprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _aiaprsIAMInstanceProfileAssociation :: !(Maybe IAMInstanceProfileAssociation)
+  , _aiaprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

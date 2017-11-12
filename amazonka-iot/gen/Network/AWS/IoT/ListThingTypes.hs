@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listThingTypes' smart constructor.
 data ListThingTypes = ListThingTypes'
-  { _lttThingTypeName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lttNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lttMaxResults    :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lttThingTypeName :: !(Maybe Text)
+  , _lttNextToken     :: !(Maybe Text)
+  , _lttMaxResults    :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,9 +134,9 @@ instance ToQuery ListThingTypes where
 --
 -- /See:/ 'listThingTypesResponse' smart constructor.
 data ListThingTypesResponse = ListThingTypesResponse'
-  { _lttrsThingTypes     :: {-# NOUNPACK #-}!(Maybe [ThingTypeDefinition])
-  , _lttrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lttrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lttrsThingTypes     :: !(Maybe [ThingTypeDefinition])
+  , _lttrsNextToken      :: !(Maybe Text)
+  , _lttrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

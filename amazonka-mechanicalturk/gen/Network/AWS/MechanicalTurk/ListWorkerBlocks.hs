@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listWorkerBlocks' smart constructor.
 data ListWorkerBlocks = ListWorkerBlocks'
-  { _lwbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lwbMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lwbNextToken  :: !(Maybe Text)
+  , _lwbMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,10 +116,10 @@ instance ToQuery ListWorkerBlocks where
 
 -- | /See:/ 'listWorkerBlocksResponse' smart constructor.
 data ListWorkerBlocksResponse = ListWorkerBlocksResponse'
-  { _lwbrsWorkerBlocks   :: {-# NOUNPACK #-}!(Maybe [WorkerBlock])
-  , _lwbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lwbrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lwbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lwbrsWorkerBlocks   :: !(Maybe [WorkerBlock])
+  , _lwbrsNextToken      :: !(Maybe Text)
+  , _lwbrsNumResults     :: !(Maybe Int)
+  , _lwbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeConfigRuleEvaluationStatus' smart constructor.
 data DescribeConfigRuleEvaluationStatus = DescribeConfigRuleEvaluationStatus'
-  { _dcresConfigRuleNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcresNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcresLimit           :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dcresConfigRuleNames :: !(Maybe [Text])
+  , _dcresNextToken       :: !(Maybe Text)
+  , _dcresLimit           :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,9 +144,9 @@ instance ToQuery DescribeConfigRuleEvaluationStatus
 --
 -- /See:/ 'describeConfigRuleEvaluationStatusResponse' smart constructor.
 data DescribeConfigRuleEvaluationStatusResponse = DescribeConfigRuleEvaluationStatusResponse'
-  { _dcresrsConfigRulesEvaluationStatus :: {-# NOUNPACK #-}!(Maybe [ConfigRuleEvaluationStatus])
-  , _dcresrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcresrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcresrsConfigRulesEvaluationStatus :: !(Maybe [ConfigRuleEvaluationStatus])
+  , _dcresrsNextToken                   :: !(Maybe Text)
+  , _dcresrsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

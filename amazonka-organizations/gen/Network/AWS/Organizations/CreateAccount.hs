@@ -61,10 +61,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createAccount' smart constructor.
 data CreateAccount = CreateAccount'
-  { _caIAMUserAccessToBilling :: {-# NOUNPACK #-}!(Maybe IAMUserAccessToBilling)
-  , _caRoleName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caEmail                  :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _caAccountName            :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _caIAMUserAccessToBilling :: !(Maybe IAMUserAccessToBilling)
+  , _caRoleName               :: !(Maybe Text)
+  , _caEmail                  :: !(Sensitive Text)
+  , _caAccountName            :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -150,8 +150,8 @@ instance ToQuery CreateAccount where
 
 -- | /See:/ 'createAccountResponse' smart constructor.
 data CreateAccountResponse = CreateAccountResponse'
-  { _carsCreateAccountStatus :: {-# NOUNPACK #-}!(Maybe CreateAccountStatus)
-  , _carsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _carsCreateAccountStatus :: !(Maybe CreateAccountStatus)
+  , _carsResponseStatus      :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

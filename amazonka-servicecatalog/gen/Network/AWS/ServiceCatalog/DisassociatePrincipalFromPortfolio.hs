@@ -47,9 +47,9 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'disassociatePrincipalFromPortfolio' smart constructor.
 data DisassociatePrincipalFromPortfolio = DisassociatePrincipalFromPortfolio'
-  { _disAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _disPortfolioId    :: {-# NOUNPACK #-}!Text
-  , _disPrincipalARN   :: {-# NOUNPACK #-}!Text
+  { _disAcceptLanguage :: !(Maybe Text)
+  , _disPortfolioId    :: !Text
+  , _disPrincipalARN   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

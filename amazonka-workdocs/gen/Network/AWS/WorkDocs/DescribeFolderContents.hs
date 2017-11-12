@@ -60,14 +60,14 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeFolderContents' smart constructor.
 data DescribeFolderContents = DescribeFolderContents'
-  { _dfcsInclude             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfcsAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _dfcsSort                :: {-# NOUNPACK #-}!(Maybe ResourceSortType)
-  , _dfcsMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfcsLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dfcsType                :: {-# NOUNPACK #-}!(Maybe FolderContentType)
-  , _dfcsOrder               :: {-# NOUNPACK #-}!(Maybe OrderType)
-  , _dfcsFolderId            :: {-# NOUNPACK #-}!Text
+  { _dfcsInclude             :: !(Maybe Text)
+  , _dfcsAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _dfcsSort                :: !(Maybe ResourceSortType)
+  , _dfcsMarker              :: !(Maybe Text)
+  , _dfcsLimit               :: !(Maybe Nat)
+  , _dfcsType                :: !(Maybe FolderContentType)
+  , _dfcsOrder               :: !(Maybe OrderType)
+  , _dfcsFolderId            :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -184,10 +184,10 @@ instance ToQuery DescribeFolderContents where
 
 -- | /See:/ 'describeFolderContentsResponse' smart constructor.
 data DescribeFolderContentsResponse = DescribeFolderContentsResponse'
-  { _dfcrsFolders        :: {-# NOUNPACK #-}!(Maybe [FolderMetadata])
-  , _dfcrsDocuments      :: {-# NOUNPACK #-}!(Maybe [DocumentMetadata])
-  , _dfcrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dfcrsFolders        :: !(Maybe [FolderMetadata])
+  , _dfcrsDocuments      :: !(Maybe [DocumentMetadata])
+  , _dfcrsMarker         :: !(Maybe Text)
+  , _dfcrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

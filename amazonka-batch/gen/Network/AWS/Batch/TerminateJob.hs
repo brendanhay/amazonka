@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'terminateJob' smart constructor.
 data TerminateJob = TerminateJob'
-  { _tjJobId  :: {-# NOUNPACK #-}!Text
-  , _tjReason :: {-# NOUNPACK #-}!Text
+  { _tjJobId  :: !Text
+  , _tjReason :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

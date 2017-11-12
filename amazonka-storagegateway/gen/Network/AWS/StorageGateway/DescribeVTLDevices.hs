@@ -60,10 +60,10 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'describeVTLDevices' smart constructor.
 data DescribeVTLDevices = DescribeVTLDevices'
-  { _dvtldMarker        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvtldLimit         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dvtldVTLDeviceARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvtldGatewayARN    :: {-# NOUNPACK #-}!Text
+  { _dvtldMarker        :: !(Maybe Text)
+  , _dvtldLimit         :: !(Maybe Nat)
+  , _dvtldVTLDeviceARNs :: !(Maybe [Text])
+  , _dvtldGatewayARN    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -161,10 +161,10 @@ instance ToQuery DescribeVTLDevices where
 --
 -- /See:/ 'describeVTLDevicesResponse' smart constructor.
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
-  { _dvtldrsVTLDevices     :: {-# NOUNPACK #-}!(Maybe [VTLDevice])
-  , _dvtldrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvtldrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvtldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvtldrsVTLDevices     :: !(Maybe [VTLDevice])
+  , _dvtldrsGatewayARN     :: !(Maybe Text)
+  , _dvtldrsMarker         :: !(Maybe Text)
+  , _dvtldrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

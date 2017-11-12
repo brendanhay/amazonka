@@ -55,10 +55,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeSpotFleetInstances' smart constructor.
 data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
-  { _dsfiNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsfiDryRun             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsfiMaxResults         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsfiSpotFleetRequestId :: {-# NOUNPACK #-}!Text
+  { _dsfiNextToken          :: !(Maybe Text)
+  , _dsfiDryRun             :: !(Maybe Bool)
+  , _dsfiMaxResults         :: !(Maybe Int)
+  , _dsfiSpotFleetRequestId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,10 +141,10 @@ instance ToQuery DescribeSpotFleetInstances where
 --
 -- /See:/ 'describeSpotFleetInstancesResponse' smart constructor.
 data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
-  { _dsfirsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsfirsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _dsfirsActiveInstances    :: {-# NOUNPACK #-}![ActiveInstance]
-  , _dsfirsSpotFleetRequestId :: {-# NOUNPACK #-}!Text
+  { _dsfirsNextToken          :: !(Maybe Text)
+  , _dsfirsResponseStatus     :: !Int
+  , _dsfirsActiveInstances    :: ![ActiveInstance]
+  , _dsfirsSpotFleetRequestId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

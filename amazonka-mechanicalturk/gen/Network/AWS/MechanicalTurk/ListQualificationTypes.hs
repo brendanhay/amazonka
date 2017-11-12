@@ -52,11 +52,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'listQualificationTypes' smart constructor.
 data ListQualificationTypes = ListQualificationTypes'
-  { _lqtMustBeOwnedByCaller :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lqtNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lqtQuery               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lqtMaxResults          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lqtMustBeRequestable   :: {-# NOUNPACK #-}!Bool
+  { _lqtMustBeOwnedByCaller :: !(Maybe Bool)
+  , _lqtNextToken           :: !(Maybe Text)
+  , _lqtQuery               :: !(Maybe Text)
+  , _lqtMaxResults          :: !(Maybe Nat)
+  , _lqtMustBeRequestable   :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -152,10 +152,10 @@ instance ToQuery ListQualificationTypes where
 
 -- | /See:/ 'listQualificationTypesResponse' smart constructor.
 data ListQualificationTypesResponse = ListQualificationTypesResponse'
-  { _lqtrsQualificationTypes :: {-# NOUNPACK #-}!(Maybe [QualificationType])
-  , _lqtrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lqtrsNumResults         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lqtrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _lqtrsQualificationTypes :: !(Maybe [QualificationType])
+  , _lqtrsNextToken          :: !(Maybe Text)
+  , _lqtrsNumResults         :: !(Maybe Int)
+  , _lqtrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

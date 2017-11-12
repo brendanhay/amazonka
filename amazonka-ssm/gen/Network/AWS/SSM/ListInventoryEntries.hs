@@ -55,11 +55,11 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listInventoryEntries' smart constructor.
 data ListInventoryEntries = ListInventoryEntries'
-  { _lieFilters    :: {-# NOUNPACK #-}!(Maybe (List1 InventoryFilter))
-  , _lieNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lieMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lieInstanceId :: {-# NOUNPACK #-}!Text
-  , _lieTypeName   :: {-# NOUNPACK #-}!Text
+  { _lieFilters    :: !(Maybe (List1 InventoryFilter))
+  , _lieNextToken  :: !(Maybe Text)
+  , _lieMaxResults :: !(Maybe Nat)
+  , _lieInstanceId :: !Text
+  , _lieTypeName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,13 +156,13 @@ instance ToQuery ListInventoryEntries where
 
 -- | /See:/ 'listInventoryEntriesResponse' smart constructor.
 data ListInventoryEntriesResponse = ListInventoryEntriesResponse'
-  { _liersInstanceId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liersTypeName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liersEntries        :: {-# NOUNPACK #-}!(Maybe [Map Text Text])
-  , _liersSchemaVersion  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liersCaptureTime    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _liersInstanceId     :: !(Maybe Text)
+  , _liersTypeName       :: !(Maybe Text)
+  , _liersEntries        :: !(Maybe [Map Text Text])
+  , _liersSchemaVersion  :: !(Maybe Text)
+  , _liersCaptureTime    :: !(Maybe Text)
+  , _liersNextToken      :: !(Maybe Text)
+  , _liersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

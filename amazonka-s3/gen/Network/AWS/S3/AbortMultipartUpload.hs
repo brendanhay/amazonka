@@ -51,10 +51,10 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'abortMultipartUpload' smart constructor.
 data AbortMultipartUpload = AbortMultipartUpload'
-  { _amuRequestPayer :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _amuBucket       :: {-# NOUNPACK #-}!BucketName
-  , _amuKey          :: {-# NOUNPACK #-}!ObjectKey
-  , _amuUploadId     :: {-# NOUNPACK #-}!Text
+  { _amuRequestPayer :: !(Maybe RequestPayer)
+  , _amuBucket       :: !BucketName
+  , _amuKey          :: !ObjectKey
+  , _amuUploadId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery AbortMultipartUpload where
 
 -- | /See:/ 'abortMultipartUploadResponse' smart constructor.
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
-  { _amursRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _amursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _amursRequestCharged :: !(Maybe RequestCharged)
+  , _amursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

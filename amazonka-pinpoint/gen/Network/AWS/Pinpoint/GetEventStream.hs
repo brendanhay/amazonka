@@ -96,8 +96,8 @@ instance ToQuery GetEventStream where
 
 -- | /See:/ 'getEventStreamResponse' smart constructor.
 data GetEventStreamResponse = GetEventStreamResponse'
-  { _gesrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gesrsEventStream    :: {-# NOUNPACK #-}!EventStream
+  { _gesrsResponseStatus :: !Int
+  , _gesrsEventStream    :: !EventStream
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

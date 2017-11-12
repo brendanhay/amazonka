@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getLoggerDefinitionVersion' smart constructor.
 data GetLoggerDefinitionVersion = GetLoggerDefinitionVersion'
-  { _gldvLoggerDefinitionVersionId :: {-# NOUNPACK #-}!Text
-  , _gldvLoggerDefinitionId        :: {-# NOUNPACK #-}!Text
+  { _gldvLoggerDefinitionVersionId :: !Text
+  , _gldvLoggerDefinitionId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,12 +117,12 @@ instance ToQuery GetLoggerDefinitionVersion where
 
 -- | /See:/ 'getLoggerDefinitionVersionResponse' smart constructor.
 data GetLoggerDefinitionVersionResponse = GetLoggerDefinitionVersionResponse'
-  { _gldvrsDefinition        :: {-# NOUNPACK #-}!(Maybe LoggerDefinitionVersion)
-  , _gldvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gldvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gldvrsDefinition        :: !(Maybe LoggerDefinitionVersion)
+  , _gldvrsARN               :: !(Maybe Text)
+  , _gldvrsCreationTimestamp :: !(Maybe Text)
+  , _gldvrsVersion           :: !(Maybe Text)
+  , _gldvrsId                :: !(Maybe Text)
+  , _gldvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -96,8 +96,8 @@ instance ToQuery GetBucketAccelerateConfiguration
 
 -- | /See:/ 'getBucketAccelerateConfigurationResponse' smart constructor.
 data GetBucketAccelerateConfigurationResponse = GetBucketAccelerateConfigurationResponse'
-  { _grsStatus         :: {-# NOUNPACK #-}!(Maybe BucketAccelerateStatus)
-  , _grsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grsStatus         :: !(Maybe BucketAccelerateStatus)
+  , _grsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

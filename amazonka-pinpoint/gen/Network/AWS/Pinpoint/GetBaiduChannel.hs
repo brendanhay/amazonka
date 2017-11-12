@@ -95,8 +95,8 @@ instance ToQuery GetBaiduChannel where
 
 -- | /See:/ 'getBaiduChannelResponse' smart constructor.
 data GetBaiduChannelResponse = GetBaiduChannelResponse'
-  { _gbcrsResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _gbcrsBaiduChannelResponse :: {-# NOUNPACK #-}!BaiduChannelResponse
+  { _gbcrsResponseStatus       :: !Int
+  , _gbcrsBaiduChannelResponse :: !BaiduChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

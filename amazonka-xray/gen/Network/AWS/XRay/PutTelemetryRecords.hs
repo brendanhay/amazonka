@@ -48,10 +48,10 @@ import Network.AWS.XRay.Types.Product
 
 -- | /See:/ 'putTelemetryRecords' smart constructor.
 data PutTelemetryRecords = PutTelemetryRecords'
-  { _ptrHostname         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ptrEC2InstanceId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ptrResourceARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ptrTelemetryRecords :: {-# NOUNPACK #-}![TelemetryRecord]
+  { _ptrHostname         :: !(Maybe Text)
+  , _ptrEC2InstanceId    :: !(Maybe Text)
+  , _ptrResourceARN      :: !(Maybe Text)
+  , _ptrTelemetryRecords :: ![TelemetryRecord]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

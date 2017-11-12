@@ -27,27 +27,27 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'certificateDetail' smart constructor.
 data CertificateDetail = CertificateDetail'
-  { _cdSubject :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdStatus :: {-# NOUNPACK #-}!(Maybe CertificateStatus)
-  , _cdFailureReason :: {-# NOUNPACK #-}!(Maybe FailureReason)
-  , _cdSubjectAlternativeNames :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _cdInUseBy :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdCreatedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cdCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdSerial :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdImportedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cdRevokedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cdNotBefore :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cdRevocationReason :: {-# NOUNPACK #-}!(Maybe RevocationReason)
-  , _cdDomainName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdRenewalSummary :: {-# NOUNPACK #-}!(Maybe RenewalSummary)
-  , _cdKeyAlgorithm :: {-# NOUNPACK #-}!(Maybe KeyAlgorithm)
-  , _cdType :: {-# NOUNPACK #-}!(Maybe CertificateType)
-  , _cdIssuedAt :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cdSignatureAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdDomainValidationOptions :: {-# NOUNPACK #-}!(Maybe (List1 DomainValidation))
-  , _cdIssuer :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdNotAfter :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _cdSubject                 :: !(Maybe Text)
+  , _cdStatus                  :: !(Maybe CertificateStatus)
+  , _cdFailureReason           :: !(Maybe FailureReason)
+  , _cdSubjectAlternativeNames :: !(Maybe (List1 Text))
+  , _cdInUseBy                 :: !(Maybe [Text])
+  , _cdCreatedAt               :: !(Maybe POSIX)
+  , _cdCertificateARN          :: !(Maybe Text)
+  , _cdSerial                  :: !(Maybe Text)
+  , _cdImportedAt              :: !(Maybe POSIX)
+  , _cdRevokedAt               :: !(Maybe POSIX)
+  , _cdNotBefore               :: !(Maybe POSIX)
+  , _cdRevocationReason        :: !(Maybe RevocationReason)
+  , _cdDomainName              :: !(Maybe Text)
+  , _cdRenewalSummary          :: !(Maybe RenewalSummary)
+  , _cdKeyAlgorithm            :: !(Maybe KeyAlgorithm)
+  , _cdType                    :: !(Maybe CertificateType)
+  , _cdIssuedAt                :: !(Maybe POSIX)
+  , _cdSignatureAlgorithm      :: !(Maybe Text)
+  , _cdDomainValidationOptions :: !(Maybe (List1 DomainValidation))
+  , _cdIssuer                  :: !(Maybe Text)
+  , _cdNotAfter                :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -244,8 +244,8 @@ instance NFData CertificateDetail where
 --
 -- /See:/ 'certificateSummary' smart constructor.
 data CertificateSummary = CertificateSummary'
-  { _csCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csDomainName     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csCertificateARN :: !(Maybe Text)
+  , _csDomainName     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -287,10 +287,10 @@ instance NFData CertificateSummary where
 --
 -- /See:/ 'domainValidation' smart constructor.
 data DomainValidation = DomainValidation'
-  { _dvValidationEmails :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvValidationStatus :: {-# NOUNPACK #-}!(Maybe DomainStatus)
-  , _dvValidationDomain :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvDomainName       :: {-# NOUNPACK #-}!Text
+  { _dvValidationEmails :: !(Maybe [Text])
+  , _dvValidationStatus :: !(Maybe DomainStatus)
+  , _dvValidationDomain :: !(Maybe Text)
+  , _dvDomainName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -353,8 +353,8 @@ instance NFData DomainValidation where
 --
 -- /See:/ 'domainValidationOption' smart constructor.
 data DomainValidationOption = DomainValidationOption'
-  { _dvoDomainName       :: {-# NOUNPACK #-}!Text
-  , _dvoValidationDomain :: {-# NOUNPACK #-}!Text
+  { _dvoDomainName       :: !Text
+  , _dvoValidationDomain :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -399,8 +399,8 @@ instance ToJSON DomainValidationOption where
 --
 -- /See:/ 'renewalSummary' smart constructor.
 data RenewalSummary = RenewalSummary'
-  { _rsRenewalStatus           :: {-# NOUNPACK #-}!RenewalStatus
-  , _rsDomainValidationOptions :: {-# NOUNPACK #-}!(List1 DomainValidation)
+  { _rsRenewalStatus           :: !RenewalStatus
+  , _rsDomainValidationOptions :: !(List1 DomainValidation)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -448,8 +448,8 @@ instance NFData RenewalSummary where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!Text
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

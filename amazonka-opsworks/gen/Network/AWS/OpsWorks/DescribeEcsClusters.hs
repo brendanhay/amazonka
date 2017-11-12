@@ -57,10 +57,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeEcsClusters' smart constructor.
 data DescribeEcsClusters = DescribeEcsClusters'
-  { _decNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _decStackId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _decMaxResults     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _decEcsClusterARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _decNextToken      :: !(Maybe Text)
+  , _decStackId        :: !(Maybe Text)
+  , _decMaxResults     :: !(Maybe Int)
+  , _decEcsClusterARNs :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,9 +156,9 @@ instance ToQuery DescribeEcsClusters where
 --
 -- /See:/ 'describeEcsClustersResponse' smart constructor.
 data DescribeEcsClustersResponse = DescribeEcsClustersResponse'
-  { _decrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _decrsEcsClusters    :: {-# NOUNPACK #-}!(Maybe [EcsCluster])
-  , _decrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _decrsNextToken      :: !(Maybe Text)
+  , _decrsEcsClusters    :: !(Maybe [EcsCluster])
+  , _decrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

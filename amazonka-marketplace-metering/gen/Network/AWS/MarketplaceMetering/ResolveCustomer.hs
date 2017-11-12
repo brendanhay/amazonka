@@ -114,9 +114,9 @@ instance ToQuery ResolveCustomer where
 --
 -- /See:/ 'resolveCustomerResponse' smart constructor.
 data ResolveCustomerResponse = ResolveCustomerResponse'
-  { _rcrsCustomerIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcrsProductCode        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _rcrsCustomerIdentifier :: !(Maybe Text)
+  , _rcrsProductCode        :: !(Maybe Text)
+  , _rcrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

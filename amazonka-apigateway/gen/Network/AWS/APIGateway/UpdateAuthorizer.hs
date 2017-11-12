@@ -61,9 +61,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateAuthorizer' smart constructor.
 data UpdateAuthorizer = UpdateAuthorizer'
-  { _uaaPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
-  , _uaaRestAPIId       :: {-# NOUNPACK #-}!Text
-  , _uaaAuthorizerId    :: {-# NOUNPACK #-}!Text
+  { _uaaPatchOperations :: !(Maybe [PatchOperation])
+  , _uaaRestAPIId       :: !Text
+  , _uaaAuthorizerId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'listPolicyPrincipals' smart constructor.
 data ListPolicyPrincipals = ListPolicyPrincipals'
-  { _lMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lAscendingOrder :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lPolicyName     :: {-# NOUNPACK #-}!Text
+  { _lMarker         :: !(Maybe Text)
+  , _lAscendingOrder :: !(Maybe Bool)
+  , _lPageSize       :: !(Maybe Nat)
+  , _lPolicyName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,9 +146,9 @@ instance ToQuery ListPolicyPrincipals where
 --
 -- /See:/ 'listPolicyPrincipalsResponse' smart constructor.
 data ListPolicyPrincipalsResponse = ListPolicyPrincipalsResponse'
-  { _lrsPrincipals     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrsPrincipals     :: !(Maybe [Text])
+  , _lrsNextMarker     :: !(Maybe Text)
+  , _lrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

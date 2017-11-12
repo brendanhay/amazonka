@@ -102,8 +102,8 @@ instance ToQuery RefreshCache where
 
 -- | /See:/ 'refreshCacheResponse' smart constructor.
 data RefreshCacheResponse = RefreshCacheResponse'
-  { _rcrsFileShareARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rcrsFileShareARN   :: !(Maybe Text)
+  , _rcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

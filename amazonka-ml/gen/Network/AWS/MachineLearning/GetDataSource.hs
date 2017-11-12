@@ -68,8 +68,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getDataSource' smart constructor.
 data GetDataSource = GetDataSource'
-  { _gdsVerbose      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gdsDataSourceId :: {-# NOUNPACK #-}!Text
+  { _gdsVerbose      :: !(Maybe Bool)
+  , _gdsDataSourceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -155,27 +155,27 @@ instance ToQuery GetDataSource where
 --
 -- /See:/ 'getDataSourceResponse' smart constructor.
 data GetDataSourceResponse = GetDataSourceResponse'
-  { _gdsrsStatus            :: {-# NOUNPACK #-}!(Maybe EntityStatus)
-  , _gdsrsNumberOfFiles     :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gdsrsLastUpdatedAt     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gdsrsCreatedAt         :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gdsrsComputeTime       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gdsrsDataSourceId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsRDSMetadata       :: {-# NOUNPACK #-}!(Maybe RDSMetadata)
-  , _gdsrsDataSizeInBytes   :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gdsrsDataSourceSchema  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsStartedAt         :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gdsrsFinishedAt        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gdsrsCreatedByIAMUser  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsLogURI            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsDataLocationS3    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsComputeStatistics :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gdsrsMessage           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsRedshiftMetadata  :: {-# NOUNPACK #-}!(Maybe RedshiftMetadata)
-  , _gdsrsDataRearrangement :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsRoleARN           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gdsrsStatus            :: !(Maybe EntityStatus)
+  , _gdsrsNumberOfFiles     :: !(Maybe Integer)
+  , _gdsrsLastUpdatedAt     :: !(Maybe POSIX)
+  , _gdsrsCreatedAt         :: !(Maybe POSIX)
+  , _gdsrsComputeTime       :: !(Maybe Integer)
+  , _gdsrsDataSourceId      :: !(Maybe Text)
+  , _gdsrsRDSMetadata       :: !(Maybe RDSMetadata)
+  , _gdsrsDataSizeInBytes   :: !(Maybe Integer)
+  , _gdsrsDataSourceSchema  :: !(Maybe Text)
+  , _gdsrsStartedAt         :: !(Maybe POSIX)
+  , _gdsrsFinishedAt        :: !(Maybe POSIX)
+  , _gdsrsCreatedByIAMUser  :: !(Maybe Text)
+  , _gdsrsName              :: !(Maybe Text)
+  , _gdsrsLogURI            :: !(Maybe Text)
+  , _gdsrsDataLocationS3    :: !(Maybe Text)
+  , _gdsrsComputeStatistics :: !(Maybe Bool)
+  , _gdsrsMessage           :: !(Maybe Text)
+  , _gdsrsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
+  , _gdsrsDataRearrangement :: !(Maybe Text)
+  , _gdsrsRoleARN           :: !(Maybe Text)
+  , _gdsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

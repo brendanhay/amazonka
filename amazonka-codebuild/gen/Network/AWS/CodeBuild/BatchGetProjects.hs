@@ -103,9 +103,9 @@ instance ToQuery BatchGetProjects where
 
 -- | /See:/ 'batchGetProjectsResponse' smart constructor.
 data BatchGetProjectsResponse = BatchGetProjectsResponse'
-  { _bgprsProjectsNotFound :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _bgprsProjects         :: {-# NOUNPACK #-}!(Maybe [Project])
-  , _bgprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _bgprsProjectsNotFound :: !(Maybe (List1 Text))
+  , _bgprsProjects         :: !(Maybe [Project])
+  , _bgprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

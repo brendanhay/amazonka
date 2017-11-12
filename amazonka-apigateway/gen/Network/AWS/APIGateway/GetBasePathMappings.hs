@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getBasePathMappings' smart constructor.
 data GetBasePathMappings = GetBasePathMappings'
-  { _gLimit      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gPosition   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gDomainName :: {-# NOUNPACK #-}!Text
+  { _gLimit      :: !(Maybe Int)
+  , _gPosition   :: !(Maybe Text)
+  , _gDomainName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery GetBasePathMappings where
 --
 -- /See:/ 'getBasePathMappingsResponse' smart constructor.
 data GetBasePathMappingsResponse = GetBasePathMappingsResponse'
-  { _gbpmrsItems          :: {-# NOUNPACK #-}!(Maybe [BasePathMapping])
-  , _gbpmrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbpmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbpmrsItems          :: !(Maybe [BasePathMapping])
+  , _gbpmrsPosition       :: !(Maybe Text)
+  , _gbpmrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

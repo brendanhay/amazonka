@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'unsubscribeFromDataset' smart constructor.
 data UnsubscribeFromDataset = UnsubscribeFromDataset'
-  { _ufdIdentityPoolId :: {-# NOUNPACK #-}!Text
-  , _ufdIdentityId     :: {-# NOUNPACK #-}!Text
-  , _ufdDatasetName    :: {-# NOUNPACK #-}!Text
-  , _ufdDeviceId       :: {-# NOUNPACK #-}!Text
+  { _ufdIdentityPoolId :: !Text
+  , _ufdIdentityId     :: !Text
+  , _ufdDatasetName    :: !Text
+  , _ufdDeviceId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

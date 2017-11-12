@@ -48,8 +48,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createResourceDataSync' smart constructor.
 data CreateResourceDataSync = CreateResourceDataSync'
-  { _crdsSyncName      :: {-# NOUNPACK #-}!Text
-  , _crdsS3Destination :: {-# NOUNPACK #-}!ResourceDataSyncS3Destination
+  { _crdsSyncName      :: !Text
+  , _crdsS3Destination :: !ResourceDataSyncS3Destination
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

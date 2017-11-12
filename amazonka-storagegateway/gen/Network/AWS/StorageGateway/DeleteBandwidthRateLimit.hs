@@ -55,8 +55,8 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'deleteBandwidthRateLimit' smart constructor.
 data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
-  { _dbrlbGatewayARN    :: {-# NOUNPACK #-}!Text
-  , _dbrlbBandwidthType :: {-# NOUNPACK #-}!Text
+  { _dbrlbGatewayARN    :: !Text
+  , _dbrlbBandwidthType :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery DeleteBandwidthRateLimit where
 --
 -- /See:/ 'deleteBandwidthRateLimitResponse' smart constructor.
 data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
-  { _delrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _delrsGatewayARN     :: !(Maybe Text)
+  , _delrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

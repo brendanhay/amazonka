@@ -69,28 +69,28 @@ import Network.AWS.Response
 
 -- | /See:/ 'cloneStack' smart constructor.
 data CloneStack = CloneStack'
-  { _cDefaultInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCloneAppIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cDefaultRootDeviceType :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
-  , _cVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cChefConfiguration :: {-# NOUNPACK #-}!(Maybe ChefConfiguration)
-  , _cAgentVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cDefaultSSHKeyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cClonePermissions :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cCustomCookbooksSource :: {-# NOUNPACK #-}!(Maybe Source)
-  , _cDefaultAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cAttributes :: {-# NOUNPACK #-}!(Maybe (Map StackAttributesKeys Text))
-  , _cName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cDefaultOS :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cUseOpsworksSecurityGroups :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cUseCustomCookbooks :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cDefaultSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cRegion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cConfigurationManager :: {-# NOUNPACK #-}!(Maybe StackConfigurationManager)
-  , _cHostnameTheme :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cSourceStackId :: {-# NOUNPACK #-}!Text
-  , _cServiceRoleARN :: {-# NOUNPACK #-}!Text
+  { _cDefaultInstanceProfileARN :: !(Maybe Text)
+  , _cCloneAppIds               :: !(Maybe [Text])
+  , _cDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+  , _cVPCId                     :: !(Maybe Text)
+  , _cChefConfiguration         :: !(Maybe ChefConfiguration)
+  , _cAgentVersion              :: !(Maybe Text)
+  , _cDefaultSSHKeyName         :: !(Maybe Text)
+  , _cCustomJSON                :: !(Maybe Text)
+  , _cClonePermissions          :: !(Maybe Bool)
+  , _cCustomCookbooksSource     :: !(Maybe Source)
+  , _cDefaultAvailabilityZone   :: !(Maybe Text)
+  , _cAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+  , _cName                      :: !(Maybe Text)
+  , _cDefaultOS                 :: !(Maybe Text)
+  , _cUseOpsworksSecurityGroups :: !(Maybe Bool)
+  , _cUseCustomCookbooks        :: !(Maybe Bool)
+  , _cDefaultSubnetId           :: !(Maybe Text)
+  , _cRegion                    :: !(Maybe Text)
+  , _cConfigurationManager      :: !(Maybe StackConfigurationManager)
+  , _cHostnameTheme             :: !(Maybe Text)
+  , _cSourceStackId             :: !Text
+  , _cServiceRoleARN            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -327,8 +327,8 @@ instance ToQuery CloneStack where
 --
 -- /See:/ 'cloneStackResponse' smart constructor.
 data CloneStackResponse = CloneStackResponse'
-  { _csrsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csrsStackId        :: !(Maybe Text)
+  , _csrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -83,34 +83,34 @@ import Network.AWS.Response
 --
 -- /See:/ 'createReplicationGroup' smart constructor.
 data CreateReplicationGroup = CreateReplicationGroup'
-  { _crgAutomaticFailoverEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _crgEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crgCacheNodeType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crgNodeGroupConfiguration :: {-# NOUNPACK #-}!(Maybe [NodeGroupConfiguration])
-  , _crgAtRestEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _crgSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _crgSnapshotARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _crgAutoMinorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _crgCacheParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crgTransitEncryptionEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _crgSnapshotWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crgAuthToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crgPrimaryClusterId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crgEngine :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crgPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crgCacheSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crgNumNodeGroups :: {-# NOUNPACK #-}!(Maybe Int)
-  , _crgSnapshotRetentionLimit :: {-# NOUNPACK #-}!(Maybe Int)
-  , _crgReplicasPerNodeGroup :: {-# NOUNPACK #-}!(Maybe Int)
-  , _crgNumCacheClusters :: {-# NOUNPACK #-}!(Maybe Int)
-  , _crgPreferredCacheClusterAZs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _crgSnapshotName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crgNotificationTopicARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crgTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _crgPort :: {-# NOUNPACK #-}!(Maybe Int)
-  , _crgCacheSecurityGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _crgReplicationGroupId :: {-# NOUNPACK #-}!Text
-  , _crgReplicationGroupDescription :: {-# NOUNPACK #-}!Text
+  { _crgAutomaticFailoverEnabled    :: !(Maybe Bool)
+  , _crgEngineVersion               :: !(Maybe Text)
+  , _crgCacheNodeType               :: !(Maybe Text)
+  , _crgNodeGroupConfiguration      :: !(Maybe [NodeGroupConfiguration])
+  , _crgAtRestEncryptionEnabled     :: !(Maybe Bool)
+  , _crgSecurityGroupIds            :: !(Maybe [Text])
+  , _crgSnapshotARNs                :: !(Maybe [Text])
+  , _crgAutoMinorVersionUpgrade     :: !(Maybe Bool)
+  , _crgCacheParameterGroupName     :: !(Maybe Text)
+  , _crgTransitEncryptionEnabled    :: !(Maybe Bool)
+  , _crgSnapshotWindow              :: !(Maybe Text)
+  , _crgAuthToken                   :: !(Maybe Text)
+  , _crgPrimaryClusterId            :: !(Maybe Text)
+  , _crgEngine                      :: !(Maybe Text)
+  , _crgPreferredMaintenanceWindow  :: !(Maybe Text)
+  , _crgCacheSubnetGroupName        :: !(Maybe Text)
+  , _crgNumNodeGroups               :: !(Maybe Int)
+  , _crgSnapshotRetentionLimit      :: !(Maybe Int)
+  , _crgReplicasPerNodeGroup        :: !(Maybe Int)
+  , _crgNumCacheClusters            :: !(Maybe Int)
+  , _crgPreferredCacheClusterAZs    :: !(Maybe [Text])
+  , _crgSnapshotName                :: !(Maybe Text)
+  , _crgNotificationTopicARN        :: !(Maybe Text)
+  , _crgTags                        :: !(Maybe [Tag])
+  , _crgPort                        :: !(Maybe Int)
+  , _crgCacheSecurityGroupNames     :: !(Maybe [Text])
+  , _crgReplicationGroupId          :: !Text
+  , _crgReplicationGroupDescription :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -401,8 +401,8 @@ instance ToQuery CreateReplicationGroup where
 
 -- | /See:/ 'createReplicationGroupResponse' smart constructor.
 data CreateReplicationGroupResponse = CreateReplicationGroupResponse'
-  { _crgrsReplicationGroup :: {-# NOUNPACK #-}!(Maybe ReplicationGroup)
-  , _crgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _crgrsReplicationGroup :: !(Maybe ReplicationGroup)
+  , _crgrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

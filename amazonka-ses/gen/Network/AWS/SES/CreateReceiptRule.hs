@@ -55,9 +55,9 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'createReceiptRule' smart constructor.
 data CreateReceiptRule = CreateReceiptRule'
-  { _crrAfter       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crrRuleSetName :: {-# NOUNPACK #-}!Text
-  , _crrRule        :: {-# NOUNPACK #-}!ReceiptRule
+  { _crrAfter       :: !(Maybe Text)
+  , _crrRuleSetName :: !Text
+  , _crrRule        :: !ReceiptRule
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

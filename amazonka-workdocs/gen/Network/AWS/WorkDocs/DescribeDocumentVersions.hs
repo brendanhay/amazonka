@@ -57,12 +57,12 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeDocumentVersions' smart constructor.
 data DescribeDocumentVersions = DescribeDocumentVersions'
-  { _ddvInclude             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddvAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _ddvMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddvLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ddvFields              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddvDocumentId          :: {-# NOUNPACK #-}!Text
+  { _ddvInclude             :: !(Maybe Text)
+  , _ddvAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _ddvMarker              :: !(Maybe Text)
+  , _ddvLimit               :: !(Maybe Nat)
+  , _ddvFields              :: !(Maybe Text)
+  , _ddvDocumentId          :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -163,9 +163,9 @@ instance ToQuery DescribeDocumentVersions where
 
 -- | /See:/ 'describeDocumentVersionsResponse' smart constructor.
 data DescribeDocumentVersionsResponse = DescribeDocumentVersionsResponse'
-  { _ddvrsDocumentVersions :: {-# NOUNPACK #-}!(Maybe [DocumentVersionMetadata])
-  , _ddvrsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddvrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ddvrsDocumentVersions :: !(Maybe [DocumentVersionMetadata])
+  , _ddvrsMarker           :: !(Maybe Text)
+  , _ddvrsResponseStatus   :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

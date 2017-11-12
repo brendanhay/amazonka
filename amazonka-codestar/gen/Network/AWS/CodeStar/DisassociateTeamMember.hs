@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'disassociateTeamMember' smart constructor.
 data DisassociateTeamMember = DisassociateTeamMember'
-  { _dtmProjectId :: {-# NOUNPACK #-}!Text
-  , _dtmUserARN   :: {-# NOUNPACK #-}!Text
+  { _dtmProjectId :: !Text
+  , _dtmUserARN   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

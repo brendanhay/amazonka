@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeSubnetGroups' smart constructor.
 data DescribeSubnetGroups = DescribeSubnetGroups'
-  { _dsgSubnetGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dsgNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsgMaxResults       :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dsgSubnetGroupNames :: !(Maybe [Text])
+  , _dsgNextToken        :: !(Maybe Text)
+  , _dsgMaxResults       :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,9 +127,9 @@ instance ToQuery DescribeSubnetGroups where
 
 -- | /See:/ 'describeSubnetGroupsResponse' smart constructor.
 data DescribeSubnetGroupsResponse = DescribeSubnetGroupsResponse'
-  { _dsgsrsSubnetGroups   :: {-# NOUNPACK #-}!(Maybe [SubnetGroup])
-  , _dsgsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsgsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsgsrsSubnetGroups   :: !(Maybe [SubnetGroup])
+  , _dsgsrsNextToken      :: !(Maybe Text)
+  , _dsgsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

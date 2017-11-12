@@ -109,9 +109,9 @@ instance ToQuery ListReceiptRuleSets where
 --
 -- /See:/ 'listReceiptRuleSetsResponse' smart constructor.
 data ListReceiptRuleSetsResponse = ListReceiptRuleSetsResponse'
-  { _lrrsrsRuleSets       :: {-# NOUNPACK #-}!(Maybe [ReceiptRuleSetMetadata])
-  , _lrrsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrrsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrrsrsRuleSets       :: !(Maybe [ReceiptRuleSetMetadata])
+  , _lrrsrsNextToken      :: !(Maybe Text)
+  , _lrrsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

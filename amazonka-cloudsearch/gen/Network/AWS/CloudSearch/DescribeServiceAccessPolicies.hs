@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeServiceAccessPolicies' smart constructor.
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
-  { _dsapDeployed   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsapDomainName :: {-# NOUNPACK #-}!Text
+  { _dsapDeployed   :: !(Maybe Bool)
+  , _dsapDomainName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,8 +117,8 @@ instance ToQuery DescribeServiceAccessPolicies where
 --
 -- /See:/ 'describeServiceAccessPoliciesResponse' smart constructor.
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
-  { _dsaprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dsaprsAccessPolicies :: {-# NOUNPACK #-}!AccessPoliciesStatus
+  { _dsaprsResponseStatus :: !Int
+  , _dsaprsAccessPolicies :: !AccessPoliciesStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

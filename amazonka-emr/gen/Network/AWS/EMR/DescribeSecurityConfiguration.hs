@@ -108,10 +108,10 @@ instance ToQuery DescribeSecurityConfiguration where
 
 -- | /See:/ 'describeSecurityConfigurationResponse' smart constructor.
 data DescribeSecurityConfigurationResponse = DescribeSecurityConfigurationResponse'
-  { _drsSecurityConfiguration :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsCreationDateTime      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _drsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _drsSecurityConfiguration :: !(Maybe Text)
+  , _drsName                  :: !(Maybe Text)
+  , _drsCreationDateTime      :: !(Maybe POSIX)
+  , _drsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

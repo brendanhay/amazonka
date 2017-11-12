@@ -46,10 +46,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'enableMFADevice' smart constructor.
 data EnableMFADevice = EnableMFADevice'
-  { _emdUserName            :: {-# NOUNPACK #-}!Text
-  , _emdSerialNumber        :: {-# NOUNPACK #-}!Text
-  , _emdAuthenticationCode1 :: {-# NOUNPACK #-}!Text
-  , _emdAuthenticationCode2 :: {-# NOUNPACK #-}!Text
+  { _emdUserName            :: !Text
+  , _emdSerialNumber        :: !Text
+  , _emdAuthenticationCode1 :: !Text
+  , _emdAuthenticationCode2 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -51,8 +51,8 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'setLocalConsolePassword' smart constructor.
 data SetLocalConsolePassword = SetLocalConsolePassword'
-  { _slcpGatewayARN           :: {-# NOUNPACK #-}!Text
-  , _slcpLocalConsolePassword :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _slcpGatewayARN           :: !Text
+  , _slcpLocalConsolePassword :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery SetLocalConsolePassword where
 
 -- | /See:/ 'setLocalConsolePasswordResponse' smart constructor.
 data SetLocalConsolePasswordResponse = SetLocalConsolePasswordResponse'
-  { _slcprsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slcprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _slcprsGatewayARN     :: !(Maybe Text)
+  , _slcprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

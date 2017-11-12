@@ -110,11 +110,11 @@ instance ToQuery CreateKeysAndCertificate where
 --
 -- /See:/ 'createKeysAndCertificateResponse' smart constructor.
 data CreateKeysAndCertificateResponse = CreateKeysAndCertificateResponse'
-  { _ckacrsKeyPair        :: {-# NOUNPACK #-}!(Maybe KeyPair)
-  , _ckacrsCertificatePem :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ckacrsCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ckacrsCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ckacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ckacrsKeyPair        :: !(Maybe KeyPair)
+  , _ckacrsCertificatePem :: !(Maybe Text)
+  , _ckacrsCertificateARN :: !(Maybe Text)
+  , _ckacrsCertificateId  :: !(Maybe Text)
+  , _ckacrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

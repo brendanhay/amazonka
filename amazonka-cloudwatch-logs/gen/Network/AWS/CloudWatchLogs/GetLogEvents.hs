@@ -56,13 +56,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'getLogEvents' smart constructor.
 data GetLogEvents = GetLogEvents'
-  { _gleStartTime     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gleStartFromHead :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gleNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gleEndTime       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gleLimit         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gleLogGroupName  :: {-# NOUNPACK #-}!Text
-  , _gleLogStreamName :: {-# NOUNPACK #-}!Text
+  { _gleStartTime     :: !(Maybe Nat)
+  , _gleStartFromHead :: !(Maybe Bool)
+  , _gleNextToken     :: !(Maybe Text)
+  , _gleEndTime       :: !(Maybe Nat)
+  , _gleLimit         :: !(Maybe Nat)
+  , _gleLogGroupName  :: !Text
+  , _gleLogStreamName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -172,10 +172,10 @@ instance ToQuery GetLogEvents where
 
 -- | /See:/ 'getLogEventsResponse' smart constructor.
 data GetLogEventsResponse = GetLogEventsResponse'
-  { _glersNextBackwardToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glersNextForwardToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glersEvents            :: {-# NOUNPACK #-}!(Maybe [OutputLogEvent])
-  , _glersResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _glersNextBackwardToken :: !(Maybe Text)
+  , _glersNextForwardToken  :: !(Maybe Text)
+  , _glersEvents            :: !(Maybe [OutputLogEvent])
+  , _glersResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

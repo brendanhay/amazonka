@@ -52,12 +52,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'registerScalableTarget' smart constructor.
 data RegisterScalableTarget = RegisterScalableTarget'
-  { _rstMaxCapacity       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rstMinCapacity       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rstRoleARN           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rstServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
-  , _rstResourceId        :: {-# NOUNPACK #-}!Text
-  , _rstScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
+  { _rstMaxCapacity       :: !(Maybe Int)
+  , _rstMinCapacity       :: !(Maybe Int)
+  , _rstRoleARN           :: !(Maybe Text)
+  , _rstServiceNamespace  :: !ServiceNamespace
+  , _rstResourceId        :: !Text
+  , _rstScalableDimension :: !ScalableDimension
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -74,13 +74,13 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'countClosedWorkflowExecutions' smart constructor.
 data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions'
-  { _ccweExecutionFilter   :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionFilter)
-  , _ccweCloseStatusFilter :: {-# NOUNPACK #-}!(Maybe CloseStatusFilter)
-  , _ccweTypeFilter        :: {-# NOUNPACK #-}!(Maybe WorkflowTypeFilter)
-  , _ccweCloseTimeFilter   :: {-# NOUNPACK #-}!(Maybe ExecutionTimeFilter)
-  , _ccweTagFilter         :: {-# NOUNPACK #-}!(Maybe TagFilter)
-  , _ccweStartTimeFilter   :: {-# NOUNPACK #-}!(Maybe ExecutionTimeFilter)
-  , _ccweDomain            :: {-# NOUNPACK #-}!Text
+  { _ccweExecutionFilter   :: !(Maybe WorkflowExecutionFilter)
+  , _ccweCloseStatusFilter :: !(Maybe CloseStatusFilter)
+  , _ccweTypeFilter        :: !(Maybe WorkflowTypeFilter)
+  , _ccweCloseTimeFilter   :: !(Maybe ExecutionTimeFilter)
+  , _ccweTagFilter         :: !(Maybe TagFilter)
+  , _ccweStartTimeFilter   :: !(Maybe ExecutionTimeFilter)
+  , _ccweDomain            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

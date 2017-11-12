@@ -28,8 +28,8 @@ import Network.AWS.Redshift.Types.Sum
 --
 -- /See:/ 'accountWithRestoreAccess' smart constructor.
 data AccountWithRestoreAccess = AccountWithRestoreAccess'
-  { _awraAccountAlias :: {-# NOUNPACK #-}!(Maybe Text)
-  , _awraAccountId    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _awraAccountAlias :: !(Maybe Text)
+  , _awraAccountId    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -101,39 +101,39 @@ instance NFData AvailabilityZone where
 --
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
-  { _cRestoreStatus :: {-# NOUNPACK #-}!(Maybe RestoreStatus)
-  , _cEnhancedVPCRouting :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cClusterSnapshotCopyStatus :: {-# NOUNPACK #-}!(Maybe ClusterSnapshotCopyStatus)
-  , _cClusterRevisionNumber :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cPubliclyAccessible :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cMasterUsername :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cClusterSecurityGroups :: {-# NOUNPACK #-}!(Maybe [ClusterSecurityGroupMembership])
-  , _cAutomatedSnapshotRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cEncrypted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cClusterSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cNumberOfNodes :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cClusterPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cModifyStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cClusterParameterGroups :: {-# NOUNPACK #-}!(Maybe [ClusterParameterGroupStatus])
-  , _cAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [VPCSecurityGroupMembership])
-  , _cHSMStatus :: {-# NOUNPACK #-}!(Maybe HSMStatus)
-  , _cIAMRoles :: {-# NOUNPACK #-}!(Maybe [ClusterIAMRole])
-  , _cElasticIPStatus :: {-# NOUNPACK #-}!(Maybe ElasticIPStatus)
-  , _cClusterVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cNodeType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cClusterCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _cEndpoint :: {-# NOUNPACK #-}!(Maybe Endpoint)
-  , _cAllowVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cClusterStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cPendingModifiedValues :: {-# NOUNPACK #-}!(Maybe PendingModifiedValues)
-  , _cTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cClusterNodes :: {-# NOUNPACK #-}!(Maybe [ClusterNode])
-  , _cDBName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cRestoreStatus :: !(Maybe RestoreStatus)
+  , _cEnhancedVPCRouting :: !(Maybe Bool)
+  , _cClusterSnapshotCopyStatus :: !(Maybe ClusterSnapshotCopyStatus)
+  , _cClusterRevisionNumber :: !(Maybe Text)
+  , _cPubliclyAccessible :: !(Maybe Bool)
+  , _cMasterUsername :: !(Maybe Text)
+  , _cVPCId :: !(Maybe Text)
+  , _cClusterSecurityGroups :: !(Maybe [ClusterSecurityGroupMembership])
+  , _cAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+  , _cEncrypted :: !(Maybe Bool)
+  , _cClusterSubnetGroupName :: !(Maybe Text)
+  , _cClusterIdentifier :: !(Maybe Text)
+  , _cNumberOfNodes :: !(Maybe Int)
+  , _cClusterPublicKey :: !(Maybe Text)
+  , _cPreferredMaintenanceWindow :: !(Maybe Text)
+  , _cModifyStatus :: !(Maybe Text)
+  , _cKMSKeyId :: !(Maybe Text)
+  , _cClusterParameterGroups :: !(Maybe [ClusterParameterGroupStatus])
+  , _cAvailabilityZone :: !(Maybe Text)
+  , _cVPCSecurityGroups :: !(Maybe [VPCSecurityGroupMembership])
+  , _cHSMStatus :: !(Maybe HSMStatus)
+  , _cIAMRoles :: !(Maybe [ClusterIAMRole])
+  , _cElasticIPStatus :: !(Maybe ElasticIPStatus)
+  , _cClusterVersion :: !(Maybe Text)
+  , _cNodeType :: !(Maybe Text)
+  , _cClusterCreateTime :: !(Maybe ISO8601)
+  , _cEndpoint :: !(Maybe Endpoint)
+  , _cAllowVersionUpgrade :: !(Maybe Bool)
+  , _cClusterStatus :: !(Maybe Text)
+  , _cPendingModifiedValues :: !(Maybe PendingModifiedValues)
+  , _cTags :: !(Maybe [Tag])
+  , _cClusterNodes :: !(Maybe [ClusterNode])
+  , _cDBName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -437,8 +437,8 @@ instance NFData Cluster where
 --
 -- /See:/ 'clusterIAMRole' smart constructor.
 data ClusterIAMRole = ClusterIAMRole'
-  { _cirIAMRoleARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cirApplyStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cirIAMRoleARN  :: !(Maybe Text)
+  , _cirApplyStatus :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -478,9 +478,9 @@ instance NFData ClusterIAMRole where
 --
 -- /See:/ 'clusterNode' smart constructor.
 data ClusterNode = ClusterNode'
-  { _cnNodeRole         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnPrivateIPAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cnPublicIPAddress  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cnNodeRole         :: !(Maybe Text)
+  , _cnPrivateIPAddress :: !(Maybe Text)
+  , _cnPublicIPAddress  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -531,10 +531,10 @@ instance NFData ClusterNode where
 --
 -- /See:/ 'clusterParameterGroup' smart constructor.
 data ClusterParameterGroup = ClusterParameterGroup'
-  { _cpgParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpgDescription          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpgTags                 :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cpgParameterGroupName   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cpgParameterGroupFamily :: !(Maybe Text)
+  , _cpgDescription          :: !(Maybe Text)
+  , _cpgTags                 :: !(Maybe [Tag])
+  , _cpgParameterGroupName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -596,8 +596,8 @@ instance NFData ClusterParameterGroup where
 --
 -- /See:/ 'clusterParameterGroupNameMessage' smart constructor.
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
-  { _cpgnmParameterGroupStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpgnmParameterGroupName   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cpgnmParameterGroupStatus :: !(Maybe Text)
+  , _cpgnmParameterGroupName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -642,9 +642,9 @@ instance NFData ClusterParameterGroupNameMessage
 --
 -- /See:/ 'clusterParameterGroupStatus' smart constructor.
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
-  { _cpgsClusterParameterStatusList :: {-# NOUNPACK #-}!(Maybe [ClusterParameterStatus])
-  , _cpgsParameterApplyStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpgsParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cpgsClusterParameterStatusList :: !(Maybe [ClusterParameterStatus])
+  , _cpgsParameterApplyStatus       :: !(Maybe Text)
+  , _cpgsParameterGroupName         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -697,9 +697,9 @@ instance NFData ClusterParameterGroupStatus where
 --
 -- /See:/ 'clusterParameterStatus' smart constructor.
 data ClusterParameterStatus = ClusterParameterStatus'
-  { _cpsParameterApplyErrorDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpsParameterName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpsParameterApplyStatus           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cpsParameterApplyErrorDescription :: !(Maybe Text)
+  , _cpsParameterName                  :: !(Maybe Text)
+  , _cpsParameterApplyStatus           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -751,11 +751,11 @@ instance NFData ClusterParameterStatus where
 --
 -- /See:/ 'clusterSecurityGroup' smart constructor.
 data ClusterSecurityGroup = ClusterSecurityGroup'
-  { _cluClusterSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluIPRanges                 :: {-# NOUNPACK #-}!(Maybe [IPRange])
-  , _cluEC2SecurityGroups        :: {-# NOUNPACK #-}!(Maybe [EC2SecurityGroup])
-  , _cluDescription              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluTags                     :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _cluClusterSecurityGroupName :: !(Maybe Text)
+  , _cluIPRanges                 :: !(Maybe [IPRange])
+  , _cluEC2SecurityGroups        :: !(Maybe [EC2SecurityGroup])
+  , _cluDescription              :: !(Maybe Text)
+  , _cluTags                     :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -828,8 +828,8 @@ instance NFData ClusterSecurityGroup where
 --
 -- /See:/ 'clusterSecurityGroupMembership' smart constructor.
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
-  { _csgmStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csgmClusterSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csgmStatus                   :: !(Maybe Text)
+  , _csgmClusterSecurityGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -872,9 +872,9 @@ instance NFData ClusterSecurityGroupMembership where
 --
 -- /See:/ 'clusterSnapshotCopyStatus' smart constructor.
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
-  { _cscsRetentionPeriod       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cscsDestinationRegion     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cscsSnapshotCopyGrantName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cscsRetentionPeriod       :: !(Maybe Integer)
+  , _cscsDestinationRegion     :: !(Maybe Text)
+  , _cscsSnapshotCopyGrantName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -926,12 +926,12 @@ instance NFData ClusterSnapshotCopyStatus where
 --
 -- /See:/ 'clusterSubnetGroup' smart constructor.
 data ClusterSubnetGroup = ClusterSubnetGroup'
-  { _csgVPCId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csgSubnets                :: {-# NOUNPACK #-}!(Maybe [Subnet])
-  , _csgClusterSubnetGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csgSubnetGroupStatus      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csgDescription            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csgTags                   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _csgVPCId                  :: !(Maybe Text)
+  , _csgSubnets                :: !(Maybe [Subnet])
+  , _csgClusterSubnetGroupName :: !(Maybe Text)
+  , _csgSubnetGroupStatus      :: !(Maybe Text)
+  , _csgDescription            :: !(Maybe Text)
+  , _csgTags                   :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1010,9 +1010,9 @@ instance NFData ClusterSubnetGroup where
 --
 -- /See:/ 'clusterVersion' smart constructor.
 data ClusterVersion = ClusterVersion'
-  { _cvClusterParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cvClusterVersion              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cvDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cvClusterParameterGroupFamily :: !(Maybe Text)
+  , _cvClusterVersion              :: !(Maybe Text)
+  , _cvDescription                 :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1064,9 +1064,9 @@ instance NFData ClusterVersion where
 --
 -- /See:/ 'defaultClusterParameters' smart constructor.
 data DefaultClusterParameters = DefaultClusterParameters'
-  { _dcpMarker               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpParameters           :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _dcpParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dcpMarker               :: !(Maybe Text)
+  , _dcpParameters           :: !(Maybe [Parameter])
+  , _dcpParameterGroupFamily :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1119,10 +1119,10 @@ instance NFData DefaultClusterParameters where
 --
 -- /See:/ 'ec2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-  { _esgStatus                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esgEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esgEC2SecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esgTags                    :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _esgStatus                  :: !(Maybe Text)
+  , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
+  , _esgEC2SecurityGroupName    :: !(Maybe Text)
+  , _esgTags                    :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1184,8 +1184,8 @@ instance NFData EC2SecurityGroup where
 --
 -- /See:/ 'elasticIPStatus' smart constructor.
 data ElasticIPStatus = ElasticIPStatus'
-  { _eisStatus    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eisElasticIP :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eisStatus    :: !(Maybe Text)
+  , _eisElasticIP :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1225,8 +1225,8 @@ instance NFData ElasticIPStatus where
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-  { _eAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ePort    :: {-# NOUNPACK #-}!(Maybe Int)
+  { _eAddress :: !(Maybe Text)
+  , _ePort    :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1264,13 +1264,13 @@ instance NFData Endpoint where
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-  { _eSourceType       :: {-# NOUNPACK #-}!(Maybe SourceType)
-  , _eSeverity         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eDate             :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _eEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _eMessage          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eEventId          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eSourceType       :: !(Maybe SourceType)
+  , _eSeverity         :: !(Maybe Text)
+  , _eSourceIdentifier :: !(Maybe Text)
+  , _eDate             :: !(Maybe ISO8601)
+  , _eEventCategories  :: !(Maybe [Text])
+  , _eMessage          :: !(Maybe Text)
+  , _eEventId          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1355,8 +1355,8 @@ instance NFData Event where
 --
 -- /See:/ 'eventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
-  { _ecmSourceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecmEvents     :: {-# NOUNPACK #-}!(Maybe [EventInfoMap])
+  { _ecmSourceType :: !(Maybe Text)
+  , _ecmEvents     :: !(Maybe [EventInfoMap])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1398,10 +1398,10 @@ instance NFData EventCategoriesMap where
 --
 -- /See:/ 'eventInfoMap' smart constructor.
 data EventInfoMap = EventInfoMap'
-  { _eimEventDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eimSeverity         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eimEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _eimEventId          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eimEventDescription :: !(Maybe Text)
+  , _eimSeverity         :: !(Maybe Text)
+  , _eimEventCategories  :: !(Maybe [Text])
+  , _eimEventId          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1461,17 +1461,17 @@ instance NFData EventInfoMap where
 --
 -- /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-  { _esStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esCustomerAWSId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esCustSubscriptionId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esSNSTopicARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esEnabled                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _esSourceType               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esSeverity                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esSubscriptionCreationTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _esEventCategoriesList      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _esTags                     :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _esSourceIdsList            :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _esStatus                   :: !(Maybe Text)
+  , _esCustomerAWSId            :: !(Maybe Text)
+  , _esCustSubscriptionId       :: !(Maybe Text)
+  , _esSNSTopicARN              :: !(Maybe Text)
+  , _esEnabled                  :: !(Maybe Bool)
+  , _esSourceType               :: !(Maybe Text)
+  , _esSeverity                 :: !(Maybe Text)
+  , _esSubscriptionCreationTime :: !(Maybe ISO8601)
+  , _esEventCategoriesList      :: !(Maybe [Text])
+  , _esTags                     :: !(Maybe [Tag])
+  , _esSourceIdsList            :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1592,9 +1592,9 @@ instance NFData EventSubscription where
 --
 -- /See:/ 'hsmClientCertificate' smart constructor.
 data HSMClientCertificate = HSMClientCertificate'
-  { _hccHSMClientCertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hccHSMClientCertificatePublicKey  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hccTags                           :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _hccHSMClientCertificateIdentifier :: !(Maybe Text)
+  , _hccHSMClientCertificatePublicKey  :: !(Maybe Text)
+  , _hccTags                           :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1648,11 +1648,11 @@ instance NFData HSMClientCertificate where
 --
 -- /See:/ 'hsmConfiguration' smart constructor.
 data HSMConfiguration = HSMConfiguration'
-  { _hcHSMConfigurationIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hcHSMPartitionName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hcDescription                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hcTags                       :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _hcHSMIPAddress               :: {-# NOUNPACK #-}!(Maybe Text)
+  { _hcHSMConfigurationIdentifier :: !(Maybe Text)
+  , _hcHSMPartitionName           :: !(Maybe Text)
+  , _hcDescription                :: !(Maybe Text)
+  , _hcTags                       :: !(Maybe [Tag])
+  , _hcHSMIPAddress               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1722,9 +1722,9 @@ instance NFData HSMConfiguration where
 --
 -- /See:/ 'hsmStatus' smart constructor.
 data HSMStatus = HSMStatus'
-  { _hsStatus                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hsHSMConfigurationIdentifier     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hsHSMClientCertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  { _hsStatus                         :: !(Maybe Text)
+  , _hsHSMConfigurationIdentifier     :: !(Maybe Text)
+  , _hsHSMClientCertificateIdentifier :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1776,9 +1776,9 @@ instance NFData HSMStatus where
 --
 -- /See:/ 'ipRange' smart constructor.
 data IPRange = IPRange'
-  { _irStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irCIdRIP :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irTags   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _irStatus :: !(Maybe Text)
+  , _irCIdRIP :: !(Maybe Text)
+  , _irTags   :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1825,12 +1825,12 @@ instance NFData IPRange where
 --
 -- /See:/ 'loggingStatus' smart constructor.
 data LoggingStatus = LoggingStatus'
-  { _lsLastFailureTime            :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _lsLastSuccessfulDeliveryTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _lsS3KeyPrefix                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsBucketName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsLoggingEnabled             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lsLastFailureMessage         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lsLastFailureTime            :: !(Maybe ISO8601)
+  , _lsLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
+  , _lsS3KeyPrefix                :: !(Maybe Text)
+  , _lsBucketName                 :: !(Maybe Text)
+  , _lsLoggingEnabled             :: !(Maybe Bool)
+  , _lsLastFailureMessage         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1906,10 +1906,10 @@ instance NFData LoggingStatus where
 --
 -- /See:/ 'orderableClusterOption' smart constructor.
 data OrderableClusterOption = OrderableClusterOption'
-  { _ocoAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [AvailabilityZone])
-  , _ocoClusterType       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ocoClusterVersion    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ocoNodeType          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ocoAvailabilityZones :: !(Maybe [AvailabilityZone])
+  , _ocoClusterType       :: !(Maybe Text)
+  , _ocoClusterVersion    :: !(Maybe Text)
+  , _ocoNodeType          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1970,15 +1970,15 @@ instance NFData OrderableClusterOption where
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-  { _pApplyType            :: {-# NOUNPACK #-}!(Maybe ParameterApplyType)
-  , _pParameterValue       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pMinimumEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pSource               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pIsModifiable         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pDataType             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pAllowedValues        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pParameterName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pApplyType            :: !(Maybe ParameterApplyType)
+  , _pParameterValue       :: !(Maybe Text)
+  , _pMinimumEngineVersion :: !(Maybe Text)
+  , _pSource               :: !(Maybe Text)
+  , _pIsModifiable         :: !(Maybe Bool)
+  , _pDataType             :: !(Maybe Text)
+  , _pAllowedValues        :: !(Maybe Text)
+  , _pParameterName        :: !(Maybe Text)
+  , _pDescription          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2090,15 +2090,15 @@ instance ToQuery Parameter where
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-  { _pmvEnhancedVPCRouting               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pmvMasterUserPassword               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvPubliclyAccessible               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pmvAutomatedSnapshotRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pmvClusterIdentifier                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvNumberOfNodes                    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pmvClusterType                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvClusterVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvNodeType                         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pmvEnhancedVPCRouting               :: !(Maybe Bool)
+  , _pmvMasterUserPassword               :: !(Maybe Text)
+  , _pmvPubliclyAccessible               :: !(Maybe Bool)
+  , _pmvAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+  , _pmvClusterIdentifier                :: !(Maybe Text)
+  , _pmvNumberOfNodes                    :: !(Maybe Int)
+  , _pmvClusterType                      :: !(Maybe Text)
+  , _pmvClusterVersion                   :: !(Maybe Text)
+  , _pmvNodeType                         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2198,8 +2198,8 @@ instance NFData PendingModifiedValues where
 --
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-  { _rcRecurringChargeFrequency :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcRecurringChargeAmount    :: {-# NOUNPACK #-}!(Maybe Double)
+  { _rcRecurringChargeFrequency :: !(Maybe Text)
+  , _rcRecurringChargeAmount    :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2241,18 +2241,18 @@ instance NFData RecurringCharge where
 --
 -- /See:/ 'reservedNode' smart constructor.
 data ReservedNode = ReservedNode'
-  { _rnState                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnCurrencyCode           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnStartTime              :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _rnNodeCount              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rnReservedNodeId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnReservedNodeOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnRecurringCharges       :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
-  , _rnOfferingType           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnUsagePrice             :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rnNodeType               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnFixedPrice             :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rnDuration               :: {-# NOUNPACK #-}!(Maybe Int)
+  { _rnState                  :: !(Maybe Text)
+  , _rnCurrencyCode           :: !(Maybe Text)
+  , _rnStartTime              :: !(Maybe ISO8601)
+  , _rnNodeCount              :: !(Maybe Int)
+  , _rnReservedNodeId         :: !(Maybe Text)
+  , _rnReservedNodeOfferingId :: !(Maybe Text)
+  , _rnRecurringCharges       :: !(Maybe [RecurringCharge])
+  , _rnOfferingType           :: !(Maybe Text)
+  , _rnUsagePrice             :: !(Maybe Double)
+  , _rnNodeType               :: !(Maybe Text)
+  , _rnFixedPrice             :: !(Maybe Double)
+  , _rnDuration               :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2377,14 +2377,14 @@ instance NFData ReservedNode where
 --
 -- /See:/ 'reservedNodeOffering' smart constructor.
 data ReservedNodeOffering = ReservedNodeOffering'
-  { _rnoCurrencyCode           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnoReservedNodeOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnoRecurringCharges       :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
-  , _rnoOfferingType           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnoUsagePrice             :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rnoNodeType               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rnoFixedPrice             :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rnoDuration               :: {-# NOUNPACK #-}!(Maybe Int)
+  { _rnoCurrencyCode           :: !(Maybe Text)
+  , _rnoReservedNodeOfferingId :: !(Maybe Text)
+  , _rnoRecurringCharges       :: !(Maybe [RecurringCharge])
+  , _rnoOfferingType           :: !(Maybe Text)
+  , _rnoUsagePrice             :: !(Maybe Double)
+  , _rnoNodeType               :: !(Maybe Text)
+  , _rnoFixedPrice             :: !(Maybe Double)
+  , _rnoDuration               :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2478,12 +2478,12 @@ instance NFData ReservedNodeOffering where
 --
 -- /See:/ 'restoreStatus' smart constructor.
 data RestoreStatus = RestoreStatus'
-  { _rsStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsEstimatedTimeToCompletionInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _rsCurrentRestoreRateInMegaBytesPerSecond :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rsProgressInMegaBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _rsElapsedTimeInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _rsSnapshotSizeInMegaBytes :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _rsStatus                                 :: !(Maybe Text)
+  , _rsEstimatedTimeToCompletionInSeconds     :: !(Maybe Integer)
+  , _rsCurrentRestoreRateInMegaBytesPerSecond :: !(Maybe Double)
+  , _rsProgressInMegaBytes                    :: !(Maybe Integer)
+  , _rsElapsedTimeInSeconds                   :: !(Maybe Integer)
+  , _rsSnapshotSizeInMegaBytes                :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2559,35 +2559,35 @@ instance NFData RestoreStatus where
 --
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
-  { _sStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sRestorableNodeTypes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sAccountsWithRestoreAccess :: {-# NOUNPACK #-}!(Maybe [AccountWithRestoreAccess])
-  , _sEnhancedVPCRouting :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sEncryptedWithHSM :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sMasterUsername :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSourceRegion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sBackupProgressInMegaBytes :: {-# NOUNPACK #-}!(Maybe Double)
-  , _sEncrypted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sNumberOfNodes :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sSnapshotType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCurrentBackupRateInMegaBytesPerSecond :: {-# NOUNPACK #-}!(Maybe Double)
-  , _sSnapshotCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _sClusterVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sOwnerAccount :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sNodeType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sElapsedTimeInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _sClusterCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _sEstimatedSecondsToCompletion :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _sActualIncrementalBackupSizeInMegaBytes :: {-# NOUNPACK #-}!(Maybe Double)
-  , _sTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _sPort :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sTotalBackupSizeInMegaBytes :: {-# NOUNPACK #-}!(Maybe Double)
-  , _sDBName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sStatus :: !(Maybe Text)
+  , _sRestorableNodeTypes :: !(Maybe [Text])
+  , _sAccountsWithRestoreAccess :: !(Maybe [AccountWithRestoreAccess])
+  , _sEnhancedVPCRouting :: !(Maybe Bool)
+  , _sSnapshotIdentifier :: !(Maybe Text)
+  , _sEncryptedWithHSM :: !(Maybe Bool)
+  , _sMasterUsername :: !(Maybe Text)
+  , _sSourceRegion :: !(Maybe Text)
+  , _sVPCId :: !(Maybe Text)
+  , _sBackupProgressInMegaBytes :: !(Maybe Double)
+  , _sEncrypted :: !(Maybe Bool)
+  , _sClusterIdentifier :: !(Maybe Text)
+  , _sNumberOfNodes :: !(Maybe Int)
+  , _sSnapshotType :: !(Maybe Text)
+  , _sKMSKeyId :: !(Maybe Text)
+  , _sAvailabilityZone :: !(Maybe Text)
+  , _sCurrentBackupRateInMegaBytesPerSecond :: !(Maybe Double)
+  , _sSnapshotCreateTime :: !(Maybe ISO8601)
+  , _sClusterVersion :: !(Maybe Text)
+  , _sOwnerAccount :: !(Maybe Text)
+  , _sNodeType :: !(Maybe Text)
+  , _sElapsedTimeInSeconds :: !(Maybe Integer)
+  , _sClusterCreateTime :: !(Maybe ISO8601)
+  , _sEstimatedSecondsToCompletion :: !(Maybe Integer)
+  , _sActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
+  , _sTags :: !(Maybe [Tag])
+  , _sPort :: !(Maybe Int)
+  , _sTotalBackupSizeInMegaBytes :: !(Maybe Double)
+  , _sDBName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2854,9 +2854,9 @@ instance NFData Snapshot where
 --
 -- /See:/ 'snapshotCopyGrant' smart constructor.
 data SnapshotCopyGrant = SnapshotCopyGrant'
-  { _scgKMSKeyId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scgSnapshotCopyGrantName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scgTags                  :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _scgKMSKeyId              :: !(Maybe Text)
+  , _scgSnapshotCopyGrantName :: !(Maybe Text)
+  , _scgTags                  :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2910,9 +2910,9 @@ instance NFData SnapshotCopyGrant where
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
-  { _sSubnetStatus           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSubnetIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSubnetAvailabilityZone :: {-# NOUNPACK #-}!(Maybe AvailabilityZone)
+  { _sSubnetStatus           :: !(Maybe Text)
+  , _sSubnetIdentifier       :: !(Maybe Text)
+  , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2963,20 +2963,20 @@ instance NFData Subnet where
 --
 -- /See:/ 'tableRestoreStatus' smart constructor.
 data TableRestoreStatus = TableRestoreStatus'
-  { _trsStatus                :: {-# NOUNPACK #-}!(Maybe TableRestoreStatusType)
-  , _trsTargetSchemaName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trsSnapshotIdentifier    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trsSourceDatabaseName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trsTableRestoreRequestId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trsNewTableName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trsTargetDatabaseName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trsSourceSchemaName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trsClusterIdentifier     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trsRequestTime           :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _trsSourceTableName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trsTotalDataInMegaBytes  :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _trsProgressInMegaBytes   :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _trsMessage               :: {-# NOUNPACK #-}!(Maybe Text)
+  { _trsStatus                :: !(Maybe TableRestoreStatusType)
+  , _trsTargetSchemaName      :: !(Maybe Text)
+  , _trsSnapshotIdentifier    :: !(Maybe Text)
+  , _trsSourceDatabaseName    :: !(Maybe Text)
+  , _trsTableRestoreRequestId :: !(Maybe Text)
+  , _trsNewTableName          :: !(Maybe Text)
+  , _trsTargetDatabaseName    :: !(Maybe Text)
+  , _trsSourceSchemaName      :: !(Maybe Text)
+  , _trsClusterIdentifier     :: !(Maybe Text)
+  , _trsRequestTime           :: !(Maybe ISO8601)
+  , _trsSourceTableName       :: !(Maybe Text)
+  , _trsTotalDataInMegaBytes  :: !(Maybe Integer)
+  , _trsProgressInMegaBytes   :: !(Maybe Integer)
+  , _trsMessage               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3115,8 +3115,8 @@ instance NFData TableRestoreStatus where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3158,9 +3158,9 @@ instance ToQuery Tag where
 --
 -- /See:/ 'taggedResource' smart constructor.
 data TaggedResource = TaggedResource'
-  { _trTag          :: {-# NOUNPACK #-}!(Maybe Tag)
-  , _trResourceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trResourceName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _trTag          :: !(Maybe Tag)
+  , _trResourceType :: !(Maybe Text)
+  , _trResourceName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3208,8 +3208,8 @@ instance NFData TaggedResource where
 --
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
-  { _vsgmStatus             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vsgmVPCSecurityGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vsgmStatus             :: !(Maybe Text)
+  , _vsgmVPCSecurityGroupId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

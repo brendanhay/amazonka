@@ -54,13 +54,13 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createConstraint' smart constructor.
 data CreateConstraint = CreateConstraint'
-  { _ccAcceptLanguage   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccPortfolioId      :: {-# NOUNPACK #-}!Text
-  , _ccProductId        :: {-# NOUNPACK #-}!Text
-  , _ccParameters       :: {-# NOUNPACK #-}!Text
-  , _ccType             :: {-# NOUNPACK #-}!Text
-  , _ccIdempotencyToken :: {-# NOUNPACK #-}!Text
+  { _ccAcceptLanguage   :: !(Maybe Text)
+  , _ccDescription      :: !(Maybe Text)
+  , _ccPortfolioId      :: !Text
+  , _ccProductId        :: !Text
+  , _ccParameters       :: !Text
+  , _ccType             :: !Text
+  , _ccIdempotencyToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -173,10 +173,10 @@ instance ToQuery CreateConstraint where
 
 -- | /See:/ 'createConstraintResponse' smart constructor.
 data CreateConstraintResponse = CreateConstraintResponse'
-  { _ccrsStatus               :: {-# NOUNPACK #-}!(Maybe RequestStatus)
-  , _ccrsConstraintDetail     :: {-# NOUNPACK #-}!(Maybe ConstraintDetail)
-  , _ccrsConstraintParameters :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _ccrsStatus               :: !(Maybe RequestStatus)
+  , _ccrsConstraintDetail     :: !(Maybe ConstraintDetail)
+  , _ccrsConstraintParameters :: !(Maybe Text)
+  , _ccrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

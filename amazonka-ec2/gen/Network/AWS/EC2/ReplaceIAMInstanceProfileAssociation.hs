@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'replaceIAMInstanceProfileAssociation' smart constructor.
 data ReplaceIAMInstanceProfileAssociation = ReplaceIAMInstanceProfileAssociation'
-  { _riapaIAMInstanceProfile :: {-# NOUNPACK #-}!IAMInstanceProfileSpecification
-  , _riapaAssociationId      :: {-# NOUNPACK #-}!Text
+  { _riapaIAMInstanceProfile :: !IAMInstanceProfileSpecification
+  , _riapaAssociationId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery ReplaceIAMInstanceProfileAssociation
 
 -- | /See:/ 'replaceIAMInstanceProfileAssociationResponse' smart constructor.
 data ReplaceIAMInstanceProfileAssociationResponse = ReplaceIAMInstanceProfileAssociationResponse'
-  { _riaparsIAMInstanceProfileAssociation :: {-# NOUNPACK #-}!(Maybe IAMInstanceProfileAssociation)
-  , _riaparsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _riaparsIAMInstanceProfileAssociation :: !(Maybe IAMInstanceProfileAssociation)
+  , _riaparsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

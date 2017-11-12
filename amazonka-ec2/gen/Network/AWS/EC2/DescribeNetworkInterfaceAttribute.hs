@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeNetworkInterfaceAttribute' smart constructor.
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
-  { _dniaAttribute :: {-# NOUNPACK #-}!(Maybe NetworkInterfaceAttribute)
-  , _dniaDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dniaNetworkInterfaceId :: {-# NOUNPACK #-}!Text
+  { _dniaAttribute          :: !(Maybe NetworkInterfaceAttribute)
+  , _dniaDryRun             :: !(Maybe Bool)
+  , _dniaNetworkInterfaceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,12 +142,12 @@ instance ToQuery DescribeNetworkInterfaceAttribute
 --
 -- /See:/ 'describeNetworkInterfaceAttributeResponse' smart constructor.
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'
-  { _dniarsGroups :: {-# NOUNPACK #-}!(Maybe [GroupIdentifier])
-  , _dniarsSourceDestCheck :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _dniarsNetworkInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dniarsAttachment :: {-# NOUNPACK #-}!(Maybe NetworkInterfaceAttachment)
-  , _dniarsDescription :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _dniarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dniarsGroups             :: !(Maybe [GroupIdentifier])
+  , _dniarsSourceDestCheck    :: !(Maybe AttributeBooleanValue)
+  , _dniarsNetworkInterfaceId :: !(Maybe Text)
+  , _dniarsAttachment         :: !(Maybe NetworkInterfaceAttachment)
+  , _dniarsDescription        :: !(Maybe AttributeValue)
+  , _dniarsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

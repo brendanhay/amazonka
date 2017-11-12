@@ -47,8 +47,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'cancelJob' smart constructor.
 data CancelJob = CancelJob'
-  { _cAPIVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cJobId      :: {-# NOUNPACK #-}!Text
+  { _cAPIVersion :: !(Maybe Text)
+  , _cJobId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -104,8 +104,8 @@ instance ToQuery CancelJob where
 --
 -- /See:/ 'cancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'
-  { _crsSuccess        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _crsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crsSuccess        :: !(Maybe Bool)
+  , _crsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'setInstanceProtection' smart constructor.
 data SetInstanceProtection = SetInstanceProtection'
-  { _sipInstanceIds          :: {-# NOUNPACK #-}![Text]
-  , _sipAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _sipProtectedFromScaleIn :: {-# NOUNPACK #-}!Bool
+  { _sipInstanceIds          :: ![Text]
+  , _sipAutoScalingGroupName :: !Text
+  , _sipProtectedFromScaleIn :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteSSHPublicKey' smart constructor.
 data DeleteSSHPublicKey = DeleteSSHPublicKey'
-  { _dspkUserName       :: {-# NOUNPACK #-}!Text
-  , _dspkSSHPublicKeyId :: {-# NOUNPACK #-}!Text
+  { _dspkUserName       :: !Text
+  , _dspkSSHPublicKeyId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

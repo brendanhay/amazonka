@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeAnalysisSchemes' smart constructor.
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
-  { _dassDeployed            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dassAnalysisSchemeNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dassDomainName          :: {-# NOUNPACK #-}!Text
+  { _dassDeployed            :: !(Maybe Bool)
+  , _dassAnalysisSchemeNames :: !(Maybe [Text])
+  , _dassDomainName          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,8 +130,8 @@ instance ToQuery DescribeAnalysisSchemes where
 --
 -- /See:/ 'describeAnalysisSchemesResponse' smart constructor.
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
-  { _dasrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _dasrsAnalysisSchemes :: {-# NOUNPACK #-}![AnalysisSchemeStatus]
+  { _dasrsResponseStatus  :: !Int
+  , _dasrsAnalysisSchemes :: ![AnalysisSchemeStatus]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

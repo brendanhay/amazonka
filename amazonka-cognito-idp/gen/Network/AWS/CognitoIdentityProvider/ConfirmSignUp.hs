@@ -53,11 +53,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'confirmSignUp' smart constructor.
 data ConfirmSignUp = ConfirmSignUp'
-  { _csuForceAliasCreation :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _csuSecretHash         :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _csuClientId           :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _csuUsername           :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _csuConfirmationCode   :: {-# NOUNPACK #-}!Text
+  { _csuForceAliasCreation :: !(Maybe Bool)
+  , _csuSecretHash         :: !(Maybe (Sensitive Text))
+  , _csuClientId           :: !(Sensitive Text)
+  , _csuUsername           :: !(Sensitive Text)
+  , _csuConfirmationCode   :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

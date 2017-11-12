@@ -62,13 +62,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'getResourceConfigHistory' smart constructor.
 data GetResourceConfigHistory = GetResourceConfigHistory'
-  { _grchChronologicalOrder :: {-# NOUNPACK #-}!(Maybe ChronologicalOrder)
-  , _grchNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grchLimit              :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _grchLaterTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _grchEarlierTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _grchResourceType       :: {-# NOUNPACK #-}!ResourceType
-  , _grchResourceId         :: {-# NOUNPACK #-}!Text
+  { _grchChronologicalOrder :: !(Maybe ChronologicalOrder)
+  , _grchNextToken          :: !(Maybe Text)
+  , _grchLimit              :: !(Maybe Nat)
+  , _grchLaterTime          :: !(Maybe POSIX)
+  , _grchEarlierTime        :: !(Maybe POSIX)
+  , _grchResourceType       :: !ResourceType
+  , _grchResourceId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -191,9 +191,9 @@ instance ToQuery GetResourceConfigHistory where
 --
 -- /See:/ 'getResourceConfigHistoryResponse' smart constructor.
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
-  { _grchrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grchrsConfigurationItems :: {-# NOUNPACK #-}!(Maybe [ConfigurationItem])
-  , _grchrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _grchrsNextToken          :: !(Maybe Text)
+  , _grchrsConfigurationItems :: !(Maybe [ConfigurationItem])
+  , _grchrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

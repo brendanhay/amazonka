@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachRolePolicy' smart constructor.
 data AttachRolePolicy = AttachRolePolicy'
-  { _arpRoleName  :: {-# NOUNPACK #-}!Text
-  , _arpPolicyARN :: {-# NOUNPACK #-}!Text
+  { _arpRoleName  :: !Text
+  , _arpPolicyARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

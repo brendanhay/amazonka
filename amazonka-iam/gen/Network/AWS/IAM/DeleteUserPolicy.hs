@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteUserPolicy' smart constructor.
 data DeleteUserPolicy = DeleteUserPolicy'
-  { _dupUserName   :: {-# NOUNPACK #-}!Text
-  , _dupPolicyName :: {-# NOUNPACK #-}!Text
+  { _dupUserName   :: !Text
+  , _dupPolicyName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

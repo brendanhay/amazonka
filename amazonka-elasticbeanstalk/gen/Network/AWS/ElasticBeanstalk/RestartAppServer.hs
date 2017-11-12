@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'restartAppServer' smart constructor.
 data RestartAppServer = RestartAppServer'
-  { _rasEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rasEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rasEnvironmentName :: !(Maybe Text)
+  , _rasEnvironmentId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

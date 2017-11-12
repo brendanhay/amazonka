@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeAutomationExecutions' smart constructor.
 data DescribeAutomationExecutions = DescribeAutomationExecutions'
-  { _daeFilters    :: {-# NOUNPACK #-}!(Maybe (List1 AutomationExecutionFilter))
-  , _daeNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daeMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _daeFilters    :: !(Maybe (List1 AutomationExecutionFilter))
+  , _daeNextToken  :: !(Maybe Text)
+  , _daeMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,9 +126,9 @@ instance ToQuery DescribeAutomationExecutions where
 
 -- | /See:/ 'describeAutomationExecutionsResponse' smart constructor.
 data DescribeAutomationExecutionsResponse = DescribeAutomationExecutionsResponse'
-  { _daersNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daersAutomationExecutionMetadataList :: {-# NOUNPACK #-}!(Maybe [AutomationExecutionMetadata])
-  , _daersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _daersNextToken :: !(Maybe Text)
+  , _daersAutomationExecutionMetadataList :: !(Maybe [AutomationExecutionMetadata])
+  , _daersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

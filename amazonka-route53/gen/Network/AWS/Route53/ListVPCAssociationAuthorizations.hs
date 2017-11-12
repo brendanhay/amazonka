@@ -56,9 +56,9 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listVPCAssociationAuthorizations' smart constructor.
 data ListVPCAssociationAuthorizations = ListVPCAssociationAuthorizations'
-  { _lvaaNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lvaaMaxResults   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lvaaHostedZoneId :: {-# NOUNPACK #-}!ResourceId
+  { _lvaaNextToken    :: !(Maybe Text)
+  , _lvaaMaxResults   :: !(Maybe Text)
+  , _lvaaHostedZoneId :: !ResourceId
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,10 +138,10 @@ instance ToQuery ListVPCAssociationAuthorizations
 --
 -- /See:/ 'listVPCAssociationAuthorizationsResponse' smart constructor.
 data ListVPCAssociationAuthorizationsResponse = ListVPCAssociationAuthorizationsResponse'
-  { _lvaarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lvaarsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lvaarsHostedZoneId   :: {-# NOUNPACK #-}!ResourceId
-  , _lvaarsVPCs           :: {-# NOUNPACK #-}!(List1 VPC)
+  { _lvaarsNextToken      :: !(Maybe Text)
+  , _lvaarsResponseStatus :: !Int
+  , _lvaarsHostedZoneId   :: !ResourceId
+  , _lvaarsVPCs           :: !(List1 VPC)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

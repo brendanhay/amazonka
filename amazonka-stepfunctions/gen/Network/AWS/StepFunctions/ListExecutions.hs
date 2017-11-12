@@ -53,10 +53,10 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'listExecutions' smart constructor.
 data ListExecutions = ListExecutions'
-  { _leStatusFilter    :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
-  , _leNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _leMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _leStateMachineARN :: {-# NOUNPACK #-}!Text
+  { _leStatusFilter    :: !(Maybe ExecutionStatus)
+  , _leNextToken       :: !(Maybe Text)
+  , _leMaxResults      :: !(Maybe Nat)
+  , _leStateMachineARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,9 +146,9 @@ instance ToQuery ListExecutions where
 
 -- | /See:/ 'listExecutionsResponse' smart constructor.
 data ListExecutionsResponse = ListExecutionsResponse'
-  { _lersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lersResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lersExecutions     :: {-# NOUNPACK #-}![ExecutionListItem]
+  { _lersNextToken      :: !(Maybe Text)
+  , _lersResponseStatus :: !Int
+  , _lersExecutions     :: ![ExecutionListItem]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

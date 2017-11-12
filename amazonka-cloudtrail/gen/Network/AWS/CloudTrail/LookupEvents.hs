@@ -78,11 +78,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'lookupEvents' smart constructor.
 data LookupEvents = LookupEvents'
-  { _leStartTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _leLookupAttributes :: {-# NOUNPACK #-}!(Maybe [LookupAttribute])
-  , _leNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _leEndTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _leMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _leStartTime        :: !(Maybe POSIX)
+  , _leLookupAttributes :: !(Maybe [LookupAttribute])
+  , _leNextToken        :: !(Maybe Text)
+  , _leEndTime          :: !(Maybe POSIX)
+  , _leMaxResults       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -184,9 +184,9 @@ instance ToQuery LookupEvents where
 --
 -- /See:/ 'lookupEventsResponse' smart constructor.
 data LookupEventsResponse = LookupEventsResponse'
-  { _lersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lersEvents         :: {-# NOUNPACK #-}!(Maybe [Event])
-  , _lersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lersNextToken      :: !(Maybe Text)
+  , _lersEvents         :: !(Maybe [Event])
+  , _lersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

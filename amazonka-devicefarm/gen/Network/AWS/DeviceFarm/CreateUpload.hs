@@ -53,10 +53,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createUpload' smart constructor.
 data CreateUpload = CreateUpload'
-  { _cuContentType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cuProjectARN  :: {-# NOUNPACK #-}!Text
-  , _cuName        :: {-# NOUNPACK #-}!Text
-  , _cuType        :: {-# NOUNPACK #-}!UploadType
+  { _cuContentType :: !(Maybe Text)
+  , _cuProjectARN  :: !Text
+  , _cuName        :: !Text
+  , _cuType        :: !UploadType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -143,8 +143,8 @@ instance ToQuery CreateUpload where
 --
 -- /See:/ 'createUploadResponse' smart constructor.
 data CreateUploadResponse = CreateUploadResponse'
-  { _cursUpload         :: {-# NOUNPACK #-}!(Maybe Upload)
-  , _cursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cursUpload         :: !(Maybe Upload)
+  , _cursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

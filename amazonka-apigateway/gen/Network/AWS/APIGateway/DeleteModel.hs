@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteModel' smart constructor.
 data DeleteModel = DeleteModel'
-  { _dRestAPIId :: {-# NOUNPACK #-}!Text
-  , _dModelName :: {-# NOUNPACK #-}!Text
+  { _dRestAPIId :: !Text
+  , _dModelName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

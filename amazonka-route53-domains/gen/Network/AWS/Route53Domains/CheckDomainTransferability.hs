@@ -51,8 +51,8 @@ import Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'checkDomainTransferability' smart constructor.
 data CheckDomainTransferability = CheckDomainTransferability'
-  { _cdtAuthCode   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _cdtDomainName :: {-# NOUNPACK #-}!Text
+  { _cdtAuthCode   :: !(Maybe (Sensitive Text))
+  , _cdtDomainName :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery CheckDomainTransferability where
 --
 -- /See:/ 'checkDomainTransferabilityResponse' smart constructor.
 data CheckDomainTransferabilityResponse = CheckDomainTransferabilityResponse'
-  { _cdtrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _cdtrsTransferability :: {-# NOUNPACK #-}!DomainTransferability
+  { _cdtrsResponseStatus  :: !Int
+  , _cdtrsTransferability :: !DomainTransferability
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

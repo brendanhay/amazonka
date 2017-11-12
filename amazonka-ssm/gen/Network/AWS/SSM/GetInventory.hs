@@ -50,10 +50,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getInventory' smart constructor.
 data GetInventory = GetInventory'
-  { _giFilters          :: {-# NOUNPACK #-}!(Maybe (List1 InventoryFilter))
-  , _giResultAttributes :: {-# NOUNPACK #-}!(Maybe (List1 ResultAttribute))
-  , _giNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _giFilters          :: !(Maybe (List1 InventoryFilter))
+  , _giResultAttributes :: !(Maybe (List1 ResultAttribute))
+  , _giNextToken        :: !(Maybe Text)
+  , _giMaxResults       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery GetInventory where
 
 -- | /See:/ 'getInventoryResponse' smart constructor.
 data GetInventoryResponse = GetInventoryResponse'
-  { _girsEntities       :: {-# NOUNPACK #-}!(Maybe [InventoryResultEntity])
-  , _girsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _girsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _girsEntities       :: !(Maybe [InventoryResultEntity])
+  , _girsNextToken      :: !(Maybe Text)
+  , _girsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

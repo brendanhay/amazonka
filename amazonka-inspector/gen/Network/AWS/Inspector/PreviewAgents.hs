@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'previewAgents' smart constructor.
 data PreviewAgents = PreviewAgents'
-  { _paNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _paMaxResults       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _paPreviewAgentsARN :: {-# NOUNPACK #-}!Text
+  { _paNextToken        :: !(Maybe Text)
+  , _paMaxResults       :: !(Maybe Int)
+  , _paPreviewAgentsARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,9 +126,9 @@ instance ToQuery PreviewAgents where
 
 -- | /See:/ 'previewAgentsResponse' smart constructor.
 data PreviewAgentsResponse = PreviewAgentsResponse'
-  { _parsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _parsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _parsAgentPreviews  :: {-# NOUNPACK #-}![AgentPreview]
+  { _parsNextToken      :: !(Maybe Text)
+  , _parsResponseStatus :: !Int
+  , _parsAgentPreviews  :: ![AgentPreview]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -102,8 +102,8 @@ instance ToQuery DeletePatchBaseline where
 
 -- | /See:/ 'deletePatchBaselineResponse' smart constructor.
 data DeletePatchBaselineResponse = DeletePatchBaselineResponse'
-  { _dpbrsBaselineId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dpbrsBaselineId     :: !(Maybe Text)
+  , _dpbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

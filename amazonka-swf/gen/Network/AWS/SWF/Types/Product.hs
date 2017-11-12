@@ -27,8 +27,8 @@ import Network.AWS.SWF.Types.Sum
 --
 -- /See:/ 'activityTaskCancelRequestedEventAttributes' smart constructor.
 data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEventAttributes'
-  { _atcreaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
-  , _atcreaActivityId                   :: {-# NOUNPACK #-}!Text
+  { _atcreaDecisionTaskCompletedEventId :: !Integer
+  , _atcreaActivityId                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -83,10 +83,10 @@ instance NFData
 --
 -- /See:/ 'activityTaskCanceledEventAttributes' smart constructor.
 data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes'
-  { _aLatestCancelRequestedEventId :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _aDetails                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aScheduledEventId             :: {-# NOUNPACK #-}!Integer
-  , _aStartedEventId               :: {-# NOUNPACK #-}!Integer
+  { _aLatestCancelRequestedEventId :: !(Maybe Integer)
+  , _aDetails                      :: !(Maybe Text)
+  , _aScheduledEventId             :: !Integer
+  , _aStartedEventId               :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -153,9 +153,9 @@ instance NFData ActivityTaskCanceledEventAttributes
 --
 -- /See:/ 'activityTaskCompletedEventAttributes' smart constructor.
 data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes'
-  { _atceaResult           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atceaScheduledEventId :: {-# NOUNPACK #-}!Integer
-  , _atceaStartedEventId   :: {-# NOUNPACK #-}!Integer
+  { _atceaResult           :: !(Maybe Text)
+  , _atceaScheduledEventId :: !Integer
+  , _atceaStartedEventId   :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -215,10 +215,10 @@ instance NFData ActivityTaskCompletedEventAttributes
 --
 -- /See:/ 'activityTaskFailedEventAttributes' smart constructor.
 data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes'
-  { _atfeaReason           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atfeaDetails          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atfeaScheduledEventId :: {-# NOUNPACK #-}!Integer
-  , _atfeaStartedEventId   :: {-# NOUNPACK #-}!Integer
+  { _atfeaReason           :: !(Maybe Text)
+  , _atfeaDetails          :: !(Maybe Text)
+  , _atfeaScheduledEventId :: !Integer
+  , _atfeaStartedEventId   :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -284,17 +284,17 @@ instance NFData ActivityTaskFailedEventAttributes
 --
 -- /See:/ 'activityTaskScheduledEventAttributes' smart constructor.
 data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes'
-  { _atseaControl                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atseaHeartbeatTimeout             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atseaScheduleToCloseTimeout       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atseaInput                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atseaTaskPriority                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atseaScheduleToStartTimeout       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atseaStartToCloseTimeout          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atseaActivityType                 :: {-# NOUNPACK #-}!ActivityType
-  , _atseaActivityId                   :: {-# NOUNPACK #-}!Text
-  , _atseaTaskList                     :: {-# NOUNPACK #-}!TaskList
-  , _atseaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _atseaControl                      :: !(Maybe Text)
+  , _atseaHeartbeatTimeout             :: !(Maybe Text)
+  , _atseaScheduleToCloseTimeout       :: !(Maybe Text)
+  , _atseaInput                        :: !(Maybe Text)
+  , _atseaTaskPriority                 :: !(Maybe Text)
+  , _atseaScheduleToStartTimeout       :: !(Maybe Text)
+  , _atseaStartToCloseTimeout          :: !(Maybe Text)
+  , _atseaActivityType                 :: !ActivityType
+  , _atseaActivityId                   :: !Text
+  , _atseaTaskList                     :: !TaskList
+  , _atseaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -420,8 +420,8 @@ instance NFData ActivityTaskScheduledEventAttributes
 --
 -- /See:/ 'activityTaskStartedEventAttributes' smart constructor.
 data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes'
-  { _atseaIdentity         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atseaScheduledEventId :: {-# NOUNPACK #-}!Integer
+  { _atseaIdentity         :: !(Maybe Text)
+  , _atseaScheduledEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -468,10 +468,10 @@ instance NFData ActivityTaskStartedEventAttributes
 --
 -- /See:/ 'activityTaskTimedOutEventAttributes' smart constructor.
 data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes'
-  { _attoeaDetails          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _attoeaTimeoutType      :: {-# NOUNPACK #-}!ActivityTaskTimeoutType
-  , _attoeaScheduledEventId :: {-# NOUNPACK #-}!Integer
-  , _attoeaStartedEventId   :: {-# NOUNPACK #-}!Integer
+  { _attoeaDetails          :: !(Maybe Text)
+  , _attoeaTimeoutType      :: !ActivityTaskTimeoutType
+  , _attoeaScheduledEventId :: !Integer
+  , _attoeaStartedEventId   :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -538,8 +538,8 @@ instance NFData ActivityTaskTimedOutEventAttributes
 --
 -- /See:/ 'activityType' smart constructor.
 data ActivityType = ActivityType'
-  { _atName    :: {-# NOUNPACK #-}!Text
-  , _atVersion :: {-# NOUNPACK #-}!Text
+  { _atName    :: !Text
+  , _atVersion :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -589,12 +589,12 @@ instance ToJSON ActivityType where
 --
 -- /See:/ 'activityTypeConfiguration' smart constructor.
 data ActivityTypeConfiguration = ActivityTypeConfiguration'
-  { _atcDefaultTaskScheduleToStartTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atcDefaultTaskList                   :: {-# NOUNPACK #-}!(Maybe TaskList)
-  , _atcDefaultTaskPriority               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atcDefaultTaskHeartbeatTimeout       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atcDefaultTaskScheduleToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atcDefaultTaskStartToCloseTimeout    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _atcDefaultTaskScheduleToStartTimeout :: !(Maybe Text)
+  , _atcDefaultTaskList                   :: !(Maybe TaskList)
+  , _atcDefaultTaskPriority               :: !(Maybe Text)
+  , _atcDefaultTaskHeartbeatTimeout       :: !(Maybe Text)
+  , _atcDefaultTaskScheduleToCloseTimeout :: !(Maybe Text)
+  , _atcDefaultTaskStartToCloseTimeout    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -672,11 +672,11 @@ instance NFData ActivityTypeConfiguration where
 --
 -- /See:/ 'activityTypeInfo' smart constructor.
 data ActivityTypeInfo = ActivityTypeInfo'
-  { _atiDeprecationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _atiDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atiActivityType    :: {-# NOUNPACK #-}!ActivityType
-  , _atiStatus          :: {-# NOUNPACK #-}!RegistrationStatus
-  , _atiCreationDate    :: {-# NOUNPACK #-}!POSIX
+  { _atiDeprecationDate :: !(Maybe POSIX)
+  , _atiDescription     :: !(Maybe Text)
+  , _atiActivityType    :: !ActivityType
+  , _atiStatus          :: !RegistrationStatus
+  , _atiCreationDate    :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -797,9 +797,9 @@ instance ToJSON CancelTimerDecisionAttributes where
 --
 -- /See:/ 'cancelTimerFailedEventAttributes' smart constructor.
 data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes'
-  { _ctfeaTimerId :: {-# NOUNPACK #-}!Text
-  , _ctfeaCause :: {-# NOUNPACK #-}!CancelTimerFailedCause
-  , _ctfeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _ctfeaTimerId                      :: !Text
+  , _ctfeaCause                        :: !CancelTimerFailedCause
+  , _ctfeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -912,8 +912,8 @@ instance ToJSON
 --
 -- /See:/ 'cancelWorkflowExecutionFailedEventAttributes' smart constructor.
 data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFailedEventAttributes'
-  { _cCause :: {-# NOUNPACK #-}!CancelWorkflowExecutionFailedCause
-  , _cDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _cCause                        :: !CancelWorkflowExecutionFailedCause
+  , _cDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -968,11 +968,11 @@ instance NFData
 --
 -- /See:/ 'childWorkflowExecutionCanceledEventAttributes' smart constructor.
 data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCanceledEventAttributes'
-  { _cDetails           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cWorkflowExecution :: {-# NOUNPACK #-}!WorkflowExecution
-  , _cWorkflowType      :: {-# NOUNPACK #-}!WorkflowType
-  , _cInitiatedEventId  :: {-# NOUNPACK #-}!Integer
-  , _cStartedEventId    :: {-# NOUNPACK #-}!Integer
+  { _cDetails           :: !(Maybe Text)
+  , _cWorkflowExecution :: !WorkflowExecution
+  , _cWorkflowType      :: !WorkflowType
+  , _cInitiatedEventId  :: !Integer
+  , _cStartedEventId    :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1052,11 +1052,11 @@ instance NFData
 --
 -- /See:/ 'childWorkflowExecutionCompletedEventAttributes' smart constructor.
 data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionCompletedEventAttributes'
-  { _cweceaResult            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cweceaWorkflowExecution :: {-# NOUNPACK #-}!WorkflowExecution
-  , _cweceaWorkflowType      :: {-# NOUNPACK #-}!WorkflowType
-  , _cweceaInitiatedEventId  :: {-# NOUNPACK #-}!Integer
-  , _cweceaStartedEventId    :: {-# NOUNPACK #-}!Integer
+  { _cweceaResult            :: !(Maybe Text)
+  , _cweceaWorkflowExecution :: !WorkflowExecution
+  , _cweceaWorkflowType      :: !WorkflowType
+  , _cweceaInitiatedEventId  :: !Integer
+  , _cweceaStartedEventId    :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1136,12 +1136,12 @@ instance NFData
 --
 -- /See:/ 'childWorkflowExecutionFailedEventAttributes' smart constructor.
 data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedEventAttributes'
-  { _cwefeaReason            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwefeaDetails           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwefeaWorkflowExecution :: {-# NOUNPACK #-}!WorkflowExecution
-  , _cwefeaWorkflowType      :: {-# NOUNPACK #-}!WorkflowType
-  , _cwefeaInitiatedEventId  :: {-# NOUNPACK #-}!Integer
-  , _cwefeaStartedEventId    :: {-# NOUNPACK #-}!Integer
+  { _cwefeaReason            :: !(Maybe Text)
+  , _cwefeaDetails           :: !(Maybe Text)
+  , _cwefeaWorkflowExecution :: !WorkflowExecution
+  , _cwefeaWorkflowType      :: !WorkflowType
+  , _cwefeaInitiatedEventId  :: !Integer
+  , _cwefeaStartedEventId    :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1229,9 +1229,9 @@ instance NFData
 --
 -- /See:/ 'childWorkflowExecutionStartedEventAttributes' smart constructor.
 data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStartedEventAttributes'
-  { _cweseaWorkflowExecution :: {-# NOUNPACK #-}!WorkflowExecution
-  , _cweseaWorkflowType      :: {-# NOUNPACK #-}!WorkflowType
-  , _cweseaInitiatedEventId  :: {-# NOUNPACK #-}!Integer
+  { _cweseaWorkflowExecution :: !WorkflowExecution
+  , _cweseaWorkflowType      :: !WorkflowType
+  , _cweseaInitiatedEventId  :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1294,10 +1294,10 @@ instance NFData
 --
 -- /See:/ 'childWorkflowExecutionTerminatedEventAttributes' smart constructor.
 data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTerminatedEventAttributes'
-  { _cweteaWorkflowExecution :: {-# NOUNPACK #-}!WorkflowExecution
-  , _cweteaWorkflowType      :: {-# NOUNPACK #-}!WorkflowType
-  , _cweteaInitiatedEventId  :: {-# NOUNPACK #-}!Integer
-  , _cweteaStartedEventId    :: {-# NOUNPACK #-}!Integer
+  { _cweteaWorkflowExecution :: !WorkflowExecution
+  , _cweteaWorkflowType      :: !WorkflowType
+  , _cweteaInitiatedEventId  :: !Integer
+  , _cweteaStartedEventId    :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1369,11 +1369,11 @@ instance NFData
 --
 -- /See:/ 'childWorkflowExecutionTimedOutEventAttributes' smart constructor.
 data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimedOutEventAttributes'
-  { _cwetoeaWorkflowExecution :: {-# NOUNPACK #-}!WorkflowExecution
-  , _cwetoeaWorkflowType      :: {-# NOUNPACK #-}!WorkflowType
-  , _cwetoeaTimeoutType       :: {-# NOUNPACK #-}!WorkflowExecutionTimeoutType
-  , _cwetoeaInitiatedEventId  :: {-# NOUNPACK #-}!Integer
-  , _cwetoeaStartedEventId    :: {-# NOUNPACK #-}!Integer
+  { _cwetoeaWorkflowExecution :: !WorkflowExecution
+  , _cwetoeaWorkflowType      :: !WorkflowType
+  , _cwetoeaTimeoutType       :: !WorkflowExecutionTimeoutType
+  , _cwetoeaInitiatedEventId  :: !Integer
+  , _cwetoeaStartedEventId    :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1541,8 +1541,8 @@ instance ToJSON
 --
 -- /See:/ 'completeWorkflowExecutionFailedEventAttributes' smart constructor.
 data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionFailedEventAttributes'
-  { _cwefeaCause :: {-# NOUNPACK #-}!CompleteWorkflowExecutionFailedCause
-  , _cwefeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _cwefeaCause                        :: !CompleteWorkflowExecutionFailedCause
+  , _cwefeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1619,15 +1619,15 @@ instance NFData
 --
 -- /See:/ 'continueAsNewWorkflowExecutionDecisionAttributes' smart constructor.
 data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'
-  { _canwedaTagList                      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _canwedaTaskStartToCloseTimeout      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _canwedaLambdaRole                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _canwedaInput                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _canwedaWorkflowTypeVersion          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _canwedaExecutionStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _canwedaTaskList                     :: {-# NOUNPACK #-}!(Maybe TaskList)
-  , _canwedaTaskPriority                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _canwedaChildPolicy                  :: {-# NOUNPACK #-}!(Maybe ChildPolicy)
+  { _canwedaTagList                      :: !(Maybe [Text])
+  , _canwedaTaskStartToCloseTimeout      :: !(Maybe Text)
+  , _canwedaLambdaRole                   :: !(Maybe Text)
+  , _canwedaInput                        :: !(Maybe Text)
+  , _canwedaWorkflowTypeVersion          :: !(Maybe Text)
+  , _canwedaExecutionStartToCloseTimeout :: !(Maybe Text)
+  , _canwedaTaskList                     :: !(Maybe TaskList)
+  , _canwedaTaskPriority                 :: !(Maybe Text)
+  , _canwedaChildPolicy                  :: !(Maybe ChildPolicy)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1738,8 +1738,8 @@ instance ToJSON
 --
 -- /See:/ 'continueAsNewWorkflowExecutionFailedEventAttributes' smart constructor.
 data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflowExecutionFailedEventAttributes'
-  { _canwefeaCause :: {-# NOUNPACK #-}!ContinueAsNewWorkflowExecutionFailedCause
-  , _canwefeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _canwefeaCause :: !ContinueAsNewWorkflowExecutionFailedCause
+  , _canwefeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1895,20 +1895,20 @@ instance NFData
 --
 -- /See:/ 'decision' smart constructor.
 data Decision = Decision'
-  { _dRequestCancelExternalWorkflowExecutionDecisionAttributes :: {-# NOUNPACK #-}!(Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes)
-  , _dScheduleActivityTaskDecisionAttributes :: {-# NOUNPACK #-}!(Maybe ScheduleActivityTaskDecisionAttributes)
-  , _dSignalExternalWorkflowExecutionDecisionAttributes :: {-# NOUNPACK #-}!(Maybe SignalExternalWorkflowExecutionDecisionAttributes)
-  , _dStartTimerDecisionAttributes :: {-# NOUNPACK #-}!(Maybe StartTimerDecisionAttributes)
-  , _dRecordMarkerDecisionAttributes :: {-# NOUNPACK #-}!(Maybe RecordMarkerDecisionAttributes)
-  , _dFailWorkflowExecutionDecisionAttributes :: {-# NOUNPACK #-}!(Maybe FailWorkflowExecutionDecisionAttributes)
-  , _dStartChildWorkflowExecutionDecisionAttributes :: {-# NOUNPACK #-}!(Maybe StartChildWorkflowExecutionDecisionAttributes)
-  , _dCompleteWorkflowExecutionDecisionAttributes :: {-# NOUNPACK #-}!(Maybe CompleteWorkflowExecutionDecisionAttributes)
-  , _dScheduleLambdaFunctionDecisionAttributes :: {-# NOUNPACK #-}!(Maybe ScheduleLambdaFunctionDecisionAttributes)
-  , _dRequestCancelActivityTaskDecisionAttributes :: {-# NOUNPACK #-}!(Maybe RequestCancelActivityTaskDecisionAttributes)
-  , _dCancelWorkflowExecutionDecisionAttributes :: {-# NOUNPACK #-}!(Maybe CancelWorkflowExecutionDecisionAttributes)
-  , _dCancelTimerDecisionAttributes :: {-# NOUNPACK #-}!(Maybe CancelTimerDecisionAttributes)
-  , _dContinueAsNewWorkflowExecutionDecisionAttributes :: {-# NOUNPACK #-}!(Maybe ContinueAsNewWorkflowExecutionDecisionAttributes)
-  , _dDecisionType :: {-# NOUNPACK #-}!DecisionType
+  { _dRequestCancelExternalWorkflowExecutionDecisionAttributes :: !(Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes)
+  , _dScheduleActivityTaskDecisionAttributes :: !(Maybe ScheduleActivityTaskDecisionAttributes)
+  , _dSignalExternalWorkflowExecutionDecisionAttributes :: !(Maybe SignalExternalWorkflowExecutionDecisionAttributes)
+  , _dStartTimerDecisionAttributes :: !(Maybe StartTimerDecisionAttributes)
+  , _dRecordMarkerDecisionAttributes :: !(Maybe RecordMarkerDecisionAttributes)
+  , _dFailWorkflowExecutionDecisionAttributes :: !(Maybe FailWorkflowExecutionDecisionAttributes)
+  , _dStartChildWorkflowExecutionDecisionAttributes :: !(Maybe StartChildWorkflowExecutionDecisionAttributes)
+  , _dCompleteWorkflowExecutionDecisionAttributes :: !(Maybe CompleteWorkflowExecutionDecisionAttributes)
+  , _dScheduleLambdaFunctionDecisionAttributes :: !(Maybe ScheduleLambdaFunctionDecisionAttributes)
+  , _dRequestCancelActivityTaskDecisionAttributes :: !(Maybe RequestCancelActivityTaskDecisionAttributes)
+  , _dCancelWorkflowExecutionDecisionAttributes :: !(Maybe CancelWorkflowExecutionDecisionAttributes)
+  , _dCancelTimerDecisionAttributes :: !(Maybe CancelTimerDecisionAttributes)
+  , _dContinueAsNewWorkflowExecutionDecisionAttributes :: !(Maybe ContinueAsNewWorkflowExecutionDecisionAttributes)
+  , _dDecisionType :: !DecisionType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2069,9 +2069,9 @@ instance ToJSON Decision where
 --
 -- /See:/ 'decisionTaskCompletedEventAttributes' smart constructor.
 data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes'
-  { _dtceaExecutionContext :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtceaScheduledEventId :: {-# NOUNPACK #-}!Integer
-  , _dtceaStartedEventId   :: {-# NOUNPACK #-}!Integer
+  { _dtceaExecutionContext :: !(Maybe Text)
+  , _dtceaScheduledEventId :: !Integer
+  , _dtceaStartedEventId   :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2132,9 +2132,9 @@ instance NFData DecisionTaskCompletedEventAttributes
 --
 -- /See:/ 'decisionTaskScheduledEventAttributes' smart constructor.
 data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes'
-  { _dtseaTaskPriority        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtseaStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtseaTaskList            :: {-# NOUNPACK #-}!TaskList
+  { _dtseaTaskPriority        :: !(Maybe Text)
+  , _dtseaStartToCloseTimeout :: !(Maybe Text)
+  , _dtseaTaskList            :: !TaskList
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2194,8 +2194,8 @@ instance NFData DecisionTaskScheduledEventAttributes
 --
 -- /See:/ 'decisionTaskStartedEventAttributes' smart constructor.
 data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes'
-  { _dtseaIdentity         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtseaScheduledEventId :: {-# NOUNPACK #-}!Integer
+  { _dtseaIdentity         :: !(Maybe Text)
+  , _dtseaScheduledEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2242,9 +2242,9 @@ instance NFData DecisionTaskStartedEventAttributes
 --
 -- /See:/ 'decisionTaskTimedOutEventAttributes' smart constructor.
 data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes'
-  { _dttoeaTimeoutType      :: {-# NOUNPACK #-}!DecisionTaskTimeoutType
-  , _dttoeaScheduledEventId :: {-# NOUNPACK #-}!Integer
-  , _dttoeaStartedEventId   :: {-# NOUNPACK #-}!Integer
+  { _dttoeaTimeoutType      :: !DecisionTaskTimeoutType
+  , _dttoeaScheduledEventId :: !Integer
+  , _dttoeaStartedEventId   :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2343,9 +2343,9 @@ instance NFData DomainConfiguration where
 --
 -- /See:/ 'domainInfo' smart constructor.
 data DomainInfo = DomainInfo'
-  { _diDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diName        :: {-# NOUNPACK #-}!Text
-  , _diStatus      :: {-# NOUNPACK #-}!RegistrationStatus
+  { _diDescription :: !(Maybe Text)
+  , _diName        :: !Text
+  , _diStatus      :: !RegistrationStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2396,8 +2396,8 @@ instance NFData DomainInfo where
 --
 -- /See:/ 'executionTimeFilter' smart constructor.
 data ExecutionTimeFilter = ExecutionTimeFilter'
-  { _etfLatestDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _etfOldestDate :: {-# NOUNPACK #-}!POSIX
+  { _etfLatestDate :: !(Maybe POSIX)
+  , _etfOldestDate :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2441,8 +2441,8 @@ instance ToJSON ExecutionTimeFilter where
 --
 -- /See:/ 'externalWorkflowExecutionCancelRequestedEventAttributes' smart constructor.
 data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowExecutionCancelRequestedEventAttributes'
-  { _ewecreaWorkflowExecution :: {-# NOUNPACK #-}!WorkflowExecution
-  , _ewecreaInitiatedEventId  :: {-# NOUNPACK #-}!Integer
+  { _ewecreaWorkflowExecution :: !WorkflowExecution
+  , _ewecreaInitiatedEventId  :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2498,8 +2498,8 @@ instance NFData
 --
 -- /See:/ 'externalWorkflowExecutionSignaledEventAttributes' smart constructor.
 data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutionSignaledEventAttributes'
-  { _eweseaWorkflowExecution :: {-# NOUNPACK #-}!WorkflowExecution
-  , _eweseaInitiatedEventId  :: {-# NOUNPACK #-}!Integer
+  { _eweseaWorkflowExecution :: !WorkflowExecution
+  , _eweseaInitiatedEventId  :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2568,8 +2568,8 @@ instance NFData
 --
 -- /See:/ 'failWorkflowExecutionDecisionAttributes' smart constructor.
 data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttributes'
-  { _fwedaReason  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fwedaDetails :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fwedaReason  :: !(Maybe Text)
+  , _fwedaDetails :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2618,8 +2618,8 @@ instance ToJSON
 --
 -- /See:/ 'failWorkflowExecutionFailedEventAttributes' smart constructor.
 data FailWorkflowExecutionFailedEventAttributes = FailWorkflowExecutionFailedEventAttributes'
-  { _fwefeaCause :: {-# NOUNPACK #-}!FailWorkflowExecutionFailedCause
-  , _fwefeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _fwefeaCause                        :: !FailWorkflowExecutionFailedCause
+  , _fwefeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2772,63 +2772,63 @@ instance NFData
 --
 -- /See:/ 'historyEvent' smart constructor.
 data HistoryEvent = HistoryEvent'
-  { _heWorkflowExecutionCancelRequestedEventAttributes :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionCancelRequestedEventAttributes)
-  , _heRecordMarkerFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe RecordMarkerFailedEventAttributes)
-  , _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: {-# NOUNPACK #-}!(Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
-  , _heLambdaFunctionStartedEventAttributes :: {-# NOUNPACK #-}!(Maybe LambdaFunctionStartedEventAttributes)
-  , _heDecisionTaskScheduledEventAttributes :: {-# NOUNPACK #-}!(Maybe DecisionTaskScheduledEventAttributes)
-  , _heWorkflowExecutionCompletedEventAttributes :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionCompletedEventAttributes)
-  , _heStartTimerFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe StartTimerFailedEventAttributes)
-  , _heActivityTaskScheduledEventAttributes :: {-# NOUNPACK #-}!(Maybe ActivityTaskScheduledEventAttributes)
-  , _heScheduleActivityTaskFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe ScheduleActivityTaskFailedEventAttributes)
-  , _heChildWorkflowExecutionCompletedEventAttributes :: {-# NOUNPACK #-}!(Maybe ChildWorkflowExecutionCompletedEventAttributes)
-  , _heMarkerRecordedEventAttributes :: {-# NOUNPACK #-}!(Maybe MarkerRecordedEventAttributes)
-  , _heScheduleLambdaFunctionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe ScheduleLambdaFunctionFailedEventAttributes)
-  , _heCompleteWorkflowExecutionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe CompleteWorkflowExecutionFailedEventAttributes)
-  , _heLambdaFunctionCompletedEventAttributes :: {-# NOUNPACK #-}!(Maybe LambdaFunctionCompletedEventAttributes)
-  , _heRequestCancelExternalWorkflowExecutionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
-  , _heTimerCanceledEventAttributes :: {-# NOUNPACK #-}!(Maybe TimerCanceledEventAttributes)
-  , _heWorkflowExecutionStartedEventAttributes :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionStartedEventAttributes)
-  , _heActivityTaskCompletedEventAttributes :: {-# NOUNPACK #-}!(Maybe ActivityTaskCompletedEventAttributes)
-  , _heDecisionTaskTimedOutEventAttributes :: {-# NOUNPACK #-}!(Maybe DecisionTaskTimedOutEventAttributes)
-  , _heCancelTimerFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe CancelTimerFailedEventAttributes)
-  , _heChildWorkflowExecutionStartedEventAttributes :: {-# NOUNPACK #-}!(Maybe ChildWorkflowExecutionStartedEventAttributes)
-  , _heActivityTaskCanceledEventAttributes :: {-# NOUNPACK #-}!(Maybe ActivityTaskCanceledEventAttributes)
-  , _heActivityTaskTimedOutEventAttributes :: {-# NOUNPACK #-}!(Maybe ActivityTaskTimedOutEventAttributes)
-  , _heDecisionTaskStartedEventAttributes :: {-# NOUNPACK #-}!(Maybe DecisionTaskStartedEventAttributes)
-  , _heWorkflowExecutionTerminatedEventAttributes :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionTerminatedEventAttributes)
-  , _heChildWorkflowExecutionCanceledEventAttributes :: {-# NOUNPACK #-}!(Maybe ChildWorkflowExecutionCanceledEventAttributes)
-  , _heRequestCancelActivityTaskFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe RequestCancelActivityTaskFailedEventAttributes)
-  , _heLambdaFunctionScheduledEventAttributes :: {-# NOUNPACK #-}!(Maybe LambdaFunctionScheduledEventAttributes)
-  , _heChildWorkflowExecutionTimedOutEventAttributes :: {-# NOUNPACK #-}!(Maybe ChildWorkflowExecutionTimedOutEventAttributes)
-  , _heCancelWorkflowExecutionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe CancelWorkflowExecutionFailedEventAttributes)
-  , _heStartChildWorkflowExecutionInitiatedEventAttributes :: {-# NOUNPACK #-}!(Maybe StartChildWorkflowExecutionInitiatedEventAttributes)
-  , _heSignalExternalWorkflowExecutionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe SignalExternalWorkflowExecutionFailedEventAttributes)
-  , _heActivityTaskStartedEventAttributes :: {-# NOUNPACK #-}!(Maybe ActivityTaskStartedEventAttributes)
-  , _heStartLambdaFunctionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe StartLambdaFunctionFailedEventAttributes)
-  , _heChildWorkflowExecutionTerminatedEventAttributes :: {-# NOUNPACK #-}!(Maybe ChildWorkflowExecutionTerminatedEventAttributes)
-  , _heLambdaFunctionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe LambdaFunctionFailedEventAttributes)
-  , _heWorkflowExecutionCanceledEventAttributes :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionCanceledEventAttributes)
-  , _heTimerStartedEventAttributes :: {-# NOUNPACK #-}!(Maybe TimerStartedEventAttributes)
-  , _heActivityTaskCancelRequestedEventAttributes :: {-# NOUNPACK #-}!(Maybe ActivityTaskCancelRequestedEventAttributes)
-  , _heWorkflowExecutionTimedOutEventAttributes :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionTimedOutEventAttributes)
-  , _heWorkflowExecutionSignaledEventAttributes :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionSignaledEventAttributes)
-  , _heTimerFiredEventAttributes :: {-# NOUNPACK #-}!(Maybe TimerFiredEventAttributes)
-  , _heActivityTaskFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe ActivityTaskFailedEventAttributes)
-  , _heExternalWorkflowExecutionSignaledEventAttributes :: {-# NOUNPACK #-}!(Maybe ExternalWorkflowExecutionSignaledEventAttributes)
-  , _heDecisionTaskCompletedEventAttributes :: {-# NOUNPACK #-}!(Maybe DecisionTaskCompletedEventAttributes)
-  , _heStartChildWorkflowExecutionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe StartChildWorkflowExecutionFailedEventAttributes)
-  , _heChildWorkflowExecutionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe ChildWorkflowExecutionFailedEventAttributes)
-  , _heFailWorkflowExecutionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe FailWorkflowExecutionFailedEventAttributes)
-  , _heContinueAsNewWorkflowExecutionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes)
-  , _heSignalExternalWorkflowExecutionInitiatedEventAttributes :: {-# NOUNPACK #-}!(Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes)
-  , _heLambdaFunctionTimedOutEventAttributes :: {-# NOUNPACK #-}!(Maybe LambdaFunctionTimedOutEventAttributes)
-  , _heWorkflowExecutionFailedEventAttributes :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionFailedEventAttributes)
-  , _heWorkflowExecutionContinuedAsNewEventAttributes :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionContinuedAsNewEventAttributes)
-  , _heExternalWorkflowExecutionCancelRequestedEventAttributes :: {-# NOUNPACK #-}!(Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
-  , _heEventTimestamp :: {-# NOUNPACK #-}!POSIX
-  , _heEventType :: {-# NOUNPACK #-}!EventType
-  , _heEventId :: {-# NOUNPACK #-}!Integer
+  { _heWorkflowExecutionCancelRequestedEventAttributes :: !(Maybe WorkflowExecutionCancelRequestedEventAttributes)
+  , _heRecordMarkerFailedEventAttributes :: !(Maybe RecordMarkerFailedEventAttributes)
+  , _heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes :: !(Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
+  , _heLambdaFunctionStartedEventAttributes :: !(Maybe LambdaFunctionStartedEventAttributes)
+  , _heDecisionTaskScheduledEventAttributes :: !(Maybe DecisionTaskScheduledEventAttributes)
+  , _heWorkflowExecutionCompletedEventAttributes :: !(Maybe WorkflowExecutionCompletedEventAttributes)
+  , _heStartTimerFailedEventAttributes :: !(Maybe StartTimerFailedEventAttributes)
+  , _heActivityTaskScheduledEventAttributes :: !(Maybe ActivityTaskScheduledEventAttributes)
+  , _heScheduleActivityTaskFailedEventAttributes :: !(Maybe ScheduleActivityTaskFailedEventAttributes)
+  , _heChildWorkflowExecutionCompletedEventAttributes :: !(Maybe ChildWorkflowExecutionCompletedEventAttributes)
+  , _heMarkerRecordedEventAttributes :: !(Maybe MarkerRecordedEventAttributes)
+  , _heScheduleLambdaFunctionFailedEventAttributes :: !(Maybe ScheduleLambdaFunctionFailedEventAttributes)
+  , _heCompleteWorkflowExecutionFailedEventAttributes :: !(Maybe CompleteWorkflowExecutionFailedEventAttributes)
+  , _heLambdaFunctionCompletedEventAttributes :: !(Maybe LambdaFunctionCompletedEventAttributes)
+  , _heRequestCancelExternalWorkflowExecutionFailedEventAttributes :: !(Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
+  , _heTimerCanceledEventAttributes :: !(Maybe TimerCanceledEventAttributes)
+  , _heWorkflowExecutionStartedEventAttributes :: !(Maybe WorkflowExecutionStartedEventAttributes)
+  , _heActivityTaskCompletedEventAttributes :: !(Maybe ActivityTaskCompletedEventAttributes)
+  , _heDecisionTaskTimedOutEventAttributes :: !(Maybe DecisionTaskTimedOutEventAttributes)
+  , _heCancelTimerFailedEventAttributes :: !(Maybe CancelTimerFailedEventAttributes)
+  , _heChildWorkflowExecutionStartedEventAttributes :: !(Maybe ChildWorkflowExecutionStartedEventAttributes)
+  , _heActivityTaskCanceledEventAttributes :: !(Maybe ActivityTaskCanceledEventAttributes)
+  , _heActivityTaskTimedOutEventAttributes :: !(Maybe ActivityTaskTimedOutEventAttributes)
+  , _heDecisionTaskStartedEventAttributes :: !(Maybe DecisionTaskStartedEventAttributes)
+  , _heWorkflowExecutionTerminatedEventAttributes :: !(Maybe WorkflowExecutionTerminatedEventAttributes)
+  , _heChildWorkflowExecutionCanceledEventAttributes :: !(Maybe ChildWorkflowExecutionCanceledEventAttributes)
+  , _heRequestCancelActivityTaskFailedEventAttributes :: !(Maybe RequestCancelActivityTaskFailedEventAttributes)
+  , _heLambdaFunctionScheduledEventAttributes :: !(Maybe LambdaFunctionScheduledEventAttributes)
+  , _heChildWorkflowExecutionTimedOutEventAttributes :: !(Maybe ChildWorkflowExecutionTimedOutEventAttributes)
+  , _heCancelWorkflowExecutionFailedEventAttributes :: !(Maybe CancelWorkflowExecutionFailedEventAttributes)
+  , _heStartChildWorkflowExecutionInitiatedEventAttributes :: !(Maybe StartChildWorkflowExecutionInitiatedEventAttributes)
+  , _heSignalExternalWorkflowExecutionFailedEventAttributes :: !(Maybe SignalExternalWorkflowExecutionFailedEventAttributes)
+  , _heActivityTaskStartedEventAttributes :: !(Maybe ActivityTaskStartedEventAttributes)
+  , _heStartLambdaFunctionFailedEventAttributes :: !(Maybe StartLambdaFunctionFailedEventAttributes)
+  , _heChildWorkflowExecutionTerminatedEventAttributes :: !(Maybe ChildWorkflowExecutionTerminatedEventAttributes)
+  , _heLambdaFunctionFailedEventAttributes :: !(Maybe LambdaFunctionFailedEventAttributes)
+  , _heWorkflowExecutionCanceledEventAttributes :: !(Maybe WorkflowExecutionCanceledEventAttributes)
+  , _heTimerStartedEventAttributes :: !(Maybe TimerStartedEventAttributes)
+  , _heActivityTaskCancelRequestedEventAttributes :: !(Maybe ActivityTaskCancelRequestedEventAttributes)
+  , _heWorkflowExecutionTimedOutEventAttributes :: !(Maybe WorkflowExecutionTimedOutEventAttributes)
+  , _heWorkflowExecutionSignaledEventAttributes :: !(Maybe WorkflowExecutionSignaledEventAttributes)
+  , _heTimerFiredEventAttributes :: !(Maybe TimerFiredEventAttributes)
+  , _heActivityTaskFailedEventAttributes :: !(Maybe ActivityTaskFailedEventAttributes)
+  , _heExternalWorkflowExecutionSignaledEventAttributes :: !(Maybe ExternalWorkflowExecutionSignaledEventAttributes)
+  , _heDecisionTaskCompletedEventAttributes :: !(Maybe DecisionTaskCompletedEventAttributes)
+  , _heStartChildWorkflowExecutionFailedEventAttributes :: !(Maybe StartChildWorkflowExecutionFailedEventAttributes)
+  , _heChildWorkflowExecutionFailedEventAttributes :: !(Maybe ChildWorkflowExecutionFailedEventAttributes)
+  , _heFailWorkflowExecutionFailedEventAttributes :: !(Maybe FailWorkflowExecutionFailedEventAttributes)
+  , _heContinueAsNewWorkflowExecutionFailedEventAttributes :: !(Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes)
+  , _heSignalExternalWorkflowExecutionInitiatedEventAttributes :: !(Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes)
+  , _heLambdaFunctionTimedOutEventAttributes :: !(Maybe LambdaFunctionTimedOutEventAttributes)
+  , _heWorkflowExecutionFailedEventAttributes :: !(Maybe WorkflowExecutionFailedEventAttributes)
+  , _heWorkflowExecutionContinuedAsNewEventAttributes :: !(Maybe WorkflowExecutionContinuedAsNewEventAttributes)
+  , _heExternalWorkflowExecutionCancelRequestedEventAttributes :: !(Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
+  , _heEventTimestamp :: !POSIX
+  , _heEventType :: !EventType
+  , _heEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3365,9 +3365,9 @@ instance NFData HistoryEvent where
 --
 -- /See:/ 'lambdaFunctionCompletedEventAttributes' smart constructor.
 data LambdaFunctionCompletedEventAttributes = LambdaFunctionCompletedEventAttributes'
-  { _lfceaResult           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfceaScheduledEventId :: {-# NOUNPACK #-}!Integer
-  , _lfceaStartedEventId   :: {-# NOUNPACK #-}!Integer
+  { _lfceaResult           :: !(Maybe Text)
+  , _lfceaScheduledEventId :: !Integer
+  , _lfceaStartedEventId   :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3428,10 +3428,10 @@ instance NFData
 --
 -- /See:/ 'lambdaFunctionFailedEventAttributes' smart constructor.
 data LambdaFunctionFailedEventAttributes = LambdaFunctionFailedEventAttributes'
-  { _lffeaReason           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lffeaDetails          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lffeaScheduledEventId :: {-# NOUNPACK #-}!Integer
-  , _lffeaStartedEventId   :: {-# NOUNPACK #-}!Integer
+  { _lffeaReason           :: !(Maybe Text)
+  , _lffeaDetails          :: !(Maybe Text)
+  , _lffeaScheduledEventId :: !Integer
+  , _lffeaStartedEventId   :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3497,12 +3497,12 @@ instance NFData LambdaFunctionFailedEventAttributes
 --
 -- /See:/ 'lambdaFunctionScheduledEventAttributes' smart constructor.
 data LambdaFunctionScheduledEventAttributes = LambdaFunctionScheduledEventAttributes'
-  { _lfseaControl                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfseaInput                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfseaStartToCloseTimeout          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfseaId                           :: {-# NOUNPACK #-}!Text
-  , _lfseaName                         :: {-# NOUNPACK #-}!Text
-  , _lfseaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _lfseaControl                      :: !(Maybe Text)
+  , _lfseaInput                        :: !(Maybe Text)
+  , _lfseaStartToCloseTimeout          :: !(Maybe Text)
+  , _lfseaId                           :: !Text
+  , _lfseaName                         :: !Text
+  , _lfseaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3631,9 +3631,9 @@ instance NFData LambdaFunctionStartedEventAttributes
 --
 -- /See:/ 'lambdaFunctionTimedOutEventAttributes' smart constructor.
 data LambdaFunctionTimedOutEventAttributes = LambdaFunctionTimedOutEventAttributes'
-  { _lftoeaTimeoutType :: {-# NOUNPACK #-}!(Maybe LambdaFunctionTimeoutType)
-  , _lftoeaScheduledEventId :: {-# NOUNPACK #-}!Integer
-  , _lftoeaStartedEventId :: {-# NOUNPACK #-}!Integer
+  { _lftoeaTimeoutType      :: !(Maybe LambdaFunctionTimeoutType)
+  , _lftoeaScheduledEventId :: !Integer
+  , _lftoeaStartedEventId   :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3693,9 +3693,9 @@ instance NFData LambdaFunctionTimedOutEventAttributes
 --
 -- /See:/ 'markerRecordedEventAttributes' smart constructor.
 data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes'
-  { _mreaDetails                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mreaMarkerName                   :: {-# NOUNPACK #-}!Text
-  , _mreaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _mreaDetails                      :: !(Maybe Text)
+  , _mreaMarkerName                   :: !Text
+  , _mreaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3750,8 +3750,8 @@ instance NFData MarkerRecordedEventAttributes where
 --
 -- /See:/ 'pendingTaskCount' smart constructor.
 data PendingTaskCount = PendingTaskCount'
-  { _ptcTruncated :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ptcCount     :: {-# NOUNPACK #-}!Nat
+  { _ptcTruncated :: !(Maybe Bool)
+  , _ptcCount     :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3808,8 +3808,8 @@ instance NFData PendingTaskCount where
 --
 -- /See:/ 'recordMarkerDecisionAttributes' smart constructor.
 data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes'
-  { _rmdaDetails    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmdaMarkerName :: {-# NOUNPACK #-}!Text
+  { _rmdaDetails    :: !(Maybe Text)
+  , _rmdaMarkerName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3854,9 +3854,9 @@ instance ToJSON RecordMarkerDecisionAttributes where
 --
 -- /See:/ 'recordMarkerFailedEventAttributes' smart constructor.
 data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes'
-  { _rmfeaMarkerName :: {-# NOUNPACK #-}!Text
-  , _rmfeaCause :: {-# NOUNPACK #-}!RecordMarkerFailedCause
-  , _rmfeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _rmfeaMarkerName                   :: !Text
+  , _rmfeaCause                        :: !RecordMarkerFailedCause
+  , _rmfeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3973,9 +3973,9 @@ instance ToJSON
 --
 -- /See:/ 'requestCancelActivityTaskFailedEventAttributes' smart constructor.
 data RequestCancelActivityTaskFailedEventAttributes = RequestCancelActivityTaskFailedEventAttributes'
-  { _rcatfeaActivityId :: {-# NOUNPACK #-}!Text
-  , _rcatfeaCause :: {-# NOUNPACK #-}!RequestCancelActivityTaskFailedCause
-  , _rcatfeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _rcatfeaActivityId :: !Text
+  , _rcatfeaCause :: !RequestCancelActivityTaskFailedCause
+  , _rcatfeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4052,9 +4052,9 @@ instance NFData
 --
 -- /See:/ 'requestCancelExternalWorkflowExecutionDecisionAttributes' smart constructor.
 data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExternalWorkflowExecutionDecisionAttributes'
-  { _rcewedaControl    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcewedaRunId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcewedaWorkflowId :: {-# NOUNPACK #-}!Text
+  { _rcewedaControl    :: !(Maybe Text)
+  , _rcewedaRunId      :: !(Maybe Text)
+  , _rcewedaWorkflowId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4115,12 +4115,12 @@ instance ToJSON
 --
 -- /See:/ 'requestCancelExternalWorkflowExecutionFailedEventAttributes' smart constructor.
 data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancelExternalWorkflowExecutionFailedEventAttributes'
-  { _rcewefeaControl :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcewefeaRunId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcewefeaWorkflowId :: {-# NOUNPACK #-}!Text
-  , _rcewefeaCause :: {-# NOUNPACK #-}!RequestCancelExternalWorkflowExecutionFailedCause
-  , _rcewefeaInitiatedEventId :: {-# NOUNPACK #-}!Integer
-  , _rcewefeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _rcewefeaControl :: !(Maybe Text)
+  , _rcewefeaRunId :: !(Maybe Text)
+  , _rcewefeaWorkflowId :: !Text
+  , _rcewefeaCause :: !RequestCancelExternalWorkflowExecutionFailedCause
+  , _rcewefeaInitiatedEventId :: !Integer
+  , _rcewefeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4209,10 +4209,10 @@ instance NFData
 --
 -- /See:/ 'requestCancelExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
-  { _rceweieaControl                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rceweieaRunId                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rceweieaWorkflowId                   :: {-# NOUNPACK #-}!Text
-  , _rceweieaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _rceweieaControl                      :: !(Maybe Text)
+  , _rceweieaRunId                        :: !(Maybe Text)
+  , _rceweieaWorkflowId                   :: !Text
+  , _rceweieaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4305,16 +4305,16 @@ instance NFData
 --
 -- /See:/ 'scheduleActivityTaskDecisionAttributes' smart constructor.
 data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttributes'
-  { _satdaControl                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _satdaHeartbeatTimeout       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _satdaScheduleToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _satdaInput                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _satdaTaskList               :: {-# NOUNPACK #-}!(Maybe TaskList)
-  , _satdaTaskPriority           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _satdaScheduleToStartTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _satdaStartToCloseTimeout    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _satdaActivityType           :: {-# NOUNPACK #-}!ActivityType
-  , _satdaActivityId             :: {-# NOUNPACK #-}!Text
+  { _satdaControl                :: !(Maybe Text)
+  , _satdaHeartbeatTimeout       :: !(Maybe Text)
+  , _satdaScheduleToCloseTimeout :: !(Maybe Text)
+  , _satdaInput                  :: !(Maybe Text)
+  , _satdaTaskList               :: !(Maybe TaskList)
+  , _satdaTaskPriority           :: !(Maybe Text)
+  , _satdaScheduleToStartTimeout :: !(Maybe Text)
+  , _satdaStartToCloseTimeout    :: !(Maybe Text)
+  , _satdaActivityType           :: !ActivityType
+  , _satdaActivityId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4434,10 +4434,10 @@ instance ToJSON
 --
 -- /See:/ 'scheduleActivityTaskFailedEventAttributes' smart constructor.
 data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEventAttributes'
-  { _satfeaActivityType :: {-# NOUNPACK #-}!ActivityType
-  , _satfeaActivityId :: {-# NOUNPACK #-}!Text
-  , _satfeaCause :: {-# NOUNPACK #-}!ScheduleActivityTaskFailedCause
-  , _satfeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _satfeaActivityType                 :: !ActivityType
+  , _satfeaActivityId                   :: !Text
+  , _satfeaCause                        :: !ScheduleActivityTaskFailedCause
+  , _satfeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4509,11 +4509,11 @@ instance NFData
 --
 -- /See:/ 'scheduleLambdaFunctionDecisionAttributes' smart constructor.
 data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAttributes'
-  { _slfdaControl             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slfdaInput               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slfdaStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slfdaId                  :: {-# NOUNPACK #-}!Text
-  , _slfdaName                :: {-# NOUNPACK #-}!Text
+  { _slfdaControl             :: !(Maybe Text)
+  , _slfdaInput               :: !(Maybe Text)
+  , _slfdaStartToCloseTimeout :: !(Maybe Text)
+  , _slfdaId                  :: !Text
+  , _slfdaName                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4591,10 +4591,10 @@ instance ToJSON
 --
 -- /See:/ 'scheduleLambdaFunctionFailedEventAttributes' smart constructor.
 data ScheduleLambdaFunctionFailedEventAttributes = ScheduleLambdaFunctionFailedEventAttributes'
-  { _slffeaId :: {-# NOUNPACK #-}!Text
-  , _slffeaName :: {-# NOUNPACK #-}!Text
-  , _slffeaCause :: {-# NOUNPACK #-}!ScheduleLambdaFunctionFailedCause
-  , _slffeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _slffeaId                           :: !Text
+  , _slffeaName                         :: !Text
+  , _slffeaCause                        :: !ScheduleLambdaFunctionFailedCause
+  , _slffeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4679,11 +4679,11 @@ instance NFData
 --
 -- /See:/ 'signalExternalWorkflowExecutionDecisionAttributes' smart constructor.
 data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowExecutionDecisionAttributes'
-  { _sewedaControl    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sewedaInput      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sewedaRunId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sewedaWorkflowId :: {-# NOUNPACK #-}!Text
-  , _sewedaSignalName :: {-# NOUNPACK #-}!Text
+  { _sewedaControl    :: !(Maybe Text)
+  , _sewedaInput      :: !(Maybe Text)
+  , _sewedaRunId      :: !(Maybe Text)
+  , _sewedaWorkflowId :: !Text
+  , _sewedaSignalName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4761,12 +4761,12 @@ instance ToJSON
 --
 -- /See:/ 'signalExternalWorkflowExecutionFailedEventAttributes' smart constructor.
 data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkflowExecutionFailedEventAttributes'
-  { _sewefeaControl :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sewefeaRunId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sewefeaWorkflowId :: {-# NOUNPACK #-}!Text
-  , _sewefeaCause :: {-# NOUNPACK #-}!SignalExternalWorkflowExecutionFailedCause
-  , _sewefeaInitiatedEventId :: {-# NOUNPACK #-}!Integer
-  , _sewefeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _sewefeaControl :: !(Maybe Text)
+  , _sewefeaRunId :: !(Maybe Text)
+  , _sewefeaWorkflowId :: !Text
+  , _sewefeaCause :: !SignalExternalWorkflowExecutionFailedCause
+  , _sewefeaInitiatedEventId :: !Integer
+  , _sewefeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4855,12 +4855,12 @@ instance NFData
 --
 -- /See:/ 'signalExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWorkflowExecutionInitiatedEventAttributes'
-  { _seweieaControl                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seweieaInput                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seweieaRunId                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seweieaWorkflowId                   :: {-# NOUNPACK #-}!Text
-  , _seweieaSignalName                   :: {-# NOUNPACK #-}!Text
-  , _seweieaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _seweieaControl                      :: !(Maybe Text)
+  , _seweieaInput                        :: !(Maybe Text)
+  , _seweieaRunId                        :: !(Maybe Text)
+  , _seweieaWorkflowId                   :: !Text
+  , _seweieaSignalName                   :: !Text
+  , _seweieaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4972,17 +4972,17 @@ instance NFData
 --
 -- /See:/ 'startChildWorkflowExecutionDecisionAttributes' smart constructor.
 data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecutionDecisionAttributes'
-  { _scwedaControl                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scwedaTagList                      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _scwedaTaskStartToCloseTimeout      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scwedaLambdaRole                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scwedaInput                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scwedaExecutionStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scwedaTaskList                     :: {-# NOUNPACK #-}!(Maybe TaskList)
-  , _scwedaTaskPriority                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scwedaChildPolicy                  :: {-# NOUNPACK #-}!(Maybe ChildPolicy)
-  , _scwedaWorkflowType                 :: {-# NOUNPACK #-}!WorkflowType
-  , _scwedaWorkflowId                   :: {-# NOUNPACK #-}!Text
+  { _scwedaControl                      :: !(Maybe Text)
+  , _scwedaTagList                      :: !(Maybe [Text])
+  , _scwedaTaskStartToCloseTimeout      :: !(Maybe Text)
+  , _scwedaLambdaRole                   :: !(Maybe Text)
+  , _scwedaInput                        :: !(Maybe Text)
+  , _scwedaExecutionStartToCloseTimeout :: !(Maybe Text)
+  , _scwedaTaskList                     :: !(Maybe TaskList)
+  , _scwedaTaskPriority                 :: !(Maybe Text)
+  , _scwedaChildPolicy                  :: !(Maybe ChildPolicy)
+  , _scwedaWorkflowType                 :: !WorkflowType
+  , _scwedaWorkflowId                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5110,12 +5110,12 @@ instance ToJSON
 --
 -- /See:/ 'startChildWorkflowExecutionFailedEventAttributes' smart constructor.
 data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecutionFailedEventAttributes'
-  { _scwefeaControl :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scwefeaWorkflowType :: {-# NOUNPACK #-}!WorkflowType
-  , _scwefeaCause :: {-# NOUNPACK #-}!StartChildWorkflowExecutionFailedCause
-  , _scwefeaWorkflowId :: {-# NOUNPACK #-}!Text
-  , _scwefeaInitiatedEventId :: {-# NOUNPACK #-}!Integer
-  , _scwefeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _scwefeaControl :: !(Maybe Text)
+  , _scwefeaWorkflowType :: !WorkflowType
+  , _scwefeaCause :: !StartChildWorkflowExecutionFailedCause
+  , _scwefeaWorkflowId :: !Text
+  , _scwefeaInitiatedEventId :: !Integer
+  , _scwefeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5204,18 +5204,18 @@ instance NFData
 --
 -- /See:/ 'startChildWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExecutionInitiatedEventAttributes'
-  { _scweieaControl                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scweieaTagList                      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _scweieaTaskStartToCloseTimeout      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scweieaLambdaRole                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scweieaInput                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scweieaExecutionStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scweieaTaskPriority                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scweieaWorkflowId                   :: {-# NOUNPACK #-}!Text
-  , _scweieaWorkflowType                 :: {-# NOUNPACK #-}!WorkflowType
-  , _scweieaTaskList                     :: {-# NOUNPACK #-}!TaskList
-  , _scweieaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
-  , _scweieaChildPolicy                  :: {-# NOUNPACK #-}!ChildPolicy
+  { _scweieaControl                      :: !(Maybe Text)
+  , _scweieaTagList                      :: !(Maybe [Text])
+  , _scweieaTaskStartToCloseTimeout      :: !(Maybe Text)
+  , _scweieaLambdaRole                   :: !(Maybe Text)
+  , _scweieaInput                        :: !(Maybe Text)
+  , _scweieaExecutionStartToCloseTimeout :: !(Maybe Text)
+  , _scweieaTaskPriority                 :: !(Maybe Text)
+  , _scweieaWorkflowId                   :: !Text
+  , _scweieaWorkflowType                 :: !WorkflowType
+  , _scweieaTaskList                     :: !TaskList
+  , _scweieaDecisionTaskCompletedEventId :: !Integer
+  , _scweieaChildPolicy                  :: !ChildPolicy
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5353,9 +5353,9 @@ instance NFData
 --
 -- /See:/ 'startLambdaFunctionFailedEventAttributes' smart constructor.
 data StartLambdaFunctionFailedEventAttributes = StartLambdaFunctionFailedEventAttributes'
-  { _sScheduledEventId :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _sCause :: {-# NOUNPACK #-}!(Maybe StartLambdaFunctionFailedCause)
-  , _sMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sScheduledEventId :: !(Maybe Integer)
+  , _sCause            :: !(Maybe StartLambdaFunctionFailedCause)
+  , _sMessage          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5426,9 +5426,9 @@ instance NFData
 --
 -- /See:/ 'startTimerDecisionAttributes' smart constructor.
 data StartTimerDecisionAttributes = StartTimerDecisionAttributes'
-  { _stdaControl            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stdaTimerId            :: {-# NOUNPACK #-}!Text
-  , _stdaStartToFireTimeout :: {-# NOUNPACK #-}!Text
+  { _stdaControl            :: !(Maybe Text)
+  , _stdaTimerId            :: !Text
+  , _stdaStartToFireTimeout :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5484,9 +5484,9 @@ instance ToJSON StartTimerDecisionAttributes where
 --
 -- /See:/ 'startTimerFailedEventAttributes' smart constructor.
 data StartTimerFailedEventAttributes = StartTimerFailedEventAttributes'
-  { _stfeaTimerId                      :: {-# NOUNPACK #-}!Text
-  , _stfeaCause                        :: {-# NOUNPACK #-}!StartTimerFailedCause
-  , _stfeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _stfeaTimerId                      :: !Text
+  , _stfeaCause                        :: !StartTimerFailedCause
+  , _stfeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5615,9 +5615,9 @@ instance ToJSON TaskList where
 --
 -- /See:/ 'timerCanceledEventAttributes' smart constructor.
 data TimerCanceledEventAttributes = TimerCanceledEventAttributes'
-  { _tceaTimerId                      :: {-# NOUNPACK #-}!Text
-  , _tceaStartedEventId               :: {-# NOUNPACK #-}!Integer
-  , _tceaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _tceaTimerId                      :: !Text
+  , _tceaStartedEventId               :: !Integer
+  , _tceaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5673,8 +5673,8 @@ instance NFData TimerCanceledEventAttributes where
 --
 -- /See:/ 'timerFiredEventAttributes' smart constructor.
 data TimerFiredEventAttributes = TimerFiredEventAttributes'
-  { _tfeaTimerId        :: {-# NOUNPACK #-}!Text
-  , _tfeaStartedEventId :: {-# NOUNPACK #-}!Integer
+  { _tfeaTimerId        :: !Text
+  , _tfeaStartedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5719,10 +5719,10 @@ instance NFData TimerFiredEventAttributes where
 --
 -- /See:/ 'timerStartedEventAttributes' smart constructor.
 data TimerStartedEventAttributes = TimerStartedEventAttributes'
-  { _tseaControl                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tseaTimerId                      :: {-# NOUNPACK #-}!Text
-  , _tseaStartToFireTimeout           :: {-# NOUNPACK #-}!Text
-  , _tseaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _tseaControl                      :: !(Maybe Text)
+  , _tseaTimerId                      :: !Text
+  , _tseaStartToFireTimeout           :: !Text
+  , _tseaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5786,8 +5786,8 @@ instance NFData TimerStartedEventAttributes where
 --
 -- /See:/ 'workflowExecution' smart constructor.
 data WorkflowExecution = WorkflowExecution'
-  { _weWorkflowId :: {-# NOUNPACK #-}!Text
-  , _weRunId      :: {-# NOUNPACK #-}!Text
+  { _weWorkflowId :: !Text
+  , _weRunId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5838,9 +5838,9 @@ instance ToJSON WorkflowExecution where
 --
 -- /See:/ 'workflowExecutionCancelRequestedEventAttributes' smart constructor.
 data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequestedEventAttributes'
-  { _wecreaExternalWorkflowExecution :: {-# NOUNPACK #-}!(Maybe WorkflowExecution)
-  , _wecreaExternalInitiatedEventId :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _wecreaCause :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionCancelRequestedCause)
+  { _wecreaExternalWorkflowExecution :: !(Maybe WorkflowExecution)
+  , _wecreaExternalInitiatedEventId :: !(Maybe Integer)
+  , _wecreaCause :: !(Maybe WorkflowExecutionCancelRequestedCause)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5901,8 +5901,8 @@ instance NFData
 --
 -- /See:/ 'workflowExecutionCanceledEventAttributes' smart constructor.
 data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAttributes'
-  { _wDetails                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _wDetails                      :: !(Maybe Text)
+  , _wDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5956,8 +5956,8 @@ instance NFData
 --
 -- /See:/ 'workflowExecutionCompletedEventAttributes' smart constructor.
 data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEventAttributes'
-  { _weceaResult                       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _weceaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _weceaResult                       :: !(Maybe Text)
+  , _weceaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6011,12 +6011,12 @@ instance NFData
 --
 -- /See:/ 'workflowExecutionConfiguration' smart constructor.
 data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
-  { _wecLambdaRole                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wecTaskPriority                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wecTaskStartToCloseTimeout      :: {-# NOUNPACK #-}!Text
-  , _wecExecutionStartToCloseTimeout :: {-# NOUNPACK #-}!Text
-  , _wecTaskList                     :: {-# NOUNPACK #-}!TaskList
-  , _wecChildPolicy                  :: {-# NOUNPACK #-}!ChildPolicy
+  { _wecLambdaRole                   :: !(Maybe Text)
+  , _wecTaskPriority                 :: !(Maybe Text)
+  , _wecTaskStartToCloseTimeout      :: !Text
+  , _wecExecutionStartToCloseTimeout :: !Text
+  , _wecTaskList                     :: !TaskList
+  , _wecChildPolicy                  :: !ChildPolicy
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6099,17 +6099,17 @@ instance NFData WorkflowExecutionConfiguration where
 --
 -- /See:/ 'workflowExecutionContinuedAsNewEventAttributes' smart constructor.
 data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinuedAsNewEventAttributes'
-  { _wecaneaTagList                      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _wecaneaTaskStartToCloseTimeout      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wecaneaLambdaRole                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wecaneaInput                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wecaneaExecutionStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wecaneaTaskPriority                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wecaneaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
-  , _wecaneaNewExecutionRunId            :: {-# NOUNPACK #-}!Text
-  , _wecaneaTaskList                     :: {-# NOUNPACK #-}!TaskList
-  , _wecaneaChildPolicy                  :: {-# NOUNPACK #-}!ChildPolicy
-  , _wecaneaWorkflowType                 :: {-# NOUNPACK #-}!WorkflowType
+  { _wecaneaTagList                      :: !(Maybe [Text])
+  , _wecaneaTaskStartToCloseTimeout      :: !(Maybe Text)
+  , _wecaneaLambdaRole                   :: !(Maybe Text)
+  , _wecaneaInput                        :: !(Maybe Text)
+  , _wecaneaExecutionStartToCloseTimeout :: !(Maybe Text)
+  , _wecaneaTaskPriority                 :: !(Maybe Text)
+  , _wecaneaDecisionTaskCompletedEventId :: !Integer
+  , _wecaneaNewExecutionRunId            :: !Text
+  , _wecaneaTaskList                     :: !TaskList
+  , _wecaneaChildPolicy                  :: !ChildPolicy
+  , _wecaneaWorkflowType                 :: !WorkflowType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6239,8 +6239,8 @@ instance NFData
 --
 -- /See:/ 'workflowExecutionCount' smart constructor.
 data WorkflowExecutionCount = WorkflowExecutionCount'
-  { _wecTruncated :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _wecCount     :: {-# NOUNPACK #-}!Nat
+  { _wecTruncated :: !(Maybe Bool)
+  , _wecCount     :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6283,9 +6283,9 @@ instance NFData WorkflowExecutionCount where
 --
 -- /See:/ 'workflowExecutionFailedEventAttributes' smart constructor.
 data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttributes'
-  { _wefeaReason                       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wefeaDetails                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wefeaDecisionTaskCompletedEventId :: {-# NOUNPACK #-}!Integer
+  { _wefeaReason                       :: !(Maybe Text)
+  , _wefeaDetails                      :: !(Maybe Text)
+  , _wefeaDecisionTaskCompletedEventId :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6380,15 +6380,15 @@ instance ToJSON WorkflowExecutionFilter where
 --
 -- /See:/ 'workflowExecutionInfo' smart constructor.
 data WorkflowExecutionInfo = WorkflowExecutionInfo'
-  { _weiParent          :: {-# NOUNPACK #-}!(Maybe WorkflowExecution)
-  , _weiTagList         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _weiCloseStatus     :: {-# NOUNPACK #-}!(Maybe CloseStatus)
-  , _weiCloseTimestamp  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _weiCancelRequested :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _weiExecution       :: {-# NOUNPACK #-}!WorkflowExecution
-  , _weiWorkflowType    :: {-# NOUNPACK #-}!WorkflowType
-  , _weiStartTimestamp  :: {-# NOUNPACK #-}!POSIX
-  , _weiExecutionStatus :: {-# NOUNPACK #-}!ExecutionStatus
+  { _weiParent          :: !(Maybe WorkflowExecution)
+  , _weiTagList         :: !(Maybe [Text])
+  , _weiCloseStatus     :: !(Maybe CloseStatus)
+  , _weiCloseTimestamp  :: !(Maybe POSIX)
+  , _weiCancelRequested :: !(Maybe Bool)
+  , _weiExecution       :: !WorkflowExecution
+  , _weiWorkflowType    :: !WorkflowType
+  , _weiStartTimestamp  :: !POSIX
+  , _weiExecutionStatus :: !ExecutionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6493,8 +6493,8 @@ instance NFData WorkflowExecutionInfo where
 --
 -- /See:/ 'workflowExecutionInfos' smart constructor.
 data WorkflowExecutionInfos = WorkflowExecutionInfos'
-  { _weiNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _weiExecutionInfos :: {-# NOUNPACK #-}![WorkflowExecutionInfo]
+  { _weiNextPageToken  :: !(Maybe Text)
+  , _weiExecutionInfos :: ![WorkflowExecutionInfo]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6538,11 +6538,11 @@ instance NFData WorkflowExecutionInfos where
 --
 -- /See:/ 'workflowExecutionOpenCounts' smart constructor.
 data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts'
-  { _weocOpenLambdaFunctions         :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _weocOpenActivityTasks           :: {-# NOUNPACK #-}!Nat
-  , _weocOpenDecisionTasks           :: {-# NOUNPACK #-}!Nat
-  , _weocOpenTimers                  :: {-# NOUNPACK #-}!Nat
-  , _weocOpenChildWorkflowExecutions :: {-# NOUNPACK #-}!Nat
+  { _weocOpenLambdaFunctions         :: !(Maybe Nat)
+  , _weocOpenActivityTasks           :: !Nat
+  , _weocOpenDecisionTasks           :: !Nat
+  , _weocOpenTimers                  :: !Nat
+  , _weocOpenChildWorkflowExecutions :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6616,10 +6616,10 @@ instance NFData WorkflowExecutionOpenCounts where
 --
 -- /See:/ 'workflowExecutionSignaledEventAttributes' smart constructor.
 data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAttributes'
-  { _wExternalWorkflowExecution :: {-# NOUNPACK #-}!(Maybe WorkflowExecution)
-  , _wExternalInitiatedEventId  :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _wInput                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wSignalName                :: {-# NOUNPACK #-}!Text
+  { _wExternalWorkflowExecution :: !(Maybe WorkflowExecution)
+  , _wExternalInitiatedEventId  :: !(Maybe Integer)
+  , _wInput                     :: !(Maybe Text)
+  , _wSignalName                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6689,18 +6689,18 @@ instance NFData
 --
 -- /See:/ 'workflowExecutionStartedEventAttributes' smart constructor.
 data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttributes'
-  { _weseaParentInitiatedEventId :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _weseaTagList :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _weseaTaskStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _weseaLambdaRole :: {-# NOUNPACK #-}!(Maybe Text)
-  , _weseaInput :: {-# NOUNPACK #-}!(Maybe Text)
-  , _weseaExecutionStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _weseaTaskPriority :: {-# NOUNPACK #-}!(Maybe Text)
-  , _weseaParentWorkflowExecution :: {-# NOUNPACK #-}!(Maybe WorkflowExecution)
-  , _weseaContinuedExecutionRunId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _weseaChildPolicy :: {-# NOUNPACK #-}!ChildPolicy
-  , _weseaTaskList :: {-# NOUNPACK #-}!TaskList
-  , _weseaWorkflowType :: {-# NOUNPACK #-}!WorkflowType
+  { _weseaParentInitiatedEventId       :: !(Maybe Integer)
+  , _weseaTagList                      :: !(Maybe [Text])
+  , _weseaTaskStartToCloseTimeout      :: !(Maybe Text)
+  , _weseaLambdaRole                   :: !(Maybe Text)
+  , _weseaInput                        :: !(Maybe Text)
+  , _weseaExecutionStartToCloseTimeout :: !(Maybe Text)
+  , _weseaTaskPriority                 :: !(Maybe Text)
+  , _weseaParentWorkflowExecution      :: !(Maybe WorkflowExecution)
+  , _weseaContinuedExecutionRunId      :: !(Maybe Text)
+  , _weseaChildPolicy                  :: !ChildPolicy
+  , _weseaTaskList                     :: !TaskList
+  , _weseaWorkflowType                 :: !WorkflowType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6836,10 +6836,10 @@ instance NFData
 --
 -- /See:/ 'workflowExecutionTerminatedEventAttributes' smart constructor.
 data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEventAttributes'
-  { _weteaCause :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionTerminatedCause)
-  , _weteaReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _weteaDetails :: {-# NOUNPACK #-}!(Maybe Text)
-  , _weteaChildPolicy :: {-# NOUNPACK #-}!ChildPolicy
+  { _weteaCause       :: !(Maybe WorkflowExecutionTerminatedCause)
+  , _weteaReason      :: !(Maybe Text)
+  , _weteaDetails     :: !(Maybe Text)
+  , _weteaChildPolicy :: !ChildPolicy
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6908,8 +6908,8 @@ instance NFData
 --
 -- /See:/ 'workflowExecutionTimedOutEventAttributes' smart constructor.
 data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAttributes'
-  { _wetoeaTimeoutType :: {-# NOUNPACK #-}!WorkflowExecutionTimeoutType
-  , _wetoeaChildPolicy :: {-# NOUNPACK #-}!ChildPolicy
+  { _wetoeaTimeoutType :: !WorkflowExecutionTimeoutType
+  , _wetoeaChildPolicy :: !ChildPolicy
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6961,8 +6961,8 @@ instance NFData
 --
 -- /See:/ 'workflowType' smart constructor.
 data WorkflowType = WorkflowType'
-  { _wtName    :: {-# NOUNPACK #-}!Text
-  , _wtVersion :: {-# NOUNPACK #-}!Text
+  { _wtName    :: !Text
+  , _wtVersion :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -7012,12 +7012,12 @@ instance ToJSON WorkflowType where
 --
 -- /See:/ 'workflowTypeConfiguration' smart constructor.
 data WorkflowTypeConfiguration = WorkflowTypeConfiguration'
-  { _wtcDefaultLambdaRole :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wtcDefaultChildPolicy :: {-# NOUNPACK #-}!(Maybe ChildPolicy)
-  , _wtcDefaultTaskList :: {-# NOUNPACK #-}!(Maybe TaskList)
-  , _wtcDefaultTaskPriority :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wtcDefaultExecutionStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wtcDefaultTaskStartToCloseTimeout :: {-# NOUNPACK #-}!(Maybe Text)
+  { _wtcDefaultLambdaRole                   :: !(Maybe Text)
+  , _wtcDefaultChildPolicy                  :: !(Maybe ChildPolicy)
+  , _wtcDefaultTaskList                     :: !(Maybe TaskList)
+  , _wtcDefaultTaskPriority                 :: !(Maybe Text)
+  , _wtcDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
+  , _wtcDefaultTaskStartToCloseTimeout      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -7095,8 +7095,8 @@ instance NFData WorkflowTypeConfiguration where
 --
 -- /See:/ 'workflowTypeFilter' smart constructor.
 data WorkflowTypeFilter = WorkflowTypeFilter'
-  { _wtfVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wtfName    :: {-# NOUNPACK #-}!Text
+  { _wtfVersion :: !(Maybe Text)
+  , _wtfName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -7139,11 +7139,11 @@ instance ToJSON WorkflowTypeFilter where
 --
 -- /See:/ 'workflowTypeInfo' smart constructor.
 data WorkflowTypeInfo = WorkflowTypeInfo'
-  { _wtiDeprecationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _wtiDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _wtiWorkflowType    :: {-# NOUNPACK #-}!WorkflowType
-  , _wtiStatus          :: {-# NOUNPACK #-}!RegistrationStatus
-  , _wtiCreationDate    :: {-# NOUNPACK #-}!POSIX
+  { _wtiDeprecationDate :: !(Maybe POSIX)
+  , _wtiDescription     :: !(Maybe Text)
+  , _wtiWorkflowType    :: !WorkflowType
+  , _wtiStatus          :: !RegistrationStatus
+  , _wtiCreationDate    :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'defineExpression' smart constructor.
 data DefineExpression = DefineExpression'
-  { _dDomainName :: {-# NOUNPACK #-}!Text
-  , _dExpression :: {-# NOUNPACK #-}!Expression
+  { _dDomainName :: !Text
+  , _dExpression :: !Expression
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery DefineExpression where
 --
 -- /See:/ 'defineExpressionResponse' smart constructor.
 data DefineExpressionResponse = DefineExpressionResponse'
-  { _dersResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dersExpression     :: {-# NOUNPACK #-}!ExpressionStatus
+  { _dersResponseStatus :: !Int
+  , _dersExpression     :: !ExpressionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

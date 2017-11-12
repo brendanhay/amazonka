@@ -48,8 +48,8 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listBucketAnalyticsConfigurations' smart constructor.
 data ListBucketAnalyticsConfigurations = ListBucketAnalyticsConfigurations'
-  { _lbacContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbacBucket            :: {-# NOUNPACK #-}!BucketName
+  { _lbacContinuationToken :: !(Maybe Text)
+  , _lbacBucket            :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,11 +115,11 @@ instance ToQuery ListBucketAnalyticsConfigurations
 
 -- | /See:/ 'listBucketAnalyticsConfigurationsResponse' smart constructor.
 data ListBucketAnalyticsConfigurationsResponse = ListBucketAnalyticsConfigurationsResponse'
-  { _lbacrsAnalyticsConfigurationList :: {-# NOUNPACK #-}!(Maybe [AnalyticsConfiguration])
-  , _lbacrsContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbacrsNextContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbacrsIsTruncated :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lbacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lbacrsAnalyticsConfigurationList :: !(Maybe [AnalyticsConfiguration])
+  , _lbacrsContinuationToken          :: !(Maybe Text)
+  , _lbacrsNextContinuationToken      :: !(Maybe Text)
+  , _lbacrsIsTruncated                :: !(Maybe Bool)
+  , _lbacrsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

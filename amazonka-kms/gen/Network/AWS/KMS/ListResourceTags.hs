@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listResourceTags' smart constructor.
 data ListResourceTags = ListResourceTags'
-  { _lrtMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrtLimit  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lrtKeyId  :: {-# NOUNPACK #-}!Text
+  { _lrtMarker :: !(Maybe Text)
+  , _lrtLimit  :: !(Maybe Nat)
+  , _lrtKeyId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,10 +127,10 @@ instance ToQuery ListResourceTags where
 
 -- | /See:/ 'listResourceTagsResponse' smart constructor.
 data ListResourceTagsResponse = ListResourceTagsResponse'
-  { _lrtrsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lrtrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrtrsTags           :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _lrtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrtrsTruncated      :: !(Maybe Bool)
+  , _lrtrsNextMarker     :: !(Maybe Text)
+  , _lrtrsTags           :: !(Maybe [Tag])
+  , _lrtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

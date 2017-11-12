@@ -59,8 +59,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'deleteGeoMatchSet' smart constructor.
 data DeleteGeoMatchSet = DeleteGeoMatchSet'
-  { _dgmsGeoMatchSetId :: {-# NOUNPACK #-}!Text
-  , _dgmsChangeToken   :: {-# NOUNPACK #-}!Text
+  { _dgmsGeoMatchSetId :: !Text
+  , _dgmsChangeToken   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery DeleteGeoMatchSet where
 
 -- | /See:/ 'deleteGeoMatchSetResponse' smart constructor.
 data DeleteGeoMatchSetResponse = DeleteGeoMatchSetResponse'
-  { _dgmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dgmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dgmsrsChangeToken    :: !(Maybe Text)
+  , _dgmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

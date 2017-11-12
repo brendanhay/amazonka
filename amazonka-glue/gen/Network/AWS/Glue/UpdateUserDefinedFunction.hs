@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateUserDefinedFunction' smart constructor.
 data UpdateUserDefinedFunction = UpdateUserDefinedFunction'
-  { _uudfCatalogId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uudfDatabaseName  :: {-# NOUNPACK #-}!Text
-  , _uudfFunctionName  :: {-# NOUNPACK #-}!Text
-  , _uudfFunctionInput :: {-# NOUNPACK #-}!UserDefinedFunctionInput
+  { _uudfCatalogId     :: !(Maybe Text)
+  , _uudfDatabaseName  :: !Text
+  , _uudfFunctionName  :: !Text
+  , _uudfFunctionInput :: !UserDefinedFunctionInput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

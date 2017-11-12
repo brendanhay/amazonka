@@ -50,11 +50,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachTypedLink' smart constructor.
 data AttachTypedLink = AttachTypedLink'
-  { _atlDirectoryARN          :: {-# NOUNPACK #-}!Text
-  , _atlSourceObjectReference :: {-# NOUNPACK #-}!ObjectReference
-  , _atlTargetObjectReference :: {-# NOUNPACK #-}!ObjectReference
-  , _atlTypedLinkFacet        :: {-# NOUNPACK #-}!TypedLinkSchemaAndFacetName
-  , _atlAttributes            :: {-# NOUNPACK #-}![AttributeNameAndValue]
+  { _atlDirectoryARN          :: !Text
+  , _atlSourceObjectReference :: !ObjectReference
+  , _atlTargetObjectReference :: !ObjectReference
+  , _atlTypedLinkFacet        :: !TypedLinkSchemaAndFacetName
+  , _atlAttributes            :: ![AttributeNameAndValue]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,8 +148,8 @@ instance ToQuery AttachTypedLink where
 
 -- | /See:/ 'attachTypedLinkResponse' smart constructor.
 data AttachTypedLinkResponse = AttachTypedLinkResponse'
-  { _atlrsTypedLinkSpecifier :: {-# NOUNPACK #-}!(Maybe TypedLinkSpecifier)
-  , _atlrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _atlrsTypedLinkSpecifier :: !(Maybe TypedLinkSpecifier)
+  , _atlrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

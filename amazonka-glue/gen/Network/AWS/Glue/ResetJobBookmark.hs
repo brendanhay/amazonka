@@ -100,8 +100,8 @@ instance ToQuery ResetJobBookmark where
 
 -- | /See:/ 'resetJobBookmarkResponse' smart constructor.
 data ResetJobBookmarkResponse = ResetJobBookmarkResponse'
-  { _rjbrsJobBookmarkEntry :: {-# NOUNPACK #-}!(Maybe JobBookmarkEntry)
-  , _rjbrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _rjbrsJobBookmarkEntry :: !(Maybe JobBookmarkEntry)
+  , _rjbrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

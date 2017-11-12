@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeDestinations' smart constructor.
 data DescribeDestinations = DescribeDestinations'
-  { _ddNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddLimit                 :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ddDestinationNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ddNextToken             :: !(Maybe Text)
+  , _ddLimit                 :: !(Maybe Nat)
+  , _ddDestinationNamePrefix :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery DescribeDestinations where
 
 -- | /See:/ 'describeDestinationsResponse' smart constructor.
 data DescribeDestinationsResponse = DescribeDestinationsResponse'
-  { _ddrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddrsDestinations   :: {-# NOUNPACK #-}!(Maybe [Destination])
-  , _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddrsNextToken      :: !(Maybe Text)
+  , _ddrsDestinations   :: !(Maybe [Destination])
+  , _ddrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

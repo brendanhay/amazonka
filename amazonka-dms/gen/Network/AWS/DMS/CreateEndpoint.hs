@@ -65,22 +65,22 @@ import Network.AWS.Response
 --
 -- /See:/ 'createEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
-  { _ceServerName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ceCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ceExtraConnectionAttributes :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ceUsername :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ceKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ceMongoDBSettings :: {-# NOUNPACK #-}!(Maybe MongoDBSettings)
-  , _ceSSLMode :: {-# NOUNPACK #-}!(Maybe DmsSSLModeValue)
-  , _cePassword :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _ceDatabaseName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ceS3Settings :: {-# NOUNPACK #-}!(Maybe S3Settings)
-  , _ceDynamoDBSettings :: {-# NOUNPACK #-}!(Maybe DynamoDBSettings)
-  , _ceTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cePort :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ceEndpointIdentifier :: {-# NOUNPACK #-}!Text
-  , _ceEndpointType :: {-# NOUNPACK #-}!ReplicationEndpointTypeValue
-  , _ceEngineName :: {-# NOUNPACK #-}!Text
+  { _ceServerName                :: !(Maybe Text)
+  , _ceCertificateARN            :: !(Maybe Text)
+  , _ceExtraConnectionAttributes :: !(Maybe Text)
+  , _ceUsername                  :: !(Maybe Text)
+  , _ceKMSKeyId                  :: !(Maybe Text)
+  , _ceMongoDBSettings           :: !(Maybe MongoDBSettings)
+  , _ceSSLMode                   :: !(Maybe DmsSSLModeValue)
+  , _cePassword                  :: !(Maybe (Sensitive Text))
+  , _ceDatabaseName              :: !(Maybe Text)
+  , _ceS3Settings                :: !(Maybe S3Settings)
+  , _ceDynamoDBSettings          :: !(Maybe DynamoDBSettings)
+  , _ceTags                      :: !(Maybe [Tag])
+  , _cePort                      :: !(Maybe Int)
+  , _ceEndpointIdentifier        :: !Text
+  , _ceEndpointType              :: !ReplicationEndpointTypeValue
+  , _ceEngineName                :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -264,8 +264,8 @@ instance ToQuery CreateEndpoint where
 --
 -- /See:/ 'createEndpointResponse' smart constructor.
 data CreateEndpointResponse = CreateEndpointResponse'
-  { _cersEndpoint       :: {-# NOUNPACK #-}!(Maybe Endpoint)
-  , _cersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cersEndpoint       :: !(Maybe Endpoint)
+  , _cersResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

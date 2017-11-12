@@ -109,8 +109,8 @@ instance ToQuery DeleteTapeArchive where
 --
 -- /See:/ 'deleteTapeArchiveResponse' smart constructor.
 data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
-  { _dtatrsTapeARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtatrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dtatrsTapeARN        :: !(Maybe Text)
+  , _dtatrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateThingShadow' smart constructor.
 data UpdateThingShadow = UpdateThingShadow'
-  { _utsThingName :: {-# NOUNPACK #-}!Text
-  , _utsPayload   :: {-# NOUNPACK #-}!(HashMap Text Value)
+  { _utsThingName :: !Text
+  , _utsPayload   :: !(HashMap Text Value)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery UpdateThingShadow where
 --
 -- /See:/ 'updateThingShadowResponse' smart constructor.
 data UpdateThingShadowResponse = UpdateThingShadowResponse'
-  { _utsrsPayload        :: {-# NOUNPACK #-}!(Maybe (HashMap Text Value))
-  , _utsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _utsrsPayload        :: !(Maybe (HashMap Text Value))
+  , _utsrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

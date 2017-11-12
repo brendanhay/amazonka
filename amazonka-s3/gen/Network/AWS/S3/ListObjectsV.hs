@@ -63,15 +63,15 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listObjectsV' smart constructor.
 data ListObjectsV = ListObjectsV'
-  { _lStartAfter        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lFetchOwner        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lPrefix            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lEncodingType      :: {-# NOUNPACK #-}!(Maybe EncodingType)
-  , _lRequestPayer      :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _lMaxKeys           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lDelimiter         :: {-# NOUNPACK #-}!(Maybe Delimiter)
-  , _lBucket            :: {-# NOUNPACK #-}!BucketName
+  { _lStartAfter        :: !(Maybe Text)
+  , _lContinuationToken :: !(Maybe Text)
+  , _lFetchOwner        :: !(Maybe Bool)
+  , _lPrefix            :: !(Maybe Text)
+  , _lEncodingType      :: !(Maybe EncodingType)
+  , _lRequestPayer      :: !(Maybe RequestPayer)
+  , _lMaxKeys           :: !(Maybe Int)
+  , _lDelimiter         :: !(Maybe Delimiter)
+  , _lBucket            :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -193,19 +193,19 @@ instance ToQuery ListObjectsV where
 
 -- | /See:/ 'listObjectsVResponse' smart constructor.
 data ListObjectsVResponse = ListObjectsVResponse'
-  { _lrsStartAfter            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsKeyCount              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lrsContents              :: {-# NOUNPACK #-}!(Maybe [Object])
-  , _lrsContinuationToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsPrefix                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsCommonPrefixes        :: {-# NOUNPACK #-}!(Maybe [CommonPrefix])
-  , _lrsEncodingType          :: {-# NOUNPACK #-}!(Maybe EncodingType)
-  , _lrsName                  :: {-# NOUNPACK #-}!(Maybe BucketName)
-  , _lrsNextContinuationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsMaxKeys               :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lrsIsTruncated           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lrsDelimiter             :: {-# NOUNPACK #-}!(Maybe Delimiter)
-  , _lrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _lrsStartAfter            :: !(Maybe Text)
+  , _lrsKeyCount              :: !(Maybe Int)
+  , _lrsContents              :: !(Maybe [Object])
+  , _lrsContinuationToken     :: !(Maybe Text)
+  , _lrsPrefix                :: !(Maybe Text)
+  , _lrsCommonPrefixes        :: !(Maybe [CommonPrefix])
+  , _lrsEncodingType          :: !(Maybe EncodingType)
+  , _lrsName                  :: !(Maybe BucketName)
+  , _lrsNextContinuationToken :: !(Maybe Text)
+  , _lrsMaxKeys               :: !(Maybe Int)
+  , _lrsIsTruncated           :: !(Maybe Bool)
+  , _lrsDelimiter             :: !(Maybe Delimiter)
+  , _lrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

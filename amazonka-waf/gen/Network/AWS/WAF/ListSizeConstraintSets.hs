@@ -51,8 +51,8 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'listSizeConstraintSets' smart constructor.
 data ListSizeConstraintSets = ListSizeConstraintSets'
-  { _lscsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lscsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lscsNextMarker :: !(Maybe Text)
+  , _lscsLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery ListSizeConstraintSets where
 
 -- | /See:/ 'listSizeConstraintSetsResponse' smart constructor.
 data ListSizeConstraintSetsResponse = ListSizeConstraintSetsResponse'
-  { _lscsrsSizeConstraintSets :: {-# NOUNPACK #-}!(Maybe [SizeConstraintSetSummary])
-  , _lscsrsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lscsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lscsrsSizeConstraintSets :: !(Maybe [SizeConstraintSetSummary])
+  , _lscsrsNextMarker         :: !(Maybe Text)
+  , _lscsrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

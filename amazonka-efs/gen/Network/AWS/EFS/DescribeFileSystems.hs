@@ -68,10 +68,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeFileSystems' smart constructor.
 data DescribeFileSystems = DescribeFileSystems'
-  { _dfsFileSystemId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfsCreationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfsMarker        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfsMaxItems      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dfsFileSystemId  :: !(Maybe Text)
+  , _dfsCreationToken :: !(Maybe Text)
+  , _dfsMarker        :: !(Maybe Text)
+  , _dfsMaxItems      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,10 +151,10 @@ instance ToQuery DescribeFileSystems where
 
 -- | /See:/ 'describeFileSystemsResponse' smart constructor.
 data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
-  { _dfsrsFileSystems    :: {-# NOUNPACK #-}!(Maybe [FileSystemDescription])
-  , _dfsrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dfsrsFileSystems    :: !(Maybe [FileSystemDescription])
+  , _dfsrsMarker         :: !(Maybe Text)
+  , _dfsrsNextMarker     :: !(Maybe Text)
+  , _dfsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

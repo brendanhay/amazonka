@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getGatewayResponses' smart constructor.
 data GetGatewayResponses = GetGatewayResponses'
-  { _ggrLimit     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ggrPosition  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggrRestAPIId :: {-# NOUNPACK #-}!Text
+  { _ggrLimit     :: !(Maybe Int)
+  , _ggrPosition  :: !(Maybe Text)
+  , _ggrRestAPIId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery GetGatewayResponses where
 --
 -- /See:/ 'getGatewayResponsesResponse' smart constructor.
 data GetGatewayResponsesResponse = GetGatewayResponsesResponse'
-  { _ggrrsItems          :: {-# NOUNPACK #-}!(Maybe [GatewayResponse])
-  , _ggrrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ggrrsItems          :: !(Maybe [GatewayResponse])
+  , _ggrrsPosition       :: !(Maybe Text)
+  , _ggrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

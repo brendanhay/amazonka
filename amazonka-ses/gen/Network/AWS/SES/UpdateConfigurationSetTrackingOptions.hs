@@ -52,8 +52,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'updateConfigurationSetTrackingOptions' smart constructor.
 data UpdateConfigurationSetTrackingOptions = UpdateConfigurationSetTrackingOptions'
-  { _ucstoConfigurationSetName :: {-# NOUNPACK #-}!Text
-  , _ucstoTrackingOptions      :: {-# NOUNPACK #-}!TrackingOptions
+  { _ucstoConfigurationSetName :: !Text
+  , _ucstoTrackingOptions      :: !TrackingOptions
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,15 +54,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { _upArtifacts        :: {-# NOUNPACK #-}!(Maybe ProjectArtifacts)
-  , _upEnvironment      :: {-# NOUNPACK #-}!(Maybe ProjectEnvironment)
-  , _upSource           :: {-# NOUNPACK #-}!(Maybe ProjectSource)
-  , _upEncryptionKey    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upServiceRole      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upTags             :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _upTimeoutInMinutes :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _upName             :: {-# NOUNPACK #-}!Text
+  { _upArtifacts        :: !(Maybe ProjectArtifacts)
+  , _upEnvironment      :: !(Maybe ProjectEnvironment)
+  , _upSource           :: !(Maybe ProjectSource)
+  , _upEncryptionKey    :: !(Maybe Text)
+  , _upDescription      :: !(Maybe Text)
+  , _upServiceRole      :: !(Maybe Text)
+  , _upTags             :: !(Maybe [Tag])
+  , _upTimeoutInMinutes :: !(Maybe Nat)
+  , _upName             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -184,8 +184,8 @@ instance ToQuery UpdateProject where
 
 -- | /See:/ 'updateProjectResponse' smart constructor.
 data UpdateProjectResponse = UpdateProjectResponse'
-  { _uprsProject        :: {-# NOUNPACK #-}!(Maybe Project)
-  , _uprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uprsProject        :: !(Maybe Project)
+  , _uprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

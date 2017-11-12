@@ -55,8 +55,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeLunaClient' smart constructor.
 data DescribeLunaClient = DescribeLunaClient'
-  { _dlcClientARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlcCertificateFingerprint :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dlcClientARN              :: !(Maybe Text)
+  , _dlcCertificateFingerprint :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,12 +127,12 @@ instance ToQuery DescribeLunaClient where
 
 -- | /See:/ 'describeLunaClientResponse' smart constructor.
 data DescribeLunaClientResponse = DescribeLunaClientResponse'
-  { _drsClientARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsLastModifiedTimestamp  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsCertificateFingerprint :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsCertificate            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsLabel                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _drsClientARN              :: !(Maybe Text)
+  , _drsLastModifiedTimestamp  :: !(Maybe Text)
+  , _drsCertificateFingerprint :: !(Maybe Text)
+  , _drsCertificate            :: !(Maybe Text)
+  , _drsLabel                  :: !(Maybe Text)
+  , _drsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

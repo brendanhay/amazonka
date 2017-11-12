@@ -52,8 +52,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'createConfigurationSetTrackingOptions' smart constructor.
 data CreateConfigurationSetTrackingOptions = CreateConfigurationSetTrackingOptions'
-  { _ccstoConfigurationSetName :: {-# NOUNPACK #-}!Text
-  , _ccstoTrackingOptions      :: {-# NOUNPACK #-}!TrackingOptions
+  { _ccstoConfigurationSetName :: !Text
+  , _ccstoTrackingOptions      :: !TrackingOptions
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

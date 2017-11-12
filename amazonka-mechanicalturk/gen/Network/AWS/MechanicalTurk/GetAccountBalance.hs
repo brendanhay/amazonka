@@ -92,9 +92,9 @@ instance ToQuery GetAccountBalance where
 
 -- | /See:/ 'getAccountBalanceResponse' smart constructor.
 data GetAccountBalanceResponse = GetAccountBalanceResponse'
-  { _gabrsAvailableBalance :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gabrsOnHoldBalance    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gabrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _gabrsAvailableBalance :: !(Maybe Text)
+  , _gabrsOnHoldBalance    :: !(Maybe Text)
+  , _gabrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

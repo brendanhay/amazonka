@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'putPermission' smart constructor.
 data PutPermission = PutPermission'
-  { _ppAction      :: {-# NOUNPACK #-}!Text
-  , _ppPrincipal   :: {-# NOUNPACK #-}!Text
-  , _ppStatementId :: {-# NOUNPACK #-}!Text
+  { _ppAction      :: !Text
+  , _ppPrincipal   :: !Text
+  , _ppStatementId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

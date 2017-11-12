@@ -80,9 +80,9 @@ import Network.AWS.STS.Types.Product
 
 -- | /See:/ 'getFederationToken' smart constructor.
 data GetFederationToken = GetFederationToken'
-  { _gftDurationSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gftPolicy          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gftName            :: {-# NOUNPACK #-}!Text
+  { _gftDurationSeconds :: !(Maybe Nat)
+  , _gftPolicy          :: !(Maybe Text)
+  , _gftName            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,10 +151,10 @@ instance ToQuery GetFederationToken where
 --
 -- /See:/ 'getFederationTokenResponse' smart constructor.
 data GetFederationTokenResponse = GetFederationTokenResponse'
-  { _gftrsPackedPolicySize :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gftrsCredentials      :: {-# NOUNPACK #-}!(Maybe AuthEnv)
-  , _gftrsFederatedUser    :: {-# NOUNPACK #-}!(Maybe FederatedUser)
-  , _gftrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _gftrsPackedPolicySize :: !(Maybe Nat)
+  , _gftrsCredentials      :: !(Maybe AuthEnv)
+  , _gftrsFederatedUser    :: !(Maybe FederatedUser)
+  , _gftrsResponseStatus   :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

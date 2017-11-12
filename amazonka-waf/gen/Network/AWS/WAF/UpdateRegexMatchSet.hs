@@ -72,9 +72,9 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'updateRegexMatchSet' smart constructor.
 data UpdateRegexMatchSet = UpdateRegexMatchSet'
-  { _urmsRegexMatchSetId :: {-# NOUNPACK #-}!Text
-  , _urmsUpdates         :: {-# NOUNPACK #-}!(List1 RegexMatchSetUpdate)
-  , _urmsChangeToken     :: {-# NOUNPACK #-}!Text
+  { _urmsRegexMatchSetId :: !Text
+  , _urmsUpdates         :: !(List1 RegexMatchSetUpdate)
+  , _urmsChangeToken     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -152,8 +152,8 @@ instance ToQuery UpdateRegexMatchSet where
 
 -- | /See:/ 'updateRegexMatchSetResponse' smart constructor.
 data UpdateRegexMatchSetResponse = UpdateRegexMatchSetResponse'
-  { _urmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _urmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _urmsrsChangeToken    :: !(Maybe Text)
+  , _urmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

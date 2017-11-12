@@ -95,8 +95,8 @@ instance ToQuery GetADMChannel where
 
 -- | /See:/ 'getADMChannelResponse' smart constructor.
 data GetADMChannelResponse = GetADMChannelResponse'
-  { _gadmcrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _gadmcrsADMChannelResponse :: {-# NOUNPACK #-}!ADMChannelResponse
+  { _gadmcrsResponseStatus     :: !Int
+  , _gadmcrsADMChannelResponse :: !ADMChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

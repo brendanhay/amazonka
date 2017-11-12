@@ -95,8 +95,8 @@ instance ToQuery GetSmsChannel where
 
 -- | /See:/ 'getSmsChannelResponse' smart constructor.
 data GetSmsChannelResponse = GetSmsChannelResponse'
-  { _gscrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _gscrsSMSChannelResponse :: {-# NOUNPACK #-}!SMSChannelResponse
+  { _gscrsResponseStatus     :: !Int
+  , _gscrsSMSChannelResponse :: !SMSChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

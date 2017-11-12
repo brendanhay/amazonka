@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getInstanceAccessDetails' smart constructor.
 data GetInstanceAccessDetails = GetInstanceAccessDetails'
-  { _giadProtocol     :: {-# NOUNPACK #-}!(Maybe InstanceAccessProtocol)
-  , _giadInstanceName :: {-# NOUNPACK #-}!Text
+  { _giadProtocol     :: !(Maybe InstanceAccessProtocol)
+  , _giadInstanceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery GetInstanceAccessDetails where
 
 -- | /See:/ 'getInstanceAccessDetailsResponse' smart constructor.
 data GetInstanceAccessDetailsResponse = GetInstanceAccessDetailsResponse'
-  { _giadrsAccessDetails  :: {-# NOUNPACK #-}!(Maybe InstanceAccessDetails)
-  , _giadrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _giadrsAccessDetails  :: !(Maybe InstanceAccessDetails)
+  , _giadrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

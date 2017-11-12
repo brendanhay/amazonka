@@ -103,8 +103,8 @@ instance ToQuery CreateSchema where
 
 -- | /See:/ 'createSchemaResponse' smart constructor.
 data CreateSchemaResponse = CreateSchemaResponse'
-  { _csrsSchemaARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csrsSchemaARN      :: !(Maybe Text)
+  , _csrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

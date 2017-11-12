@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'enableRadius' smart constructor.
 data EnableRadius = EnableRadius'
-  { _erDirectoryId    :: {-# NOUNPACK #-}!Text
-  , _erRadiusSettings :: {-# NOUNPACK #-}!RadiusSettings
+  { _erDirectoryId    :: !Text
+  , _erRadiusSettings :: !RadiusSettings
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

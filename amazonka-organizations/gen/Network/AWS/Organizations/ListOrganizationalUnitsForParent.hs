@@ -54,9 +54,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listOrganizationalUnitsForParent' smart constructor.
 data ListOrganizationalUnitsForParent = ListOrganizationalUnitsForParent'
-  { _loufpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _loufpMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _loufpParentId   :: {-# NOUNPACK #-}!Text
+  { _loufpNextToken  :: !(Maybe Text)
+  , _loufpMaxResults :: !(Maybe Nat)
+  , _loufpParentId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery ListOrganizationalUnitsForParent
 
 -- | /See:/ 'listOrganizationalUnitsForParentResponse' smart constructor.
 data ListOrganizationalUnitsForParentResponse = ListOrganizationalUnitsForParentResponse'
-  { _loufprsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _loufprsOrganizationalUnits :: {-# NOUNPACK #-}!(Maybe [OrganizationalUnit])
-  , _loufprsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _loufprsNextToken           :: !(Maybe Text)
+  , _loufprsOrganizationalUnits :: !(Maybe [OrganizationalUnit])
+  , _loufprsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

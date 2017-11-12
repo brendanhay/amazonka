@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateSSHPublicKey' smart constructor.
 data UpdateSSHPublicKey = UpdateSSHPublicKey'
-  { _uspkUserName       :: {-# NOUNPACK #-}!Text
-  , _uspkSSHPublicKeyId :: {-# NOUNPACK #-}!Text
-  , _uspkStatus         :: {-# NOUNPACK #-}!StatusType
+  { _uspkUserName       :: !Text
+  , _uspkSSHPublicKeyId :: !Text
+  , _uspkStatus         :: !StatusType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

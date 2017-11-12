@@ -50,10 +50,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getParameterHistory' smart constructor.
 data GetParameterHistory = GetParameterHistory'
-  { _gphWithDecryption :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gphNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gphMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gphName           :: {-# NOUNPACK #-}!Text
+  { _gphWithDecryption :: !(Maybe Bool)
+  , _gphNextToken      :: !(Maybe Text)
+  , _gphMaxResults     :: !(Maybe Nat)
+  , _gphName           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery GetParameterHistory where
 
 -- | /See:/ 'getParameterHistoryResponse' smart constructor.
 data GetParameterHistoryResponse = GetParameterHistoryResponse'
-  { _gphrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gphrsParameters     :: {-# NOUNPACK #-}!(Maybe [ParameterHistory])
-  , _gphrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gphrsNextToken      :: !(Maybe Text)
+  , _gphrsParameters     :: !(Maybe [ParameterHistory])
+  , _gphrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

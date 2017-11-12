@@ -52,14 +52,14 @@ import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'updateCluster' smart constructor.
 data UpdateCluster = UpdateCluster'
-  { _ucNotification        :: {-# NOUNPACK #-}!(Maybe Notification)
-  , _ucForwardingAddressId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucAddressId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucShippingOption      :: {-# NOUNPACK #-}!(Maybe ShippingOption)
-  , _ucResources           :: {-# NOUNPACK #-}!(Maybe JobResource)
-  , _ucDescription         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucRoleARN             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucClusterId           :: {-# NOUNPACK #-}!Text
+  { _ucNotification        :: !(Maybe Notification)
+  , _ucForwardingAddressId :: !(Maybe Text)
+  , _ucAddressId           :: !(Maybe Text)
+  , _ucShippingOption      :: !(Maybe ShippingOption)
+  , _ucResources           :: !(Maybe JobResource)
+  , _ucDescription         :: !(Maybe Text)
+  , _ucRoleARN             :: !(Maybe Text)
+  , _ucClusterId           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

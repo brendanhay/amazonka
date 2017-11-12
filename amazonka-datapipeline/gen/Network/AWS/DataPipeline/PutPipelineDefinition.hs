@@ -61,10 +61,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'putPipelineDefinition' smart constructor.
 data PutPipelineDefinition = PutPipelineDefinition'
-  { _ppdParameterObjects :: {-# NOUNPACK #-}!(Maybe [ParameterObject])
-  , _ppdParameterValues  :: {-# NOUNPACK #-}!(Maybe [ParameterValue])
-  , _ppdPipelineId       :: {-# NOUNPACK #-}!Text
-  , _ppdPipelineObjects  :: {-# NOUNPACK #-}![PipelineObject]
+  { _ppdParameterObjects :: !(Maybe [ParameterObject])
+  , _ppdParameterValues  :: !(Maybe [ParameterValue])
+  , _ppdPipelineId       :: !Text
+  , _ppdPipelineObjects  :: ![PipelineObject]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,10 +154,10 @@ instance ToQuery PutPipelineDefinition where
 --
 -- /See:/ 'putPipelineDefinitionResponse' smart constructor.
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
-  { _ppdrsValidationErrors   :: {-# NOUNPACK #-}!(Maybe [ValidationError])
-  , _ppdrsValidationWarnings :: {-# NOUNPACK #-}!(Maybe [ValidationWarning])
-  , _ppdrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _ppdrsErrored            :: {-# NOUNPACK #-}!Bool
+  { _ppdrsValidationErrors   :: !(Maybe [ValidationError])
+  , _ppdrsValidationWarnings :: !(Maybe [ValidationWarning])
+  , _ppdrsResponseStatus     :: !Int
+  , _ppdrsErrored            :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

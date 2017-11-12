@@ -98,8 +98,8 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 
 -- | /See:/ 'describeAutoScalingNotificationTypesResponse' smart constructor.
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
-  { _dasntrsAutoScalingNotificationTypes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dasntrsResponseStatus               :: {-# NOUNPACK #-}!Int
+  { _dasntrsAutoScalingNotificationTypes :: !(Maybe [Text])
+  , _dasntrsResponseStatus               :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -51,8 +51,8 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'listStateMachines' smart constructor.
 data ListStateMachines = ListStateMachines'
-  { _lsmNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsmMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lsmNextToken  :: !(Maybe Text)
+  , _lsmMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery ListStateMachines where
 
 -- | /See:/ 'listStateMachinesResponse' smart constructor.
 data ListStateMachinesResponse = ListStateMachinesResponse'
-  { _lsmrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsmrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lsmrsStateMachines  :: {-# NOUNPACK #-}![StateMachineListItem]
+  { _lsmrsNextToken      :: !(Maybe Text)
+  , _lsmrsResponseStatus :: !Int
+  , _lsmrsStateMachines  :: ![StateMachineListItem]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

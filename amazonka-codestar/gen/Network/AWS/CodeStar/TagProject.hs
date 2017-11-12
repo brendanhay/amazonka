@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'tagProject' smart constructor.
 data TagProject = TagProject'
-  { _tpId   :: {-# NOUNPACK #-}!Text
-  , _tpTags :: {-# NOUNPACK #-}!(Map Text Text)
+  { _tpId   :: !Text
+  , _tpTags :: !(Map Text Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,8 +109,8 @@ instance ToQuery TagProject where
 
 -- | /See:/ 'tagProjectResponse' smart constructor.
 data TagProjectResponse = TagProjectResponse'
-  { _tprsTags           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _tprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _tprsTags           :: !(Maybe (Map Text Text))
+  , _tprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

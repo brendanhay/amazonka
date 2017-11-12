@@ -101,8 +101,8 @@ instance ToQuery DescribeAddress where
 
 -- | /See:/ 'describeAddressResponse' smart constructor.
 data DescribeAddressResponse = DescribeAddressResponse'
-  { _darsAddress        :: {-# NOUNPACK #-}!(Maybe Address)
-  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _darsAddress        :: !(Maybe Address)
+  , _darsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

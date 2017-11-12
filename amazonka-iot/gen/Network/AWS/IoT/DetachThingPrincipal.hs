@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'detachThingPrincipal' smart constructor.
 data DetachThingPrincipal = DetachThingPrincipal'
-  { _dtpThingName :: {-# NOUNPACK #-}!Text
-  , _dtpPrincipal :: {-# NOUNPACK #-}!Text
+  { _dtpThingName :: !Text
+  , _dtpPrincipal :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

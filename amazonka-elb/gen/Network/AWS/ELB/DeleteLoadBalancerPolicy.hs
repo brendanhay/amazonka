@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteLoadBalancerPolicy' smart constructor.
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
-  { _dLoadBalancerName :: {-# NOUNPACK #-}!Text
-  , _dPolicyName       :: {-# NOUNPACK #-}!Text
+  { _dLoadBalancerName :: !Text
+  , _dPolicyName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

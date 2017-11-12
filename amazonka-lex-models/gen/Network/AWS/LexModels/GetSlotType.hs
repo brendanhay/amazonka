@@ -56,8 +56,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getSlotType' smart constructor.
 data GetSlotType = GetSlotType'
-  { _gstName    :: {-# NOUNPACK #-}!Text
-  , _gstVersion :: {-# NOUNPACK #-}!Text
+  { _gstName    :: !Text
+  , _gstVersion :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,15 +123,15 @@ instance ToQuery GetSlotType where
 
 -- | /See:/ 'getSlotTypeResponse' smart constructor.
 data GetSlotTypeResponse = GetSlotTypeResponse'
-  { _getrsChecksum :: {-# NOUNPACK #-}!(Maybe Text)
-  , _getrsValueSelectionStrategy :: {-# NOUNPACK #-}!(Maybe SlotValueSelectionStrategy)
-  , _getrsCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _getrsName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _getrsVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _getrsLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _getrsDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _getrsEnumerationValues :: {-# NOUNPACK #-}!(Maybe (List1 EnumerationValue))
-  , _getrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _getrsChecksum               :: !(Maybe Text)
+  , _getrsValueSelectionStrategy :: !(Maybe SlotValueSelectionStrategy)
+  , _getrsCreatedDate            :: !(Maybe POSIX)
+  , _getrsName                   :: !(Maybe Text)
+  , _getrsVersion                :: !(Maybe Text)
+  , _getrsLastUpdatedDate        :: !(Maybe POSIX)
+  , _getrsDescription            :: !(Maybe Text)
+  , _getrsEnumerationValues      :: !(Maybe (List1 EnumerationValue))
+  , _getrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

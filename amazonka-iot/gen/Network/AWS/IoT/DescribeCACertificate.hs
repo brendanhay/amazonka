@@ -101,8 +101,8 @@ instance ToQuery DescribeCACertificate where
 --
 -- /See:/ 'describeCACertificateResponse' smart constructor.
 data DescribeCACertificateResponse = DescribeCACertificateResponse'
-  { _desrsCertificateDescription :: {-# NOUNPACK #-}!(Maybe CACertificateDescription)
-  , _desrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _desrsCertificateDescription :: !(Maybe CACertificateDescription)
+  , _desrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

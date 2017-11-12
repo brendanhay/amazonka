@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeAvailabilityZones' smart constructor.
 data DescribeAvailabilityZones = DescribeAvailabilityZones'
-  { _dazZoneNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dazFilters   :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dazDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dazZoneNames :: !(Maybe [Text])
+  , _dazFilters   :: !(Maybe [Filter])
+  , _dazDryRun    :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery DescribeAvailabilityZones where
 --
 -- /See:/ 'describeAvailabilityZonesResponse' smart constructor.
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
-  { _dazrsAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [AvailabilityZone])
-  , _dazrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dazrsAvailabilityZones :: !(Maybe [AvailabilityZone])
+  , _dazrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

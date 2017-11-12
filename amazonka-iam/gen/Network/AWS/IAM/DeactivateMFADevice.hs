@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deactivateMFADevice' smart constructor.
 data DeactivateMFADevice = DeactivateMFADevice'
-  { _dmdUserName     :: {-# NOUNPACK #-}!Text
-  , _dmdSerialNumber :: {-# NOUNPACK #-}!Text
+  { _dmdUserName     :: !Text
+  , _dmdSerialNumber :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,9 +57,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listRolePolicies' smart constructor.
 data ListRolePolicies = ListRolePolicies'
-  { _lrpMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrpMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lrpRoleName :: {-# NOUNPACK #-}!Text
+  { _lrpMarker   :: !(Maybe Text)
+  , _lrpMaxItems :: !(Maybe Nat)
+  , _lrpRoleName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,10 +136,10 @@ instance ToQuery ListRolePolicies where
 --
 -- /See:/ 'listRolePoliciesResponse' smart constructor.
 data ListRolePoliciesResponse = ListRolePoliciesResponse'
-  { _lrprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrprsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lrprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lrprsPolicyNames    :: {-# NOUNPACK #-}![Text]
+  { _lrprsMarker         :: !(Maybe Text)
+  , _lrprsIsTruncated    :: !(Maybe Bool)
+  , _lrprsResponseStatus :: !Int
+  , _lrprsPolicyNames    :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

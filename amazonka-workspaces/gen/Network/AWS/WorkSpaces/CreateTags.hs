@@ -50,8 +50,8 @@ import Network.AWS.WorkSpaces.Types.Product
 --
 -- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
-  { _ctResourceId :: {-# NOUNPACK #-}!Text
-  , _ctTags       :: {-# NOUNPACK #-}![Tag]
+  { _ctResourceId :: !Text
+  , _ctTags       :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

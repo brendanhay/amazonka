@@ -58,9 +58,9 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'listIdentities' smart constructor.
 data ListIdentities = ListIdentities'
-  { _liIdentityType :: {-# NOUNPACK #-}!(Maybe IdentityType)
-  , _liNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liMaxItems     :: {-# NOUNPACK #-}!(Maybe Int)
+  { _liIdentityType :: !(Maybe IdentityType)
+  , _liNextToken    :: !(Maybe Text)
+  , _liMaxItems     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery ListIdentities where
 --
 -- /See:/ 'listIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
-  { _lirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lirsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lirsIdentities     :: {-# NOUNPACK #-}![Text]
+  { _lirsNextToken      :: !(Maybe Text)
+  , _lirsResponseStatus :: !Int
+  , _lirsIdentities     :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateTypedLinkFacet' smart constructor.
 data UpdateTypedLinkFacet = UpdateTypedLinkFacet'
-  { _utlfSchemaARN :: {-# NOUNPACK #-}!Text
-  , _utlfName :: {-# NOUNPACK #-}!Text
-  , _utlfAttributeUpdates :: {-# NOUNPACK #-}![TypedLinkFacetAttributeUpdate]
-  , _utlfIdentityAttributeOrder :: {-# NOUNPACK #-}![Text]
+  { _utlfSchemaARN              :: !Text
+  , _utlfName                   :: !Text
+  , _utlfAttributeUpdates       :: ![TypedLinkFacetAttributeUpdate]
+  , _utlfIdentityAttributeOrder :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

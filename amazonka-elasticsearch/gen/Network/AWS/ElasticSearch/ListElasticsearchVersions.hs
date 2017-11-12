@@ -56,8 +56,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listElasticsearchVersions' smart constructor.
 data ListElasticsearchVersions = ListElasticsearchVersions'
-  { _levNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _levMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _levNextToken  :: !(Maybe Text)
+  , _levMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,9 +116,9 @@ instance ToQuery ListElasticsearchVersions where
 --
 -- /See:/ 'listElasticsearchVersionsResponse' smart constructor.
 data ListElasticsearchVersionsResponse = ListElasticsearchVersionsResponse'
-  { _levrsNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _levrsElasticsearchVersions :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _levrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _levrsNextToken             :: !(Maybe Text)
+  , _levrsElasticsearchVersions :: !(Maybe [Text])
+  , _levrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

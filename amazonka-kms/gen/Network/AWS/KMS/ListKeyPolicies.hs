@@ -53,9 +53,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listKeyPolicies' smart constructor.
 data ListKeyPolicies = ListKeyPolicies'
-  { _lkpMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lkpLimit  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lkpKeyId  :: {-# NOUNPACK #-}!Text
+  { _lkpMarker :: !(Maybe Text)
+  , _lkpLimit  :: !(Maybe Nat)
+  , _lkpKeyId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,10 +136,10 @@ instance ToQuery ListKeyPolicies where
 
 -- | /See:/ 'listKeyPoliciesResponse' smart constructor.
 data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
-  { _lkprsPolicyNames    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lkprsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lkprsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lkprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lkprsPolicyNames    :: !(Maybe [Text])
+  , _lkprsTruncated      :: !(Maybe Bool)
+  , _lkprsNextMarker     :: !(Maybe Text)
+  , _lkprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

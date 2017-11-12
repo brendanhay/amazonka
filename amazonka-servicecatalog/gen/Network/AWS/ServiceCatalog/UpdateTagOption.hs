@@ -48,9 +48,9 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updateTagOption' smart constructor.
 data UpdateTagOption = UpdateTagOption'
-  { _utoValue  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _utoActive :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _utoId     :: {-# NOUNPACK #-}!Text
+  { _utoValue  :: !(Maybe Text)
+  , _utoActive :: !(Maybe Bool)
+  , _utoId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,8 +120,8 @@ instance ToQuery UpdateTagOption where
 
 -- | /See:/ 'updateTagOptionResponse' smart constructor.
 data UpdateTagOptionResponse = UpdateTagOptionResponse'
-  { _utorsTagOptionDetail :: {-# NOUNPACK #-}!(Maybe TagOptionDetail)
-  , _utorsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _utorsTagOptionDetail :: !(Maybe TagOptionDetail)
+  , _utorsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

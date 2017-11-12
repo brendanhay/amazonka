@@ -51,11 +51,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'getUserDefinedFunctions' smart constructor.
 data GetUserDefinedFunctions = GetUserDefinedFunctions'
-  { _gudfCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gudfNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gudfMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gudfDatabaseName :: {-# NOUNPACK #-}!Text
-  , _gudfPattern      :: {-# NOUNPACK #-}!Text
+  { _gudfCatalogId    :: !(Maybe Text)
+  , _gudfNextToken    :: !(Maybe Text)
+  , _gudfMaxResults   :: !(Maybe Nat)
+  , _gudfDatabaseName :: !Text
+  , _gudfPattern      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery GetUserDefinedFunctions where
 
 -- | /See:/ 'getUserDefinedFunctionsResponse' smart constructor.
 data GetUserDefinedFunctionsResponse = GetUserDefinedFunctionsResponse'
-  { _gudfrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gudfrsUserDefinedFunctions :: {-# NOUNPACK #-}!(Maybe [UserDefinedFunction])
-  , _gudfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gudfrsNextToken            :: !(Maybe Text)
+  , _gudfrsUserDefinedFunctions :: !(Maybe [UserDefinedFunction])
+  , _gudfrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

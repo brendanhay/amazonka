@@ -111,14 +111,14 @@ instance ToQuery DescribeRule where
 
 -- | /See:/ 'describeRuleResponse' smart constructor.
 data DescribeRuleResponse = DescribeRuleResponse'
-  { _drrsEventPattern       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsState              :: {-# NOUNPACK #-}!(Maybe RuleState)
-  , _drrsARN                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsScheduleExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _drrsEventPattern       :: !(Maybe Text)
+  , _drrsState              :: !(Maybe RuleState)
+  , _drrsARN                :: !(Maybe Text)
+  , _drrsScheduleExpression :: !(Maybe Text)
+  , _drrsName               :: !(Maybe Text)
+  , _drrsDescription        :: !(Maybe Text)
+  , _drrsRoleARN            :: !(Maybe Text)
+  , _drrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

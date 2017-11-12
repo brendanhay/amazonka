@@ -50,11 +50,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createStackInstances' smart constructor.
 data CreateStackInstances = CreateStackInstances'
-  { _csiOperationPreferences :: {-# NOUNPACK #-}!(Maybe StackSetOperationPreferences)
-  , _csiOperationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csiStackSetName :: {-# NOUNPACK #-}!Text
-  , _csiAccounts :: {-# NOUNPACK #-}![Text]
-  , _csiRegions :: {-# NOUNPACK #-}![Text]
+  { _csiOperationPreferences :: !(Maybe StackSetOperationPreferences)
+  , _csiOperationId          :: !(Maybe Text)
+  , _csiStackSetName         :: !Text
+  , _csiAccounts             :: ![Text]
+  , _csiRegions              :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,8 +137,8 @@ instance ToQuery CreateStackInstances where
 
 -- | /See:/ 'createStackInstancesResponse' smart constructor.
 data CreateStackInstancesResponse = CreateStackInstancesResponse'
-  { _csirsOperationId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csirsOperationId    :: !(Maybe Text)
+  , _csirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

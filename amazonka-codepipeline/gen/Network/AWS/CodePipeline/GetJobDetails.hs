@@ -110,8 +110,8 @@ instance ToQuery GetJobDetails where
 --
 -- /See:/ 'getJobDetailsResponse' smart constructor.
 data GetJobDetailsResponse = GetJobDetailsResponse'
-  { _gjdrsJobDetails     :: {-# NOUNPACK #-}!(Maybe JobDetails)
-  , _gjdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gjdrsJobDetails     :: !(Maybe JobDetails)
+  , _gjdrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

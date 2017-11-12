@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeTargetHealth' smart constructor.
 data DescribeTargetHealth = DescribeTargetHealth'
-  { _dthTargets        :: {-# NOUNPACK #-}!(Maybe [TargetDescription])
-  , _dthTargetGroupARN :: {-# NOUNPACK #-}!Text
+  { _dthTargets        :: !(Maybe [TargetDescription])
+  , _dthTargetGroupARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -108,8 +108,8 @@ instance ToQuery DescribeTargetHealth where
 
 -- | /See:/ 'describeTargetHealthResponse' smart constructor.
 data DescribeTargetHealthResponse = DescribeTargetHealthResponse'
-  { _dthrsTargetHealthDescriptions :: {-# NOUNPACK #-}!(Maybe [TargetHealthDescription])
-  , _dthrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dthrsTargetHealthDescriptions :: !(Maybe [TargetHealthDescription])
+  , _dthrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

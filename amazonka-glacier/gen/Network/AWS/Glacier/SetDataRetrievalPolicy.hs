@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'setDataRetrievalPolicy' smart constructor.
 data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
-  { _sdrpPolicy    :: {-# NOUNPACK #-}!(Maybe DataRetrievalPolicy)
-  , _sdrpAccountId :: {-# NOUNPACK #-}!Text
+  { _sdrpPolicy    :: !(Maybe DataRetrievalPolicy)
+  , _sdrpAccountId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

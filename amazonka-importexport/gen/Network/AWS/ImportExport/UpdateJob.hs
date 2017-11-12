@@ -52,11 +52,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { _ujAPIVersion   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ujJobId        :: {-# NOUNPACK #-}!Text
-  , _ujManifest     :: {-# NOUNPACK #-}!Text
-  , _ujJobType      :: {-# NOUNPACK #-}!JobType
-  , _ujValidateOnly :: {-# NOUNPACK #-}!Bool
+  { _ujAPIVersion   :: !(Maybe Text)
+  , _ujJobId        :: !Text
+  , _ujManifest     :: !Text
+  , _ujJobType      :: !JobType
+  , _ujValidateOnly :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -145,10 +145,10 @@ instance ToQuery UpdateJob where
 --
 -- /See:/ 'updateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-  { _ujrsSuccess        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ujrsWarningMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ujrsArtifactList   :: {-# NOUNPACK #-}!(Maybe [Artifact])
-  , _ujrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ujrsSuccess        :: !(Maybe Bool)
+  , _ujrsWarningMessage :: !(Maybe Text)
+  , _ujrsArtifactList   :: !(Maybe [Artifact])
+  , _ujrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

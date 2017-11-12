@@ -80,13 +80,13 @@ import Network.AWS.STS.Types.Product
 
 -- | /See:/ 'assumeRole' smart constructor.
 data AssumeRole = AssumeRole'
-  { _arTokenCode       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arDurationSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _arPolicy          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arExternalId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arSerialNumber    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arRoleARN         :: {-# NOUNPACK #-}!Text
-  , _arRoleSessionName :: {-# NOUNPACK #-}!Text
+  { _arTokenCode       :: !(Maybe Text)
+  , _arDurationSeconds :: !(Maybe Nat)
+  , _arPolicy          :: !(Maybe Text)
+  , _arExternalId      :: !(Maybe Text)
+  , _arSerialNumber    :: !(Maybe Text)
+  , _arRoleARN         :: !Text
+  , _arRoleSessionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -190,10 +190,10 @@ instance ToQuery AssumeRole where
 --
 -- /See:/ 'assumeRoleResponse' smart constructor.
 data AssumeRoleResponse = AssumeRoleResponse'
-  { _arrsPackedPolicySize :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _arrsCredentials      :: {-# NOUNPACK #-}!(Maybe AuthEnv)
-  , _arrsAssumedRoleUser  :: {-# NOUNPACK #-}!(Maybe AssumedRoleUser)
-  , _arrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _arrsPackedPolicySize :: !(Maybe Nat)
+  , _arrsCredentials      :: !(Maybe AuthEnv)
+  , _arrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
+  , _arrsResponseStatus   :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

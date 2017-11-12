@@ -56,10 +56,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateFacet' smart constructor.
 data UpdateFacet = UpdateFacet'
-  { _ufObjectType       :: {-# NOUNPACK #-}!(Maybe ObjectType)
-  , _ufAttributeUpdates :: {-# NOUNPACK #-}!(Maybe [FacetAttributeUpdate])
-  , _ufSchemaARN        :: {-# NOUNPACK #-}!Text
-  , _ufName             :: {-# NOUNPACK #-}!Text
+  { _ufObjectType       :: !(Maybe ObjectType)
+  , _ufAttributeUpdates :: !(Maybe [FacetAttributeUpdate])
+  , _ufSchemaARN        :: !Text
+  , _ufName             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

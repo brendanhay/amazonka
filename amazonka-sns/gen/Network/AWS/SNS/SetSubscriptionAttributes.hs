@@ -49,9 +49,9 @@ import Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'setSubscriptionAttributes' smart constructor.
 data SetSubscriptionAttributes = SetSubscriptionAttributes'
-  { _ssaAttributeValue  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssaSubscriptionARN :: {-# NOUNPACK #-}!Text
-  , _ssaAttributeName   :: {-# NOUNPACK #-}!Text
+  { _ssaAttributeValue  :: !(Maybe Text)
+  , _ssaSubscriptionARN :: !Text
+  , _ssaAttributeName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

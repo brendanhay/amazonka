@@ -29,9 +29,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'archiveCreationOutput' smart constructor.
 data ArchiveCreationOutput = ArchiveCreationOutput'
-  { _acoArchiveId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acoChecksum  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acoLocation  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _acoArchiveId :: !(Maybe Text)
+  , _acoChecksum  :: !(Maybe Text)
+  , _acoLocation  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,8 +120,8 @@ instance ToJSON DataRetrievalPolicy where
 --
 -- /See:/ 'dataRetrievalRule' smart constructor.
 data DataRetrievalRule = DataRetrievalRule'
-  { _drrStrategy     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drrBytesPerHour :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _drrStrategy     :: !(Maybe Text)
+  , _drrBytesPerHour :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -170,12 +170,12 @@ instance ToJSON DataRetrievalRule where
 --
 -- /See:/ 'describeVaultOutput' smart constructor.
 data DescribeVaultOutput = DescribeVaultOutput'
-  { _dvoVaultName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvoSizeInBytes       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dvoLastInventoryDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvoVaultARN          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvoCreationDate      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvoNumberOfArchives  :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _dvoVaultName         :: !(Maybe Text)
+  , _dvoSizeInBytes       :: !(Maybe Integer)
+  , _dvoLastInventoryDate :: !(Maybe Text)
+  , _dvoVaultARN          :: !(Maybe Text)
+  , _dvoCreationDate      :: !(Maybe Text)
+  , _dvoNumberOfArchives  :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -252,24 +252,24 @@ instance NFData DescribeVaultOutput where
 --
 -- /See:/ 'glacierJobDescription' smart constructor.
 data GlacierJobDescription = GlacierJobDescription'
-  { _gjdSHA256TreeHash :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdArchiveId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdJobId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdRetrievalByteRange :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdInventoryRetrievalParameters :: {-# NOUNPACK #-}!(Maybe InventoryRetrievalJobDescription)
-  , _gjdAction :: {-# NOUNPACK #-}!(Maybe ActionCode)
-  , _gjdJobDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdSNSTopic :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdStatusMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdVaultARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdTier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdArchiveSHA256TreeHash :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdCreationDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdCompleted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gjdCompletionDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gjdInventorySizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gjdArchiveSizeInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gjdStatusCode :: {-# NOUNPACK #-}!(Maybe StatusCode)
+  { _gjdSHA256TreeHash :: !(Maybe Text)
+  , _gjdArchiveId :: !(Maybe Text)
+  , _gjdJobId :: !(Maybe Text)
+  , _gjdRetrievalByteRange :: !(Maybe Text)
+  , _gjdInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobDescription)
+  , _gjdAction :: !(Maybe ActionCode)
+  , _gjdJobDescription :: !(Maybe Text)
+  , _gjdSNSTopic :: !(Maybe Text)
+  , _gjdStatusMessage :: !(Maybe Text)
+  , _gjdVaultARN :: !(Maybe Text)
+  , _gjdTier :: !(Maybe Text)
+  , _gjdArchiveSHA256TreeHash :: !(Maybe Text)
+  , _gjdCreationDate :: !(Maybe Text)
+  , _gjdCompleted :: !(Maybe Bool)
+  , _gjdCompletionDate :: !(Maybe Text)
+  , _gjdInventorySizeInBytes :: !(Maybe Integer)
+  , _gjdArchiveSizeInBytes :: !(Maybe Integer)
+  , _gjdStatusCode :: !(Maybe StatusCode)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -442,11 +442,11 @@ instance NFData GlacierJobDescription where
 --
 -- /See:/ 'inventoryRetrievalJobDescription' smart constructor.
 data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
-  { _irjdFormat    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irjdEndDate   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irjdStartDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irjdMarker    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irjdLimit     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _irjdFormat    :: !(Maybe Text)
+  , _irjdEndDate   :: !(Maybe Text)
+  , _irjdStartDate :: !(Maybe Text)
+  , _irjdMarker    :: !(Maybe Text)
+  , _irjdLimit     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -518,10 +518,10 @@ instance NFData InventoryRetrievalJobDescription
 --
 -- /See:/ 'inventoryRetrievalJobInput' smart constructor.
 data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
-  { _irjiEndDate   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irjiStartDate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irjiMarker    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irjiLimit     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _irjiEndDate   :: !(Maybe Text)
+  , _irjiStartDate :: !(Maybe Text)
+  , _irjiMarker    :: !(Maybe Text)
+  , _irjiLimit     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -582,14 +582,14 @@ instance ToJSON InventoryRetrievalJobInput where
 --
 -- /See:/ 'jobParameters' smart constructor.
 data JobParameters = JobParameters'
-  { _jpArchiveId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jpFormat :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jpRetrievalByteRange :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jpInventoryRetrievalParameters :: {-# NOUNPACK #-}!(Maybe InventoryRetrievalJobInput)
-  , _jpSNSTopic :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jpTier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jpType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jpDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _jpArchiveId                    :: !(Maybe Text)
+  , _jpFormat                       :: !(Maybe Text)
+  , _jpRetrievalByteRange           :: !(Maybe Text)
+  , _jpInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobInput)
+  , _jpSNSTopic                     :: !(Maybe Text)
+  , _jpTier                         :: !(Maybe Text)
+  , _jpType                         :: !(Maybe Text)
+  , _jpDescription                  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -682,8 +682,8 @@ instance ToJSON JobParameters where
 --
 -- /See:/ 'partListElement' smart constructor.
 data PartListElement = PartListElement'
-  { _pleSHA256TreeHash :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pleRangeInBytes   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pleSHA256TreeHash :: !(Maybe Text)
+  , _pleRangeInBytes   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -725,9 +725,9 @@ instance NFData PartListElement where
 --
 -- /See:/ 'provisionedCapacityDescription' smart constructor.
 data ProvisionedCapacityDescription = ProvisionedCapacityDescription'
-  { _pcdCapacityId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pcdStartDate      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pcdExpirationDate :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pcdCapacityId     :: !(Maybe Text)
+  , _pcdStartDate      :: !(Maybe Text)
+  , _pcdExpirationDate :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -782,11 +782,11 @@ instance NFData ProvisionedCapacityDescription where
 --
 -- /See:/ 'uploadListElement' smart constructor.
 data UploadListElement = UploadListElement'
-  { _uleMultipartUploadId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ulePartSizeInBytes    :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _uleArchiveDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uleVaultARN           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uleCreationDate       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _uleMultipartUploadId  :: !(Maybe Text)
+  , _ulePartSizeInBytes    :: !(Maybe Integer)
+  , _uleArchiveDescription :: !(Maybe Text)
+  , _uleVaultARN           :: !(Maybe Text)
+  , _uleCreationDate       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -925,8 +925,8 @@ instance ToJSON VaultLockPolicy where
 --
 -- /See:/ 'vaultNotificationConfig' smart constructor.
 data VaultNotificationConfig = VaultNotificationConfig'
-  { _vncSNSTopic :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vncEvents   :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _vncSNSTopic :: !(Maybe Text)
+  , _vncEvents   :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

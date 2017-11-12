@@ -115,12 +115,12 @@ instance ToQuery DescribeSnapshotSchedule where
 
 -- | /See:/ 'describeSnapshotScheduleResponse' smart constructor.
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
-  { _dssrsStartAt           :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dssrsVolumeARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dssrsRecurrenceInHours :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dssrsTimezone          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dssrsDescription       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dssrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dssrsStartAt           :: !(Maybe Nat)
+  , _dssrsVolumeARN         :: !(Maybe Text)
+  , _dssrsRecurrenceInHours :: !(Maybe Nat)
+  , _dssrsTimezone          :: !(Maybe Text)
+  , _dssrsDescription       :: !(Maybe Text)
+  , _dssrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

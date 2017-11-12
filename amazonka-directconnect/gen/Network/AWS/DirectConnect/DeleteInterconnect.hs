@@ -111,8 +111,8 @@ instance ToQuery DeleteInterconnect where
 --
 -- /See:/ 'deleteInterconnectResponse' smart constructor.
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
-  { _drsInterconnectState :: {-# NOUNPACK #-}!(Maybe InterconnectState)
-  , _drsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _drsInterconnectState :: !(Maybe InterconnectState)
+  , _drsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

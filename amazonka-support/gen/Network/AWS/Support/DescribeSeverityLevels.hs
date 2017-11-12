@@ -110,8 +110,8 @@ instance ToQuery DescribeSeverityLevels where
 --
 -- /See:/ 'describeSeverityLevelsResponse' smart constructor.
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
-  { _dslrsSeverityLevels :: {-# NOUNPACK #-}!(Maybe [SeverityLevel])
-  , _dslrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dslrsSeverityLevels :: !(Maybe [SeverityLevel])
+  , _dslrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

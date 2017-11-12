@@ -48,9 +48,9 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createFolder' smart constructor.
 data CreateFolder = CreateFolder'
-  { _cfAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _cfName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfParentFolderId      :: {-# NOUNPACK #-}!Text
+  { _cfAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _cfName                :: !(Maybe Text)
+  , _cfParentFolderId      :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery CreateFolder where
 
 -- | /See:/ 'createFolderResponse' smart constructor.
 data CreateFolderResponse = CreateFolderResponse'
-  { _cfrsMetadata       :: {-# NOUNPACK #-}!(Maybe FolderMetadata)
-  , _cfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cfrsMetadata       :: !(Maybe FolderMetadata)
+  , _cfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -55,11 +55,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeMovingAddresses' smart constructor.
 data DescribeMovingAddresses = DescribeMovingAddresses'
-  { _dmaFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dmaPublicIPs  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dmaNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmaDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dmaMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dmaFilters    :: !(Maybe [Filter])
+  , _dmaPublicIPs  :: !(Maybe [Text])
+  , _dmaNextToken  :: !(Maybe Text)
+  , _dmaDryRun     :: !(Maybe Bool)
+  , _dmaMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,9 +148,9 @@ instance ToQuery DescribeMovingAddresses where
 --
 -- /See:/ 'describeMovingAddressesResponse' smart constructor.
 data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
-  { _dmarsMovingAddressStatuses :: {-# NOUNPACK #-}!(Maybe [MovingAddressStatus])
-  , _dmarsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmarsMovingAddressStatuses :: !(Maybe [MovingAddressStatus])
+  , _dmarsNextToken             :: !(Maybe Text)
+  , _dmarsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

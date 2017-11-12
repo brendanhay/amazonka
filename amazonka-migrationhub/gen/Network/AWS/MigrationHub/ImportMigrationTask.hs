@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'importMigrationTask' smart constructor.
 data ImportMigrationTask = ImportMigrationTask'
-  { _imtDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _imtProgressUpdateStream :: {-# NOUNPACK #-}!Text
-  , _imtMigrationTaskName    :: {-# NOUNPACK #-}!Text
+  { _imtDryRun               :: !(Maybe Bool)
+  , _imtProgressUpdateStream :: !Text
+  , _imtMigrationTaskName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

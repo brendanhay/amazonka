@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateAPNSChannel' smart constructor.
 data UpdateAPNSChannel = UpdateAPNSChannel'
-  { _uacApplicationId      :: {-# NOUNPACK #-}!Text
-  , _uacAPNSChannelRequest :: {-# NOUNPACK #-}!APNSChannelRequest
+  { _uacApplicationId      :: !Text
+  , _uacAPNSChannelRequest :: !APNSChannelRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery UpdateAPNSChannel where
 
 -- | /See:/ 'updateAPNSChannelResponse' smart constructor.
 data UpdateAPNSChannelResponse = UpdateAPNSChannelResponse'
-  { _uacrsResponseStatus      :: {-# NOUNPACK #-}!Int
-  , _uacrsAPNSChannelResponse :: {-# NOUNPACK #-}!APNSChannelResponse
+  { _uacrsResponseStatus      :: !Int
+  , _uacrsAPNSChannelResponse :: !APNSChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

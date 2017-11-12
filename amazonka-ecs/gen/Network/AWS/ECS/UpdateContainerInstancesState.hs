@@ -67,9 +67,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateContainerInstancesState' smart constructor.
 data UpdateContainerInstancesState = UpdateContainerInstancesState'
-  { _ucisCluster            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucisContainerInstances :: {-# NOUNPACK #-}![Text]
-  , _ucisStatus             :: {-# NOUNPACK #-}!ContainerInstanceStatus
+  { _ucisCluster            :: !(Maybe Text)
+  , _ucisContainerInstances :: ![Text]
+  , _ucisStatus             :: !ContainerInstanceStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery UpdateContainerInstancesState where
 
 -- | /See:/ 'updateContainerInstancesStateResponse' smart constructor.
 data UpdateContainerInstancesStateResponse = UpdateContainerInstancesStateResponse'
-  { _ucisrsFailures           :: {-# NOUNPACK #-}!(Maybe [Failure])
-  , _ucisrsContainerInstances :: {-# NOUNPACK #-}!(Maybe [ContainerInstance])
-  , _ucisrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _ucisrsFailures           :: !(Maybe [Failure])
+  , _ucisrsContainerInstances :: !(Maybe [ContainerInstance])
+  , _ucisrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -56,10 +56,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'initiateAuth' smart constructor.
 data InitiateAuth = InitiateAuth'
-  { _iaClientMetadata :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _iaAuthParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _iaAuthFlow       :: {-# NOUNPACK #-}!AuthFlowType
-  , _iaClientId       :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _iaClientMetadata :: !(Maybe (Map Text Text))
+  , _iaAuthParameters :: !(Maybe (Map Text Text))
+  , _iaAuthFlow       :: !AuthFlowType
+  , _iaClientId       :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -151,11 +151,11 @@ instance ToQuery InitiateAuth where
 --
 -- /See:/ 'initiateAuthResponse' smart constructor.
 data InitiateAuthResponse = InitiateAuthResponse'
-  { _iarsChallengeName :: {-# NOUNPACK #-}!(Maybe ChallengeNameType)
-  , _iarsChallengeParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _iarsAuthenticationResult :: {-# NOUNPACK #-}!(Maybe AuthenticationResultType)
-  , _iarsSession :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _iarsChallengeName        :: !(Maybe ChallengeNameType)
+  , _iarsChallengeParameters  :: !(Maybe (Map Text Text))
+  , _iarsAuthenticationResult :: !(Maybe AuthenticationResultType)
+  , _iarsSession              :: !(Maybe Text)
+  , _iarsResponseStatus       :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

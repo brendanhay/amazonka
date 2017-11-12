@@ -79,18 +79,18 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateMatchmakingConfiguration' smart constructor.
 data UpdateMatchmakingConfiguration = UpdateMatchmakingConfiguration'
-  { _umcGameProperties           :: {-# NOUNPACK #-}!(Maybe [GameProperty])
-  , _umcRuleSetName              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umcAcceptanceTimeoutSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _umcRequestTimeoutSeconds    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _umcNotificationTarget       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umcGameSessionQueueARNs     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _umcCustomEventData          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umcAcceptanceRequired       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _umcGameSessionData          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umcDescription              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umcAdditionalPlayerCount    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _umcName                     :: {-# NOUNPACK #-}!Text
+  { _umcGameProperties           :: !(Maybe [GameProperty])
+  , _umcRuleSetName              :: !(Maybe Text)
+  , _umcAcceptanceTimeoutSeconds :: !(Maybe Nat)
+  , _umcRequestTimeoutSeconds    :: !(Maybe Nat)
+  , _umcNotificationTarget       :: !(Maybe Text)
+  , _umcGameSessionQueueARNs     :: !(Maybe [Text])
+  , _umcCustomEventData          :: !(Maybe Text)
+  , _umcAcceptanceRequired       :: !(Maybe Bool)
+  , _umcGameSessionData          :: !(Maybe Text)
+  , _umcDescription              :: !(Maybe Text)
+  , _umcAdditionalPlayerCount    :: !(Maybe Nat)
+  , _umcName                     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -249,8 +249,8 @@ instance ToQuery UpdateMatchmakingConfiguration where
 --
 -- /See:/ 'updateMatchmakingConfigurationResponse' smart constructor.
 data UpdateMatchmakingConfigurationResponse = UpdateMatchmakingConfigurationResponse'
-  { _umcrsConfiguration  :: {-# NOUNPACK #-}!(Maybe MatchmakingConfiguration)
-  , _umcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _umcrsConfiguration  :: !(Maybe MatchmakingConfiguration)
+  , _umcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { _caResourceLifecycleConfig :: {-# NOUNPACK #-}!(Maybe ApplicationResourceLifecycleConfig)
-  , _caDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _caApplicationName :: {-# NOUNPACK #-}!Text
+  { _caResourceLifecycleConfig :: !(Maybe ApplicationResourceLifecycleConfig)
+  , _caDescription             :: !(Maybe Text)
+  , _caApplicationName         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

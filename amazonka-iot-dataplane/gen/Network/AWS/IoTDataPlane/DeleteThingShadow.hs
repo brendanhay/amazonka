@@ -100,8 +100,8 @@ instance ToQuery DeleteThingShadow where
 --
 -- /See:/ 'deleteThingShadowResponse' smart constructor.
 data DeleteThingShadowResponse = DeleteThingShadowResponse'
-  { _dtsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dtsrsPayload        :: {-# NOUNPACK #-}!(HashMap Text Value)
+  { _dtsrsResponseStatus :: !Int
+  , _dtsrsPayload        :: !(HashMap Text Value)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

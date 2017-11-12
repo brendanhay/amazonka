@@ -71,26 +71,26 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDBInstanceReadReplica' smart constructor.
 data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
-  { _cdirrPubliclyAccessible              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdirrAutoMinorVersionUpgrade         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdirrDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdirrMonitoringRoleARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdirrIOPS                            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdirrMonitoringInterval              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdirrPreSignedURL                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdirrDBInstanceClass                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdirrEnablePerformanceInsights       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdirrKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdirrAvailabilityZone                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdirrPerformanceInsightsKMSKeyId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdirrOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdirrCopyTagsToSnapshot              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdirrTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _cdirrPort                            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdirrEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdirrStorageType                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdirrDBInstanceIdentifier            :: {-# NOUNPACK #-}!Text
-  , _cdirrSourceDBInstanceIdentifier      :: {-# NOUNPACK #-}!Text
+  { _cdirrPubliclyAccessible              :: !(Maybe Bool)
+  , _cdirrAutoMinorVersionUpgrade         :: !(Maybe Bool)
+  , _cdirrDBSubnetGroupName               :: !(Maybe Text)
+  , _cdirrMonitoringRoleARN               :: !(Maybe Text)
+  , _cdirrIOPS                            :: !(Maybe Int)
+  , _cdirrMonitoringInterval              :: !(Maybe Int)
+  , _cdirrPreSignedURL                    :: !(Maybe Text)
+  , _cdirrDBInstanceClass                 :: !(Maybe Text)
+  , _cdirrEnablePerformanceInsights       :: !(Maybe Bool)
+  , _cdirrKMSKeyId                        :: !(Maybe Text)
+  , _cdirrAvailabilityZone                :: !(Maybe Text)
+  , _cdirrPerformanceInsightsKMSKeyId     :: !(Maybe Text)
+  , _cdirrOptionGroupName                 :: !(Maybe Text)
+  , _cdirrCopyTagsToSnapshot              :: !(Maybe Bool)
+  , _cdirrTags                            :: !(Maybe [Tag])
+  , _cdirrPort                            :: !(Maybe Int)
+  , _cdirrEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+  , _cdirrStorageType                     :: !(Maybe Text)
+  , _cdirrDBInstanceIdentifier            :: !Text
+  , _cdirrSourceDBInstanceIdentifier      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -301,8 +301,8 @@ instance ToQuery CreateDBInstanceReadReplica where
 
 -- | /See:/ 'createDBInstanceReadReplicaResponse' smart constructor.
 data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
-  { _cdirrrsDBInstance     :: {-# NOUNPACK #-}!(Maybe DBInstance)
-  , _cdirrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdirrrsDBInstance     :: !(Maybe DBInstance)
+  , _cdirrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

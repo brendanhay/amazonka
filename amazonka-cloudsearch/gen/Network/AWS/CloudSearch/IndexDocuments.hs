@@ -103,8 +103,8 @@ instance ToQuery IndexDocuments where
 --
 -- /See:/ 'indexDocumentsResponse' smart constructor.
 data IndexDocumentsResponse = IndexDocumentsResponse'
-  { _idrsFieldNames     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _idrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _idrsFieldNames     :: !(Maybe [Text])
+  , _idrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

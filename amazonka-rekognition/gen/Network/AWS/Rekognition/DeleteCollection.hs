@@ -105,8 +105,8 @@ instance ToQuery DeleteCollection where
 
 -- | /See:/ 'deleteCollectionResponse' smart constructor.
 data DeleteCollectionResponse = DeleteCollectionResponse'
-  { _dcrsStatusCode     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcrsStatusCode     :: !(Maybe Nat)
+  , _dcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

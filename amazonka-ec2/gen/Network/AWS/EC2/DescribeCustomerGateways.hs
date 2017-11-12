@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeCustomerGateways' smart constructor.
 data DescribeCustomerGateways = DescribeCustomerGateways'
-  { _dcgCustomerGatewayIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcgFilters            :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dcgDryRun             :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dcgCustomerGatewayIds :: !(Maybe [Text])
+  , _dcgFilters            :: !(Maybe [Filter])
+  , _dcgDryRun             :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance ToQuery DescribeCustomerGateways where
 --
 -- /See:/ 'describeCustomerGatewaysResponse' smart constructor.
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
-  { _dcgrsCustomerGateways :: {-# NOUNPACK #-}!(Maybe [CustomerGateway])
-  , _dcgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _dcgrsCustomerGateways :: !(Maybe [CustomerGateway])
+  , _dcgrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

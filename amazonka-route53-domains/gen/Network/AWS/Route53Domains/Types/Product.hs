@@ -27,11 +27,11 @@ import Network.AWS.Route53Domains.Types.Sum
 --
 -- /See:/ 'billingRecord' smart constructor.
 data BillingRecord = BillingRecord'
-  { _brOperation  :: {-# NOUNPACK #-}!(Maybe OperationType)
-  , _brInvoiceId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _brDomainName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _brBillDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _brPrice      :: {-# NOUNPACK #-}!(Maybe Double)
+  { _brOperation  :: !(Maybe OperationType)
+  , _brInvoiceId  :: !(Maybe Text)
+  , _brDomainName :: !(Maybe Text)
+  , _brBillDate   :: !(Maybe POSIX)
+  , _brPrice      :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -100,20 +100,20 @@ instance NFData BillingRecord where
 --
 -- /See:/ 'contactDetail' smart constructor.
 data ContactDetail = ContactDetail'
-  { _cdOrganizationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdEmail            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdState            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdFax              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdLastName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdExtraParams      :: {-# NOUNPACK #-}!(Maybe [ExtraParam])
-  , _cdZipCode          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdAddressLine1     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdCity             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdPhoneNumber      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdAddressLine2     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdFirstName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdCountryCode      :: {-# NOUNPACK #-}!(Maybe CountryCode)
-  , _cdContactType      :: {-# NOUNPACK #-}!(Maybe ContactType)
+  { _cdOrganizationName :: !(Maybe Text)
+  , _cdEmail            :: !(Maybe Text)
+  , _cdState            :: !(Maybe Text)
+  , _cdFax              :: !(Maybe Text)
+  , _cdLastName         :: !(Maybe Text)
+  , _cdExtraParams      :: !(Maybe [ExtraParam])
+  , _cdZipCode          :: !(Maybe Text)
+  , _cdAddressLine1     :: !(Maybe Text)
+  , _cdCity             :: !(Maybe Text)
+  , _cdPhoneNumber      :: !(Maybe Text)
+  , _cdAddressLine2     :: !(Maybe Text)
+  , _cdFirstName        :: !(Maybe Text)
+  , _cdCountryCode      :: !(Maybe CountryCode)
+  , _cdContactType      :: !(Maybe ContactType)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -272,8 +272,8 @@ instance ToJSON ContactDetail where
 --
 -- /See:/ 'domainSuggestion' smart constructor.
 data DomainSuggestion = DomainSuggestion'
-  { _dAvailability :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dDomainName   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dAvailability :: !(Maybe Text)
+  , _dDomainName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -315,10 +315,10 @@ instance NFData DomainSuggestion where
 --
 -- /See:/ 'domainSummary' smart constructor.
 data DomainSummary = DomainSummary'
-  { _dsExpiry       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dsTransferLock :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsAutoRenew    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsDomainName   :: {-# NOUNPACK #-}!Text
+  { _dsExpiry       :: !(Maybe POSIX)
+  , _dsTransferLock :: !(Maybe Bool)
+  , _dsAutoRenew    :: !(Maybe Bool)
+  , _dsDomainName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -410,8 +410,8 @@ instance NFData DomainTransferability where
 --
 -- /See:/ 'extraParam' smart constructor.
 data ExtraParam = ExtraParam'
-  { _epName  :: {-# NOUNPACK #-}!ExtraParamName
-  , _epValue :: {-# NOUNPACK #-}!Text
+  { _epName  :: !ExtraParamName
+  , _epValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -460,8 +460,8 @@ instance ToJSON ExtraParam where
 --
 -- /See:/ 'nameserver' smart constructor.
 data Nameserver = Nameserver'
-  { _nGlueIPs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _nName    :: {-# NOUNPACK #-}!Text
+  { _nGlueIPs :: !(Maybe [Text])
+  , _nName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -510,10 +510,10 @@ instance ToJSON Nameserver where
 --
 -- /See:/ 'operationSummary' smart constructor.
 data OperationSummary = OperationSummary'
-  { _osOperationId   :: {-# NOUNPACK #-}!Text
-  , _osStatus        :: {-# NOUNPACK #-}!OperationStatus
-  , _osType          :: {-# NOUNPACK #-}!OperationType
-  , _osSubmittedDate :: {-# NOUNPACK #-}!POSIX
+  { _osOperationId   :: !Text
+  , _osStatus        :: !OperationStatus
+  , _osType          :: !OperationType
+  , _osSubmittedDate :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -578,8 +578,8 @@ instance NFData OperationSummary where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

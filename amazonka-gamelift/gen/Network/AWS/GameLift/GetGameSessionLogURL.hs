@@ -137,8 +137,8 @@ instance ToQuery GetGameSessionLogURL where
 --
 -- /See:/ 'getGameSessionLogURLResponse' smart constructor.
 data GetGameSessionLogURLResponse = GetGameSessionLogURLResponse'
-  { _ggslursPreSignedURL   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggslursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ggslursPreSignedURL   :: !(Maybe Text)
+  , _ggslursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

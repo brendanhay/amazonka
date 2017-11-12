@@ -59,16 +59,16 @@ import Network.AWS.Response
 
 -- | /See:/ 'createHITWithHITType' smart constructor.
 data CreateHITWithHITType = CreateHITWithHITType'
-  { _chitwhittHITReviewPolicy :: {-# NOUNPACK #-}!(Maybe ReviewPolicy)
-  , _chitwhittUniqueRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _chitwhittRequesterAnnotation :: {-# NOUNPACK #-}!(Maybe Text)
-  , _chitwhittMaxAssignments :: {-# NOUNPACK #-}!(Maybe Int)
-  , _chitwhittHITLayoutId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _chitwhittHITLayoutParameters :: {-# NOUNPACK #-}!(Maybe [HITLayoutParameter])
-  , _chitwhittQuestion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _chitwhittAssignmentReviewPolicy :: {-# NOUNPACK #-}!(Maybe ReviewPolicy)
-  , _chitwhittHITTypeId :: {-# NOUNPACK #-}!Text
-  , _chitwhittLifetimeInSeconds :: {-# NOUNPACK #-}!Integer
+  { _chitwhittHITReviewPolicy        :: !(Maybe ReviewPolicy)
+  , _chitwhittUniqueRequestToken     :: !(Maybe Text)
+  , _chitwhittRequesterAnnotation    :: !(Maybe Text)
+  , _chitwhittMaxAssignments         :: !(Maybe Int)
+  , _chitwhittHITLayoutId            :: !(Maybe Text)
+  , _chitwhittHITLayoutParameters    :: !(Maybe [HITLayoutParameter])
+  , _chitwhittQuestion               :: !(Maybe Text)
+  , _chitwhittAssignmentReviewPolicy :: !(Maybe ReviewPolicy)
+  , _chitwhittHITTypeId              :: !Text
+  , _chitwhittLifetimeInSeconds      :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -208,8 +208,8 @@ instance ToQuery CreateHITWithHITType where
 
 -- | /See:/ 'createHITWithHITTypeResponse' smart constructor.
 data CreateHITWithHITTypeResponse = CreateHITWithHITTypeResponse'
-  { _chitwhittrsHIT            :: {-# NOUNPACK #-}!(Maybe HIT)
-  , _chitwhittrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _chitwhittrsHIT            :: !(Maybe HIT)
+  , _chitwhittrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

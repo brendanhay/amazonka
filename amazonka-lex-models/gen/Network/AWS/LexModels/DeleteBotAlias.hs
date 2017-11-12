@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteBotAlias' smart constructor.
 data DeleteBotAlias = DeleteBotAlias'
-  { _dbaName    :: {-# NOUNPACK #-}!Text
-  , _dbaBotName :: {-# NOUNPACK #-}!Text
+  { _dbaName    :: !Text
+  , _dbaBotName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

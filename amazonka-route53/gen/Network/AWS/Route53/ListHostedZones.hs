@@ -61,9 +61,9 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listHostedZones' smart constructor.
 data ListHostedZones = ListHostedZones'
-  { _lhzDelegationSetId :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _lhzMarker          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhzMaxItems        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lhzDelegationSetId :: !(Maybe ResourceId)
+  , _lhzMarker          :: !(Maybe Text)
+  , _lhzMaxItems        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,12 +135,12 @@ instance ToQuery ListHostedZones where
 
 -- | /See:/ 'listHostedZonesResponse' smart constructor.
 data ListHostedZonesResponse = ListHostedZonesResponse'
-  { _lhzrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhzrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lhzrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lhzrsHostedZones    :: {-# NOUNPACK #-}![HostedZone]
-  , _lhzrsIsTruncated    :: {-# NOUNPACK #-}!Bool
-  , _lhzrsMaxItems       :: {-# NOUNPACK #-}!Text
+  { _lhzrsMarker         :: !(Maybe Text)
+  , _lhzrsNextMarker     :: !(Maybe Text)
+  , _lhzrsResponseStatus :: !Int
+  , _lhzrsHostedZones    :: ![HostedZone]
+  , _lhzrsIsTruncated    :: !Bool
+  , _lhzrsMaxItems       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

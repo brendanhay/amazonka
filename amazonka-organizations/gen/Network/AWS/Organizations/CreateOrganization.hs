@@ -105,8 +105,8 @@ instance ToQuery CreateOrganization where
 
 -- | /See:/ 'createOrganizationResponse' smart constructor.
 data CreateOrganizationResponse = CreateOrganizationResponse'
-  { _corsOrganization   :: {-# NOUNPACK #-}!(Maybe Organization)
-  , _corsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _corsOrganization   :: !(Maybe Organization)
+  , _corsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

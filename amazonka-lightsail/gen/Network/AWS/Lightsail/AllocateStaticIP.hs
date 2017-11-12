@@ -104,8 +104,8 @@ instance ToQuery AllocateStaticIP where
 
 -- | /See:/ 'allocateStaticIPResponse' smart constructor.
 data AllocateStaticIPResponse = AllocateStaticIPResponse'
-  { _asirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _asirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _asirsOperations     :: !(Maybe [Operation])
+  , _asirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

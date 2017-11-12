@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'attachPrincipalPolicy' smart constructor.
 data AttachPrincipalPolicy = AttachPrincipalPolicy'
-  { _appPolicyName :: {-# NOUNPACK #-}!Text
-  , _appPrincipal  :: {-# NOUNPACK #-}!Text
+  { _appPolicyName :: !Text
+  , _appPrincipal  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

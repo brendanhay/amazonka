@@ -64,21 +64,21 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyEndpoint' smart constructor.
 data ModifyEndpoint = ModifyEndpoint'
-  { _meServerName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meExtraConnectionAttributes :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meEndpointType :: {-# NOUNPACK #-}!(Maybe ReplicationEndpointTypeValue)
-  , _meUsername :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meEngineName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meMongoDBSettings :: {-# NOUNPACK #-}!(Maybe MongoDBSettings)
-  , _meSSLMode :: {-# NOUNPACK #-}!(Maybe DmsSSLModeValue)
-  , _mePassword :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _meDatabaseName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meS3Settings :: {-# NOUNPACK #-}!(Maybe S3Settings)
-  , _meEndpointIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _meDynamoDBSettings :: {-# NOUNPACK #-}!(Maybe DynamoDBSettings)
-  , _mePort :: {-# NOUNPACK #-}!(Maybe Int)
-  , _meEndpointARN :: {-# NOUNPACK #-}!Text
+  { _meServerName                :: !(Maybe Text)
+  , _meCertificateARN            :: !(Maybe Text)
+  , _meExtraConnectionAttributes :: !(Maybe Text)
+  , _meEndpointType              :: !(Maybe ReplicationEndpointTypeValue)
+  , _meUsername                  :: !(Maybe Text)
+  , _meEngineName                :: !(Maybe Text)
+  , _meMongoDBSettings           :: !(Maybe MongoDBSettings)
+  , _meSSLMode                   :: !(Maybe DmsSSLModeValue)
+  , _mePassword                  :: !(Maybe (Sensitive Text))
+  , _meDatabaseName              :: !(Maybe Text)
+  , _meS3Settings                :: !(Maybe S3Settings)
+  , _meEndpointIdentifier        :: !(Maybe Text)
+  , _meDynamoDBSettings          :: !(Maybe DynamoDBSettings)
+  , _mePort                      :: !(Maybe Int)
+  , _meEndpointARN               :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -253,8 +253,8 @@ instance ToQuery ModifyEndpoint where
 --
 -- /See:/ 'modifyEndpointResponse' smart constructor.
 data ModifyEndpointResponse = ModifyEndpointResponse'
-  { _mersEndpoint       :: {-# NOUNPACK #-}!(Maybe Endpoint)
-  , _mersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mersEndpoint       :: !(Maybe Endpoint)
+  , _mersResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

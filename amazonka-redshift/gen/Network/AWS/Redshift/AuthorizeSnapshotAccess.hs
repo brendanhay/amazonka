@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'authorizeSnapshotAccess' smart constructor.
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
-  { _asaSnapshotClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asaSnapshotIdentifier        :: {-# NOUNPACK #-}!Text
-  , _asaAccountWithRestoreAccess  :: {-# NOUNPACK #-}!Text
+  { _asaSnapshotClusterIdentifier :: !(Maybe Text)
+  , _asaSnapshotIdentifier        :: !Text
+  , _asaAccountWithRestoreAccess  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery AuthorizeSnapshotAccess where
 
 -- | /See:/ 'authorizeSnapshotAccessResponse' smart constructor.
 data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
-  { _asarsSnapshot       :: {-# NOUNPACK #-}!(Maybe Snapshot)
-  , _asarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _asarsSnapshot       :: !(Maybe Snapshot)
+  , _asarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

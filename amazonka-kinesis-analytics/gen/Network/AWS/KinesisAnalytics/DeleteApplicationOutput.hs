@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteApplicationOutput' smart constructor.
 data DeleteApplicationOutput = DeleteApplicationOutput'
-  { _daoApplicationName             :: {-# NOUNPACK #-}!Text
-  , _daoCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
-  , _daoOutputId                    :: {-# NOUNPACK #-}!Text
+  { _daoApplicationName             :: !Text
+  , _daoCurrentApplicationVersionId :: !Nat
+  , _daoOutputId                    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

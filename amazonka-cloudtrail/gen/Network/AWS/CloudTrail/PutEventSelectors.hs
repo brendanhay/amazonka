@@ -66,8 +66,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putEventSelectors' smart constructor.
 data PutEventSelectors = PutEventSelectors'
-  { _pesTrailName      :: {-# NOUNPACK #-}!Text
-  , _pesEventSelectors :: {-# NOUNPACK #-}![EventSelector]
+  { _pesTrailName      :: !Text
+  , _pesEventSelectors :: ![EventSelector]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,9 +133,9 @@ instance ToQuery PutEventSelectors where
 
 -- | /See:/ 'putEventSelectorsResponse' smart constructor.
 data PutEventSelectorsResponse = PutEventSelectorsResponse'
-  { _pesrsTrailARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pesrsEventSelectors :: {-# NOUNPACK #-}!(Maybe [EventSelector])
-  , _pesrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pesrsTrailARN       :: !(Maybe Text)
+  , _pesrsEventSelectors :: !(Maybe [EventSelector])
+  , _pesrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

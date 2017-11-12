@@ -101,9 +101,9 @@ instance ToQuery CreateActivity where
 
 -- | /See:/ 'createActivityResponse' smart constructor.
 data CreateActivityResponse = CreateActivityResponse'
-  { _carsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _carsActivityARN    :: {-# NOUNPACK #-}!Text
-  , _carsCreationDate   :: {-# NOUNPACK #-}!POSIX
+  { _carsResponseStatus :: !Int
+  , _carsActivityARN    :: !Text
+  , _carsCreationDate   :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

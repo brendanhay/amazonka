@@ -66,15 +66,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateQualificationType' smart constructor.
 data UpdateQualificationType = UpdateQualificationType'
-  { _uqtTestDurationInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _uqtQualificationTypeStatus :: {-# NOUNPACK #-}!(Maybe QualificationTypeStatus)
-  , _uqtAnswerKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uqtTest :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uqtAutoGranted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uqtAutoGrantedValue :: {-# NOUNPACK #-}!(Maybe Int)
-  , _uqtDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uqtRetryDelayInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _uqtQualificationTypeId :: {-# NOUNPACK #-}!Text
+  { _uqtTestDurationInSeconds   :: !(Maybe Integer)
+  , _uqtQualificationTypeStatus :: !(Maybe QualificationTypeStatus)
+  , _uqtAnswerKey               :: !(Maybe Text)
+  , _uqtTest                    :: !(Maybe Text)
+  , _uqtAutoGranted             :: !(Maybe Bool)
+  , _uqtAutoGrantedValue        :: !(Maybe Int)
+  , _uqtDescription             :: !(Maybe Text)
+  , _uqtRetryDelayInSeconds     :: !(Maybe Integer)
+  , _uqtQualificationTypeId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -202,8 +202,8 @@ instance ToQuery UpdateQualificationType where
 
 -- | /See:/ 'updateQualificationTypeResponse' smart constructor.
 data UpdateQualificationTypeResponse = UpdateQualificationTypeResponse'
-  { _uqtrsQualificationType :: {-# NOUNPACK #-}!(Maybe QualificationType)
-  , _uqtrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _uqtrsQualificationType :: !(Maybe QualificationType)
+  , _uqtrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

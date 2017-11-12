@@ -74,9 +74,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeJob' smart constructor.
 data DescribeJob = DescribeJob'
-  { _djAccountId :: {-# NOUNPACK #-}!Text
-  , _djVaultName :: {-# NOUNPACK #-}!Text
-  , _djJobId     :: {-# NOUNPACK #-}!Text
+  { _djAccountId :: !Text
+  , _djVaultName :: !Text
+  , _djJobId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

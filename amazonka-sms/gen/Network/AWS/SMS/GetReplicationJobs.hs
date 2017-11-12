@@ -50,9 +50,9 @@ import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'getReplicationJobs' smart constructor.
 data GetReplicationJobs = GetReplicationJobs'
-  { _grjReplicationJobId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grjNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grjMaxResults       :: {-# NOUNPACK #-}!(Maybe Int)
+  { _grjReplicationJobId :: !(Maybe Text)
+  , _grjNextToken        :: !(Maybe Text)
+  , _grjMaxResults       :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,9 +136,9 @@ instance ToQuery GetReplicationJobs where
 
 -- | /See:/ 'getReplicationJobsResponse' smart constructor.
 data GetReplicationJobsResponse = GetReplicationJobsResponse'
-  { _grjrsReplicationJobList :: {-# NOUNPACK #-}!(Maybe [ReplicationJob])
-  , _grjrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grjrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _grjrsReplicationJobList :: !(Maybe [ReplicationJob])
+  , _grjrsNextToken          :: !(Maybe Text)
+  , _grjrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

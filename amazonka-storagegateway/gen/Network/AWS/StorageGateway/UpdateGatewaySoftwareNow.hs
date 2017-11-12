@@ -113,8 +113,8 @@ instance ToQuery UpdateGatewaySoftwareNow where
 --
 -- /See:/ 'updateGatewaySoftwareNowResponse' smart constructor.
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
-  { _ugsnrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugsnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ugsnrsGatewayARN     :: !(Maybe Text)
+  , _ugsnrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

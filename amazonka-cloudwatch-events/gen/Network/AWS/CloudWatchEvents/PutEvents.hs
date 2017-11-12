@@ -102,9 +102,9 @@ instance ToQuery PutEvents where
 
 -- | /See:/ 'putEventsResponse' smart constructor.
 data PutEventsResponse = PutEventsResponse'
-  { _persFailedEntryCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _persEntries          :: {-# NOUNPACK #-}!(Maybe [PutEventsResultEntry])
-  , _persResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _persFailedEntryCount :: !(Maybe Int)
+  , _persEntries          :: !(Maybe [PutEventsResultEntry])
+  , _persResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listArtifacts' smart constructor.
 data ListArtifacts = ListArtifacts'
-  { _laNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laArn       :: {-# NOUNPACK #-}!Text
-  , _laType      :: {-# NOUNPACK #-}!ArtifactCategory
+  { _laNextToken :: !(Maybe Text)
+  , _laArn       :: !Text
+  , _laType      :: !ArtifactCategory
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery ListArtifacts where
 --
 -- /See:/ 'listArtifactsResponse' smart constructor.
 data ListArtifactsResponse = ListArtifactsResponse'
-  { _larsArtifacts      :: {-# NOUNPACK #-}!(Maybe [Artifact])
-  , _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _larsArtifacts      :: !(Maybe [Artifact])
+  , _larsNextToken      :: !(Maybe Text)
+  , _larsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

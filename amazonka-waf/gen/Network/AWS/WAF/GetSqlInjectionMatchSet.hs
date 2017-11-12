@@ -116,8 +116,8 @@ instance ToQuery GetSqlInjectionMatchSet where
 --
 -- /See:/ 'getSqlInjectionMatchSetResponse' smart constructor.
 data GetSqlInjectionMatchSetResponse = GetSqlInjectionMatchSetResponse'
-  { _gsimsrsSqlInjectionMatchSet :: {-# NOUNPACK #-}!(Maybe SqlInjectionMatchSet)
-  , _gsimsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsimsrsSqlInjectionMatchSet :: !(Maybe SqlInjectionMatchSet)
+  , _gsimsrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

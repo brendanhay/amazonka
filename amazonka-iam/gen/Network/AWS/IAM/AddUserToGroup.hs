@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'addUserToGroup' smart constructor.
 data AddUserToGroup = AddUserToGroup'
-  { _autgGroupName :: {-# NOUNPACK #-}!Text
-  , _autgUserName  :: {-# NOUNPACK #-}!Text
+  { _autgGroupName :: !Text
+  , _autgUserName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

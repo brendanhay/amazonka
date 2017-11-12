@@ -51,8 +51,8 @@ import Network.AWS.SQS.Types.Product
 --
 -- /See:/ 'getQueueAttributes' smart constructor.
 data GetQueueAttributes = GetQueueAttributes'
-  { _gqaAttributeNames :: {-# NOUNPACK #-}!(Maybe [QueueAttributeName])
-  , _gqaQueueURL       :: {-# NOUNPACK #-}!Text
+  { _gqaAttributeNames :: !(Maybe [QueueAttributeName])
+  , _gqaQueueURL       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery GetQueueAttributes where
 --
 -- /See:/ 'getQueueAttributesResponse' smart constructor.
 data GetQueueAttributesResponse = GetQueueAttributesResponse'
-  { _gqarsAttributes :: {-# NOUNPACK #-}!(Maybe (Map QueueAttributeName Text))
-  , _gqarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gqarsAttributes     :: !(Maybe (Map QueueAttributeName Text))
+  , _gqarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

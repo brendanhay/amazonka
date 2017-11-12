@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeSchemas' smart constructor.
 data DescribeSchemas = DescribeSchemas'
-  { _dsMarker      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsMaxRecords  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsEndpointARN :: {-# NOUNPACK #-}!Text
+  { _dsMarker      :: !(Maybe Text)
+  , _dsMaxRecords  :: !(Maybe Int)
+  , _dsEndpointARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,9 +133,9 @@ instance ToQuery DescribeSchemas where
 --
 -- /See:/ 'describeSchemasResponse' smart constructor.
 data DescribeSchemasResponse = DescribeSchemasResponse'
-  { _dsrsSchemas        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dsrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsrsSchemas        :: !(Maybe [Text])
+  , _dsrsMarker         :: !(Maybe Text)
+  , _dsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

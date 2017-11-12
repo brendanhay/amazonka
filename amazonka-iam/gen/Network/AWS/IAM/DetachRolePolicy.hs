@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'detachRolePolicy' smart constructor.
 data DetachRolePolicy = DetachRolePolicy'
-  { _drpRoleName  :: {-# NOUNPACK #-}!Text
-  , _drpPolicyARN :: {-# NOUNPACK #-}!Text
+  { _drpRoleName  :: !Text
+  , _drpPolicyARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

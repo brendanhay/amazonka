@@ -64,11 +64,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVPNConnection' smart constructor.
 data CreateVPNConnection = CreateVPNConnection'
-  { _cvcOptions :: {-# NOUNPACK #-}!(Maybe VPNConnectionOptionsSpecification)
-  , _cvcDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cvcCustomerGatewayId :: {-# NOUNPACK #-}!Text
-  , _cvcType :: {-# NOUNPACK #-}!Text
-  , _cvcVPNGatewayId :: {-# NOUNPACK #-}!Text
+  { _cvcOptions           :: !(Maybe VPNConnectionOptionsSpecification)
+  , _cvcDryRun            :: !(Maybe Bool)
+  , _cvcCustomerGatewayId :: !Text
+  , _cvcType              :: !Text
+  , _cvcVPNGatewayId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,8 +156,8 @@ instance ToQuery CreateVPNConnection where
 --
 -- /See:/ 'createVPNConnectionResponse' smart constructor.
 data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
-  { _cvcrsVPNConnection  :: {-# NOUNPACK #-}!(Maybe VPNConnection)
-  , _cvcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cvcrsVPNConnection  :: !(Maybe VPNConnection)
+  , _cvcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

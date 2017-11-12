@@ -29,10 +29,10 @@ import Network.AWS.WAFRegional.Types.Sum
 --
 -- /See:/ 'activatedRule' smart constructor.
 data ActivatedRule = ActivatedRule'
-  { _arType     :: {-# NOUNPACK #-}!(Maybe WafRuleType)
-  , _arPriority :: {-# NOUNPACK #-}!Int
-  , _arRuleId   :: {-# NOUNPACK #-}!Text
-  , _arAction   :: {-# NOUNPACK #-}!WafAction
+  { _arType     :: !(Maybe WafRuleType)
+  , _arPriority :: !Int
+  , _arRuleId   :: !Text
+  , _arAction   :: !WafAction
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -107,9 +107,9 @@ instance ToJSON ActivatedRule where
 --
 -- /See:/ 'byteMatchSet' smart constructor.
 data ByteMatchSet = ByteMatchSet'
-  { _bmsName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bmsByteMatchSetId  :: {-# NOUNPACK #-}!Text
-  , _bmsByteMatchTuples :: {-# NOUNPACK #-}![ByteMatchTuple]
+  { _bmsName            :: !(Maybe Text)
+  , _bmsByteMatchSetId  :: !Text
+  , _bmsByteMatchTuples :: ![ByteMatchTuple]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -163,8 +163,8 @@ instance NFData ByteMatchSet where
 --
 -- /See:/ 'byteMatchSetSummary' smart constructor.
 data ByteMatchSetSummary = ByteMatchSetSummary'
-  { _bmssByteMatchSetId :: {-# NOUNPACK #-}!Text
-  , _bmssName           :: {-# NOUNPACK #-}!Text
+  { _bmssByteMatchSetId :: !Text
+  , _bmssName           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -209,8 +209,8 @@ instance NFData ByteMatchSetSummary where
 --
 -- /See:/ 'byteMatchSetUpdate' smart constructor.
 data ByteMatchSetUpdate = ByteMatchSetUpdate'
-  { _bmsuAction         :: {-# NOUNPACK #-}!ChangeAction
-  , _bmsuByteMatchTuple :: {-# NOUNPACK #-}!ByteMatchTuple
+  { _bmsuAction         :: !ChangeAction
+  , _bmsuByteMatchTuple :: !ByteMatchTuple
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -255,10 +255,10 @@ instance ToJSON ByteMatchSetUpdate where
 --
 -- /See:/ 'byteMatchTuple' smart constructor.
 data ByteMatchTuple = ByteMatchTuple'
-  { _bmtFieldToMatch         :: {-# NOUNPACK #-}!FieldToMatch
-  , _bmtTargetString         :: {-# NOUNPACK #-}!Base64
-  , _bmtTextTransformation   :: {-# NOUNPACK #-}!TextTransformation
-  , _bmtPositionalConstraint :: {-# NOUNPACK #-}!PositionalConstraint
+  { _bmtFieldToMatch         :: !FieldToMatch
+  , _bmtTargetString         :: !Base64
+  , _bmtTextTransformation   :: !TextTransformation
+  , _bmtPositionalConstraint :: !PositionalConstraint
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -335,8 +335,8 @@ instance ToJSON ByteMatchTuple where
 --
 -- /See:/ 'fieldToMatch' smart constructor.
 data FieldToMatch = FieldToMatch'
-  { _ftmData :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ftmType :: {-# NOUNPACK #-}!MatchFieldType
+  { _ftmData :: !(Maybe Text)
+  , _ftmType :: !MatchFieldType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -384,8 +384,8 @@ instance ToJSON FieldToMatch where
 --
 -- /See:/ 'geoMatchConstraint' smart constructor.
 data GeoMatchConstraint = GeoMatchConstraint'
-  { _gmcType  :: {-# NOUNPACK #-}!GeoMatchConstraintType
-  , _gmcValue :: {-# NOUNPACK #-}!GeoMatchConstraintValue
+  { _gmcType  :: !GeoMatchConstraintType
+  , _gmcValue :: !GeoMatchConstraintValue
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -436,9 +436,9 @@ instance ToJSON GeoMatchConstraint where
 --
 -- /See:/ 'geoMatchSet' smart constructor.
 data GeoMatchSet = GeoMatchSet'
-  { _gmsName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmsGeoMatchSetId       :: {-# NOUNPACK #-}!Text
-  , _gmsGeoMatchConstraints :: {-# NOUNPACK #-}![GeoMatchConstraint]
+  { _gmsName                :: !(Maybe Text)
+  , _gmsGeoMatchSetId       :: !Text
+  , _gmsGeoMatchConstraints :: ![GeoMatchConstraint]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -492,8 +492,8 @@ instance NFData GeoMatchSet where
 --
 -- /See:/ 'geoMatchSetSummary' smart constructor.
 data GeoMatchSetSummary = GeoMatchSetSummary'
-  { _gmssGeoMatchSetId :: {-# NOUNPACK #-}!Text
-  , _gmssName          :: {-# NOUNPACK #-}!Text
+  { _gmssGeoMatchSetId :: !Text
+  , _gmssName          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -537,8 +537,8 @@ instance NFData GeoMatchSetSummary where
 --
 -- /See:/ 'geoMatchSetUpdate' smart constructor.
 data GeoMatchSetUpdate = GeoMatchSetUpdate'
-  { _gmsuAction             :: {-# NOUNPACK #-}!ChangeAction
-  , _gmsuGeoMatchConstraint :: {-# NOUNPACK #-}!GeoMatchConstraint
+  { _gmsuAction             :: !ChangeAction
+  , _gmsuGeoMatchConstraint :: !GeoMatchConstraint
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -584,8 +584,8 @@ instance ToJSON GeoMatchSetUpdate where
 --
 -- /See:/ 'hTTPHeader' smart constructor.
 data HTTPHeader = HTTPHeader'
-  { _httphValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _httphName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _httphValue :: !(Maybe Text)
+  , _httphName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -625,12 +625,12 @@ instance NFData HTTPHeader where
 --
 -- /See:/ 'hTTPRequest' smart constructor.
 data HTTPRequest = HTTPRequest'
-  { _httprHTTPVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _httprCountry     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _httprURI         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _httprHeaders     :: {-# NOUNPACK #-}!(Maybe [HTTPHeader])
-  , _httprMethod      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _httprClientIP    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _httprHTTPVersion :: !(Maybe Text)
+  , _httprCountry     :: !(Maybe Text)
+  , _httprURI         :: !(Maybe Text)
+  , _httprHeaders     :: !(Maybe [HTTPHeader])
+  , _httprMethod      :: !(Maybe Text)
+  , _httprClientIP    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -709,9 +709,9 @@ instance NFData HTTPRequest where
 --
 -- /See:/ 'ipSet' smart constructor.
 data IPSet = IPSet'
-  { _isName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isIPSetId          :: {-# NOUNPACK #-}!Text
-  , _isIPSetDescriptors :: {-# NOUNPACK #-}![IPSetDescriptor]
+  { _isName             :: !(Maybe Text)
+  , _isIPSetId          :: !Text
+  , _isIPSetDescriptors :: ![IPSetDescriptor]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -762,8 +762,8 @@ instance NFData IPSet where
 --
 -- /See:/ 'ipSetDescriptor' smart constructor.
 data IPSetDescriptor = IPSetDescriptor'
-  { _isdType  :: {-# NOUNPACK #-}!IPSetDescriptorType
-  , _isdValue :: {-# NOUNPACK #-}!Text
+  { _isdType  :: !IPSetDescriptorType
+  , _isdValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -814,8 +814,8 @@ instance ToJSON IPSetDescriptor where
 --
 -- /See:/ 'ipSetSummary' smart constructor.
 data IPSetSummary = IPSetSummary'
-  { _issIPSetId :: {-# NOUNPACK #-}!Text
-  , _issName    :: {-# NOUNPACK #-}!Text
+  { _issIPSetId :: !Text
+  , _issName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -858,8 +858,8 @@ instance NFData IPSetSummary where
 --
 -- /See:/ 'ipSetUpdate' smart constructor.
 data IPSetUpdate = IPSetUpdate'
-  { _isuAction          :: {-# NOUNPACK #-}!ChangeAction
-  , _isuIPSetDescriptor :: {-# NOUNPACK #-}!IPSetDescriptor
+  { _isuAction          :: !ChangeAction
+  , _isuIPSetDescriptor :: !IPSetDescriptor
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -903,9 +903,9 @@ instance ToJSON IPSetUpdate where
 --
 -- /See:/ 'predicate' smart constructor.
 data Predicate = Predicate'
-  { _pNegated :: {-# NOUNPACK #-}!Bool
-  , _pType    :: {-# NOUNPACK #-}!PredicateType
-  , _pDataId  :: {-# NOUNPACK #-}!Text
+  { _pNegated :: !Bool
+  , _pType    :: !PredicateType
+  , _pDataId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -975,12 +975,12 @@ instance ToJSON Predicate where
 --
 -- /See:/ 'rateBasedRule' smart constructor.
 data RateBasedRule = RateBasedRule'
-  { _rbrMetricName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rbrName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rbrRuleId          :: {-# NOUNPACK #-}!Text
-  , _rbrMatchPredicates :: {-# NOUNPACK #-}![Predicate]
-  , _rbrRateKey         :: {-# NOUNPACK #-}!RateKey
-  , _rbrRateLimit       :: {-# NOUNPACK #-}!Nat
+  { _rbrMetricName      :: !(Maybe Text)
+  , _rbrName            :: !(Maybe Text)
+  , _rbrRuleId          :: !Text
+  , _rbrMatchPredicates :: ![Predicate]
+  , _rbrRateKey         :: !RateKey
+  , _rbrRateLimit       :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1062,9 +1062,9 @@ instance NFData RateBasedRule where
 --
 -- /See:/ 'regexMatchSet' smart constructor.
 data RegexMatchSet = RegexMatchSet'
-  { _rmsName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rmsRegexMatchTuples :: {-# NOUNPACK #-}!(Maybe [RegexMatchTuple])
-  , _rmsRegexMatchSetId  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rmsName             :: !(Maybe Text)
+  , _rmsRegexMatchTuples :: !(Maybe [RegexMatchTuple])
+  , _rmsRegexMatchSetId  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1118,8 +1118,8 @@ instance NFData RegexMatchSet where
 --
 -- /See:/ 'regexMatchSetSummary' smart constructor.
 data RegexMatchSetSummary = RegexMatchSetSummary'
-  { _rmssRegexMatchSetId :: {-# NOUNPACK #-}!Text
-  , _rmssName            :: {-# NOUNPACK #-}!Text
+  { _rmssRegexMatchSetId :: !Text
+  , _rmssName            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1164,8 +1164,8 @@ instance NFData RegexMatchSetSummary where
 --
 -- /See:/ 'regexMatchSetUpdate' smart constructor.
 data RegexMatchSetUpdate = RegexMatchSetUpdate'
-  { _rmsuAction          :: {-# NOUNPACK #-}!ChangeAction
-  , _rmsuRegexMatchTuple :: {-# NOUNPACK #-}!RegexMatchTuple
+  { _rmsuAction          :: !ChangeAction
+  , _rmsuRegexMatchTuple :: !RegexMatchTuple
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1218,9 +1218,9 @@ instance ToJSON RegexMatchSetUpdate where
 --
 -- /See:/ 'regexMatchTuple' smart constructor.
 data RegexMatchTuple = RegexMatchTuple'
-  { _rmtFieldToMatch       :: {-# NOUNPACK #-}!FieldToMatch
-  , _rmtTextTransformation :: {-# NOUNPACK #-}!TextTransformation
-  , _rmtRegexPatternSetId  :: {-# NOUNPACK #-}!Text
+  { _rmtFieldToMatch       :: !FieldToMatch
+  , _rmtTextTransformation :: !TextTransformation
+  , _rmtRegexPatternSetId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1285,9 +1285,9 @@ instance ToJSON RegexMatchTuple where
 --
 -- /See:/ 'regexPatternSet' smart constructor.
 data RegexPatternSet = RegexPatternSet'
-  { _rpsName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rpsRegexPatternSetId   :: {-# NOUNPACK #-}!Text
-  , _rpsRegexPatternStrings :: {-# NOUNPACK #-}![Text]
+  { _rpsName                :: !(Maybe Text)
+  , _rpsRegexPatternSetId   :: !Text
+  , _rpsRegexPatternStrings :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1341,8 +1341,8 @@ instance NFData RegexPatternSet where
 --
 -- /See:/ 'regexPatternSetSummary' smart constructor.
 data RegexPatternSetSummary = RegexPatternSetSummary'
-  { _rpssRegexPatternSetId :: {-# NOUNPACK #-}!Text
-  , _rpssName              :: {-# NOUNPACK #-}!Text
+  { _rpssRegexPatternSetId :: !Text
+  , _rpssName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1387,8 +1387,8 @@ instance NFData RegexPatternSetSummary where
 --
 -- /See:/ 'regexPatternSetUpdate' smart constructor.
 data RegexPatternSetUpdate = RegexPatternSetUpdate'
-  { _rpsuAction             :: {-# NOUNPACK #-}!ChangeAction
-  , _rpsuRegexPatternString :: {-# NOUNPACK #-}!Text
+  { _rpsuAction             :: !ChangeAction
+  , _rpsuRegexPatternString :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1442,10 +1442,10 @@ instance ToJSON RegexPatternSetUpdate where
 --
 -- /See:/ 'rule' smart constructor.
 data Rule = Rule'
-  { _rMetricName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rRuleId     :: {-# NOUNPACK #-}!Text
-  , _rPredicates :: {-# NOUNPACK #-}![Predicate]
+  { _rMetricName :: !(Maybe Text)
+  , _rName       :: !(Maybe Text)
+  , _rRuleId     :: !Text
+  , _rPredicates :: ![Predicate]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1507,8 +1507,8 @@ instance NFData Rule where
 --
 -- /See:/ 'ruleSummary' smart constructor.
 data RuleSummary = RuleSummary'
-  { _rsRuleId :: {-# NOUNPACK #-}!Text
-  , _rsName   :: {-# NOUNPACK #-}!Text
+  { _rsRuleId :: !Text
+  , _rsName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1551,8 +1551,8 @@ instance NFData RuleSummary where
 --
 -- /See:/ 'ruleUpdate' smart constructor.
 data RuleUpdate = RuleUpdate'
-  { _ruAction    :: {-# NOUNPACK #-}!ChangeAction
-  , _ruPredicate :: {-# NOUNPACK #-}!Predicate
+  { _ruAction    :: !ChangeAction
+  , _ruPredicate :: !Predicate
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1596,10 +1596,10 @@ instance ToJSON RuleUpdate where
 --
 -- /See:/ 'sampledHTTPRequest' smart constructor.
 data SampledHTTPRequest = SampledHTTPRequest'
-  { _shttprAction    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _shttprTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _shttprRequest   :: {-# NOUNPACK #-}!HTTPRequest
-  , _shttprWeight    :: {-# NOUNPACK #-}!Nat
+  { _shttprAction    :: !(Maybe Text)
+  , _shttprTimestamp :: !(Maybe POSIX)
+  , _shttprRequest   :: !HTTPRequest
+  , _shttprWeight    :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1662,10 +1662,10 @@ instance NFData SampledHTTPRequest where
 --
 -- /See:/ 'sizeConstraint' smart constructor.
 data SizeConstraint = SizeConstraint'
-  { _scFieldToMatch       :: {-# NOUNPACK #-}!FieldToMatch
-  , _scTextTransformation :: {-# NOUNPACK #-}!TextTransformation
-  , _scComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
-  , _scSize               :: {-# NOUNPACK #-}!Nat
+  { _scFieldToMatch       :: !FieldToMatch
+  , _scTextTransformation :: !TextTransformation
+  , _scComparisonOperator :: !ComparisonOperator
+  , _scSize               :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1739,9 +1739,9 @@ instance ToJSON SizeConstraint where
 --
 -- /See:/ 'sizeConstraintSet' smart constructor.
 data SizeConstraintSet = SizeConstraintSet'
-  { _scsName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scsSizeConstraintSetId :: {-# NOUNPACK #-}!Text
-  , _scsSizeConstraints     :: {-# NOUNPACK #-}![SizeConstraint]
+  { _scsName                :: !(Maybe Text)
+  , _scsSizeConstraintSetId :: !Text
+  , _scsSizeConstraints     :: ![SizeConstraint]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1795,8 +1795,8 @@ instance NFData SizeConstraintSet where
 --
 -- /See:/ 'sizeConstraintSetSummary' smart constructor.
 data SizeConstraintSetSummary = SizeConstraintSetSummary'
-  { _scssSizeConstraintSetId :: {-# NOUNPACK #-}!Text
-  , _scssName                :: {-# NOUNPACK #-}!Text
+  { _scssSizeConstraintSetId :: !Text
+  , _scssName                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1841,8 +1841,8 @@ instance NFData SizeConstraintSetSummary where
 --
 -- /See:/ 'sizeConstraintSetUpdate' smart constructor.
 data SizeConstraintSetUpdate = SizeConstraintSetUpdate'
-  { _scsuAction         :: {-# NOUNPACK #-}!ChangeAction
-  , _scsuSizeConstraint :: {-# NOUNPACK #-}!SizeConstraint
+  { _scsuAction         :: !ChangeAction
+  , _scsuSizeConstraint :: !SizeConstraint
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1887,9 +1887,9 @@ instance ToJSON SizeConstraintSetUpdate where
 --
 -- /See:/ 'sqlInjectionMatchSet' smart constructor.
 data SqlInjectionMatchSet = SqlInjectionMatchSet'
-  { _simsName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _simsSqlInjectionMatchSetId  :: {-# NOUNPACK #-}!Text
-  , _simsSqlInjectionMatchTuples :: {-# NOUNPACK #-}![SqlInjectionMatchTuple]
+  { _simsName                    :: !(Maybe Text)
+  , _simsSqlInjectionMatchSetId  :: !Text
+  , _simsSqlInjectionMatchTuples :: ![SqlInjectionMatchTuple]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1943,8 +1943,8 @@ instance NFData SqlInjectionMatchSet where
 --
 -- /See:/ 'sqlInjectionMatchSetSummary' smart constructor.
 data SqlInjectionMatchSetSummary = SqlInjectionMatchSetSummary'
-  { _simssSqlInjectionMatchSetId :: {-# NOUNPACK #-}!Text
-  , _simssName                   :: {-# NOUNPACK #-}!Text
+  { _simssSqlInjectionMatchSetId :: !Text
+  , _simssName                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1989,8 +1989,8 @@ instance NFData SqlInjectionMatchSetSummary where
 --
 -- /See:/ 'sqlInjectionMatchSetUpdate' smart constructor.
 data SqlInjectionMatchSetUpdate = SqlInjectionMatchSetUpdate'
-  { _simsuAction                 :: {-# NOUNPACK #-}!ChangeAction
-  , _simsuSqlInjectionMatchTuple :: {-# NOUNPACK #-}!SqlInjectionMatchTuple
+  { _simsuAction                 :: !ChangeAction
+  , _simsuSqlInjectionMatchTuple :: !SqlInjectionMatchTuple
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2039,8 +2039,8 @@ instance ToJSON SqlInjectionMatchSetUpdate where
 --
 -- /See:/ 'sqlInjectionMatchTuple' smart constructor.
 data SqlInjectionMatchTuple = SqlInjectionMatchTuple'
-  { _simtFieldToMatch       :: {-# NOUNPACK #-}!FieldToMatch
-  , _simtTextTransformation :: {-# NOUNPACK #-}!TextTransformation
+  { _simtFieldToMatch       :: !FieldToMatch
+  , _simtTextTransformation :: !TextTransformation
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2098,8 +2098,8 @@ instance ToJSON SqlInjectionMatchTuple where
 --
 -- /See:/ 'timeWindow' smart constructor.
 data TimeWindow = TimeWindow'
-  { _twStartTime :: {-# NOUNPACK #-}!POSIX
-  , _twEndTime   :: {-# NOUNPACK #-}!POSIX
+  { _twStartTime :: !POSIX
+  , _twEndTime   :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2189,11 +2189,11 @@ instance ToJSON WafAction where
 --
 -- /See:/ 'webACL' smart constructor.
 data WebACL = WebACL'
-  { _waMetricName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _waName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _waWebACLId      :: {-# NOUNPACK #-}!Text
-  , _waDefaultAction :: {-# NOUNPACK #-}!WafAction
-  , _waRules         :: {-# NOUNPACK #-}![ActivatedRule]
+  { _waMetricName    :: !(Maybe Text)
+  , _waName          :: !(Maybe Text)
+  , _waWebACLId      :: !Text
+  , _waDefaultAction :: !WafAction
+  , _waRules         :: ![ActivatedRule]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2264,8 +2264,8 @@ instance NFData WebACL where
 --
 -- /See:/ 'webACLSummary' smart constructor.
 data WebACLSummary = WebACLSummary'
-  { _wasWebACLId :: {-# NOUNPACK #-}!Text
-  , _wasName     :: {-# NOUNPACK #-}!Text
+  { _wasWebACLId :: !Text
+  , _wasName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2309,8 +2309,8 @@ instance NFData WebACLSummary where
 --
 -- /See:/ 'webACLUpdate' smart constructor.
 data WebACLUpdate = WebACLUpdate'
-  { _wauAction        :: {-# NOUNPACK #-}!ChangeAction
-  , _wauActivatedRule :: {-# NOUNPACK #-}!ActivatedRule
+  { _wauAction        :: !ChangeAction
+  , _wauActivatedRule :: !ActivatedRule
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2354,9 +2354,9 @@ instance ToJSON WebACLUpdate where
 --
 -- /See:/ 'xssMatchSet' smart constructor.
 data XSSMatchSet = XSSMatchSet'
-  { _xmsName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _xmsXSSMatchSetId  :: {-# NOUNPACK #-}!Text
-  , _xmsXSSMatchTuples :: {-# NOUNPACK #-}![XSSMatchTuple]
+  { _xmsName           :: !(Maybe Text)
+  , _xmsXSSMatchSetId  :: !Text
+  , _xmsXSSMatchTuples :: ![XSSMatchTuple]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2410,8 +2410,8 @@ instance NFData XSSMatchSet where
 --
 -- /See:/ 'xssMatchSetSummary' smart constructor.
 data XSSMatchSetSummary = XSSMatchSetSummary'
-  { _xmssXSSMatchSetId :: {-# NOUNPACK #-}!Text
-  , _xmssName          :: {-# NOUNPACK #-}!Text
+  { _xmssXSSMatchSetId :: !Text
+  , _xmssName          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2455,8 +2455,8 @@ instance NFData XSSMatchSetSummary where
 --
 -- /See:/ 'xssMatchSetUpdate' smart constructor.
 data XSSMatchSetUpdate = XSSMatchSetUpdate'
-  { _xmsuAction        :: {-# NOUNPACK #-}!ChangeAction
-  , _xmsuXSSMatchTuple :: {-# NOUNPACK #-}!XSSMatchTuple
+  { _xmsuAction        :: !ChangeAction
+  , _xmsuXSSMatchTuple :: !XSSMatchTuple
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2501,8 +2501,8 @@ instance ToJSON XSSMatchSetUpdate where
 --
 -- /See:/ 'xssMatchTuple' smart constructor.
 data XSSMatchTuple = XSSMatchTuple'
-  { _xmtFieldToMatch       :: {-# NOUNPACK #-}!FieldToMatch
-  , _xmtTextTransformation :: {-# NOUNPACK #-}!TextTransformation
+  { _xmtFieldToMatch       :: !FieldToMatch
+  , _xmtTextTransformation :: !TextTransformation
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

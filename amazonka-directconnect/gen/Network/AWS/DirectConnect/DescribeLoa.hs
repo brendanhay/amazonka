@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeLoa' smart constructor.
 data DescribeLoa = DescribeLoa'
-  { _dlLoaContentType :: {-# NOUNPACK #-}!(Maybe LoaContentType)
-  , _dlProviderName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlConnectionId   :: {-# NOUNPACK #-}!Text
+  { _dlLoaContentType :: !(Maybe LoaContentType)
+  , _dlProviderName   :: !(Maybe Text)
+  , _dlConnectionId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,9 +136,9 @@ instance ToQuery DescribeLoa where
 --
 -- /See:/ 'describeLoaResponse' smart constructor.
 data DescribeLoaResponse = DescribeLoaResponse'
-  { _dlrsLoaContent     :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _dlrsLoaContentType :: {-# NOUNPACK #-}!(Maybe LoaContentType)
-  , _dlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dlrsLoaContent     :: !(Maybe Base64)
+  , _dlrsLoaContentType :: !(Maybe LoaContentType)
+  , _dlrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

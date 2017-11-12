@@ -71,9 +71,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeMatchmakingRuleSets' smart constructor.
 data DescribeMatchmakingRuleSets = DescribeMatchmakingRuleSets'
-  { _dmrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmrsNames     :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _dmrsLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dmrsNextToken :: !(Maybe Text)
+  , _dmrsNames     :: !(Maybe (List1 Text))
+  , _dmrsLimit     :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery DescribeMatchmakingRuleSets where
 --
 -- /See:/ 'describeMatchmakingRuleSetsResponse' smart constructor.
 data DescribeMatchmakingRuleSetsResponse = DescribeMatchmakingRuleSetsResponse'
-  { _dmrsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmrsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dmrsrsRuleSets       :: {-# NOUNPACK #-}![MatchmakingRuleSet]
+  { _dmrsrsNextToken      :: !(Maybe Text)
+  , _dmrsrsResponseStatus :: !Int
+  , _dmrsrsRuleSets       :: ![MatchmakingRuleSet]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

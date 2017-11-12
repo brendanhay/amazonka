@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteDataset' smart constructor.
 data DeleteDataset = DeleteDataset'
-  { _delIdentityPoolId :: {-# NOUNPACK #-}!Text
-  , _delIdentityId     :: {-# NOUNPACK #-}!Text
-  , _delDatasetName    :: {-# NOUNPACK #-}!Text
+  { _delIdentityPoolId :: !Text
+  , _delIdentityId     :: !Text
+  , _delDatasetName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery DeleteDataset where
 --
 -- /See:/ 'deleteDatasetResponse' smart constructor.
 data DeleteDatasetResponse = DeleteDatasetResponse'
-  { _drsDataset        :: {-# NOUNPACK #-}!(Maybe Dataset)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsDataset        :: !(Maybe Dataset)
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

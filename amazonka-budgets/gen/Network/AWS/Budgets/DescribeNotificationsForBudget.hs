@@ -50,10 +50,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeNotificationsForBudget' smart constructor.
 data DescribeNotificationsForBudget = DescribeNotificationsForBudget'
-  { _dnfbNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnfbMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dnfbAccountId  :: {-# NOUNPACK #-}!Text
-  , _dnfbBudgetName :: {-# NOUNPACK #-}!Text
+  { _dnfbNextToken  :: !(Maybe Text)
+  , _dnfbMaxResults :: !(Maybe Nat)
+  , _dnfbAccountId  :: !Text
+  , _dnfbBudgetName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -145,9 +145,9 @@ instance ToQuery DescribeNotificationsForBudget where
 --
 -- /See:/ 'describeNotificationsForBudgetResponse' smart constructor.
 data DescribeNotificationsForBudgetResponse = DescribeNotificationsForBudgetResponse'
-  { _dnfbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dnfbrsNotifications  :: {-# NOUNPACK #-}!(Maybe [Notification])
-  , _dnfbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dnfbrsNextToken      :: !(Maybe Text)
+  , _dnfbrsNotifications  :: !(Maybe [Notification])
+  , _dnfbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

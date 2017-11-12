@@ -63,18 +63,18 @@ import Network.AWS.Response
 --
 -- /See:/ 'restoreDBClusterToPointInTime' smart constructor.
 data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
-  { _rdctpitUseLatestRestorableTime         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdctpitDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdctpitKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdctpitVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rdctpitRestoreType                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdctpitOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdctpitRestoreToTime                   :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _rdctpitTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _rdctpitPort                            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rdctpitEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdctpitDBClusterIdentifier             :: {-# NOUNPACK #-}!Text
-  , _rdctpitSourceDBClusterIdentifier       :: {-# NOUNPACK #-}!Text
+  { _rdctpitUseLatestRestorableTime         :: !(Maybe Bool)
+  , _rdctpitDBSubnetGroupName               :: !(Maybe Text)
+  , _rdctpitKMSKeyId                        :: !(Maybe Text)
+  , _rdctpitVPCSecurityGroupIds             :: !(Maybe [Text])
+  , _rdctpitRestoreType                     :: !(Maybe Text)
+  , _rdctpitOptionGroupName                 :: !(Maybe Text)
+  , _rdctpitRestoreToTime                   :: !(Maybe ISO8601)
+  , _rdctpitTags                            :: !(Maybe [Tag])
+  , _rdctpitPort                            :: !(Maybe Int)
+  , _rdctpitEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+  , _rdctpitDBClusterIdentifier             :: !Text
+  , _rdctpitSourceDBClusterIdentifier       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -225,8 +225,8 @@ instance ToQuery RestoreDBClusterToPointInTime where
 
 -- | /See:/ 'restoreDBClusterToPointInTimeResponse' smart constructor.
 data RestoreDBClusterToPointInTimeResponse = RestoreDBClusterToPointInTimeResponse'
-  { _rdctpitrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
-  , _rdctpitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rdctpitrsDBCluster      :: !(Maybe DBCluster)
+  , _rdctpitrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

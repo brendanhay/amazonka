@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDBInstances' smart constructor.
 data DescribeDBInstances = DescribeDBInstances'
-  { _ddbiFilters              :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _ddbiDBInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbiMarker               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbiMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ddbiFilters              :: !(Maybe [Filter])
+  , _ddbiDBInstanceIdentifier :: !(Maybe Text)
+  , _ddbiMarker               :: !(Maybe Text)
+  , _ddbiMaxRecords           :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery DescribeDBInstances where
 --
 -- /See:/ 'describeDBInstancesResponse' smart constructor.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
-  { _ddbirsDBInstances    :: {-# NOUNPACK #-}!(Maybe [DBInstance])
-  , _ddbirsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddbirsDBInstances    :: !(Maybe [DBInstance])
+  , _ddbirsMarker         :: !(Maybe Text)
+  , _ddbirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

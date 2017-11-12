@@ -73,16 +73,16 @@ import Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'registerDomain' smart constructor.
 data RegisterDomain = RegisterDomain'
-  { _rPrivacyProtectTechContact :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rPrivacyProtectRegistrantContact :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rAutoRenew :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rPrivacyProtectAdminContact :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rIdNLangCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rDomainName :: {-# NOUNPACK #-}!Text
-  , _rDurationInYears :: {-# NOUNPACK #-}!Nat
-  , _rAdminContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
-  , _rRegistrantContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
-  , _rTechContact :: {-# NOUNPACK #-}!(Sensitive ContactDetail)
+  { _rPrivacyProtectTechContact       :: !(Maybe Bool)
+  , _rPrivacyProtectRegistrantContact :: !(Maybe Bool)
+  , _rAutoRenew                       :: !(Maybe Bool)
+  , _rPrivacyProtectAdminContact      :: !(Maybe Bool)
+  , _rIdNLangCode                     :: !(Maybe Text)
+  , _rDomainName                      :: !Text
+  , _rDurationInYears                 :: !Nat
+  , _rAdminContact                    :: !(Sensitive ContactDetail)
+  , _rRegistrantContact               :: !(Sensitive ContactDetail)
+  , _rTechContact                     :: !(Sensitive ContactDetail)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -224,8 +224,8 @@ instance ToQuery RegisterDomain where
 --
 -- /See:/ 'registerDomainResponse' smart constructor.
 data RegisterDomainResponse = RegisterDomainResponse'
-  { _rdrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _rdrsOperationId    :: {-# NOUNPACK #-}!Text
+  { _rdrsResponseStatus :: !Int
+  , _rdrsOperationId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

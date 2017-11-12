@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'addInstanceGroups' smart constructor.
 data AddInstanceGroups = AddInstanceGroups'
-  { _aigInstanceGroups :: {-# NOUNPACK #-}![InstanceGroupConfig]
-  , _aigJobFlowId      :: {-# NOUNPACK #-}!Text
+  { _aigInstanceGroups :: ![InstanceGroupConfig]
+  , _aigJobFlowId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery AddInstanceGroups where
 --
 -- /See:/ 'addInstanceGroupsResponse' smart constructor.
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
-  { _aigrsJobFlowId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aigrsInstanceGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _aigrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _aigrsJobFlowId        :: !(Maybe Text)
+  , _aigrsInstanceGroupIds :: !(Maybe [Text])
+  , _aigrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

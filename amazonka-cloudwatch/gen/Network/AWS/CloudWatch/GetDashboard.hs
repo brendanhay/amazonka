@@ -98,10 +98,10 @@ instance ToQuery GetDashboard where
 
 -- | /See:/ 'getDashboardResponse' smart constructor.
 data GetDashboardResponse = GetDashboardResponse'
-  { _gdrsDashboardName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdrsDashboardBody  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdrsDashboardARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdrsDashboardName  :: !(Maybe Text)
+  , _gdrsDashboardBody  :: !(Maybe Text)
+  , _gdrsDashboardARN   :: !(Maybe Text)
+  , _gdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

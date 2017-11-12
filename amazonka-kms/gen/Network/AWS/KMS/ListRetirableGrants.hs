@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listRetirableGrants' smart constructor.
 data ListRetirableGrants = ListRetirableGrants'
-  { _lrgMarker            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrgLimit             :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lrgRetiringPrincipal :: {-# NOUNPACK #-}!Text
+  { _lrgMarker            :: !(Maybe Text)
+  , _lrgLimit             :: !(Maybe Nat)
+  , _lrgRetiringPrincipal :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -63,20 +63,20 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateUserPoolClient' smart constructor.
 data UpdateUserPoolClient = UpdateUserPoolClient'
-  { _uupcRefreshTokenValidity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _uupcExplicitAuthFlows :: {-# NOUNPACK #-}!(Maybe [ExplicitAuthFlowsType])
-  , _uupcSupportedIdentityProviders :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uupcLogoutURLs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uupcAllowedOAuthFlowsUserPoolClient :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uupcDefaultRedirectURI :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uupcWriteAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uupcReadAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uupcAllowedOAuthScopes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uupcAllowedOAuthFlows :: {-# NOUNPACK #-}!(Maybe [OAuthFlowType])
-  , _uupcClientName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uupcCallbackURLs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uupcUserPoolId :: {-# NOUNPACK #-}!Text
-  , _uupcClientId :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _uupcRefreshTokenValidity            :: !(Maybe Nat)
+  , _uupcExplicitAuthFlows               :: !(Maybe [ExplicitAuthFlowsType])
+  , _uupcSupportedIdentityProviders      :: !(Maybe [Text])
+  , _uupcLogoutURLs                      :: !(Maybe [Text])
+  , _uupcAllowedOAuthFlowsUserPoolClient :: !(Maybe Bool)
+  , _uupcDefaultRedirectURI              :: !(Maybe Text)
+  , _uupcWriteAttributes                 :: !(Maybe [Text])
+  , _uupcReadAttributes                  :: !(Maybe [Text])
+  , _uupcAllowedOAuthScopes              :: !(Maybe [Text])
+  , _uupcAllowedOAuthFlows               :: !(Maybe [OAuthFlowType])
+  , _uupcClientName                      :: !(Maybe Text)
+  , _uupcCallbackURLs                    :: !(Maybe [Text])
+  , _uupcUserPoolId                      :: !Text
+  , _uupcClientId                        :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -250,8 +250,8 @@ instance ToQuery UpdateUserPoolClient where
 --
 -- /See:/ 'updateUserPoolClientResponse' smart constructor.
 data UpdateUserPoolClientResponse = UpdateUserPoolClientResponse'
-  { _uupcrsUserPoolClient :: {-# NOUNPACK #-}!(Maybe UserPoolClientType)
-  , _uupcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uupcrsUserPoolClient :: !(Maybe UserPoolClientType)
+  , _uupcrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

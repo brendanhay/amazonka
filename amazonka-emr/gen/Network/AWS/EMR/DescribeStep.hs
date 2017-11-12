@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeStep' smart constructor.
 data DescribeStep = DescribeStep'
-  { _dsClusterId :: {-# NOUNPACK #-}!Text
-  , _dsStepId    :: {-# NOUNPACK #-}!Text
+  { _dsClusterId :: !Text
+  , _dsStepId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,8 +120,8 @@ instance ToQuery DescribeStep where
 --
 -- /See:/ 'describeStepResponse' smart constructor.
 data DescribeStepResponse = DescribeStepResponse'
-  { _dsrsStep           :: {-# NOUNPACK #-}!(Maybe Step)
-  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsrsStep           :: !(Maybe Step)
+  , _dsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

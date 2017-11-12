@@ -52,8 +52,8 @@ import Network.AWS.WAFRegional.Types.Product
 --
 -- /See:/ 'listXSSMatchSets' smart constructor.
 data ListXSSMatchSets = ListXSSMatchSets'
-  { _lxmsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lxmsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lxmsNextMarker :: !(Maybe Text)
+  , _lxmsLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery ListXSSMatchSets where
 --
 -- /See:/ 'listXSSMatchSetsResponse' smart constructor.
 data ListXSSMatchSetsResponse = ListXSSMatchSetsResponse'
-  { _lxmsrsXSSMatchSets   :: {-# NOUNPACK #-}!(Maybe [XSSMatchSetSummary])
-  , _lxmsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lxmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lxmsrsXSSMatchSets   :: !(Maybe [XSSMatchSetSummary])
+  , _lxmsrsNextMarker     :: !(Maybe Text)
+  , _lxmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

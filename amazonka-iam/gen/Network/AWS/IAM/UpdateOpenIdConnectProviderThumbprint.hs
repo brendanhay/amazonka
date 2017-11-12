@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateOpenIdConnectProviderThumbprint' smart constructor.
 data UpdateOpenIdConnectProviderThumbprint = UpdateOpenIdConnectProviderThumbprint'
-  { _uoicptOpenIdConnectProviderARN :: {-# NOUNPACK #-}!Text
-  , _uoicptThumbprintList           :: {-# NOUNPACK #-}![Text]
+  { _uoicptOpenIdConnectProviderARN :: !Text
+  , _uoicptThumbprintList           :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

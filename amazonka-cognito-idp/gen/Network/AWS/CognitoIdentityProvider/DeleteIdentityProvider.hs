@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteIdentityProvider' smart constructor.
 data DeleteIdentityProvider = DeleteIdentityProvider'
-  { _delUserPoolId   :: {-# NOUNPACK #-}!Text
-  , _delProviderName :: {-# NOUNPACK #-}!Text
+  { _delUserPoolId   :: !Text
+  , _delProviderName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

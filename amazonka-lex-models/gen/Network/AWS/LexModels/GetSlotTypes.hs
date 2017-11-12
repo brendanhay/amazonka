@@ -57,9 +57,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getSlotTypes' smart constructor.
 data GetSlotTypes = GetSlotTypes'
-  { _gstNameContains :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gstNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gstMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gstNameContains :: !(Maybe Text)
+  , _gstNextToken    :: !(Maybe Text)
+  , _gstMaxResults   :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery GetSlotTypes where
 
 -- | /See:/ 'getSlotTypesResponse' smart constructor.
 data GetSlotTypesResponse = GetSlotTypesResponse'
-  { _gstrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gstrsSlotTypes      :: {-# NOUNPACK #-}!(Maybe [SlotTypeMetadata])
-  , _gstrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gstrsNextToken      :: !(Maybe Text)
+  , _gstrsSlotTypes      :: !(Maybe [SlotTypeMetadata])
+  , _gstrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

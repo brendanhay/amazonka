@@ -76,17 +76,17 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'sendTemplatedEmail' smart constructor.
 data SendTemplatedEmail = SendTemplatedEmail'
-  { _steReturnPath           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _steConfigurationSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _steSourceARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _steReturnPathARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _steTemplateARN          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _steTags                 :: {-# NOUNPACK #-}!(Maybe [MessageTag])
-  , _steReplyToAddresses     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _steSource               :: {-# NOUNPACK #-}!Text
-  , _steDestination          :: {-# NOUNPACK #-}!Destination
-  , _steTemplate             :: {-# NOUNPACK #-}!Text
-  , _steTemplateData         :: {-# NOUNPACK #-}!Text
+  { _steReturnPath           :: !(Maybe Text)
+  , _steConfigurationSetName :: !(Maybe Text)
+  , _steSourceARN            :: !(Maybe Text)
+  , _steReturnPathARN        :: !(Maybe Text)
+  , _steTemplateARN          :: !(Maybe Text)
+  , _steTags                 :: !(Maybe [MessageTag])
+  , _steReplyToAddresses     :: !(Maybe [Text])
+  , _steSource               :: !Text
+  , _steDestination          :: !Destination
+  , _steTemplate             :: !Text
+  , _steTemplateData         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -223,8 +223,8 @@ instance ToQuery SendTemplatedEmail where
 
 -- | /See:/ 'sendTemplatedEmailResponse' smart constructor.
 data SendTemplatedEmailResponse = SendTemplatedEmailResponse'
-  { _stersResponseStatus :: {-# NOUNPACK #-}!Int
-  , _stersMessageId      :: {-# NOUNPACK #-}!Text
+  { _stersResponseStatus :: !Int
+  , _stersMessageId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

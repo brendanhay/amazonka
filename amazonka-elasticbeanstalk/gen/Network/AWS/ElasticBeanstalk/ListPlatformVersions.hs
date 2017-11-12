@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listPlatformVersions' smart constructor.
 data ListPlatformVersions = ListPlatformVersions'
-  { _lpvFilters    :: {-# NOUNPACK #-}!(Maybe [PlatformFilter])
-  , _lpvNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpvMaxRecords :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lpvFilters    :: !(Maybe [PlatformFilter])
+  , _lpvNextToken  :: !(Maybe Text)
+  , _lpvMaxRecords :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,9 +118,9 @@ instance ToQuery ListPlatformVersions where
 
 -- | /See:/ 'listPlatformVersionsResponse' smart constructor.
 data ListPlatformVersionsResponse = ListPlatformVersionsResponse'
-  { _lpvrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpvrsPlatformSummaryList :: {-# NOUNPACK #-}!(Maybe [PlatformSummary])
-  , _lpvrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _lpvrsNextToken           :: !(Maybe Text)
+  , _lpvrsPlatformSummaryList :: !(Maybe [PlatformSummary])
+  , _lpvrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

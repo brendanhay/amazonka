@@ -58,14 +58,14 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'initiateDocumentVersionUpload' smart constructor.
 data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
-  { _idvuDocumentSizeInBytes      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _idvuContentCreatedTimestamp  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _idvuAuthenticationToken      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _idvuName                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _idvuId                       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _idvuContentModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _idvuContentType              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _idvuParentFolderId           :: {-# NOUNPACK #-}!Text
+  { _idvuDocumentSizeInBytes      :: !(Maybe Integer)
+  , _idvuContentCreatedTimestamp  :: !(Maybe POSIX)
+  , _idvuAuthenticationToken      :: !(Maybe (Sensitive Text))
+  , _idvuName                     :: !(Maybe Text)
+  , _idvuId                       :: !(Maybe Text)
+  , _idvuContentModifiedTimestamp :: !(Maybe POSIX)
+  , _idvuContentType              :: !(Maybe Text)
+  , _idvuParentFolderId           :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -182,9 +182,9 @@ instance ToQuery InitiateDocumentVersionUpload where
 
 -- | /See:/ 'initiateDocumentVersionUploadResponse' smart constructor.
 data InitiateDocumentVersionUploadResponse = InitiateDocumentVersionUploadResponse'
-  { _idvursMetadata       :: {-# NOUNPACK #-}!(Maybe DocumentMetadata)
-  , _idvursUploadMetadata :: {-# NOUNPACK #-}!(Maybe UploadMetadata)
-  , _idvursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _idvursMetadata       :: !(Maybe DocumentMetadata)
+  , _idvursUploadMetadata :: !(Maybe UploadMetadata)
+  , _idvursResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

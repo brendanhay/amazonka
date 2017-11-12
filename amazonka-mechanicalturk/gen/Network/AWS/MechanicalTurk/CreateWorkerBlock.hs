@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createWorkerBlock' smart constructor.
 data CreateWorkerBlock = CreateWorkerBlock'
-  { _cwbWorkerId :: {-# NOUNPACK #-}!Text
-  , _cwbReason   :: {-# NOUNPACK #-}!Text
+  { _cwbWorkerId :: !Text
+  , _cwbReason   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,11 +49,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'sendBonus' smart constructor.
 data SendBonus = SendBonus'
-  { _sbUniqueRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbWorkerId           :: {-# NOUNPACK #-}!Text
-  , _sbBonusAmount        :: {-# NOUNPACK #-}!Text
-  , _sbAssignmentId       :: {-# NOUNPACK #-}!Text
-  , _sbReason             :: {-# NOUNPACK #-}!Text
+  { _sbUniqueRequestToken :: !(Maybe Text)
+  , _sbWorkerId           :: !Text
+  , _sbBonusAmount        :: !Text
+  , _sbAssignmentId       :: !Text
+  , _sbReason             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

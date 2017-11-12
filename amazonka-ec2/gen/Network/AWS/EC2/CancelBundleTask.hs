@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'cancelBundleTask' smart constructor.
 data CancelBundleTask = CancelBundleTask'
-  { _cbtDryRun   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cbtBundleId :: {-# NOUNPACK #-}!Text
+  { _cbtDryRun   :: !(Maybe Bool)
+  , _cbtBundleId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,8 +110,8 @@ instance ToQuery CancelBundleTask where
 --
 -- /See:/ 'cancelBundleTaskResponse' smart constructor.
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
-  { _cbtrsBundleTask     :: {-# NOUNPACK #-}!(Maybe BundleTask)
-  , _cbtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cbtrsBundleTask     :: !(Maybe BundleTask)
+  , _cbtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -106,8 +106,8 @@ instance ToQuery DescribeHandshake where
 
 -- | /See:/ 'describeHandshakeResponse' smart constructor.
 data DescribeHandshakeResponse = DescribeHandshakeResponse'
-  { _dhrsHandshake      :: {-# NOUNPACK #-}!(Maybe Handshake)
-  , _dhrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dhrsHandshake      :: !(Maybe Handshake)
+  , _dhrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

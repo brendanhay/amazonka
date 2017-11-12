@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'stopStackSetOperation' smart constructor.
 data StopStackSetOperation = StopStackSetOperation'
-  { _sssoStackSetName :: {-# NOUNPACK #-}!Text
-  , _sssoOperationId  :: {-# NOUNPACK #-}!Text
+  { _sssoStackSetName :: !Text
+  , _sssoOperationId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'rebuildEnvironment' smart constructor.
 data RebuildEnvironment = RebuildEnvironment'
-  { _reEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _reEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _reEnvironmentName :: !(Maybe Text)
+  , _reEnvironmentId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

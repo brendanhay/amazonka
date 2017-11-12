@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getId' smart constructor.
 data GetId = GetId'
-  { _giAccountId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giLogins         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _giIdentityPoolId :: {-# NOUNPACK #-}!Text
+  { _giAccountId      :: !(Maybe Text)
+  , _giLogins         :: !(Maybe (Map Text Text))
+  , _giIdentityPoolId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery GetId where
 --
 -- /See:/ 'getIdResponse' smart constructor.
 data GetIdResponse = GetIdResponse'
-  { _girsIdentityId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _girsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _girsIdentityId     :: !(Maybe Text)
+  , _girsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

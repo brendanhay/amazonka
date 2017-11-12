@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'cancelImportTask' smart constructor.
 data CancelImportTask = CancelImportTask'
-  { _citCancelReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _citImportTaskId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _citDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _citCancelReason :: !(Maybe Text)
+  , _citImportTaskId :: !(Maybe Text)
+  , _citDryRun       :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,10 +124,10 @@ instance ToQuery CancelImportTask where
 --
 -- /See:/ 'cancelImportTaskResponse' smart constructor.
 data CancelImportTaskResponse = CancelImportTaskResponse'
-  { _citrsState          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _citrsImportTaskId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _citrsPreviousState  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _citrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _citrsState          :: !(Maybe Text)
+  , _citrsImportTaskId   :: !(Maybe Text)
+  , _citrsPreviousState  :: !(Maybe Text)
+  , _citrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

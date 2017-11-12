@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteAccessKey' smart constructor.
 data DeleteAccessKey = DeleteAccessKey'
-  { _dakUserName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dakAccessKeyId :: {-# NOUNPACK #-}!AccessKey
+  { _dakUserName    :: !(Maybe Text)
+  , _dakAccessKeyId :: !AccessKey
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

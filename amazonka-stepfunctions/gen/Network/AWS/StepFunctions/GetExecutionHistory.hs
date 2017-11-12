@@ -53,10 +53,10 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'getExecutionHistory' smart constructor.
 data GetExecutionHistory = GetExecutionHistory'
-  { _gehReverseOrder :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gehNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gehMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gehExecutionARN :: {-# NOUNPACK #-}!Text
+  { _gehReverseOrder :: !(Maybe Bool)
+  , _gehNextToken    :: !(Maybe Text)
+  , _gehMaxResults   :: !(Maybe Nat)
+  , _gehExecutionARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,9 +148,9 @@ instance ToQuery GetExecutionHistory where
 
 -- | /See:/ 'getExecutionHistoryResponse' smart constructor.
 data GetExecutionHistoryResponse = GetExecutionHistoryResponse'
-  { _gehrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gehrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gehrsEvents         :: {-# NOUNPACK #-}![HistoryEvent]
+  { _gehrsNextToken      :: !(Maybe Text)
+  , _gehrsResponseStatus :: !Int
+  , _gehrsEvents         :: ![HistoryEvent]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

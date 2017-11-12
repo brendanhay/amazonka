@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describePatchGroups' smart constructor.
 data DescribePatchGroups = DescribePatchGroups'
-  { _dpgFilters    :: {-# NOUNPACK #-}!(Maybe [PatchOrchestratorFilter])
-  , _dpgNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpgMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dpgFilters    :: !(Maybe [PatchOrchestratorFilter])
+  , _dpgNextToken  :: !(Maybe Text)
+  , _dpgMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery DescribePatchGroups where
 
 -- | /See:/ 'describePatchGroupsResponse' smart constructor.
 data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
-  { _dpgrsMappings :: {-# NOUNPACK #-}!(Maybe [PatchGroupPatchBaselineMapping])
-  , _dpgrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dpgrsMappings       :: !(Maybe [PatchGroupPatchBaselineMapping])
+  , _dpgrsNextToken      :: !(Maybe Text)
+  , _dpgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

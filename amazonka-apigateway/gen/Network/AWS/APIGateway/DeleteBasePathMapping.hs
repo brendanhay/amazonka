@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteBasePathMapping' smart constructor.
 data DeleteBasePathMapping = DeleteBasePathMapping'
-  { _dbpmDomainName :: {-# NOUNPACK #-}!Text
-  , _dbpmBasePath   :: {-# NOUNPACK #-}!Text
+  { _dbpmDomainName :: !Text
+  , _dbpmBasePath   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

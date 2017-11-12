@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'listCertificatesByCA' smart constructor.
 data ListCertificatesByCA = ListCertificatesByCA'
-  { _lcbcaMarker          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcbcaAscendingOrder  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lcbcaPageSize        :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lcbcaCaCertificateId :: {-# NOUNPACK #-}!Text
+  { _lcbcaMarker          :: !(Maybe Text)
+  , _lcbcaAscendingOrder  :: !(Maybe Bool)
+  , _lcbcaPageSize        :: !(Maybe Nat)
+  , _lcbcaCaCertificateId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,9 +147,9 @@ instance ToQuery ListCertificatesByCA where
 --
 -- /See:/ 'listCertificatesByCAResponse' smart constructor.
 data ListCertificatesByCAResponse = ListCertificatesByCAResponse'
-  { _lcbcarsCertificates   :: {-# NOUNPACK #-}!(Maybe [Certificate])
-  , _lcbcarsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcbcarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcbcarsCertificates   :: !(Maybe [Certificate])
+  , _lcbcarsNextMarker     :: !(Maybe Text)
+  , _lcbcarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -92,9 +92,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'copySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
-  { _csTargetBucket       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csSourceSnapshotName :: {-# NOUNPACK #-}!Text
-  , _csTargetSnapshotName :: {-# NOUNPACK #-}!Text
+  { _csTargetBucket       :: !(Maybe Text)
+  , _csSourceSnapshotName :: !Text
+  , _csTargetSnapshotName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -161,8 +161,8 @@ instance ToQuery CopySnapshot where
 
 -- | /See:/ 'copySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
-  { _csrsSnapshot       :: {-# NOUNPACK #-}!(Maybe Snapshot)
-  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csrsSnapshot       :: !(Maybe Snapshot)
+  , _csrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

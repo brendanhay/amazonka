@@ -111,10 +111,10 @@ instance ToQuery CreateDistributionWithTags where
 --
 -- /See:/ 'createDistributionWithTagsResponse' smart constructor.
 data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
-  { _cdwtrsETag           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdwtrsDistribution   :: {-# NOUNPACK #-}!(Maybe Distribution)
-  , _cdwtrsLocation       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdwtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdwtrsETag           :: !(Maybe Text)
+  , _cdwtrsDistribution   :: !(Maybe Distribution)
+  , _cdwtrsLocation       :: !(Maybe Text)
+  , _cdwtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

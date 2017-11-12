@@ -105,8 +105,8 @@ instance ToQuery GetSizeConstraintSet where
 
 -- | /See:/ 'getSizeConstraintSetResponse' smart constructor.
 data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
-  { _gscsrsSizeConstraintSet :: {-# NOUNPACK #-}!(Maybe SizeConstraintSet)
-  , _gscsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gscsrsSizeConstraintSet :: !(Maybe SizeConstraintSet)
+  , _gscsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

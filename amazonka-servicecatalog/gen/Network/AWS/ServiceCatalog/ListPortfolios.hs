@@ -49,9 +49,9 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listPortfolios' smart constructor.
 data ListPortfolios = ListPortfolios'
-  { _lpAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lpAcceptLanguage :: !(Maybe Text)
+  , _lpPageToken      :: !(Maybe Text)
+  , _lpPageSize       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery ListPortfolios where
 
 -- | /See:/ 'listPortfoliosResponse' smart constructor.
 data ListPortfoliosResponse = ListPortfoliosResponse'
-  { _lprsNextPageToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lprsPortfolioDetails :: {-# NOUNPACK #-}!(Maybe [PortfolioDetail])
-  , _lprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _lprsNextPageToken    :: !(Maybe Text)
+  , _lprsPortfolioDetails :: !(Maybe [PortfolioDetail])
+  , _lprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

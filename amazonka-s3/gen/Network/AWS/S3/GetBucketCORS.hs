@@ -89,8 +89,8 @@ instance ToQuery GetBucketCORS where
 
 -- | /See:/ 'getBucketCORSResponse' smart constructor.
 data GetBucketCORSResponse = GetBucketCORSResponse'
-  { _gbcrsCORSRules      :: {-# NOUNPACK #-}!(Maybe [CORSRule])
-  , _gbcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbcrsCORSRules      :: !(Maybe [CORSRule])
+  , _gbcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -126,10 +126,10 @@ instance ToQuery CreateCloudFrontOriginAccessIdentity
 --
 -- /See:/ 'createCloudFrontOriginAccessIdentityResponse' smart constructor.
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'
-  { _ccfoairsETag :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccfoairsLocation :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccfoairsCloudFrontOriginAccessIdentity :: {-# NOUNPACK #-}!(Maybe CloudFrontOriginAccessIdentity)
-  , _ccfoairsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ccfoairsETag :: !(Maybe Text)
+  , _ccfoairsLocation :: !(Maybe Text)
+  , _ccfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
+  , _ccfoairsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

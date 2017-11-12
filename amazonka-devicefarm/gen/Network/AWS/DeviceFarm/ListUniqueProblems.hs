@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listUniqueProblems' smart constructor.
 data ListUniqueProblems = ListUniqueProblems'
-  { _lupNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lupArn       :: {-# NOUNPACK #-}!Text
+  { _lupNextToken :: !(Maybe Text)
+  , _lupArn       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,9 +134,9 @@ instance ToQuery ListUniqueProblems where
 --
 -- /See:/ 'listUniqueProblemsResponse' smart constructor.
 data ListUniqueProblemsResponse = ListUniqueProblemsResponse'
-  { _luprsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luprsUniqueProblems :: {-# NOUNPACK #-}!(Maybe (Map ExecutionResult [UniqueProblem]))
-  , _luprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _luprsNextToken      :: !(Maybe Text)
+  , _luprsUniqueProblems :: !(Maybe (Map ExecutionResult [UniqueProblem]))
+  , _luprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

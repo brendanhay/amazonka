@@ -59,11 +59,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'queryObjects' smart constructor.
 data QueryObjects = QueryObjects'
-  { _qoQuery      :: {-# NOUNPACK #-}!(Maybe Query)
-  , _qoMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qoLimit      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _qoPipelineId :: {-# NOUNPACK #-}!Text
-  , _qoSphere     :: {-# NOUNPACK #-}!Text
+  { _qoQuery      :: !(Maybe Query)
+  , _qoMarker     :: !(Maybe Text)
+  , _qoLimit      :: !(Maybe Int)
+  , _qoPipelineId :: !Text
+  , _qoSphere     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -167,10 +167,10 @@ instance ToQuery QueryObjects where
 --
 -- /See:/ 'queryObjectsResponse' smart constructor.
 data QueryObjectsResponse = QueryObjectsResponse'
-  { _qorsHasMoreResults :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _qorsIds            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _qorsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _qorsHasMoreResults :: !(Maybe Bool)
+  , _qorsIds            :: !(Maybe [Text])
+  , _qorsMarker         :: !(Maybe Text)
+  , _qorsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

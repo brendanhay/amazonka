@@ -100,8 +100,8 @@ instance ToQuery CreateApp where
 
 -- | /See:/ 'createAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-  { _carsResponseStatus      :: {-# NOUNPACK #-}!Int
-  , _carsApplicationResponse :: {-# NOUNPACK #-}!ApplicationResponse
+  { _carsResponseStatus      :: !Int
+  , _carsApplicationResponse :: !ApplicationResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

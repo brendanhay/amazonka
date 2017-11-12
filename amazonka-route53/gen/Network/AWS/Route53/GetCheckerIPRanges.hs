@@ -82,8 +82,8 @@ instance ToQuery GetCheckerIPRanges where
 
 -- | /See:/ 'getCheckerIPRangesResponse' smart constructor.
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
-  { _gcirrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _gcirrsCheckerIPRanges :: {-# NOUNPACK #-}![Text]
+  { _gcirrsResponseStatus  :: !Int
+  , _gcirrsCheckerIPRanges :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

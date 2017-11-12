@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyClusterParameterGroup' smart constructor.
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup'
-  { _mcpgParameterGroupName :: {-# NOUNPACK #-}!Text
-  , _mcpgParameters         :: {-# NOUNPACK #-}![Parameter]
+  { _mcpgParameterGroupName :: !Text
+  , _mcpgParameters         :: ![Parameter]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

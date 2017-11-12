@@ -54,10 +54,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createUserProfile' smart constructor.
 data CreateUserProfile = CreateUserProfile'
-  { _cupSshPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cupUserARN      :: {-# NOUNPACK #-}!Text
-  , _cupDisplayName  :: {-# NOUNPACK #-}!Text
-  , _cupEmailAddress :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _cupSshPublicKey :: !(Maybe Text)
+  , _cupUserARN      :: !Text
+  , _cupDisplayName  :: !Text
+  , _cupEmailAddress :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -148,13 +148,13 @@ instance ToQuery CreateUserProfile where
 
 -- | /See:/ 'createUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
-  { _cuprsLastModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cuprsSshPublicKey          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cuprsEmailAddress          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _cuprsDisplayName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cuprsCreatedTimestamp      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cuprsResponseStatus        :: {-# NOUNPACK #-}!Int
-  , _cuprsUserARN               :: {-# NOUNPACK #-}!Text
+  { _cuprsLastModifiedTimestamp :: !(Maybe POSIX)
+  , _cuprsSshPublicKey          :: !(Maybe Text)
+  , _cuprsEmailAddress          :: !(Maybe (Sensitive Text))
+  , _cuprsDisplayName           :: !(Maybe Text)
+  , _cuprsCreatedTimestamp      :: !(Maybe POSIX)
+  , _cuprsResponseStatus        :: !Int
+  , _cuprsUserARN               :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

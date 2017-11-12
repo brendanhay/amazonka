@@ -52,9 +52,9 @@ import Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'subscribe' smart constructor.
 data Subscribe = Subscribe'
-  { _subEndpoint :: {-# NOUNPACK #-}!(Maybe Text)
-  , _subTopicARN :: {-# NOUNPACK #-}!Text
-  , _subProtocol :: {-# NOUNPACK #-}!Text
+  { _subEndpoint :: !(Maybe Text)
+  , _subTopicARN :: !Text
+  , _subProtocol :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,8 +122,8 @@ instance ToQuery Subscribe where
 --
 -- /See:/ 'subscribeResponse' smart constructor.
 data SubscribeResponse = SubscribeResponse'
-  { _srsSubscriptionARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _srsSubscriptionARN :: !(Maybe Text)
+  , _srsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

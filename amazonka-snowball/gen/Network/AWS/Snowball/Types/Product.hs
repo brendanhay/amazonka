@@ -27,20 +27,20 @@ import Network.AWS.Snowball.Types.Sum
 --
 -- /See:/ 'address' smart constructor.
 data Address = Address'
-  { _aIsRestricted         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _aStreet3              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aLandmark             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aPostalCode           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aCountry              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aStateOrProvince      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aStreet2              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aAddressId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aCity                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aPhoneNumber          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aCompany              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aPrefectureOrDistrict :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aStreet1              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aIsRestricted         :: !(Maybe Bool)
+  , _aStreet3              :: !(Maybe Text)
+  , _aLandmark             :: !(Maybe Text)
+  , _aPostalCode           :: !(Maybe Text)
+  , _aCountry              :: !(Maybe Text)
+  , _aStateOrProvince      :: !(Maybe Text)
+  , _aStreet2              :: !(Maybe Text)
+  , _aAddressId            :: !(Maybe Text)
+  , _aCity                 :: !(Maybe Text)
+  , _aPhoneNumber          :: !(Maybe Text)
+  , _aCompany              :: !(Maybe Text)
+  , _aName                 :: !(Maybe Text)
+  , _aPrefectureOrDistrict :: !(Maybe Text)
+  , _aStreet1              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -200,10 +200,10 @@ instance ToJSON Address where
 --
 -- /See:/ 'clusterListEntry' smart constructor.
 data ClusterListEntry = ClusterListEntry'
-  { _cleClusterState :: {-# NOUNPACK #-}!(Maybe ClusterState)
-  , _cleClusterId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cleCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cleDescription  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cleClusterState :: !(Maybe ClusterState)
+  , _cleClusterId    :: !(Maybe Text)
+  , _cleCreationDate :: !(Maybe POSIX)
+  , _cleDescription  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -264,19 +264,19 @@ instance NFData ClusterListEntry where
 --
 -- /See:/ 'clusterMetadata' smart constructor.
 data ClusterMetadata = ClusterMetadata'
-  { _cmJobType             :: {-# NOUNPACK #-}!(Maybe JobType)
-  , _cmKMSKeyARN           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmClusterState        :: {-# NOUNPACK #-}!(Maybe ClusterState)
-  , _cmNotification        :: {-# NOUNPACK #-}!(Maybe Notification)
-  , _cmForwardingAddressId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmAddressId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmSnowballType        :: {-# NOUNPACK #-}!(Maybe SnowballType)
-  , _cmShippingOption      :: {-# NOUNPACK #-}!(Maybe ShippingOption)
-  , _cmResources           :: {-# NOUNPACK #-}!(Maybe JobResource)
-  , _cmClusterId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmCreationDate        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cmDescription         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmRoleARN             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cmJobType             :: !(Maybe JobType)
+  , _cmKMSKeyARN           :: !(Maybe Text)
+  , _cmClusterState        :: !(Maybe ClusterState)
+  , _cmNotification        :: !(Maybe Notification)
+  , _cmForwardingAddressId :: !(Maybe Text)
+  , _cmAddressId           :: !(Maybe Text)
+  , _cmSnowballType        :: !(Maybe SnowballType)
+  , _cmShippingOption      :: !(Maybe ShippingOption)
+  , _cmResources           :: !(Maybe JobResource)
+  , _cmClusterId           :: !(Maybe Text)
+  , _cmCreationDate        :: !(Maybe POSIX)
+  , _cmDescription         :: !(Maybe Text)
+  , _cmRoleARN             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -409,10 +409,10 @@ instance NFData ClusterMetadata where
 --
 -- /See:/ 'dataTransfer' smart constructor.
 data DataTransfer = DataTransfer'
-  { _dtTotalObjects       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dtTotalBytes         :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dtObjectsTransferred :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dtBytesTransferred   :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _dtTotalObjects       :: !(Maybe Integer)
+  , _dtTotalBytes         :: !(Maybe Integer)
+  , _dtObjectsTransferred :: !(Maybe Integer)
+  , _dtBytesTransferred   :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -515,13 +515,13 @@ instance ToJSON EventTriggerDefinition where
 --
 -- /See:/ 'jobListEntry' smart constructor.
 data JobListEntry = JobListEntry'
-  { _jleJobType      :: {-# NOUNPACK #-}!(Maybe JobType)
-  , _jleJobId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jleJobState     :: {-# NOUNPACK #-}!(Maybe JobState)
-  , _jleSnowballType :: {-# NOUNPACK #-}!(Maybe SnowballType)
-  , _jleCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _jleDescription  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jleIsMaster     :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _jleJobType      :: !(Maybe JobType)
+  , _jleJobId        :: !(Maybe Text)
+  , _jleJobState     :: !(Maybe JobState)
+  , _jleSnowballType :: !(Maybe SnowballType)
+  , _jleCreationDate :: !(Maybe POSIX)
+  , _jleDescription  :: !(Maybe Text)
+  , _jleIsMaster     :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -612,9 +612,9 @@ instance NFData JobListEntry where
 --
 -- /See:/ 'jobLogs' smart constructor.
 data JobLogs = JobLogs'
-  { _jlJobFailureLogURI       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jlJobCompletionReportURI :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jlJobSuccessLogURI       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _jlJobFailureLogURI       :: !(Maybe Text)
+  , _jlJobCompletionReportURI :: !(Maybe Text)
+  , _jlJobSuccessLogURI       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -668,23 +668,23 @@ instance NFData JobLogs where
 --
 -- /See:/ 'jobMetadata' smart constructor.
 data JobMetadata = JobMetadata'
-  { _jmJobType                    :: {-# NOUNPACK #-}!(Maybe JobType)
-  , _jmKMSKeyARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jmJobId                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jmJobLogInfo                 :: {-# NOUNPACK #-}!(Maybe JobLogs)
-  , _jmNotification               :: {-# NOUNPACK #-}!(Maybe Notification)
-  , _jmJobState                   :: {-# NOUNPACK #-}!(Maybe JobState)
-  , _jmForwardingAddressId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jmShippingDetails            :: {-# NOUNPACK #-}!(Maybe ShippingDetails)
-  , _jmAddressId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jmSnowballType               :: {-# NOUNPACK #-}!(Maybe SnowballType)
-  , _jmDataTransferProgress       :: {-# NOUNPACK #-}!(Maybe DataTransfer)
-  , _jmResources                  :: {-# NOUNPACK #-}!(Maybe JobResource)
-  , _jmClusterId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jmCreationDate               :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _jmDescription                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jmRoleARN                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jmSnowballCapacityPreference :: {-# NOUNPACK #-}!(Maybe SnowballCapacity)
+  { _jmJobType                    :: !(Maybe JobType)
+  , _jmKMSKeyARN                  :: !(Maybe Text)
+  , _jmJobId                      :: !(Maybe Text)
+  , _jmJobLogInfo                 :: !(Maybe JobLogs)
+  , _jmNotification               :: !(Maybe Notification)
+  , _jmJobState                   :: !(Maybe JobState)
+  , _jmForwardingAddressId        :: !(Maybe Text)
+  , _jmShippingDetails            :: !(Maybe ShippingDetails)
+  , _jmAddressId                  :: !(Maybe Text)
+  , _jmSnowballType               :: !(Maybe SnowballType)
+  , _jmDataTransferProgress       :: !(Maybe DataTransfer)
+  , _jmResources                  :: !(Maybe JobResource)
+  , _jmClusterId                  :: !(Maybe Text)
+  , _jmCreationDate               :: !(Maybe POSIX)
+  , _jmDescription                :: !(Maybe Text)
+  , _jmRoleARN                    :: !(Maybe Text)
+  , _jmSnowballCapacityPreference :: !(Maybe SnowballCapacity)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -849,8 +849,8 @@ instance NFData JobMetadata where
 --
 -- /See:/ 'jobResource' smart constructor.
 data JobResource = JobResource'
-  { _jrLambdaResources :: {-# NOUNPACK #-}!(Maybe [LambdaResource])
-  , _jrS3Resources     :: {-# NOUNPACK #-}!(Maybe [S3Resource])
+  { _jrLambdaResources :: !(Maybe [LambdaResource])
+  , _jrS3Resources     :: !(Maybe [S3Resource])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -900,8 +900,8 @@ instance ToJSON JobResource where
 --
 -- /See:/ 'keyRange' smart constructor.
 data KeyRange = KeyRange'
-  { _krEndMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _krBeginMarker :: {-# NOUNPACK #-}!(Maybe Text)
+  { _krEndMarker   :: !(Maybe Text)
+  , _krBeginMarker :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -949,8 +949,8 @@ instance ToJSON KeyRange where
 --
 -- /See:/ 'lambdaResource' smart constructor.
 data LambdaResource = LambdaResource'
-  { _lrEventTriggers :: {-# NOUNPACK #-}!(Maybe [EventTriggerDefinition])
-  , _lrLambdaARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lrEventTriggers :: !(Maybe [EventTriggerDefinition])
+  , _lrLambdaARN     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1002,9 +1002,9 @@ instance ToJSON LambdaResource where
 --
 -- /See:/ 'notification' smart constructor.
 data Notification = Notification'
-  { _nNotifyAll         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _nSNSTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nJobStatesToNotify :: {-# NOUNPACK #-}!(Maybe [JobState])
+  { _nNotifyAll         :: !(Maybe Bool)
+  , _nSNSTopicARN       :: !(Maybe Text)
+  , _nJobStatesToNotify :: !(Maybe [JobState])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1065,8 +1065,8 @@ instance ToJSON Notification where
 --
 -- /See:/ 's3Resource' smart constructor.
 data S3Resource = S3Resource'
-  { _srKeyRange  :: {-# NOUNPACK #-}!(Maybe KeyRange)
-  , _srBucketARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _srKeyRange  :: !(Maybe KeyRange)
+  , _srBucketARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1114,8 +1114,8 @@ instance ToJSON S3Resource where
 --
 -- /See:/ 'shipment' smart constructor.
 data Shipment = Shipment'
-  { _sStatus         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sTrackingNumber :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sStatus         :: !(Maybe Text)
+  , _sTrackingNumber :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1156,9 +1156,9 @@ instance NFData Shipment where
 --
 -- /See:/ 'shippingDetails' smart constructor.
 data ShippingDetails = ShippingDetails'
-  { _sdShippingOption   :: {-# NOUNPACK #-}!(Maybe ShippingOption)
-  , _sdOutboundShipment :: {-# NOUNPACK #-}!(Maybe Shipment)
-  , _sdInboundShipment  :: {-# NOUNPACK #-}!(Maybe Shipment)
+  { _sdShippingOption   :: !(Maybe ShippingOption)
+  , _sdOutboundShipment :: !(Maybe Shipment)
+  , _sdInboundShipment  :: !(Maybe Shipment)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

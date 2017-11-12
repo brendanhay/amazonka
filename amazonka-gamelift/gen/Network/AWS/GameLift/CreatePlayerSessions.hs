@@ -76,9 +76,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createPlayerSessions' smart constructor.
 data CreatePlayerSessions = CreatePlayerSessions'
-  { _cpsPlayerDataMap :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cpsGameSessionId :: {-# NOUNPACK #-}!Text
-  , _cpsPlayerIds     :: {-# NOUNPACK #-}!(List1 Text)
+  { _cpsPlayerDataMap :: !(Maybe (Map Text Text))
+  , _cpsGameSessionId :: !Text
+  , _cpsPlayerIds     :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -159,8 +159,8 @@ instance ToQuery CreatePlayerSessions where
 --
 -- /See:/ 'createPlayerSessionsResponse' smart constructor.
 data CreatePlayerSessionsResponse = CreatePlayerSessionsResponse'
-  { _crsPlayerSessions :: {-# NOUNPACK #-}!(Maybe [PlayerSession])
-  , _crsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crsPlayerSessions :: !(Maybe [PlayerSession])
+  , _crsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

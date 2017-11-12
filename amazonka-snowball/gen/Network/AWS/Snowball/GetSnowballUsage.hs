@@ -93,9 +93,9 @@ instance ToQuery GetSnowballUsage where
 
 -- | /See:/ 'getSnowballUsageResponse' smart constructor.
 data GetSnowballUsageResponse = GetSnowballUsageResponse'
-  { _gsursSnowballsInUse :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gsursSnowballLimit  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gsursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsursSnowballsInUse :: !(Maybe Int)
+  , _gsursSnowballLimit  :: !(Maybe Int)
+  , _gsursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

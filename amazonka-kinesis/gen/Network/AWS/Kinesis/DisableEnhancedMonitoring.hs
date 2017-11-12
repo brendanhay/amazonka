@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'disableEnhancedMonitoring' smart constructor.
 data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
-  { _demStreamName        :: {-# NOUNPACK #-}!Text
-  , _demShardLevelMetrics :: {-# NOUNPACK #-}![MetricsName]
+  { _demStreamName        :: !Text
+  , _demShardLevelMetrics :: ![MetricsName]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

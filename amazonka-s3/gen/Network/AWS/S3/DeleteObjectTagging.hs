@@ -46,9 +46,9 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteObjectTagging' smart constructor.
 data DeleteObjectTagging = DeleteObjectTagging'
-  { _dotVersionId :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _dotBucket    :: {-# NOUNPACK #-}!BucketName
-  , _dotKey       :: {-# NOUNPACK #-}!ObjectKey
+  { _dotVersionId :: !(Maybe ObjectVersionId)
+  , _dotBucket    :: !BucketName
+  , _dotKey       :: !ObjectKey
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,8 +109,8 @@ instance ToQuery DeleteObjectTagging where
 
 -- | /See:/ 'deleteObjectTaggingResponse' smart constructor.
 data DeleteObjectTaggingResponse = DeleteObjectTaggingResponse'
-  { _dotrsVersionId      :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _dotrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dotrsVersionId      :: !(Maybe ObjectVersionId)
+  , _dotrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

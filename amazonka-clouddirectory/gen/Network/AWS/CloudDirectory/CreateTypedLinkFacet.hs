@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createTypedLinkFacet' smart constructor.
 data CreateTypedLinkFacet = CreateTypedLinkFacet'
-  { _ctlfSchemaARN :: {-# NOUNPACK #-}!Text
-  , _ctlfFacet     :: {-# NOUNPACK #-}!TypedLinkFacet
+  { _ctlfSchemaARN :: !Text
+  , _ctlfFacet     :: !TypedLinkFacet
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

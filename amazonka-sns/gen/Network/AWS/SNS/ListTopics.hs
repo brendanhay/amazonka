@@ -110,9 +110,9 @@ instance ToQuery ListTopics where
 --
 -- /See:/ 'listTopicsResponse' smart constructor.
 data ListTopicsResponse = ListTopicsResponse'
-  { _ltrsTopics         :: {-# NOUNPACK #-}!(Maybe [Topic])
-  , _ltrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltrsTopics         :: !(Maybe [Topic])
+  , _ltrsNextToken      :: !(Maybe Text)
+  , _ltrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

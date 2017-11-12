@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deregisterScalableTarget' smart constructor.
 data DeregisterScalableTarget = DeregisterScalableTarget'
-  { _derServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
-  , _derResourceId        :: {-# NOUNPACK #-}!Text
-  , _derScalableDimension :: {-# NOUNPACK #-}!ScalableDimension
+  { _derServiceNamespace  :: !ServiceNamespace
+  , _derResourceId        :: !Text
+  , _derScalableDimension :: !ScalableDimension
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

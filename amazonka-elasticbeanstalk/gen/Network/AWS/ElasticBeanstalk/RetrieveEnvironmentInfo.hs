@@ -58,9 +58,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'retrieveEnvironmentInfo' smart constructor.
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo'
-  { _rEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rInfoType        :: {-# NOUNPACK #-}!EnvironmentInfoType
+  { _rEnvironmentName :: !(Maybe Text)
+  , _rEnvironmentId   :: !(Maybe Text)
+  , _rInfoType        :: !EnvironmentInfoType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery RetrieveEnvironmentInfo where
 --
 -- /See:/ 'retrieveEnvironmentInfoResponse' smart constructor.
 data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'
-  { _reirsEnvironmentInfo :: {-# NOUNPACK #-}!(Maybe [EnvironmentInfoDescription])
-  , _reirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _reirsEnvironmentInfo :: !(Maybe [EnvironmentInfoDescription])
+  , _reirsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

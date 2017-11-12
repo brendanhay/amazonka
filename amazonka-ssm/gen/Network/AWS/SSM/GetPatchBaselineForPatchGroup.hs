@@ -49,8 +49,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getPatchBaselineForPatchGroup' smart constructor.
 data GetPatchBaselineForPatchGroup = GetPatchBaselineForPatchGroup'
-  { _gpbfpgOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
-  , _gpbfpgPatchGroup      :: {-# NOUNPACK #-}!Text
+  { _gpbfpgOperatingSystem :: !(Maybe OperatingSystem)
+  , _gpbfpgPatchGroup      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,10 +120,10 @@ instance ToQuery GetPatchBaselineForPatchGroup where
 
 -- | /See:/ 'getPatchBaselineForPatchGroupResponse' smart constructor.
 data GetPatchBaselineForPatchGroupResponse = GetPatchBaselineForPatchGroupResponse'
-  { _gpbfpgrsOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
-  , _gpbfpgrsBaselineId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpbfpgrsPatchGroup      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpbfpgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gpbfpgrsOperatingSystem :: !(Maybe OperatingSystem)
+  , _gpbfpgrsBaselineId      :: !(Maybe Text)
+  , _gpbfpgrsPatchGroup      :: !(Maybe Text)
+  , _gpbfpgrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

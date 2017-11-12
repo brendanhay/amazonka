@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'purchaseReservedNodeOffering' smart constructor.
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
-  { _prnoNodeCount              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _prnoReservedNodeOfferingId :: {-# NOUNPACK #-}!Text
+  { _prnoNodeCount              :: !(Maybe Int)
+  , _prnoReservedNodeOfferingId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,8 +117,8 @@ instance ToQuery PurchaseReservedNodeOffering where
 
 -- | /See:/ 'purchaseReservedNodeOfferingResponse' smart constructor.
 data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
-  { _prnorsReservedNode   :: {-# NOUNPACK #-}!(Maybe ReservedNode)
-  , _prnorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _prnorsReservedNode   :: !(Maybe ReservedNode)
+  , _prnorsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

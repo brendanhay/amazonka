@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'setVisibleToAllUsers' smart constructor.
 data SetVisibleToAllUsers = SetVisibleToAllUsers'
-  { _svtauJobFlowIds        :: {-# NOUNPACK #-}![Text]
-  , _svtauVisibleToAllUsers :: {-# NOUNPACK #-}!Bool
+  { _svtauJobFlowIds        :: ![Text]
+  , _svtauVisibleToAllUsers :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

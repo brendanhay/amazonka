@@ -117,8 +117,8 @@ instance ToQuery DescribeDBClusterSnapshotAttributes
 
 -- | /See:/ 'describeDBClusterSnapshotAttributesResponse' smart constructor.
 data DescribeDBClusterSnapshotAttributesResponse = DescribeDBClusterSnapshotAttributesResponse'
-  { _ddcsarsDBClusterSnapshotAttributesResult :: {-# NOUNPACK #-}!(Maybe DBClusterSnapshotAttributesResult)
-  , _ddcsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddcsarsDBClusterSnapshotAttributesResult :: !(Maybe DBClusterSnapshotAttributesResult)
+  , _ddcsarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

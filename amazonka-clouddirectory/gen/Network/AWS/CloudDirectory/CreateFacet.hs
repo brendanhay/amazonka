@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createFacet' smart constructor.
 data CreateFacet = CreateFacet'
-  { _cfAttributes :: {-# NOUNPACK #-}!(Maybe [FacetAttribute])
-  , _cfSchemaARN  :: {-# NOUNPACK #-}!Text
-  , _cfName       :: {-# NOUNPACK #-}!Text
-  , _cfObjectType :: {-# NOUNPACK #-}!ObjectType
+  { _cfAttributes :: !(Maybe [FacetAttribute])
+  , _cfSchemaARN  :: !Text
+  , _cfName       :: !Text
+  , _cfObjectType :: !ObjectType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'associateRoleToGroup' smart constructor.
 data AssociateRoleToGroup = AssociateRoleToGroup'
-  { _artgRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _artgGroupId :: {-# NOUNPACK #-}!Text
+  { _artgRoleARN :: !(Maybe Text)
+  , _artgGroupId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -108,8 +108,8 @@ instance ToQuery AssociateRoleToGroup where
 
 -- | /See:/ 'associateRoleToGroupResponse' smart constructor.
 data AssociateRoleToGroupResponse = AssociateRoleToGroupResponse'
-  { _artgrsAssociatedAt   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _artgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _artgrsAssociatedAt   :: !(Maybe Text)
+  , _artgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

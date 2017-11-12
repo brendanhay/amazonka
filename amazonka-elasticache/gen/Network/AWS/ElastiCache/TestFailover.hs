@@ -83,8 +83,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'testFailover' smart constructor.
 data TestFailover = TestFailover'
-  { _tfReplicationGroupId :: {-# NOUNPACK #-}!Text
-  , _tfNodeGroupId        :: {-# NOUNPACK #-}!Text
+  { _tfReplicationGroupId :: !Text
+  , _tfNodeGroupId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,8 +141,8 @@ instance ToQuery TestFailover where
 
 -- | /See:/ 'testFailoverResponse' smart constructor.
 data TestFailoverResponse = TestFailoverResponse'
-  { _tfrsReplicationGroup :: {-# NOUNPACK #-}!(Maybe ReplicationGroup)
-  , _tfrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _tfrsReplicationGroup :: !(Maybe ReplicationGroup)
+  , _tfrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

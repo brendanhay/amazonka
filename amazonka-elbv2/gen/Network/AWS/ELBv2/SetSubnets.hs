@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'setSubnets' smart constructor.
 data SetSubnets = SetSubnets'
-  { _ssSubnetMappings  :: {-# NOUNPACK #-}!(Maybe [SubnetMapping])
-  , _ssLoadBalancerARN :: {-# NOUNPACK #-}!Text
-  , _ssSubnets         :: {-# NOUNPACK #-}![Text]
+  { _ssSubnetMappings  :: !(Maybe [SubnetMapping])
+  , _ssLoadBalancerARN :: !Text
+  , _ssSubnets         :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery SetSubnets where
 
 -- | /See:/ 'setSubnetsResponse' smart constructor.
 data SetSubnetsResponse = SetSubnetsResponse'
-  { _ssrsAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [AvailabilityZone])
-  , _ssrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _ssrsAvailabilityZones :: !(Maybe [AvailabilityZone])
+  , _ssrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

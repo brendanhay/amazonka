@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAssessmentTargets' smart constructor.
 data ListAssessmentTargets = ListAssessmentTargets'
-  { _lNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lFilter     :: {-# NOUNPACK #-}!(Maybe AssessmentTargetFilter)
-  , _lMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _lNextToken  :: !(Maybe Text)
+  , _lFilter     :: !(Maybe AssessmentTargetFilter)
+  , _lMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery ListAssessmentTargets where
 
 -- | /See:/ 'listAssessmentTargetsResponse' smart constructor.
 data ListAssessmentTargetsResponse = ListAssessmentTargetsResponse'
-  { _lrsNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _lrsAssessmentTargetARNs :: {-# NOUNPACK #-}![Text]
+  { _lrsNextToken            :: !(Maybe Text)
+  , _lrsResponseStatus       :: !Int
+  , _lrsAssessmentTargetARNs :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

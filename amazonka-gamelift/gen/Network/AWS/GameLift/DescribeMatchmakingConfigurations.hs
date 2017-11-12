@@ -72,10 +72,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeMatchmakingConfigurations' smart constructor.
 data DescribeMatchmakingConfigurations = DescribeMatchmakingConfigurations'
-  { _dmcRuleSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmcNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmcNames       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dmcLimit       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dmcRuleSetName :: !(Maybe Text)
+  , _dmcNextToken   :: !(Maybe Text)
+  , _dmcNames       :: !(Maybe [Text])
+  , _dmcLimit       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -171,9 +171,9 @@ instance ToQuery DescribeMatchmakingConfigurations
 --
 -- /See:/ 'describeMatchmakingConfigurationsResponse' smart constructor.
 data DescribeMatchmakingConfigurationsResponse = DescribeMatchmakingConfigurationsResponse'
-  { _dmcsrsConfigurations :: {-# NOUNPACK #-}!(Maybe [MatchmakingConfiguration])
-  , _dmcsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmcsrsConfigurations :: !(Maybe [MatchmakingConfiguration])
+  , _dmcsrsNextToken      :: !(Maybe Text)
+  , _dmcsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

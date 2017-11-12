@@ -104,8 +104,8 @@ instance ToQuery RegisterDefaultPatchBaseline where
 
 -- | /See:/ 'registerDefaultPatchBaselineResponse' smart constructor.
 data RegisterDefaultPatchBaselineResponse = RegisterDefaultPatchBaselineResponse'
-  { _rdpbrsBaselineId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdpbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rdpbrsBaselineId     :: !(Maybe Text)
+  , _rdpbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

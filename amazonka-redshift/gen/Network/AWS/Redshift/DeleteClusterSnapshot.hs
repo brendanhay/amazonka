@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteClusterSnapshot' smart constructor.
 data DeleteClusterSnapshot = DeleteClusterSnapshot'
-  { _dcsSnapshotClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsSnapshotIdentifier        :: {-# NOUNPACK #-}!Text
+  { _dcsSnapshotClusterIdentifier :: !(Maybe Text)
+  , _dcsSnapshotIdentifier        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery DeleteClusterSnapshot where
 
 -- | /See:/ 'deleteClusterSnapshotResponse' smart constructor.
 data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
-  { _dcsrsSnapshot       :: {-# NOUNPACK #-}!(Maybe Snapshot)
-  , _dcsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcsrsSnapshot       :: !(Maybe Snapshot)
+  , _dcsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

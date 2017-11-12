@@ -85,20 +85,20 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateMaintenanceWindowTask' smart constructor.
 data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
-  { _umwtServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtReplace :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _umwtTaskParameters :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
-  , _umwtPriority :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _umwtTaskARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtMaxErrors :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtTaskInvocationParameters :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskInvocationParameters)
-  , _umwtName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtTargets :: {-# NOUNPACK #-}!(Maybe [Target])
-  , _umwtLoggingInfo :: {-# NOUNPACK #-}!(Maybe LoggingInfo)
-  , _umwtDescription :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _umwtMaxConcurrency :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtWindowId :: {-# NOUNPACK #-}!Text
-  , _umwtWindowTaskId :: {-# NOUNPACK #-}!Text
+  { _umwtServiceRoleARN :: !(Maybe Text)
+  , _umwtReplace :: !(Maybe Bool)
+  , _umwtTaskParameters :: !(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+  , _umwtPriority :: !(Maybe Nat)
+  , _umwtTaskARN :: !(Maybe Text)
+  , _umwtMaxErrors :: !(Maybe Text)
+  , _umwtTaskInvocationParameters :: !(Maybe MaintenanceWindowTaskInvocationParameters)
+  , _umwtName :: !(Maybe Text)
+  , _umwtTargets :: !(Maybe [Target])
+  , _umwtLoggingInfo :: !(Maybe LoggingInfo)
+  , _umwtDescription :: !(Maybe (Sensitive Text))
+  , _umwtMaxConcurrency :: !(Maybe Text)
+  , _umwtWindowId :: !Text
+  , _umwtWindowTaskId :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -276,20 +276,20 @@ instance ToQuery UpdateMaintenanceWindowTask where
 
 -- | /See:/ 'updateMaintenanceWindowTaskResponse' smart constructor.
 data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
-  { _umwtrsServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtrsWindowTaskId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtrsTaskParameters :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
-  , _umwtrsPriority :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _umwtrsTaskARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtrsMaxErrors :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtrsTaskInvocationParameters :: {-# NOUNPACK #-}!(Maybe MaintenanceWindowTaskInvocationParameters)
-  , _umwtrsName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtrsTargets :: {-# NOUNPACK #-}!(Maybe [Target])
-  , _umwtrsLoggingInfo :: {-# NOUNPACK #-}!(Maybe LoggingInfo)
-  , _umwtrsDescription :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _umwtrsMaxConcurrency :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtrsWindowId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _umwtrsServiceRoleARN :: !(Maybe Text)
+  , _umwtrsWindowTaskId :: !(Maybe Text)
+  , _umwtrsTaskParameters :: !(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+  , _umwtrsPriority :: !(Maybe Nat)
+  , _umwtrsTaskARN :: !(Maybe Text)
+  , _umwtrsMaxErrors :: !(Maybe Text)
+  , _umwtrsTaskInvocationParameters :: !(Maybe MaintenanceWindowTaskInvocationParameters)
+  , _umwtrsName :: !(Maybe Text)
+  , _umwtrsTargets :: !(Maybe [Target])
+  , _umwtrsLoggingInfo :: !(Maybe LoggingInfo)
+  , _umwtrsDescription :: !(Maybe (Sensitive Text))
+  , _umwtrsMaxConcurrency :: !(Maybe Text)
+  , _umwtrsWindowId :: !(Maybe Text)
+  , _umwtrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

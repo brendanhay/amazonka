@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateApplicationVersion' smart constructor.
 data UpdateApplicationVersion = UpdateApplicationVersion'
-  { _uavDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uavApplicationName :: {-# NOUNPACK #-}!Text
-  , _uavVersionLabel    :: {-# NOUNPACK #-}!Text
+  { _uavDescription     :: !(Maybe Text)
+  , _uavApplicationName :: !Text
+  , _uavVersionLabel    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

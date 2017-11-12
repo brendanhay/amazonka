@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createFunctionDefinitionVersion' smart constructor.
 data CreateFunctionDefinitionVersion = CreateFunctionDefinitionVersion'
-  { _cfdvAmznClientToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdvFunctions            :: {-# NOUNPACK #-}!(Maybe [Function])
-  , _cfdvFunctionDefinitionId :: {-# NOUNPACK #-}!Text
+  { _cfdvAmznClientToken      :: !(Maybe Text)
+  , _cfdvFunctions            :: !(Maybe [Function])
+  , _cfdvFunctionDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,11 +133,11 @@ instance ToQuery CreateFunctionDefinitionVersion
 
 -- | /See:/ 'createFunctionDefinitionVersionResponse' smart constructor.
 data CreateFunctionDefinitionVersionResponse = CreateFunctionDefinitionVersionResponse'
-  { _cfdvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _cfdvrsARN               :: !(Maybe Text)
+  , _cfdvrsCreationTimestamp :: !(Maybe Text)
+  , _cfdvrsVersion           :: !(Maybe Text)
+  , _cfdvrsId                :: !(Maybe Text)
+  , _cfdvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,18 +57,18 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateNetworkProfile' smart constructor.
 data UpdateNetworkProfile = UpdateNetworkProfile'
-  { _unpUplinkJitterMs        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _unpUplinkLossPercent     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _unpDownlinkJitterMs      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _unpName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _unpDownlinkLossPercent   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _unpType                  :: {-# NOUNPACK #-}!(Maybe NetworkProfileType)
-  , _unpUplinkDelayMs         :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _unpUplinkBandwidthBits   :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _unpDescription           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _unpDownlinkDelayMs       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _unpDownlinkBandwidthBits :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _unpArn                   :: {-# NOUNPACK #-}!Text
+  { _unpUplinkJitterMs        :: !(Maybe Integer)
+  , _unpUplinkLossPercent     :: !(Maybe Nat)
+  , _unpDownlinkJitterMs      :: !(Maybe Integer)
+  , _unpName                  :: !(Maybe Text)
+  , _unpDownlinkLossPercent   :: !(Maybe Nat)
+  , _unpType                  :: !(Maybe NetworkProfileType)
+  , _unpUplinkDelayMs         :: !(Maybe Integer)
+  , _unpUplinkBandwidthBits   :: !(Maybe Integer)
+  , _unpDescription           :: !(Maybe Text)
+  , _unpDownlinkDelayMs       :: !(Maybe Integer)
+  , _unpDownlinkBandwidthBits :: !(Maybe Integer)
+  , _unpArn                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -219,8 +219,8 @@ instance ToQuery UpdateNetworkProfile where
 
 -- | /See:/ 'updateNetworkProfileResponse' smart constructor.
 data UpdateNetworkProfileResponse = UpdateNetworkProfileResponse'
-  { _unprsNetworkProfile :: {-# NOUNPACK #-}!(Maybe NetworkProfile)
-  , _unprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _unprsNetworkProfile :: !(Maybe NetworkProfile)
+  , _unprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

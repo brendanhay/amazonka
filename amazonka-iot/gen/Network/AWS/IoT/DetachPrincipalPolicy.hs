@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'detachPrincipalPolicy' smart constructor.
 data DetachPrincipalPolicy = DetachPrincipalPolicy'
-  { _dppPolicyName :: {-# NOUNPACK #-}!Text
-  , _dppPrincipal  :: {-# NOUNPACK #-}!Text
+  { _dppPolicyName :: !Text
+  , _dppPrincipal  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

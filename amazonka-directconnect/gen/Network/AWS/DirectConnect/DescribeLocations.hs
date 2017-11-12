@@ -93,8 +93,8 @@ instance ToQuery DescribeLocations where
 --
 -- /See:/ 'describeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
-  { _dlsrsLocations      :: {-# NOUNPACK #-}!(Maybe [Location])
-  , _dlsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dlsrsLocations      :: !(Maybe [Location])
+  , _dlsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

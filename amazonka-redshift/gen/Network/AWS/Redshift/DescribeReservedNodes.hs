@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeReservedNodes' smart constructor.
 data DescribeReservedNodes = DescribeReservedNodes'
-  { _drnReservedNodeId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drnMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drnMaxRecords     :: {-# NOUNPACK #-}!(Maybe Int)
+  { _drnReservedNodeId :: !(Maybe Text)
+  , _drnMarker         :: !(Maybe Text)
+  , _drnMaxRecords     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery DescribeReservedNodes where
 --
 -- /See:/ 'describeReservedNodesResponse' smart constructor.
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
-  { _drnrsReservedNodes  :: {-# NOUNPACK #-}!(Maybe [ReservedNode])
-  , _drnrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drnrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drnrsReservedNodes  :: !(Maybe [ReservedNode])
+  , _drnrsMarker         :: !(Maybe Text)
+  , _drnrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

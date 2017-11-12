@@ -96,8 +96,8 @@ instance ToQuery DescribeJobs where
 
 -- | /See:/ 'describeJobsResponse' smart constructor.
 data DescribeJobsResponse = DescribeJobsResponse'
-  { _djrsJobs           :: {-# NOUNPACK #-}!(Maybe [JobDetail])
-  , _djrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _djrsJobs           :: !(Maybe [JobDetail])
+  , _djrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

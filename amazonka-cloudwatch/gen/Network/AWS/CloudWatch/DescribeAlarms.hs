@@ -55,12 +55,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeAlarms' smart constructor.
 data DescribeAlarms = DescribeAlarms'
-  { _daAlarmNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daActionPrefix    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daStateValue      :: {-# NOUNPACK #-}!(Maybe StateValue)
-  , _daAlarmNames      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _daMaxRecords      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _daAlarmNamePrefix :: !(Maybe Text)
+  , _daActionPrefix    :: !(Maybe Text)
+  , _daNextToken       :: !(Maybe Text)
+  , _daStateValue      :: !(Maybe StateValue)
+  , _daAlarmNames      :: !(Maybe [Text])
+  , _daMaxRecords      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,9 +160,9 @@ instance ToQuery DescribeAlarms where
 
 -- | /See:/ 'describeAlarmsResponse' smart constructor.
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
-  { _darsMetricAlarms   :: {-# NOUNPACK #-}!(Maybe [MetricAlarm])
-  , _darsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _darsMetricAlarms   :: !(Maybe [MetricAlarm])
+  , _darsNextToken      :: !(Maybe Text)
+  , _darsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

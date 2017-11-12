@@ -79,8 +79,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createCertificateFromCSR' smart constructor.
 data CreateCertificateFromCSR = CreateCertificateFromCSR'
-  { _ccfcsrSetAsActive               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccfcsrCertificateSigningRequest :: {-# NOUNPACK #-}!Text
+  { _ccfcsrSetAsActive               :: !(Maybe Bool)
+  , _ccfcsrCertificateSigningRequest :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,10 +149,10 @@ instance ToQuery CreateCertificateFromCSR where
 --
 -- /See:/ 'createCertificateFromCSRResponse' smart constructor.
 data CreateCertificateFromCSRResponse = CreateCertificateFromCSRResponse'
-  { _ccfcsrrsCertificatePem :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccfcsrrsCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccfcsrrsCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccfcsrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ccfcsrrsCertificatePem :: !(Maybe Text)
+  , _ccfcsrrsCertificateARN :: !(Maybe Text)
+  , _ccfcsrrsCertificateId  :: !(Maybe Text)
+  , _ccfcsrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

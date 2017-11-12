@@ -54,9 +54,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAccountsForParent' smart constructor.
 data ListAccountsForParent = ListAccountsForParent'
-  { _lafpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lafpMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lafpParentId   :: {-# NOUNPACK #-}!Text
+  { _lafpNextToken  :: !(Maybe Text)
+  , _lafpMaxResults :: !(Maybe Nat)
+  , _lafpParentId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToQuery ListAccountsForParent where
 
 -- | /See:/ 'listAccountsForParentResponse' smart constructor.
 data ListAccountsForParentResponse = ListAccountsForParentResponse'
-  { _lafprsAccounts       :: {-# NOUNPACK #-}!(Maybe [Account])
-  , _lafprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lafprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lafprsAccounts       :: !(Maybe [Account])
+  , _lafprsNextToken      :: !(Maybe Text)
+  , _lafprsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'removeAttributesFromFindings' smart constructor.
 data RemoveAttributesFromFindings = RemoveAttributesFromFindings'
-  { _raffFindingARNs   :: {-# NOUNPACK #-}!(List1 Text)
-  , _raffAttributeKeys :: {-# NOUNPACK #-}![Text]
+  { _raffFindingARNs   :: !(List1 Text)
+  , _raffAttributeKeys :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,8 +116,8 @@ instance ToQuery RemoveAttributesFromFindings where
 
 -- | /See:/ 'removeAttributesFromFindingsResponse' smart constructor.
 data RemoveAttributesFromFindingsResponse = RemoveAttributesFromFindingsResponse'
-  { _raffrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _raffrsFailedItems    :: {-# NOUNPACK #-}!(Map Text FailedItemDetails)
+  { _raffrsResponseStatus :: !Int
+  , _raffrsFailedItems    :: !(Map Text FailedItemDetails)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

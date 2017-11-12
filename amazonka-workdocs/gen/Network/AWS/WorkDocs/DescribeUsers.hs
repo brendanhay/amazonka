@@ -62,16 +62,16 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-  { _duInclude             :: {-# NOUNPACK #-}!(Maybe UserFilterType)
-  , _duUserIds             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _duAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _duSort                :: {-# NOUNPACK #-}!(Maybe UserSortType)
-  , _duMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _duQuery               :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _duLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _duOrder               :: {-# NOUNPACK #-}!(Maybe OrderType)
-  , _duOrganizationId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _duFields              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _duInclude             :: !(Maybe UserFilterType)
+  , _duUserIds             :: !(Maybe Text)
+  , _duAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _duSort                :: !(Maybe UserSortType)
+  , _duMarker              :: !(Maybe Text)
+  , _duQuery               :: !(Maybe (Sensitive Text))
+  , _duLimit               :: !(Maybe Nat)
+  , _duOrder               :: !(Maybe OrderType)
+  , _duOrganizationId      :: !(Maybe Text)
+  , _duFields              :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -200,10 +200,10 @@ instance ToQuery DescribeUsers where
 
 -- | /See:/ 'describeUsersResponse' smart constructor.
 data DescribeUsersResponse = DescribeUsersResponse'
-  { _dursUsers              :: {-# NOUNPACK #-}!(Maybe [User])
-  , _dursTotalNumberOfUsers :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dursMarker             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dursResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _dursUsers              :: !(Maybe [User])
+  , _dursTotalNumberOfUsers :: !(Maybe Integer)
+  , _dursMarker             :: !(Maybe Text)
+  , _dursResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'attachStaticIP' smart constructor.
 data AttachStaticIP = AttachStaticIP'
-  { _asipStaticIPName :: {-# NOUNPACK #-}!Text
-  , _asipInstanceName :: {-# NOUNPACK #-}!Text
+  { _asipStaticIPName :: !Text
+  , _asipInstanceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery AttachStaticIP where
 
 -- | /See:/ 'attachStaticIPResponse' smart constructor.
 data AttachStaticIPResponse = AttachStaticIPResponse'
-  { _asiprsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _asiprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _asiprsOperations     :: !(Maybe [Operation])
+  , _asiprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

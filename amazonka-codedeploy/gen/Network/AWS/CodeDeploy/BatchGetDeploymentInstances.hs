@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'batchGetDeploymentInstances' smart constructor.
 data BatchGetDeploymentInstances = BatchGetDeploymentInstances'
-  { _bgdiDeploymentId :: {-# NOUNPACK #-}!Text
-  , _bgdiInstanceIds  :: {-# NOUNPACK #-}![Text]
+  { _bgdiDeploymentId :: !Text
+  , _bgdiInstanceIds  :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery BatchGetDeploymentInstances where
 --
 -- /See:/ 'batchGetDeploymentInstancesResponse' smart constructor.
 data BatchGetDeploymentInstancesResponse = BatchGetDeploymentInstancesResponse'
-  { _bgdirsInstancesSummary :: {-# NOUNPACK #-}!(Maybe [InstanceSummary])
-  , _bgdirsErrorMessage     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bgdirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _bgdirsInstancesSummary :: !(Maybe [InstanceSummary])
+  , _bgdirsErrorMessage     :: !(Maybe Text)
+  , _bgdirsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

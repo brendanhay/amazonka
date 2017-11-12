@@ -27,9 +27,9 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'adminCreateUserConfigType' smart constructor.
 data AdminCreateUserConfigType = AdminCreateUserConfigType'
-  { _acuctAllowAdminCreateUserOnly :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _acuctUnusedAccountValidityDays :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _acuctInviteMessageTemplate :: {-# NOUNPACK #-}!(Maybe MessageTemplateType)
+  { _acuctAllowAdminCreateUserOnly  :: !(Maybe Bool)
+  , _acuctUnusedAccountValidityDays :: !(Maybe Nat)
+  , _acuctInviteMessageTemplate     :: !(Maybe MessageTemplateType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -94,8 +94,8 @@ instance ToJSON AdminCreateUserConfigType where
 --
 -- /See:/ 'attributeType' smart constructor.
 data AttributeType = AttributeType'
-  { _atValue :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _atName  :: {-# NOUNPACK #-}!Text
+  { _atValue :: !(Maybe (Sensitive Text))
+  , _atName  :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -143,12 +143,12 @@ instance ToJSON AttributeType where
 --
 -- /See:/ 'authenticationResultType' smart constructor.
 data AuthenticationResultType = AuthenticationResultType'
-  { _artAccessToken       :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _artRefreshToken      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _artNewDeviceMetadata :: {-# NOUNPACK #-}!(Maybe NewDeviceMetadataType)
-  , _artExpiresIn         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _artTokenType         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _artIdToken           :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  { _artAccessToken       :: !(Maybe (Sensitive Text))
+  , _artRefreshToken      :: !(Maybe (Sensitive Text))
+  , _artNewDeviceMetadata :: !(Maybe NewDeviceMetadataType)
+  , _artExpiresIn         :: !(Maybe Int)
+  , _artTokenType         :: !(Maybe Text)
+  , _artIdToken           :: !(Maybe (Sensitive Text))
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -225,9 +225,9 @@ instance NFData AuthenticationResultType where
 --
 -- /See:/ 'codeDeliveryDetailsType' smart constructor.
 data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
-  { _cddtDestination    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cddtDeliveryMedium :: {-# NOUNPACK #-}!(Maybe DeliveryMediumType)
-  , _cddtAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cddtDestination    :: !(Maybe Text)
+  , _cddtDeliveryMedium :: !(Maybe DeliveryMediumType)
+  , _cddtAttributeName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -280,8 +280,8 @@ instance NFData CodeDeliveryDetailsType where
 --
 -- /See:/ 'deviceConfigurationType' smart constructor.
 data DeviceConfigurationType = DeviceConfigurationType'
-  { _dctChallengeRequiredOnNewDevice     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dctDeviceOnlyRememberedOnUserPrompt :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dctChallengeRequiredOnNewDevice     :: !(Maybe Bool)
+  , _dctDeviceOnlyRememberedOnUserPrompt :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -336,8 +336,8 @@ instance ToJSON DeviceConfigurationType where
 --
 -- /See:/ 'deviceSecretVerifierConfigType' smart constructor.
 data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
-  { _dsvctPasswordVerifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsvctSalt             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dsvctPasswordVerifier :: !(Maybe Text)
+  , _dsvctSalt             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -381,11 +381,11 @@ instance ToJSON DeviceSecretVerifierConfigType where
 --
 -- /See:/ 'deviceType' smart constructor.
 data DeviceType = DeviceType'
-  { _dtDeviceLastModifiedDate      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dtDeviceCreateDate            :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dtDeviceAttributes            :: {-# NOUNPACK #-}!(Maybe [AttributeType])
-  , _dtDeviceKey                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtDeviceLastAuthenticatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _dtDeviceLastModifiedDate      :: !(Maybe POSIX)
+  , _dtDeviceCreateDate            :: !(Maybe POSIX)
+  , _dtDeviceAttributes            :: !(Maybe [AttributeType])
+  , _dtDeviceKey                   :: !(Maybe Text)
+  , _dtDeviceLastAuthenticatedDate :: !(Maybe POSIX)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -455,13 +455,13 @@ instance NFData DeviceType where
 --
 -- /See:/ 'domainDescriptionType' smart constructor.
 data DomainDescriptionType = DomainDescriptionType'
-  { _ddtStatus                 :: {-# NOUNPACK #-}!(Maybe DomainStatusType)
-  , _ddtCloudFrontDistribution :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddtUserPoolId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddtDomain                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddtAWSAccountId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddtVersion                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddtS3Bucket               :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ddtStatus                 :: !(Maybe DomainStatusType)
+  , _ddtCloudFrontDistribution :: !(Maybe Text)
+  , _ddtUserPoolId             :: !(Maybe Text)
+  , _ddtDomain                 :: !(Maybe Text)
+  , _ddtAWSAccountId           :: !(Maybe Text)
+  , _ddtVersion                :: !(Maybe Text)
+  , _ddtS3Bucket               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -546,8 +546,8 @@ instance NFData DomainDescriptionType where
 --
 -- /See:/ 'emailConfigurationType' smart constructor.
 data EmailConfigurationType = EmailConfigurationType'
-  { _ectSourceARN           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ectReplyToEmailAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ectSourceARN           :: !(Maybe Text)
+  , _ectReplyToEmailAddress :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -599,13 +599,13 @@ instance ToJSON EmailConfigurationType where
 --
 -- /See:/ 'groupType' smart constructor.
 data GroupType = GroupType'
-  { _gtLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gtUserPoolId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gtPrecedence       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gtGroupName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtRoleARN          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gtLastModifiedDate :: !(Maybe POSIX)
+  , _gtUserPoolId       :: !(Maybe Text)
+  , _gtCreationDate     :: !(Maybe POSIX)
+  , _gtPrecedence       :: !(Maybe Nat)
+  , _gtGroupName        :: !(Maybe Text)
+  , _gtDescription      :: !(Maybe Text)
+  , _gtRoleARN          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -690,14 +690,14 @@ instance NFData GroupType where
 --
 -- /See:/ 'identityProviderType' smart constructor.
 data IdentityProviderType = IdentityProviderType'
-  { _iptLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _iptUserPoolId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iptProviderType     :: {-# NOUNPACK #-}!(Maybe IdentityProviderTypeType)
-  , _iptCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _iptIdpIdentifiers   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _iptAttributeMapping :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _iptProviderDetails  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _iptProviderName     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iptLastModifiedDate :: !(Maybe POSIX)
+  , _iptUserPoolId       :: !(Maybe Text)
+  , _iptProviderType     :: !(Maybe IdentityProviderTypeType)
+  , _iptCreationDate     :: !(Maybe POSIX)
+  , _iptIdpIdentifiers   :: !(Maybe [Text])
+  , _iptAttributeMapping :: !(Maybe (Map Text Text))
+  , _iptProviderDetails  :: !(Maybe (Map Text Text))
+  , _iptProviderName     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -790,14 +790,14 @@ instance NFData IdentityProviderType where
 --
 -- /See:/ 'lambdaConfigType' smart constructor.
 data LambdaConfigType = LambdaConfigType'
-  { _lctPreAuthentication           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lctCreateAuthChallenge         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lctVerifyAuthChallengeResponse :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lctPostAuthentication          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lctCustomMessage               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lctDefineAuthChallenge         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lctPostConfirmation            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lctPreSignUp                   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lctPreAuthentication           :: !(Maybe Text)
+  , _lctCreateAuthChallenge         :: !(Maybe Text)
+  , _lctVerifyAuthChallengeResponse :: !(Maybe Text)
+  , _lctPostAuthentication          :: !(Maybe Text)
+  , _lctCustomMessage               :: !(Maybe Text)
+  , _lctDefineAuthChallenge         :: !(Maybe Text)
+  , _lctPostConfirmation            :: !(Maybe Text)
+  , _lctPreSignUp                   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -907,8 +907,8 @@ instance ToJSON LambdaConfigType where
 --
 -- /See:/ 'mfaOptionType' smart constructor.
 data MFAOptionType = MFAOptionType'
-  { _motDeliveryMedium :: {-# NOUNPACK #-}!(Maybe DeliveryMediumType)
-  , _motAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _motDeliveryMedium :: !(Maybe DeliveryMediumType)
+  , _motAttributeName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -957,9 +957,9 @@ instance ToJSON MFAOptionType where
 --
 -- /See:/ 'messageTemplateType' smart constructor.
 data MessageTemplateType = MessageTemplateType'
-  { _mttEmailSubject :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mttSMSMessage   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mttEmailMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _mttEmailSubject :: !(Maybe Text)
+  , _mttSMSMessage   :: !(Maybe Text)
+  , _mttEmailMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1020,8 +1020,8 @@ instance ToJSON MessageTemplateType where
 --
 -- /See:/ 'newDeviceMetadataType' smart constructor.
 data NewDeviceMetadataType = NewDeviceMetadataType'
-  { _ndmtDeviceGroupKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ndmtDeviceKey      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ndmtDeviceGroupKey :: !(Maybe Text)
+  , _ndmtDeviceKey      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1064,8 +1064,8 @@ instance NFData NewDeviceMetadataType where
 --
 -- /See:/ 'numberAttributeConstraintsType' smart constructor.
 data NumberAttributeConstraintsType = NumberAttributeConstraintsType'
-  { _nactMaxValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _nactMinValue :: {-# NOUNPACK #-}!(Maybe Text)
+  { _nactMaxValue :: !(Maybe Text)
+  , _nactMinValue :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1117,11 +1117,11 @@ instance ToJSON NumberAttributeConstraintsType where
 --
 -- /See:/ 'passwordPolicyType' smart constructor.
 data PasswordPolicyType = PasswordPolicyType'
-  { _pptRequireNumbers   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pptRequireUppercase :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pptRequireLowercase :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pptMinimumLength    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _pptRequireSymbols   :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _pptRequireNumbers   :: !(Maybe Bool)
+  , _pptRequireUppercase :: !(Maybe Bool)
+  , _pptRequireLowercase :: !(Maybe Bool)
+  , _pptMinimumLength    :: !(Maybe Nat)
+  , _pptRequireSymbols   :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1201,10 +1201,10 @@ instance ToJSON PasswordPolicyType where
 --
 -- /See:/ 'providerDescription' smart constructor.
 data ProviderDescription = ProviderDescription'
-  { _pdLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pdProviderType     :: {-# NOUNPACK #-}!(Maybe IdentityProviderTypeType)
-  , _pdCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pdProviderName     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pdLastModifiedDate :: !(Maybe POSIX)
+  , _pdProviderType     :: !(Maybe IdentityProviderTypeType)
+  , _pdCreationDate     :: !(Maybe POSIX)
+  , _pdProviderName     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1265,9 +1265,9 @@ instance NFData ProviderDescription where
 --
 -- /See:/ 'providerUserIdentifierType' smart constructor.
 data ProviderUserIdentifierType = ProviderUserIdentifierType'
-  { _puitProviderAttributeValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _puitProviderAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _puitProviderName           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _puitProviderAttributeValue :: !(Maybe Text)
+  , _puitProviderAttributeName  :: !(Maybe Text)
+  , _puitProviderName           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1322,8 +1322,8 @@ instance ToJSON ProviderUserIdentifierType where
 --
 -- /See:/ 'resourceServerScopeType' smart constructor.
 data ResourceServerScopeType = ResourceServerScopeType'
-  { _rsstScopeName        :: {-# NOUNPACK #-}!Text
-  , _rsstScopeDescription :: {-# NOUNPACK #-}!Text
+  { _rsstScopeName        :: !Text
+  , _rsstScopeDescription :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1375,10 +1375,10 @@ instance ToJSON ResourceServerScopeType where
 --
 -- /See:/ 'resourceServerType' smart constructor.
 data ResourceServerType = ResourceServerType'
-  { _rstUserPoolId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rstIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rstScopes     :: {-# NOUNPACK #-}!(Maybe [ResourceServerScopeType])
-  , _rstName       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rstUserPoolId :: !(Maybe Text)
+  , _rstIdentifier :: !(Maybe Text)
+  , _rstScopes     :: !(Maybe [ResourceServerScopeType])
+  , _rstName       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1439,13 +1439,13 @@ instance NFData ResourceServerType where
 --
 -- /See:/ 'schemaAttributeType' smart constructor.
 data SchemaAttributeType = SchemaAttributeType'
-  { _satNumberAttributeConstraints :: {-# NOUNPACK #-}!(Maybe NumberAttributeConstraintsType)
-  , _satRequired :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _satAttributeDataType :: {-# NOUNPACK #-}!(Maybe AttributeDataType)
-  , _satStringAttributeConstraints :: {-# NOUNPACK #-}!(Maybe StringAttributeConstraintsType)
-  , _satName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _satDeveloperOnlyAttribute :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _satMutable :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _satNumberAttributeConstraints :: !(Maybe NumberAttributeConstraintsType)
+  , _satRequired                   :: !(Maybe Bool)
+  , _satAttributeDataType          :: !(Maybe AttributeDataType)
+  , _satStringAttributeConstraints :: !(Maybe StringAttributeConstraintsType)
+  , _satName                       :: !(Maybe Text)
+  , _satDeveloperOnlyAttribute     :: !(Maybe Bool)
+  , _satMutable                    :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1546,8 +1546,8 @@ instance ToJSON SchemaAttributeType where
 --
 -- /See:/ 'smsConfigurationType' smart constructor.
 data SmsConfigurationType = SmsConfigurationType'
-  { _sctExternalId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sctSNSCallerARN :: {-# NOUNPACK #-}!Text
+  { _sctExternalId   :: !(Maybe Text)
+  , _sctSNSCallerARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1598,8 +1598,8 @@ instance ToJSON SmsConfigurationType where
 --
 -- /See:/ 'stringAttributeConstraintsType' smart constructor.
 data StringAttributeConstraintsType = StringAttributeConstraintsType'
-  { _sactMaxLength :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sactMinLength :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sactMaxLength :: !(Maybe Text)
+  , _sactMinLength :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1651,13 +1651,13 @@ instance ToJSON StringAttributeConstraintsType where
 --
 -- /See:/ 'uICustomizationType' smart constructor.
 data UICustomizationType = UICustomizationType'
-  { _uictClientId         :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _uictLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _uictUserPoolId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uictCSS              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uictCSSVersion       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uictImageURL         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uictCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _uictClientId         :: !(Maybe (Sensitive Text))
+  , _uictLastModifiedDate :: !(Maybe POSIX)
+  , _uictUserPoolId       :: !(Maybe Text)
+  , _uictCSS              :: !(Maybe Text)
+  , _uictCSSVersion       :: !(Maybe Text)
+  , _uictImageURL         :: !(Maybe Text)
+  , _uictCreationDate     :: !(Maybe POSIX)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1742,19 +1742,19 @@ instance NFData UICustomizationType where
 --
 -- /See:/ 'userImportJobType' smart constructor.
 data UserImportJobType = UserImportJobType'
-  { _uijtStatus :: {-# NOUNPACK #-}!(Maybe UserImportJobStatusType)
-  , _uijtSkippedUsers :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _uijtJobId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uijtUserPoolId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uijtJobName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uijtPreSignedURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uijtFailedUsers :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _uijtStartDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _uijtCompletionMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uijtCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _uijtCompletionDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _uijtCloudWatchLogsRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uijtImportedUsers :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _uijtStatus                :: !(Maybe UserImportJobStatusType)
+  , _uijtSkippedUsers          :: !(Maybe Integer)
+  , _uijtJobId                 :: !(Maybe Text)
+  , _uijtUserPoolId            :: !(Maybe Text)
+  , _uijtJobName               :: !(Maybe Text)
+  , _uijtPreSignedURL          :: !(Maybe Text)
+  , _uijtFailedUsers           :: !(Maybe Integer)
+  , _uijtStartDate             :: !(Maybe POSIX)
+  , _uijtCompletionMessage     :: !(Maybe Text)
+  , _uijtCreationDate          :: !(Maybe POSIX)
+  , _uijtCompletionDate        :: !(Maybe POSIX)
+  , _uijtCloudWatchLogsRoleARN :: !(Maybe Text)
+  , _uijtImportedUsers         :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1887,9 +1887,9 @@ instance NFData UserImportJobType where
 --
 -- /See:/ 'userPoolClientDescription' smart constructor.
 data UserPoolClientDescription = UserPoolClientDescription'
-  { _upcdClientId   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _upcdUserPoolId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upcdClientName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _upcdClientId   :: !(Maybe (Sensitive Text))
+  , _upcdUserPoolId :: !(Maybe Text)
+  , _upcdClientName :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1942,23 +1942,23 @@ instance NFData UserPoolClientDescription where
 --
 -- /See:/ 'userPoolClientType' smart constructor.
 data UserPoolClientType = UserPoolClientType'
-  { _upctRefreshTokenValidity :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _upctClientId :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _upctExplicitAuthFlows :: {-# NOUNPACK #-}!(Maybe [ExplicitAuthFlowsType])
-  , _upctClientSecret :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _upctLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _upctSupportedIdentityProviders :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _upctLogoutURLs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _upctAllowedOAuthFlowsUserPoolClient :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _upctUserPoolId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upctDefaultRedirectURI :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upctWriteAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _upctCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _upctReadAttributes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _upctAllowedOAuthScopes :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _upctAllowedOAuthFlows :: {-# NOUNPACK #-}!(Maybe [OAuthFlowType])
-  , _upctClientName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upctCallbackURLs :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _upctRefreshTokenValidity            :: !(Maybe Nat)
+  , _upctClientId                        :: !(Maybe (Sensitive Text))
+  , _upctExplicitAuthFlows               :: !(Maybe [ExplicitAuthFlowsType])
+  , _upctClientSecret                    :: !(Maybe (Sensitive Text))
+  , _upctLastModifiedDate                :: !(Maybe POSIX)
+  , _upctSupportedIdentityProviders      :: !(Maybe [Text])
+  , _upctLogoutURLs                      :: !(Maybe [Text])
+  , _upctAllowedOAuthFlowsUserPoolClient :: !(Maybe Bool)
+  , _upctUserPoolId                      :: !(Maybe Text)
+  , _upctDefaultRedirectURI              :: !(Maybe Text)
+  , _upctWriteAttributes                 :: !(Maybe [Text])
+  , _upctCreationDate                    :: !(Maybe POSIX)
+  , _upctReadAttributes                  :: !(Maybe [Text])
+  , _upctAllowedOAuthScopes              :: !(Maybe [Text])
+  , _upctAllowedOAuthFlows               :: !(Maybe [OAuthFlowType])
+  , _upctClientName                      :: !(Maybe Text)
+  , _upctCallbackURLs                    :: !(Maybe [Text])
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -2123,12 +2123,12 @@ instance NFData UserPoolClientType where
 --
 -- /See:/ 'userPoolDescriptionType' smart constructor.
 data UserPoolDescriptionType = UserPoolDescriptionType'
-  { _updtStatus           :: {-# NOUNPACK #-}!(Maybe StatusType)
-  , _updtLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _updtName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _updtId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _updtCreationDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _updtLambdaConfig     :: {-# NOUNPACK #-}!(Maybe LambdaConfigType)
+  { _updtStatus           :: !(Maybe StatusType)
+  , _updtLastModifiedDate :: !(Maybe POSIX)
+  , _updtName             :: !(Maybe Text)
+  , _updtId               :: !(Maybe Text)
+  , _updtCreationDate     :: !(Maybe POSIX)
+  , _updtLambdaConfig     :: !(Maybe LambdaConfigType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2245,31 +2245,31 @@ instance ToJSON UserPoolPolicyType where
 --
 -- /See:/ 'userPoolType' smart constructor.
 data UserPoolType = UserPoolType'
-  { _uptStatus :: {-# NOUNPACK #-}!(Maybe StatusType)
-  , _uptUserPoolTags :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _uptEmailConfigurationFailure :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uptLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _uptVerificationMessageTemplate :: {-# NOUNPACK #-}!(Maybe VerificationMessageTemplateType)
-  , _uptEstimatedNumberOfUsers :: {-# NOUNPACK #-}!(Maybe Int)
-  , _uptEmailVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uptSmsAuthenticationMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uptSchemaAttributes :: {-# NOUNPACK #-}!(Maybe (List1 SchemaAttributeType))
-  , _uptEmailVerificationSubject :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uptUsernameAttributes :: {-# NOUNPACK #-}!(Maybe [UsernameAttributeType])
-  , _uptAliasAttributes :: {-# NOUNPACK #-}!(Maybe [AliasAttributeType])
-  , _uptEmailConfiguration :: {-# NOUNPACK #-}!(Maybe EmailConfigurationType)
-  , _uptSmsVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uptName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uptMFAConfiguration :: {-# NOUNPACK #-}!(Maybe UserPoolMFAType)
-  , _uptId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uptSmsConfigurationFailure :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uptCreationDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _uptLambdaConfig :: {-# NOUNPACK #-}!(Maybe LambdaConfigType)
-  , _uptSmsConfiguration :: {-# NOUNPACK #-}!(Maybe SmsConfigurationType)
-  , _uptAdminCreateUserConfig :: {-# NOUNPACK #-}!(Maybe AdminCreateUserConfigType)
-  , _uptDeviceConfiguration :: {-# NOUNPACK #-}!(Maybe DeviceConfigurationType)
-  , _uptAutoVerifiedAttributes :: {-# NOUNPACK #-}!(Maybe [VerifiedAttributeType])
-  , _uptPolicies :: {-# NOUNPACK #-}!(Maybe UserPoolPolicyType)
+  { _uptStatus                      :: !(Maybe StatusType)
+  , _uptUserPoolTags                :: !(Maybe (Map Text Text))
+  , _uptEmailConfigurationFailure   :: !(Maybe Text)
+  , _uptLastModifiedDate            :: !(Maybe POSIX)
+  , _uptVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
+  , _uptEstimatedNumberOfUsers      :: !(Maybe Int)
+  , _uptEmailVerificationMessage    :: !(Maybe Text)
+  , _uptSmsAuthenticationMessage    :: !(Maybe Text)
+  , _uptSchemaAttributes            :: !(Maybe (List1 SchemaAttributeType))
+  , _uptEmailVerificationSubject    :: !(Maybe Text)
+  , _uptUsernameAttributes          :: !(Maybe [UsernameAttributeType])
+  , _uptAliasAttributes             :: !(Maybe [AliasAttributeType])
+  , _uptEmailConfiguration          :: !(Maybe EmailConfigurationType)
+  , _uptSmsVerificationMessage      :: !(Maybe Text)
+  , _uptName                        :: !(Maybe Text)
+  , _uptMFAConfiguration            :: !(Maybe UserPoolMFAType)
+  , _uptId                          :: !(Maybe Text)
+  , _uptSmsConfigurationFailure     :: !(Maybe Text)
+  , _uptCreationDate                :: !(Maybe POSIX)
+  , _uptLambdaConfig                :: !(Maybe LambdaConfigType)
+  , _uptSmsConfiguration            :: !(Maybe SmsConfigurationType)
+  , _uptAdminCreateUserConfig       :: !(Maybe AdminCreateUserConfigType)
+  , _uptDeviceConfiguration         :: !(Maybe DeviceConfigurationType)
+  , _uptAutoVerifiedAttributes      :: !(Maybe [VerifiedAttributeType])
+  , _uptPolicies                    :: !(Maybe UserPoolPolicyType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2499,13 +2499,13 @@ instance NFData UserPoolType where
 --
 -- /See:/ 'userType' smart constructor.
 data UserType = UserType'
-  { _utEnabled              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _utUserStatus           :: {-# NOUNPACK #-}!(Maybe UserStatusType)
-  , _utUsername             :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _utUserCreateDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _utAttributes           :: {-# NOUNPACK #-}!(Maybe [AttributeType])
-  , _utMFAOptions           :: {-# NOUNPACK #-}!(Maybe [MFAOptionType])
-  , _utUserLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _utEnabled              :: !(Maybe Bool)
+  , _utUserStatus           :: !(Maybe UserStatusType)
+  , _utUsername             :: !(Maybe (Sensitive Text))
+  , _utUserCreateDate       :: !(Maybe POSIX)
+  , _utAttributes           :: !(Maybe [AttributeType])
+  , _utMFAOptions           :: !(Maybe [MFAOptionType])
+  , _utUserLastModifiedDate :: !(Maybe POSIX)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -2590,12 +2590,12 @@ instance NFData UserType where
 --
 -- /See:/ 'verificationMessageTemplateType' smart constructor.
 data VerificationMessageTemplateType = VerificationMessageTemplateType'
-  { _vmttDefaultEmailOption :: {-# NOUNPACK #-}!(Maybe DefaultEmailOptionType)
-  , _vmttEmailSubject       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vmttEmailSubjectByLink :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vmttSmsMessage         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vmttEmailMessageByLink :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vmttEmailMessage       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vmttDefaultEmailOption :: !(Maybe DefaultEmailOptionType)
+  , _vmttEmailSubject       :: !(Maybe Text)
+  , _vmttEmailSubjectByLink :: !(Maybe Text)
+  , _vmttSmsMessage         :: !(Maybe Text)
+  , _vmttEmailMessageByLink :: !(Maybe Text)
+  , _vmttEmailMessage       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

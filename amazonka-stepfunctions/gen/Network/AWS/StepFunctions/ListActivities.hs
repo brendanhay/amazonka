@@ -51,8 +51,8 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'listActivities' smart constructor.
 data ListActivities = ListActivities'
-  { _laNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _laNextToken  :: !(Maybe Text)
+  , _laMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery ListActivities where
 
 -- | /See:/ 'listActivitiesResponse' smart constructor.
 data ListActivitiesResponse = ListActivitiesResponse'
-  { _larsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _larsActivities     :: {-# NOUNPACK #-}![ActivityListItem]
+  { _larsNextToken      :: !(Maybe Text)
+  , _larsResponseStatus :: !Int
+  , _larsActivities     :: ![ActivityListItem]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

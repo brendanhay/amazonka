@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteUserDefinedFunction' smart constructor.
 data DeleteUserDefinedFunction = DeleteUserDefinedFunction'
-  { _dudfCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dudfDatabaseName :: {-# NOUNPACK #-}!Text
-  , _dudfFunctionName :: {-# NOUNPACK #-}!Text
+  { _dudfCatalogId    :: !(Maybe Text)
+  , _dudfDatabaseName :: !Text
+  , _dudfFunctionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -71,9 +71,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVPCPeeringConnection' smart constructor.
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
-  { _cvpcFleetId             :: {-# NOUNPACK #-}!Text
-  , _cvpcPeerVPCAWSAccountId :: {-# NOUNPACK #-}!Text
-  , _cvpcPeerVPCId           :: {-# NOUNPACK #-}!Text
+  { _cvpcFleetId             :: !Text
+  , _cvpcPeerVPCAWSAccountId :: !Text
+  , _cvpcPeerVPCId           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

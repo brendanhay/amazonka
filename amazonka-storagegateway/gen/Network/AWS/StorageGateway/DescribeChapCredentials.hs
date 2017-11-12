@@ -112,8 +112,8 @@ instance ToQuery DescribeChapCredentials where
 --
 -- /See:/ 'describeChapCredentialsResponse' smart constructor.
 data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
-  { _dccrsChapCredentials :: {-# NOUNPACK #-}!(Maybe [ChapInfo])
-  , _dccrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dccrsChapCredentials :: !(Maybe [ChapInfo])
+  , _dccrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

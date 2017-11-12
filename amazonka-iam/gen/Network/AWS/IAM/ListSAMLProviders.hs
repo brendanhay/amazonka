@@ -89,8 +89,8 @@ instance ToQuery ListSAMLProviders where
 --
 -- /See:/ 'listSAMLProvidersResponse' smart constructor.
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
-  { _lsamlprsSAMLProviderList :: {-# NOUNPACK #-}!(Maybe [SAMLProviderListEntry])
-  , _lsamlprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lsamlprsSAMLProviderList :: !(Maybe [SAMLProviderListEntry])
+  , _lsamlprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

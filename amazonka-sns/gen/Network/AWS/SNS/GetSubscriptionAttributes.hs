@@ -106,8 +106,8 @@ instance ToQuery GetSubscriptionAttributes where
 --
 -- /See:/ 'getSubscriptionAttributesResponse' smart constructor.
 data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
-  { _gsarsAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsarsAttributes     :: !(Maybe (Map Text Text))
+  , _gsarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

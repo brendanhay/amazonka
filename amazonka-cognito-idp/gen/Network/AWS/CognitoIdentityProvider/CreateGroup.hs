@@ -52,11 +52,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { _cgPrecedence  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cgDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cgGroupName   :: {-# NOUNPACK #-}!Text
-  , _cgUserPoolId  :: {-# NOUNPACK #-}!Text
+  { _cgPrecedence  :: !(Maybe Nat)
+  , _cgDescription :: !(Maybe Text)
+  , _cgRoleARN     :: !(Maybe Text)
+  , _cgGroupName   :: !Text
+  , _cgUserPoolId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,8 +148,8 @@ instance ToQuery CreateGroup where
 
 -- | /See:/ 'createGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-  { _cgrsGroup          :: {-# NOUNPACK #-}!(Maybe GroupType)
-  , _cgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cgrsGroup          :: !(Maybe GroupType)
+  , _cgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

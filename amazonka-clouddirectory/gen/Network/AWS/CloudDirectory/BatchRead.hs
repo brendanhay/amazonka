@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'batchRead' smart constructor.
 data BatchRead = BatchRead'
-  { _brConsistencyLevel :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
-  , _brDirectoryARN     :: {-# NOUNPACK #-}!Text
-  , _brOperations       :: {-# NOUNPACK #-}![BatchReadOperation]
+  { _brConsistencyLevel :: !(Maybe ConsistencyLevel)
+  , _brDirectoryARN     :: !Text
+  , _brOperations       :: ![BatchReadOperation]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,8 +120,8 @@ instance ToQuery BatchRead where
 
 -- | /See:/ 'batchReadResponse' smart constructor.
 data BatchReadResponse = BatchReadResponse'
-  { _brrsResponses      :: {-# NOUNPACK #-}!(Maybe [BatchReadOperationResponse])
-  , _brrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _brrsResponses      :: !(Maybe [BatchReadOperationResponse])
+  , _brrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

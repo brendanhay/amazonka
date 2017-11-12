@@ -28,10 +28,10 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'accessLog' smart constructor.
 data AccessLog = AccessLog'
-  { _alEmitInterval   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _alS3BucketPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _alS3BucketName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _alEnabled        :: {-# NOUNPACK #-}!Bool
+  { _alEmitInterval   :: !(Maybe Int)
+  , _alS3BucketPrefix :: !(Maybe Text)
+  , _alS3BucketName   :: !(Maybe Text)
+  , _alEnabled        :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -99,8 +99,8 @@ instance ToQuery AccessLog where
 --
 -- /See:/ 'additionalAttribute' smart constructor.
 data AdditionalAttribute = AdditionalAttribute'
-  { _aaValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aaKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aaValue :: !(Maybe Text)
+  , _aaKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,8 +144,8 @@ instance ToQuery AdditionalAttribute where
 --
 -- /See:/ 'appCookieStickinessPolicy' smart constructor.
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy'
-  { _acspPolicyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _acspCookieName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _acspPolicyName :: !(Maybe Text)
+  , _acspCookieName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -186,8 +186,8 @@ instance NFData AppCookieStickinessPolicy where
 --
 -- /See:/ 'backendServerDescription' smart constructor.
 data BackendServerDescription = BackendServerDescription'
-  { _bsdPolicyNames  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _bsdInstancePort :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _bsdPolicyNames  :: !(Maybe [Text])
+  , _bsdInstancePort :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -230,8 +230,8 @@ instance NFData BackendServerDescription where
 --
 -- /See:/ 'connectionDraining' smart constructor.
 data ConnectionDraining = ConnectionDraining'
-  { _cdTimeout :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cdEnabled :: {-# NOUNPACK #-}!Bool
+  { _cdTimeout :: !(Maybe Int)
+  , _cdEnabled :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -353,11 +353,11 @@ instance ToQuery CrossZoneLoadBalancing where
 --
 -- /See:/ 'healthCheck' smart constructor.
 data HealthCheck = HealthCheck'
-  { _hcTarget             :: {-# NOUNPACK #-}!Text
-  , _hcInterval           :: {-# NOUNPACK #-}!Nat
-  , _hcTimeout            :: {-# NOUNPACK #-}!Nat
-  , _hcUnhealthyThreshold :: {-# NOUNPACK #-}!Nat
-  , _hcHealthyThreshold   :: {-# NOUNPACK #-}!Nat
+  { _hcTarget             :: !Text
+  , _hcInterval           :: !Nat
+  , _hcTimeout            :: !Nat
+  , _hcUnhealthyThreshold :: !Nat
+  , _hcHealthyThreshold   :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -472,10 +472,10 @@ instance ToQuery Instance where
 --
 -- /See:/ 'instanceState' smart constructor.
 data InstanceState = InstanceState'
-  { _isInstanceId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isState       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isReasonCode  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _isInstanceId  :: !(Maybe Text)
+  , _isState       :: !(Maybe Text)
+  , _isReasonCode  :: !(Maybe Text)
+  , _isDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -534,8 +534,8 @@ instance NFData InstanceState where
 --
 -- /See:/ 'lBCookieStickinessPolicy' smart constructor.
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy'
-  { _lbcspPolicyName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbcspCookieExpirationPeriod :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _lbcspPolicyName             :: !(Maybe Text)
+  , _lbcspCookieExpirationPeriod :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -577,8 +577,8 @@ instance NFData LBCookieStickinessPolicy where
 --
 -- /See:/ 'limit' smart constructor.
 data Limit = Limit'
-  { _lMax  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lMax  :: !(Maybe Text)
+  , _lName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -618,11 +618,11 @@ instance NFData Limit where
 --
 -- /See:/ 'listener' smart constructor.
 data Listener = Listener'
-  { _lInstanceProtocol :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lSSLCertificateId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lProtocol         :: {-# NOUNPACK #-}!Text
-  , _lLoadBalancerPort :: {-# NOUNPACK #-}!Int
-  , _lInstancePort     :: {-# NOUNPACK #-}!Nat
+  { _lInstanceProtocol :: !(Maybe Text)
+  , _lSSLCertificateId :: !(Maybe Text)
+  , _lProtocol         :: !Text
+  , _lLoadBalancerPort :: !Int
+  , _lInstancePort     :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -702,8 +702,8 @@ instance ToQuery Listener where
 --
 -- /See:/ 'listenerDescription' smart constructor.
 data ListenerDescription = ListenerDescription'
-  { _ldPolicyNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ldListener    :: {-# NOUNPACK #-}!(Maybe Listener)
+  { _ldPolicyNames :: !(Maybe [Text])
+  , _ldListener    :: !(Maybe Listener)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -745,11 +745,11 @@ instance NFData ListenerDescription where
 --
 -- /See:/ 'loadBalancerAttributes' smart constructor.
 data LoadBalancerAttributes = LoadBalancerAttributes'
-  { _lbaCrossZoneLoadBalancing :: {-# NOUNPACK #-}!(Maybe CrossZoneLoadBalancing)
-  , _lbaAccessLog :: {-# NOUNPACK #-}!(Maybe AccessLog)
-  , _lbaAdditionalAttributes :: {-# NOUNPACK #-}!(Maybe [AdditionalAttribute])
-  , _lbaConnectionSettings :: {-# NOUNPACK #-}!(Maybe ConnectionSettings)
-  , _lbaConnectionDraining :: {-# NOUNPACK #-}!(Maybe ConnectionDraining)
+  { _lbaCrossZoneLoadBalancing :: !(Maybe CrossZoneLoadBalancing)
+  , _lbaAccessLog              :: !(Maybe AccessLog)
+  , _lbaAdditionalAttributes   :: !(Maybe [AdditionalAttribute])
+  , _lbaConnectionSettings     :: !(Maybe ConnectionSettings)
+  , _lbaConnectionDraining     :: !(Maybe ConnectionDraining)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -831,22 +831,22 @@ instance ToQuery LoadBalancerAttributes where
 --
 -- /See:/ 'loadBalancerDescription' smart constructor.
 data LoadBalancerDescription = LoadBalancerDescription'
-  { _lbdSourceSecurityGroup :: {-# NOUNPACK #-}!(Maybe SourceSecurityGroup)
-  , _lbdCanonicalHostedZoneName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbdSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lbdHealthCheck :: {-# NOUNPACK #-}!(Maybe HealthCheck)
-  , _lbdLoadBalancerName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbdCreatedTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _lbdVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbdSubnets :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lbdAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lbdBackendServerDescriptions :: {-# NOUNPACK #-}!(Maybe [BackendServerDescription])
-  , _lbdCanonicalHostedZoneNameId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbdInstances :: {-# NOUNPACK #-}!(Maybe [Instance])
-  , _lbdScheme :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbdListenerDescriptions :: {-# NOUNPACK #-}!(Maybe [ListenerDescription])
-  , _lbdDNSName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbdPolicies :: {-# NOUNPACK #-}!(Maybe Policies)
+  { _lbdSourceSecurityGroup       :: !(Maybe SourceSecurityGroup)
+  , _lbdCanonicalHostedZoneName   :: !(Maybe Text)
+  , _lbdSecurityGroups            :: !(Maybe [Text])
+  , _lbdHealthCheck               :: !(Maybe HealthCheck)
+  , _lbdLoadBalancerName          :: !(Maybe Text)
+  , _lbdCreatedTime               :: !(Maybe ISO8601)
+  , _lbdVPCId                     :: !(Maybe Text)
+  , _lbdSubnets                   :: !(Maybe [Text])
+  , _lbdAvailabilityZones         :: !(Maybe [Text])
+  , _lbdBackendServerDescriptions :: !(Maybe [BackendServerDescription])
+  , _lbdCanonicalHostedZoneNameId :: !(Maybe Text)
+  , _lbdInstances                 :: !(Maybe [Instance])
+  , _lbdScheme                    :: !(Maybe Text)
+  , _lbdListenerDescriptions      :: !(Maybe [ListenerDescription])
+  , _lbdDNSName                   :: !(Maybe Text)
+  , _lbdPolicies                  :: !(Maybe Policies)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1014,9 +1014,9 @@ instance NFData LoadBalancerDescription where
 --
 -- /See:/ 'policies' smart constructor.
 data Policies = Policies'
-  { _pOtherPolicies :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _pLBCookieStickinessPolicies :: {-# NOUNPACK #-}!(Maybe [LBCookieStickinessPolicy])
-  , _pAppCookieStickinessPolicies :: {-# NOUNPACK #-}!(Maybe [AppCookieStickinessPolicy])
+  { _pOtherPolicies               :: !(Maybe [Text])
+  , _pLBCookieStickinessPolicies  :: !(Maybe [LBCookieStickinessPolicy])
+  , _pAppCookieStickinessPolicies :: !(Maybe [AppCookieStickinessPolicy])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1073,8 +1073,8 @@ instance NFData Policies where
 --
 -- /See:/ 'policyAttribute' smart constructor.
 data PolicyAttribute = PolicyAttribute'
-  { _paAttributeValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _paAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _paAttributeValue :: !(Maybe Text)
+  , _paAttributeName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1115,8 +1115,8 @@ instance ToQuery PolicyAttribute where
 --
 -- /See:/ 'policyAttributeDescription' smart constructor.
 data PolicyAttributeDescription = PolicyAttributeDescription'
-  { _padAttributeValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _padAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _padAttributeValue :: !(Maybe Text)
+  , _padAttributeName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1157,11 +1157,11 @@ instance NFData PolicyAttributeDescription where
 --
 -- /See:/ 'policyAttributeTypeDescription' smart constructor.
 data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
-  { _patdAttributeType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _patdCardinality   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _patdDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _patdAttributeName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _patdDescription   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _patdAttributeType :: !(Maybe Text)
+  , _patdCardinality   :: !(Maybe Text)
+  , _patdDefaultValue  :: !(Maybe Text)
+  , _patdAttributeName :: !(Maybe Text)
+  , _patdDescription   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1229,9 +1229,9 @@ instance NFData PolicyAttributeTypeDescription where
 --
 -- /See:/ 'policyDescription' smart constructor.
 data PolicyDescription = PolicyDescription'
-  { _pdPolicyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdPolicyAttributeDescriptions :: {-# NOUNPACK #-}!(Maybe [PolicyAttributeDescription])
-  , _pdPolicyTypeName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pdPolicyName                  :: !(Maybe Text)
+  , _pdPolicyAttributeDescriptions :: !(Maybe [PolicyAttributeDescription])
+  , _pdPolicyTypeName              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1284,9 +1284,9 @@ instance NFData PolicyDescription where
 --
 -- /See:/ 'policyTypeDescription' smart constructor.
 data PolicyTypeDescription = PolicyTypeDescription'
-  { _ptdPolicyTypeName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ptdDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ptdPolicyAttributeTypeDescriptions :: {-# NOUNPACK #-}!(Maybe [PolicyAttributeTypeDescription])
+  { _ptdPolicyTypeName :: !(Maybe Text)
+  , _ptdDescription :: !(Maybe Text)
+  , _ptdPolicyAttributeTypeDescriptions :: !(Maybe [PolicyAttributeTypeDescription])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1339,8 +1339,8 @@ instance NFData PolicyTypeDescription where
 --
 -- /See:/ 'sourceSecurityGroup' smart constructor.
 data SourceSecurityGroup = SourceSecurityGroup'
-  { _ssgOwnerAlias :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssgGroupName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ssgOwnerAlias :: !(Maybe Text)
+  , _ssgGroupName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1380,8 +1380,8 @@ instance NFData SourceSecurityGroup where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!Text
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1424,8 +1424,8 @@ instance ToQuery Tag where
 --
 -- /See:/ 'tagDescription' smart constructor.
 data TagDescription = TagDescription'
-  { _tdLoadBalancerName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdTags             :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
+  { _tdLoadBalancerName :: !(Maybe Text)
+  , _tdTags             :: !(Maybe (List1 Tag))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

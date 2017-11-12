@@ -53,11 +53,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'setTaskStatus' smart constructor.
 data SetTaskStatus = SetTaskStatus'
-  { _stsErrorStackTrace :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stsErrorId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stsErrorMessage    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _stsTaskId          :: {-# NOUNPACK #-}!Text
-  , _stsTaskStatus      :: {-# NOUNPACK #-}!TaskStatus
+  { _stsErrorStackTrace :: !(Maybe Text)
+  , _stsErrorId         :: !(Maybe Text)
+  , _stsErrorMessage    :: !(Maybe Text)
+  , _stsTaskId          :: !Text
+  , _stsTaskStatus      :: !TaskStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

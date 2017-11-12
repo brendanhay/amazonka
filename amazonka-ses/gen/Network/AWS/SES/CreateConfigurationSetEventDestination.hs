@@ -54,8 +54,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'createConfigurationSetEventDestination' smart constructor.
 data CreateConfigurationSetEventDestination = CreateConfigurationSetEventDestination'
-  { _ccsedConfigurationSetName :: {-# NOUNPACK #-}!Text
-  , _ccsedEventDestination     :: {-# NOUNPACK #-}!EventDestination
+  { _ccsedConfigurationSetName :: !Text
+  , _ccsedEventDestination     :: !EventDestination
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

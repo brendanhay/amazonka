@@ -51,9 +51,9 @@ import Network.AWS.Route53.Types.Product
 
 -- | /See:/ 'listQueryLoggingConfigs' smart constructor.
 data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
-  { _lqlcHostedZoneId :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _lqlcNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lqlcMaxResults   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lqlcHostedZoneId :: !(Maybe ResourceId)
+  , _lqlcNextToken    :: !(Maybe Text)
+  , _lqlcMaxResults   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,9 +119,9 @@ instance ToQuery ListQueryLoggingConfigs where
 
 -- | /See:/ 'listQueryLoggingConfigsResponse' smart constructor.
 data ListQueryLoggingConfigsResponse = ListQueryLoggingConfigsResponse'
-  { _lqlcrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lqlcrsResponseStatus      :: {-# NOUNPACK #-}!Int
-  , _lqlcrsQueryLoggingConfigs :: {-# NOUNPACK #-}![QueryLoggingConfig]
+  { _lqlcrsNextToken           :: !(Maybe Text)
+  , _lqlcrsResponseStatus      :: !Int
+  , _lqlcrsQueryLoggingConfigs :: ![QueryLoggingConfig]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

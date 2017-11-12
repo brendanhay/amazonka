@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateBatchPrediction' smart constructor.
 data UpdateBatchPrediction = UpdateBatchPrediction'
-  { _ubpBatchPredictionId   :: {-# NOUNPACK #-}!Text
-  , _ubpBatchPredictionName :: {-# NOUNPACK #-}!Text
+  { _ubpBatchPredictionId   :: !Text
+  , _ubpBatchPredictionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery UpdateBatchPrediction where
 --
 -- /See:/ 'updateBatchPredictionResponse' smart constructor.
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
-  { _ubprsBatchPredictionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ubprsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _ubprsBatchPredictionId :: !(Maybe Text)
+  , _ubprsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

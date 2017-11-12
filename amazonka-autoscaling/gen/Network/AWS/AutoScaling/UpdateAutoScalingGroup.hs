@@ -69,19 +69,19 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateAutoScalingGroup' smart constructor.
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
-  { _uasgTerminationPolicies :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uasgHealthCheckGracePeriod :: {-# NOUNPACK #-}!(Maybe Int)
-  , _uasgNewInstancesProtectedFromScaleIn :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uasgVPCZoneIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uasgDefaultCooldown :: {-# NOUNPACK #-}!(Maybe Int)
-  , _uasgMaxSize :: {-# NOUNPACK #-}!(Maybe Int)
-  , _uasgAvailabilityZones :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _uasgDesiredCapacity :: {-# NOUNPACK #-}!(Maybe Int)
-  , _uasgMinSize :: {-# NOUNPACK #-}!(Maybe Int)
-  , _uasgLaunchConfigurationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uasgHealthCheckType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uasgPlacementGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uasgAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  { _uasgTerminationPolicies              :: !(Maybe [Text])
+  , _uasgHealthCheckGracePeriod           :: !(Maybe Int)
+  , _uasgNewInstancesProtectedFromScaleIn :: !(Maybe Bool)
+  , _uasgVPCZoneIdentifier                :: !(Maybe Text)
+  , _uasgDefaultCooldown                  :: !(Maybe Int)
+  , _uasgMaxSize                          :: !(Maybe Int)
+  , _uasgAvailabilityZones                :: !(Maybe (List1 Text))
+  , _uasgDesiredCapacity                  :: !(Maybe Int)
+  , _uasgMinSize                          :: !(Maybe Int)
+  , _uasgLaunchConfigurationName          :: !(Maybe Text)
+  , _uasgHealthCheckType                  :: !(Maybe Text)
+  , _uasgPlacementGroup                   :: !(Maybe Text)
+  , _uasgAutoScalingGroupName             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

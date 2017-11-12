@@ -108,8 +108,8 @@ instance ToQuery DescribeStackSummary where
 --
 -- /See:/ 'describeStackSummaryResponse' smart constructor.
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
-  { _dssrsStackSummary   :: {-# NOUNPACK #-}!(Maybe StackSummary)
-  , _dssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dssrsStackSummary   :: !(Maybe StackSummary)
+  , _dssrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

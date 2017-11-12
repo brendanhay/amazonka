@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listPublicKeys' smart constructor.
 data ListPublicKeys = ListPublicKeys'
-  { _lpkStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _lpkNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpkEndTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _lpkStartTime :: !(Maybe POSIX)
+  , _lpkNextToken :: !(Maybe Text)
+  , _lpkEndTime   :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,9 +132,9 @@ instance ToQuery ListPublicKeys where
 --
 -- /See:/ 'listPublicKeysResponse' smart constructor.
 data ListPublicKeysResponse = ListPublicKeysResponse'
-  { _lpkrsPublicKeyList  :: {-# NOUNPACK #-}!(Maybe [PublicKey])
-  , _lpkrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lpkrsPublicKeyList  :: !(Maybe [PublicKey])
+  , _lpkrsNextToken      :: !(Maybe Text)
+  , _lpkrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

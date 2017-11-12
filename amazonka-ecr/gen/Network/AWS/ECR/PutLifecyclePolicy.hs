@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'putLifecyclePolicy' smart constructor.
 data PutLifecyclePolicy = PutLifecyclePolicy'
-  { _plpRegistryId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _plpRepositoryName      :: {-# NOUNPACK #-}!Text
-  , _plpLifecyclePolicyText :: {-# NOUNPACK #-}!Text
+  { _plpRegistryId          :: !(Maybe Text)
+  , _plpRepositoryName      :: !Text
+  , _plpLifecyclePolicyText :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,10 +133,10 @@ instance ToQuery PutLifecyclePolicy where
 
 -- | /See:/ 'putLifecyclePolicyResponse' smart constructor.
 data PutLifecyclePolicyResponse = PutLifecyclePolicyResponse'
-  { _plprsRegistryId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _plprsLifecyclePolicyText :: {-# NOUNPACK #-}!(Maybe Text)
-  , _plprsRepositoryName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _plprsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _plprsRegistryId          :: !(Maybe Text)
+  , _plprsLifecyclePolicyText :: !(Maybe Text)
+  , _plprsRepositoryName      :: !(Maybe Text)
+  , _plprsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

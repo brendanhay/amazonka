@@ -72,11 +72,11 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'countOpenWorkflowExecutions' smart constructor.
 data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
-  { _coweExecutionFilter :: {-# NOUNPACK #-}!(Maybe WorkflowExecutionFilter)
-  , _coweTypeFilter      :: {-# NOUNPACK #-}!(Maybe WorkflowTypeFilter)
-  , _coweTagFilter       :: {-# NOUNPACK #-}!(Maybe TagFilter)
-  , _coweDomain          :: {-# NOUNPACK #-}!Text
-  , _coweStartTimeFilter :: {-# NOUNPACK #-}!ExecutionTimeFilter
+  { _coweExecutionFilter :: !(Maybe WorkflowExecutionFilter)
+  , _coweTypeFilter      :: !(Maybe WorkflowTypeFilter)
+  , _coweTagFilter       :: !(Maybe TagFilter)
+  , _coweDomain          :: !Text
+  , _coweStartTimeFilter :: !ExecutionTimeFilter
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

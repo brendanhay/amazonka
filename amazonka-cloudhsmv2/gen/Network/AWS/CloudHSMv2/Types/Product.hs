@@ -27,10 +27,10 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'backup' smart constructor.
 data Backup = Backup'
-  { _bClusterId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bCreateTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _bBackupState     :: {-# NOUNPACK #-}!(Maybe BackupState)
-  , _bBackupId        :: {-# NOUNPACK #-}!Text
+  { _bClusterId       :: !(Maybe Text)
+  , _bCreateTimestamp :: !(Maybe POSIX)
+  , _bBackupState     :: !(Maybe BackupState)
+  , _bBackupId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -92,11 +92,11 @@ instance NFData Backup where
 --
 -- /See:/ 'certificates' smart constructor.
 data Certificates = Certificates'
-  { _cManufacturerHardwareCertificate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cClusterCSR                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cHSMCertificate                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cClusterCertificate              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cAWSHardwareCertificate          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cManufacturerHardwareCertificate :: !(Maybe Text)
+  , _cClusterCSR                      :: !(Maybe Text)
+  , _cHSMCertificate                  :: !(Maybe Text)
+  , _cClusterCertificate              :: !(Maybe Text)
+  , _cAWSHardwareCertificate          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -166,19 +166,19 @@ instance NFData Certificates where
 --
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
-  { _cPreCoPassword   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cStateMessage    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cState           :: {-# NOUNPACK #-}!(Maybe ClusterState)
-  , _cSubnetMapping   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cHSMs            :: {-# NOUNPACK #-}!(Maybe [HSM])
-  , _cVPCId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cSourceBackupId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCertificates    :: {-# NOUNPACK #-}!(Maybe Certificates)
-  , _cSecurityGroup   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cClusterId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCreateTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cBackupPolicy    :: {-# NOUNPACK #-}!(Maybe BackupPolicy)
-  , _cHSMType         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cPreCoPassword   :: !(Maybe Text)
+  , _cStateMessage    :: !(Maybe Text)
+  , _cState           :: !(Maybe ClusterState)
+  , _cSubnetMapping   :: !(Maybe (Map Text Text))
+  , _cHSMs            :: !(Maybe [HSM])
+  , _cVPCId           :: !(Maybe Text)
+  , _cSourceBackupId  :: !(Maybe Text)
+  , _cCertificates    :: !(Maybe Certificates)
+  , _cSecurityGroup   :: !(Maybe Text)
+  , _cClusterId       :: !(Maybe Text)
+  , _cCreateTimestamp :: !(Maybe POSIX)
+  , _cBackupPolicy    :: !(Maybe BackupPolicy)
+  , _cHSMType         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -311,14 +311,14 @@ instance NFData Cluster where
 --
 -- /See:/ 'hsm' smart constructor.
 data HSM = HSM'
-  { _hsmStateMessage     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hsmState            :: {-# NOUNPACK #-}!(Maybe HSMState)
-  , _hsmEniId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hsmSubnetId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hsmAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hsmClusterId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hsmEniIP            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hsmHSMId            :: {-# NOUNPACK #-}!Text
+  { _hsmStateMessage     :: !(Maybe Text)
+  , _hsmState            :: !(Maybe HSMState)
+  , _hsmEniId            :: !(Maybe Text)
+  , _hsmSubnetId         :: !(Maybe Text)
+  , _hsmAvailabilityZone :: !(Maybe Text)
+  , _hsmClusterId        :: !(Maybe Text)
+  , _hsmEniIP            :: !(Maybe Text)
+  , _hsmHSMId            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -412,8 +412,8 @@ instance NFData HSM where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!Text
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

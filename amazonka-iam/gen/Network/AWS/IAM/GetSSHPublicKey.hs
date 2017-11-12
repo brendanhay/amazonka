@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getSSHPublicKey' smart constructor.
 data GetSSHPublicKey = GetSSHPublicKey'
-  { _gspkUserName       :: {-# NOUNPACK #-}!Text
-  , _gspkSSHPublicKeyId :: {-# NOUNPACK #-}!Text
-  , _gspkEncoding       :: {-# NOUNPACK #-}!EncodingType
+  { _gspkUserName       :: !Text
+  , _gspkSSHPublicKeyId :: !Text
+  , _gspkEncoding       :: !EncodingType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery GetSSHPublicKey where
 --
 -- /See:/ 'getSSHPublicKeyResponse' smart constructor.
 data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
-  { _gspkrsSSHPublicKey   :: {-# NOUNPACK #-}!(Maybe SSHPublicKey)
-  , _gspkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gspkrsSSHPublicKey   :: !(Maybe SSHPublicKey)
+  , _gspkrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -118,8 +118,8 @@ instance ToQuery DeleteReplicationInstance where
 --
 -- /See:/ 'deleteReplicationInstanceResponse' smart constructor.
 data DeleteReplicationInstanceResponse = DeleteReplicationInstanceResponse'
-  { _drirsReplicationInstance :: {-# NOUNPACK #-}!(Maybe ReplicationInstance)
-  , _drirsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _drirsReplicationInstance :: !(Maybe ReplicationInstance)
+  , _drirsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

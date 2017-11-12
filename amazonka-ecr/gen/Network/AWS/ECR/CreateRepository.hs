@@ -103,8 +103,8 @@ instance ToQuery CreateRepository where
 
 -- | /See:/ 'createRepositoryResponse' smart constructor.
 data CreateRepositoryResponse = CreateRepositoryResponse'
-  { _crrsRepository     :: {-# NOUNPACK #-}!(Maybe Repository)
-  , _crrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crrsRepository     :: !(Maybe Repository)
+  , _crrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

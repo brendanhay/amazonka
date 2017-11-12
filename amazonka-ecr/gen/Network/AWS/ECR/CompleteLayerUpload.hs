@@ -52,10 +52,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'completeLayerUpload' smart constructor.
 data CompleteLayerUpload = CompleteLayerUpload'
-  { _cluRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cluRepositoryName :: {-# NOUNPACK #-}!Text
-  , _cluUploadId       :: {-# NOUNPACK #-}!Text
-  , _cluLayerDigests   :: {-# NOUNPACK #-}!(List1 Text)
+  { _cluRegistryId     :: !(Maybe Text)
+  , _cluRepositoryName :: !Text
+  , _cluUploadId       :: !Text
+  , _cluLayerDigests   :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,11 +144,11 @@ instance ToQuery CompleteLayerUpload where
 
 -- | /See:/ 'completeLayerUploadResponse' smart constructor.
 data CompleteLayerUploadResponse = CompleteLayerUploadResponse'
-  { _clursRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clursLayerDigest    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clursRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clursUploadId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _clursRegistryId     :: !(Maybe Text)
+  , _clursLayerDigest    :: !(Maybe Text)
+  , _clursRepositoryName :: !(Maybe Text)
+  , _clursUploadId       :: !(Maybe Text)
+  , _clursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

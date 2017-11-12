@@ -55,9 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listInstanceProfilesForRole' smart constructor.
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole'
-  { _lipfrMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lipfrMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lipfrRoleName :: {-# NOUNPACK #-}!Text
+  { _lipfrMarker   :: !(Maybe Text)
+  , _lipfrMaxItems :: !(Maybe Nat)
+  , _lipfrRoleName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,10 +141,10 @@ instance ToQuery ListInstanceProfilesForRole where
 --
 -- /See:/ 'listInstanceProfilesForRoleResponse' smart constructor.
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
-  { _lipfrrsMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lipfrrsIsTruncated      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lipfrrsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _lipfrrsInstanceProfiles :: {-# NOUNPACK #-}![InstanceProfile]
+  { _lipfrrsMarker           :: !(Maybe Text)
+  , _lipfrrsIsTruncated      :: !(Maybe Bool)
+  , _lipfrrsResponseStatus   :: !Int
+  , _lipfrrsInstanceProfiles :: ![InstanceProfile]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

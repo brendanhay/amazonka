@@ -48,12 +48,12 @@ import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'updateReplicationJob' smart constructor.
 data UpdateReplicationJob = UpdateReplicationJob'
-  { _urjFrequency                   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _urjLicenseType                 :: {-# NOUNPACK #-}!(Maybe LicenseType)
-  , _urjRoleName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _urjNextReplicationRunStartTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _urjDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _urjReplicationJobId            :: {-# NOUNPACK #-}!Text
+  { _urjFrequency                   :: !(Maybe Int)
+  , _urjLicenseType                 :: !(Maybe LicenseType)
+  , _urjRoleName                    :: !(Maybe Text)
+  , _urjNextReplicationRunStartTime :: !(Maybe POSIX)
+  , _urjDescription                 :: !(Maybe Text)
+  , _urjReplicationJobId            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

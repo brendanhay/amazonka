@@ -52,11 +52,11 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updateProvisioningArtifact' smart constructor.
 data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
-  { _upaName                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upaAcceptLanguage         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upaDescription            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upaProductId              :: {-# NOUNPACK #-}!Text
-  , _upaProvisioningArtifactId :: {-# NOUNPACK #-}!Text
+  { _upaName                   :: !(Maybe Text)
+  , _upaAcceptLanguage         :: !(Maybe Text)
+  , _upaDescription            :: !(Maybe Text)
+  , _upaProductId              :: !Text
+  , _upaProvisioningArtifactId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -153,10 +153,10 @@ instance ToQuery UpdateProvisioningArtifact where
 
 -- | /See:/ 'updateProvisioningArtifactResponse' smart constructor.
 data UpdateProvisioningArtifactResponse = UpdateProvisioningArtifactResponse'
-  { _uparsStatus :: {-# NOUNPACK #-}!(Maybe RequestStatus)
-  , _uparsInfo :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _uparsProvisioningArtifactDetail :: {-# NOUNPACK #-}!(Maybe ProvisioningArtifactDetail)
-  , _uparsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uparsStatus                     :: !(Maybe RequestStatus)
+  , _uparsInfo                       :: !(Maybe (Map Text Text))
+  , _uparsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
+  , _uparsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

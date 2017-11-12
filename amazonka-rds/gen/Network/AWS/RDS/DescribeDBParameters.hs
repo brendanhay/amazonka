@@ -54,11 +54,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeDBParameters' smart constructor.
 data DescribeDBParameters = DescribeDBParameters'
-  { _ddpFilters              :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _ddpMarker               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddpMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ddpSource               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddpDBParameterGroupName :: {-# NOUNPACK #-}!Text
+  { _ddpFilters              :: !(Maybe [Filter])
+  , _ddpMarker               :: !(Maybe Text)
+  , _ddpMaxRecords           :: !(Maybe Int)
+  , _ddpSource               :: !(Maybe Text)
+  , _ddpDBParameterGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,9 +156,9 @@ instance ToQuery DescribeDBParameters where
 --
 -- /See:/ 'describeDBParametersResponse' smart constructor.
 data DescribeDBParametersResponse = DescribeDBParametersResponse'
-  { _ddprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddprsParameters     :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _ddprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddprsMarker         :: !(Maybe Text)
+  , _ddprsParameters     :: !(Maybe [Parameter])
+  , _ddprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

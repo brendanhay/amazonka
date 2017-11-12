@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeReplicationInstances' smart constructor.
 data DescribeReplicationInstances = DescribeReplicationInstances'
-  { _driFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _driMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _driMaxRecords :: {-# NOUNPACK #-}!(Maybe Int)
+  { _driFilters    :: !(Maybe [Filter])
+  , _driMarker     :: !(Maybe Text)
+  , _driMaxRecords :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,9 +134,9 @@ instance ToQuery DescribeReplicationInstances where
 --
 -- /See:/ 'describeReplicationInstancesResponse' smart constructor.
 data DescribeReplicationInstancesResponse = DescribeReplicationInstancesResponse'
-  { _drisrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drisrsReplicationInstances :: {-# NOUNPACK #-}!(Maybe [ReplicationInstance])
-  , _drisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drisrsMarker               :: !(Maybe Text)
+  , _drisrsReplicationInstances :: !(Maybe [ReplicationInstance])
+  , _drisrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

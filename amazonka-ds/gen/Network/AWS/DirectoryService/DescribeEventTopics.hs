@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEventTopics' smart constructor.
 data DescribeEventTopics = DescribeEventTopics'
-  { _dDirectoryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dTopicNames  :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dDirectoryId :: !(Maybe Text)
+  , _dTopicNames  :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery DescribeEventTopics where
 --
 -- /See:/ 'describeEventTopicsResponse' smart constructor.
 data DescribeEventTopicsResponse = DescribeEventTopicsResponse'
-  { _detrsEventTopics    :: {-# NOUNPACK #-}!(Maybe [EventTopic])
-  , _detrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _detrsEventTopics    :: !(Maybe [EventTopic])
+  , _detrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

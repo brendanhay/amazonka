@@ -57,11 +57,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeSnapshotCopyGrants' smart constructor.
 data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
-  { _dscgsTagValues             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dscgsTagKeys               :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dscgsMarker                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dscgsMaxRecords            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dscgsSnapshotCopyGrantName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dscgsTagValues             :: !(Maybe [Text])
+  , _dscgsTagKeys               :: !(Maybe [Text])
+  , _dscgsMarker                :: !(Maybe Text)
+  , _dscgsMaxRecords            :: !(Maybe Int)
+  , _dscgsSnapshotCopyGrantName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -155,9 +155,9 @@ instance ToQuery DescribeSnapshotCopyGrants where
 --
 -- /See:/ 'describeSnapshotCopyGrantsResponse' smart constructor.
 data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
-  { _dscgrsSnapshotCopyGrants :: {-# NOUNPACK #-}!(Maybe [SnapshotCopyGrant])
-  , _dscgrsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dscgrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _dscgrsSnapshotCopyGrants :: !(Maybe [SnapshotCopyGrant])
+  , _dscgrsMarker             :: !(Maybe Text)
+  , _dscgrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

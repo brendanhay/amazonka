@@ -57,13 +57,13 @@ import Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'createCachediSCSIVolume' smart constructor.
 data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
-  { _ccscsivSourceVolumeARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccscsivSnapshotId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccscsivGatewayARN         :: {-# NOUNPACK #-}!Text
-  , _ccscsivVolumeSizeInBytes  :: {-# NOUNPACK #-}!Integer
-  , _ccscsivTargetName         :: {-# NOUNPACK #-}!Text
-  , _ccscsivNetworkInterfaceId :: {-# NOUNPACK #-}!Text
-  , _ccscsivClientToken        :: {-# NOUNPACK #-}!Text
+  { _ccscsivSourceVolumeARN    :: !(Maybe Text)
+  , _ccscsivSnapshotId         :: !(Maybe Text)
+  , _ccscsivGatewayARN         :: !Text
+  , _ccscsivVolumeSizeInBytes  :: !Integer
+  , _ccscsivTargetName         :: !Text
+  , _ccscsivNetworkInterfaceId :: !Text
+  , _ccscsivClientToken        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -178,9 +178,9 @@ instance ToQuery CreateCachediSCSIVolume where
 
 -- | /See:/ 'createCachediSCSIVolumeResponse' smart constructor.
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
-  { _ccscsivrsTargetARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccscsivrsVolumeARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccscsivrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ccscsivrsTargetARN      :: !(Maybe Text)
+  , _ccscsivrsVolumeARN      :: !(Maybe Text)
+  , _ccscsivrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

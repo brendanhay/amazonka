@@ -89,8 +89,8 @@ instance ToQuery GetBucketReplication where
 
 -- | /See:/ 'getBucketReplicationResponse' smart constructor.
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
-  { _gbrrsReplicationConfiguration :: {-# NOUNPACK #-}!(Maybe ReplicationConfiguration)
-  , _gbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbrrsReplicationConfiguration :: !(Maybe ReplicationConfiguration)
+  , _gbrrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

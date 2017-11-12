@@ -104,9 +104,9 @@ instance ToQuery ListOfferingPromotions where
 
 -- | /See:/ 'listOfferingPromotionsResponse' smart constructor.
 data ListOfferingPromotionsResponse = ListOfferingPromotionsResponse'
-  { _loprsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _loprsOfferingPromotions :: {-# NOUNPACK #-}!(Maybe [OfferingPromotion])
-  , _loprsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _loprsNextToken          :: !(Maybe Text)
+  , _loprsOfferingPromotions :: !(Maybe [OfferingPromotion])
+  , _loprsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

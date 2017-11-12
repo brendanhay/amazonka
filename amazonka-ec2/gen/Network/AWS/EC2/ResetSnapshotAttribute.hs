@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'resetSnapshotAttribute' smart constructor.
 data ResetSnapshotAttribute = ResetSnapshotAttribute'
-  { _rsaDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rsaAttribute  :: {-# NOUNPACK #-}!SnapshotAttributeName
-  , _rsaSnapshotId :: {-# NOUNPACK #-}!Text
+  { _rsaDryRun     :: !(Maybe Bool)
+  , _rsaAttribute  :: !SnapshotAttributeName
+  , _rsaSnapshotId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

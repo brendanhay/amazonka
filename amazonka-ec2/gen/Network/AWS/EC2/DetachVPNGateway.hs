@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'detachVPNGateway' smart constructor.
 data DetachVPNGateway = DetachVPNGateway'
-  { _dvpngDryRun       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dvpngVPCId        :: {-# NOUNPACK #-}!Text
-  , _dvpngVPNGatewayId :: {-# NOUNPACK #-}!Text
+  { _dvpngDryRun       :: !(Maybe Bool)
+  , _dvpngVPCId        :: !Text
+  , _dvpngVPNGatewayId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

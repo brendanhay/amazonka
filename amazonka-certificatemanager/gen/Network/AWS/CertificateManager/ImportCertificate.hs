@@ -61,10 +61,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'importCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
-  { _icCertificateARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _icCertificateChain :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _icCertificate      :: {-# NOUNPACK #-}!Base64
-  , _icPrivateKey       :: {-# NOUNPACK #-}!(Sensitive Base64)
+  { _icCertificateARN   :: !(Maybe Text)
+  , _icCertificateChain :: !(Maybe Base64)
+  , _icCertificate      :: !Base64
+  , _icPrivateKey       :: !(Sensitive Base64)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -148,8 +148,8 @@ instance ToQuery ImportCertificate where
 
 -- | /See:/ 'importCertificateResponse' smart constructor.
 data ImportCertificateResponse = ImportCertificateResponse'
-  { _icrsCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _icrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _icrsCertificateARN :: !(Maybe Text)
+  , _icrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

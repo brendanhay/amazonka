@@ -61,12 +61,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeSpotFleetRequestHistory' smart constructor.
 data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
-  { _dsfrhNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsfrhEventType          :: {-# NOUNPACK #-}!(Maybe EventType)
-  , _dsfrhDryRun             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsfrhMaxResults         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsfrhSpotFleetRequestId :: {-# NOUNPACK #-}!Text
-  , _dsfrhStartTime          :: {-# NOUNPACK #-}!ISO8601
+  { _dsfrhNextToken          :: !(Maybe Text)
+  , _dsfrhEventType          :: !(Maybe EventType)
+  , _dsfrhDryRun             :: !(Maybe Bool)
+  , _dsfrhMaxResults         :: !(Maybe Int)
+  , _dsfrhSpotFleetRequestId :: !Text
+  , _dsfrhStartTime          :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -172,12 +172,12 @@ instance ToQuery DescribeSpotFleetRequestHistory
 --
 -- /See:/ 'describeSpotFleetRequestHistoryResponse' smart constructor.
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
-  { _dsfrhrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsfrhrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _dsfrhrsHistoryRecords     :: {-# NOUNPACK #-}![HistoryRecord]
-  , _dsfrhrsLastEvaluatedTime  :: {-# NOUNPACK #-}!ISO8601
-  , _dsfrhrsSpotFleetRequestId :: {-# NOUNPACK #-}!Text
-  , _dsfrhrsStartTime          :: {-# NOUNPACK #-}!ISO8601
+  { _dsfrhrsNextToken          :: !(Maybe Text)
+  , _dsfrhrsResponseStatus     :: !Int
+  , _dsfrhrsHistoryRecords     :: ![HistoryRecord]
+  , _dsfrhrsLastEvaluatedTime  :: !ISO8601
+  , _dsfrhrsSpotFleetRequestId :: !Text
+  , _dsfrhrsStartTime          :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

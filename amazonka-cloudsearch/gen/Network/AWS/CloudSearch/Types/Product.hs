@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'accessPoliciesStatus' smart constructor.
 data AccessPoliciesStatus = AccessPoliciesStatus'
-  { _apsOptions :: {-# NOUNPACK #-}!Text
-  , _apsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _apsOptions :: !Text
+  , _apsStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -70,11 +70,11 @@ instance NFData AccessPoliciesStatus where
 --
 -- /See:/ 'analysisOptions' smart constructor.
 data AnalysisOptions = AnalysisOptions'
-  { _aoAlgorithmicStemming :: {-# NOUNPACK #-}!(Maybe AlgorithmicStemming)
-  , _aoStopwords :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aoJapaneseTokenizationDictionary :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aoSynonyms :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aoStemmingDictionary :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aoAlgorithmicStemming            :: !(Maybe AlgorithmicStemming)
+  , _aoStopwords                      :: !(Maybe Text)
+  , _aoJapaneseTokenizationDictionary :: !(Maybe Text)
+  , _aoSynonyms                       :: !(Maybe Text)
+  , _aoStemmingDictionary             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,9 +151,9 @@ instance ToQuery AnalysisOptions where
 --
 -- /See:/ 'analysisScheme' smart constructor.
 data AnalysisScheme = AnalysisScheme'
-  { _asAnalysisOptions        :: {-# NOUNPACK #-}!(Maybe AnalysisOptions)
-  , _asAnalysisSchemeName     :: {-# NOUNPACK #-}!Text
-  , _asAnalysisSchemeLanguage :: {-# NOUNPACK #-}!AnalysisSchemeLanguage
+  { _asAnalysisOptions        :: !(Maybe AnalysisOptions)
+  , _asAnalysisSchemeName     :: !Text
+  , _asAnalysisSchemeLanguage :: !AnalysisSchemeLanguage
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -215,8 +215,8 @@ instance ToQuery AnalysisScheme where
 --
 -- /See:/ 'analysisSchemeStatus' smart constructor.
 data AnalysisSchemeStatus = AnalysisSchemeStatus'
-  { _assOptions :: {-# NOUNPACK #-}!AnalysisScheme
-  , _assStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _assOptions :: !AnalysisScheme
+  , _assStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -258,8 +258,8 @@ instance NFData AnalysisSchemeStatus where
 --
 -- /See:/ 'availabilityOptionsStatus' smart constructor.
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
-  { _aosOptions :: {-# NOUNPACK #-}!Bool
-  , _aosStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _aosOptions :: !Bool
+  , _aosStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -301,11 +301,11 @@ instance NFData AvailabilityOptionsStatus where
 --
 -- /See:/ 'dateArrayOptions' smart constructor.
 data DateArrayOptions = DateArrayOptions'
-  { _daosSourceFields  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daosReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _daosFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _daosSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _daosDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _daosSourceFields  :: !(Maybe Text)
+  , _daosReturnEnabled :: !(Maybe Bool)
+  , _daosFacetEnabled  :: !(Maybe Bool)
+  , _daosSearchEnabled :: !(Maybe Bool)
+  , _daosDefaultValue  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -381,12 +381,12 @@ instance ToQuery DateArrayOptions where
 --
 -- /See:/ 'dateOptions' smart constructor.
 data DateOptions = DateOptions'
-  { _doSourceField   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _doReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _doFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _doSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _doSortEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _doDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _doSourceField   :: !(Maybe Text)
+  , _doReturnEnabled :: !(Maybe Bool)
+  , _doFacetEnabled  :: !(Maybe Bool)
+  , _doSearchEnabled :: !(Maybe Bool)
+  , _doSortEnabled   :: !(Maybe Bool)
+  , _doDefaultValue  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -471,9 +471,9 @@ instance ToQuery DateOptions where
 --
 -- /See:/ 'documentSuggesterOptions' smart constructor.
 data DocumentSuggesterOptions = DocumentSuggesterOptions'
-  { _dsoSortExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsoFuzzyMatching  :: {-# NOUNPACK #-}!(Maybe SuggesterFuzzyMatching)
-  , _dsoSourceField    :: {-# NOUNPACK #-}!Text
+  { _dsoSortExpression :: !(Maybe Text)
+  , _dsoFuzzyMatching  :: !(Maybe SuggesterFuzzyMatching)
+  , _dsoSourceField    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -532,19 +532,19 @@ instance ToQuery DocumentSuggesterOptions where
 --
 -- /See:/ 'domainStatus' smart constructor.
 data DomainStatus = DomainStatus'
-  { _dsSearchInstanceCount    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dsSearchInstanceType     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsDocService             :: {-# NOUNPACK #-}!(Maybe ServiceEndpoint)
-  , _dsARN                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsCreated                :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsSearchService          :: {-# NOUNPACK #-}!(Maybe ServiceEndpoint)
-  , _dsLimits                 :: {-# NOUNPACK #-}!(Maybe Limits)
-  , _dsSearchPartitionCount   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dsDeleted                :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsProcessing             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsDomainId               :: {-# NOUNPACK #-}!Text
-  , _dsDomainName             :: {-# NOUNPACK #-}!Text
-  , _dsRequiresIndexDocuments :: {-# NOUNPACK #-}!Bool
+  { _dsSearchInstanceCount    :: !(Maybe Nat)
+  , _dsSearchInstanceType     :: !(Maybe Text)
+  , _dsDocService             :: !(Maybe ServiceEndpoint)
+  , _dsARN                    :: !(Maybe Text)
+  , _dsCreated                :: !(Maybe Bool)
+  , _dsSearchService          :: !(Maybe ServiceEndpoint)
+  , _dsLimits                 :: !(Maybe Limits)
+  , _dsSearchPartitionCount   :: !(Maybe Nat)
+  , _dsDeleted                :: !(Maybe Bool)
+  , _dsProcessing             :: !(Maybe Bool)
+  , _dsDomainId               :: !Text
+  , _dsDomainName             :: !Text
+  , _dsRequiresIndexDocuments :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -679,11 +679,11 @@ instance NFData DomainStatus where
 --
 -- /See:/ 'doubleArrayOptions' smart constructor.
 data DoubleArrayOptions = DoubleArrayOptions'
-  { _daoSourceFields  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daoReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _daoFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _daoSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _daoDefaultValue  :: {-# NOUNPACK #-}!(Maybe Double)
+  { _daoSourceFields  :: !(Maybe Text)
+  , _daoReturnEnabled :: !(Maybe Bool)
+  , _daoFacetEnabled  :: !(Maybe Bool)
+  , _daoSearchEnabled :: !(Maybe Bool)
+  , _daoDefaultValue  :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -759,12 +759,12 @@ instance ToQuery DoubleArrayOptions where
 --
 -- /See:/ 'doubleOptions' smart constructor.
 data DoubleOptions = DoubleOptions'
-  { _dSourceField   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dSortEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dDefaultValue  :: {-# NOUNPACK #-}!(Maybe Double)
+  { _dSourceField   :: !(Maybe Text)
+  , _dReturnEnabled :: !(Maybe Bool)
+  , _dFacetEnabled  :: !(Maybe Bool)
+  , _dSearchEnabled :: !(Maybe Bool)
+  , _dSortEnabled   :: !(Maybe Bool)
+  , _dDefaultValue  :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -849,8 +849,8 @@ instance ToQuery DoubleOptions where
 --
 -- /See:/ 'expression' smart constructor.
 data Expression = Expression'
-  { _eExpressionName  :: {-# NOUNPACK #-}!Text
-  , _eExpressionValue :: {-# NOUNPACK #-}!Text
+  { _eExpressionName  :: !Text
+  , _eExpressionValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -899,8 +899,8 @@ instance ToQuery Expression where
 --
 -- /See:/ 'expressionStatus' smart constructor.
 data ExpressionStatus = ExpressionStatus'
-  { _esOptions :: {-# NOUNPACK #-}!Expression
-  , _esStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _esOptions :: !Expression
+  , _esStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -942,19 +942,19 @@ instance NFData ExpressionStatus where
 --
 -- /See:/ 'indexField' smart constructor.
 data IndexField = IndexField'
-  { _ifDoubleArrayOptions  :: {-# NOUNPACK #-}!(Maybe DoubleArrayOptions)
-  , _ifDateOptions         :: {-# NOUNPACK #-}!(Maybe DateOptions)
-  , _ifTextArrayOptions    :: {-# NOUNPACK #-}!(Maybe TextArrayOptions)
-  , _ifDoubleOptions       :: {-# NOUNPACK #-}!(Maybe DoubleOptions)
-  , _ifTextOptions         :: {-# NOUNPACK #-}!(Maybe TextOptions)
-  , _ifLatLonOptions       :: {-# NOUNPACK #-}!(Maybe LatLonOptions)
-  , _ifLiteralArrayOptions :: {-# NOUNPACK #-}!(Maybe LiteralArrayOptions)
-  , _ifIntArrayOptions     :: {-# NOUNPACK #-}!(Maybe IntArrayOptions)
-  , _ifDateArrayOptions    :: {-# NOUNPACK #-}!(Maybe DateArrayOptions)
-  , _ifIntOptions          :: {-# NOUNPACK #-}!(Maybe IntOptions)
-  , _ifLiteralOptions      :: {-# NOUNPACK #-}!(Maybe LiteralOptions)
-  , _ifIndexFieldName      :: {-# NOUNPACK #-}!Text
-  , _ifIndexFieldType      :: {-# NOUNPACK #-}!IndexFieldType
+  { _ifDoubleArrayOptions  :: !(Maybe DoubleArrayOptions)
+  , _ifDateOptions         :: !(Maybe DateOptions)
+  , _ifTextArrayOptions    :: !(Maybe TextArrayOptions)
+  , _ifDoubleOptions       :: !(Maybe DoubleOptions)
+  , _ifTextOptions         :: !(Maybe TextOptions)
+  , _ifLatLonOptions       :: !(Maybe LatLonOptions)
+  , _ifLiteralArrayOptions :: !(Maybe LiteralArrayOptions)
+  , _ifIntArrayOptions     :: !(Maybe IntArrayOptions)
+  , _ifDateArrayOptions    :: !(Maybe DateArrayOptions)
+  , _ifIntOptions          :: !(Maybe IntOptions)
+  , _ifLiteralOptions      :: !(Maybe LiteralOptions)
+  , _ifIndexFieldName      :: !Text
+  , _ifIndexFieldType      :: !IndexFieldType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1105,8 +1105,8 @@ instance ToQuery IndexField where
 --
 -- /See:/ 'indexFieldStatus' smart constructor.
 data IndexFieldStatus = IndexFieldStatus'
-  { _ifsOptions :: {-# NOUNPACK #-}!IndexField
-  , _ifsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _ifsOptions :: !IndexField
+  , _ifsStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1148,11 +1148,11 @@ instance NFData IndexFieldStatus where
 --
 -- /See:/ 'intArrayOptions' smart constructor.
 data IntArrayOptions = IntArrayOptions'
-  { _iaoSourceFields  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iaoReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _iaoFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _iaoSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _iaoDefaultValue  :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _iaoSourceFields  :: !(Maybe Text)
+  , _iaoReturnEnabled :: !(Maybe Bool)
+  , _iaoFacetEnabled  :: !(Maybe Bool)
+  , _iaoSearchEnabled :: !(Maybe Bool)
+  , _iaoDefaultValue  :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1228,12 +1228,12 @@ instance ToQuery IntArrayOptions where
 --
 -- /See:/ 'intOptions' smart constructor.
 data IntOptions = IntOptions'
-  { _ioSourceField   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ioReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ioFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ioSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ioSortEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ioDefaultValue  :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _ioSourceField   :: !(Maybe Text)
+  , _ioReturnEnabled :: !(Maybe Bool)
+  , _ioFacetEnabled  :: !(Maybe Bool)
+  , _ioSearchEnabled :: !(Maybe Bool)
+  , _ioSortEnabled   :: !(Maybe Bool)
+  , _ioDefaultValue  :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1318,12 +1318,12 @@ instance ToQuery IntOptions where
 --
 -- /See:/ 'latLonOptions' smart constructor.
 data LatLonOptions = LatLonOptions'
-  { _lloSourceField   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lloReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lloFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lloSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lloSortEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lloDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lloSourceField   :: !(Maybe Text)
+  , _lloReturnEnabled :: !(Maybe Bool)
+  , _lloFacetEnabled  :: !(Maybe Bool)
+  , _lloSearchEnabled :: !(Maybe Bool)
+  , _lloSortEnabled   :: !(Maybe Bool)
+  , _lloDefaultValue  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1404,8 +1404,8 @@ instance ToQuery LatLonOptions where
 
 -- | /See:/ 'limits' smart constructor.
 data Limits = Limits'
-  { _lMaximumReplicationCount :: {-# NOUNPACK #-}!Nat
-  , _lMaximumPartitionCount   :: {-# NOUNPACK #-}!Nat
+  { _lMaximumReplicationCount :: !Nat
+  , _lMaximumPartitionCount   :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1451,11 +1451,11 @@ instance NFData Limits where
 --
 -- /See:/ 'literalArrayOptions' smart constructor.
 data LiteralArrayOptions = LiteralArrayOptions'
-  { _laoSourceFields  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laoReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _laoFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _laoSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _laoDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _laoSourceFields  :: !(Maybe Text)
+  , _laoReturnEnabled :: !(Maybe Bool)
+  , _laoFacetEnabled  :: !(Maybe Bool)
+  , _laoSearchEnabled :: !(Maybe Bool)
+  , _laoDefaultValue  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1531,12 +1531,12 @@ instance ToQuery LiteralArrayOptions where
 --
 -- /See:/ 'literalOptions' smart constructor.
 data LiteralOptions = LiteralOptions'
-  { _loSourceField   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _loReturnEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _loFacetEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _loSearchEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _loSortEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _loDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _loSourceField   :: !(Maybe Text)
+  , _loReturnEnabled :: !(Maybe Bool)
+  , _loFacetEnabled  :: !(Maybe Bool)
+  , _loSearchEnabled :: !(Maybe Bool)
+  , _loSortEnabled   :: !(Maybe Bool)
+  , _loDefaultValue  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1621,11 +1621,11 @@ instance ToQuery LiteralOptions where
 --
 -- /See:/ 'optionStatus' smart constructor.
 data OptionStatus = OptionStatus'
-  { _osPendingDeletion :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _osUpdateVersion   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _osCreationDate    :: {-# NOUNPACK #-}!ISO8601
-  , _osUpdateDate      :: {-# NOUNPACK #-}!ISO8601
-  , _osState           :: {-# NOUNPACK #-}!OptionState
+  { _osPendingDeletion :: !(Maybe Bool)
+  , _osUpdateVersion   :: !(Maybe Nat)
+  , _osCreationDate    :: !ISO8601
+  , _osUpdateDate      :: !ISO8601
+  , _osState           :: !OptionState
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1695,9 +1695,9 @@ instance NFData OptionStatus where
 --
 -- /See:/ 'scalingParameters' smart constructor.
 data ScalingParameters = ScalingParameters'
-  { _spDesiredInstanceType     :: {-# NOUNPACK #-}!(Maybe PartitionInstanceType)
-  , _spDesiredReplicationCount :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _spDesiredPartitionCount   :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _spDesiredInstanceType     :: !(Maybe PartitionInstanceType)
+  , _spDesiredReplicationCount :: !(Maybe Nat)
+  , _spDesiredPartitionCount   :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1757,8 +1757,8 @@ instance ToQuery ScalingParameters where
 --
 -- /See:/ 'scalingParametersStatus' smart constructor.
 data ScalingParametersStatus = ScalingParametersStatus'
-  { _spsOptions :: {-# NOUNPACK #-}!ScalingParameters
-  , _spsStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _spsOptions :: !ScalingParameters
+  , _spsStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1831,8 +1831,8 @@ instance NFData ServiceEndpoint where
 --
 -- /See:/ 'suggester' smart constructor.
 data Suggester = Suggester'
-  { _sSuggesterName            :: {-# NOUNPACK #-}!Text
-  , _sDocumentSuggesterOptions :: {-# NOUNPACK #-}!DocumentSuggesterOptions
+  { _sSuggesterName            :: !Text
+  , _sDocumentSuggesterOptions :: !DocumentSuggesterOptions
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1885,8 +1885,8 @@ instance ToQuery Suggester where
 --
 -- /See:/ 'suggesterStatus' smart constructor.
 data SuggesterStatus = SuggesterStatus'
-  { _ssOptions :: {-# NOUNPACK #-}!Suggester
-  , _ssStatus  :: {-# NOUNPACK #-}!OptionStatus
+  { _ssOptions :: !Suggester
+  , _ssStatus  :: !OptionStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1928,11 +1928,11 @@ instance NFData SuggesterStatus where
 --
 -- /See:/ 'textArrayOptions' smart constructor.
 data TextArrayOptions = TextArrayOptions'
-  { _taoSourceFields     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _taoReturnEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _taoAnalysisScheme   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _taoHighlightEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _taoDefaultValue     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _taoSourceFields     :: !(Maybe Text)
+  , _taoReturnEnabled    :: !(Maybe Bool)
+  , _taoAnalysisScheme   :: !(Maybe Text)
+  , _taoHighlightEnabled :: !(Maybe Bool)
+  , _taoDefaultValue     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2008,12 +2008,12 @@ instance ToQuery TextArrayOptions where
 --
 -- /See:/ 'textOptions' smart constructor.
 data TextOptions = TextOptions'
-  { _toSourceField      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _toReturnEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _toAnalysisScheme   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _toHighlightEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _toSortEnabled      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _toDefaultValue     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _toSourceField      :: !(Maybe Text)
+  , _toReturnEnabled    :: !(Maybe Bool)
+  , _toAnalysisScheme   :: !(Maybe Text)
+  , _toHighlightEnabled :: !(Maybe Bool)
+  , _toSortEnabled      :: !(Maybe Bool)
+  , _toDefaultValue     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

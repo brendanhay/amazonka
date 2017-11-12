@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateStreamingDistribution' smart constructor.
 data UpdateStreamingDistribution = UpdateStreamingDistribution'
-  { _usdIfMatch :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usdStreamingDistributionConfig :: {-# NOUNPACK #-}!StreamingDistributionConfig
-  , _usdId :: {-# NOUNPACK #-}!Text
+  { _usdIfMatch                     :: !(Maybe Text)
+  , _usdStreamingDistributionConfig :: !StreamingDistributionConfig
+  , _usdId                          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,9 +133,9 @@ instance ToQuery UpdateStreamingDistribution where
 --
 -- /See:/ 'updateStreamingDistributionResponse' smart constructor.
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
-  { _usdrsETag :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usdrsStreamingDistribution :: {-# NOUNPACK #-}!(Maybe StreamingDistribution)
-  , _usdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _usdrsETag                  :: !(Maybe Text)
+  , _usdrsStreamingDistribution :: !(Maybe StreamingDistribution)
+  , _usdrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

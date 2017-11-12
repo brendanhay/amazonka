@@ -42,8 +42,8 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketLifecycleConfiguration' smart constructor.
 data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
-  { _pblcLifecycleConfiguration :: {-# NOUNPACK #-}!(Maybe BucketLifecycleConfiguration)
-  , _pblcBucket :: {-# NOUNPACK #-}!BucketName
+  { _pblcLifecycleConfiguration :: !(Maybe BucketLifecycleConfiguration)
+  , _pblcBucket                 :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -72,11 +72,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'putRecord' smart constructor.
 data PutRecord = PutRecord'
-  { _prExplicitHashKey           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prSequenceNumberForOrdering :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prStreamName                :: {-# NOUNPACK #-}!Text
-  , _prData                      :: {-# NOUNPACK #-}!Base64
-  , _prPartitionKey              :: {-# NOUNPACK #-}!Text
+  { _prExplicitHashKey           :: !(Maybe Text)
+  , _prSequenceNumberForOrdering :: !(Maybe Text)
+  , _prStreamName                :: !Text
+  , _prData                      :: !Base64
+  , _prPartitionKey              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -175,10 +175,10 @@ instance ToQuery PutRecord where
 --
 -- /See:/ 'putRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'
-  { _prrsEncryptionType :: {-# NOUNPACK #-}!(Maybe EncryptionType)
-  , _prrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _prrsShardId        :: {-# NOUNPACK #-}!Text
-  , _prrsSequenceNumber :: {-# NOUNPACK #-}!Text
+  { _prrsEncryptionType :: !(Maybe EncryptionType)
+  , _prrsResponseStatus :: !Int
+  , _prrsShardId        :: !Text
+  , _prrsSequenceNumber :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

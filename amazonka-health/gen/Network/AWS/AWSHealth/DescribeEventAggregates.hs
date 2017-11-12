@@ -53,10 +53,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeEventAggregates' smart constructor.
 data DescribeEventAggregates = DescribeEventAggregates'
-  { _deaNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deaFilter         :: {-# NOUNPACK #-}!(Maybe EventFilter)
-  , _deaMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _deaAggregateField :: {-# NOUNPACK #-}!EventAggregateField
+  { _deaNextToken      :: !(Maybe Text)
+  , _deaFilter         :: !(Maybe EventFilter)
+  , _deaMaxResults     :: !(Maybe Nat)
+  , _deaAggregateField :: !EventAggregateField
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery DescribeEventAggregates where
 
 -- | /See:/ 'describeEventAggregatesResponse' smart constructor.
 data DescribeEventAggregatesResponse = DescribeEventAggregatesResponse'
-  { _drsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsEventAggregates :: {-# NOUNPACK #-}!(Maybe [EventAggregate])
-  , _drsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _drsNextToken       :: !(Maybe Text)
+  , _drsEventAggregates :: !(Maybe [EventAggregate])
+  , _drsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

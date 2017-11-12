@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'getAttributeValues' smart constructor.
 data GetAttributeValues = GetAttributeValues'
-  { _gavNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gavMaxResults    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gavServiceCode   :: {-# NOUNPACK #-}!Text
-  , _gavAttributeName :: {-# NOUNPACK #-}!Text
+  { _gavNextToken     :: !(Maybe Text)
+  , _gavMaxResults    :: !(Maybe Nat)
+  , _gavServiceCode   :: !Text
+  , _gavAttributeName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToQuery GetAttributeValues where
 
 -- | /See:/ 'getAttributeValuesResponse' smart constructor.
 data GetAttributeValuesResponse = GetAttributeValuesResponse'
-  { _gavrsAttributeValues :: {-# NOUNPACK #-}!(Maybe [AttributeValue])
-  , _gavrsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gavrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gavrsAttributeValues :: !(Maybe [AttributeValue])
+  , _gavrsNextToken       :: !(Maybe Text)
+  , _gavrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

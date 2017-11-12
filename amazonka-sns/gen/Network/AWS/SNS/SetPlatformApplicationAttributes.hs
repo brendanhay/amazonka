@@ -48,8 +48,8 @@ import Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'setPlatformApplicationAttributes' smart constructor.
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
-  { _spaaPlatformApplicationARN :: {-# NOUNPACK #-}!Text
-  , _spaaAttributes             :: {-# NOUNPACK #-}!(Map Text Text)
+  { _spaaPlatformApplicationARN :: !Text
+  , _spaaAttributes             :: !(Map Text Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

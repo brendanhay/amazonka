@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listDistributionsByWebACLId' smart constructor.
 data ListDistributionsByWebACLId = ListDistributionsByWebACLId'
-  { _ldbwaiMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldbwaiMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldbwaiWebACLId :: {-# NOUNPACK #-}!Text
+  { _ldbwaiMarker   :: !(Maybe Text)
+  , _ldbwaiMaxItems :: !(Maybe Text)
+  , _ldbwaiWebACLId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToQuery ListDistributionsByWebACLId where
 --
 -- /See:/ 'listDistributionsByWebACLIdResponse' smart constructor.
 data ListDistributionsByWebACLIdResponse = ListDistributionsByWebACLIdResponse'
-  { _ldbwairsDistributionList :: {-# NOUNPACK #-}!(Maybe DistributionList)
-  , _ldbwairsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ldbwairsDistributionList :: !(Maybe DistributionList)
+  , _ldbwairsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

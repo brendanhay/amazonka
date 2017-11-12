@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateConditionalForwarder' smart constructor.
 data UpdateConditionalForwarder = UpdateConditionalForwarder'
-  { _ucfDirectoryId      :: {-# NOUNPACK #-}!Text
-  , _ucfRemoteDomainName :: {-# NOUNPACK #-}!Text
-  , _ucfDNSIPAddrs       :: {-# NOUNPACK #-}![Text]
+  { _ucfDirectoryId      :: !Text
+  , _ucfRemoteDomainName :: !Text
+  , _ucfDNSIPAddrs       :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

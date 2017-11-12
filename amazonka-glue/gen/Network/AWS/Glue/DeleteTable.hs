@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteTable' smart constructor.
 data DeleteTable = DeleteTable'
-  { _dtCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtDatabaseName :: {-# NOUNPACK #-}!Text
-  , _dtName         :: {-# NOUNPACK #-}!Text
+  { _dtCatalogId    :: !(Maybe Text)
+  , _dtDatabaseName :: !Text
+  , _dtName         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

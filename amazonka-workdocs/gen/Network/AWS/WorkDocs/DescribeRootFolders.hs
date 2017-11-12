@@ -49,9 +49,9 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeRootFolders' smart constructor.
 data DescribeRootFolders = DescribeRootFolders'
-  { _drfMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drfLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _drfAuthenticationToken :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _drfMarker              :: !(Maybe Text)
+  , _drfLimit               :: !(Maybe Nat)
+  , _drfAuthenticationToken :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -119,9 +119,9 @@ instance ToQuery DescribeRootFolders where
 
 -- | /See:/ 'describeRootFoldersResponse' smart constructor.
 data DescribeRootFoldersResponse = DescribeRootFoldersResponse'
-  { _drfrsFolders        :: {-# NOUNPACK #-}!(Maybe [FolderMetadata])
-  , _drfrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drfrsFolders        :: !(Maybe [FolderMetadata])
+  , _drfrsMarker         :: !(Maybe Text)
+  , _drfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

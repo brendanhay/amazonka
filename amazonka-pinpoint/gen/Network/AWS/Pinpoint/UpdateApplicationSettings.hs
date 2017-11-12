@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateApplicationSettings' smart constructor.
 data UpdateApplicationSettings = UpdateApplicationSettings'
-  { _uasApplicationId :: {-# NOUNPACK #-}!Text
-  , _uasWriteApplicationSettingsRequest :: {-# NOUNPACK #-}!WriteApplicationSettingsRequest
+  { _uasApplicationId                   :: !Text
+  , _uasWriteApplicationSettingsRequest :: !WriteApplicationSettingsRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery UpdateApplicationSettings where
 
 -- | /See:/ 'updateApplicationSettingsResponse' smart constructor.
 data UpdateApplicationSettingsResponse = UpdateApplicationSettingsResponse'
-  { _uasrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _uasrsApplicationSettingsResource :: {-# NOUNPACK #-}!ApplicationSettingsResource
+  { _uasrsResponseStatus              :: !Int
+  , _uasrsApplicationSettingsResource :: !ApplicationSettingsResource
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

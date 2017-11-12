@@ -52,12 +52,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeSessions' smart constructor.
 data DescribeSessions = DescribeSessions'
-  { _dsUserId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsLimit              :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsAuthenticationType :: {-# NOUNPACK #-}!(Maybe AuthenticationType)
-  , _dsStackName          :: {-# NOUNPACK #-}!Text
-  , _dsFleetName          :: {-# NOUNPACK #-}!Text
+  { _dsUserId             :: !(Maybe Text)
+  , _dsNextToken          :: !(Maybe Text)
+  , _dsLimit              :: !(Maybe Int)
+  , _dsAuthenticationType :: !(Maybe AuthenticationType)
+  , _dsStackName          :: !Text
+  , _dsFleetName          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -158,9 +158,9 @@ instance ToQuery DescribeSessions where
 
 -- | /See:/ 'describeSessionsResponse' smart constructor.
 data DescribeSessionsResponse = DescribeSessionsResponse'
-  { _dssrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dssrsSessions       :: {-# NOUNPACK #-}!(Maybe [Session])
-  , _dssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dssrsNextToken      :: !(Maybe Text)
+  , _dssrsSessions       :: !(Maybe [Session])
+  , _dssrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

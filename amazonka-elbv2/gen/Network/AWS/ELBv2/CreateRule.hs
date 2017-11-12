@@ -53,10 +53,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'createRule' smart constructor.
 data CreateRule = CreateRule'
-  { _crListenerARN :: {-# NOUNPACK #-}!Text
-  , _crConditions  :: {-# NOUNPACK #-}![RuleCondition]
-  , _crPriority    :: {-# NOUNPACK #-}!Nat
-  , _crActions     :: {-# NOUNPACK #-}![Action]
+  { _crListenerARN :: !Text
+  , _crConditions  :: ![RuleCondition]
+  , _crPriority    :: !Nat
+  , _crActions     :: ![Action]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,8 +133,8 @@ instance ToQuery CreateRule where
 
 -- | /See:/ 'createRuleResponse' smart constructor.
 data CreateRuleResponse = CreateRuleResponse'
-  { _crrsRules          :: {-# NOUNPACK #-}!(Maybe [Rule])
-  , _crrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crrsRules          :: !(Maybe [Rule])
+  , _crrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

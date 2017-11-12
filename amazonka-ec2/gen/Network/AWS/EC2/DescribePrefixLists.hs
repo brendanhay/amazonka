@@ -55,11 +55,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describePrefixLists' smart constructor.
 data DescribePrefixLists = DescribePrefixLists'
-  { _dplFilters       :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dplPrefixListIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dplNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dplDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dplMaxResults    :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dplFilters       :: !(Maybe [Filter])
+  , _dplPrefixListIds :: !(Maybe [Text])
+  , _dplNextToken     :: !(Maybe Text)
+  , _dplDryRun        :: !(Maybe Bool)
+  , _dplMaxResults    :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,9 +148,9 @@ instance ToQuery DescribePrefixLists where
 --
 -- /See:/ 'describePrefixListsResponse' smart constructor.
 data DescribePrefixListsResponse = DescribePrefixListsResponse'
-  { _dplrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dplrsPrefixLists    :: {-# NOUNPACK #-}!(Maybe [PrefixList])
-  , _dplrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dplrsNextToken      :: !(Maybe Text)
+  , _dplrsPrefixLists    :: !(Maybe [PrefixList])
+  , _dplrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

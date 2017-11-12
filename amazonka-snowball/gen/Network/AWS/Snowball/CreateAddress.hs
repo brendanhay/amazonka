@@ -100,8 +100,8 @@ instance ToQuery CreateAddress where
 
 -- | /See:/ 'createAddressResponse' smart constructor.
 data CreateAddressResponse = CreateAddressResponse'
-  { _carsAddressId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _carsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _carsAddressId      :: !(Maybe Text)
+  , _carsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

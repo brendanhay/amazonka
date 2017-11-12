@@ -106,9 +106,9 @@ instance ToQuery BatchGetNamedQuery where
 
 -- | /See:/ 'batchGetNamedQueryResponse' smart constructor.
 data BatchGetNamedQueryResponse = BatchGetNamedQueryResponse'
-  { _bgnqrsNamedQueries :: {-# NOUNPACK #-}!(Maybe [NamedQuery])
-  , _bgnqrsUnprocessedNamedQueryIds :: {-# NOUNPACK #-}!(Maybe [UnprocessedNamedQueryId])
-  , _bgnqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bgnqrsNamedQueries             :: !(Maybe [NamedQuery])
+  , _bgnqrsUnprocessedNamedQueryIds :: !(Maybe [UnprocessedNamedQueryId])
+  , _bgnqrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

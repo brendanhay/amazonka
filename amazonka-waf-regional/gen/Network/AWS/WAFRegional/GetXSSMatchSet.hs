@@ -111,8 +111,8 @@ instance ToQuery GetXSSMatchSet where
 --
 -- /See:/ 'getXSSMatchSetResponse' smart constructor.
 data GetXSSMatchSetResponse = GetXSSMatchSetResponse'
-  { _gxmsrsXSSMatchSet    :: {-# NOUNPACK #-}!(Maybe XSSMatchSet)
-  , _gxmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gxmsrsXSSMatchSet    :: !(Maybe XSSMatchSet)
+  , _gxmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

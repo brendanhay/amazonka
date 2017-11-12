@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listFunctionDefinitions' smart constructor.
 data ListFunctionDefinitions = ListFunctionDefinitions'
-  { _lfdNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfdMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lfdNextToken  :: !(Maybe Text)
+  , _lfdMaxResults :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -106,9 +106,9 @@ instance ToQuery ListFunctionDefinitions where
 
 -- | /See:/ 'listFunctionDefinitionsResponse' smart constructor.
 data ListFunctionDefinitionsResponse = ListFunctionDefinitionsResponse'
-  { _lfdrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfdrsDefinitions    :: {-# NOUNPACK #-}!(Maybe [DefinitionInformation])
-  , _lfdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lfdrsNextToken      :: !(Maybe Text)
+  , _lfdrsDefinitions    :: !(Maybe [DefinitionInformation])
+  , _lfdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

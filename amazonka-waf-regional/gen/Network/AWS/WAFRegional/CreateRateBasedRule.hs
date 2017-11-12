@@ -95,11 +95,11 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'createRateBasedRule' smart constructor.
 data CreateRateBasedRule = CreateRateBasedRule'
-  { _crbrName        :: {-# NOUNPACK #-}!Text
-  , _crbrMetricName  :: {-# NOUNPACK #-}!Text
-  , _crbrRateKey     :: {-# NOUNPACK #-}!RateKey
-  , _crbrRateLimit   :: {-# NOUNPACK #-}!Nat
-  , _crbrChangeToken :: {-# NOUNPACK #-}!Text
+  { _crbrName        :: !Text
+  , _crbrMetricName  :: !Text
+  , _crbrRateKey     :: !RateKey
+  , _crbrRateLimit   :: !Nat
+  , _crbrChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -196,9 +196,9 @@ instance ToQuery CreateRateBasedRule where
 
 -- | /See:/ 'createRateBasedRuleResponse' smart constructor.
 data CreateRateBasedRuleResponse = CreateRateBasedRuleResponse'
-  { _crbrrsRule           :: {-# NOUNPACK #-}!(Maybe RateBasedRule)
-  , _crbrrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crbrrsRule           :: !(Maybe RateBasedRule)
+  , _crbrrsChangeToken    :: !(Maybe Text)
+  , _crbrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

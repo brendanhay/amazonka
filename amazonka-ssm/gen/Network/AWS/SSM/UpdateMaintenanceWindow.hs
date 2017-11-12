@@ -61,15 +61,15 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateMaintenanceWindow' smart constructor.
 data UpdateMaintenanceWindow = UpdateMaintenanceWindow'
-  { _umwReplace                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _umwEnabled                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _umwSchedule                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwName                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwCutoff                   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _umwAllowUnassociatedTargets :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _umwDescription              :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _umwDuration                 :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _umwWindowId                 :: {-# NOUNPACK #-}!Text
+  { _umwReplace                  :: !(Maybe Bool)
+  , _umwEnabled                  :: !(Maybe Bool)
+  , _umwSchedule                 :: !(Maybe Text)
+  , _umwName                     :: !(Maybe Text)
+  , _umwCutoff                   :: !(Maybe Nat)
+  , _umwAllowUnassociatedTargets :: !(Maybe Bool)
+  , _umwDescription              :: !(Maybe (Sensitive Text))
+  , _umwDuration                 :: !(Maybe Nat)
+  , _umwWindowId                 :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -200,15 +200,15 @@ instance ToQuery UpdateMaintenanceWindow where
 
 -- | /See:/ 'updateMaintenanceWindowResponse' smart constructor.
 data UpdateMaintenanceWindowResponse = UpdateMaintenanceWindowResponse'
-  { _umwrsEnabled                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _umwrsSchedule                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwrsName                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwrsCutoff                   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _umwrsAllowUnassociatedTargets :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _umwrsDescription              :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _umwrsDuration                 :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _umwrsWindowId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umwrsResponseStatus           :: {-# NOUNPACK #-}!Int
+  { _umwrsEnabled                  :: !(Maybe Bool)
+  , _umwrsSchedule                 :: !(Maybe Text)
+  , _umwrsName                     :: !(Maybe Text)
+  , _umwrsCutoff                   :: !(Maybe Nat)
+  , _umwrsAllowUnassociatedTargets :: !(Maybe Bool)
+  , _umwrsDescription              :: !(Maybe (Sensitive Text))
+  , _umwrsDuration                 :: !(Maybe Nat)
+  , _umwrsWindowId                 :: !(Maybe Text)
+  , _umwrsResponseStatus           :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

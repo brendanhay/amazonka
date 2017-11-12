@@ -58,8 +58,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteProgressUpdateStream' smart constructor.
 data DeleteProgressUpdateStream = DeleteProgressUpdateStream'
-  { _dpusDryRun                   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dpusProgressUpdateStreamName :: {-# NOUNPACK #-}!Text
+  { _dpusDryRun                   :: !(Maybe Bool)
+  , _dpusProgressUpdateStreamName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

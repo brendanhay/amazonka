@@ -45,8 +45,8 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketAnalyticsConfiguration' smart constructor.
 data GetBucketAnalyticsConfiguration = GetBucketAnalyticsConfiguration'
-  { _getBucket :: {-# NOUNPACK #-}!BucketName
-  , _getId     :: {-# NOUNPACK #-}!Text
+  { _getBucket :: !BucketName
+  , _getId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -104,8 +104,8 @@ instance ToQuery GetBucketAnalyticsConfiguration
 
 -- | /See:/ 'getBucketAnalyticsConfigurationResponse' smart constructor.
 data GetBucketAnalyticsConfigurationResponse = GetBucketAnalyticsConfigurationResponse'
-  { _gbacrsAnalyticsConfiguration :: {-# NOUNPACK #-}!(Maybe AnalyticsConfiguration)
-  , _gbacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gbacrsAnalyticsConfiguration :: !(Maybe AnalyticsConfiguration)
+  , _gbacrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,12 +57,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'createListener' smart constructor.
 data CreateListener = CreateListener'
-  { _clSSLPolicy       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clCertificates    :: {-# NOUNPACK #-}!(Maybe [Certificate])
-  , _clLoadBalancerARN :: {-# NOUNPACK #-}!Text
-  , _clProtocol        :: {-# NOUNPACK #-}!ProtocolEnum
-  , _clPort            :: {-# NOUNPACK #-}!Nat
-  , _clDefaultActions  :: {-# NOUNPACK #-}![Action]
+  { _clSSLPolicy       :: !(Maybe Text)
+  , _clCertificates    :: !(Maybe [Certificate])
+  , _clLoadBalancerARN :: !Text
+  , _clProtocol        :: !ProtocolEnum
+  , _clPort            :: !Nat
+  , _clDefaultActions  :: ![Action]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -157,8 +157,8 @@ instance ToQuery CreateListener where
 
 -- | /See:/ 'createListenerResponse' smart constructor.
 data CreateListenerResponse = CreateListenerResponse'
-  { _clrsListeners      :: {-# NOUNPACK #-}!(Maybe [Listener])
-  , _clrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _clrsListeners      :: !(Maybe [Listener])
+  , _clrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

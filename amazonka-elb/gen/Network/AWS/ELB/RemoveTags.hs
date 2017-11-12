@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'removeTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { _rtLoadBalancerNames :: {-# NOUNPACK #-}![Text]
-  , _rtTags              :: {-# NOUNPACK #-}!(List1 TagKeyOnly)
+  { _rtLoadBalancerNames :: ![Text]
+  , _rtTags              :: !(List1 TagKeyOnly)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyVPCTenancy' smart constructor.
 data ModifyVPCTenancy = ModifyVPCTenancy'
-  { _mvtDryRun          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mvtVPCId           :: {-# NOUNPACK #-}!Text
-  , _mvtInstanceTenancy :: {-# NOUNPACK #-}!VPCTenancy
+  { _mvtDryRun          :: !(Maybe Bool)
+  , _mvtVPCId           :: !Text
+  , _mvtInstanceTenancy :: !VPCTenancy
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,8 +128,8 @@ instance ToQuery ModifyVPCTenancy where
 --
 -- /See:/ 'modifyVPCTenancyResponse' smart constructor.
 data ModifyVPCTenancyResponse = ModifyVPCTenancyResponse'
-  { _mvtrsReturnValue    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mvtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mvtrsReturnValue    :: !(Maybe Bool)
+  , _mvtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

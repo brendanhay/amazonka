@@ -62,9 +62,9 @@ instance NFData EnhancedMetrics where
 --
 -- /See:/ 'enhancedMonitoringOutput' smart constructor.
 data EnhancedMonitoringOutput = EnhancedMonitoringOutput'
-  { _emoDesiredShardLevelMetrics :: {-# NOUNPACK #-}!(Maybe [MetricsName])
-  , _emoCurrentShardLevelMetrics :: {-# NOUNPACK #-}!(Maybe [MetricsName])
-  , _emoStreamName               :: {-# NOUNPACK #-}!(Maybe Text)
+  { _emoDesiredShardLevelMetrics :: !(Maybe [MetricsName])
+  , _emoCurrentShardLevelMetrics :: !(Maybe [MetricsName])
+  , _emoStreamName               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance NFData EnhancedMonitoringOutput where
 --
 -- /See:/ 'hashKeyRange' smart constructor.
 data HashKeyRange = HashKeyRange'
-  { _hkrStartingHashKey :: {-# NOUNPACK #-}!Text
-  , _hkrEndingHashKey   :: {-# NOUNPACK #-}!Text
+  { _hkrStartingHashKey :: !Text
+  , _hkrEndingHashKey   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -164,9 +164,9 @@ instance NFData HashKeyRange where
 --
 -- /See:/ 'putRecordsRequestEntry' smart constructor.
 data PutRecordsRequestEntry = PutRecordsRequestEntry'
-  { _prreExplicitHashKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prreData            :: {-# NOUNPACK #-}!Base64
-  , _prrePartitionKey    :: {-# NOUNPACK #-}!Text
+  { _prreExplicitHashKey :: !(Maybe Text)
+  , _prreData            :: !Base64
+  , _prrePartitionKey    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -221,10 +221,10 @@ instance ToJSON PutRecordsRequestEntry where
 --
 -- /See:/ 'putRecordsResultEntry' smart constructor.
 data PutRecordsResultEntry = PutRecordsResultEntry'
-  { _prreSequenceNumber :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prreErrorCode      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prreErrorMessage   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prreShardId        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _prreSequenceNumber :: !(Maybe Text)
+  , _prreErrorCode      :: !(Maybe Text)
+  , _prreErrorMessage   :: !(Maybe Text)
+  , _prreShardId        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -285,11 +285,11 @@ instance NFData PutRecordsResultEntry where
 --
 -- /See:/ 'record' smart constructor.
 data Record = Record'
-  { _rEncryptionType              :: {-# NOUNPACK #-}!(Maybe EncryptionType)
-  , _rApproximateArrivalTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rSequenceNumber              :: {-# NOUNPACK #-}!Text
-  , _rData                        :: {-# NOUNPACK #-}!Base64
-  , _rPartitionKey                :: {-# NOUNPACK #-}!Text
+  { _rEncryptionType              :: !(Maybe EncryptionType)
+  , _rApproximateArrivalTimestamp :: !(Maybe POSIX)
+  , _rSequenceNumber              :: !Text
+  , _rData                        :: !Base64
+  , _rPartitionKey                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -362,8 +362,8 @@ instance NFData Record where
 --
 -- /See:/ 'sequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
-  { _snrEndingSequenceNumber   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _snrStartingSequenceNumber :: {-# NOUNPACK #-}!Text
+  { _snrEndingSequenceNumber   :: !(Maybe Text)
+  , _snrStartingSequenceNumber :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -410,11 +410,11 @@ instance NFData SequenceNumberRange where
 --
 -- /See:/ 'shard' smart constructor.
 data Shard = Shard'
-  { _sAdjacentParentShardId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sParentShardId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sShardId               :: {-# NOUNPACK #-}!Text
-  , _sHashKeyRange          :: {-# NOUNPACK #-}!HashKeyRange
-  , _sSequenceNumberRange   :: {-# NOUNPACK #-}!SequenceNumberRange
+  { _sAdjacentParentShardId :: !(Maybe Text)
+  , _sParentShardId         :: !(Maybe Text)
+  , _sShardId               :: !Text
+  , _sHashKeyRange          :: !HashKeyRange
+  , _sSequenceNumberRange   :: !SequenceNumberRange
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -487,16 +487,16 @@ instance NFData Shard where
 --
 -- /See:/ 'streamDescription' smart constructor.
 data StreamDescription = StreamDescription'
-  { _sdEncryptionType          :: {-# NOUNPACK #-}!(Maybe EncryptionType)
-  , _sdKeyId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdStreamName              :: {-# NOUNPACK #-}!Text
-  , _sdStreamARN               :: {-# NOUNPACK #-}!Text
-  , _sdStreamStatus            :: {-# NOUNPACK #-}!StreamStatus
-  , _sdShards                  :: {-# NOUNPACK #-}![Shard]
-  , _sdHasMoreShards           :: {-# NOUNPACK #-}!Bool
-  , _sdRetentionPeriodHours    :: {-# NOUNPACK #-}!Nat
-  , _sdStreamCreationTimestamp :: {-# NOUNPACK #-}!POSIX
-  , _sdEnhancedMonitoring      :: {-# NOUNPACK #-}![EnhancedMetrics]
+  { _sdEncryptionType          :: !(Maybe EncryptionType)
+  , _sdKeyId                   :: !(Maybe Text)
+  , _sdStreamName              :: !Text
+  , _sdStreamARN               :: !Text
+  , _sdStreamStatus            :: !StreamStatus
+  , _sdShards                  :: ![Shard]
+  , _sdHasMoreShards           :: !Bool
+  , _sdRetentionPeriodHours    :: !Nat
+  , _sdStreamCreationTimestamp :: !POSIX
+  , _sdEnhancedMonitoring      :: ![EnhancedMetrics]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -611,8 +611,8 @@ instance NFData StreamDescription where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!Text
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

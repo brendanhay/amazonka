@@ -51,8 +51,8 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getTrafficPolicy' smart constructor.
 data GetTrafficPolicy = GetTrafficPolicy'
-  { _gtpId      :: {-# NOUNPACK #-}!Text
-  , _gtpVersion :: {-# NOUNPACK #-}!Nat
+  { _gtpId      :: !Text
+  , _gtpVersion :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,8 +110,8 @@ instance ToQuery GetTrafficPolicy where
 --
 -- /See:/ 'getTrafficPolicyResponse' smart constructor.
 data GetTrafficPolicyResponse = GetTrafficPolicyResponse'
-  { _gtprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gtprsTrafficPolicy  :: {-# NOUNPACK #-}!TrafficPolicy
+  { _gtprsResponseStatus :: !Int
+  , _gtprsTrafficPolicy  :: !TrafficPolicy
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeServices' smart constructor.
 data DescribeServices = DescribeServices'
-  { _dCluster  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dServices :: {-# NOUNPACK #-}![Text]
+  { _dCluster  :: !(Maybe Text)
+  , _dServices :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,9 +113,9 @@ instance ToQuery DescribeServices where
 
 -- | /See:/ 'describeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { _dssrsFailures       :: {-# NOUNPACK #-}!(Maybe [Failure])
-  , _dssrsServices       :: {-# NOUNPACK #-}!(Maybe [ContainerService])
-  , _dssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dssrsFailures       :: !(Maybe [Failure])
+  , _dssrsServices       :: !(Maybe [ContainerService])
+  , _dssrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

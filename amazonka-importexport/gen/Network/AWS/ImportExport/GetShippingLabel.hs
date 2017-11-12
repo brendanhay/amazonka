@@ -56,18 +56,18 @@ import Network.AWS.Response
 
 -- | /See:/ 'getShippingLabel' smart constructor.
 data GetShippingLabel = GetShippingLabel'
-  { _gslStreet3         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslAPIVersion      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslCountry         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslStateOrProvince :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslPostalCode      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslStreet2         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslCompany         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslPhoneNumber     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslCity            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslStreet1         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslJobIds          :: {-# NOUNPACK #-}![Text]
+  { _gslStreet3         :: !(Maybe Text)
+  , _gslAPIVersion      :: !(Maybe Text)
+  , _gslCountry         :: !(Maybe Text)
+  , _gslStateOrProvince :: !(Maybe Text)
+  , _gslPostalCode      :: !(Maybe Text)
+  , _gslStreet2         :: !(Maybe Text)
+  , _gslName            :: !(Maybe Text)
+  , _gslCompany         :: !(Maybe Text)
+  , _gslPhoneNumber     :: !(Maybe Text)
+  , _gslCity            :: !(Maybe Text)
+  , _gslStreet1         :: !(Maybe Text)
+  , _gslJobIds          :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -204,9 +204,9 @@ instance ToQuery GetShippingLabel where
 
 -- | /See:/ 'getShippingLabelResponse' smart constructor.
 data GetShippingLabelResponse = GetShippingLabelResponse'
-  { _gslrsShippingLabelURL :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslrsWarning          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gslrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _gslrsShippingLabelURL :: !(Maybe Text)
+  , _gslrsWarning          :: !(Maybe Text)
+  , _gslrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

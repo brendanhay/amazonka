@@ -62,15 +62,15 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeReservedDBInstancesOfferings' smart constructor.
 data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings'
-  { _drdioProductDescription            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdioFilters                       :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _drdioDBInstanceClass               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdioMarker                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdioMaxRecords                    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _drdioMultiAZ                       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _drdioReservedDBInstancesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdioOfferingType                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdioDuration                      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _drdioProductDescription            :: !(Maybe Text)
+  , _drdioFilters                       :: !(Maybe [Filter])
+  , _drdioDBInstanceClass               :: !(Maybe Text)
+  , _drdioMarker                        :: !(Maybe Text)
+  , _drdioMaxRecords                    :: !(Maybe Int)
+  , _drdioMultiAZ                       :: !(Maybe Bool)
+  , _drdioReservedDBInstancesOfferingId :: !(Maybe Text)
+  , _drdioOfferingType                  :: !(Maybe Text)
+  , _drdioDuration                      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -215,9 +215,9 @@ instance ToQuery DescribeReservedDBInstancesOfferings
 --
 -- /See:/ 'describeReservedDBInstancesOfferingsResponse' smart constructor.
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'
-  { _drdiorsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drdiorsReservedDBInstancesOfferings :: {-# NOUNPACK #-}!(Maybe [ReservedDBInstancesOffering])
-  , _drdiorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drdiorsMarker :: !(Maybe Text)
+  , _drdiorsReservedDBInstancesOfferings :: !(Maybe [ReservedDBInstancesOffering])
+  , _drdiorsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

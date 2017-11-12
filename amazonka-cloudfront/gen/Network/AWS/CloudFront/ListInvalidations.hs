@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listInvalidations' smart constructor.
 data ListInvalidations = ListInvalidations'
-  { _liMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liMaxItems       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liDistributionId :: {-# NOUNPACK #-}!Text
+  { _liMarker         :: !(Maybe Text)
+  , _liMaxItems       :: !(Maybe Text)
+  , _liDistributionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery ListInvalidations where
 --
 -- /See:/ 'listInvalidationsResponse' smart constructor.
 data ListInvalidationsResponse = ListInvalidationsResponse'
-  { _lirsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _lirsInvalidationList :: {-# NOUNPACK #-}!InvalidationList
+  { _lirsResponseStatus   :: !Int
+  , _lirsInvalidationList :: !InvalidationList
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

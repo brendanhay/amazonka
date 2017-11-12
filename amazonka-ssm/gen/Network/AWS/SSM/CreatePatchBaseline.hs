@@ -54,15 +54,15 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createPatchBaseline' smart constructor.
 data CreatePatchBaseline = CreatePatchBaseline'
-  { _cpbApprovalRules :: {-# NOUNPACK #-}!(Maybe PatchRuleGroup)
-  , _cpbClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpbOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
-  , _cpbGlobalFilters :: {-# NOUNPACK #-}!(Maybe PatchFilterGroup)
-  , _cpbApprovedPatchesComplianceLevel :: {-# NOUNPACK #-}!(Maybe PatchComplianceLevel)
-  , _cpbApprovedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cpbRejectedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cpbDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpbName :: {-# NOUNPACK #-}!Text
+  { _cpbApprovalRules                  :: !(Maybe PatchRuleGroup)
+  , _cpbClientToken                    :: !(Maybe Text)
+  , _cpbOperatingSystem                :: !(Maybe OperatingSystem)
+  , _cpbGlobalFilters                  :: !(Maybe PatchFilterGroup)
+  , _cpbApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
+  , _cpbApprovedPatches                :: !(Maybe [Text])
+  , _cpbRejectedPatches                :: !(Maybe [Text])
+  , _cpbDescription                    :: !(Maybe Text)
+  , _cpbName                           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -186,8 +186,8 @@ instance ToQuery CreatePatchBaseline where
 
 -- | /See:/ 'createPatchBaselineResponse' smart constructor.
 data CreatePatchBaselineResponse = CreatePatchBaselineResponse'
-  { _cpbrsBaselineId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cpbrsBaselineId     :: !(Maybe Text)
+  , _cpbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

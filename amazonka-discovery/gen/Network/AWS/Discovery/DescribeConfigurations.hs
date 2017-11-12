@@ -105,8 +105,8 @@ instance ToQuery DescribeConfigurations where
 
 -- | /See:/ 'describeConfigurationsResponse' smart constructor.
 data DescribeConfigurationsResponse = DescribeConfigurationsResponse'
-  { _dcrsConfigurations :: {-# NOUNPACK #-}!(Maybe [Map Text Text])
-  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcrsConfigurations :: !(Maybe [Map Text Text])
+  , _dcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

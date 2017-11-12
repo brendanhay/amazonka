@@ -56,10 +56,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDBClusterParameterGroups' smart constructor.
 data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
-  { _ddcpgFilters                     :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _ddcpgMarker                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcpgMaxRecords                  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ddcpgDBClusterParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ddcpgFilters                     :: !(Maybe [Filter])
+  , _ddcpgMarker                      :: !(Maybe Text)
+  , _ddcpgMaxRecords                  :: !(Maybe Int)
+  , _ddcpgDBClusterParameterGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery DescribeDBClusterParameterGroups
 --
 -- /See:/ 'describeDBClusterParameterGroupsResponse' smart constructor.
 data DescribeDBClusterParameterGroupsResponse = DescribeDBClusterParameterGroupsResponse'
-  { _ddcpgrsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcpgrsDBClusterParameterGroups :: {-# NOUNPACK #-}!(Maybe [DBClusterParameterGroup])
-  , _ddcpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddcpgrsMarker                   :: !(Maybe Text)
+  , _ddcpgrsDBClusterParameterGroups :: !(Maybe [DBClusterParameterGroup])
+  , _ddcpgrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

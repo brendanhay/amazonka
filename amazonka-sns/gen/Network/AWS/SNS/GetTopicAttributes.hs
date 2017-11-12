@@ -104,8 +104,8 @@ instance ToQuery GetTopicAttributes where
 --
 -- /See:/ 'getTopicAttributesResponse' smart constructor.
 data GetTopicAttributesResponse = GetTopicAttributesResponse'
-  { _gtarsAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gtarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gtarsAttributes     :: !(Maybe (Map Text Text))
+  , _gtarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

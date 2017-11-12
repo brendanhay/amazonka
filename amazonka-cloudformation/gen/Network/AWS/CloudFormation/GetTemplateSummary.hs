@@ -64,10 +64,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'getTemplateSummary' smart constructor.
 data GetTemplateSummary = GetTemplateSummary'
-  { _gtsTemplateBody :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsTemplateURL  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsStackSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsStackName    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gtsTemplateBody :: !(Maybe Text)
+  , _gtsTemplateURL  :: !(Maybe Text)
+  , _gtsStackSetName :: !(Maybe Text)
+  , _gtsStackName    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,15 +160,15 @@ instance ToQuery GetTemplateSummary where
 --
 -- /See:/ 'getTemplateSummaryResponse' smart constructor.
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
-  { _gtsrsDeclaredTransforms :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gtsrsVersion            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsrsCapabilitiesReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsrsParameters         :: {-# NOUNPACK #-}!(Maybe [ParameterDeclaration])
-  , _gtsrsMetadata           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsrsDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtsrsCapabilities       :: {-# NOUNPACK #-}!(Maybe [Capability])
-  , _gtsrsResourceTypes      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gtsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _gtsrsDeclaredTransforms :: !(Maybe [Text])
+  , _gtsrsVersion            :: !(Maybe Text)
+  , _gtsrsCapabilitiesReason :: !(Maybe Text)
+  , _gtsrsParameters         :: !(Maybe [ParameterDeclaration])
+  , _gtsrsMetadata           :: !(Maybe Text)
+  , _gtsrsDescription        :: !(Maybe Text)
+  , _gtsrsCapabilities       :: !(Maybe [Capability])
+  , _gtsrsResourceTypes      :: !(Maybe [Text])
+  , _gtsrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,8 +50,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getDocument' smart constructor.
 data GetDocument = GetDocument'
-  { _gdDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdName            :: {-# NOUNPACK #-}!Text
+  { _gdDocumentVersion :: !(Maybe Text)
+  , _gdName            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,11 +117,11 @@ instance ToQuery GetDocument where
 
 -- | /See:/ 'getDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-  { _gdrsDocumentType    :: {-# NOUNPACK #-}!(Maybe DocumentType)
-  , _gdrsContent         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdrsName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdrsDocumentVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gdrsDocumentType    :: !(Maybe DocumentType)
+  , _gdrsContent         :: !(Maybe Text)
+  , _gdrsName            :: !(Maybe Text)
+  , _gdrsDocumentVersion :: !(Maybe Text)
+  , _gdrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

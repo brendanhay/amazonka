@@ -102,9 +102,9 @@ instance ToQuery GetDistributionConfig where
 --
 -- /See:/ 'getDistributionConfigResponse' smart constructor.
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
-  { _gdcrsETag               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdcrsDistributionConfig :: {-# NOUNPACK #-}!(Maybe DistributionConfig)
-  , _gdcrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _gdcrsETag               :: !(Maybe Text)
+  , _gdcrsDistributionConfig :: !(Maybe DistributionConfig)
+  , _gdcrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

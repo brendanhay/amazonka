@@ -72,11 +72,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'createLag' smart constructor.
 data CreateLag = CreateLag'
-  { _clConnectionId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clNumberOfConnections  :: {-# NOUNPACK #-}!Int
-  , _clLocation             :: {-# NOUNPACK #-}!Text
-  , _clConnectionsBandwidth :: {-# NOUNPACK #-}!Text
-  , _clLagName              :: {-# NOUNPACK #-}!Text
+  { _clConnectionId         :: !(Maybe Text)
+  , _clNumberOfConnections  :: !Int
+  , _clLocation             :: !Text
+  , _clConnectionsBandwidth :: !Text
+  , _clLagName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

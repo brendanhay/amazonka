@@ -49,11 +49,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateSubscriber' smart constructor.
 data UpdateSubscriber = UpdateSubscriber'
-  { _usAccountId     :: {-# NOUNPACK #-}!Text
-  , _usBudgetName    :: {-# NOUNPACK #-}!Text
-  , _usNotification  :: {-# NOUNPACK #-}!Notification
-  , _usOldSubscriber :: {-# NOUNPACK #-}!Subscriber
-  , _usNewSubscriber :: {-# NOUNPACK #-}!Subscriber
+  { _usAccountId     :: !Text
+  , _usBudgetName    :: !Text
+  , _usNotification  :: !Notification
+  , _usOldSubscriber :: !Subscriber
+  , _usNewSubscriber :: !Subscriber
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,9 +54,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listCreateAccountStatus' smart constructor.
 data ListCreateAccountStatus = ListCreateAccountStatus'
-  { _lcasStates     :: {-# NOUNPACK #-}!(Maybe [CreateAccountState])
-  , _lcasNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcasMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lcasStates     :: !(Maybe [CreateAccountState])
+  , _lcasNextToken  :: !(Maybe Text)
+  , _lcasMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery ListCreateAccountStatus where
 
 -- | /See:/ 'listCreateAccountStatusResponse' smart constructor.
 data ListCreateAccountStatusResponse = ListCreateAccountStatusResponse'
-  { _lcasrsCreateAccountStatuses :: {-# NOUNPACK #-}!(Maybe [CreateAccountStatus])
-  , _lcasrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lcasrsCreateAccountStatuses :: !(Maybe [CreateAccountStatus])
+  , _lcasrsNextToken             :: !(Maybe Text)
+  , _lcasrsResponseStatus        :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

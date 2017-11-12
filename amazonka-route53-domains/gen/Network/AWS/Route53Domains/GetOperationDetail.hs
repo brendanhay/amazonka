@@ -121,13 +121,13 @@ instance ToQuery GetOperationDetail where
 --
 -- /See:/ 'getOperationDetailResponse' smart constructor.
 data GetOperationDetailResponse = GetOperationDetailResponse'
-  { _godrsStatus         :: {-# NOUNPACK #-}!(Maybe OperationStatus)
-  , _godrsSubmittedDate  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _godrsDomainName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _godrsOperationId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _godrsType           :: {-# NOUNPACK #-}!(Maybe OperationType)
-  , _godrsMessage        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _godrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _godrsStatus         :: !(Maybe OperationStatus)
+  , _godrsSubmittedDate  :: !(Maybe POSIX)
+  , _godrsDomainName     :: !(Maybe Text)
+  , _godrsOperationId    :: !(Maybe Text)
+  , _godrsType           :: !(Maybe OperationType)
+  , _godrsMessage        :: !(Maybe Text)
+  , _godrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

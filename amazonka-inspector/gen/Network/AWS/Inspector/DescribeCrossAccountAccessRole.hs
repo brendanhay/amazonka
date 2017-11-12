@@ -97,10 +97,10 @@ instance ToQuery DescribeCrossAccountAccessRole where
 
 -- | /See:/ 'describeCrossAccountAccessRoleResponse' smart constructor.
 data DescribeCrossAccountAccessRoleResponse = DescribeCrossAccountAccessRoleResponse'
-  { _dcaarrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dcaarrsRoleARN        :: {-# NOUNPACK #-}!Text
-  , _dcaarrsValid          :: {-# NOUNPACK #-}!Bool
-  , _dcaarrsRegisteredAt   :: {-# NOUNPACK #-}!POSIX
+  { _dcaarrsResponseStatus :: !Int
+  , _dcaarrsRoleARN        :: !Text
+  , _dcaarrsValid          :: !Bool
+  , _dcaarrsRegisteredAt   :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

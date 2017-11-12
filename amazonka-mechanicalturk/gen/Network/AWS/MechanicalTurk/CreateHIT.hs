@@ -67,22 +67,22 @@ import Network.AWS.Response
 
 -- | /See:/ 'createHIT' smart constructor.
 data CreateHIT = CreateHIT'
-  { _chitHITReviewPolicy :: {-# NOUNPACK #-}!(Maybe ReviewPolicy)
-  , _chitUniqueRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _chitAutoApprovalDelayInSeconds :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _chitRequesterAnnotation :: {-# NOUNPACK #-}!(Maybe Text)
-  , _chitMaxAssignments :: {-# NOUNPACK #-}!(Maybe Int)
-  , _chitKeywords :: {-# NOUNPACK #-}!(Maybe Text)
-  , _chitHITLayoutId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _chitHITLayoutParameters :: {-# NOUNPACK #-}!(Maybe [HITLayoutParameter])
-  , _chitQualificationRequirements :: {-# NOUNPACK #-}!(Maybe [QualificationRequirement])
-  , _chitQuestion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _chitAssignmentReviewPolicy :: {-# NOUNPACK #-}!(Maybe ReviewPolicy)
-  , _chitLifetimeInSeconds :: {-# NOUNPACK #-}!Integer
-  , _chitAssignmentDurationInSeconds :: {-# NOUNPACK #-}!Integer
-  , _chitReward :: {-# NOUNPACK #-}!Text
-  , _chitTitle :: {-# NOUNPACK #-}!Text
-  , _chitDescription :: {-# NOUNPACK #-}!Text
+  { _chitHITReviewPolicy             :: !(Maybe ReviewPolicy)
+  , _chitUniqueRequestToken          :: !(Maybe Text)
+  , _chitAutoApprovalDelayInSeconds  :: !(Maybe Integer)
+  , _chitRequesterAnnotation         :: !(Maybe Text)
+  , _chitMaxAssignments              :: !(Maybe Int)
+  , _chitKeywords                    :: !(Maybe Text)
+  , _chitHITLayoutId                 :: !(Maybe Text)
+  , _chitHITLayoutParameters         :: !(Maybe [HITLayoutParameter])
+  , _chitQualificationRequirements   :: !(Maybe [QualificationRequirement])
+  , _chitQuestion                    :: !(Maybe Text)
+  , _chitAssignmentReviewPolicy      :: !(Maybe ReviewPolicy)
+  , _chitLifetimeInSeconds           :: !Integer
+  , _chitAssignmentDurationInSeconds :: !Integer
+  , _chitReward                      :: !Text
+  , _chitTitle                       :: !Text
+  , _chitDescription                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -273,8 +273,8 @@ instance ToQuery CreateHIT where
 
 -- | /See:/ 'createHITResponse' smart constructor.
 data CreateHITResponse = CreateHITResponse'
-  { _chitrsHIT            :: {-# NOUNPACK #-}!(Maybe HIT)
-  , _chitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _chitrsHIT            :: !(Maybe HIT)
+  , _chitrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

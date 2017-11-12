@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getImportJob' smart constructor.
 data GetImportJob = GetImportJob'
-  { _gijApplicationId :: {-# NOUNPACK #-}!Text
-  , _gijJobId         :: {-# NOUNPACK #-}!Text
+  { _gijApplicationId :: !Text
+  , _gijJobId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -104,8 +104,8 @@ instance ToQuery GetImportJob where
 
 -- | /See:/ 'getImportJobResponse' smart constructor.
 data GetImportJobResponse = GetImportJobResponse'
-  { _gijrsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _gijrsImportJobResponse :: {-# NOUNPACK #-}!ImportJobResponse
+  { _gijrsResponseStatus    :: !Int
+  , _gijrsImportJobResponse :: !ImportJobResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteResourceServer' smart constructor.
 data DeleteResourceServer = DeleteResourceServer'
-  { _drsUserPoolId :: {-# NOUNPACK #-}!Text
-  , _drsIdentifier :: {-# NOUNPACK #-}!Text
+  { _drsUserPoolId :: !Text
+  , _drsIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

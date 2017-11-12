@@ -101,8 +101,8 @@ instance ToQuery CancelKeyDeletion where
 
 -- | /See:/ 'cancelKeyDeletionResponse' smart constructor.
 data CancelKeyDeletionResponse = CancelKeyDeletionResponse'
-  { _ckdrsKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ckdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ckdrsKeyId          :: !(Maybe Text)
+  , _ckdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

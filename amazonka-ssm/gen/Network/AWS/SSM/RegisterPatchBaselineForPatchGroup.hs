@@ -48,8 +48,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'registerPatchBaselineForPatchGroup' smart constructor.
 data RegisterPatchBaselineForPatchGroup = RegisterPatchBaselineForPatchGroup'
-  { _rpbfpgBaselineId :: {-# NOUNPACK #-}!Text
-  , _rpbfpgPatchGroup :: {-# NOUNPACK #-}!Text
+  { _rpbfpgBaselineId :: !Text
+  , _rpbfpgPatchGroup :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery RegisterPatchBaselineForPatchGroup
 
 -- | /See:/ 'registerPatchBaselineForPatchGroupResponse' smart constructor.
 data RegisterPatchBaselineForPatchGroupResponse = RegisterPatchBaselineForPatchGroupResponse'
-  { _rpbfpgrsBaselineId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rpbfpgrsPatchGroup     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rpbfpgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rpbfpgrsBaselineId     :: !(Maybe Text)
+  , _rpbfpgrsPatchGroup     :: !(Maybe Text)
+  , _rpbfpgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

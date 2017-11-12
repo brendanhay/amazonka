@@ -58,9 +58,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getAccountAuthorizationDetails' smart constructor.
 data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
-  { _gaadMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gaadMaxItems :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gaadFilter   :: {-# NOUNPACK #-}!(Maybe [EntityType])
+  { _gaadMarker   :: !(Maybe Text)
+  , _gaadMaxItems :: !(Maybe Nat)
+  , _gaadFilter   :: !(Maybe [EntityType])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -153,13 +153,13 @@ instance ToQuery GetAccountAuthorizationDetails where
 --
 -- /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.
 data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
-  { _gaadrsRoleDetailList  :: {-# NOUNPACK #-}!(Maybe [RoleDetail])
-  , _gaadrsGroupDetailList :: {-# NOUNPACK #-}!(Maybe [GroupDetail])
-  , _gaadrsUserDetailList  :: {-# NOUNPACK #-}!(Maybe [UserDetail])
-  , _gaadrsMarker          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gaadrsIsTruncated     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gaadrsPolicies        :: {-# NOUNPACK #-}!(Maybe [ManagedPolicyDetail])
-  , _gaadrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gaadrsRoleDetailList  :: !(Maybe [RoleDetail])
+  , _gaadrsGroupDetailList :: !(Maybe [GroupDetail])
+  , _gaadrsUserDetailList  :: !(Maybe [UserDetail])
+  , _gaadrsMarker          :: !(Maybe Text)
+  , _gaadrsIsTruncated     :: !(Maybe Bool)
+  , _gaadrsPolicies        :: !(Maybe [ManagedPolicyDetail])
+  , _gaadrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

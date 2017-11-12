@@ -27,13 +27,13 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'accountSettings' smart constructor.
 data AccountSettings = AccountSettings'
-  { _asAwsAccountNumber :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asMaxJobTimeoutMinutes :: {-# NOUNPACK #-}!(Maybe Int)
-  , _asMaxSlots :: {-# NOUNPACK #-}!(Maybe (Map Text Int))
-  , _asTrialMinutes :: {-# NOUNPACK #-}!(Maybe TrialMinutes)
-  , _asUnmeteredDevices :: {-# NOUNPACK #-}!(Maybe (Map DevicePlatform Int))
-  , _asUnmeteredRemoteAccessDevices :: {-# NOUNPACK #-}!(Maybe (Map DevicePlatform Int))
-  , _asDefaultJobTimeoutMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  { _asAwsAccountNumber             :: !(Maybe Text)
+  , _asMaxJobTimeoutMinutes         :: !(Maybe Int)
+  , _asMaxSlots                     :: !(Maybe (Map Text Int))
+  , _asTrialMinutes                 :: !(Maybe TrialMinutes)
+  , _asUnmeteredDevices             :: !(Maybe (Map DevicePlatform Int))
+  , _asUnmeteredRemoteAccessDevices :: !(Maybe (Map DevicePlatform Int))
+  , _asDefaultJobTimeoutMinutes     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,11 +119,11 @@ instance NFData AccountSettings where
 --
 -- /See:/ 'artifact' smart constructor.
 data Artifact = Artifact'
-  { _aArn       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aUrl       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aExtension :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aType      :: {-# NOUNPACK #-}!(Maybe ArtifactType)
+  { _aArn       :: !(Maybe Text)
+  , _aUrl       :: !(Maybe Text)
+  , _aExtension :: !(Maybe Text)
+  , _aName      :: !(Maybe Text)
+  , _aType      :: !(Maybe ArtifactType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -194,9 +194,9 @@ instance NFData Artifact where
 --
 -- /See:/ 'cpu' smart constructor.
 data CPU = CPU'
-  { _cpuFrequency    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cpuClock        :: {-# NOUNPACK #-}!(Maybe Double)
-  , _cpuArchitecture :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cpuFrequency    :: !(Maybe Text)
+  , _cpuClock        :: !(Maybe Double)
+  , _cpuArchitecture :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -246,13 +246,13 @@ instance NFData CPU where
 --
 -- /See:/ 'counters' smart constructor.
 data Counters = Counters'
-  { _cPassed  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cSkipped :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cWarned  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cStopped :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cTotal   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cFailed  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cErrored :: {-# NOUNPACK #-}!(Maybe Int)
+  { _cPassed  :: !(Maybe Int)
+  , _cSkipped :: !(Maybe Int)
+  , _cWarned  :: !(Maybe Int)
+  , _cStopped :: !(Maybe Int)
+  , _cTotal   :: !(Maybe Int)
+  , _cFailed  :: !(Maybe Int)
+  , _cErrored :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -382,9 +382,9 @@ instance ToJSON
 --
 -- /See:/ 'customerArtifactPaths' smart constructor.
 data CustomerArtifactPaths = CustomerArtifactPaths'
-  { _capAndroidPaths    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _capDeviceHostPaths :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _capIosPaths        :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _capAndroidPaths    :: !(Maybe [Text])
+  , _capDeviceHostPaths :: !(Maybe [Text])
+  , _capIosPaths        :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -446,24 +446,24 @@ instance ToJSON CustomerArtifactPaths where
 --
 -- /See:/ 'device' smart constructor.
 data Device = Device'
-  { _devCarrier             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devImage               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devManufacturer        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devPlatform            :: {-# NOUNPACK #-}!(Maybe DevicePlatform)
-  , _devRemoteAccessEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _devArn                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devFormFactor          :: {-# NOUNPACK #-}!(Maybe DeviceFormFactor)
-  , _devFleetType           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devResolution          :: {-# NOUNPACK #-}!(Maybe Resolution)
-  , _devMemory              :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _devRadio               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devOs                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devModel               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devRemoteDebugEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _devCpu                 :: {-# NOUNPACK #-}!(Maybe CPU)
-  , _devHeapSize            :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _devFleetName           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _devCarrier             :: !(Maybe Text)
+  , _devImage               :: !(Maybe Text)
+  , _devManufacturer        :: !(Maybe Text)
+  , _devPlatform            :: !(Maybe DevicePlatform)
+  , _devRemoteAccessEnabled :: !(Maybe Bool)
+  , _devArn                 :: !(Maybe Text)
+  , _devFormFactor          :: !(Maybe DeviceFormFactor)
+  , _devFleetType           :: !(Maybe Text)
+  , _devResolution          :: !(Maybe Resolution)
+  , _devMemory              :: !(Maybe Integer)
+  , _devRadio               :: !(Maybe Text)
+  , _devOs                  :: !(Maybe Text)
+  , _devName                :: !(Maybe Text)
+  , _devModel               :: !(Maybe Text)
+  , _devRemoteDebugEnabled  :: !(Maybe Bool)
+  , _devCpu                 :: !(Maybe CPU)
+  , _devHeapSize            :: !(Maybe Integer)
+  , _devFleetName           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -636,9 +636,9 @@ instance NFData Device where
 --
 -- /See:/ 'deviceMinutes' smart constructor.
 data DeviceMinutes = DeviceMinutes'
-  { _dmMetered   :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dmTotal     :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dmUnmetered :: {-# NOUNPACK #-}!(Maybe Double)
+  { _dmMetered   :: !(Maybe Double)
+  , _dmTotal     :: !(Maybe Double)
+  , _dmUnmetered :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -688,11 +688,11 @@ instance NFData DeviceMinutes where
 --
 -- /See:/ 'devicePool' smart constructor.
 data DevicePool = DevicePool'
-  { _dArn         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dRules       :: {-# NOUNPACK #-}!(Maybe [Rule])
-  , _dName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dType        :: {-# NOUNPACK #-}!(Maybe DevicePoolType)
-  , _dDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dArn         :: !(Maybe Text)
+  , _dRules       :: !(Maybe [Rule])
+  , _dName        :: !(Maybe Text)
+  , _dType        :: !(Maybe DevicePoolType)
+  , _dDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -761,9 +761,9 @@ instance NFData DevicePool where
 --
 -- /See:/ 'devicePoolCompatibilityResult' smart constructor.
 data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
-  { _dpcrDevice :: {-# NOUNPACK #-}!(Maybe Device)
-  , _dpcrCompatible :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dpcrIncompatibilityMessages :: {-# NOUNPACK #-}!(Maybe [IncompatibilityMessage])
+  { _dpcrDevice                  :: !(Maybe Device)
+  , _dpcrCompatible              :: !(Maybe Bool)
+  , _dpcrIncompatibilityMessages :: !(Maybe [IncompatibilityMessage])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -816,9 +816,9 @@ instance NFData DevicePoolCompatibilityResult where
 --
 -- /See:/ 'executionConfiguration' smart constructor.
 data ExecutionConfiguration = ExecutionConfiguration'
-  { _ecAccountsCleanup    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ecAppPackagesCleanup :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ecJobTimeoutMinutes  :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ecAccountsCleanup    :: !(Maybe Bool)
+  , _ecAppPackagesCleanup :: !(Maybe Bool)
+  , _ecJobTimeoutMinutes  :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -871,8 +871,8 @@ instance ToJSON ExecutionConfiguration where
 --
 -- /See:/ 'incompatibilityMessage' smart constructor.
 data IncompatibilityMessage = IncompatibilityMessage'
-  { _imType    :: {-# NOUNPACK #-}!(Maybe DeviceAttribute)
-  , _imMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _imType    :: !(Maybe DeviceAttribute)
+  , _imMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -914,18 +914,18 @@ instance NFData IncompatibilityMessage where
 --
 -- /See:/ 'job' smart constructor.
 data Job = Job'
-  { _jobStatus        :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
-  , _jobCounters      :: {-# NOUNPACK #-}!(Maybe Counters)
-  , _jobArn           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jobCreated       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _jobDevice        :: {-# NOUNPACK #-}!(Maybe Device)
-  , _jobStopped       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _jobResult        :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
-  , _jobName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jobDeviceMinutes :: {-# NOUNPACK #-}!(Maybe DeviceMinutes)
-  , _jobType          :: {-# NOUNPACK #-}!(Maybe TestType)
-  , _jobMessage       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _jobStarted       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _jobStatus        :: !(Maybe ExecutionStatus)
+  , _jobCounters      :: !(Maybe Counters)
+  , _jobArn           :: !(Maybe Text)
+  , _jobCreated       :: !(Maybe POSIX)
+  , _jobDevice        :: !(Maybe Device)
+  , _jobStopped       :: !(Maybe POSIX)
+  , _jobResult        :: !(Maybe ExecutionResult)
+  , _jobName          :: !(Maybe Text)
+  , _jobDeviceMinutes :: !(Maybe DeviceMinutes)
+  , _jobType          :: !(Maybe TestType)
+  , _jobMessage       :: !(Maybe Text)
+  , _jobStarted       :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1052,8 +1052,8 @@ instance NFData Job where
 --
 -- /See:/ 'location' smart constructor.
 data Location = Location'
-  { _lLatitude  :: {-# NOUNPACK #-}!Double
-  , _lLongitude :: {-# NOUNPACK #-}!Double
+  { _lLatitude  :: !Double
+  , _lLongitude :: !Double
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1097,8 +1097,8 @@ instance ToJSON Location where
 --
 -- /See:/ 'monetaryAmount' smart constructor.
 data MonetaryAmount = MonetaryAmount'
-  { _maAmount       :: {-# NOUNPACK #-}!(Maybe Double)
-  , _maCurrencyCode :: {-# NOUNPACK #-}!(Maybe CurrencyCode)
+  { _maAmount       :: !(Maybe Double)
+  , _maCurrencyCode :: !(Maybe CurrencyCode)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1140,18 +1140,18 @@ instance NFData MonetaryAmount where
 --
 -- /See:/ 'networkProfile' smart constructor.
 data NetworkProfile = NetworkProfile'
-  { _npUplinkJitterMs        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _npArn                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _npUplinkLossPercent     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _npDownlinkJitterMs      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _npName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _npDownlinkLossPercent   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _npType                  :: {-# NOUNPACK #-}!(Maybe NetworkProfileType)
-  , _npUplinkDelayMs         :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _npUplinkBandwidthBits   :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _npDescription           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _npDownlinkDelayMs       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _npDownlinkBandwidthBits :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _npUplinkJitterMs        :: !(Maybe Integer)
+  , _npArn                   :: !(Maybe Text)
+  , _npUplinkLossPercent     :: !(Maybe Nat)
+  , _npDownlinkJitterMs      :: !(Maybe Integer)
+  , _npName                  :: !(Maybe Text)
+  , _npDownlinkLossPercent   :: !(Maybe Nat)
+  , _npType                  :: !(Maybe NetworkProfileType)
+  , _npUplinkDelayMs         :: !(Maybe Integer)
+  , _npUplinkBandwidthBits   :: !(Maybe Integer)
+  , _npDescription           :: !(Maybe Text)
+  , _npDownlinkDelayMs       :: !(Maybe Integer)
+  , _npDownlinkBandwidthBits :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1276,11 +1276,11 @@ instance NFData NetworkProfile where
 --
 -- /See:/ 'offering' smart constructor.
 data Offering = Offering'
-  { _oPlatform         :: {-# NOUNPACK #-}!(Maybe DevicePlatform)
-  , _oId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oRecurringCharges :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
-  , _oType             :: {-# NOUNPACK #-}!(Maybe OfferingType)
-  , _oDescription      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _oPlatform         :: !(Maybe DevicePlatform)
+  , _oId               :: !(Maybe Text)
+  , _oRecurringCharges :: !(Maybe [RecurringCharge])
+  , _oType             :: !(Maybe OfferingType)
+  , _oDescription      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1349,8 +1349,8 @@ instance NFData Offering where
 --
 -- /See:/ 'offeringPromotion' smart constructor.
 data OfferingPromotion = OfferingPromotion'
-  { _opId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _opDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _opId          :: !(Maybe Text)
+  , _opDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1392,10 +1392,10 @@ instance NFData OfferingPromotion where
 --
 -- /See:/ 'offeringStatus' smart constructor.
 data OfferingStatus = OfferingStatus'
-  { _osEffectiveOn :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _osOffering    :: {-# NOUNPACK #-}!(Maybe Offering)
-  , _osQuantity    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _osType        :: {-# NOUNPACK #-}!(Maybe OfferingTransactionType)
+  { _osEffectiveOn :: !(Maybe POSIX)
+  , _osOffering    :: !(Maybe Offering)
+  , _osQuantity    :: !(Maybe Int)
+  , _osType        :: !(Maybe OfferingTransactionType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1456,11 +1456,11 @@ instance NFData OfferingStatus where
 --
 -- /See:/ 'offeringTransaction' smart constructor.
 data OfferingTransaction = OfferingTransaction'
-  { _otOfferingStatus      :: {-# NOUNPACK #-}!(Maybe OfferingStatus)
-  , _otCost                :: {-# NOUNPACK #-}!(Maybe MonetaryAmount)
-  , _otTransactionId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _otOfferingPromotionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _otCreatedOn           :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _otOfferingStatus      :: !(Maybe OfferingStatus)
+  , _otCost                :: !(Maybe MonetaryAmount)
+  , _otTransactionId       :: !(Maybe Text)
+  , _otOfferingPromotionId :: !(Maybe Text)
+  , _otCreatedOn           :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1529,13 +1529,13 @@ instance NFData OfferingTransaction where
 --
 -- /See:/ 'problem' smart constructor.
 data Problem = Problem'
-  { _pDevice  :: {-# NOUNPACK #-}!(Maybe Device)
-  , _pTest    :: {-# NOUNPACK #-}!(Maybe ProblemDetail)
-  , _pResult  :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
-  , _pRun     :: {-# NOUNPACK #-}!(Maybe ProblemDetail)
-  , _pJob     :: {-# NOUNPACK #-}!(Maybe ProblemDetail)
-  , _pMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pSuite   :: {-# NOUNPACK #-}!(Maybe ProblemDetail)
+  { _pDevice  :: !(Maybe Device)
+  , _pTest    :: !(Maybe ProblemDetail)
+  , _pResult  :: !(Maybe ExecutionResult)
+  , _pRun     :: !(Maybe ProblemDetail)
+  , _pJob     :: !(Maybe ProblemDetail)
+  , _pMessage :: !(Maybe Text)
+  , _pSuite   :: !(Maybe ProblemDetail)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1620,8 +1620,8 @@ instance NFData Problem where
 --
 -- /See:/ 'problemDetail' smart constructor.
 data ProblemDetail = ProblemDetail'
-  { _pdArn  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pdArn  :: !(Maybe Text)
+  , _pdName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1661,10 +1661,10 @@ instance NFData ProblemDetail where
 --
 -- /See:/ 'project' smart constructor.
 data Project = Project'
-  { _pArn                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pCreated                  :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pName                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pDefaultJobTimeoutMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  { _pArn                      :: !(Maybe Text)
+  , _pCreated                  :: !(Maybe POSIX)
+  , _pName                     :: !(Maybe Text)
+  , _pDefaultJobTimeoutMinutes :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1725,10 +1725,10 @@ instance NFData Project where
 --
 -- /See:/ 'radios' smart constructor.
 data Radios = Radios'
-  { _rNfc       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rGps       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rBluetooth :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rWifi      :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _rNfc       :: !(Maybe Bool)
+  , _rGps       :: !(Maybe Bool)
+  , _rBluetooth :: !(Maybe Bool)
+  , _rWifi      :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1784,8 +1784,8 @@ instance ToJSON Radios where
 --
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-  { _rcFrequency :: {-# NOUNPACK #-}!(Maybe RecurringChargeFrequency)
-  , _rcCost      :: {-# NOUNPACK #-}!(Maybe MonetaryAmount)
+  { _rcFrequency :: !(Maybe RecurringChargeFrequency)
+  , _rcCost      :: !(Maybe MonetaryAmount)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1826,22 +1826,22 @@ instance NFData RecurringCharge where
 --
 -- /See:/ 'remoteAccessSession' smart constructor.
 data RemoteAccessSession = RemoteAccessSession'
-  { _rasBillingMethod      :: {-# NOUNPACK #-}!(Maybe BillingMethod)
-  , _rasClientId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rasDeviceUdid         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rasStatus             :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
-  , _rasArn                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rasCreated            :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rasDevice             :: {-# NOUNPACK #-}!(Maybe Device)
-  , _rasStopped            :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _rasResult             :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
-  , _rasName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rasDeviceMinutes      :: {-# NOUNPACK #-}!(Maybe DeviceMinutes)
-  , _rasRemoteDebugEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rasEndpoint           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rasMessage            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rasHostAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rasStarted            :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _rasBillingMethod      :: !(Maybe BillingMethod)
+  , _rasClientId           :: !(Maybe Text)
+  , _rasDeviceUdid         :: !(Maybe Text)
+  , _rasStatus             :: !(Maybe ExecutionStatus)
+  , _rasArn                :: !(Maybe Text)
+  , _rasCreated            :: !(Maybe POSIX)
+  , _rasDevice             :: !(Maybe Device)
+  , _rasStopped            :: !(Maybe POSIX)
+  , _rasResult             :: !(Maybe ExecutionResult)
+  , _rasName               :: !(Maybe Text)
+  , _rasDeviceMinutes      :: !(Maybe DeviceMinutes)
+  , _rasRemoteDebugEnabled :: !(Maybe Bool)
+  , _rasEndpoint           :: !(Maybe Text)
+  , _rasMessage            :: !(Maybe Text)
+  , _rasHostAddress        :: !(Maybe Text)
+  , _rasStarted            :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1998,8 +1998,8 @@ instance NFData RemoteAccessSession where
 --
 -- /See:/ 'resolution' smart constructor.
 data Resolution = Resolution'
-  { _rHeight :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rWidth  :: {-# NOUNPACK #-}!(Maybe Int)
+  { _rHeight :: !(Maybe Int)
+  , _rWidth  :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2039,9 +2039,9 @@ instance NFData Resolution where
 --
 -- /See:/ 'rule' smart constructor.
 data Rule = Rule'
-  { _rAttribute :: {-# NOUNPACK #-}!(Maybe DeviceAttribute)
-  , _rOperator  :: {-# NOUNPACK #-}!(Maybe RuleOperator)
-  , _rValue     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rAttribute :: !(Maybe DeviceAttribute)
+  , _rOperator  :: !(Maybe RuleOperator)
+  , _rValue     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2097,25 +2097,25 @@ instance ToJSON Rule where
 --
 -- /See:/ 'run' smart constructor.
 data Run = Run'
-  { _runBillingMethod         :: {-# NOUNPACK #-}!(Maybe BillingMethod)
-  , _runStatus                :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
-  , _runCustomerArtifactPaths :: {-# NOUNPACK #-}!(Maybe CustomerArtifactPaths)
-  , _runCounters              :: {-# NOUNPACK #-}!(Maybe Counters)
-  , _runPlatform              :: {-# NOUNPACK #-}!(Maybe DevicePlatform)
-  , _runArn                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _runCreated               :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _runStopped               :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _runResult                :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
-  , _runCompletedJobs         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _runResultCode            :: {-# NOUNPACK #-}!(Maybe ExecutionResultCode)
-  , _runName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _runParsingResultURL      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _runNetworkProfile        :: {-# NOUNPACK #-}!(Maybe NetworkProfile)
-  , _runDeviceMinutes         :: {-# NOUNPACK #-}!(Maybe DeviceMinutes)
-  , _runType                  :: {-# NOUNPACK #-}!(Maybe TestType)
-  , _runMessage               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _runTotalJobs             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _runStarted               :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _runBillingMethod         :: !(Maybe BillingMethod)
+  , _runStatus                :: !(Maybe ExecutionStatus)
+  , _runCustomerArtifactPaths :: !(Maybe CustomerArtifactPaths)
+  , _runCounters              :: !(Maybe Counters)
+  , _runPlatform              :: !(Maybe DevicePlatform)
+  , _runArn                   :: !(Maybe Text)
+  , _runCreated               :: !(Maybe POSIX)
+  , _runStopped               :: !(Maybe POSIX)
+  , _runResult                :: !(Maybe ExecutionResult)
+  , _runCompletedJobs         :: !(Maybe Int)
+  , _runResultCode            :: !(Maybe ExecutionResultCode)
+  , _runName                  :: !(Maybe Text)
+  , _runParsingResultURL      :: !(Maybe Text)
+  , _runNetworkProfile        :: !(Maybe NetworkProfile)
+  , _runDeviceMinutes         :: !(Maybe DeviceMinutes)
+  , _runType                  :: !(Maybe TestType)
+  , _runMessage               :: !(Maybe Text)
+  , _runTotalJobs             :: !(Maybe Int)
+  , _runStarted               :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2296,9 +2296,9 @@ instance NFData Run where
 --
 -- /See:/ 'sample' smart constructor.
 data Sample = Sample'
-  { _samArn  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _samUrl  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _samType :: {-# NOUNPACK #-}!(Maybe SampleType)
+  { _samArn  :: !(Maybe Text)
+  , _samUrl  :: !(Maybe Text)
+  , _samType :: !(Maybe SampleType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2345,14 +2345,14 @@ instance NFData Sample where
 --
 -- /See:/ 'scheduleRunConfiguration' smart constructor.
 data ScheduleRunConfiguration = ScheduleRunConfiguration'
-  { _srcBillingMethod         :: {-# NOUNPACK #-}!(Maybe BillingMethod)
-  , _srcCustomerArtifactPaths :: {-# NOUNPACK #-}!(Maybe CustomerArtifactPaths)
-  , _srcRadios                :: {-# NOUNPACK #-}!(Maybe Radios)
-  , _srcLocation              :: {-# NOUNPACK #-}!(Maybe Location)
-  , _srcLocale                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srcNetworkProfileARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srcExtraDataPackageARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srcAuxiliaryApps         :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _srcBillingMethod         :: !(Maybe BillingMethod)
+  , _srcCustomerArtifactPaths :: !(Maybe CustomerArtifactPaths)
+  , _srcRadios                :: !(Maybe Radios)
+  , _srcLocation              :: !(Maybe Location)
+  , _srcLocale                :: !(Maybe Text)
+  , _srcNetworkProfileARN     :: !(Maybe Text)
+  , _srcExtraDataPackageARN   :: !(Maybe Text)
+  , _srcAuxiliaryApps         :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2447,10 +2447,10 @@ instance ToJSON ScheduleRunConfiguration where
 --
 -- /See:/ 'scheduleRunTest' smart constructor.
 data ScheduleRunTest = ScheduleRunTest'
-  { _srtTestPackageARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srtParameters     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _srtFilter         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srtType           :: {-# NOUNPACK #-}!TestType
+  { _srtTestPackageARN :: !(Maybe Text)
+  , _srtParameters     :: !(Maybe (Map Text Text))
+  , _srtFilter         :: !(Maybe Text)
+  , _srtType           :: !TestType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2512,17 +2512,17 @@ instance ToJSON ScheduleRunTest where
 --
 -- /See:/ 'suite' smart constructor.
 data Suite = Suite'
-  { _sStatus        :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
-  , _sCounters      :: {-# NOUNPACK #-}!(Maybe Counters)
-  , _sArn           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCreated       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _sStopped       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _sResult        :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
-  , _sName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sDeviceMinutes :: {-# NOUNPACK #-}!(Maybe DeviceMinutes)
-  , _sType          :: {-# NOUNPACK #-}!(Maybe TestType)
-  , _sMessage       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sStarted       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _sStatus        :: !(Maybe ExecutionStatus)
+  , _sCounters      :: !(Maybe Counters)
+  , _sArn           :: !(Maybe Text)
+  , _sCreated       :: !(Maybe POSIX)
+  , _sStopped       :: !(Maybe POSIX)
+  , _sResult        :: !(Maybe ExecutionResult)
+  , _sName          :: !(Maybe Text)
+  , _sDeviceMinutes :: !(Maybe DeviceMinutes)
+  , _sType          :: !(Maybe TestType)
+  , _sMessage       :: !(Maybe Text)
+  , _sStarted       :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2639,17 +2639,17 @@ instance NFData Suite where
 --
 -- /See:/ 'test' smart constructor.
 data Test = Test'
-  { _tStatus        :: {-# NOUNPACK #-}!(Maybe ExecutionStatus)
-  , _tCounters      :: {-# NOUNPACK #-}!(Maybe Counters)
-  , _tArn           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tCreated       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tStopped       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tResult        :: {-# NOUNPACK #-}!(Maybe ExecutionResult)
-  , _tName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tDeviceMinutes :: {-# NOUNPACK #-}!(Maybe DeviceMinutes)
-  , _tType          :: {-# NOUNPACK #-}!(Maybe TestType)
-  , _tMessage       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tStarted       :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _tStatus        :: !(Maybe ExecutionStatus)
+  , _tCounters      :: !(Maybe Counters)
+  , _tArn           :: !(Maybe Text)
+  , _tCreated       :: !(Maybe POSIX)
+  , _tStopped       :: !(Maybe POSIX)
+  , _tResult        :: !(Maybe ExecutionResult)
+  , _tName          :: !(Maybe Text)
+  , _tDeviceMinutes :: !(Maybe DeviceMinutes)
+  , _tType          :: !(Maybe TestType)
+  , _tMessage       :: !(Maybe Text)
+  , _tStarted       :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2766,8 +2766,8 @@ instance NFData Test where
 --
 -- /See:/ 'trialMinutes' smart constructor.
 data TrialMinutes = TrialMinutes'
-  { _tmRemaining :: {-# NOUNPACK #-}!(Maybe Double)
-  , _tmTotal     :: {-# NOUNPACK #-}!(Maybe Double)
+  { _tmRemaining :: !(Maybe Double)
+  , _tmTotal     :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2808,8 +2808,8 @@ instance NFData TrialMinutes where
 --
 -- /See:/ 'uniqueProblem' smart constructor.
 data UniqueProblem = UniqueProblem'
-  { _upProblems :: {-# NOUNPACK #-}!(Maybe [Problem])
-  , _upMessage  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _upProblems :: !(Maybe [Problem])
+  , _upMessage  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2850,15 +2850,15 @@ instance NFData UniqueProblem where
 --
 -- /See:/ 'upload' smart constructor.
 data Upload = Upload'
-  { _uStatus      :: {-# NOUNPACK #-}!(Maybe UploadStatus)
-  , _uArn         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uCreated     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _uUrl         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uMetadata    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uType        :: {-# NOUNPACK #-}!(Maybe UploadType)
-  , _uMessage     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uContentType :: {-# NOUNPACK #-}!(Maybe Text)
+  { _uStatus      :: !(Maybe UploadStatus)
+  , _uArn         :: !(Maybe Text)
+  , _uCreated     :: !(Maybe POSIX)
+  , _uUrl         :: !(Maybe Text)
+  , _uName        :: !(Maybe Text)
+  , _uMetadata    :: !(Maybe Text)
+  , _uType        :: !(Maybe UploadType)
+  , _uMessage     :: !(Maybe Text)
+  , _uContentType :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

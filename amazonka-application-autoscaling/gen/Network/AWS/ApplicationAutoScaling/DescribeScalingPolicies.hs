@@ -59,12 +59,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeScalingPolicies' smart constructor.
 data DescribeScalingPolicies = DescribeScalingPolicies'
-  { _dPolicyNames       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dScalableDimension :: {-# NOUNPACK #-}!(Maybe ScalableDimension)
-  , _dResourceId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
+  { _dPolicyNames       :: !(Maybe [Text])
+  , _dScalableDimension :: !(Maybe ScalableDimension)
+  , _dResourceId        :: !(Maybe Text)
+  , _dNextToken         :: !(Maybe Text)
+  , _dMaxResults        :: !(Maybe Int)
+  , _dServiceNamespace  :: !ServiceNamespace
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -173,9 +173,9 @@ instance ToQuery DescribeScalingPolicies where
 
 -- | /See:/ 'describeScalingPoliciesResponse' smart constructor.
 data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
-  { _drsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsScalingPolicies :: {-# NOUNPACK #-}!(Maybe [ScalingPolicy])
-  , _drsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _drsNextToken       :: !(Maybe Text)
+  , _drsScalingPolicies :: !(Maybe [ScalingPolicy])
+  , _drsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

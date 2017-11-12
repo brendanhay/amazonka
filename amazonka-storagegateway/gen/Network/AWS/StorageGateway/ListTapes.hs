@@ -63,9 +63,9 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'listTapes' smart constructor.
 data ListTapes = ListTapes'
-  { _ltMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltLimit    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ltTapeARNs :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _ltMarker   :: !(Maybe Text)
+  , _ltLimit    :: !(Maybe Nat)
+  , _ltTapeARNs :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -145,9 +145,9 @@ instance ToQuery ListTapes where
 --
 -- /See:/ 'listTapesResponse' smart constructor.
 data ListTapesResponse = ListTapesResponse'
-  { _ltrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltrsTapeInfos      :: {-# NOUNPACK #-}!(Maybe [TapeInfo])
-  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltrsMarker         :: !(Maybe Text)
+  , _ltrsTapeInfos      :: !(Maybe [TapeInfo])
+  , _ltrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

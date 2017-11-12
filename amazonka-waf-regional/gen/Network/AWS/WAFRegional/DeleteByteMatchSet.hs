@@ -59,8 +59,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'deleteByteMatchSet' smart constructor.
 data DeleteByteMatchSet = DeleteByteMatchSet'
-  { _dbmsByteMatchSetId :: {-# NOUNPACK #-}!Text
-  , _dbmsChangeToken    :: {-# NOUNPACK #-}!Text
+  { _dbmsByteMatchSetId :: !Text
+  , _dbmsChangeToken    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery DeleteByteMatchSet where
 
 -- | /See:/ 'deleteByteMatchSetResponse' smart constructor.
 data DeleteByteMatchSetResponse = DeleteByteMatchSetResponse'
-  { _dbmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dbmsrsChangeToken    :: !(Maybe Text)
+  , _dbmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

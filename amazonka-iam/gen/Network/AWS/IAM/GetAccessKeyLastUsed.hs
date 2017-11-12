@@ -101,9 +101,9 @@ instance ToQuery GetAccessKeyLastUsed where
 --
 -- /See:/ 'getAccessKeyLastUsedResponse' smart constructor.
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
-  { _gaklursUserName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gaklursAccessKeyLastUsed :: {-# NOUNPACK #-}!(Maybe AccessKeyLastUsed)
-  , _gaklursResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gaklursUserName          :: !(Maybe Text)
+  , _gaklursAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
+  , _gaklursResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

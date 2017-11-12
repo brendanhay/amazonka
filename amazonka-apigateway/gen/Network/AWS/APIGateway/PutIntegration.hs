@@ -71,19 +71,19 @@ import Network.AWS.Response
 --
 -- /See:/ 'putIntegration' smart constructor.
 data PutIntegration = PutIntegration'
-  { _pRequestTemplates      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _pCredentials           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pRequestParameters     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _pContentHandling       :: {-# NOUNPACK #-}!(Maybe ContentHandlingStrategy)
-  , _pPassthroughBehavior   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pUri                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pCacheNamespace        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pIntegrationHTTPMethod :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pCacheKeyParameters    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _pRestAPIId             :: {-# NOUNPACK #-}!Text
-  , _pResourceId            :: {-# NOUNPACK #-}!Text
-  , _pHttpMethod            :: {-# NOUNPACK #-}!Text
-  , _pType                  :: {-# NOUNPACK #-}!IntegrationType
+  { _pRequestTemplates      :: !(Maybe (Map Text Text))
+  , _pCredentials           :: !(Maybe Text)
+  , _pRequestParameters     :: !(Maybe (Map Text Text))
+  , _pContentHandling       :: !(Maybe ContentHandlingStrategy)
+  , _pPassthroughBehavior   :: !(Maybe Text)
+  , _pUri                   :: !(Maybe Text)
+  , _pCacheNamespace        :: !(Maybe Text)
+  , _pIntegrationHTTPMethod :: !(Maybe Text)
+  , _pCacheKeyParameters    :: !(Maybe [Text])
+  , _pRestAPIId             :: !Text
+  , _pResourceId            :: !Text
+  , _pHttpMethod            :: !Text
+  , _pType                  :: !IntegrationType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

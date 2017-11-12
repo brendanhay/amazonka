@@ -55,16 +55,16 @@ import Network.AWS.Response
 
 -- | /See:/ 'createQualificationType' smart constructor.
 data CreateQualificationType = CreateQualificationType'
-  { _cqtTestDurationInSeconds   :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cqtAnswerKey               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cqtTest                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cqtKeywords                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cqtAutoGranted             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cqtAutoGrantedValue        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cqtRetryDelayInSeconds     :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cqtName                    :: {-# NOUNPACK #-}!Text
-  , _cqtDescription             :: {-# NOUNPACK #-}!Text
-  , _cqtQualificationTypeStatus :: {-# NOUNPACK #-}!QualificationTypeStatus
+  { _cqtTestDurationInSeconds   :: !(Maybe Integer)
+  , _cqtAnswerKey               :: !(Maybe Text)
+  , _cqtTest                    :: !(Maybe Text)
+  , _cqtKeywords                :: !(Maybe Text)
+  , _cqtAutoGranted             :: !(Maybe Bool)
+  , _cqtAutoGrantedValue        :: !(Maybe Int)
+  , _cqtRetryDelayInSeconds     :: !(Maybe Integer)
+  , _cqtName                    :: !Text
+  , _cqtDescription             :: !Text
+  , _cqtQualificationTypeStatus :: !QualificationTypeStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -202,8 +202,8 @@ instance ToQuery CreateQualificationType where
 
 -- | /See:/ 'createQualificationTypeResponse' smart constructor.
 data CreateQualificationTypeResponse = CreateQualificationTypeResponse'
-  { _cqtrsQualificationType :: {-# NOUNPACK #-}!(Maybe QualificationType)
-  , _cqtrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _cqtrsQualificationType :: !(Maybe QualificationType)
+  , _cqtrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

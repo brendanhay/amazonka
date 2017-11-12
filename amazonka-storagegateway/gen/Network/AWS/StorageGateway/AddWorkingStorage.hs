@@ -57,8 +57,8 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'addWorkingStorage' smart constructor.
 data AddWorkingStorage = AddWorkingStorage'
-  { _awsGatewayARN :: {-# NOUNPACK #-}!Text
-  , _awsDiskIds    :: {-# NOUNPACK #-}![Text]
+  { _awsGatewayARN :: !Text
+  , _awsDiskIds    :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery AddWorkingStorage where
 --
 -- /See:/ 'addWorkingStorageResponse' smart constructor.
 data AddWorkingStorageResponse = AddWorkingStorageResponse'
-  { _awsrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _awsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _awsrsGatewayARN     :: !(Maybe Text)
+  , _awsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

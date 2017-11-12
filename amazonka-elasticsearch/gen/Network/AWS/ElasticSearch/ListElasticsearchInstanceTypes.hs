@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'listElasticsearchInstanceTypes' smart constructor.
 data ListElasticsearchInstanceTypes = ListElasticsearchInstanceTypes'
-  { _leitNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _leitDomainName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _leitMaxResults           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _leitElasticsearchVersion :: {-# NOUNPACK #-}!Text
+  { _leitNextToken            :: !(Maybe Text)
+  , _leitDomainName           :: !(Maybe Text)
+  , _leitMaxResults           :: !(Maybe Int)
+  , _leitElasticsearchVersion :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery ListElasticsearchInstanceTypes where
 --
 -- /See:/ 'listElasticsearchInstanceTypesResponse' smart constructor.
 data ListElasticsearchInstanceTypesResponse = ListElasticsearchInstanceTypesResponse'
-  { _leitrsElasticsearchInstanceTypes :: {-# NOUNPACK #-}!(Maybe [ESPartitionInstanceType])
-  , _leitrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _leitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _leitrsElasticsearchInstanceTypes :: !(Maybe [ESPartitionInstanceType])
+  , _leitrsNextToken                  :: !(Maybe Text)
+  , _leitrsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

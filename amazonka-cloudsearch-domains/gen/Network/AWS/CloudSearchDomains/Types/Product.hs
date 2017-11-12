@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'bucket' smart constructor.
 data Bucket = Bucket'
-  { _bValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bCount :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _bValue :: !(Maybe Text)
+  , _bCount :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,14 +135,14 @@ instance NFData DocumentServiceWarning where
 --
 -- /See:/ 'fieldStats' smart constructor.
 data FieldStats = FieldStats'
-  { _fsMax          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fsMean         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fsCount        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _fsMissing      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _fsStddev       :: {-# NOUNPACK #-}!(Maybe Double)
-  , _fsMin          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fsSumOfSquares :: {-# NOUNPACK #-}!(Maybe Double)
-  , _fsSum          :: {-# NOUNPACK #-}!(Maybe Double)
+  { _fsMax          :: !(Maybe Text)
+  , _fsMean         :: !(Maybe Text)
+  , _fsCount        :: !(Maybe Integer)
+  , _fsMissing      :: !(Maybe Integer)
+  , _fsStddev       :: !(Maybe Double)
+  , _fsMin          :: !(Maybe Text)
+  , _fsSumOfSquares :: !(Maybe Double)
+  , _fsSum          :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -234,10 +234,10 @@ instance NFData FieldStats where
 --
 -- /See:/ 'hit' smart constructor.
 data Hit = Hit'
-  { _hitExprs      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _hitId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hitHighlights :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _hitFields     :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
+  { _hitExprs      :: !(Maybe (Map Text Text))
+  , _hitId         :: !(Maybe Text)
+  , _hitHighlights :: !(Maybe (Map Text Text))
+  , _hitFields     :: !(Maybe (Map Text [Text]))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -298,10 +298,10 @@ instance NFData Hit where
 --
 -- /See:/ 'hits' smart constructor.
 data Hits = Hits'
-  { _hCursor :: {-# NOUNPACK #-}!(Maybe Text)
-  , _hHit    :: {-# NOUNPACK #-}!(Maybe [Hit])
-  , _hStart  :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _hFound  :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _hCursor :: !(Maybe Text)
+  , _hHit    :: !(Maybe [Hit])
+  , _hStart  :: !(Maybe Integer)
+  , _hFound  :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -358,8 +358,8 @@ instance NFData Hits where
 --
 -- /See:/ 'searchStatus' smart constructor.
 data SearchStatus = SearchStatus'
-  { _sRid    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sTimems :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _sRid    :: !(Maybe Text)
+  , _sTimems :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -399,9 +399,9 @@ instance NFData SearchStatus where
 --
 -- /See:/ 'suggestModel' smart constructor.
 data SuggestModel = SuggestModel'
-  { _smFound       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _smSuggestions :: {-# NOUNPACK #-}!(Maybe [SuggestionMatch])
-  , _smQuery       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _smFound       :: !(Maybe Integer)
+  , _smSuggestions :: !(Maybe [SuggestionMatch])
+  , _smQuery       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -451,8 +451,8 @@ instance NFData SuggestModel where
 --
 -- /See:/ 'suggestStatus' smart constructor.
 data SuggestStatus = SuggestStatus'
-  { _ssRid    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssTimems :: {-# NOUNPACK #-}!(Maybe Integer)
+  { _ssRid    :: !(Maybe Text)
+  , _ssTimems :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -493,9 +493,9 @@ instance NFData SuggestStatus where
 --
 -- /See:/ 'suggestionMatch' smart constructor.
 data SuggestionMatch = SuggestionMatch'
-  { _smSuggestion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _smScore      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _smId         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _smSuggestion :: !(Maybe Text)
+  , _smScore      :: !(Maybe Integer)
+  , _smId         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

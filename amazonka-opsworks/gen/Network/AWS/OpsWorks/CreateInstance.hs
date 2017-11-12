@@ -65,24 +65,24 @@ import Network.AWS.Response
 
 -- | /See:/ 'createInstance' smart constructor.
 data CreateInstance = CreateInstance'
-  { _ciInstallUpdatesOnBoot :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ciVirtualizationType   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciHostname             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciSSHKeyName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciAgentVersion         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciSubnetId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciEBSOptimized         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ciOS                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciAvailabilityZone     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciTenancy              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciAutoScalingType      :: {-# NOUNPACK #-}!(Maybe AutoScalingType)
-  , _ciArchitecture         :: {-# NOUNPACK #-}!(Maybe Architecture)
-  , _ciAMIId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciRootDeviceType       :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
-  , _ciBlockDeviceMappings  :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
-  , _ciStackId              :: {-# NOUNPACK #-}!Text
-  , _ciLayerIds             :: {-# NOUNPACK #-}![Text]
-  , _ciInstanceType         :: {-# NOUNPACK #-}!Text
+  { _ciInstallUpdatesOnBoot :: !(Maybe Bool)
+  , _ciVirtualizationType   :: !(Maybe Text)
+  , _ciHostname             :: !(Maybe Text)
+  , _ciSSHKeyName           :: !(Maybe Text)
+  , _ciAgentVersion         :: !(Maybe Text)
+  , _ciSubnetId             :: !(Maybe Text)
+  , _ciEBSOptimized         :: !(Maybe Bool)
+  , _ciOS                   :: !(Maybe Text)
+  , _ciAvailabilityZone     :: !(Maybe Text)
+  , _ciTenancy              :: !(Maybe Text)
+  , _ciAutoScalingType      :: !(Maybe AutoScalingType)
+  , _ciArchitecture         :: !(Maybe Architecture)
+  , _ciAMIId                :: !(Maybe Text)
+  , _ciRootDeviceType       :: !(Maybe RootDeviceType)
+  , _ciBlockDeviceMappings  :: !(Maybe [BlockDeviceMapping])
+  , _ciStackId              :: !Text
+  , _ciLayerIds             :: ![Text]
+  , _ciInstanceType         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -283,8 +283,8 @@ instance ToQuery CreateInstance where
 --
 -- /See:/ 'createInstanceResponse' smart constructor.
 data CreateInstanceResponse = CreateInstanceResponse'
-  { _cirsInstanceId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cirsInstanceId     :: !(Maybe Text)
+  , _cirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

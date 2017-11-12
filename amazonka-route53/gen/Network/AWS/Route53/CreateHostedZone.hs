@@ -76,11 +76,11 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'createHostedZone' smart constructor.
 data CreateHostedZone = CreateHostedZone'
-  { _chzDelegationSetId  :: {-# NOUNPACK #-}!(Maybe ResourceId)
-  , _chzVPC              :: {-# NOUNPACK #-}!(Maybe VPC)
-  , _chzHostedZoneConfig :: {-# NOUNPACK #-}!(Maybe HostedZoneConfig)
-  , _chzName             :: {-# NOUNPACK #-}!Text
-  , _chzCallerReference  :: {-# NOUNPACK #-}!Text
+  { _chzDelegationSetId  :: !(Maybe ResourceId)
+  , _chzVPC              :: !(Maybe VPC)
+  , _chzHostedZoneConfig :: !(Maybe HostedZoneConfig)
+  , _chzName             :: !Text
+  , _chzCallerReference  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -177,12 +177,12 @@ instance ToXML CreateHostedZone where
 --
 -- /See:/ 'createHostedZoneResponse' smart constructor.
 data CreateHostedZoneResponse = CreateHostedZoneResponse'
-  { _chzrsVPC            :: {-# NOUNPACK #-}!(Maybe VPC)
-  , _chzrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _chzrsHostedZone     :: {-# NOUNPACK #-}!HostedZone
-  , _chzrsChangeInfo     :: {-# NOUNPACK #-}!ChangeInfo
-  , _chzrsDelegationSet  :: {-# NOUNPACK #-}!DelegationSet
-  , _chzrsLocation       :: {-# NOUNPACK #-}!Text
+  { _chzrsVPC            :: !(Maybe VPC)
+  , _chzrsResponseStatus :: !Int
+  , _chzrsHostedZone     :: !HostedZone
+  , _chzrsChangeInfo     :: !ChangeInfo
+  , _chzrsDelegationSet  :: !DelegationSet
+  , _chzrsLocation       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

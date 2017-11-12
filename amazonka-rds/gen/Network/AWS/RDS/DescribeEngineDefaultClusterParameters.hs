@@ -55,10 +55,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEngineDefaultClusterParameters' smart constructor.
 data DescribeEngineDefaultClusterParameters = DescribeEngineDefaultClusterParameters'
-  { _dedcpFilters                :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dedcpMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dedcpMaxRecords             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dedcpDBParameterGroupFamily :: {-# NOUNPACK #-}!Text
+  { _dedcpFilters                :: !(Maybe [Filter])
+  , _dedcpMarker                 :: !(Maybe Text)
+  , _dedcpMaxRecords             :: !(Maybe Int)
+  , _dedcpDBParameterGroupFamily :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,8 +150,8 @@ instance ToQuery
 
 -- | /See:/ 'describeEngineDefaultClusterParametersResponse' smart constructor.
 data DescribeEngineDefaultClusterParametersResponse = DescribeEngineDefaultClusterParametersResponse'
-  { _dedcprsEngineDefaults :: {-# NOUNPACK #-}!(Maybe EngineDefaults)
-  , _dedcprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dedcprsEngineDefaults :: !(Maybe EngineDefaults)
+  , _dedcprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

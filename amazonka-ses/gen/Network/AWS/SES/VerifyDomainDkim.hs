@@ -109,8 +109,8 @@ instance ToQuery VerifyDomainDkim where
 --
 -- /See:/ 'verifyDomainDkimResponse' smart constructor.
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
-  { _vddrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _vddrsDkimTokens     :: {-# NOUNPACK #-}![Text]
+  { _vddrsResponseStatus :: !Int
+  , _vddrsDkimTokens     :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

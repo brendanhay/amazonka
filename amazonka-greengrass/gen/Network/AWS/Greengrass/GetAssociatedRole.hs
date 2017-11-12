@@ -95,9 +95,9 @@ instance ToQuery GetAssociatedRole where
 
 -- | /See:/ 'getAssociatedRoleResponse' smart constructor.
 data GetAssociatedRoleResponse = GetAssociatedRoleResponse'
-  { _garrsAssociatedAt   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _garrsRoleARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _garrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _garrsAssociatedAt   :: !(Maybe Text)
+  , _garrsRoleARN        :: !(Maybe Text)
+  , _garrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

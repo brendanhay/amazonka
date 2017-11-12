@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'setDesiredCapacity' smart constructor.
 data SetDesiredCapacity = SetDesiredCapacity'
-  { _sdcHonorCooldown        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sdcAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _sdcDesiredCapacity      :: {-# NOUNPACK #-}!Int
+  { _sdcHonorCooldown        :: !(Maybe Bool)
+  , _sdcAutoScalingGroupName :: !Text
+  , _sdcDesiredCapacity      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

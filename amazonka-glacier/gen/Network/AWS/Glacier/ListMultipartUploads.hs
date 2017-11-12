@@ -65,10 +65,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'listMultipartUploads' smart constructor.
 data ListMultipartUploads = ListMultipartUploads'
-  { _lmuMarker    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmuLimit     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmuAccountId :: {-# NOUNPACK #-}!Text
-  , _lmuVaultName :: {-# NOUNPACK #-}!Text
+  { _lmuMarker    :: !(Maybe Text)
+  , _lmuLimit     :: !(Maybe Text)
+  , _lmuAccountId :: !Text
+  , _lmuVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,9 +154,9 @@ instance ToQuery ListMultipartUploads where
 --
 -- /See:/ 'listMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-  { _lmursUploadsList    :: {-# NOUNPACK #-}!(Maybe [UploadListElement])
-  , _lmursMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lmursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lmursUploadsList    :: !(Maybe [UploadListElement])
+  , _lmursMarker         :: !(Maybe Text)
+  , _lmursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

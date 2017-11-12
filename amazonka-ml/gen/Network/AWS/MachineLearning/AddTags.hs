@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
-  { _atTags         :: {-# NOUNPACK #-}![Tag]
-  , _atResourceId   :: {-# NOUNPACK #-}!Text
-  , _atResourceType :: {-# NOUNPACK #-}!TaggableResourceType
+  { _atTags         :: ![Tag]
+  , _atResourceId   :: !Text
+  , _atResourceType :: !TaggableResourceType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,9 +131,9 @@ instance ToQuery AddTags where
 --
 -- /See:/ 'addTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
-  { _atrsResourceId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atrsResourceType   :: {-# NOUNPACK #-}!(Maybe TaggableResourceType)
-  , _atrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _atrsResourceId     :: !(Maybe Text)
+  , _atrsResourceType   :: !(Maybe TaggableResourceType)
+  , _atrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -86,9 +86,9 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'updateIPSet' smart constructor.
 data UpdateIPSet = UpdateIPSet'
-  { _uisIPSetId     :: {-# NOUNPACK #-}!Text
-  , _uisChangeToken :: {-# NOUNPACK #-}!Text
-  , _uisUpdates     :: {-# NOUNPACK #-}!(List1 IPSetUpdate)
+  { _uisIPSetId     :: !Text
+  , _uisChangeToken :: !Text
+  , _uisUpdates     :: !(List1 IPSetUpdate)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -164,8 +164,8 @@ instance ToQuery UpdateIPSet where
 
 -- | /See:/ 'updateIPSetResponse' smart constructor.
 data UpdateIPSetResponse = UpdateIPSetResponse'
-  { _uisrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uisrsChangeToken    :: !(Maybe Text)
+  , _uisrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

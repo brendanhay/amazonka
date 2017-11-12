@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listRepositories' smart constructor.
 data ListRepositories = ListRepositories'
-  { _lrNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrOrder     :: {-# NOUNPACK #-}!(Maybe OrderEnum)
-  , _lrSortBy    :: {-# NOUNPACK #-}!(Maybe SortByEnum)
+  { _lrNextToken :: !(Maybe Text)
+  , _lrOrder     :: !(Maybe OrderEnum)
+  , _lrSortBy    :: !(Maybe SortByEnum)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,9 +142,9 @@ instance ToQuery ListRepositories where
 --
 -- /See:/ 'listRepositoriesResponse' smart constructor.
 data ListRepositoriesResponse = ListRepositoriesResponse'
-  { _lrrsRepositories   :: {-# NOUNPACK #-}!(Maybe [RepositoryNameIdPair])
-  , _lrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrrsRepositories   :: !(Maybe [RepositoryNameIdPair])
+  , _lrrsNextToken      :: !(Maybe Text)
+  , _lrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

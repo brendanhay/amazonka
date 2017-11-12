@@ -68,19 +68,19 @@ import Network.AWS.Response
 
 -- | /See:/ 'createTargetGroup' smart constructor.
 data CreateTargetGroup = CreateTargetGroup'
-  { _ctgMatcher                    :: {-# NOUNPACK #-}!(Maybe Matcher)
-  , _ctgHealthCheckPath            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctgUnhealthyThresholdCount    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ctgHealthCheckIntervalSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ctgTargetType                 :: {-# NOUNPACK #-}!(Maybe TargetTypeEnum)
-  , _ctgHealthyThresholdCount      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ctgHealthCheckProtocol        :: {-# NOUNPACK #-}!(Maybe ProtocolEnum)
-  , _ctgHealthCheckTimeoutSeconds  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ctgHealthCheckPort            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctgName                       :: {-# NOUNPACK #-}!Text
-  , _ctgProtocol                   :: {-# NOUNPACK #-}!ProtocolEnum
-  , _ctgPort                       :: {-# NOUNPACK #-}!Nat
-  , _ctgVPCId                      :: {-# NOUNPACK #-}!Text
+  { _ctgMatcher                    :: !(Maybe Matcher)
+  , _ctgHealthCheckPath            :: !(Maybe Text)
+  , _ctgUnhealthyThresholdCount    :: !(Maybe Nat)
+  , _ctgHealthCheckIntervalSeconds :: !(Maybe Nat)
+  , _ctgTargetType                 :: !(Maybe TargetTypeEnum)
+  , _ctgHealthyThresholdCount      :: !(Maybe Nat)
+  , _ctgHealthCheckProtocol        :: !(Maybe ProtocolEnum)
+  , _ctgHealthCheckTimeoutSeconds  :: !(Maybe Nat)
+  , _ctgHealthCheckPort            :: !(Maybe Text)
+  , _ctgName                       :: !Text
+  , _ctgProtocol                   :: !ProtocolEnum
+  , _ctgPort                       :: !Nat
+  , _ctgVPCId                      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -232,8 +232,8 @@ instance ToQuery CreateTargetGroup where
 
 -- | /See:/ 'createTargetGroupResponse' smart constructor.
 data CreateTargetGroupResponse = CreateTargetGroupResponse'
-  { _ctgrsTargetGroups   :: {-# NOUNPACK #-}!(Maybe [TargetGroup])
-  , _ctgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ctgrsTargetGroups   :: !(Maybe [TargetGroup])
+  , _ctgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

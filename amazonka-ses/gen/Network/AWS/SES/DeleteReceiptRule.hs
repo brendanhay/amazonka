@@ -54,8 +54,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'deleteReceiptRule' smart constructor.
 data DeleteReceiptRule = DeleteReceiptRule'
-  { _delRuleSetName :: {-# NOUNPACK #-}!Text
-  , _delRuleName    :: {-# NOUNPACK #-}!Text
+  { _delRuleSetName :: !Text
+  , _delRuleName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

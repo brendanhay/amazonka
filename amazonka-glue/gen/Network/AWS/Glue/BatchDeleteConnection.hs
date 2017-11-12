@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'batchDeleteConnection' smart constructor.
 data BatchDeleteConnection = BatchDeleteConnection'
-  { _bdcCatalogId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bdcConnectionNameList :: {-# NOUNPACK #-}![Text]
+  { _bdcCatalogId          :: !(Maybe Text)
+  , _bdcConnectionNameList :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,9 +116,9 @@ instance ToQuery BatchDeleteConnection where
 
 -- | /See:/ 'batchDeleteConnectionResponse' smart constructor.
 data BatchDeleteConnectionResponse = BatchDeleteConnectionResponse'
-  { _bdcrsSucceeded      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _bdcrsErrors         :: {-# NOUNPACK #-}!(Maybe (Map Text ErrorDetail))
-  , _bdcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bdcrsSucceeded      :: !(Maybe [Text])
+  , _bdcrsErrors         :: !(Maybe (Map Text ErrorDetail))
+  , _bdcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteRepository' smart constructor.
 data DeleteRepository = DeleteRepository'
-  { _dForce          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dRepositoryName :: {-# NOUNPACK #-}!Text
+  { _dForce          :: !(Maybe Bool)
+  , _dRegistryId     :: !(Maybe Text)
+  , _dRepositoryName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToQuery DeleteRepository where
 
 -- | /See:/ 'deleteRepositoryResponse' smart constructor.
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
-  { _drsRepository     :: {-# NOUNPACK #-}!(Maybe Repository)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsRepository     :: !(Maybe Repository)
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

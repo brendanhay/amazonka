@@ -58,9 +58,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listJobsByPipeline' smart constructor.
 data ListJobsByPipeline = ListJobsByPipeline'
-  { _ljbpAscending  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ljbpPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ljbpPipelineId :: {-# NOUNPACK #-}!Text
+  { _ljbpAscending  :: !(Maybe Text)
+  , _ljbpPageToken  :: !(Maybe Text)
+  , _ljbpPipelineId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery ListJobsByPipeline where
 --
 -- /See:/ 'listJobsByPipelineResponse' smart constructor.
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
-  { _ljbprsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ljbprsJobs           :: {-# NOUNPACK #-}!(Maybe [Job'])
-  , _ljbprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ljbprsNextPageToken  :: !(Maybe Text)
+  , _ljbprsJobs           :: !(Maybe [Job'])
+  , _ljbprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

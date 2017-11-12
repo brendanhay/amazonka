@@ -56,10 +56,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEventSubscriptions' smart constructor.
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
-  { _dessSubscriptionName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dessFilters          :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dessMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dessMaxRecords       :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dessSubscriptionName :: !(Maybe Text)
+  , _dessFilters          :: !(Maybe [Filter])
+  , _dessMarker           :: !(Maybe Text)
+  , _dessMaxRecords       :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,9 +148,9 @@ instance ToQuery DescribeEventSubscriptions where
 --
 -- /See:/ 'describeEventSubscriptionsResponse' smart constructor.
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
-  { _desrsEventSubscriptionsList :: {-# NOUNPACK #-}!(Maybe [EventSubscription])
-  , _desrsMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsResponseStatus         :: {-# NOUNPACK #-}!Int
+  { _desrsEventSubscriptionsList :: !(Maybe [EventSubscription])
+  , _desrsMarker                 :: !(Maybe Text)
+  , _desrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'batchGetPartition' smart constructor.
 data BatchGetPartition = BatchGetPartition'
-  { _bgpCatalogId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bgpDatabaseName    :: {-# NOUNPACK #-}!Text
-  , _bgpTableName       :: {-# NOUNPACK #-}!Text
-  , _bgpPartitionsToGet :: {-# NOUNPACK #-}![PartitionValueList]
+  { _bgpCatalogId       :: !(Maybe Text)
+  , _bgpDatabaseName    :: !Text
+  , _bgpTableName       :: !Text
+  , _bgpPartitionsToGet :: ![PartitionValueList]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery BatchGetPartition where
 
 -- | /See:/ 'batchGetPartitionResponse' smart constructor.
 data BatchGetPartitionResponse = BatchGetPartitionResponse'
-  { _bgprsUnprocessedKeys :: {-# NOUNPACK #-}!(Maybe [PartitionValueList])
-  , _bgprsPartitions      :: {-# NOUNPACK #-}!(Maybe [Partition])
-  , _bgprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _bgprsUnprocessedKeys :: !(Maybe [PartitionValueList])
+  , _bgprsPartitions      :: !(Maybe [Partition])
+  , _bgprsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

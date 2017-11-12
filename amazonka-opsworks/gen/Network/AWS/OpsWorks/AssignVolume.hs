@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'assignVolume' smart constructor.
 data AssignVolume = AssignVolume'
-  { _avInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avVolumeId   :: {-# NOUNPACK #-}!Text
+  { _avInstanceId :: !(Maybe Text)
+  , _avVolumeId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

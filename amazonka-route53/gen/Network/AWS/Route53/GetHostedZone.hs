@@ -104,10 +104,10 @@ instance ToQuery GetHostedZone where
 --
 -- /See:/ 'getHostedZoneResponse' smart constructor.
 data GetHostedZoneResponse = GetHostedZoneResponse'
-  { _ghzrsVPCs           :: {-# NOUNPACK #-}!(Maybe (List1 VPC))
-  , _ghzrsDelegationSet  :: {-# NOUNPACK #-}!(Maybe DelegationSet)
-  , _ghzrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ghzrsHostedZone     :: {-# NOUNPACK #-}!HostedZone
+  { _ghzrsVPCs           :: !(Maybe (List1 VPC))
+  , _ghzrsDelegationSet  :: !(Maybe DelegationSet)
+  , _ghzrsResponseStatus :: !Int
+  , _ghzrsHostedZone     :: !HostedZone
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

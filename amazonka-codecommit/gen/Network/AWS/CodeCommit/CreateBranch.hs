@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createBranch' smart constructor.
 data CreateBranch = CreateBranch'
-  { _cbRepositoryName :: {-# NOUNPACK #-}!Text
-  , _cbBranchName     :: {-# NOUNPACK #-}!Text
-  , _cbCommitId       :: {-# NOUNPACK #-}!Text
+  { _cbRepositoryName :: !Text
+  , _cbBranchName     :: !Text
+  , _cbCommitId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

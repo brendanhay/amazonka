@@ -63,14 +63,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDBClusterSnapshots' smart constructor.
 data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
-  { _ddbcsDBClusterIdentifier         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbcsIncludeShared               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ddbcsDBClusterSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbcsFilters                     :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _ddbcsSnapshotType                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbcsMarker                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbcsMaxRecords                  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ddbcsIncludePublic               :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _ddbcsDBClusterIdentifier         :: !(Maybe Text)
+  , _ddbcsIncludeShared               :: !(Maybe Bool)
+  , _ddbcsDBClusterSnapshotIdentifier :: !(Maybe Text)
+  , _ddbcsFilters                     :: !(Maybe [Filter])
+  , _ddbcsSnapshotType                :: !(Maybe Text)
+  , _ddbcsMarker                      :: !(Maybe Text)
+  , _ddbcsMaxRecords                  :: !(Maybe Int)
+  , _ddbcsIncludePublic               :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -194,9 +194,9 @@ instance ToQuery DescribeDBClusterSnapshots where
 --
 -- /See:/ 'describeDBClusterSnapshotsResponse' smart constructor.
 data DescribeDBClusterSnapshotsResponse = DescribeDBClusterSnapshotsResponse'
-  { _ddbcsrsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddbcsrsDBClusterSnapshots :: {-# NOUNPACK #-}!(Maybe [DBClusterSnapshot])
-  , _ddbcsrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _ddbcsrsMarker             :: !(Maybe Text)
+  , _ddbcsrsDBClusterSnapshots :: !(Maybe [DBClusterSnapshot])
+  , _ddbcsrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

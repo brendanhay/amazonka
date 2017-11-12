@@ -54,8 +54,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listStreamingDistributions' smart constructor.
 data ListStreamingDistributions = ListStreamingDistributions'
-  { _lsdMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsdMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lsdMarker   :: !(Maybe Text)
+  , _lsdMaxItems :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,8 +129,8 @@ instance ToQuery ListStreamingDistributions where
 --
 -- /See:/ 'listStreamingDistributionsResponse' smart constructor.
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
-  { _lsdrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lsdrsStreamingDistributionList :: {-# NOUNPACK #-}!StreamingDistributionList
+  { _lsdrsResponseStatus            :: !Int
+  , _lsdrsStreamingDistributionList :: !StreamingDistributionList
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

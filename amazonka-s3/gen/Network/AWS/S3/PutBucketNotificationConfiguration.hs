@@ -42,8 +42,8 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketNotificationConfiguration' smart constructor.
 data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
-  { _pbncBucket                    :: {-# NOUNPACK #-}!BucketName
-  , _pbncNotificationConfiguration :: {-# NOUNPACK #-}!NotificationConfiguration
+  { _pbncBucket                    :: !BucketName
+  , _pbncNotificationConfiguration :: !NotificationConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

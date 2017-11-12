@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listVersionsByFunction' smart constructor.
 data ListVersionsByFunction = ListVersionsByFunction'
-  { _lvbfMarker       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lvbfMaxItems     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lvbfFunctionName :: {-# NOUNPACK #-}!Text
+  { _lvbfMarker       :: !(Maybe Text)
+  , _lvbfMaxItems     :: !(Maybe Nat)
+  , _lvbfFunctionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery ListVersionsByFunction where
 --
 -- /See:/ 'listVersionsByFunctionResponse' smart constructor.
 data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
-  { _lvbfrsVersions       :: {-# NOUNPACK #-}!(Maybe [FunctionConfiguration])
-  , _lvbfrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lvbfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lvbfrsVersions       :: !(Maybe [FunctionConfiguration])
+  , _lvbfrsNextMarker     :: !(Maybe Text)
+  , _lvbfrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

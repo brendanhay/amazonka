@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'resetDeployments' smart constructor.
 data ResetDeployments = ResetDeployments'
-  { _rdAmznClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdForce           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdGroupId         :: {-# NOUNPACK #-}!Text
+  { _rdAmznClientToken :: !(Maybe Text)
+  , _rdForce           :: !(Maybe Bool)
+  , _rdGroupId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,9 +120,9 @@ instance ToQuery ResetDeployments where
 
 -- | /See:/ 'resetDeploymentsResponse' smart constructor.
 data ResetDeploymentsResponse = ResetDeploymentsResponse'
-  { _rdrsDeploymentId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdrsDeploymentARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rdrsDeploymentId   :: !(Maybe Text)
+  , _rdrsDeploymentARN  :: !(Maybe Text)
+  , _rdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

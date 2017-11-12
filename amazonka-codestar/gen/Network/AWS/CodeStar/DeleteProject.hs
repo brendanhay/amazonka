@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteProject' smart constructor.
 data DeleteProject = DeleteProject'
-  { _dpDeleteStack        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dpClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpId                 :: {-# NOUNPACK #-}!Text
+  { _dpDeleteStack        :: !(Maybe Bool)
+  , _dpClientRequestToken :: !(Maybe Text)
+  , _dpId                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery DeleteProject where
 
 -- | /See:/ 'deleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
-  { _dprsProjectARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dprsStackId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dprsProjectARN     :: !(Maybe Text)
+  , _dprsStackId        :: !(Maybe Text)
+  , _dprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

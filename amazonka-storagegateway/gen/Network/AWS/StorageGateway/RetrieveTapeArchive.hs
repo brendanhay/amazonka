@@ -53,8 +53,8 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'retrieveTapeArchive' smart constructor.
 data RetrieveTapeArchive = RetrieveTapeArchive'
-  { _rtaTapeARN    :: {-# NOUNPACK #-}!Text
-  , _rtaGatewayARN :: {-# NOUNPACK #-}!Text
+  { _rtaTapeARN    :: !Text
+  , _rtaGatewayARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery RetrieveTapeArchive where
 --
 -- /See:/ 'retrieveTapeArchiveResponse' smart constructor.
 data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
-  { _rtarsTapeARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rtarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rtarsTapeARN        :: !(Maybe Text)
+  , _rtarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

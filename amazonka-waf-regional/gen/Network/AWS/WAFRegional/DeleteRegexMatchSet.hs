@@ -59,8 +59,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'deleteRegexMatchSet' smart constructor.
 data DeleteRegexMatchSet = DeleteRegexMatchSet'
-  { _drmsRegexMatchSetId :: {-# NOUNPACK #-}!Text
-  , _drmsChangeToken     :: {-# NOUNPACK #-}!Text
+  { _drmsRegexMatchSetId :: !Text
+  , _drmsChangeToken     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery DeleteRegexMatchSet where
 
 -- | /See:/ 'deleteRegexMatchSetResponse' smart constructor.
 data DeleteRegexMatchSetResponse = DeleteRegexMatchSetResponse'
-  { _drmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drmsrsChangeToken    :: !(Maybe Text)
+  , _drmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

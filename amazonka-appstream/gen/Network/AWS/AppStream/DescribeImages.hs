@@ -99,8 +99,8 @@ instance ToQuery DescribeImages where
 
 -- | /See:/ 'describeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-  { _disrsImages         :: {-# NOUNPACK #-}!(Maybe [Image])
-  , _disrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _disrsImages         :: !(Maybe [Image])
+  , _disrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createUserDefinedFunction' smart constructor.
 data CreateUserDefinedFunction = CreateUserDefinedFunction'
-  { _cudfCatalogId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cudfDatabaseName  :: {-# NOUNPACK #-}!Text
-  , _cudfFunctionInput :: {-# NOUNPACK #-}!UserDefinedFunctionInput
+  { _cudfCatalogId     :: !(Maybe Text)
+  , _cudfDatabaseName  :: !Text
+  , _cudfFunctionInput :: !UserDefinedFunctionInput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

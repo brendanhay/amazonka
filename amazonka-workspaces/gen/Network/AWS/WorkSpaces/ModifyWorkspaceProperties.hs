@@ -46,8 +46,8 @@ import Network.AWS.WorkSpaces.Types.Product
 
 -- | /See:/ 'modifyWorkspaceProperties' smart constructor.
 data ModifyWorkspaceProperties = ModifyWorkspaceProperties'
-  { _mwpWorkspaceId         :: {-# NOUNPACK #-}!Text
-  , _mwpWorkspaceProperties :: {-# NOUNPACK #-}!WorkspaceProperties
+  { _mwpWorkspaceId         :: !Text
+  , _mwpWorkspaceProperties :: !WorkspaceProperties
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

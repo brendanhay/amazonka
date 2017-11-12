@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
-  { _cDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cResources :: {-# NOUNPACK #-}![Text]
-  , _cTags      :: {-# NOUNPACK #-}![Tag]
+  { _cDryRun    :: !(Maybe Bool)
+  , _cResources :: ![Text]
+  , _cTags      :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

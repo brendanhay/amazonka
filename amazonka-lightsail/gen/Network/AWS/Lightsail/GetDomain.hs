@@ -100,8 +100,8 @@ instance ToQuery GetDomain where
 
 -- | /See:/ 'getDomainResponse' smart constructor.
 data GetDomainResponse = GetDomainResponse'
-  { _gdrsDomain         :: {-# NOUNPACK #-}!(Maybe Domain)
-  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdrsDomain         :: !(Maybe Domain)
+  , _gdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

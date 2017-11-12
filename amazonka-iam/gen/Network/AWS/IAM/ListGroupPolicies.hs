@@ -57,9 +57,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listGroupPolicies' smart constructor.
 data ListGroupPolicies = ListGroupPolicies'
-  { _lgpMarker    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgpMaxItems  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lgpGroupName :: {-# NOUNPACK #-}!Text
+  { _lgpMarker    :: !(Maybe Text)
+  , _lgpMaxItems  :: !(Maybe Nat)
+  , _lgpGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,10 +136,10 @@ instance ToQuery ListGroupPolicies where
 --
 -- /See:/ 'listGroupPoliciesResponse' smart constructor.
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
-  { _lgprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgprsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lgprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lgprsPolicyNames    :: {-# NOUNPACK #-}![Text]
+  { _lgprsMarker         :: !(Maybe Text)
+  , _lgprsIsTruncated    :: !(Maybe Bool)
+  , _lgprsResponseStatus :: !Int
+  , _lgprsPolicyNames    :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

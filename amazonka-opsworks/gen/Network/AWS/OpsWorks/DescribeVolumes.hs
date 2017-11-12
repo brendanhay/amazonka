@@ -51,10 +51,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeVolumes' smart constructor.
 data DescribeVolumes = DescribeVolumes'
-  { _dvInstanceId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvVolumeIds   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvRAIdArrayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvStackId     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dvInstanceId  :: !(Maybe Text)
+  , _dvVolumeIds   :: !(Maybe [Text])
+  , _dvRAIdArrayId :: !(Maybe Text)
+  , _dvStackId     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,8 +139,8 @@ instance ToQuery DescribeVolumes where
 --
 -- /See:/ 'describeVolumesResponse' smart constructor.
 data DescribeVolumesResponse = DescribeVolumesResponse'
-  { _dvrsVolumes        :: {-# NOUNPACK #-}!(Maybe [Volume])
-  , _dvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvrsVolumes        :: !(Maybe [Volume])
+  , _dvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

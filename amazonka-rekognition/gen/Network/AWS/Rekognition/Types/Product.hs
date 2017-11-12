@@ -29,8 +29,8 @@ import Network.AWS.Rekognition.Types.Sum
 --
 -- /See:/ 'ageRange' smart constructor.
 data AgeRange = AgeRange'
-  { _arLow  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _arHigh :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _arLow  :: !(Maybe Nat)
+  , _arHigh :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -70,8 +70,8 @@ instance NFData AgeRange where
 --
 -- /See:/ 'beard' smart constructor.
 data Beard = Beard'
-  { _bValue      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _bConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  { _bValue      :: !(Maybe Bool)
+  , _bConfidence :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,10 +115,10 @@ instance NFData Beard where
 --
 -- /See:/ 'boundingBox' smart constructor.
 data BoundingBox = BoundingBox'
-  { _bbHeight :: {-# NOUNPACK #-}!(Maybe Double)
-  , _bbLeft   :: {-# NOUNPACK #-}!(Maybe Double)
-  , _bbWidth  :: {-# NOUNPACK #-}!(Maybe Double)
-  , _bbTop    :: {-# NOUNPACK #-}!(Maybe Double)
+  { _bbHeight :: !(Maybe Double)
+  , _bbLeft   :: !(Maybe Double)
+  , _bbWidth  :: !(Maybe Double)
+  , _bbTop    :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -175,11 +175,11 @@ instance NFData BoundingBox where
 --
 -- /See:/ 'celebrity' smart constructor.
 data Celebrity = Celebrity'
-  { _cMatchConfidence :: {-# NOUNPACK #-}!(Maybe Double)
-  , _cURLs            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cFace            :: {-# NOUNPACK #-}!(Maybe ComparedFace)
+  { _cMatchConfidence :: !(Maybe Double)
+  , _cURLs            :: !(Maybe [Text])
+  , _cName            :: !(Maybe Text)
+  , _cId              :: !(Maybe Text)
+  , _cFace            :: !(Maybe ComparedFace)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -249,8 +249,8 @@ instance NFData Celebrity where
 --
 -- /See:/ 'compareFacesMatch' smart constructor.
 data CompareFacesMatch = CompareFacesMatch'
-  { _cfmSimilarity :: {-# NOUNPACK #-}!(Maybe Double)
-  , _cfmFace       :: {-# NOUNPACK #-}!(Maybe ComparedFace)
+  { _cfmSimilarity :: !(Maybe Double)
+  , _cfmFace       :: !(Maybe ComparedFace)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -292,11 +292,11 @@ instance NFData CompareFacesMatch where
 --
 -- /See:/ 'comparedFace' smart constructor.
 data ComparedFace = ComparedFace'
-  { _cfBoundingBox :: {-# NOUNPACK #-}!(Maybe BoundingBox)
-  , _cfPose        :: {-# NOUNPACK #-}!(Maybe Pose)
-  , _cfConfidence  :: {-# NOUNPACK #-}!(Maybe Double)
-  , _cfQuality     :: {-# NOUNPACK #-}!(Maybe ImageQuality)
-  , _cfLandmarks   :: {-# NOUNPACK #-}!(Maybe [Landmark])
+  { _cfBoundingBox :: !(Maybe BoundingBox)
+  , _cfPose        :: !(Maybe Pose)
+  , _cfConfidence  :: !(Maybe Double)
+  , _cfQuality     :: !(Maybe ImageQuality)
+  , _cfLandmarks   :: !(Maybe [Landmark])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -365,8 +365,8 @@ instance NFData ComparedFace where
 --
 -- /See:/ 'comparedSourceImageFace' smart constructor.
 data ComparedSourceImageFace = ComparedSourceImageFace'
-  { _csifBoundingBox :: {-# NOUNPACK #-}!(Maybe BoundingBox)
-  , _csifConfidence  :: {-# NOUNPACK #-}!(Maybe Double)
+  { _csifBoundingBox :: !(Maybe BoundingBox)
+  , _csifConfidence  :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -409,8 +409,8 @@ instance NFData ComparedSourceImageFace where
 --
 -- /See:/ 'emotion' smart constructor.
 data Emotion = Emotion'
-  { _eConfidence :: {-# NOUNPACK #-}!(Maybe Double)
-  , _eType       :: {-# NOUNPACK #-}!(Maybe EmotionName)
+  { _eConfidence :: !(Maybe Double)
+  , _eType       :: !(Maybe EmotionName)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -450,8 +450,8 @@ instance NFData Emotion where
 --
 -- /See:/ 'eyeOpen' smart constructor.
 data EyeOpen = EyeOpen'
-  { _eoValue      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _eoConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  { _eoValue      :: !(Maybe Bool)
+  , _eoConfidence :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -492,8 +492,8 @@ instance NFData EyeOpen where
 --
 -- /See:/ 'eyeglasses' smart constructor.
 data Eyeglasses = Eyeglasses'
-  { _eyeValue      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _eyeConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  { _eyeValue      :: !(Maybe Bool)
+  , _eyeConfidence :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -534,11 +534,11 @@ instance NFData Eyeglasses where
 --
 -- /See:/ 'face' smart constructor.
 data Face = Face'
-  { _fFaceId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fBoundingBox     :: {-# NOUNPACK #-}!(Maybe BoundingBox)
-  , _fExternalImageId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fConfidence      :: {-# NOUNPACK #-}!(Maybe Double)
-  , _fImageId         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fFaceId          :: !(Maybe Text)
+  , _fBoundingBox     :: !(Maybe BoundingBox)
+  , _fExternalImageId :: !(Maybe Text)
+  , _fConfidence      :: !(Maybe Double)
+  , _fImageId         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -607,21 +607,21 @@ instance NFData Face where
 --
 -- /See:/ 'faceDetail' smart constructor.
 data FaceDetail = FaceDetail'
-  { _fdAgeRange    :: {-# NOUNPACK #-}!(Maybe AgeRange)
-  , _fdSunglasses  :: {-# NOUNPACK #-}!(Maybe Sunglasses)
-  , _fdMouthOpen   :: {-# NOUNPACK #-}!(Maybe MouthOpen)
-  , _fdBoundingBox :: {-# NOUNPACK #-}!(Maybe BoundingBox)
-  , _fdEmotions    :: {-# NOUNPACK #-}!(Maybe [Emotion])
-  , _fdEyesOpen    :: {-# NOUNPACK #-}!(Maybe EyeOpen)
-  , _fdPose        :: {-# NOUNPACK #-}!(Maybe Pose)
-  , _fdConfidence  :: {-# NOUNPACK #-}!(Maybe Double)
-  , _fdGender      :: {-# NOUNPACK #-}!(Maybe Gender)
-  , _fdQuality     :: {-# NOUNPACK #-}!(Maybe ImageQuality)
-  , _fdEyeglasses  :: {-# NOUNPACK #-}!(Maybe Eyeglasses)
-  , _fdBeard       :: {-# NOUNPACK #-}!(Maybe Beard)
-  , _fdMustache    :: {-# NOUNPACK #-}!(Maybe Mustache)
-  , _fdSmile       :: {-# NOUNPACK #-}!(Maybe Smile)
-  , _fdLandmarks   :: {-# NOUNPACK #-}!(Maybe [Landmark])
+  { _fdAgeRange    :: !(Maybe AgeRange)
+  , _fdSunglasses  :: !(Maybe Sunglasses)
+  , _fdMouthOpen   :: !(Maybe MouthOpen)
+  , _fdBoundingBox :: !(Maybe BoundingBox)
+  , _fdEmotions    :: !(Maybe [Emotion])
+  , _fdEyesOpen    :: !(Maybe EyeOpen)
+  , _fdPose        :: !(Maybe Pose)
+  , _fdConfidence  :: !(Maybe Double)
+  , _fdGender      :: !(Maybe Gender)
+  , _fdQuality     :: !(Maybe ImageQuality)
+  , _fdEyeglasses  :: !(Maybe Eyeglasses)
+  , _fdBeard       :: !(Maybe Beard)
+  , _fdMustache    :: !(Maybe Mustache)
+  , _fdSmile       :: !(Maybe Smile)
+  , _fdLandmarks   :: !(Maybe [Landmark])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -770,8 +770,8 @@ instance NFData FaceDetail where
 --
 -- /See:/ 'faceMatch' smart constructor.
 data FaceMatch = FaceMatch'
-  { _fmSimilarity :: {-# NOUNPACK #-}!(Maybe Double)
-  , _fmFace       :: {-# NOUNPACK #-}!(Maybe Face)
+  { _fmSimilarity :: !(Maybe Double)
+  , _fmFace       :: !(Maybe Face)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -812,8 +812,8 @@ instance NFData FaceMatch where
 --
 -- /See:/ 'faceRecord' smart constructor.
 data FaceRecord = FaceRecord'
-  { _frFaceDetail :: {-# NOUNPACK #-}!(Maybe FaceDetail)
-  , _frFace       :: {-# NOUNPACK #-}!(Maybe Face)
+  { _frFaceDetail :: !(Maybe FaceDetail)
+  , _frFace       :: !(Maybe Face)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -854,8 +854,8 @@ instance NFData FaceRecord where
 --
 -- /See:/ 'gender' smart constructor.
 data Gender = Gender'
-  { _gValue      :: {-# NOUNPACK #-}!(Maybe GenderType)
-  , _gConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  { _gValue      :: !(Maybe GenderType)
+  , _gConfidence :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -905,8 +905,8 @@ instance NFData Gender where
 --
 -- /See:/ 'image' smart constructor.
 data Image = Image'
-  { _iS3Object :: {-# NOUNPACK #-}!(Maybe S3Object)
-  , _iBytes    :: {-# NOUNPACK #-}!(Maybe Base64)
+  { _iS3Object :: !(Maybe S3Object)
+  , _iBytes    :: !(Maybe Base64)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -947,8 +947,8 @@ instance ToJSON Image where
 --
 -- /See:/ 'imageQuality' smart constructor.
 data ImageQuality = ImageQuality'
-  { _iqSharpness  :: {-# NOUNPACK #-}!(Maybe Double)
-  , _iqBrightness :: {-# NOUNPACK #-}!(Maybe Double)
+  { _iqSharpness  :: !(Maybe Double)
+  , _iqBrightness :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -989,8 +989,8 @@ instance NFData ImageQuality where
 --
 -- /See:/ 'label' smart constructor.
 data Label = Label'
-  { _lConfidence :: {-# NOUNPACK #-}!(Maybe Double)
-  , _lName       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lConfidence :: !(Maybe Double)
+  , _lName       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1030,9 +1030,9 @@ instance NFData Label where
 --
 -- /See:/ 'landmark' smart constructor.
 data Landmark = Landmark'
-  { _lType :: {-# NOUNPACK #-}!(Maybe LandmarkType)
-  , _lX    :: {-# NOUNPACK #-}!(Maybe Double)
-  , _lY    :: {-# NOUNPACK #-}!(Maybe Double)
+  { _lType :: !(Maybe LandmarkType)
+  , _lX    :: !(Maybe Double)
+  , _lY    :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1079,9 +1079,9 @@ instance NFData Landmark where
 --
 -- /See:/ 'moderationLabel' smart constructor.
 data ModerationLabel = ModerationLabel'
-  { _mlConfidence :: {-# NOUNPACK #-}!(Maybe Double)
-  , _mlName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mlParentName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _mlConfidence :: !(Maybe Double)
+  , _mlName       :: !(Maybe Text)
+  , _mlParentName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1131,8 +1131,8 @@ instance NFData ModerationLabel where
 --
 -- /See:/ 'mouthOpen' smart constructor.
 data MouthOpen = MouthOpen'
-  { _moValue      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _moConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  { _moValue      :: !(Maybe Bool)
+  , _moConfidence :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1173,8 +1173,8 @@ instance NFData MouthOpen where
 --
 -- /See:/ 'mustache' smart constructor.
 data Mustache = Mustache'
-  { _mValue      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _mConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  { _mValue      :: !(Maybe Bool)
+  , _mConfidence :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1215,9 +1215,9 @@ instance NFData Mustache where
 --
 -- /See:/ 'pose' smart constructor.
 data Pose = Pose'
-  { _pYaw   :: {-# NOUNPACK #-}!(Maybe Double)
-  , _pRoll  :: {-# NOUNPACK #-}!(Maybe Double)
-  , _pPitch :: {-# NOUNPACK #-}!(Maybe Double)
+  { _pYaw   :: !(Maybe Double)
+  , _pRoll  :: !(Maybe Double)
+  , _pPitch :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1268,9 +1268,9 @@ instance NFData Pose where
 --
 -- /See:/ 's3Object' smart constructor.
 data S3Object = S3Object'
-  { _soBucket  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _soName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _soVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  { _soBucket  :: !(Maybe Text)
+  , _soName    :: !(Maybe Text)
+  , _soVersion :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1319,8 +1319,8 @@ instance ToJSON S3Object where
 --
 -- /See:/ 'smile' smart constructor.
 data Smile = Smile'
-  { _smiValue      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _smiConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  { _smiValue      :: !(Maybe Bool)
+  , _smiConfidence :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1360,8 +1360,8 @@ instance NFData Smile where
 --
 -- /See:/ 'sunglasses' smart constructor.
 data Sunglasses = Sunglasses'
-  { _sValue      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sConfidence :: {-# NOUNPACK #-}!(Maybe Double)
+  { _sValue      :: !(Maybe Bool)
+  , _sConfidence :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

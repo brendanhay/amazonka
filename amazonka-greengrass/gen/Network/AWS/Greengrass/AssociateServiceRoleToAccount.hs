@@ -99,8 +99,8 @@ instance ToQuery AssociateServiceRoleToAccount where
 
 -- | /See:/ 'associateServiceRoleToAccountResponse' smart constructor.
 data AssociateServiceRoleToAccountResponse = AssociateServiceRoleToAccountResponse'
-  { _asrtarsAssociatedAt   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asrtarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _asrtarsAssociatedAt   :: !(Maybe Text)
+  , _asrtarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

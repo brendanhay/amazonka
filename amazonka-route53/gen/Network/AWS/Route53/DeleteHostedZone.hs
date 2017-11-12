@@ -112,8 +112,8 @@ instance ToQuery DeleteHostedZone where
 --
 -- /See:/ 'deleteHostedZoneResponse' smart constructor.
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
-  { _dhzrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dhzrsChangeInfo     :: {-# NOUNPACK #-}!ChangeInfo
+  { _dhzrsResponseStatus :: !Int
+  , _dhzrsChangeInfo     :: !ChangeInfo
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

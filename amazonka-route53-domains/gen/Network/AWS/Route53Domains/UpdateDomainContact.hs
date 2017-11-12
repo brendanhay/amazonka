@@ -55,10 +55,10 @@ import Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'updateDomainContact' smart constructor.
 data UpdateDomainContact = UpdateDomainContact'
-  { _udcRegistrantContact :: {-# NOUNPACK #-}!(Maybe (Sensitive ContactDetail))
-  , _udcAdminContact      :: {-# NOUNPACK #-}!(Maybe (Sensitive ContactDetail))
-  , _udcTechContact       :: {-# NOUNPACK #-}!(Maybe (Sensitive ContactDetail))
-  , _udcDomainName        :: {-# NOUNPACK #-}!Text
+  { _udcRegistrantContact :: !(Maybe (Sensitive ContactDetail))
+  , _udcAdminContact      :: !(Maybe (Sensitive ContactDetail))
+  , _udcTechContact       :: !(Maybe (Sensitive ContactDetail))
+  , _udcDomainName        :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -146,8 +146,8 @@ instance ToQuery UpdateDomainContact where
 --
 -- /See:/ 'updateDomainContactResponse' smart constructor.
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
-  { _udcrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _udcrsOperationId    :: {-# NOUNPACK #-}!Text
+  { _udcrsResponseStatus :: !Int
+  , _udcrsOperationId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

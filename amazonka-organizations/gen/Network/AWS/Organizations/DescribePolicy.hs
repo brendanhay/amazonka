@@ -103,8 +103,8 @@ instance ToQuery DescribePolicy where
 
 -- | /See:/ 'describePolicyResponse' smart constructor.
 data DescribePolicyResponse = DescribePolicyResponse'
-  { _dprsPolicy         :: {-# NOUNPACK #-}!(Maybe Policy)
-  , _dprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dprsPolicy         :: !(Maybe Policy)
+  , _dprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

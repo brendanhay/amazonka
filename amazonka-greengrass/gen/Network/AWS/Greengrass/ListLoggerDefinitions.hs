@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listLoggerDefinitions' smart constructor.
 data ListLoggerDefinitions = ListLoggerDefinitions'
-  { _lldNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lldMaxResults :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lldNextToken  :: !(Maybe Text)
+  , _lldMaxResults :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -106,9 +106,9 @@ instance ToQuery ListLoggerDefinitions where
 
 -- | /See:/ 'listLoggerDefinitionsResponse' smart constructor.
 data ListLoggerDefinitionsResponse = ListLoggerDefinitionsResponse'
-  { _lldrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lldrsDefinitions    :: {-# NOUNPACK #-}!(Maybe [DefinitionInformation])
-  , _lldrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lldrsNextToken      :: !(Maybe Text)
+  , _lldrsDefinitions    :: !(Maybe [DefinitionInformation])
+  , _lldrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createTable' smart constructor.
 data CreateTable = CreateTable'
-  { _ctCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctDatabaseName :: {-# NOUNPACK #-}!Text
-  , _ctTableInput   :: {-# NOUNPACK #-}!TableInput
+  { _ctCatalogId    :: !(Maybe Text)
+  , _ctDatabaseName :: !Text
+  , _ctTableInput   :: !TableInput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

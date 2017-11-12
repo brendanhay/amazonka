@@ -54,8 +54,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'scheduleKeyDeletion' smart constructor.
 data ScheduleKeyDeletion = ScheduleKeyDeletion'
-  { _skdPendingWindowInDays :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _skdKeyId               :: {-# NOUNPACK #-}!Text
+  { _skdPendingWindowInDays :: !(Maybe Nat)
+  , _skdKeyId               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,9 +121,9 @@ instance ToQuery ScheduleKeyDeletion where
 
 -- | /See:/ 'scheduleKeyDeletionResponse' smart constructor.
 data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
-  { _skdrsKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _skdrsDeletionDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _skdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _skdrsKeyId          :: !(Maybe Text)
+  , _skdrsDeletionDate   :: !(Maybe POSIX)
+  , _skdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

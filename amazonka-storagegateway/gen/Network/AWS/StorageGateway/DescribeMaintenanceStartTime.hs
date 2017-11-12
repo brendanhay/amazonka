@@ -130,12 +130,12 @@ instance ToQuery DescribeMaintenanceStartTime where
 --
 -- /See:/ 'describeMaintenanceStartTimeResponse' smart constructor.
 data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'
-  { _dmstrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmstrsMinuteOfHour   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dmstrsHourOfDay      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dmstrsTimezone       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmstrsDayOfWeek      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dmstrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmstrsGatewayARN     :: !(Maybe Text)
+  , _dmstrsMinuteOfHour   :: !(Maybe Nat)
+  , _dmstrsHourOfDay      :: !(Maybe Nat)
+  , _dmstrsTimezone       :: !(Maybe Text)
+  , _dmstrsDayOfWeek      :: !(Maybe Nat)
+  , _dmstrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

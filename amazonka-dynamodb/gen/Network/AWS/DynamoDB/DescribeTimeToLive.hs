@@ -104,8 +104,8 @@ instance ToQuery DescribeTimeToLive where
 
 -- | /See:/ 'describeTimeToLiveResponse' smart constructor.
 data DescribeTimeToLiveResponse = DescribeTimeToLiveResponse'
-  { _dttlrsTimeToLiveDescription :: {-# NOUNPACK #-}!(Maybe TimeToLiveDescription)
-  , _dttlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dttlrsTimeToLiveDescription :: !(Maybe TimeToLiveDescription)
+  , _dttlrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

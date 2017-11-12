@@ -60,13 +60,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'listInstances' smart constructor.
 data ListInstances = ListInstances'
-  { _liInstanceGroupTypes :: {-# NOUNPACK #-}!(Maybe [InstanceGroupType])
-  , _liInstanceFleetType  :: {-# NOUNPACK #-}!(Maybe InstanceFleetType)
-  , _liMarker             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liInstanceFleetId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liInstanceStates     :: {-# NOUNPACK #-}!(Maybe [InstanceState])
-  , _liInstanceGroupId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liClusterId          :: {-# NOUNPACK #-}!Text
+  { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
+  , _liInstanceFleetType  :: !(Maybe InstanceFleetType)
+  , _liMarker             :: !(Maybe Text)
+  , _liInstanceFleetId    :: !(Maybe Text)
+  , _liInstanceStates     :: !(Maybe [InstanceState])
+  , _liInstanceGroupId    :: !(Maybe Text)
+  , _liClusterId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -184,9 +184,9 @@ instance ToQuery ListInstances where
 --
 -- /See:/ 'listInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-  { _lirsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lirsInstances      :: {-# NOUNPACK #-}!(Maybe [Instance])
-  , _lirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lirsMarker         :: !(Maybe Text)
+  , _lirsInstances      :: !(Maybe [Instance])
+  , _lirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

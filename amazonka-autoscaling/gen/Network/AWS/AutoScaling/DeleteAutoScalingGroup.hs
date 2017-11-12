@@ -52,8 +52,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteAutoScalingGroup' smart constructor.
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
-  { _dasgForceDelete          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dasgAutoScalingGroupName :: {-# NOUNPACK #-}!Text
+  { _dasgForceDelete          :: !(Maybe Bool)
+  , _dasgAutoScalingGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

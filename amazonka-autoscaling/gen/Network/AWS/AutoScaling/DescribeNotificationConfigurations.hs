@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeNotificationConfigurations' smart constructor.
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
-  { _dncAutoScalingGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dncNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dncMaxRecords            :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dncAutoScalingGroupNames :: !(Maybe [Text])
+  , _dncNextToken             :: !(Maybe Text)
+  , _dncMaxRecords            :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,9 +142,9 @@ instance ToQuery DescribeNotificationConfigurations
 
 -- | /See:/ 'describeNotificationConfigurationsResponse' smart constructor.
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
-  { _dncrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dncrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dncrsNotificationConfigurations :: {-# NOUNPACK #-}![NotificationConfiguration]
+  { _dncrsNextToken                  :: !(Maybe Text)
+  , _dncrsResponseStatus             :: !Int
+  , _dncrsNotificationConfigurations :: ![NotificationConfiguration]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

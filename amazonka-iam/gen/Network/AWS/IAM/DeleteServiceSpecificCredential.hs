@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteServiceSpecificCredential' smart constructor.
 data DeleteServiceSpecificCredential = DeleteServiceSpecificCredential'
-  { _dsscUserName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsscServiceSpecificCredentialId :: {-# NOUNPACK #-}!Text
+  { _dsscUserName                    :: !(Maybe Text)
+  , _dsscServiceSpecificCredentialId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

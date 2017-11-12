@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'setLoadBasedAutoScaling' smart constructor.
 data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
-  { _slbasUpScaling   :: {-# NOUNPACK #-}!(Maybe AutoScalingThresholds)
-  , _slbasEnable      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _slbasDownScaling :: {-# NOUNPACK #-}!(Maybe AutoScalingThresholds)
-  , _slbasLayerId     :: {-# NOUNPACK #-}!Text
+  { _slbasUpScaling   :: !(Maybe AutoScalingThresholds)
+  , _slbasEnable      :: !(Maybe Bool)
+  , _slbasDownScaling :: !(Maybe AutoScalingThresholds)
+  , _slbasLayerId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listSuites' smart constructor.
 data ListSuites = ListSuites'
-  { _lNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lArn       :: {-# NOUNPACK #-}!Text
+  { _lNextToken :: !(Maybe Text)
+  , _lArn       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -130,9 +130,9 @@ instance ToQuery ListSuites where
 --
 -- /See:/ 'listSuitesResponse' smart constructor.
 data ListSuitesResponse = ListSuitesResponse'
-  { _lsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsrsSuites         :: {-# NOUNPACK #-}!(Maybe [Suite])
-  , _lsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lsrsNextToken      :: !(Maybe Text)
+  , _lsrsSuites         :: !(Maybe [Suite])
+  , _lsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

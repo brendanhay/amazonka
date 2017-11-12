@@ -49,11 +49,11 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteCustomMetadata' smart constructor.
 data DeleteCustomMetadata = DeleteCustomMetadata'
-  { _dcmVersionId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcmDeleteAll           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dcmAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _dcmKeys                :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcmResourceId          :: {-# NOUNPACK #-}!Text
+  { _dcmVersionId           :: !(Maybe Text)
+  , _dcmDeleteAll           :: !(Maybe Bool)
+  , _dcmAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _dcmKeys                :: !(Maybe [Text])
+  , _dcmResourceId          :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

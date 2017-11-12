@@ -27,18 +27,18 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'applicationDetail' smart constructor.
 data ApplicationDetail = ApplicationDetail'
-  { _adApplicationDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _adOutputDescriptions :: {-# NOUNPACK #-}!(Maybe [OutputDescription])
-  , _adCloudWatchLoggingOptionDescriptions :: {-# NOUNPACK #-}!(Maybe [CloudWatchLoggingOptionDescription])
-  , _adReferenceDataSourceDescriptions :: {-# NOUNPACK #-}!(Maybe [ReferenceDataSourceDescription])
-  , _adInputDescriptions :: {-# NOUNPACK #-}!(Maybe [InputDescription])
-  , _adApplicationCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _adCreateTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _adLastUpdateTimestamp :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _adApplicationName :: {-# NOUNPACK #-}!Text
-  , _adApplicationARN :: {-# NOUNPACK #-}!Text
-  , _adApplicationStatus :: {-# NOUNPACK #-}!ApplicationStatus
-  , _adApplicationVersionId :: {-# NOUNPACK #-}!Nat
+  { _adApplicationDescription :: !(Maybe Text)
+  , _adOutputDescriptions :: !(Maybe [OutputDescription])
+  , _adCloudWatchLoggingOptionDescriptions :: !(Maybe [CloudWatchLoggingOptionDescription])
+  , _adReferenceDataSourceDescriptions :: !(Maybe [ReferenceDataSourceDescription])
+  , _adInputDescriptions :: !(Maybe [InputDescription])
+  , _adApplicationCode :: !(Maybe Text)
+  , _adCreateTimestamp :: !(Maybe POSIX)
+  , _adLastUpdateTimestamp :: !(Maybe POSIX)
+  , _adApplicationName :: !Text
+  , _adApplicationARN :: !Text
+  , _adApplicationStatus :: !ApplicationStatus
+  , _adApplicationVersionId :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -171,9 +171,9 @@ instance NFData ApplicationDetail where
 --
 -- /See:/ 'applicationSummary' smart constructor.
 data ApplicationSummary = ApplicationSummary'
-  { _asApplicationName   :: {-# NOUNPACK #-}!Text
-  , _asApplicationARN    :: {-# NOUNPACK #-}!Text
-  , _asApplicationStatus :: {-# NOUNPACK #-}!ApplicationStatus
+  { _asApplicationName   :: !Text
+  , _asApplicationARN    :: !Text
+  , _asApplicationStatus :: !ApplicationStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -229,11 +229,11 @@ instance NFData ApplicationSummary where
 --
 -- /See:/ 'applicationUpdate' smart constructor.
 data ApplicationUpdate = ApplicationUpdate'
-  { _auReferenceDataSourceUpdates :: {-# NOUNPACK #-}!(Maybe [ReferenceDataSourceUpdate])
-  , _auInputUpdates :: {-# NOUNPACK #-}!(Maybe [InputUpdate])
-  , _auCloudWatchLoggingOptionUpdates :: {-# NOUNPACK #-}!(Maybe [CloudWatchLoggingOptionUpdate])
-  , _auOutputUpdates :: {-# NOUNPACK #-}!(Maybe [OutputUpdate])
-  , _auApplicationCodeUpdate :: {-# NOUNPACK #-}!(Maybe Text)
+  { _auReferenceDataSourceUpdates :: !(Maybe [ReferenceDataSourceUpdate])
+  , _auInputUpdates :: !(Maybe [InputUpdate])
+  , _auCloudWatchLoggingOptionUpdates :: !(Maybe [CloudWatchLoggingOptionUpdate])
+  , _auOutputUpdates :: !(Maybe [OutputUpdate])
+  , _auApplicationCodeUpdate :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -309,8 +309,8 @@ instance ToJSON ApplicationUpdate where
 --
 -- /See:/ 'csvMappingParameters' smart constructor.
 data CSVMappingParameters = CSVMappingParameters'
-  { _cmpRecordRowDelimiter    :: {-# NOUNPACK #-}!Text
-  , _cmpRecordColumnDelimiter :: {-# NOUNPACK #-}!Text
+  { _cmpRecordRowDelimiter    :: !Text
+  , _cmpRecordColumnDelimiter :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -368,8 +368,8 @@ instance ToJSON CSVMappingParameters where
 --
 -- /See:/ 'cloudWatchLoggingOption' smart constructor.
 data CloudWatchLoggingOption = CloudWatchLoggingOption'
-  { _cwloLogStreamARN :: {-# NOUNPACK #-}!Text
-  , _cwloRoleARN      :: {-# NOUNPACK #-}!Text
+  { _cwloLogStreamARN :: !Text
+  , _cwloRoleARN      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -414,9 +414,9 @@ instance ToJSON CloudWatchLoggingOption where
 --
 -- /See:/ 'cloudWatchLoggingOptionDescription' smart constructor.
 data CloudWatchLoggingOptionDescription = CloudWatchLoggingOptionDescription'
-  { _cwlodCloudWatchLoggingOptionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwlodLogStreamARN              :: {-# NOUNPACK #-}!Text
-  , _cwlodRoleARN                   :: {-# NOUNPACK #-}!Text
+  { _cwlodCloudWatchLoggingOptionId :: !(Maybe Text)
+  , _cwlodLogStreamARN              :: !Text
+  , _cwlodRoleARN                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -475,9 +475,9 @@ instance NFData CloudWatchLoggingOptionDescription
 --
 -- /See:/ 'cloudWatchLoggingOptionUpdate' smart constructor.
 data CloudWatchLoggingOptionUpdate = CloudWatchLoggingOptionUpdate'
-  { _cwlouRoleARNUpdate             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwlouLogStreamARNUpdate        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwlouCloudWatchLoggingOptionId :: {-# NOUNPACK #-}!Text
+  { _cwlouRoleARNUpdate             :: !(Maybe Text)
+  , _cwlouLogStreamARNUpdate        :: !(Maybe Text)
+  , _cwlouCloudWatchLoggingOptionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -574,12 +574,12 @@ instance ToJSON DestinationSchema where
 --
 -- /See:/ 'input' smart constructor.
 data Input = Input'
-  { _iInputParallelism :: {-# NOUNPACK #-}!(Maybe InputParallelism)
-  , _iInputProcessingConfiguration :: {-# NOUNPACK #-}!(Maybe InputProcessingConfiguration)
-  , _iKinesisStreamsInput :: {-# NOUNPACK #-}!(Maybe KinesisStreamsInput)
-  , _iKinesisFirehoseInput :: {-# NOUNPACK #-}!(Maybe KinesisFirehoseInput)
-  , _iNamePrefix :: {-# NOUNPACK #-}!Text
-  , _iInputSchema :: {-# NOUNPACK #-}!SourceSchema
+  { _iInputParallelism             :: !(Maybe InputParallelism)
+  , _iInputProcessingConfiguration :: !(Maybe InputProcessingConfiguration)
+  , _iKinesisStreamsInput          :: !(Maybe KinesisStreamsInput)
+  , _iKinesisFirehoseInput         :: !(Maybe KinesisFirehoseInput)
+  , _iNamePrefix                   :: !Text
+  , _iInputSchema                  :: !SourceSchema
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -660,8 +660,8 @@ instance ToJSON Input where
 --
 -- /See:/ 'inputConfiguration' smart constructor.
 data InputConfiguration = InputConfiguration'
-  { _icId :: {-# NOUNPACK #-}!Text
-  , _icInputStartingPositionConfiguration :: {-# NOUNPACK #-}!InputStartingPositionConfiguration
+  { _icId                                 :: !Text
+  , _icInputStartingPositionConfiguration :: !InputStartingPositionConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -710,15 +710,15 @@ instance ToJSON InputConfiguration where
 --
 -- /See:/ 'inputDescription' smart constructor.
 data InputDescription = InputDescription'
-  { _idInputStartingPositionConfiguration :: {-# NOUNPACK #-}!(Maybe InputStartingPositionConfiguration)
-  , _idInputParallelism :: {-# NOUNPACK #-}!(Maybe InputParallelism)
-  , _idInputId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _idInAppStreamNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _idKinesisFirehoseInputDescription :: {-# NOUNPACK #-}!(Maybe KinesisFirehoseInputDescription)
-  , _idInputSchema :: {-# NOUNPACK #-}!(Maybe SourceSchema)
-  , _idKinesisStreamsInputDescription :: {-# NOUNPACK #-}!(Maybe KinesisStreamsInputDescription)
-  , _idNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _idInputProcessingConfigurationDescription :: {-# NOUNPACK #-}!(Maybe InputProcessingConfigurationDescription)
+  { _idInputStartingPositionConfiguration :: !(Maybe InputStartingPositionConfiguration)
+  , _idInputParallelism :: !(Maybe InputParallelism)
+  , _idInputId :: !(Maybe Text)
+  , _idInAppStreamNames :: !(Maybe [Text])
+  , _idKinesisFirehoseInputDescription :: !(Maybe KinesisFirehoseInputDescription)
+  , _idInputSchema :: !(Maybe SourceSchema)
+  , _idKinesisStreamsInputDescription :: !(Maybe KinesisStreamsInputDescription)
+  , _idNamePrefix :: !(Maybe Text)
+  , _idInputProcessingConfigurationDescription :: !(Maybe InputProcessingConfigurationDescription)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -821,8 +821,8 @@ instance NFData InputDescription where
 --
 -- /See:/ 'inputLambdaProcessor' smart constructor.
 data InputLambdaProcessor = InputLambdaProcessor'
-  { _ilpResourceARN :: {-# NOUNPACK #-}!Text
-  , _ilpRoleARN     :: {-# NOUNPACK #-}!Text
+  { _ilpResourceARN :: !Text
+  , _ilpRoleARN     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -867,8 +867,8 @@ instance ToJSON InputLambdaProcessor where
 --
 -- /See:/ 'inputLambdaProcessorDescription' smart constructor.
 data InputLambdaProcessorDescription = InputLambdaProcessorDescription'
-  { _ilpdResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ilpdRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ilpdResourceARN :: !(Maybe Text)
+  , _ilpdRoleARN     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -913,8 +913,8 @@ instance NFData InputLambdaProcessorDescription where
 --
 -- /See:/ 'inputLambdaProcessorUpdate' smart constructor.
 data InputLambdaProcessorUpdate = InputLambdaProcessorUpdate'
-  { _ilpuRoleARNUpdate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ilpuResourceARNUpdate :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ilpuRoleARNUpdate     :: !(Maybe Text)
+  , _ilpuResourceARNUpdate :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1152,9 +1152,9 @@ instance ToJSON InputProcessingConfigurationUpdate
 --
 -- /See:/ 'inputSchemaUpdate' smart constructor.
 data InputSchemaUpdate = InputSchemaUpdate'
-  { _isuRecordFormatUpdate   :: {-# NOUNPACK #-}!(Maybe RecordFormat)
-  , _isuRecordEncodingUpdate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isuRecordColumnUpdates  :: {-# NOUNPACK #-}!(Maybe (List1 RecordColumn))
+  { _isuRecordFormatUpdate   :: !(Maybe RecordFormat)
+  , _isuRecordEncodingUpdate :: !(Maybe Text)
+  , _isuRecordColumnUpdates  :: !(Maybe (List1 RecordColumn))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1257,13 +1257,13 @@ instance ToJSON InputStartingPositionConfiguration
 --
 -- /See:/ 'inputUpdate' smart constructor.
 data InputUpdate = InputUpdate'
-  { _iuInputProcessingConfigurationUpdate :: {-# NOUNPACK #-}!(Maybe InputProcessingConfigurationUpdate)
-  , _iuKinesisStreamsInputUpdate :: {-# NOUNPACK #-}!(Maybe KinesisStreamsInputUpdate)
-  , _iuInputParallelismUpdate :: {-# NOUNPACK #-}!(Maybe InputParallelismUpdate)
-  , _iuNamePrefixUpdate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iuInputSchemaUpdate :: {-# NOUNPACK #-}!(Maybe InputSchemaUpdate)
-  , _iuKinesisFirehoseInputUpdate :: {-# NOUNPACK #-}!(Maybe KinesisFirehoseInputUpdate)
-  , _iuInputId :: {-# NOUNPACK #-}!Text
+  { _iuInputProcessingConfigurationUpdate :: !(Maybe InputProcessingConfigurationUpdate)
+  , _iuKinesisStreamsInputUpdate :: !(Maybe KinesisStreamsInputUpdate)
+  , _iuInputParallelismUpdate :: !(Maybe InputParallelismUpdate)
+  , _iuNamePrefixUpdate :: !(Maybe Text)
+  , _iuInputSchemaUpdate :: !(Maybe InputSchemaUpdate)
+  , _iuKinesisFirehoseInputUpdate :: !(Maybe KinesisFirehoseInputUpdate)
+  , _iuInputId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1395,8 +1395,8 @@ instance ToJSON JSONMappingParameters where
 --
 -- /See:/ 'kinesisFirehoseInput' smart constructor.
 data KinesisFirehoseInput = KinesisFirehoseInput'
-  { _kfiResourceARN :: {-# NOUNPACK #-}!Text
-  , _kfiRoleARN     :: {-# NOUNPACK #-}!Text
+  { _kfiResourceARN :: !Text
+  , _kfiRoleARN     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1441,8 +1441,8 @@ instance ToJSON KinesisFirehoseInput where
 --
 -- /See:/ 'kinesisFirehoseInputDescription' smart constructor.
 data KinesisFirehoseInputDescription = KinesisFirehoseInputDescription'
-  { _kfidResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kfidRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _kfidResourceARN :: !(Maybe Text)
+  , _kfidRoleARN     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1487,8 +1487,8 @@ instance NFData KinesisFirehoseInputDescription where
 --
 -- /See:/ 'kinesisFirehoseInputUpdate' smart constructor.
 data KinesisFirehoseInputUpdate = KinesisFirehoseInputUpdate'
-  { _kfiuRoleARNUpdate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kfiuResourceARNUpdate :: {-# NOUNPACK #-}!(Maybe Text)
+  { _kfiuRoleARNUpdate     :: !(Maybe Text)
+  , _kfiuResourceARNUpdate :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1531,8 +1531,8 @@ instance ToJSON KinesisFirehoseInputUpdate where
 --
 -- /See:/ 'kinesisFirehoseOutput' smart constructor.
 data KinesisFirehoseOutput = KinesisFirehoseOutput'
-  { _kfoResourceARN :: {-# NOUNPACK #-}!Text
-  , _kfoRoleARN     :: {-# NOUNPACK #-}!Text
+  { _kfoResourceARN :: !Text
+  , _kfoRoleARN     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1577,8 +1577,8 @@ instance ToJSON KinesisFirehoseOutput where
 --
 -- /See:/ 'kinesisFirehoseOutputDescription' smart constructor.
 data KinesisFirehoseOutputDescription = KinesisFirehoseOutputDescription'
-  { _kfodResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kfodRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _kfodResourceARN :: !(Maybe Text)
+  , _kfodRoleARN     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1624,8 +1624,8 @@ instance NFData KinesisFirehoseOutputDescription
 --
 -- /See:/ 'kinesisFirehoseOutputUpdate' smart constructor.
 data KinesisFirehoseOutputUpdate = KinesisFirehoseOutputUpdate'
-  { _kfouRoleARNUpdate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kfouResourceARNUpdate :: {-# NOUNPACK #-}!(Maybe Text)
+  { _kfouRoleARNUpdate     :: !(Maybe Text)
+  , _kfouResourceARNUpdate :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1668,8 +1668,8 @@ instance ToJSON KinesisFirehoseOutputUpdate where
 --
 -- /See:/ 'kinesisStreamsInput' smart constructor.
 data KinesisStreamsInput = KinesisStreamsInput'
-  { _ksiResourceARN :: {-# NOUNPACK #-}!Text
-  , _ksiRoleARN     :: {-# NOUNPACK #-}!Text
+  { _ksiResourceARN :: !Text
+  , _ksiRoleARN     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1714,8 +1714,8 @@ instance ToJSON KinesisStreamsInput where
 --
 -- /See:/ 'kinesisStreamsInputDescription' smart constructor.
 data KinesisStreamsInputDescription = KinesisStreamsInputDescription'
-  { _ksidResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ksidRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ksidResourceARN :: !(Maybe Text)
+  , _ksidRoleARN     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1760,8 +1760,8 @@ instance NFData KinesisStreamsInputDescription where
 --
 -- /See:/ 'kinesisStreamsInputUpdate' smart constructor.
 data KinesisStreamsInputUpdate = KinesisStreamsInputUpdate'
-  { _ksiuRoleARNUpdate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ksiuResourceARNUpdate :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ksiuRoleARNUpdate     :: !(Maybe Text)
+  , _ksiuResourceARNUpdate :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1804,8 +1804,8 @@ instance ToJSON KinesisStreamsInputUpdate where
 --
 -- /See:/ 'kinesisStreamsOutput' smart constructor.
 data KinesisStreamsOutput = KinesisStreamsOutput'
-  { _ksoResourceARN :: {-# NOUNPACK #-}!Text
-  , _ksoRoleARN     :: {-# NOUNPACK #-}!Text
+  { _ksoResourceARN :: !Text
+  , _ksoRoleARN     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1850,8 +1850,8 @@ instance ToJSON KinesisStreamsOutput where
 --
 -- /See:/ 'kinesisStreamsOutputDescription' smart constructor.
 data KinesisStreamsOutputDescription = KinesisStreamsOutputDescription'
-  { _ksodResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ksodRoleARN     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ksodResourceARN :: !(Maybe Text)
+  , _ksodRoleARN     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1896,8 +1896,8 @@ instance NFData KinesisStreamsOutputDescription where
 --
 -- /See:/ 'kinesisStreamsOutputUpdate' smart constructor.
 data KinesisStreamsOutputUpdate = KinesisStreamsOutputUpdate'
-  { _ksouRoleARNUpdate     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ksouResourceARNUpdate :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ksouRoleARNUpdate     :: !(Maybe Text)
+  , _ksouResourceARNUpdate :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1940,8 +1940,8 @@ instance ToJSON KinesisStreamsOutputUpdate where
 --
 -- /See:/ 'mappingParameters' smart constructor.
 data MappingParameters = MappingParameters'
-  { _mpCSVMappingParameters  :: {-# NOUNPACK #-}!(Maybe CSVMappingParameters)
-  , _mpJSONMappingParameters :: {-# NOUNPACK #-}!(Maybe JSONMappingParameters)
+  { _mpCSVMappingParameters  :: !(Maybe CSVMappingParameters)
+  , _mpJSONMappingParameters :: !(Maybe JSONMappingParameters)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1998,10 +1998,10 @@ instance ToJSON MappingParameters where
 --
 -- /See:/ 'output' smart constructor.
 data Output = Output'
-  { _oKinesisStreamsOutput  :: {-# NOUNPACK #-}!(Maybe KinesisStreamsOutput)
-  , _oKinesisFirehoseOutput :: {-# NOUNPACK #-}!(Maybe KinesisFirehoseOutput)
-  , _oName                  :: {-# NOUNPACK #-}!Text
-  , _oDestinationSchema     :: {-# NOUNPACK #-}!DestinationSchema
+  { _oKinesisStreamsOutput  :: !(Maybe KinesisStreamsOutput)
+  , _oKinesisFirehoseOutput :: !(Maybe KinesisFirehoseOutput)
+  , _oName                  :: !Text
+  , _oDestinationSchema     :: !DestinationSchema
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2066,11 +2066,11 @@ instance ToJSON Output where
 --
 -- /See:/ 'outputDescription' smart constructor.
 data OutputDescription = OutputDescription'
-  { _odOutputId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _odDestinationSchema :: {-# NOUNPACK #-}!(Maybe DestinationSchema)
-  , _odKinesisFirehoseOutputDescription :: {-# NOUNPACK #-}!(Maybe KinesisFirehoseOutputDescription)
-  , _odKinesisStreamsOutputDescription :: {-# NOUNPACK #-}!(Maybe KinesisStreamsOutputDescription)
-  , _odName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _odOutputId :: !(Maybe Text)
+  , _odDestinationSchema :: !(Maybe DestinationSchema)
+  , _odKinesisFirehoseOutputDescription :: !(Maybe KinesisFirehoseOutputDescription)
+  , _odKinesisStreamsOutputDescription :: !(Maybe KinesisStreamsOutputDescription)
+  , _odName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2139,11 +2139,11 @@ instance NFData OutputDescription where
 --
 -- /See:/ 'outputUpdate' smart constructor.
 data OutputUpdate = OutputUpdate'
-  { _ouKinesisStreamsOutputUpdate :: {-# NOUNPACK #-}!(Maybe KinesisStreamsOutputUpdate)
-  , _ouDestinationSchemaUpdate :: {-# NOUNPACK #-}!(Maybe DestinationSchema)
-  , _ouKinesisFirehoseOutputUpdate :: {-# NOUNPACK #-}!(Maybe KinesisFirehoseOutputUpdate)
-  , _ouNameUpdate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ouOutputId :: {-# NOUNPACK #-}!Text
+  { _ouKinesisStreamsOutputUpdate  :: !(Maybe KinesisStreamsOutputUpdate)
+  , _ouDestinationSchemaUpdate     :: !(Maybe DestinationSchema)
+  , _ouKinesisFirehoseOutputUpdate :: !(Maybe KinesisFirehoseOutputUpdate)
+  , _ouNameUpdate                  :: !(Maybe Text)
+  , _ouOutputId                    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2218,9 +2218,9 @@ instance ToJSON OutputUpdate where
 --
 -- /See:/ 'recordColumn' smart constructor.
 data RecordColumn = RecordColumn'
-  { _rcMapping :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcName    :: {-# NOUNPACK #-}!Text
-  , _rcSqlType :: {-# NOUNPACK #-}!Text
+  { _rcMapping :: !(Maybe Text)
+  , _rcName    :: !Text
+  , _rcSqlType :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2279,8 +2279,8 @@ instance ToJSON RecordColumn where
 --
 -- /See:/ 'recordFormat' smart constructor.
 data RecordFormat = RecordFormat'
-  { _rfMappingParameters :: {-# NOUNPACK #-}!(Maybe MappingParameters)
-  , _rfRecordFormatType  :: {-# NOUNPACK #-}!RecordFormatType
+  { _rfMappingParameters :: !(Maybe MappingParameters)
+  , _rfRecordFormatType  :: !RecordFormatType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2332,9 +2332,9 @@ instance ToJSON RecordFormat where
 --
 -- /See:/ 'referenceDataSource' smart constructor.
 data ReferenceDataSource = ReferenceDataSource'
-  { _rdsS3ReferenceDataSource :: {-# NOUNPACK #-}!(Maybe S3ReferenceDataSource)
-  , _rdsTableName             :: {-# NOUNPACK #-}!Text
-  , _rdsReferenceSchema       :: {-# NOUNPACK #-}!SourceSchema
+  { _rdsS3ReferenceDataSource :: !(Maybe S3ReferenceDataSource)
+  , _rdsTableName             :: !Text
+  , _rdsReferenceSchema       :: !SourceSchema
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2390,10 +2390,10 @@ instance ToJSON ReferenceDataSource where
 --
 -- /See:/ 'referenceDataSourceDescription' smart constructor.
 data ReferenceDataSourceDescription = ReferenceDataSourceDescription'
-  { _rdsdReferenceSchema :: {-# NOUNPACK #-}!(Maybe SourceSchema)
-  , _rdsdReferenceId :: {-# NOUNPACK #-}!Text
-  , _rdsdTableName :: {-# NOUNPACK #-}!Text
-  , _rdsdS3ReferenceDataSourceDescription :: {-# NOUNPACK #-}!S3ReferenceDataSourceDescription
+  { _rdsdReferenceSchema                  :: !(Maybe SourceSchema)
+  , _rdsdReferenceId                      :: !Text
+  , _rdsdTableName                        :: !Text
+  , _rdsdS3ReferenceDataSourceDescription :: !S3ReferenceDataSourceDescription
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2459,10 +2459,10 @@ instance NFData ReferenceDataSourceDescription where
 --
 -- /See:/ 'referenceDataSourceUpdate' smart constructor.
 data ReferenceDataSourceUpdate = ReferenceDataSourceUpdate'
-  { _rdsuTableNameUpdate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdsuS3ReferenceDataSourceUpdate :: {-# NOUNPACK #-}!(Maybe S3ReferenceDataSourceUpdate)
-  , _rdsuReferenceSchemaUpdate :: {-# NOUNPACK #-}!(Maybe SourceSchema)
-  , _rdsuReferenceId :: {-# NOUNPACK #-}!Text
+  { _rdsuTableNameUpdate             :: !(Maybe Text)
+  , _rdsuS3ReferenceDataSourceUpdate :: !(Maybe S3ReferenceDataSourceUpdate)
+  , _rdsuReferenceSchemaUpdate       :: !(Maybe SourceSchema)
+  , _rdsuReferenceId                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2522,9 +2522,9 @@ instance ToJSON ReferenceDataSourceUpdate where
 
 -- | /See:/ 's3Configuration' smart constructor.
 data S3Configuration = S3Configuration'
-  { _scRoleARN   :: {-# NOUNPACK #-}!Text
-  , _scBucketARN :: {-# NOUNPACK #-}!Text
-  , _scFileKey   :: {-# NOUNPACK #-}!Text
+  { _scRoleARN   :: !Text
+  , _scBucketARN :: !Text
+  , _scFileKey   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2579,9 +2579,9 @@ instance ToJSON S3Configuration where
 --
 -- /See:/ 's3ReferenceDataSource' smart constructor.
 data S3ReferenceDataSource = S3ReferenceDataSource'
-  { _srdsBucketARN        :: {-# NOUNPACK #-}!Text
-  , _srdsFileKey          :: {-# NOUNPACK #-}!Text
-  , _srdsReferenceRoleARN :: {-# NOUNPACK #-}!Text
+  { _srdsBucketARN        :: !Text
+  , _srdsFileKey          :: !Text
+  , _srdsReferenceRoleARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2637,9 +2637,9 @@ instance ToJSON S3ReferenceDataSource where
 --
 -- /See:/ 's3ReferenceDataSourceDescription' smart constructor.
 data S3ReferenceDataSourceDescription = S3ReferenceDataSourceDescription'
-  { _srdsdBucketARN        :: {-# NOUNPACK #-}!Text
-  , _srdsdFileKey          :: {-# NOUNPACK #-}!Text
-  , _srdsdReferenceRoleARN :: {-# NOUNPACK #-}!Text
+  { _srdsdBucketARN        :: !Text
+  , _srdsdFileKey          :: !Text
+  , _srdsdReferenceRoleARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2698,9 +2698,9 @@ instance NFData S3ReferenceDataSourceDescription
 --
 -- /See:/ 's3ReferenceDataSourceUpdate' smart constructor.
 data S3ReferenceDataSourceUpdate = S3ReferenceDataSourceUpdate'
-  { _srdsuBucketARNUpdate        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srdsuFileKeyUpdate          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srdsuReferenceRoleARNUpdate :: {-# NOUNPACK #-}!(Maybe Text)
+  { _srdsuBucketARNUpdate        :: !(Maybe Text)
+  , _srdsuFileKeyUpdate          :: !(Maybe Text)
+  , _srdsuReferenceRoleARNUpdate :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2754,9 +2754,9 @@ instance ToJSON S3ReferenceDataSourceUpdate where
 --
 -- /See:/ 'sourceSchema' smart constructor.
 data SourceSchema = SourceSchema'
-  { _ssRecordEncoding :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssRecordFormat   :: {-# NOUNPACK #-}!RecordFormat
-  , _ssRecordColumns  :: {-# NOUNPACK #-}!(List1 RecordColumn)
+  { _ssRecordEncoding :: !(Maybe Text)
+  , _ssRecordFormat   :: !RecordFormat
+  , _ssRecordColumns  :: !(List1 RecordColumn)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -105,8 +105,8 @@ instance ToQuery DeleteLunaClient where
 
 -- | /See:/ 'deleteLunaClientResponse' smart constructor.
 data DeleteLunaClientResponse = DeleteLunaClientResponse'
-  { _dlcrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dlcrsStatus         :: {-# NOUNPACK #-}!Text
+  { _dlcrsResponseStatus :: !Int
+  , _dlcrsStatus         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

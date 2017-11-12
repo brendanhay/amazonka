@@ -54,13 +54,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-  { _cdCustomJSON  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdAppId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdInstanceIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdLayerIds    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cdComment     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdStackId     :: {-# NOUNPACK #-}!Text
-  , _cdCommand     :: {-# NOUNPACK #-}!DeploymentCommand
+  { _cdCustomJSON  :: !(Maybe Text)
+  , _cdAppId       :: !(Maybe Text)
+  , _cdInstanceIds :: !(Maybe [Text])
+  , _cdLayerIds    :: !(Maybe [Text])
+  , _cdComment     :: !(Maybe Text)
+  , _cdStackId     :: !Text
+  , _cdCommand     :: !DeploymentCommand
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -171,8 +171,8 @@ instance ToQuery CreateDeployment where
 --
 -- /See:/ 'createDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
-  { _cdrsDeploymentId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdrsDeploymentId   :: !(Maybe Text)
+  , _cdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

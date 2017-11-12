@@ -59,11 +59,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'adminRespondToAuthChallenge' smart constructor.
 data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
-  { _artacChallengeResponses :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _artacSession            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _artacUserPoolId         :: {-# NOUNPACK #-}!Text
-  , _artacClientId           :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _artacChallengeName      :: {-# NOUNPACK #-}!ChallengeNameType
+  { _artacChallengeResponses :: !(Maybe (Map Text Text))
+  , _artacSession            :: !(Maybe Text)
+  , _artacUserPoolId         :: !Text
+  , _artacClientId           :: !(Sensitive Text)
+  , _artacChallengeName      :: !ChallengeNameType
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -166,11 +166,11 @@ instance ToQuery AdminRespondToAuthChallenge where
 --
 -- /See:/ 'adminRespondToAuthChallengeResponse' smart constructor.
 data AdminRespondToAuthChallengeResponse = AdminRespondToAuthChallengeResponse'
-  { _artacrsChallengeName :: {-# NOUNPACK #-}!(Maybe ChallengeNameType)
-  , _artacrsChallengeParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _artacrsAuthenticationResult :: {-# NOUNPACK #-}!(Maybe AuthenticationResultType)
-  , _artacrsSession :: {-# NOUNPACK #-}!(Maybe Text)
-  , _artacrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _artacrsChallengeName        :: !(Maybe ChallengeNameType)
+  , _artacrsChallengeParameters  :: !(Maybe (Map Text Text))
+  , _artacrsAuthenticationResult :: !(Maybe AuthenticationResultType)
+  , _artacrsSession              :: !(Maybe Text)
+  , _artacrsResponseStatus       :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

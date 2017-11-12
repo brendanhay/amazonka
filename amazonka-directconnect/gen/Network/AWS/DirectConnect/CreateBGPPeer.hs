@@ -57,8 +57,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createBGPPeer' smart constructor.
 data CreateBGPPeer = CreateBGPPeer'
-  { _cbpNewBGPPeer         :: {-# NOUNPACK #-}!(Maybe NewBGPPeer)
-  , _cbpVirtualInterfaceId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cbpNewBGPPeer         :: !(Maybe NewBGPPeer)
+  , _cbpVirtualInterfaceId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,8 +125,8 @@ instance ToQuery CreateBGPPeer where
 --
 -- /See:/ 'createBGPPeerResponse' smart constructor.
 data CreateBGPPeerResponse = CreateBGPPeerResponse'
-  { _cbprsVirtualInterface :: {-# NOUNPACK #-}!(Maybe VirtualInterface)
-  , _cbprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _cbprsVirtualInterface :: !(Maybe VirtualInterface)
+  , _cbprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

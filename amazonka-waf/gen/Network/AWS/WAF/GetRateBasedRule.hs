@@ -99,8 +99,8 @@ instance ToQuery GetRateBasedRule where
 
 -- | /See:/ 'getRateBasedRuleResponse' smart constructor.
 data GetRateBasedRuleResponse = GetRateBasedRuleResponse'
-  { _grbrrsRule           :: {-# NOUNPACK #-}!(Maybe RateBasedRule)
-  , _grbrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grbrrsRule           :: !(Maybe RateBasedRule)
+  , _grbrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

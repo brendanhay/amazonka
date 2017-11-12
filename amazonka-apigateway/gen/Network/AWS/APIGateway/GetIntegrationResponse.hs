@@ -56,10 +56,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'getIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
-  { _giiRestAPIId  :: {-# NOUNPACK #-}!Text
-  , _giiResourceId :: {-# NOUNPACK #-}!Text
-  , _giiHttpMethod :: {-# NOUNPACK #-}!Text
-  , _giiStatusCode :: {-# NOUNPACK #-}!Text
+  { _giiRestAPIId  :: !Text
+  , _giiResourceId :: !Text
+  , _giiHttpMethod :: !Text
+  , _giiStatusCode :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

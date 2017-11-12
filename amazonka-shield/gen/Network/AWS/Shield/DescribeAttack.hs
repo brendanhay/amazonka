@@ -100,8 +100,8 @@ instance ToQuery DescribeAttack where
 
 -- | /See:/ 'describeAttackResponse' smart constructor.
 data DescribeAttackResponse = DescribeAttackResponse'
-  { _darsAttack         :: {-# NOUNPACK #-}!(Maybe AttackDetail)
-  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _darsAttack         :: !(Maybe AttackDetail)
+  , _darsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

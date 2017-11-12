@@ -55,10 +55,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeParameters' smart constructor.
 data DescribeParameters = DescribeParameters'
-  { _dpParameterFilters :: {-# NOUNPACK #-}!(Maybe [ParameterStringFilter])
-  , _dpFilters          :: {-# NOUNPACK #-}!(Maybe [ParametersFilter])
-  , _dpNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _dpParameterFilters :: !(Maybe [ParameterStringFilter])
+  , _dpFilters          :: !(Maybe [ParametersFilter])
+  , _dpNextToken        :: !(Maybe Text)
+  , _dpMaxResults       :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery DescribeParameters where
 
 -- | /See:/ 'describeParametersResponse' smart constructor.
 data DescribeParametersResponse = DescribeParametersResponse'
-  { _dprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dprsParameters     :: {-# NOUNPACK #-}!(Maybe [ParameterMetadata])
-  , _dprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dprsNextToken      :: !(Maybe Text)
+  , _dprsParameters     :: !(Maybe [ParameterMetadata])
+  , _dprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

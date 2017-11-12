@@ -55,10 +55,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'getSDK' smart constructor.
 data GetSDK = GetSDK'
-  { _gsdkParameters :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gsdkRestAPIId  :: {-# NOUNPACK #-}!Text
-  , _gsdkStageName  :: {-# NOUNPACK #-}!Text
-  , _gsdkSdkType    :: {-# NOUNPACK #-}!Text
+  { _gsdkParameters :: !(Maybe (Map Text Text))
+  , _gsdkRestAPIId  :: !Text
+  , _gsdkStageName  :: !Text
+  , _gsdkSdkType    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,10 +144,10 @@ instance ToQuery GetSDK where
 --
 -- /See:/ 'getSDKResponse' smart constructor.
 data GetSDKResponse = GetSDKResponse'
-  { _gsdkrsBody               :: {-# NOUNPACK #-}!(Maybe (HashMap Text Value))
-  , _gsdkrsContentDisposition :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdkrsContentType        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdkrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _gsdkrsBody               :: !(Maybe (HashMap Text Value))
+  , _gsdkrsContentDisposition :: !(Maybe Text)
+  , _gsdkrsContentType        :: !(Maybe Text)
+  , _gsdkrsResponseStatus     :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

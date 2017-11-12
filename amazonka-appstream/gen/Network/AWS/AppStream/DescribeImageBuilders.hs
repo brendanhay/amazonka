@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeImageBuilders' smart constructor.
 data DescribeImageBuilders = DescribeImageBuilders'
-  { _dibNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dibNames      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dibMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dibNextToken  :: !(Maybe Text)
+  , _dibNames      :: !(Maybe [Text])
+  , _dibMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery DescribeImageBuilders where
 
 -- | /See:/ 'describeImageBuildersResponse' smart constructor.
 data DescribeImageBuildersResponse = DescribeImageBuildersResponse'
-  { _dibsrsImageBuilders  :: {-# NOUNPACK #-}!(Maybe [ImageBuilder])
-  , _dibsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dibsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dibsrsImageBuilders  :: !(Maybe [ImageBuilder])
+  , _dibsrsNextToken      :: !(Maybe Text)
+  , _dibsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

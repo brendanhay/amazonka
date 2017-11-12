@@ -64,8 +64,8 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'deprecateActivityType' smart constructor.
 data DeprecateActivityType = DeprecateActivityType'
-  { _depDomain       :: {-# NOUNPACK #-}!Text
-  , _depActivityType :: {-# NOUNPACK #-}!ActivityType
+  { _depDomain       :: !Text
+  , _depActivityType :: !ActivityType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

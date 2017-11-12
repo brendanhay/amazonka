@@ -54,8 +54,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listIdentityPools' smart constructor.
 data ListIdentityPools = ListIdentityPools'
-  { _lipNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lipMaxResults :: {-# NOUNPACK #-}!Nat
+  { _lipNextToken  :: !(Maybe Text)
+  , _lipMaxResults :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,9 +126,9 @@ instance ToQuery ListIdentityPools where
 --
 -- /See:/ 'listIdentityPoolsResponse' smart constructor.
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
-  { _liprsIdentityPools :: {-# NOUNPACK #-}!(Maybe [IdentityPoolShortDescription])
-  , _liprsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _liprsIdentityPools  :: !(Maybe [IdentityPoolShortDescription])
+  , _liprsNextToken      :: !(Maybe Text)
+  , _liprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

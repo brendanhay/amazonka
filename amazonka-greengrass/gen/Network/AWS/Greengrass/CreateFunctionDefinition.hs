@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createFunctionDefinition' smart constructor.
 data CreateFunctionDefinition = CreateFunctionDefinition'
-  { _cfdAmznClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdInitialVersion  :: {-# NOUNPACK #-}!(Maybe FunctionDefinitionVersion)
-  , _cfdName            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cfdAmznClientToken :: !(Maybe Text)
+  , _cfdInitialVersion  :: !(Maybe FunctionDefinitionVersion)
+  , _cfdName            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,14 +131,14 @@ instance ToQuery CreateFunctionDefinition where
 
 -- | /See:/ 'createFunctionDefinitionResponse' smart constructor.
 data CreateFunctionDefinitionResponse = CreateFunctionDefinitionResponse'
-  { _cfdrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfdrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _cfdrsLatestVersionARN     :: !(Maybe Text)
+  , _cfdrsARN                  :: !(Maybe Text)
+  , _cfdrsName                 :: !(Maybe Text)
+  , _cfdrsCreationTimestamp    :: !(Maybe Text)
+  , _cfdrsId                   :: !(Maybe Text)
+  , _cfdrsLatestVersion        :: !(Maybe Text)
+  , _cfdrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _cfdrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'pollForTask' smart constructor.
 data PollForTask = PollForTask'
-  { _pftHostname         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pftInstanceIdentity :: {-# NOUNPACK #-}!(Maybe InstanceIdentity)
-  , _pftWorkerGroup      :: {-# NOUNPACK #-}!Text
+  { _pftHostname         :: !(Maybe Text)
+  , _pftInstanceIdentity :: !(Maybe InstanceIdentity)
+  , _pftWorkerGroup      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery PollForTask where
 --
 -- /See:/ 'pollForTaskResponse' smart constructor.
 data PollForTaskResponse = PollForTaskResponse'
-  { _pftrsTaskObject     :: {-# NOUNPACK #-}!(Maybe TaskObject)
-  , _pftrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pftrsTaskObject     :: !(Maybe TaskObject)
+  , _pftrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

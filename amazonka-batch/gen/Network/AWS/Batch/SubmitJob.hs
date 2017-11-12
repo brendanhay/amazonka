@@ -53,13 +53,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'submitJob' smart constructor.
 data SubmitJob = SubmitJob'
-  { _sjContainerOverrides :: {-# NOUNPACK #-}!(Maybe ContainerOverrides)
-  , _sjRetryStrategy      :: {-# NOUNPACK #-}!(Maybe RetryStrategy)
-  , _sjDependsOn          :: {-# NOUNPACK #-}!(Maybe [JobDependency])
-  , _sjParameters         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _sjJobName            :: {-# NOUNPACK #-}!Text
-  , _sjJobQueue           :: {-# NOUNPACK #-}!Text
-  , _sjJobDefinition      :: {-# NOUNPACK #-}!Text
+  { _sjContainerOverrides :: !(Maybe ContainerOverrides)
+  , _sjRetryStrategy      :: !(Maybe RetryStrategy)
+  , _sjDependsOn          :: !(Maybe [JobDependency])
+  , _sjParameters         :: !(Maybe (Map Text Text))
+  , _sjJobName            :: !Text
+  , _sjJobQueue           :: !Text
+  , _sjJobDefinition      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -166,9 +166,9 @@ instance ToQuery SubmitJob where
 
 -- | /See:/ 'submitJobResponse' smart constructor.
 data SubmitJobResponse = SubmitJobResponse'
-  { _sjrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _sjrsJobName        :: {-# NOUNPACK #-}!Text
-  , _sjrsJobId          :: {-# NOUNPACK #-}!Text
+  { _sjrsResponseStatus :: !Int
+  , _sjrsJobName        :: !Text
+  , _sjrsJobId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

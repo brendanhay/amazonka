@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDocumentationPart' smart constructor.
 data GetDocumentationPart = GetDocumentationPart'
-  { _getRestAPIId           :: {-# NOUNPACK #-}!Text
-  , _getDocumentationPartId :: {-# NOUNPACK #-}!Text
+  { _getRestAPIId           :: !Text
+  , _getDocumentationPartId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

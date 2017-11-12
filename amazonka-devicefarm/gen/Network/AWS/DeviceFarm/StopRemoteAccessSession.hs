@@ -110,8 +110,8 @@ instance ToQuery StopRemoteAccessSession where
 --
 -- /See:/ 'stopRemoteAccessSessionResponse' smart constructor.
 data StopRemoteAccessSessionResponse = StopRemoteAccessSessionResponse'
-  { _srasrsRemoteAccessSession :: {-# NOUNPACK #-}!(Maybe RemoteAccessSession)
-  , _srasrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _srasrsRemoteAccessSession :: !(Maybe RemoteAccessSession)
+  , _srasrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

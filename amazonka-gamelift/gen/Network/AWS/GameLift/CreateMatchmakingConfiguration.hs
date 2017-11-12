@@ -85,18 +85,18 @@ import Network.AWS.Response
 --
 -- /See:/ 'createMatchmakingConfiguration' smart constructor.
 data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
-  { _cmcGameProperties           :: {-# NOUNPACK #-}!(Maybe [GameProperty])
-  , _cmcAcceptanceTimeoutSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cmcNotificationTarget       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmcCustomEventData          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmcGameSessionData          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmcDescription              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmcAdditionalPlayerCount    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cmcName                     :: {-# NOUNPACK #-}!Text
-  , _cmcGameSessionQueueARNs     :: {-# NOUNPACK #-}![Text]
-  , _cmcRequestTimeoutSeconds    :: {-# NOUNPACK #-}!Nat
-  , _cmcAcceptanceRequired       :: {-# NOUNPACK #-}!Bool
-  , _cmcRuleSetName              :: {-# NOUNPACK #-}!Text
+  { _cmcGameProperties           :: !(Maybe [GameProperty])
+  , _cmcAcceptanceTimeoutSeconds :: !(Maybe Nat)
+  , _cmcNotificationTarget       :: !(Maybe Text)
+  , _cmcCustomEventData          :: !(Maybe Text)
+  , _cmcGameSessionData          :: !(Maybe Text)
+  , _cmcDescription              :: !(Maybe Text)
+  , _cmcAdditionalPlayerCount    :: !(Maybe Nat)
+  , _cmcName                     :: !Text
+  , _cmcGameSessionQueueARNs     :: ![Text]
+  , _cmcRequestTimeoutSeconds    :: !Nat
+  , _cmcAcceptanceRequired       :: !Bool
+  , _cmcRuleSetName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -260,8 +260,8 @@ instance ToQuery CreateMatchmakingConfiguration where
 --
 -- /See:/ 'createMatchmakingConfigurationResponse' smart constructor.
 data CreateMatchmakingConfigurationResponse = CreateMatchmakingConfigurationResponse'
-  { _cmcrsConfiguration  :: {-# NOUNPACK #-}!(Maybe MatchmakingConfiguration)
-  , _cmcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cmcrsConfiguration  :: !(Maybe MatchmakingConfiguration)
+  , _cmcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

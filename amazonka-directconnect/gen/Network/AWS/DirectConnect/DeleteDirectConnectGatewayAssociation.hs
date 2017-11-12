@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteDirectConnectGatewayAssociation' smart constructor.
 data DeleteDirectConnectGatewayAssociation = DeleteDirectConnectGatewayAssociation'
-  { _delDirectConnectGatewayId :: {-# NOUNPACK #-}!Text
-  , _delVirtualGatewayId       :: {-# NOUNPACK #-}!Text
+  { _delDirectConnectGatewayId :: !Text
+  , _delVirtualGatewayId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,8 +139,8 @@ instance ToQuery
 --
 -- /See:/ 'deleteDirectConnectGatewayAssociationResponse' smart constructor.
 data DeleteDirectConnectGatewayAssociationResponse = DeleteDirectConnectGatewayAssociationResponse'
-  { _delrsDirectConnectGatewayAssociation :: {-# NOUNPACK #-}!(Maybe DirectConnectGatewayAssociation)
-  , _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _delrsDirectConnectGatewayAssociation :: !(Maybe DirectConnectGatewayAssociation)
+  , _delrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

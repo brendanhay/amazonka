@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'listIdentities' smart constructor.
 data ListIdentities = ListIdentities'
-  { _liHideDisabled   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _liNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _liIdentityPoolId :: {-# NOUNPACK #-}!Text
-  , _liMaxResults     :: {-# NOUNPACK #-}!Nat
+  { _liHideDisabled   :: !(Maybe Bool)
+  , _liNextToken      :: !(Maybe Text)
+  , _liIdentityPoolId :: !Text
+  , _liMaxResults     :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,10 +150,10 @@ instance ToQuery ListIdentities where
 --
 -- /See:/ 'listIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
-  { _lirsIdentityPoolId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lirsIdentities     :: {-# NOUNPACK #-}!(Maybe [IdentityDescription])
-  , _lirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lirsIdentityPoolId :: !(Maybe Text)
+  , _lirsNextToken      :: !(Maybe Text)
+  , _lirsIdentities     :: !(Maybe [IdentityDescription])
+  , _lirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

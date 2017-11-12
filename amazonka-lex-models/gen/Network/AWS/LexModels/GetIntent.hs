@@ -63,8 +63,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getIntent' smart constructor.
 data GetIntent = GetIntent'
-  { _giName    :: {-# NOUNPACK #-}!Text
-  , _giVersion :: {-# NOUNPACK #-}!Text
+  { _giName    :: !Text
+  , _giVersion :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,22 +137,22 @@ instance ToQuery GetIntent where
 
 -- | /See:/ 'getIntentResponse' smart constructor.
 data GetIntentResponse = GetIntentResponse'
-  { _girsFulfillmentActivity   :: {-# NOUNPACK #-}!(Maybe FulfillmentActivity)
-  , _girsSlots                 :: {-# NOUNPACK #-}!(Maybe [Slot])
-  , _girsRejectionStatement    :: {-# NOUNPACK #-}!(Maybe Statement)
-  , _girsChecksum              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _girsConclusionStatement   :: {-# NOUNPACK #-}!(Maybe Statement)
-  , _girsSampleUtterances      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _girsParentIntentSignature :: {-# NOUNPACK #-}!(Maybe Text)
-  , _girsCreatedDate           :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _girsName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _girsVersion               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _girsFollowUpPrompt        :: {-# NOUNPACK #-}!(Maybe FollowUpPrompt)
-  , _girsLastUpdatedDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _girsConfirmationPrompt    :: {-# NOUNPACK #-}!(Maybe Prompt)
-  , _girsDialogCodeHook        :: {-# NOUNPACK #-}!(Maybe CodeHook)
-  , _girsDescription           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _girsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _girsFulfillmentActivity   :: !(Maybe FulfillmentActivity)
+  , _girsSlots                 :: !(Maybe [Slot])
+  , _girsRejectionStatement    :: !(Maybe Statement)
+  , _girsChecksum              :: !(Maybe Text)
+  , _girsConclusionStatement   :: !(Maybe Statement)
+  , _girsSampleUtterances      :: !(Maybe [Text])
+  , _girsParentIntentSignature :: !(Maybe Text)
+  , _girsCreatedDate           :: !(Maybe POSIX)
+  , _girsName                  :: !(Maybe Text)
+  , _girsVersion               :: !(Maybe Text)
+  , _girsFollowUpPrompt        :: !(Maybe FollowUpPrompt)
+  , _girsLastUpdatedDate       :: !(Maybe POSIX)
+  , _girsConfirmationPrompt    :: !(Maybe Prompt)
+  , _girsDialogCodeHook        :: !(Maybe CodeHook)
+  , _girsDescription           :: !(Maybe Text)
+  , _girsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

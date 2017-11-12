@@ -53,10 +53,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'attachNetworkInterface' smart constructor.
 data AttachNetworkInterface = AttachNetworkInterface'
-  { _aniDryRun             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _aniDeviceIndex        :: {-# NOUNPACK #-}!Int
-  , _aniInstanceId         :: {-# NOUNPACK #-}!Text
-  , _aniNetworkInterfaceId :: {-# NOUNPACK #-}!Text
+  { _aniDryRun             :: !(Maybe Bool)
+  , _aniDeviceIndex        :: !Int
+  , _aniInstanceId         :: !Text
+  , _aniNetworkInterfaceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery AttachNetworkInterface where
 --
 -- /See:/ 'attachNetworkInterfaceResponse' smart constructor.
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
-  { _anirsAttachmentId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _anirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _anirsAttachmentId   :: !(Maybe Text)
+  , _anirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

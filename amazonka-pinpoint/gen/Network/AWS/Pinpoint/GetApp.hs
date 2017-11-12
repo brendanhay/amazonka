@@ -92,8 +92,8 @@ instance ToQuery GetApp where
 
 -- | /See:/ 'getAppResponse' smart constructor.
 data GetAppResponse = GetAppResponse'
-  { _garsResponseStatus      :: {-# NOUNPACK #-}!Int
-  , _garsApplicationResponse :: {-# NOUNPACK #-}!ApplicationResponse
+  { _garsResponseStatus      :: !Int
+  , _garsApplicationResponse :: !ApplicationResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

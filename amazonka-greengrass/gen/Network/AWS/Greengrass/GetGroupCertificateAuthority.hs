@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getGroupCertificateAuthority' smart constructor.
 data GetGroupCertificateAuthority = GetGroupCertificateAuthority'
-  { _ggcaCertificateAuthorityId :: {-# NOUNPACK #-}!Text
-  , _ggcaGroupId                :: {-# NOUNPACK #-}!Text
+  { _ggcaCertificateAuthorityId :: !Text
+  , _ggcaGroupId                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,10 +115,10 @@ instance ToQuery GetGroupCertificateAuthority where
 
 -- | /See:/ 'getGroupCertificateAuthorityResponse' smart constructor.
 data GetGroupCertificateAuthorityResponse = GetGroupCertificateAuthorityResponse'
-  { _ggcarsPemEncodedCertificate        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggcarsGroupCertificateAuthorityARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggcarsGroupCertificateAuthorityId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggcarsResponseStatus               :: {-# NOUNPACK #-}!Int
+  { _ggcarsPemEncodedCertificate        :: !(Maybe Text)
+  , _ggcarsGroupCertificateAuthorityARN :: !(Maybe Text)
+  , _ggcarsGroupCertificateAuthorityId  :: !(Maybe Text)
+  , _ggcarsResponseStatus               :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'addTagsToCertificate' smart constructor.
 data AddTagsToCertificate = AddTagsToCertificate'
-  { _attcCertificateARN :: {-# NOUNPACK #-}!Text
-  , _attcTags           :: {-# NOUNPACK #-}!(List1 Tag)
+  { _attcCertificateARN :: !Text
+  , _attcTags           :: !(List1 Tag)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

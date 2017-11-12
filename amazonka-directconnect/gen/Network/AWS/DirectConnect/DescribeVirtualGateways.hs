@@ -97,8 +97,8 @@ instance ToQuery DescribeVirtualGateways where
 --
 -- /See:/ 'describeVirtualGatewaysResponse' smart constructor.
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
-  { _dvgrsVirtualGateways :: {-# NOUNPACK #-}!(Maybe [VirtualGateway])
-  , _dvgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dvgrsVirtualGateways :: !(Maybe [VirtualGateway])
+  , _dvgrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

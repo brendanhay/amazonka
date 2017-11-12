@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateLoggerDefinition' smart constructor.
 data UpdateLoggerDefinition = UpdateLoggerDefinition'
-  { _uldName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uldLoggerDefinitionId :: {-# NOUNPACK #-}!Text
+  { _uldName               :: !(Maybe Text)
+  , _uldLoggerDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

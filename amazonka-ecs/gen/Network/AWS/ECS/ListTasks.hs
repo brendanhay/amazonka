@@ -59,14 +59,14 @@ import Network.AWS.Response
 
 -- | /See:/ 'listTasks' smart constructor.
 data ListTasks = ListTasks'
-  { _ltDesiredStatus     :: {-# NOUNPACK #-}!(Maybe DesiredStatus)
-  , _ltCluster           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltFamily            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltStartedBy         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltServiceName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltContainerInstance :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ltDesiredStatus     :: !(Maybe DesiredStatus)
+  , _ltCluster           :: !(Maybe Text)
+  , _ltFamily            :: !(Maybe Text)
+  , _ltNextToken         :: !(Maybe Text)
+  , _ltStartedBy         :: !(Maybe Text)
+  , _ltServiceName       :: !(Maybe Text)
+  , _ltContainerInstance :: !(Maybe Text)
+  , _ltMaxResults        :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -188,9 +188,9 @@ instance ToQuery ListTasks where
 
 -- | /See:/ 'listTasksResponse' smart constructor.
 data ListTasksResponse = ListTasksResponse'
-  { _ltrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltrsTaskARNs       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltrsNextToken      :: !(Maybe Text)
+  , _ltrsTaskARNs       :: !(Maybe [Text])
+  , _ltrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

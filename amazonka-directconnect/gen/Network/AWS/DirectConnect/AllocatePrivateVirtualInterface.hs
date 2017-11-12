@@ -71,9 +71,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'allocatePrivateVirtualInterface' smart constructor.
 data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
-  { _apviConnectionId :: {-# NOUNPACK #-}!Text
-  , _apviOwnerAccount :: {-# NOUNPACK #-}!Text
-  , _apviNewPrivateVirtualInterfaceAllocation :: {-# NOUNPACK #-}!NewPrivateVirtualInterfaceAllocation
+  { _apviConnectionId :: !Text
+  , _apviOwnerAccount :: !Text
+  , _apviNewPrivateVirtualInterfaceAllocation :: !NewPrivateVirtualInterfaceAllocation
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

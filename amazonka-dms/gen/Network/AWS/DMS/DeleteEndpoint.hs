@@ -110,8 +110,8 @@ instance ToQuery DeleteEndpoint where
 --
 -- /See:/ 'deleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
-  { _delrsEndpoint       :: {-# NOUNPACK #-}!(Maybe Endpoint)
-  , _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _delrsEndpoint       :: !(Maybe Endpoint)
+  , _delrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

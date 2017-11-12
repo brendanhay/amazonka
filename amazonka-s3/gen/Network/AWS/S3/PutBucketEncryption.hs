@@ -43,9 +43,9 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketEncryption' smart constructor.
 data PutBucketEncryption = PutBucketEncryption'
-  { _pbeContentMD5 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbeBucket :: {-# NOUNPACK #-}!BucketName
-  , _pbeServerSideEncryptionConfiguration :: {-# NOUNPACK #-}!ServerSideEncryptionConfiguration
+  { _pbeContentMD5                        :: !(Maybe Text)
+  , _pbeBucket                            :: !BucketName
+  , _pbeServerSideEncryptionConfiguration :: !ServerSideEncryptionConfiguration
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

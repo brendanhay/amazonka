@@ -51,8 +51,8 @@ import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'describeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-  { _daNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _daNextToken  :: !(Maybe Text)
+  , _daMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery DescribeAddresses where
 
 -- | /See:/ 'describeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
-  { _drsAddresses      :: {-# NOUNPACK #-}!(Maybe [Address])
-  , _drsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsAddresses      :: !(Maybe [Address])
+  , _drsNextToken      :: !(Maybe Text)
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

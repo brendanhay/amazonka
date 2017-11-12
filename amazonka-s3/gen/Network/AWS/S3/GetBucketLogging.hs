@@ -88,8 +88,8 @@ instance ToQuery GetBucketLogging where
 
 -- | /See:/ 'getBucketLoggingResponse' smart constructor.
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
-  { _gblrsLoggingEnabled :: {-# NOUNPACK #-}!(Maybe LoggingEnabled)
-  , _gblrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gblrsLoggingEnabled :: !(Maybe LoggingEnabled)
+  , _gblrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

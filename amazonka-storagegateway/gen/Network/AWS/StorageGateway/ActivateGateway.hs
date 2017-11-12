@@ -72,13 +72,13 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'activateGateway' smart constructor.
 data ActivateGateway = ActivateGateway'
-  { _agMediumChangerType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _agTapeDriveType     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _agGatewayType       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _agActivationKey     :: {-# NOUNPACK #-}!Text
-  , _agGatewayName       :: {-# NOUNPACK #-}!Text
-  , _agGatewayTimezone   :: {-# NOUNPACK #-}!Text
-  , _agGatewayRegion     :: {-# NOUNPACK #-}!Text
+  { _agMediumChangerType :: !(Maybe Text)
+  , _agTapeDriveType     :: !(Maybe Text)
+  , _agGatewayType       :: !(Maybe Text)
+  , _agActivationKey     :: !Text
+  , _agGatewayName       :: !Text
+  , _agGatewayTimezone   :: !Text
+  , _agGatewayRegion     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -192,8 +192,8 @@ instance ToQuery ActivateGateway where
 --
 -- /See:/ 'activateGatewayResponse' smart constructor.
 data ActivateGatewayResponse = ActivateGatewayResponse'
-  { _agrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _agrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _agrsGatewayARN     :: !(Maybe Text)
+  , _agrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

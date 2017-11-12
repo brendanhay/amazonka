@@ -102,8 +102,8 @@ instance ToQuery PromoteReadReplicaDBCluster where
 
 -- | /See:/ 'promoteReadReplicaDBClusterResponse' smart constructor.
 data PromoteReadReplicaDBClusterResponse = PromoteReadReplicaDBClusterResponse'
-  { _prrdcrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
-  , _prrdcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _prrdcrsDBCluster      :: !(Maybe DBCluster)
+  , _prrdcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

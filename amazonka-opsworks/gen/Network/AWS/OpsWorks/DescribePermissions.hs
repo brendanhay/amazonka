@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describePermissions' smart constructor.
 data DescribePermissions = DescribePermissions'
-  { _dpIAMUserARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpStackId    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dpIAMUserARN :: !(Maybe Text)
+  , _dpStackId    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,8 +119,8 @@ instance ToQuery DescribePermissions where
 --
 -- /See:/ 'describePermissionsResponse' smart constructor.
 data DescribePermissionsResponse = DescribePermissionsResponse'
-  { _dprsPermissions    :: {-# NOUNPACK #-}!(Maybe [Permission])
-  , _dprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dprsPermissions    :: !(Maybe [Permission])
+  , _dprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

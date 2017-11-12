@@ -51,10 +51,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'setRepositoryPolicy' smart constructor.
 data SetRepositoryPolicy = SetRepositoryPolicy'
-  { _srpForce          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _srpRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srpRepositoryName :: {-# NOUNPACK #-}!Text
-  , _srpPolicyText     :: {-# NOUNPACK #-}!Text
+  { _srpForce          :: !(Maybe Bool)
+  , _srpRegistryId     :: !(Maybe Text)
+  , _srpRepositoryName :: !Text
+  , _srpPolicyText     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,10 +141,10 @@ instance ToQuery SetRepositoryPolicy where
 
 -- | /See:/ 'setRepositoryPolicyResponse' smart constructor.
 data SetRepositoryPolicyResponse = SetRepositoryPolicyResponse'
-  { _srprsRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srprsRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srprsPolicyText     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _srprsRegistryId     :: !(Maybe Text)
+  , _srprsRepositoryName :: !(Maybe Text)
+  , _srprsPolicyText     :: !(Maybe Text)
+  , _srprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

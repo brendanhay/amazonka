@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'unassignPrivateIPAddresses' smart constructor.
 data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
-  { _upiaNetworkInterfaceId :: {-# NOUNPACK #-}!Text
-  , _upiaPrivateIPAddresses :: {-# NOUNPACK #-}![Text]
+  { _upiaNetworkInterfaceId :: !Text
+  , _upiaPrivateIPAddresses :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

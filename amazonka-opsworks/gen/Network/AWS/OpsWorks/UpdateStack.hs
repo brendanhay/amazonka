@@ -62,24 +62,24 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
-  { _usDefaultInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usDefaultRootDeviceType :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
-  , _usChefConfiguration :: {-# NOUNPACK #-}!(Maybe ChefConfiguration)
-  , _usAgentVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usDefaultSSHKeyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usCustomCookbooksSource :: {-# NOUNPACK #-}!(Maybe Source)
-  , _usDefaultAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usAttributes :: {-# NOUNPACK #-}!(Maybe (Map StackAttributesKeys Text))
-  , _usName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usDefaultOS :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usUseOpsworksSecurityGroups :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _usUseCustomCookbooks :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _usDefaultSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usConfigurationManager :: {-# NOUNPACK #-}!(Maybe StackConfigurationManager)
-  , _usHostnameTheme :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usStackId :: {-# NOUNPACK #-}!Text
+  { _usDefaultInstanceProfileARN :: !(Maybe Text)
+  , _usServiceRoleARN            :: !(Maybe Text)
+  , _usDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+  , _usChefConfiguration         :: !(Maybe ChefConfiguration)
+  , _usAgentVersion              :: !(Maybe Text)
+  , _usDefaultSSHKeyName         :: !(Maybe Text)
+  , _usCustomJSON                :: !(Maybe Text)
+  , _usCustomCookbooksSource     :: !(Maybe Source)
+  , _usDefaultAvailabilityZone   :: !(Maybe Text)
+  , _usAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+  , _usName                      :: !(Maybe Text)
+  , _usDefaultOS                 :: !(Maybe Text)
+  , _usUseOpsworksSecurityGroups :: !(Maybe Bool)
+  , _usUseCustomCookbooks        :: !(Maybe Bool)
+  , _usDefaultSubnetId           :: !(Maybe Text)
+  , _usConfigurationManager      :: !(Maybe StackConfigurationManager)
+  , _usHostnameTheme             :: !(Maybe Text)
+  , _usStackId                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

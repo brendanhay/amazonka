@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getObjectInformation' smart constructor.
 data GetObjectInformation = GetObjectInformation'
-  { _goiConsistencyLevel :: {-# NOUNPACK #-}!(Maybe ConsistencyLevel)
-  , _goiDirectoryARN     :: {-# NOUNPACK #-}!Text
-  , _goiObjectReference  :: {-# NOUNPACK #-}!ObjectReference
+  { _goiConsistencyLevel :: !(Maybe ConsistencyLevel)
+  , _goiDirectoryARN     :: !Text
+  , _goiObjectReference  :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,9 +126,9 @@ instance ToQuery GetObjectInformation where
 
 -- | /See:/ 'getObjectInformationResponse' smart constructor.
 data GetObjectInformationResponse = GetObjectInformationResponse'
-  { _goirsObjectIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _goirsSchemaFacets     :: {-# NOUNPACK #-}!(Maybe [SchemaFacet])
-  , _goirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _goirsObjectIdentifier :: !(Maybe Text)
+  , _goirsSchemaFacets     :: !(Maybe [SchemaFacet])
+  , _goirsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

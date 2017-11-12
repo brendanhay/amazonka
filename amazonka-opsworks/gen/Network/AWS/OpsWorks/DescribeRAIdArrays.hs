@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeRAIdArrays' smart constructor.
 data DescribeRAIdArrays = DescribeRAIdArrays'
-  { _draiaInstanceId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _draiaRAIdArrayIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _draiaStackId      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _draiaInstanceId   :: !(Maybe Text)
+  , _draiaRAIdArrayIds :: !(Maybe [Text])
+  , _draiaStackId      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,8 +132,8 @@ instance ToQuery DescribeRAIdArrays where
 --
 -- /See:/ 'describeRAIdArraysResponse' smart constructor.
 data DescribeRAIdArraysResponse = DescribeRAIdArraysResponse'
-  { _draiarsRAIdArrays     :: {-# NOUNPACK #-}!(Maybe [RAIdArray])
-  , _draiarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _draiarsRAIdArrays     :: !(Maybe [RAIdArray])
+  , _draiarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

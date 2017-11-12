@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listOnPremisesInstances' smart constructor.
 data ListOnPremisesInstances = ListOnPremisesInstances'
-  { _lopiTagFilters         :: {-# NOUNPACK #-}!(Maybe [TagFilter])
-  , _lopiNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lopiRegistrationStatus :: {-# NOUNPACK #-}!(Maybe RegistrationStatus)
+  { _lopiTagFilters         :: !(Maybe [TagFilter])
+  , _lopiNextToken          :: !(Maybe Text)
+  , _lopiRegistrationStatus :: !(Maybe RegistrationStatus)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery ListOnPremisesInstances where
 --
 -- /See:/ 'listOnPremisesInstancesResponse' smart constructor.
 data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
-  { _lopirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lopirsInstanceNames  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lopirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lopirsNextToken      :: !(Maybe Text)
+  , _lopirsInstanceNames  :: !(Maybe [Text])
+  , _lopirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

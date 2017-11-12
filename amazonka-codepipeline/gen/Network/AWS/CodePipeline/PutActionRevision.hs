@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'putActionRevision' smart constructor.
 data PutActionRevision = PutActionRevision'
-  { _pPipelineName   :: {-# NOUNPACK #-}!Text
-  , _pStageName      :: {-# NOUNPACK #-}!Text
-  , _pActionName     :: {-# NOUNPACK #-}!Text
-  , _pActionRevision :: {-# NOUNPACK #-}!ActionRevision
+  { _pPipelineName   :: !Text
+  , _pStageName      :: !Text
+  , _pActionName     :: !Text
+  , _pActionRevision :: !ActionRevision
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,9 +149,9 @@ instance ToQuery PutActionRevision where
 --
 -- /See:/ 'putActionRevisionResponse' smart constructor.
 data PutActionRevisionResponse = PutActionRevisionResponse'
-  { _prsNewRevision         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _prsPipelineExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _prsNewRevision         :: !(Maybe Bool)
+  , _prsPipelineExecutionId :: !(Maybe Text)
+  , _prsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

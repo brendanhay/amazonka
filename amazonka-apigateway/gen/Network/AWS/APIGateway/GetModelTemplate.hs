@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getModelTemplate' smart constructor.
 data GetModelTemplate = GetModelTemplate'
-  { _gmtRestAPIId :: {-# NOUNPACK #-}!Text
-  , _gmtModelName :: {-# NOUNPACK #-}!Text
+  { _gmtRestAPIId :: !Text
+  , _gmtModelName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery GetModelTemplate where
 --
 -- /See:/ 'getModelTemplateResponse' smart constructor.
 data GetModelTemplateResponse = GetModelTemplateResponse'
-  { _gmtrsValue          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gmtrsValue          :: !(Maybe Text)
+  , _gmtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

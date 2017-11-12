@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createInstanceProfile' smart constructor.
 data CreateInstanceProfile = CreateInstanceProfile'
-  { _cipPath                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cipInstanceProfileName :: {-# NOUNPACK #-}!Text
+  { _cipPath                :: !(Maybe Text)
+  , _cipInstanceProfileName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -111,8 +111,8 @@ instance ToQuery CreateInstanceProfile where
 --
 -- /See:/ 'createInstanceProfileResponse' smart constructor.
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
-  { _ciprsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _ciprsInstanceProfile :: {-# NOUNPACK #-}!InstanceProfile
+  { _ciprsResponseStatus  :: !Int
+  , _ciprsInstanceProfile :: !InstanceProfile
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -91,9 +91,9 @@ instance ToQuery GenerateCredentialReport where
 --
 -- /See:/ 'generateCredentialReportResponse' smart constructor.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
-  { _gcrrsState          :: {-# NOUNPACK #-}!(Maybe ReportStateType)
-  , _gcrrsDescription    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcrrsState          :: !(Maybe ReportStateType)
+  , _gcrrsDescription    :: !(Maybe Text)
+  , _gcrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

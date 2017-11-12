@@ -57,9 +57,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getIntents' smart constructor.
 data GetIntents = GetIntents'
-  { _giNameContains :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _giNameContains :: !(Maybe Text)
+  , _giNextToken    :: !(Maybe Text)
+  , _giMaxResults   :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery GetIntents where
 
 -- | /See:/ 'getIntentsResponse' smart constructor.
 data GetIntentsResponse = GetIntentsResponse'
-  { _gisrsIntents        :: {-# NOUNPACK #-}!(Maybe [IntentMetadata])
-  , _gisrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gisrsIntents        :: !(Maybe [IntentMetadata])
+  , _gisrsNextToken      :: !(Maybe Text)
+  , _gisrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

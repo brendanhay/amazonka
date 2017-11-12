@@ -106,14 +106,14 @@ instance ToQuery DomainMetadata where
 
 -- | /See:/ 'domainMetadataResponse' smart constructor.
 data DomainMetadataResponse = DomainMetadataResponse'
-  { _dmrsItemNamesSizeBytes       :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dmrsAttributeValuesSizeBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dmrsAttributeNameCount       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dmrsAttributeNamesSizeBytes  :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dmrsAttributeValueCount      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dmrsItemCount                :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dmrsTimestamp                :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dmrsResponseStatus           :: {-# NOUNPACK #-}!Int
+  { _dmrsItemNamesSizeBytes       :: !(Maybe Integer)
+  , _dmrsAttributeValuesSizeBytes :: !(Maybe Integer)
+  , _dmrsAttributeNameCount       :: !(Maybe Int)
+  , _dmrsAttributeNamesSizeBytes  :: !(Maybe Integer)
+  , _dmrsAttributeValueCount      :: !(Maybe Int)
+  , _dmrsItemCount                :: !(Maybe Int)
+  , _dmrsTimestamp                :: !(Maybe Int)
+  , _dmrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

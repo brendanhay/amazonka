@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeKey' smart constructor.
 data DescribeKey = DescribeKey'
-  { _dGrantTokens :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dKeyId       :: {-# NOUNPACK #-}!Text
+  { _dGrantTokens :: !(Maybe [Text])
+  , _dKeyId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery DescribeKey where
 
 -- | /See:/ 'describeKeyResponse' smart constructor.
 data DescribeKeyResponse = DescribeKeyResponse'
-  { _dkrsKeyMetadata    :: {-# NOUNPACK #-}!(Maybe KeyMetadata)
-  , _dkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dkrsKeyMetadata    :: !(Maybe KeyMetadata)
+  , _dkrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'initiateLayerUpload' smart constructor.
 data InitiateLayerUpload = InitiateLayerUpload'
-  { _iluRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iluRepositoryName :: {-# NOUNPACK #-}!Text
+  { _iluRegistryId     :: !(Maybe Text)
+  , _iluRepositoryName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,9 +116,9 @@ instance ToQuery InitiateLayerUpload where
 
 -- | /See:/ 'initiateLayerUploadResponse' smart constructor.
 data InitiateLayerUploadResponse = InitiateLayerUploadResponse'
-  { _ilursPartSize       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ilursUploadId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ilursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ilursPartSize       :: !(Maybe Nat)
+  , _ilursUploadId       :: !(Maybe Text)
+  , _ilursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -114,9 +114,9 @@ instance ToQuery ListSubscriptions where
 --
 -- /See:/ 'listSubscriptionsResponse' smart constructor.
 data ListSubscriptionsResponse = ListSubscriptionsResponse'
-  { _lsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsrsSubscriptions  :: {-# NOUNPACK #-}!(Maybe [Subscription])
-  , _lsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lsrsNextToken      :: !(Maybe Text)
+  , _lsrsSubscriptions  :: !(Maybe [Subscription])
+  , _lsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

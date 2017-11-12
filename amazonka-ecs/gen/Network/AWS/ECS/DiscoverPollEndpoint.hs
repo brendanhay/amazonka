@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'discoverPollEndpoint' smart constructor.
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
-  { _dpeCluster           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpeContainerInstance :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dpeCluster           :: !(Maybe Text)
+  , _dpeContainerInstance :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,9 +114,9 @@ instance ToQuery DiscoverPollEndpoint where
 
 -- | /See:/ 'discoverPollEndpointResponse' smart constructor.
 data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
-  { _dpersTelemetryEndpoint :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpersEndpoint          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpersResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dpersTelemetryEndpoint :: !(Maybe Text)
+  , _dpersEndpoint          :: !(Maybe Text)
+  , _dpersResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

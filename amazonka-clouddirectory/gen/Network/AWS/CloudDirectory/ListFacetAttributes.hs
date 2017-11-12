@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listFacetAttributes' smart constructor.
 data ListFacetAttributes = ListFacetAttributes'
-  { _lfaNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfaMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lfaSchemaARN  :: {-# NOUNPACK #-}!Text
-  , _lfaName       :: {-# NOUNPACK #-}!Text
+  { _lfaNextToken  :: !(Maybe Text)
+  , _lfaMaxResults :: !(Maybe Nat)
+  , _lfaSchemaARN  :: !Text
+  , _lfaName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery ListFacetAttributes where
 
 -- | /See:/ 'listFacetAttributesResponse' smart constructor.
 data ListFacetAttributesResponse = ListFacetAttributesResponse'
-  { _lfarsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfarsAttributes     :: {-# NOUNPACK #-}!(Maybe [FacetAttribute])
-  , _lfarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lfarsNextToken      :: !(Maybe Text)
+  , _lfarsAttributes     :: !(Maybe [FacetAttribute])
+  , _lfarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

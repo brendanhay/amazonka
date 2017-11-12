@@ -56,8 +56,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listDeploymentGroups' smart constructor.
 data ListDeploymentGroups = ListDeploymentGroups'
-  { _ldgNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldgApplicationName :: {-# NOUNPACK #-}!Text
+  { _ldgNextToken       :: !(Maybe Text)
+  , _ldgApplicationName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,10 +136,10 @@ instance ToQuery ListDeploymentGroups where
 --
 -- /See:/ 'listDeploymentGroupsResponse' smart constructor.
 data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
-  { _ldgrsNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldgrsApplicationName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldgrsDeploymentGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ldgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ldgrsNextToken        :: !(Maybe Text)
+  , _ldgrsApplicationName  :: !(Maybe Text)
+  , _ldgrsDeploymentGroups :: !(Maybe [Text])
+  , _ldgrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

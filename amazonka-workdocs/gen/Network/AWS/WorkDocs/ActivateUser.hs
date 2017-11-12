@@ -47,8 +47,8 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'activateUser' smart constructor.
 data ActivateUser = ActivateUser'
-  { _auAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _auUserId              :: {-# NOUNPACK #-}!Text
+  { _auAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _auUserId              :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -107,8 +107,8 @@ instance ToQuery ActivateUser where
 
 -- | /See:/ 'activateUserResponse' smart constructor.
 data ActivateUserResponse = ActivateUserResponse'
-  { _aursUser           :: {-# NOUNPACK #-}!(Maybe User)
-  , _aursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _aursUser           :: !(Maybe User)
+  , _aursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'agentVersion' smart constructor.
 data AgentVersion = AgentVersion'
-  { _avVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avConfigurationManager :: {-# NOUNPACK #-}!(Maybe StackConfigurationManager)
+  { _avVersion              :: !(Maybe Text)
+  , _avConfigurationManager :: !(Maybe StackConfigurationManager)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -70,20 +70,20 @@ instance NFData AgentVersion where
 --
 -- /See:/ 'app' smart constructor.
 data App = App'
-  { _appSSLConfiguration :: {-# NOUNPACK #-}!(Maybe SSLConfiguration)
-  , _appEnvironment :: {-# NOUNPACK #-}!(Maybe [EnvironmentVariable])
-  , _appEnableSSL :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _appCreatedAt :: {-# NOUNPACK #-}!(Maybe Text)
-  , _appShortname :: {-# NOUNPACK #-}!(Maybe Text)
-  , _appDataSources :: {-# NOUNPACK #-}!(Maybe [DataSource])
-  , _appAppSource :: {-# NOUNPACK #-}!(Maybe Source)
-  , _appAppId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _appAttributes :: {-# NOUNPACK #-}!(Maybe (Map AppAttributesKeys Text))
-  , _appName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _appType :: {-# NOUNPACK #-}!(Maybe AppType)
-  , _appStackId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _appDomains :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _appDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _appSSLConfiguration :: !(Maybe SSLConfiguration)
+  , _appEnvironment      :: !(Maybe [EnvironmentVariable])
+  , _appEnableSSL        :: !(Maybe Bool)
+  , _appCreatedAt        :: !(Maybe Text)
+  , _appShortname        :: !(Maybe Text)
+  , _appDataSources      :: !(Maybe [DataSource])
+  , _appAppSource        :: !(Maybe Source)
+  , _appAppId            :: !(Maybe Text)
+  , _appAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+  , _appName             :: !(Maybe Text)
+  , _appType             :: !(Maybe AppType)
+  , _appStackId          :: !(Maybe Text)
+  , _appDomains          :: !(Maybe [Text])
+  , _appDescription      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -225,13 +225,13 @@ instance NFData App where
 --
 -- /See:/ 'autoScalingThresholds' smart constructor.
 data AutoScalingThresholds = AutoScalingThresholds'
-  { _astInstanceCount      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _astIgnoreMetricsTime  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _astLoadThreshold      :: {-# NOUNPACK #-}!(Maybe Double)
-  , _astThresholdsWaitTime :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _astAlarms             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _astMemoryThreshold    :: {-# NOUNPACK #-}!(Maybe Double)
-  , _astCPUThreshold       :: {-# NOUNPACK #-}!(Maybe Double)
+  { _astInstanceCount      :: !(Maybe Int)
+  , _astIgnoreMetricsTime  :: !(Maybe Nat)
+  , _astLoadThreshold      :: !(Maybe Double)
+  , _astThresholdsWaitTime :: !(Maybe Nat)
+  , _astAlarms             :: !(Maybe [Text])
+  , _astMemoryThreshold    :: !(Maybe Double)
+  , _astCPUThreshold       :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -329,10 +329,10 @@ instance ToJSON AutoScalingThresholds where
 --
 -- /See:/ 'blockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-  { _bdmVirtualName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bdmNoDevice    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bdmEBS         :: {-# NOUNPACK #-}!(Maybe EBSBlockDevice)
-  , _bdmDeviceName  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bdmVirtualName :: !(Maybe Text)
+  , _bdmNoDevice    :: !(Maybe Text)
+  , _bdmEBS         :: !(Maybe EBSBlockDevice)
+  , _bdmDeviceName  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -402,8 +402,8 @@ instance ToJSON BlockDeviceMapping where
 --
 -- /See:/ 'chefConfiguration' smart constructor.
 data ChefConfiguration = ChefConfiguration'
-  { _ccBerkshelfVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccManageBerkshelf  :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _ccBerkshelfVersion :: !(Maybe Text)
+  , _ccManageBerkshelf  :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -454,8 +454,8 @@ instance ToJSON ChefConfiguration where
 --
 -- /See:/ 'cloudWatchLogsConfiguration' smart constructor.
 data CloudWatchLogsConfiguration = CloudWatchLogsConfiguration'
-  { _cwlcEnabled    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cwlcLogStreams :: {-# NOUNPACK #-}!(Maybe [CloudWatchLogsLogStream])
+  { _cwlcEnabled    :: !(Maybe Bool)
+  , _cwlcLogStreams :: !(Maybe [CloudWatchLogsLogStream])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -506,17 +506,17 @@ instance ToJSON CloudWatchLogsConfiguration where
 --
 -- /See:/ 'cloudWatchLogsLogStream' smart constructor.
 data CloudWatchLogsLogStream = CloudWatchLogsLogStream'
-  { _cwllsBatchCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cwllsFileFingerprintLines :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwllsBufferDuration :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cwllsBatchSize :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cwllsLogGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwllsMultiLineStartPattern :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwllsInitialPosition :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsInitialPosition)
-  , _cwllsDatetimeFormat :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwllsEncoding :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsEncoding)
-  , _cwllsTimeZone :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsTimeZone)
-  , _cwllsFile :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cwllsBatchCount            :: !(Maybe Int)
+  , _cwllsFileFingerprintLines  :: !(Maybe Text)
+  , _cwllsBufferDuration        :: !(Maybe Int)
+  , _cwllsBatchSize             :: !(Maybe Int)
+  , _cwllsLogGroupName          :: !(Maybe Text)
+  , _cwllsMultiLineStartPattern :: !(Maybe Text)
+  , _cwllsInitialPosition       :: !(Maybe CloudWatchLogsInitialPosition)
+  , _cwllsDatetimeFormat        :: !(Maybe Text)
+  , _cwllsEncoding              :: !(Maybe CloudWatchLogsEncoding)
+  , _cwllsTimeZone              :: !(Maybe CloudWatchLogsTimeZone)
+  , _cwllsFile                  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -652,16 +652,16 @@ instance ToJSON CloudWatchLogsLogStream where
 --
 -- /See:/ 'command' smart constructor.
 data Command = Command'
-  { _cDeploymentId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cInstanceId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cStatus         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cLogURL         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCreatedAt      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCommandId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cExitCode       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _cType           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCompletedAt    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cAcknowledgedAt :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cDeploymentId   :: !(Maybe Text)
+  , _cInstanceId     :: !(Maybe Text)
+  , _cStatus         :: !(Maybe Text)
+  , _cLogURL         :: !(Maybe Text)
+  , _cCreatedAt      :: !(Maybe Text)
+  , _cCommandId      :: !(Maybe Text)
+  , _cExitCode       :: !(Maybe Int)
+  , _cType           :: !(Maybe Text)
+  , _cCompletedAt    :: !(Maybe Text)
+  , _cAcknowledgedAt :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -770,9 +770,9 @@ instance NFData Command where
 --
 -- /See:/ 'dataSource' smart constructor.
 data DataSource = DataSource'
-  { _dsARN          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsDatabaseName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsType         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dsARN          :: !(Maybe Text)
+  , _dsDatabaseName :: !(Maybe Text)
+  , _dsType         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -829,18 +829,18 @@ instance ToJSON DataSource where
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
-  { _dDeploymentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dStatus       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dCommand      :: {-# NOUNPACK #-}!(Maybe DeploymentCommand)
-  , _dCreatedAt    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dCustomJSON   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dIAMUserARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dAppId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dInstanceIds  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dCompletedAt  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dStackId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dComment      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dDuration     :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dDeploymentId :: !(Maybe Text)
+  , _dStatus       :: !(Maybe Text)
+  , _dCommand      :: !(Maybe DeploymentCommand)
+  , _dCreatedAt    :: !(Maybe Text)
+  , _dCustomJSON   :: !(Maybe Text)
+  , _dIAMUserARN   :: !(Maybe Text)
+  , _dAppId        :: !(Maybe Text)
+  , _dInstanceIds  :: !(Maybe [Text])
+  , _dCompletedAt  :: !(Maybe Text)
+  , _dStackId      :: !(Maybe Text)
+  , _dComment      :: !(Maybe Text)
+  , _dDuration     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -965,8 +965,8 @@ instance NFData Deployment where
 --
 -- /See:/ 'deploymentCommand' smart constructor.
 data DeploymentCommand = DeploymentCommand'
-  { _dcArgs :: {-# NOUNPACK #-}!(Maybe (Map Text [Text]))
-  , _dcName :: {-# NOUNPACK #-}!DeploymentCommandName
+  { _dcArgs :: !(Maybe (Map Text [Text]))
+  , _dcName :: !DeploymentCommandName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1015,11 +1015,11 @@ instance ToJSON DeploymentCommand where
 --
 -- /See:/ 'ebsBlockDevice' smart constructor.
 data EBSBlockDevice = EBSBlockDevice'
-  { _ebdDeleteOnTermination :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ebdVolumeSize          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ebdIOPS                :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ebdVolumeType          :: {-# NOUNPACK #-}!(Maybe VolumeType)
-  , _ebdSnapshotId          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ebdDeleteOnTermination :: !(Maybe Bool)
+  , _ebdVolumeSize          :: !(Maybe Int)
+  , _ebdIOPS                :: !(Maybe Int)
+  , _ebdVolumeType          :: !(Maybe VolumeType)
+  , _ebdSnapshotId          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1100,10 +1100,10 @@ instance ToJSON EBSBlockDevice where
 --
 -- /See:/ 'ecsCluster' smart constructor.
 data EcsCluster = EcsCluster'
-  { _ecEcsClusterARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecEcsClusterName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecRegisteredAt   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecStackId        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ecEcsClusterARN  :: !(Maybe Text)
+  , _ecEcsClusterName :: !(Maybe Text)
+  , _ecRegisteredAt   :: !(Maybe Text)
+  , _ecStackId        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1164,11 +1164,11 @@ instance NFData EcsCluster where
 --
 -- /See:/ 'elasticIP' smart constructor.
 data ElasticIP = ElasticIP'
-  { _eiInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eiDomain     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eiIP         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eiName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eiRegion     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eiInstanceId :: !(Maybe Text)
+  , _eiDomain     :: !(Maybe Text)
+  , _eiIP         :: !(Maybe Text)
+  , _eiName       :: !(Maybe Text)
+  , _eiRegion     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1237,15 +1237,15 @@ instance NFData ElasticIP where
 --
 -- /See:/ 'elasticLoadBalancer' smart constructor.
 data ElasticLoadBalancer = ElasticLoadBalancer'
-  { _elbSubnetIds               :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _elbVPCId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _elbAvailabilityZones       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _elbRegion                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _elbElasticLoadBalancerName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _elbStackId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _elbEC2InstanceIds          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _elbLayerId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _elbDNSName                 :: {-# NOUNPACK #-}!(Maybe Text)
+  { _elbSubnetIds               :: !(Maybe [Text])
+  , _elbVPCId                   :: !(Maybe Text)
+  , _elbAvailabilityZones       :: !(Maybe [Text])
+  , _elbRegion                  :: !(Maybe Text)
+  , _elbElasticLoadBalancerName :: !(Maybe Text)
+  , _elbStackId                 :: !(Maybe Text)
+  , _elbEC2InstanceIds          :: !(Maybe [Text])
+  , _elbLayerId                 :: !(Maybe Text)
+  , _elbDNSName                 :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1346,9 +1346,9 @@ instance NFData ElasticLoadBalancer where
 --
 -- /See:/ 'environmentVariable' smart constructor.
 data EnvironmentVariable = EnvironmentVariable'
-  { _evSecure :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _evKey    :: {-# NOUNPACK #-}!Text
-  , _evValue  :: {-# NOUNPACK #-}!Text
+  { _evSecure :: !(Maybe Bool)
+  , _evKey    :: !Text
+  , _evValue  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1405,47 +1405,47 @@ instance ToJSON EnvironmentVariable where
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-  { _iPrivateDNS               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iReportedAgentVersion     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iInstanceId               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iPrivateIP                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iInstallUpdatesOnBoot     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _iVirtualizationType       :: {-# NOUNPACK #-}!(Maybe VirtualizationType)
-  , _iInstanceProfileARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iPlatform                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iHostname                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iSSHHostRsaKeyFingerprint :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iSecurityGroupIds         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _iEcsClusterARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iARN                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iCreatedAt                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iEC2InstanceId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iSSHKeyName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iAgentVersion             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iRootDeviceVolumeId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iSubnetId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iInfrastructureClass      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iSSHHostDsaKeyFingerprint :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iInstanceType             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iEBSOptimized             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _iElasticIP                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iOS                       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iAvailabilityZone         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iLastServiceErrorId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iTenancy                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iAutoScalingType          :: {-# NOUNPACK #-}!(Maybe AutoScalingType)
-  , _iLayerIds                 :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _iArchitecture             :: {-# NOUNPACK #-}!(Maybe Architecture)
-  , _iPublicDNS                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iAMIId                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iPublicIP                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iReportedOS               :: {-# NOUNPACK #-}!(Maybe ReportedOS)
-  , _iRegisteredBy             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iStackId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iRootDeviceType           :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
-  , _iEcsContainerInstanceARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iBlockDeviceMappings      :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
+  { _iPrivateDNS               :: !(Maybe Text)
+  , _iReportedAgentVersion     :: !(Maybe Text)
+  , _iInstanceId               :: !(Maybe Text)
+  , _iStatus                   :: !(Maybe Text)
+  , _iPrivateIP                :: !(Maybe Text)
+  , _iInstallUpdatesOnBoot     :: !(Maybe Bool)
+  , _iVirtualizationType       :: !(Maybe VirtualizationType)
+  , _iInstanceProfileARN       :: !(Maybe Text)
+  , _iPlatform                 :: !(Maybe Text)
+  , _iHostname                 :: !(Maybe Text)
+  , _iSSHHostRsaKeyFingerprint :: !(Maybe Text)
+  , _iSecurityGroupIds         :: !(Maybe [Text])
+  , _iEcsClusterARN            :: !(Maybe Text)
+  , _iARN                      :: !(Maybe Text)
+  , _iCreatedAt                :: !(Maybe Text)
+  , _iEC2InstanceId            :: !(Maybe Text)
+  , _iSSHKeyName               :: !(Maybe Text)
+  , _iAgentVersion             :: !(Maybe Text)
+  , _iRootDeviceVolumeId       :: !(Maybe Text)
+  , _iSubnetId                 :: !(Maybe Text)
+  , _iInfrastructureClass      :: !(Maybe Text)
+  , _iSSHHostDsaKeyFingerprint :: !(Maybe Text)
+  , _iInstanceType             :: !(Maybe Text)
+  , _iEBSOptimized             :: !(Maybe Bool)
+  , _iElasticIP                :: !(Maybe Text)
+  , _iOS                       :: !(Maybe Text)
+  , _iAvailabilityZone         :: !(Maybe Text)
+  , _iLastServiceErrorId       :: !(Maybe Text)
+  , _iTenancy                  :: !(Maybe Text)
+  , _iAutoScalingType          :: !(Maybe AutoScalingType)
+  , _iLayerIds                 :: !(Maybe [Text])
+  , _iArchitecture             :: !(Maybe Architecture)
+  , _iPublicDNS                :: !(Maybe Text)
+  , _iAMIId                    :: !(Maybe Text)
+  , _iPublicIP                 :: !(Maybe Text)
+  , _iReportedOS               :: !(Maybe ReportedOS)
+  , _iRegisteredBy             :: !(Maybe Text)
+  , _iStackId                  :: !(Maybe Text)
+  , _iRootDeviceType           :: !(Maybe RootDeviceType)
+  , _iEcsContainerInstanceARN  :: !(Maybe Text)
+  , _iBlockDeviceMappings      :: !(Maybe [BlockDeviceMapping])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1803,8 +1803,8 @@ instance NFData Instance where
 --
 -- /See:/ 'instanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
-  { _iiSignature :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iiDocument  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iiSignature :: !(Maybe Text)
+  , _iiDocument  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1846,25 +1846,25 @@ instance ToJSON InstanceIdentity where
 --
 -- /See:/ 'instancesCount' smart constructor.
 data InstancesCount = InstancesCount'
-  { _icTerminating    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icPending        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icOnline         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icUnassigning    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icDeregistering  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icRunningSetup   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icRequested      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icBooting        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icStopped        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icRebooting      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icAssigning      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icShuttingDown   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icSetupFailed    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icConnectionLost :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icTerminated     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icStopping       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icRegistered     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icStartFailed    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _icRegistering    :: {-# NOUNPACK #-}!(Maybe Int)
+  { _icTerminating    :: !(Maybe Int)
+  , _icPending        :: !(Maybe Int)
+  , _icOnline         :: !(Maybe Int)
+  , _icUnassigning    :: !(Maybe Int)
+  , _icDeregistering  :: !(Maybe Int)
+  , _icRunningSetup   :: !(Maybe Int)
+  , _icRequested      :: !(Maybe Int)
+  , _icBooting        :: !(Maybe Int)
+  , _icStopped        :: !(Maybe Int)
+  , _icRebooting      :: !(Maybe Int)
+  , _icAssigning      :: !(Maybe Int)
+  , _icShuttingDown   :: !(Maybe Int)
+  , _icSetupFailed    :: !(Maybe Int)
+  , _icConnectionLost :: !(Maybe Int)
+  , _icTerminated     :: !(Maybe Int)
+  , _icStopping       :: !(Maybe Int)
+  , _icRegistered     :: !(Maybe Int)
+  , _icStartFailed    :: !(Maybe Int)
+  , _icRegistering    :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2045,29 +2045,29 @@ instance NFData InstancesCount where
 --
 -- /See:/ 'layer' smart constructor.
 data Layer = Layer'
-  { _lCustomInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lCustomSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lInstallUpdatesOnBoot :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lCloudWatchLogsConfiguration :: {-# NOUNPACK #-}!(Maybe CloudWatchLogsConfiguration)
-  , _lLifecycleEventConfiguration :: {-# NOUNPACK #-}!(Maybe LifecycleEventConfiguration)
-  , _lARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lCreatedAt :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lShortname :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lDefaultRecipes :: {-# NOUNPACK #-}!(Maybe Recipes)
-  , _lCustomRecipes :: {-# NOUNPACK #-}!(Maybe Recipes)
-  , _lCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lVolumeConfigurations :: {-# NOUNPACK #-}!(Maybe [VolumeConfiguration])
-  , _lEnableAutoHealing :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lPackages :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lAttributes :: {-# NOUNPACK #-}!(Maybe (Map LayerAttributesKeys Text))
-  , _lName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lAutoAssignPublicIPs :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lType :: {-# NOUNPACK #-}!(Maybe LayerType)
-  , _lUseEBSOptimizedInstances :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lStackId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lLayerId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lDefaultSecurityGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lAutoAssignElasticIPs :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _lCustomInstanceProfileARN :: !(Maybe Text)
+  , _lCustomSecurityGroupIds :: !(Maybe [Text])
+  , _lInstallUpdatesOnBoot :: !(Maybe Bool)
+  , _lCloudWatchLogsConfiguration :: !(Maybe CloudWatchLogsConfiguration)
+  , _lLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+  , _lARN :: !(Maybe Text)
+  , _lCreatedAt :: !(Maybe Text)
+  , _lShortname :: !(Maybe Text)
+  , _lDefaultRecipes :: !(Maybe Recipes)
+  , _lCustomRecipes :: !(Maybe Recipes)
+  , _lCustomJSON :: !(Maybe Text)
+  , _lVolumeConfigurations :: !(Maybe [VolumeConfiguration])
+  , _lEnableAutoHealing :: !(Maybe Bool)
+  , _lPackages :: !(Maybe [Text])
+  , _lAttributes :: !(Maybe (Map LayerAttributesKeys (Maybe Text)))
+  , _lName :: !(Maybe Text)
+  , _lAutoAssignPublicIPs :: !(Maybe Bool)
+  , _lType :: !(Maybe LayerType)
+  , _lUseEBSOptimizedInstances :: !(Maybe Bool)
+  , _lStackId :: !(Maybe Text)
+  , _lLayerId :: !(Maybe Text)
+  , _lDefaultSecurityGroupNames :: !(Maybe [Text])
+  , _lAutoAssignElasticIPs :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2207,7 +2207,7 @@ lPackages :: Lens' Layer [Text]
 lPackages = lens _lPackages (\ s a -> s{_lPackages = a}) . _Default . _Coerce;
 
 -- | The layer attributes. For the @HaproxyStatsPassword@ , @MysqlRootPassword@ , and @GangliaPassword@ attributes, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@ attribute is set to the cluster's ARN.
-lAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
+lAttributes :: Lens' Layer (HashMap LayerAttributesKeys (Maybe Text))
 lAttributes = lens _lAttributes (\ s a -> s{_lAttributes = a}) . _Default . _Map;
 
 -- | The layer name.
@@ -2321,10 +2321,10 @@ instance ToJSON LifecycleEventConfiguration where
 --
 -- /See:/ 'loadBasedAutoScalingConfiguration' smart constructor.
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
-  { _lbascUpScaling   :: {-# NOUNPACK #-}!(Maybe AutoScalingThresholds)
-  , _lbascEnable      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lbascDownScaling :: {-# NOUNPACK #-}!(Maybe AutoScalingThresholds)
-  , _lbascLayerId     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lbascUpScaling   :: !(Maybe AutoScalingThresholds)
+  , _lbascEnable      :: !(Maybe Bool)
+  , _lbascDownScaling :: !(Maybe AutoScalingThresholds)
+  , _lbascLayerId     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2388,11 +2388,11 @@ instance NFData LoadBasedAutoScalingConfiguration
 --
 -- /See:/ 'permission' smart constructor.
 data Permission = Permission'
-  { _pIAMUserARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pAllowSudo  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pStackId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pLevel      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pAllowSSH   :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _pIAMUserARN :: !(Maybe Text)
+  , _pAllowSudo  :: !(Maybe Bool)
+  , _pStackId    :: !(Maybe Text)
+  , _pLevel      :: !(Maybe Text)
+  , _pAllowSSH   :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2461,19 +2461,19 @@ instance NFData Permission where
 --
 -- /See:/ 'rAIdArray' smart constructor.
 data RAIdArray = RAIdArray'
-  { _raiaInstanceId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raiaSize             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _raiaIOPS             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _raiaCreatedAt        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raiaRAIdLevel        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _raiaDevice           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raiaNumberOfDisks    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _raiaAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raiaName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raiaRAIdArrayId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raiaVolumeType       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raiaStackId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _raiaMountPoint       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _raiaInstanceId       :: !(Maybe Text)
+  , _raiaSize             :: !(Maybe Int)
+  , _raiaIOPS             :: !(Maybe Int)
+  , _raiaCreatedAt        :: !(Maybe Text)
+  , _raiaRAIdLevel        :: !(Maybe Int)
+  , _raiaDevice           :: !(Maybe Text)
+  , _raiaNumberOfDisks    :: !(Maybe Int)
+  , _raiaAvailabilityZone :: !(Maybe Text)
+  , _raiaName             :: !(Maybe Text)
+  , _raiaRAIdArrayId      :: !(Maybe Text)
+  , _raiaVolumeType       :: !(Maybe Text)
+  , _raiaStackId          :: !(Maybe Text)
+  , _raiaMountPoint       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2606,15 +2606,15 @@ instance NFData RAIdArray where
 --
 -- /See:/ 'rdsDBInstance' smart constructor.
 data RDSDBInstance = RDSDBInstance'
-  { _rdiRDSDBInstanceARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiDBUser               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiMissingOnRDS         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdiEngine               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiAddress              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiDBInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiRegion               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiStackId              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiDBPassword           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rdiRDSDBInstanceARN     :: !(Maybe Text)
+  , _rdiDBUser               :: !(Maybe Text)
+  , _rdiMissingOnRDS         :: !(Maybe Bool)
+  , _rdiEngine               :: !(Maybe Text)
+  , _rdiAddress              :: !(Maybe Text)
+  , _rdiDBInstanceIdentifier :: !(Maybe Text)
+  , _rdiRegion               :: !(Maybe Text)
+  , _rdiStackId              :: !(Maybe Text)
+  , _rdiDBPassword           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2717,11 +2717,11 @@ instance NFData RDSDBInstance where
 --
 -- /See:/ 'recipes' smart constructor.
 data Recipes = Recipes'
-  { _rSetup     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rShutdown  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rUndeploy  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rConfigure :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rDeploy    :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _rSetup     :: !(Maybe [Text])
+  , _rShutdown  :: !(Maybe [Text])
+  , _rUndeploy  :: !(Maybe [Text])
+  , _rConfigure :: !(Maybe [Text])
+  , _rDeploy    :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2801,9 +2801,9 @@ instance ToJSON Recipes where
 --
 -- /See:/ 'reportedOS' smart constructor.
 data ReportedOS = ReportedOS'
-  { _roFamily  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _roName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _roVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  { _roFamily  :: !(Maybe Text)
+  , _roName    :: !(Maybe Text)
+  , _roVersion :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2852,9 +2852,9 @@ instance NFData ReportedOS where
 --
 -- /See:/ 'sslConfiguration' smart constructor.
 data SSLConfiguration = SSLConfiguration'
-  { _scChain       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scCertificate :: {-# NOUNPACK #-}!Text
-  , _scPrivateKey  :: {-# NOUNPACK #-}!Text
+  { _scChain       :: !(Maybe Text)
+  , _scCertificate :: !Text
+  , _scPrivateKey  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2917,10 +2917,10 @@ instance ToJSON SSLConfiguration where
 --
 -- /See:/ 'selfUserProfile' smart constructor.
 data SelfUserProfile = SelfUserProfile'
-  { _supSSHPublicKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _supSSHUsername  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _supIAMUserARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _supName         :: {-# NOUNPACK #-}!(Maybe Text)
+  { _supSSHPublicKey :: !(Maybe Text)
+  , _supSSHUsername  :: !(Maybe Text)
+  , _supIAMUserARN   :: !(Maybe Text)
+  , _supName         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2981,12 +2981,12 @@ instance NFData SelfUserProfile where
 --
 -- /See:/ 'serviceError'' smart constructor.
 data ServiceError' = ServiceError''
-  { _seInstanceId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seCreatedAt      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seServiceErrorId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seType           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seStackId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _seMessage        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _seInstanceId     :: !(Maybe Text)
+  , _seCreatedAt      :: !(Maybe Text)
+  , _seServiceErrorId :: !(Maybe Text)
+  , _seType           :: !(Maybe Text)
+  , _seStackId        :: !(Maybe Text)
+  , _seMessage        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3063,8 +3063,8 @@ instance NFData ServiceError' where
 --
 -- /See:/ 'shutdownEventConfiguration' smart constructor.
 data ShutdownEventConfiguration = ShutdownEventConfiguration'
-  { _secExecutionTimeout                :: {-# NOUNPACK #-}!(Maybe Int)
-  , _secDelayUntilElbConnectionsDrained :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _secExecutionTimeout                :: !(Maybe Int)
+  , _secDelayUntilElbConnectionsDrained :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3118,12 +3118,12 @@ instance ToJSON ShutdownEventConfiguration where
 --
 -- /See:/ 'source' smart constructor.
 data Source = Source'
-  { _sURL      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sUsername :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSSHKey   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sPassword :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sType     :: {-# NOUNPACK #-}!(Maybe SourceType)
-  , _sRevision :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sURL      :: !(Maybe Text)
+  , _sUsername :: !(Maybe Text)
+  , _sSSHKey   :: !(Maybe Text)
+  , _sPassword :: !(Maybe Text)
+  , _sType     :: !(Maybe SourceType)
+  , _sRevision :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3211,28 +3211,28 @@ instance ToJSON Source where
 --
 -- /See:/ 'stack' smart constructor.
 data Stack = Stack'
-  { _sDefaultInstanceProfileARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sServiceRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sDefaultRootDeviceType :: {-# NOUNPACK #-}!(Maybe RootDeviceType)
-  , _sARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCreatedAt :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sChefConfiguration :: {-# NOUNPACK #-}!(Maybe ChefConfiguration)
-  , _sAgentVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sDefaultSSHKeyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCustomJSON :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sCustomCookbooksSource :: {-# NOUNPACK #-}!(Maybe Source)
-  , _sDefaultAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sAttributes :: {-# NOUNPACK #-}!(Maybe (Map StackAttributesKeys Text))
-  , _sName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sDefaultOS :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sUseOpsworksSecurityGroups :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sUseCustomCookbooks :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sDefaultSubnetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sRegion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sConfigurationManager :: {-# NOUNPACK #-}!(Maybe StackConfigurationManager)
-  , _sStackId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sHostnameTheme :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sDefaultInstanceProfileARN :: !(Maybe Text)
+  , _sServiceRoleARN            :: !(Maybe Text)
+  , _sDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+  , _sARN                       :: !(Maybe Text)
+  , _sCreatedAt                 :: !(Maybe Text)
+  , _sVPCId                     :: !(Maybe Text)
+  , _sChefConfiguration         :: !(Maybe ChefConfiguration)
+  , _sAgentVersion              :: !(Maybe Text)
+  , _sDefaultSSHKeyName         :: !(Maybe Text)
+  , _sCustomJSON                :: !(Maybe Text)
+  , _sCustomCookbooksSource     :: !(Maybe Source)
+  , _sDefaultAvailabilityZone   :: !(Maybe Text)
+  , _sAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+  , _sName                      :: !(Maybe Text)
+  , _sDefaultOS                 :: !(Maybe Text)
+  , _sUseOpsworksSecurityGroups :: !(Maybe Bool)
+  , _sUseCustomCookbooks        :: !(Maybe Bool)
+  , _sDefaultSubnetId           :: !(Maybe Text)
+  , _sRegion                    :: !(Maybe Text)
+  , _sConfigurationManager      :: !(Maybe StackConfigurationManager)
+  , _sStackId                   :: !(Maybe Text)
+  , _sHostnameTheme             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3438,8 +3438,8 @@ instance NFData Stack where
 --
 -- /See:/ 'stackConfigurationManager' smart constructor.
 data StackConfigurationManager = StackConfigurationManager'
-  { _scmName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scmVersion :: {-# NOUNPACK #-}!(Maybe Text)
+  { _scmName    :: !(Maybe Text)
+  , _scmVersion :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3488,12 +3488,12 @@ instance ToJSON StackConfigurationManager where
 --
 -- /See:/ 'stackSummary' smart constructor.
 data StackSummary = StackSummary'
-  { _ssARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssAppsCount      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ssName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssStackId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssLayersCount    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ssInstancesCount :: {-# NOUNPACK #-}!(Maybe InstancesCount)
+  { _ssARN            :: !(Maybe Text)
+  , _ssAppsCount      :: !(Maybe Int)
+  , _ssName           :: !(Maybe Text)
+  , _ssStackId        :: !(Maybe Text)
+  , _ssLayersCount    :: !(Maybe Int)
+  , _ssInstancesCount :: !(Maybe InstancesCount)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3570,10 +3570,10 @@ instance NFData StackSummary where
 --
 -- /See:/ 'temporaryCredential' smart constructor.
 data TemporaryCredential = TemporaryCredential'
-  { _tcInstanceId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tcUsername          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tcPassword          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tcValidForInMinutes :: {-# NOUNPACK #-}!(Maybe Int)
+  { _tcInstanceId        :: !(Maybe Text)
+  , _tcUsername          :: !(Maybe Text)
+  , _tcPassword          :: !(Maybe Text)
+  , _tcValidForInMinutes :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3634,8 +3634,8 @@ instance NFData TemporaryCredential where
 --
 -- /See:/ 'timeBasedAutoScalingConfiguration' smart constructor.
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
-  { _tbascInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tbascAutoScalingSchedule :: {-# NOUNPACK #-}!(Maybe WeeklyAutoScalingSchedule)
+  { _tbascInstanceId          :: !(Maybe Text)
+  , _tbascAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3682,11 +3682,11 @@ instance NFData TimeBasedAutoScalingConfiguration
 --
 -- /See:/ 'userProfile' smart constructor.
 data UserProfile = UserProfile'
-  { _upAllowSelfManagement :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _upSSHPublicKey        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upSSHUsername         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upIAMUserARN          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upName                :: {-# NOUNPACK #-}!(Maybe Text)
+  { _upAllowSelfManagement :: !(Maybe Bool)
+  , _upSSHPublicKey        :: !(Maybe Text)
+  , _upSSHUsername         :: !(Maybe Text)
+  , _upIAMUserARN          :: !(Maybe Text)
+  , _upName                :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3756,19 +3756,19 @@ instance NFData UserProfile where
 --
 -- /See:/ 'volume' smart constructor.
 data Volume = Volume'
-  { _vInstanceId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vStatus           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vSize             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _vIOPS             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _vDevice           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vRAIdArrayId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vVolumeId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vRegion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vVolumeType       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vEC2VolumeId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vMountPoint       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vInstanceId       :: !(Maybe Text)
+  , _vStatus           :: !(Maybe Text)
+  , _vSize             :: !(Maybe Int)
+  , _vIOPS             :: !(Maybe Int)
+  , _vDevice           :: !(Maybe Text)
+  , _vAvailabilityZone :: !(Maybe Text)
+  , _vName             :: !(Maybe Text)
+  , _vRAIdArrayId      :: !(Maybe Text)
+  , _vVolumeId         :: !(Maybe Text)
+  , _vRegion           :: !(Maybe Text)
+  , _vVolumeType       :: !(Maybe Text)
+  , _vEC2VolumeId      :: !(Maybe Text)
+  , _vMountPoint       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3901,12 +3901,12 @@ instance NFData Volume where
 --
 -- /See:/ 'volumeConfiguration' smart constructor.
 data VolumeConfiguration = VolumeConfiguration'
-  { _vcIOPS          :: {-# NOUNPACK #-}!(Maybe Int)
-  , _vcRAIdLevel     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _vcVolumeType    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vcMountPoint    :: {-# NOUNPACK #-}!Text
-  , _vcNumberOfDisks :: {-# NOUNPACK #-}!Int
-  , _vcSize          :: {-# NOUNPACK #-}!Int
+  { _vcIOPS          :: !(Maybe Int)
+  , _vcRAIdLevel     :: !(Maybe Int)
+  , _vcVolumeType    :: !(Maybe Text)
+  , _vcMountPoint    :: !Text
+  , _vcNumberOfDisks :: !Int
+  , _vcSize          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4009,13 +4009,13 @@ instance ToJSON VolumeConfiguration where
 --
 -- /See:/ 'weeklyAutoScalingSchedule' smart constructor.
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
-  { _wassThursday  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _wassWednesday :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _wassSaturday  :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _wassMonday    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _wassFriday    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _wassSunday    :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _wassTuesday   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
+  { _wassThursday  :: !(Maybe (Map Text Text))
+  , _wassWednesday :: !(Maybe (Map Text Text))
+  , _wassSaturday  :: !(Maybe (Map Text Text))
+  , _wassMonday    :: !(Maybe (Map Text Text))
+  , _wassFriday    :: !(Maybe (Map Text Text))
+  , _wassSunday    :: !(Maybe (Map Text Text))
+  , _wassTuesday   :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

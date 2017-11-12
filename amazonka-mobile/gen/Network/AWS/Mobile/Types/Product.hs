@@ -27,12 +27,12 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'bundleDetails' smart constructor.
 data BundleDetails = BundleDetails'
-  { _bdAvailablePlatforms :: {-# NOUNPACK #-}!(Maybe [Platform])
-  , _bdBundleId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bdVersion            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bdIconURL            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bdTitle              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bdDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _bdAvailablePlatforms :: !(Maybe [Platform])
+  , _bdBundleId           :: !(Maybe Text)
+  , _bdVersion            :: !(Maybe Text)
+  , _bdIconURL            :: !(Maybe Text)
+  , _bdTitle              :: !(Maybe Text)
+  , _bdDescription        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,14 +110,14 @@ instance NFData BundleDetails where
 --
 -- /See:/ 'projectDetails' smart constructor.
 data ProjectDetails = ProjectDetails'
-  { _pdState           :: {-# NOUNPACK #-}!(Maybe ProjectState)
-  , _pdResources       :: {-# NOUNPACK #-}!(Maybe [Resource])
-  , _pdCreatedDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pdConsoleURL      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdRegion          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdProjectId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pdLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _pdState           :: !(Maybe ProjectState)
+  , _pdResources       :: !(Maybe [Resource])
+  , _pdCreatedDate     :: !(Maybe POSIX)
+  , _pdConsoleURL      :: !(Maybe Text)
+  , _pdName            :: !(Maybe Text)
+  , _pdRegion          :: !(Maybe Text)
+  , _pdProjectId       :: !(Maybe Text)
+  , _pdLastUpdatedDate :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -210,8 +210,8 @@ instance NFData ProjectDetails where
 --
 -- /See:/ 'projectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
-  { _psName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psProjectId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _psName      :: !(Maybe Text)
+  , _psProjectId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -252,11 +252,11 @@ instance NFData ProjectSummary where
 --
 -- /See:/ 'resource' smart constructor.
 data Resource = Resource'
-  { _rFeature    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rArn        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _rType       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rFeature    :: !(Maybe Text)
+  , _rArn        :: !(Maybe Text)
+  , _rName       :: !(Maybe Text)
+  , _rAttributes :: !(Maybe (Map Text Text))
+  , _rType       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

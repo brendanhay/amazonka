@@ -101,8 +101,8 @@ instance ToQuery GetComplianceSummaryByConfigRule
 --
 -- /See:/ 'getComplianceSummaryByConfigRuleResponse' smart constructor.
 data GetComplianceSummaryByConfigRuleResponse = GetComplianceSummaryByConfigRuleResponse'
-  { _gcsbcrrsComplianceSummary :: {-# NOUNPACK #-}!(Maybe ComplianceSummary)
-  , _gcsbcrrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gcsbcrrsComplianceSummary :: !(Maybe ComplianceSummary)
+  , _gcsbcrrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

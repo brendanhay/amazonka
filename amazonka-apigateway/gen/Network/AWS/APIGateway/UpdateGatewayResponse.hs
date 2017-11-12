@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateGatewayResponse' smart constructor.
 data UpdateGatewayResponse = UpdateGatewayResponse'
-  { _ugPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
-  , _ugRestAPIId       :: {-# NOUNPACK #-}!Text
-  , _ugResponseType    :: {-# NOUNPACK #-}!GatewayResponseType
+  { _ugPatchOperations :: !(Maybe [PatchOperation])
+  , _ugRestAPIId       :: !Text
+  , _ugResponseType    :: !GatewayResponseType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

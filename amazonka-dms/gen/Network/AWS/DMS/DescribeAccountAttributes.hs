@@ -101,8 +101,8 @@ instance ToQuery DescribeAccountAttributes where
 --
 -- /See:/ 'describeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-  { _daarsAccountQuotas  :: {-# NOUNPACK #-}!(Maybe [AccountQuota])
-  , _daarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _daarsAccountQuotas  :: !(Maybe [AccountQuota])
+  , _daarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -59,9 +59,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEnvironmentHealth' smart constructor.
 data DescribeEnvironmentHealth = DescribeEnvironmentHealth'
-  { _dehEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dehAttributeNames  :: {-# NOUNPACK #-}!(Maybe [EnvironmentHealthAttribute])
-  , _dehEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dehEnvironmentName :: !(Maybe Text)
+  , _dehAttributeNames  :: !(Maybe [EnvironmentHealthAttribute])
+  , _dehEnvironmentId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -143,15 +143,15 @@ instance ToQuery DescribeEnvironmentHealth where
 --
 -- /See:/ 'describeEnvironmentHealthResponse' smart constructor.
 data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
-  { _dehrsStatus             :: {-# NOUNPACK #-}!(Maybe EnvironmentHealth)
-  , _dehrsCauses             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dehrsApplicationMetrics :: {-# NOUNPACK #-}!(Maybe ApplicationMetrics)
-  , _dehrsColor              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dehrsEnvironmentName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dehrsHealthStatus       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dehrsInstancesHealth    :: {-# NOUNPACK #-}!(Maybe InstanceHealthSummary)
-  , _dehrsRefreshedAt        :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dehrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _dehrsStatus             :: !(Maybe EnvironmentHealth)
+  , _dehrsCauses             :: !(Maybe [Text])
+  , _dehrsApplicationMetrics :: !(Maybe ApplicationMetrics)
+  , _dehrsColor              :: !(Maybe Text)
+  , _dehrsEnvironmentName    :: !(Maybe Text)
+  , _dehrsHealthStatus       :: !(Maybe Text)
+  , _dehrsInstancesHealth    :: !(Maybe InstanceHealthSummary)
+  , _dehrsRefreshedAt        :: !(Maybe ISO8601)
+  , _dehrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

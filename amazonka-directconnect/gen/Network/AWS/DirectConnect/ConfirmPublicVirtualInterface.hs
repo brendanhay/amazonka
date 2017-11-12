@@ -118,8 +118,8 @@ instance ToQuery ConfirmPublicVirtualInterface where
 --
 -- /See:/ 'confirmPublicVirtualInterfaceResponse' smart constructor.
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
-  { _crsVirtualInterfaceState :: {-# NOUNPACK #-}!(Maybe VirtualInterfaceState)
-  , _crsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _crsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
+  , _crsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

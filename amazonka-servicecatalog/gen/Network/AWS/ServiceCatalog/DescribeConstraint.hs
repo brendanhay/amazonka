@@ -49,8 +49,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeConstraint' smart constructor.
 data DescribeConstraint = DescribeConstraint'
-  { _dAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dId             :: {-# NOUNPACK #-}!Text
+  { _dAcceptLanguage :: !(Maybe Text)
+  , _dId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,10 +117,10 @@ instance ToQuery DescribeConstraint where
 
 -- | /See:/ 'describeConstraintResponse' smart constructor.
 data DescribeConstraintResponse = DescribeConstraintResponse'
-  { _desrsStatus               :: {-# NOUNPACK #-}!(Maybe RequestStatus)
-  , _desrsConstraintDetail     :: {-# NOUNPACK #-}!(Maybe ConstraintDetail)
-  , _desrsConstraintParameters :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _desrsStatus               :: !(Maybe RequestStatus)
+  , _desrsConstraintDetail     :: !(Maybe ConstraintDetail)
+  , _desrsConstraintParameters :: !(Maybe Text)
+  , _desrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

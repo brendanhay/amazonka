@@ -56,15 +56,15 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'provisionProduct' smart constructor.
 data ProvisionProduct = ProvisionProduct'
-  { _ppNotificationARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ppAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppPathId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppProvisioningParameters :: {-# NOUNPACK #-}!(Maybe [ProvisioningParameter])
-  , _ppTags :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ppProductId :: {-# NOUNPACK #-}!Text
-  , _ppProvisioningArtifactId :: {-# NOUNPACK #-}!Text
-  , _ppProvisionedProductName :: {-# NOUNPACK #-}!Text
-  , _ppProvisionToken :: {-# NOUNPACK #-}!Text
+  { _ppNotificationARNs       :: !(Maybe [Text])
+  , _ppAcceptLanguage         :: !(Maybe Text)
+  , _ppPathId                 :: !(Maybe Text)
+  , _ppProvisioningParameters :: !(Maybe [ProvisioningParameter])
+  , _ppTags                   :: !(Maybe [Tag])
+  , _ppProductId              :: !Text
+  , _ppProvisioningArtifactId :: !Text
+  , _ppProvisionedProductName :: !Text
+  , _ppProvisionToken         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -195,8 +195,8 @@ instance ToQuery ProvisionProduct where
 
 -- | /See:/ 'provisionProductResponse' smart constructor.
 data ProvisionProductResponse = ProvisionProductResponse'
-  { _pprsRecordDetail   :: {-# NOUNPACK #-}!(Maybe RecordDetail)
-  , _pprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pprsRecordDetail   :: !(Maybe RecordDetail)
+  , _pprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -63,21 +63,21 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateUserPool' smart constructor.
 data UpdateUserPool = UpdateUserPool'
-  { _uupUserPoolTags :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _uupVerificationMessageTemplate :: {-# NOUNPACK #-}!(Maybe VerificationMessageTemplateType)
-  , _uupEmailVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uupSmsAuthenticationMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uupEmailVerificationSubject :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uupEmailConfiguration :: {-# NOUNPACK #-}!(Maybe EmailConfigurationType)
-  , _uupSmsVerificationMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uupMFAConfiguration :: {-# NOUNPACK #-}!(Maybe UserPoolMFAType)
-  , _uupLambdaConfig :: {-# NOUNPACK #-}!(Maybe LambdaConfigType)
-  , _uupSmsConfiguration :: {-# NOUNPACK #-}!(Maybe SmsConfigurationType)
-  , _uupAdminCreateUserConfig :: {-# NOUNPACK #-}!(Maybe AdminCreateUserConfigType)
-  , _uupDeviceConfiguration :: {-# NOUNPACK #-}!(Maybe DeviceConfigurationType)
-  , _uupAutoVerifiedAttributes :: {-# NOUNPACK #-}!(Maybe [VerifiedAttributeType])
-  , _uupPolicies :: {-# NOUNPACK #-}!(Maybe UserPoolPolicyType)
-  , _uupUserPoolId :: {-# NOUNPACK #-}!Text
+  { _uupUserPoolTags                :: !(Maybe (Map Text Text))
+  , _uupVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
+  , _uupEmailVerificationMessage    :: !(Maybe Text)
+  , _uupSmsAuthenticationMessage    :: !(Maybe Text)
+  , _uupEmailVerificationSubject    :: !(Maybe Text)
+  , _uupEmailConfiguration          :: !(Maybe EmailConfigurationType)
+  , _uupSmsVerificationMessage      :: !(Maybe Text)
+  , _uupMFAConfiguration            :: !(Maybe UserPoolMFAType)
+  , _uupLambdaConfig                :: !(Maybe LambdaConfigType)
+  , _uupSmsConfiguration            :: !(Maybe SmsConfigurationType)
+  , _uupAdminCreateUserConfig       :: !(Maybe AdminCreateUserConfigType)
+  , _uupDeviceConfiguration         :: !(Maybe DeviceConfigurationType)
+  , _uupAutoVerifiedAttributes      :: !(Maybe [VerifiedAttributeType])
+  , _uupPolicies                    :: !(Maybe UserPoolPolicyType)
+  , _uupUserPoolId                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

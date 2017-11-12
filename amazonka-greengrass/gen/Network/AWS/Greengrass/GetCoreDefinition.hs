@@ -107,14 +107,14 @@ instance ToQuery GetCoreDefinition where
 
 -- | /See:/ 'getCoreDefinitionResponse' smart constructor.
 data GetCoreDefinitionResponse = GetCoreDefinitionResponse'
-  { _gcdrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcdrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _gcdrsLatestVersionARN     :: !(Maybe Text)
+  , _gcdrsARN                  :: !(Maybe Text)
+  , _gcdrsName                 :: !(Maybe Text)
+  , _gcdrsCreationTimestamp    :: !(Maybe Text)
+  , _gcdrsId                   :: !(Maybe Text)
+  , _gcdrsLatestVersion        :: !(Maybe Text)
+  , _gcdrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _gcdrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

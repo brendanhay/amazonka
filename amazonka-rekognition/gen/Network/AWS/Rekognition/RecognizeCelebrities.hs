@@ -116,10 +116,10 @@ instance ToQuery RecognizeCelebrities where
 
 -- | /See:/ 'recognizeCelebritiesResponse' smart constructor.
 data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
-  { _rcrsCelebrityFaces        :: {-# NOUNPACK #-}!(Maybe [Celebrity])
-  , _rcrsOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
-  , _rcrsUnrecognizedFaces     :: {-# NOUNPACK #-}!(Maybe [ComparedFace])
-  , _rcrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _rcrsCelebrityFaces        :: !(Maybe [Celebrity])
+  , _rcrsOrientationCorrection :: !(Maybe OrientationCorrection)
+  , _rcrsUnrecognizedFaces     :: !(Maybe [ComparedFace])
+  , _rcrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

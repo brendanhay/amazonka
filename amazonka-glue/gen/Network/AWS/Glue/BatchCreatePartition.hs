@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'batchCreatePartition' smart constructor.
 data BatchCreatePartition = BatchCreatePartition'
-  { _bcpCatalogId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bcpDatabaseName       :: {-# NOUNPACK #-}!Text
-  , _bcpTableName          :: {-# NOUNPACK #-}!Text
-  , _bcpPartitionInputList :: {-# NOUNPACK #-}![PartitionInput]
+  { _bcpCatalogId          :: !(Maybe Text)
+  , _bcpDatabaseName       :: !Text
+  , _bcpTableName          :: !Text
+  , _bcpPartitionInputList :: ![PartitionInput]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,8 +137,8 @@ instance ToQuery BatchCreatePartition where
 
 -- | /See:/ 'batchCreatePartitionResponse' smart constructor.
 data BatchCreatePartitionResponse = BatchCreatePartitionResponse'
-  { _bcprsErrors         :: {-# NOUNPACK #-}!(Maybe [PartitionError])
-  , _bcprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bcprsErrors         :: !(Maybe [PartitionError])
+  , _bcprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

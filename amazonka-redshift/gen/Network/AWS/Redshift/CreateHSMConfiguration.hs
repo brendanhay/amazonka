@@ -58,13 +58,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'createHSMConfiguration' smart constructor.
 data CreateHSMConfiguration = CreateHSMConfiguration'
-  { _chcTags                       :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _chcHSMConfigurationIdentifier :: {-# NOUNPACK #-}!Text
-  , _chcDescription                :: {-# NOUNPACK #-}!Text
-  , _chcHSMIPAddress               :: {-# NOUNPACK #-}!Text
-  , _chcHSMPartitionName           :: {-# NOUNPACK #-}!Text
-  , _chcHSMPartitionPassword       :: {-# NOUNPACK #-}!Text
-  , _chcHSMServerPublicCertificate :: {-# NOUNPACK #-}!Text
+  { _chcTags                       :: !(Maybe [Tag])
+  , _chcHSMConfigurationIdentifier :: !Text
+  , _chcDescription                :: !Text
+  , _chcHSMIPAddress               :: !Text
+  , _chcHSMPartitionName           :: !Text
+  , _chcHSMPartitionPassword       :: !Text
+  , _chcHSMServerPublicCertificate :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -171,8 +171,8 @@ instance ToQuery CreateHSMConfiguration where
 
 -- | /See:/ 'createHSMConfigurationResponse' smart constructor.
 data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
-  { _chcrsHSMConfiguration :: {-# NOUNPACK #-}!(Maybe HSMConfiguration)
-  , _chcrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _chcrsHSMConfiguration :: !(Maybe HSMConfiguration)
+  , _chcrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'listSteps' smart constructor.
 data ListSteps = ListSteps'
-  { _lsStepIds    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lsStepStates :: {-# NOUNPACK #-}!(Maybe [StepState])
-  , _lsMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsClusterId  :: {-# NOUNPACK #-}!Text
+  { _lsStepIds    :: !(Maybe [Text])
+  , _lsStepStates :: !(Maybe [StepState])
+  , _lsMarker     :: !(Maybe Text)
+  , _lsClusterId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,9 +154,9 @@ instance ToQuery ListSteps where
 --
 -- /See:/ 'listStepsResponse' smart constructor.
 data ListStepsResponse = ListStepsResponse'
-  { _lsrsSteps          :: {-# NOUNPACK #-}!(Maybe [StepSummary])
-  , _lsrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lsrsSteps          :: !(Maybe [StepSummary])
+  , _lsrsMarker         :: !(Maybe Text)
+  , _lsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

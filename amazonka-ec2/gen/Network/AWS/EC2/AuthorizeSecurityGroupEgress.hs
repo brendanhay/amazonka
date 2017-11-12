@@ -59,15 +59,15 @@ import Network.AWS.Response
 --
 -- /See:/ 'authorizeSecurityGroupEgress' smart constructor.
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
-  { _asgeFromPort                   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _asgeIPPermissions              :: {-# NOUNPACK #-}!(Maybe [IPPermission])
-  , _asgeIPProtocol                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgeToPort                     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _asgeCidrIP                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgeSourceSecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgeSourceSecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asgeDryRun                     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _asgeGroupId                    :: {-# NOUNPACK #-}!Text
+  { _asgeFromPort                   :: !(Maybe Int)
+  , _asgeIPPermissions              :: !(Maybe [IPPermission])
+  , _asgeIPProtocol                 :: !(Maybe Text)
+  , _asgeToPort                     :: !(Maybe Int)
+  , _asgeCidrIP                     :: !(Maybe Text)
+  , _asgeSourceSecurityGroupOwnerId :: !(Maybe Text)
+  , _asgeSourceSecurityGroupName    :: !(Maybe Text)
+  , _asgeDryRun                     :: !(Maybe Bool)
+  , _asgeGroupId                    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

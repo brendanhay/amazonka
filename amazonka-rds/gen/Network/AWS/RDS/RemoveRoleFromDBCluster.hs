@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'removeRoleFromDBCluster' smart constructor.
 data RemoveRoleFromDBCluster = RemoveRoleFromDBCluster'
-  { _rrfdcDBClusterIdentifier :: {-# NOUNPACK #-}!Text
-  , _rrfdcRoleARN             :: {-# NOUNPACK #-}!Text
+  { _rrfdcDBClusterIdentifier :: !Text
+  , _rrfdcRoleARN             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'forgotPassword' smart constructor.
 data ForgotPassword = ForgotPassword'
-  { _fpSecretHash :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _fpClientId   :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _fpUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _fpSecretHash :: !(Maybe (Sensitive Text))
+  , _fpClientId   :: !(Sensitive Text)
+  , _fpUsername   :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -135,8 +135,8 @@ instance ToQuery ForgotPassword where
 --
 -- /See:/ 'forgotPasswordResponse' smart constructor.
 data ForgotPasswordResponse = ForgotPasswordResponse'
-  { _fprsCodeDeliveryDetails :: {-# NOUNPACK #-}!(Maybe CodeDeliveryDetailsType)
-  , _fprsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _fprsCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
+  , _fprsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

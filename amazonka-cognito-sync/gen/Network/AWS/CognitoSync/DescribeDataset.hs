@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDataset' smart constructor.
 data DescribeDataset = DescribeDataset'
-  { _ddIdentityPoolId :: {-# NOUNPACK #-}!Text
-  , _ddIdentityId     :: {-# NOUNPACK #-}!Text
-  , _ddDatasetName    :: {-# NOUNPACK #-}!Text
+  { _ddIdentityPoolId :: !Text
+  , _ddIdentityId     :: !Text
+  , _ddDatasetName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,8 +126,8 @@ instance ToQuery DescribeDataset where
 --
 -- /See:/ 'describeDatasetResponse' smart constructor.
 data DescribeDatasetResponse = DescribeDatasetResponse'
-  { _ddrsDataset        :: {-# NOUNPACK #-}!(Maybe Dataset)
-  , _ddrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddrsDataset        :: !(Maybe Dataset)
+  , _ddrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

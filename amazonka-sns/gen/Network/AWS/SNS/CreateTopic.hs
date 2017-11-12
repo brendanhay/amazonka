@@ -101,8 +101,8 @@ instance ToQuery CreateTopic where
 --
 -- /See:/ 'createTopicResponse' smart constructor.
 data CreateTopicResponse = CreateTopicResponse'
-  { _ctrsTopicARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ctrsTopicARN       :: !(Maybe Text)
+  , _ctrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

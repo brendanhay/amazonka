@@ -110,10 +110,10 @@ instance ToQuery CreateDistribution where
 --
 -- /See:/ 'createDistributionResponse' smart constructor.
 data CreateDistributionResponse = CreateDistributionResponse'
-  { _cdrsETag           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdrsDistribution   :: {-# NOUNPACK #-}!(Maybe Distribution)
-  , _cdrsLocation       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdrsETag           :: !(Maybe Text)
+  , _cdrsDistribution   :: !(Maybe Distribution)
+  , _cdrsLocation       :: !(Maybe Text)
+  , _cdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

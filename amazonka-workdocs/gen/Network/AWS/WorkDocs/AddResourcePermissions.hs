@@ -48,9 +48,9 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'addResourcePermissions' smart constructor.
 data AddResourcePermissions = AddResourcePermissions'
-  { _arpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _arpResourceId          :: {-# NOUNPACK #-}!Text
-  , _arpPrincipals          :: {-# NOUNPACK #-}![SharePrincipal]
+  { _arpAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _arpResourceId          :: !Text
+  , _arpPrincipals          :: ![SharePrincipal]
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery AddResourcePermissions where
 
 -- | /See:/ 'addResourcePermissionsResponse' smart constructor.
 data AddResourcePermissionsResponse = AddResourcePermissionsResponse'
-  { _arprsShareResults   :: {-# NOUNPACK #-}!(Maybe [ShareResult])
-  , _arprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _arprsShareResults   :: !(Maybe [ShareResult])
+  , _arprsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

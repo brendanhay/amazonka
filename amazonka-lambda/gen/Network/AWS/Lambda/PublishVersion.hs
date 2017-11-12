@@ -68,9 +68,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'publishVersion' smart constructor.
 data PublishVersion = PublishVersion'
-  { _pvCodeSha256   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvDescription  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pvFunctionName :: {-# NOUNPACK #-}!Text
+  { _pvCodeSha256   :: !(Maybe Text)
+  , _pvDescription  :: !(Maybe Text)
+  , _pvFunctionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

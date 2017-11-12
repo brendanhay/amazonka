@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeElasticsearchInstanceTypeLimits' smart constructor.
 data DescribeElasticsearchInstanceTypeLimits = DescribeElasticsearchInstanceTypeLimits'
-  { _deitlDomainName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deitlInstanceType         :: {-# NOUNPACK #-}!ESPartitionInstanceType
-  , _deitlElasticsearchVersion :: {-# NOUNPACK #-}!Text
+  { _deitlDomainName           :: !(Maybe Text)
+  , _deitlInstanceType         :: !ESPartitionInstanceType
+  , _deitlElasticsearchVersion :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery
 --
 -- /See:/ 'describeElasticsearchInstanceTypeLimitsResponse' smart constructor.
 data DescribeElasticsearchInstanceTypeLimitsResponse = DescribeElasticsearchInstanceTypeLimitsResponse'
-  { _deitlrsLimitsByRole   :: {-# NOUNPACK #-}!(Maybe (Map Text Limits))
-  , _deitlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _deitlrsLimitsByRole   :: !(Maybe (Map Text Limits))
+  , _deitlrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

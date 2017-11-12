@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createSegment' smart constructor.
 data CreateSegment = CreateSegment'
-  { _csApplicationId       :: {-# NOUNPACK #-}!Text
-  , _csWriteSegmentRequest :: {-# NOUNPACK #-}!WriteSegmentRequest
+  { _csApplicationId       :: !Text
+  , _csWriteSegmentRequest :: !WriteSegmentRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery CreateSegment where
 
 -- | /See:/ 'createSegmentResponse' smart constructor.
 data CreateSegmentResponse = CreateSegmentResponse'
-  { _csrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _csrsSegmentResponse :: {-# NOUNPACK #-}!SegmentResponse
+  { _csrsResponseStatus  :: !Int
+  , _csrsSegmentResponse :: !SegmentResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

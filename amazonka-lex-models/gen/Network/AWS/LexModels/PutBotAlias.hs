@@ -58,11 +58,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'putBotAlias' smart constructor.
 data PutBotAlias = PutBotAlias'
-  { _pbaChecksum    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbaDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbaName        :: {-# NOUNPACK #-}!Text
-  , _pbaBotVersion  :: {-# NOUNPACK #-}!Text
-  , _pbaBotName     :: {-# NOUNPACK #-}!Text
+  { _pbaChecksum    :: !(Maybe Text)
+  , _pbaDescription :: !(Maybe Text)
+  , _pbaName        :: !Text
+  , _pbaBotVersion  :: !Text
+  , _pbaBotName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -159,14 +159,14 @@ instance ToQuery PutBotAlias where
 
 -- | /See:/ 'putBotAliasResponse' smart constructor.
 data PutBotAliasResponse = PutBotAliasResponse'
-  { _pbarsChecksum        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbarsBotVersion      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbarsBotName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbarsCreatedDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pbarsName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbarsLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _pbarsDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbarsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _pbarsChecksum        :: !(Maybe Text)
+  , _pbarsBotVersion      :: !(Maybe Text)
+  , _pbarsBotName         :: !(Maybe Text)
+  , _pbarsCreatedDate     :: !(Maybe POSIX)
+  , _pbarsName            :: !(Maybe Text)
+  , _pbarsLastUpdatedDate :: !(Maybe POSIX)
+  , _pbarsDescription     :: !(Maybe Text)
+  , _pbarsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

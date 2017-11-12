@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'revokeCacheSecurityGroupIngress' smart constructor.
 data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
-  { _rcsgiCacheSecurityGroupName  :: {-# NOUNPACK #-}!Text
-  , _rcsgiEC2SecurityGroupName    :: {-# NOUNPACK #-}!Text
-  , _rcsgiEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!Text
+  { _rcsgiCacheSecurityGroupName  :: !Text
+  , _rcsgiEC2SecurityGroupName    :: !Text
+  , _rcsgiEC2SecurityGroupOwnerId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance ToQuery RevokeCacheSecurityGroupIngress
 
 -- | /See:/ 'revokeCacheSecurityGroupIngressResponse' smart constructor.
 data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'
-  { _rcsgirsCacheSecurityGroup :: {-# NOUNPACK #-}!(Maybe CacheSecurityGroup)
-  , _rcsgirsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _rcsgirsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
+  , _rcsgirsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -59,9 +59,9 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'registerDomain' smart constructor.
 data RegisterDomain = RegisterDomain'
-  { _rdDescription                            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdName                                   :: {-# NOUNPACK #-}!Text
-  , _rdWorkflowExecutionRetentionPeriodInDays :: {-# NOUNPACK #-}!Text
+  { _rdDescription                            :: !(Maybe Text)
+  , _rdName                                   :: !Text
+  , _rdWorkflowExecutionRetentionPeriodInDays :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

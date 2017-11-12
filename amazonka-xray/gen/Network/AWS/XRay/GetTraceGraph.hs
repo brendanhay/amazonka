@@ -48,8 +48,8 @@ import Network.AWS.XRay.Types.Product
 
 -- | /See:/ 'getTraceGraph' smart constructor.
 data GetTraceGraph = GetTraceGraph'
-  { _gtgNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtgTraceIds  :: {-# NOUNPACK #-}![Text]
+  { _gtgNextToken :: !(Maybe Text)
+  , _gtgTraceIds  :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -105,9 +105,9 @@ instance ToQuery GetTraceGraph where
 
 -- | /See:/ 'getTraceGraphResponse' smart constructor.
 data GetTraceGraphResponse = GetTraceGraphResponse'
-  { _gtgrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtgrsServices       :: {-# NOUNPACK #-}!(Maybe [ServiceInfo])
-  , _gtgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gtgrsNextToken      :: !(Maybe Text)
+  , _gtgrsServices       :: !(Maybe [ServiceInfo])
+  , _gtgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,9 +57,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'addApplicationReferenceDataSource' smart constructor.
 data AddApplicationReferenceDataSource = AddApplicationReferenceDataSource'
-  { _aardsApplicationName             :: {-# NOUNPACK #-}!Text
-  , _aardsCurrentApplicationVersionId :: {-# NOUNPACK #-}!Nat
-  , _aardsReferenceDataSource         :: {-# NOUNPACK #-}!ReferenceDataSource
+  { _aardsApplicationName             :: !Text
+  , _aardsCurrentApplicationVersionId :: !Nat
+  , _aardsReferenceDataSource         :: !ReferenceDataSource
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

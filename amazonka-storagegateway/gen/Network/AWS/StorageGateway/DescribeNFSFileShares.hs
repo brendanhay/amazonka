@@ -114,8 +114,8 @@ instance ToQuery DescribeNFSFileShares where
 --
 -- /See:/ 'describeNFSFileSharesResponse' smart constructor.
 data DescribeNFSFileSharesResponse = DescribeNFSFileSharesResponse'
-  { _dnfsfsrsNFSFileShareInfoList :: {-# NOUNPACK #-}!(Maybe [NFSFileShareInfo])
-  , _dnfsfsrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _dnfsfsrsNFSFileShareInfoList :: !(Maybe [NFSFileShareInfo])
+  , _dnfsfsrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

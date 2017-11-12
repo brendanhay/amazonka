@@ -48,8 +48,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listProvisioningArtifacts' smart constructor.
 data ListProvisioningArtifacts = ListProvisioningArtifacts'
-  { _lpaAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpaProductId      :: {-# NOUNPACK #-}!Text
+  { _lpaAcceptLanguage :: !(Maybe Text)
+  , _lpaProductId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,9 +117,9 @@ instance ToQuery ListProvisioningArtifacts where
 
 -- | /See:/ 'listProvisioningArtifactsResponse' smart constructor.
 data ListProvisioningArtifactsResponse = ListProvisioningArtifactsResponse'
-  { _lrsNextPageToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrsProvisioningArtifactDetails :: {-# NOUNPACK #-}!(Maybe [ProvisioningArtifactDetail])
-  , _lrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrsNextPageToken               :: !(Maybe Text)
+  , _lrsProvisioningArtifactDetails :: !(Maybe [ProvisioningArtifactDetail])
+  , _lrsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

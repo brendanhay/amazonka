@@ -59,9 +59,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'approveAssignment' smart constructor.
 data ApproveAssignment = ApproveAssignment'
-  { _aaOverrideRejection :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _aaRequesterFeedback :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aaAssignmentId      :: {-# NOUNPACK #-}!Text
+  { _aaOverrideRejection :: !(Maybe Bool)
+  , _aaRequesterFeedback :: !(Maybe Text)
+  , _aaAssignmentId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

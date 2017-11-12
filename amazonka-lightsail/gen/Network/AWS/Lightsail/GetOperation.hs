@@ -100,8 +100,8 @@ instance ToQuery GetOperation where
 
 -- | /See:/ 'getOperationResponse' smart constructor.
 data GetOperationResponse = GetOperationResponse'
-  { _gorsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _gorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gorsOperation      :: !(Maybe Operation)
+  , _gorsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -57,12 +57,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'importSnapshot' smart constructor.
 data ImportSnapshot = ImportSnapshot'
-  { _isDiskContainer :: {-# NOUNPACK #-}!(Maybe SnapshotDiskContainer)
-  , _isClientToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isRoleName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isDescription   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _isClientData    :: {-# NOUNPACK #-}!(Maybe ClientData)
+  { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
+  , _isClientToken   :: !(Maybe Text)
+  , _isRoleName      :: !(Maybe Text)
+  , _isDescription   :: !(Maybe Text)
+  , _isDryRun        :: !(Maybe Bool)
+  , _isClientData    :: !(Maybe ClientData)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -157,10 +157,10 @@ instance ToQuery ImportSnapshot where
 --
 -- /See:/ 'importSnapshotResponse' smart constructor.
 data ImportSnapshotResponse = ImportSnapshotResponse'
-  { _isrsSnapshotTaskDetail :: {-# NOUNPACK #-}!(Maybe SnapshotTaskDetail)
-  , _isrsImportTaskId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isrsDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _isrsSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
+  , _isrsImportTaskId       :: !(Maybe Text)
+  , _isrsDescription        :: !(Maybe Text)
+  , _isrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

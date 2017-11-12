@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'listTopicRules' smart constructor.
 data ListTopicRules = ListTopicRules'
-  { _ltrRuleDisabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ltrTopic        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltrNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltrMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _ltrRuleDisabled :: !(Maybe Bool)
+  , _ltrTopic        :: !(Maybe Text)
+  , _ltrNextToken    :: !(Maybe Text)
+  , _ltrMaxResults   :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,9 +142,9 @@ instance ToQuery ListTopicRules where
 --
 -- /See:/ 'listTopicRulesResponse' smart constructor.
 data ListTopicRulesResponse = ListTopicRulesResponse'
-  { _ltrrsRules          :: {-# NOUNPACK #-}!(Maybe [TopicRuleListItem])
-  , _ltrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltrrsRules          :: !(Maybe [TopicRuleListItem])
+  , _ltrrsNextToken      :: !(Maybe Text)
+  , _ltrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -47,9 +47,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'removeTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-  { _rtfrResourceType :: {-# NOUNPACK #-}!ResourceTypeForTagging
-  , _rtfrResourceId   :: {-# NOUNPACK #-}!Text
-  , _rtfrTagKeys      :: {-# NOUNPACK #-}![Text]
+  { _rtfrResourceType :: !ResourceTypeForTagging
+  , _rtfrResourceId   :: !Text
+  , _rtfrTagKeys      :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

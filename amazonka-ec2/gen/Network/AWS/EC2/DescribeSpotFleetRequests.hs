@@ -59,10 +59,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeSpotFleetRequests' smart constructor.
 data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
-  { _dsfrSpotFleetRequestIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dsfrNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsfrDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsfrMaxResults          :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dsfrSpotFleetRequestIds :: !(Maybe [Text])
+  , _dsfrNextToken           :: !(Maybe Text)
+  , _dsfrDryRun              :: !(Maybe Bool)
+  , _dsfrMaxResults          :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -153,9 +153,9 @@ instance ToQuery DescribeSpotFleetRequests where
 --
 -- /See:/ 'describeSpotFleetRequestsResponse' smart constructor.
 data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
-  { _dsfrrsNextToken               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsfrrsResponseStatus          :: {-# NOUNPACK #-}!Int
-  , _dsfrrsSpotFleetRequestConfigs :: {-# NOUNPACK #-}![SpotFleetRequestConfig]
+  { _dsfrrsNextToken               :: !(Maybe Text)
+  , _dsfrrsResponseStatus          :: !Int
+  , _dsfrrsSpotFleetRequestConfigs :: ![SpotFleetRequestConfig]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

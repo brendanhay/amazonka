@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteRepositoryPolicy' smart constructor.
 data DeleteRepositoryPolicy = DeleteRepositoryPolicy'
-  { _drpRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drpRepositoryName :: {-# NOUNPACK #-}!Text
+  { _drpRegistryId     :: !(Maybe Text)
+  , _drpRepositoryName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,10 +118,10 @@ instance ToQuery DeleteRepositoryPolicy where
 
 -- | /See:/ 'deleteRepositoryPolicyResponse' smart constructor.
 data DeleteRepositoryPolicyResponse = DeleteRepositoryPolicyResponse'
-  { _drprsRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drprsRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drprsPolicyText     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drprsRegistryId     :: !(Maybe Text)
+  , _drprsRepositoryName :: !(Maybe Text)
+  , _drprsPolicyText     :: !(Maybe Text)
+  , _drprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

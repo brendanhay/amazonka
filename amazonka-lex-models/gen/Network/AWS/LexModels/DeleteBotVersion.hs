@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteBotVersion' smart constructor.
 data DeleteBotVersion = DeleteBotVersion'
-  { _dbvName    :: {-# NOUNPACK #-}!Text
-  , _dbvVersion :: {-# NOUNPACK #-}!Text
+  { _dbvName    :: !Text
+  , _dbvVersion :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

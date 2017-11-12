@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getCampaign' smart constructor.
 data GetCampaign = GetCampaign'
-  { _getCampaignId    :: {-# NOUNPACK #-}!Text
-  , _getApplicationId :: {-# NOUNPACK #-}!Text
+  { _getCampaignId    :: !Text
+  , _getApplicationId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -105,8 +105,8 @@ instance ToQuery GetCampaign where
 
 -- | /See:/ 'getCampaignResponse' smart constructor.
 data GetCampaignResponse = GetCampaignResponse'
-  { _gcrsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _gcrsCampaignResponse :: {-# NOUNPACK #-}!CampaignResponse
+  { _gcrsResponseStatus   :: !Int
+  , _gcrsCampaignResponse :: !CampaignResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

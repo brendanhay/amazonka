@@ -60,13 +60,13 @@ import Network.AWS.SNS.Types.Product
 --
 -- /See:/ 'publish' smart constructor.
 data Publish = Publish'
-  { _pSubject :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pTargetARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pMessageAttributes :: {-# NOUNPACK #-}!(Maybe (Map Text MessageAttributeValue))
-  , _pTopicARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pPhoneNumber :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pMessageStructure :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pMessage :: {-# NOUNPACK #-}!Text
+  { _pSubject           :: !(Maybe Text)
+  , _pTargetARN         :: !(Maybe Text)
+  , _pMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+  , _pTopicARN          :: !(Maybe Text)
+  , _pPhoneNumber       :: !(Maybe Text)
+  , _pMessageStructure  :: !(Maybe Text)
+  , _pMessage           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -170,8 +170,8 @@ instance ToQuery Publish where
 --
 -- /See:/ 'publishResponse' smart constructor.
 data PublishResponse = PublishResponse'
-  { _prsMessageId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _prsMessageId      :: !(Maybe Text)
+  , _prsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

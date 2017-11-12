@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listServiceSpecificCredentials' smart constructor.
 data ListServiceSpecificCredentials = ListServiceSpecificCredentials'
-  { _lsscUserName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsscServiceName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lsscUserName    :: !(Maybe Text)
+  , _lsscServiceName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -111,8 +111,8 @@ instance ToQuery ListServiceSpecificCredentials where
 
 -- | /See:/ 'listServiceSpecificCredentialsResponse' smart constructor.
 data ListServiceSpecificCredentialsResponse = ListServiceSpecificCredentialsResponse'
-  { _lsscrsServiceSpecificCredentials :: {-# NOUNPACK #-}!(Maybe [ServiceSpecificCredentialMetadata])
-  , _lsscrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lsscrsServiceSpecificCredentials :: !(Maybe [ServiceSpecificCredentialMetadata])
+  , _lsscrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

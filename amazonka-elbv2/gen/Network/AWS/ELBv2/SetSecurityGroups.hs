@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'setSecurityGroups' smart constructor.
 data SetSecurityGroups = SetSecurityGroups'
-  { _ssgLoadBalancerARN :: {-# NOUNPACK #-}!Text
-  , _ssgSecurityGroups  :: {-# NOUNPACK #-}![Text]
+  { _ssgLoadBalancerARN :: !Text
+  , _ssgSecurityGroups  :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,8 +109,8 @@ instance ToQuery SetSecurityGroups where
 
 -- | /See:/ 'setSecurityGroupsResponse' smart constructor.
 data SetSecurityGroupsResponse = SetSecurityGroupsResponse'
-  { _ssgrsSecurityGroupIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ssgrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ssgrsSecurityGroupIds :: !(Maybe [Text])
+  , _ssgrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

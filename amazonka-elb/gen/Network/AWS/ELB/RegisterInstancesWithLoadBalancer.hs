@@ -61,8 +61,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'registerInstancesWithLoadBalancer' smart constructor.
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
-  { _riwlbLoadBalancerName :: {-# NOUNPACK #-}!Text
-  , _riwlbInstances        :: {-# NOUNPACK #-}![Instance]
+  { _riwlbLoadBalancerName :: !Text
+  , _riwlbInstances        :: ![Instance]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,8 +133,8 @@ instance ToQuery RegisterInstancesWithLoadBalancer
 --
 -- /See:/ 'registerInstancesWithLoadBalancerResponse' smart constructor.
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
-  { _riwlbrsInstances      :: {-# NOUNPACK #-}!(Maybe [Instance])
-  , _riwlbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _riwlbrsInstances      :: !(Maybe [Instance])
+  , _riwlbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

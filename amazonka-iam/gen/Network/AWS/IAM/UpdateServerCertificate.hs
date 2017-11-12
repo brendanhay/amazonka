@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateServerCertificate' smart constructor.
 data UpdateServerCertificate = UpdateServerCertificate'
-  { _uNewServerCertificateName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uNewPath                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uServerCertificateName    :: {-# NOUNPACK #-}!Text
+  { _uNewServerCertificateName :: !(Maybe Text)
+  , _uNewPath                  :: !(Maybe Text)
+  , _uServerCertificateName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -60,9 +60,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getReservedInstancesExchangeQuote' smart constructor.
 data GetReservedInstancesExchangeQuote = GetReservedInstancesExchangeQuote'
-  { _grieqTargetConfigurations :: {-# NOUNPACK #-}!(Maybe [TargetConfigurationRequest])
-  , _grieqDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _grieqReservedInstanceIds :: {-# NOUNPACK #-}![Text]
+  { _grieqTargetConfigurations :: !(Maybe [TargetConfigurationRequest])
+  , _grieqDryRun               :: !(Maybe Bool)
+  , _grieqReservedInstanceIds  :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -155,16 +155,16 @@ instance ToQuery GetReservedInstancesExchangeQuote
 --
 -- /See:/ 'getReservedInstancesExchangeQuoteResponse' smart constructor.
 data GetReservedInstancesExchangeQuoteResponse = GetReservedInstancesExchangeQuoteResponse'
-  { _grieqrsValidationFailureReason :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grieqrsTargetConfigurationValueRollup :: {-# NOUNPACK #-}!(Maybe ReservationValue)
-  , _grieqrsCurrencyCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grieqrsTargetConfigurationValueSet :: {-# NOUNPACK #-}!(Maybe [TargetReservationValue])
-  , _grieqrsReservedInstanceValueRollup :: {-# NOUNPACK #-}!(Maybe ReservationValue)
-  , _grieqrsOutputReservedInstancesWillExpireAt :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _grieqrsReservedInstanceValueSet :: {-# NOUNPACK #-}!(Maybe [ReservedInstanceReservationValue])
-  , _grieqrsIsValidExchange :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _grieqrsPaymentDue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grieqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grieqrsValidationFailureReason :: !(Maybe Text)
+  , _grieqrsTargetConfigurationValueRollup :: !(Maybe ReservationValue)
+  , _grieqrsCurrencyCode :: !(Maybe Text)
+  , _grieqrsTargetConfigurationValueSet :: !(Maybe [TargetReservationValue])
+  , _grieqrsReservedInstanceValueRollup :: !(Maybe ReservationValue)
+  , _grieqrsOutputReservedInstancesWillExpireAt :: !(Maybe ISO8601)
+  , _grieqrsReservedInstanceValueSet :: !(Maybe [ReservedInstanceReservationValue])
+  , _grieqrsIsValidExchange :: !(Maybe Bool)
+  , _grieqrsPaymentDue :: !(Maybe Text)
+  , _grieqrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

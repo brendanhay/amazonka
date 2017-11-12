@@ -55,11 +55,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'listUsers' smart constructor.
 data ListUsers = ListUsers'
-  { _luPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luAttributesToGet :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _luLimit           :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _luFilter          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luUserPoolId      :: {-# NOUNPACK #-}!Text
+  { _luPaginationToken :: !(Maybe Text)
+  , _luAttributesToGet :: !(Maybe [Text])
+  , _luLimit           :: !(Maybe Nat)
+  , _luFilter          :: !(Maybe Text)
+  , _luUserPoolId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,9 +156,9 @@ instance ToQuery ListUsers where
 --
 -- /See:/ 'listUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { _lursPaginationToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lursUsers           :: {-# NOUNPACK #-}!(Maybe [UserType])
-  , _lursResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _lursPaginationToken :: !(Maybe Text)
+  , _lursUsers           :: !(Maybe [UserType])
+  , _lursResponseStatus  :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

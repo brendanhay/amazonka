@@ -57,11 +57,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDBClusterParameters' smart constructor.
 data DescribeDBClusterParameters = DescribeDBClusterParameters'
-  { _ddcpFilters                     :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _ddcpMarker                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcpMaxRecords                  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ddcpSource                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcpDBClusterParameterGroupName :: {-# NOUNPACK #-}!Text
+  { _ddcpFilters                     :: !(Maybe [Filter])
+  , _ddcpMarker                      :: !(Maybe Text)
+  , _ddcpMaxRecords                  :: !(Maybe Int)
+  , _ddcpSource                      :: !(Maybe Text)
+  , _ddcpDBClusterParameterGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -155,9 +155,9 @@ instance ToQuery DescribeDBClusterParameters where
 --
 -- /See:/ 'describeDBClusterParametersResponse' smart constructor.
 data DescribeDBClusterParametersResponse = DescribeDBClusterParametersResponse'
-  { _ddcprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcprsParameters     :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _ddcprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddcprsMarker         :: !(Maybe Text)
+  , _ddcprsParameters     :: !(Maybe [Parameter])
+  , _ddcprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

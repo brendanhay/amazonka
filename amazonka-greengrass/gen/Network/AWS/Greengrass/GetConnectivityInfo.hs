@@ -99,9 +99,9 @@ instance ToQuery GetConnectivityInfo where
 
 -- | /See:/ 'getConnectivityInfoResponse' smart constructor.
 data GetConnectivityInfoResponse = GetConnectivityInfoResponse'
-  { _gcirsMessage          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcirsConnectivityInfo :: {-# NOUNPACK #-}!(Maybe [ConnectivityInfo])
-  , _gcirsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _gcirsMessage          :: !(Maybe Text)
+  , _gcirsConnectivityInfo :: !(Maybe [ConnectivityInfo])
+  , _gcirsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

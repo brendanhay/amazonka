@@ -48,10 +48,10 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteLabels' smart constructor.
 data DeleteLabels = DeleteLabels'
-  { _dlDeleteAll           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dlAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _dlLabels              :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dlResourceId          :: {-# NOUNPACK #-}!Text
+  { _dlDeleteAll           :: !(Maybe Bool)
+  , _dlAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _dlLabels              :: !(Maybe [Text])
+  , _dlResourceId          :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

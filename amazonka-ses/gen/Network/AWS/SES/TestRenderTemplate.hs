@@ -49,8 +49,8 @@ import Network.AWS.SES.Types.Product
 
 -- | /See:/ 'testRenderTemplate' smart constructor.
 data TestRenderTemplate = TestRenderTemplate'
-  { _trtTemplateName :: {-# NOUNPACK #-}!Text
-  , _trtTemplateData :: {-# NOUNPACK #-}!Text
+  { _trtTemplateName :: !Text
+  , _trtTemplateData :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -108,8 +108,8 @@ instance ToQuery TestRenderTemplate where
 
 -- | /See:/ 'testRenderTemplateResponse' smart constructor.
 data TestRenderTemplateResponse = TestRenderTemplateResponse'
-  { _trtrsRenderedTemplate :: {-# NOUNPACK #-}!(Maybe Text)
-  , _trtrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _trtrsRenderedTemplate :: !(Maybe Text)
+  , _trtrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

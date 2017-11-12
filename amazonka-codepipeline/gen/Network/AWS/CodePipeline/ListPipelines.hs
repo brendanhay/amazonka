@@ -111,9 +111,9 @@ instance ToQuery ListPipelines where
 --
 -- /See:/ 'listPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
-  { _lprsPipelines      :: {-# NOUNPACK #-}!(Maybe [PipelineSummary])
-  , _lprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lprsPipelines      :: !(Maybe [PipelineSummary])
+  , _lprsNextToken      :: !(Maybe Text)
+  , _lprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -67,8 +67,8 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'recordActivityTaskHeartbeat' smart constructor.
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat'
-  { _rathDetails   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rathTaskToken :: {-# NOUNPACK #-}!Text
+  { _rathDetails   :: !(Maybe Text)
+  , _rathTaskToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery RecordActivityTaskHeartbeat where
 --
 -- /See:/ 'recordActivityTaskHeartbeatResponse' smart constructor.
 data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'
-  { _rathrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _rathrsCancelRequested :: {-# NOUNPACK #-}!Bool
+  { _rathrsResponseStatus  :: !Int
+  , _rathrsCancelRequested :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

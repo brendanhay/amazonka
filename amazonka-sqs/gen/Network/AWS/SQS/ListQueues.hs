@@ -101,8 +101,8 @@ instance ToQuery ListQueues where
 --
 -- /See:/ 'listQueuesResponse' smart constructor.
 data ListQueuesResponse = ListQueuesResponse'
-  { _lqrsQueueURLs      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lqrsQueueURLs      :: !(Maybe [Text])
+  , _lqrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

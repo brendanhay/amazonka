@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeDomainControllers' smart constructor.
 data DescribeDomainControllers = DescribeDomainControllers'
-  { _ddcNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcDomainControllerIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ddcLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ddcDirectoryId         :: {-# NOUNPACK #-}!Text
+  { _ddcNextToken           :: !(Maybe Text)
+  , _ddcDomainControllerIds :: !(Maybe [Text])
+  , _ddcLimit               :: !(Maybe Nat)
+  , _ddcDirectoryId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToQuery DescribeDomainControllers where
 
 -- | /See:/ 'describeDomainControllersResponse' smart constructor.
 data DescribeDomainControllersResponse = DescribeDomainControllersResponse'
-  { _ddcrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcrsDomainControllers :: {-# NOUNPACK #-}!(Maybe [DomainController])
-  , _ddcrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _ddcrsNextToken         :: !(Maybe Text)
+  , _ddcrsDomainControllers :: !(Maybe [DomainController])
+  , _ddcrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

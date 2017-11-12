@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'attributeDefinition' smart constructor.
 data AttributeDefinition = AttributeDefinition'
-  { _adAttributeName :: {-# NOUNPACK #-}!Text
-  , _adAttributeType :: {-# NOUNPACK #-}!ScalarAttributeType
+  { _adAttributeName :: !Text
+  , _adAttributeType :: !ScalarAttributeType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -84,16 +84,16 @@ instance ToJSON AttributeDefinition where
 --
 -- /See:/ 'attributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-  { _avL    :: {-# NOUNPACK #-}!(Maybe [AttributeValue])
-  , _avNS   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _avM    :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _avNULL :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avBS   :: {-# NOUNPACK #-}!(Maybe [Base64])
-  , _avB    :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _avSS   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _avS    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avBOOL :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _avL    :: !(Maybe [AttributeValue])
+  , _avNS   :: !(Maybe [Text])
+  , _avM    :: !(Maybe (Map Text AttributeValue))
+  , _avNULL :: !(Maybe Bool)
+  , _avN    :: !(Maybe Text)
+  , _avBS   :: !(Maybe [Base64])
+  , _avB    :: !(Maybe Base64)
+  , _avSS   :: !(Maybe [Text])
+  , _avS    :: !(Maybe Text)
+  , _avBOOL :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -214,8 +214,8 @@ instance ToJSON AttributeValue where
 --
 -- /See:/ 'attributeValueUpdate' smart constructor.
 data AttributeValueUpdate = AttributeValueUpdate'
-  { _avuValue  :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _avuAction :: {-# NOUNPACK #-}!(Maybe AttributeAction)
+  { _avuValue  :: !(Maybe AttributeValue)
+  , _avuAction :: !(Maybe AttributeAction)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -300,8 +300,8 @@ instance NFData Capacity where
 --
 -- /See:/ 'condition' smart constructor.
 data Condition = Condition'
-  { _cAttributeValueList :: {-# NOUNPACK #-}!(Maybe [AttributeValue])
-  , _cComparisonOperator :: {-# NOUNPACK #-}!ComparisonOperator
+  { _cAttributeValueList :: !(Maybe [AttributeValue])
+  , _cComparisonOperator :: !ComparisonOperator
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -345,11 +345,11 @@ instance ToJSON Condition where
 --
 -- /See:/ 'consumedCapacity' smart constructor.
 data ConsumedCapacity = ConsumedCapacity'
-  { _ccGlobalSecondaryIndexes :: {-# NOUNPACK #-}!(Maybe (Map Text Capacity))
-  , _ccCapacityUnits          :: {-# NOUNPACK #-}!(Maybe Double)
-  , _ccLocalSecondaryIndexes  :: {-# NOUNPACK #-}!(Maybe (Map Text Capacity))
-  , _ccTable                  :: {-# NOUNPACK #-}!(Maybe Capacity)
-  , _ccTableName              :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ccGlobalSecondaryIndexes :: !(Maybe (Map Text Capacity))
+  , _ccCapacityUnits          :: !(Maybe Double)
+  , _ccLocalSecondaryIndexes  :: !(Maybe (Map Text Capacity))
+  , _ccTable                  :: !(Maybe Capacity)
+  , _ccTableName              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -419,10 +419,10 @@ instance NFData ConsumedCapacity where
 --
 -- /See:/ 'createGlobalSecondaryIndexAction' smart constructor.
 data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
-  { _cgsiaIndexName             :: {-# NOUNPACK #-}!Text
-  , _cgsiaKeySchema             :: {-# NOUNPACK #-}!(List1 KeySchemaElement)
-  , _cgsiaProjection            :: {-# NOUNPACK #-}!Projection
-  , _cgsiaProvisionedThroughput :: {-# NOUNPACK #-}!ProvisionedThroughput
+  { _cgsiaIndexName             :: !Text
+  , _cgsiaKeySchema             :: !(List1 KeySchemaElement)
+  , _cgsiaProjection            :: !Projection
+  , _cgsiaProvisionedThroughput :: !ProvisionedThroughput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -575,10 +575,10 @@ instance ToJSON DeleteRequest where
 --
 -- /See:/ 'expectedAttributeValue' smart constructor.
 data ExpectedAttributeValue = ExpectedAttributeValue'
-  { _eavAttributeValueList :: {-# NOUNPACK #-}!(Maybe [AttributeValue])
-  , _eavExists             :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _eavValue              :: {-# NOUNPACK #-}!(Maybe AttributeValue)
-  , _eavComparisonOperator :: {-# NOUNPACK #-}!(Maybe ComparisonOperator)
+  { _eavAttributeValueList :: !(Maybe [AttributeValue])
+  , _eavExists             :: !(Maybe Bool)
+  , _eavValue              :: !(Maybe AttributeValue)
+  , _eavComparisonOperator :: !(Maybe ComparisonOperator)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -641,10 +641,10 @@ instance ToJSON ExpectedAttributeValue where
 --
 -- /See:/ 'globalSecondaryIndex' smart constructor.
 data GlobalSecondaryIndex = GlobalSecondaryIndex'
-  { _gsiIndexName             :: {-# NOUNPACK #-}!Text
-  , _gsiKeySchema             :: {-# NOUNPACK #-}!(List1 KeySchemaElement)
-  , _gsiProjection            :: {-# NOUNPACK #-}!Projection
-  , _gsiProvisionedThroughput :: {-# NOUNPACK #-}!ProvisionedThroughput
+  { _gsiIndexName             :: !Text
+  , _gsiKeySchema             :: !(List1 KeySchemaElement)
+  , _gsiProjection            :: !Projection
+  , _gsiProvisionedThroughput :: !ProvisionedThroughput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -711,15 +711,15 @@ instance ToJSON GlobalSecondaryIndex where
 --
 -- /See:/ 'globalSecondaryIndexDescription' smart constructor.
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
-  { _gsidBackfilling :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gsidIndexSizeBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gsidIndexStatus :: {-# NOUNPACK #-}!(Maybe IndexStatus)
-  , _gsidProvisionedThroughput :: {-# NOUNPACK #-}!(Maybe ProvisionedThroughputDescription)
-  , _gsidIndexARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsidKeySchema :: {-# NOUNPACK #-}!(Maybe (List1 KeySchemaElement))
-  , _gsidProjection :: {-# NOUNPACK #-}!(Maybe Projection)
-  , _gsidItemCount :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gsidIndexName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gsidBackfilling           :: !(Maybe Bool)
+  , _gsidIndexSizeBytes        :: !(Maybe Integer)
+  , _gsidIndexStatus           :: !(Maybe IndexStatus)
+  , _gsidProvisionedThroughput :: !(Maybe ProvisionedThroughputDescription)
+  , _gsidIndexARN              :: !(Maybe Text)
+  , _gsidKeySchema             :: !(Maybe (List1 KeySchemaElement))
+  , _gsidProjection            :: !(Maybe Projection)
+  , _gsidItemCount             :: !(Maybe Integer)
+  , _gsidIndexName             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -830,9 +830,9 @@ instance NFData GlobalSecondaryIndexDescription where
 --
 -- /See:/ 'globalSecondaryIndexUpdate' smart constructor.
 data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
-  { _gsiuCreate :: {-# NOUNPACK #-}!(Maybe CreateGlobalSecondaryIndexAction)
-  , _gsiuDelete :: {-# NOUNPACK #-}!(Maybe DeleteGlobalSecondaryIndexAction)
-  , _gsiuUpdate :: {-# NOUNPACK #-}!(Maybe UpdateGlobalSecondaryIndexAction)
+  { _gsiuCreate :: !(Maybe CreateGlobalSecondaryIndexAction)
+  , _gsiuDelete :: !(Maybe DeleteGlobalSecondaryIndexAction)
+  , _gsiuUpdate :: !(Maybe UpdateGlobalSecondaryIndexAction)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -882,8 +882,8 @@ instance ToJSON GlobalSecondaryIndexUpdate where
 --
 -- /See:/ 'itemCollectionMetrics' smart constructor.
 data ItemCollectionMetrics = ItemCollectionMetrics'
-  { _icmItemCollectionKey :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _icmSizeEstimateRangeGB :: {-# NOUNPACK #-}!(Maybe [Double])
+  { _icmItemCollectionKey   :: !(Maybe (Map Text AttributeValue))
+  , _icmSizeEstimateRangeGB :: !(Maybe [Double])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -931,8 +931,8 @@ instance NFData ItemCollectionMetrics where
 --
 -- /See:/ 'keySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
-  { _kseAttributeName :: {-# NOUNPACK #-}!Text
-  , _kseKeyType       :: {-# NOUNPACK #-}!KeyType
+  { _kseAttributeName :: !Text
+  , _kseKeyType       :: !KeyType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -986,11 +986,11 @@ instance ToJSON KeySchemaElement where
 --
 -- /See:/ 'keysAndAttributes' smart constructor.
 data KeysAndAttributes = KeysAndAttributes'
-  { _kaaProjectionExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _kaaAttributesToGet :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _kaaExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _kaaConsistentRead :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _kaaKeys :: {-# NOUNPACK #-}!(List1 (Map Text AttributeValue))
+  { _kaaProjectionExpression     :: !(Maybe Text)
+  , _kaaAttributesToGet          :: !(Maybe (List1 Text))
+  , _kaaExpressionAttributeNames :: !(Maybe (Map Text Text))
+  , _kaaConsistentRead           :: !(Maybe Bool)
+  , _kaaKeys                     :: !(List1 (Map Text AttributeValue))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1073,9 +1073,9 @@ instance ToJSON KeysAndAttributes where
 --
 -- /See:/ 'localSecondaryIndex' smart constructor.
 data LocalSecondaryIndex = LocalSecondaryIndex'
-  { _lsiIndexName  :: {-# NOUNPACK #-}!Text
-  , _lsiKeySchema  :: {-# NOUNPACK #-}!(List1 KeySchemaElement)
-  , _lsiProjection :: {-# NOUNPACK #-}!Projection
+  { _lsiIndexName  :: !Text
+  , _lsiKeySchema  :: !(List1 KeySchemaElement)
+  , _lsiProjection :: !Projection
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1131,12 +1131,12 @@ instance ToJSON LocalSecondaryIndex where
 --
 -- /See:/ 'localSecondaryIndexDescription' smart constructor.
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
-  { _lsidIndexSizeBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _lsidIndexARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsidKeySchema      :: {-# NOUNPACK #-}!(Maybe (List1 KeySchemaElement))
-  , _lsidProjection     :: {-# NOUNPACK #-}!(Maybe Projection)
-  , _lsidItemCount      :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _lsidIndexName      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lsidIndexSizeBytes :: !(Maybe Integer)
+  , _lsidIndexARN       :: !(Maybe Text)
+  , _lsidKeySchema      :: !(Maybe (List1 KeySchemaElement))
+  , _lsidProjection     :: !(Maybe Projection)
+  , _lsidItemCount      :: !(Maybe Integer)
+  , _lsidIndexName      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1215,8 +1215,8 @@ instance NFData LocalSecondaryIndexDescription where
 --
 -- /See:/ 'projection' smart constructor.
 data Projection = Projection'
-  { _pProjectionType   :: {-# NOUNPACK #-}!(Maybe ProjectionType)
-  , _pNonKeyAttributes :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  { _pProjectionType   :: !(Maybe ProjectionType)
+  , _pNonKeyAttributes :: !(Maybe (List1 Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1268,8 +1268,8 @@ instance ToJSON Projection where
 --
 -- /See:/ 'provisionedThroughput' smart constructor.
 data ProvisionedThroughput = ProvisionedThroughput'
-  { _ptReadCapacityUnits  :: {-# NOUNPACK #-}!Nat
-  , _ptWriteCapacityUnits :: {-# NOUNPACK #-}!Nat
+  { _ptReadCapacityUnits  :: !Nat
+  , _ptWriteCapacityUnits :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1317,11 +1317,11 @@ instance ToJSON ProvisionedThroughput where
 --
 -- /See:/ 'provisionedThroughputDescription' smart constructor.
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
-  { _ptdReadCapacityUnits      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ptdLastDecreaseDateTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _ptdWriteCapacityUnits     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ptdNumberOfDecreasesToday :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ptdLastIncreaseDateTime   :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _ptdReadCapacityUnits      :: !(Maybe Nat)
+  , _ptdLastDecreaseDateTime   :: !(Maybe POSIX)
+  , _ptdWriteCapacityUnits     :: !(Maybe Nat)
+  , _ptdNumberOfDecreasesToday :: !(Maybe Nat)
+  , _ptdLastIncreaseDateTime   :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1431,8 +1431,8 @@ instance ToJSON PutRequest where
 --
 -- /See:/ 'streamSpecification' smart constructor.
 data StreamSpecification = StreamSpecification'
-  { _ssStreamViewType :: {-# NOUNPACK #-}!(Maybe StreamViewType)
-  , _ssStreamEnabled  :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _ssStreamViewType :: !(Maybe StreamViewType)
+  , _ssStreamEnabled  :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1481,20 +1481,20 @@ instance ToJSON StreamSpecification where
 --
 -- /See:/ 'tableDescription' smart constructor.
 data TableDescription = TableDescription'
-  { _tdTableSizeBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _tdAttributeDefinitions :: {-# NOUNPACK #-}!(Maybe [AttributeDefinition])
-  , _tdLatestStreamARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdProvisionedThroughput :: {-# NOUNPACK #-}!(Maybe ProvisionedThroughputDescription)
-  , _tdTableStatus :: {-# NOUNPACK #-}!(Maybe TableStatus)
-  , _tdTableARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdKeySchema :: {-# NOUNPACK #-}!(Maybe (List1 KeySchemaElement))
-  , _tdGlobalSecondaryIndexes :: {-# NOUNPACK #-}!(Maybe [GlobalSecondaryIndexDescription])
-  , _tdLatestStreamLabel :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdLocalSecondaryIndexes :: {-# NOUNPACK #-}!(Maybe [LocalSecondaryIndexDescription])
-  , _tdCreationDateTime :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _tdItemCount :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _tdTableName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdStreamSpecification :: {-# NOUNPACK #-}!(Maybe StreamSpecification)
+  { _tdTableSizeBytes         :: !(Maybe Integer)
+  , _tdAttributeDefinitions   :: !(Maybe [AttributeDefinition])
+  , _tdLatestStreamARN        :: !(Maybe Text)
+  , _tdProvisionedThroughput  :: !(Maybe ProvisionedThroughputDescription)
+  , _tdTableStatus            :: !(Maybe TableStatus)
+  , _tdTableARN               :: !(Maybe Text)
+  , _tdKeySchema              :: !(Maybe (List1 KeySchemaElement))
+  , _tdGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndexDescription])
+  , _tdLatestStreamLabel      :: !(Maybe Text)
+  , _tdLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndexDescription])
+  , _tdCreationDateTime       :: !(Maybe POSIX)
+  , _tdItemCount              :: !(Maybe Integer)
+  , _tdTableName              :: !(Maybe Text)
+  , _tdStreamSpecification    :: !(Maybe StreamSpecification)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1640,8 +1640,8 @@ instance NFData TableDescription where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!Text
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1689,8 +1689,8 @@ instance ToJSON Tag where
 --
 -- /See:/ 'timeToLiveDescription' smart constructor.
 data TimeToLiveDescription = TimeToLiveDescription'
-  { _ttldTimeToLiveStatus :: {-# NOUNPACK #-}!(Maybe TimeToLiveStatus)
-  , _ttldAttributeName    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ttldTimeToLiveStatus :: !(Maybe TimeToLiveStatus)
+  , _ttldAttributeName    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1734,8 +1734,8 @@ instance NFData TimeToLiveDescription where
 --
 -- /See:/ 'timeToLiveSpecification' smart constructor.
 data TimeToLiveSpecification = TimeToLiveSpecification'
-  { _ttlsEnabled       :: {-# NOUNPACK #-}!Bool
-  , _ttlsAttributeName :: {-# NOUNPACK #-}!Text
+  { _ttlsEnabled       :: !Bool
+  , _ttlsAttributeName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1787,8 +1787,8 @@ instance ToJSON TimeToLiveSpecification where
 --
 -- /See:/ 'updateGlobalSecondaryIndexAction' smart constructor.
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
-  { _ugsiaIndexName             :: {-# NOUNPACK #-}!Text
-  , _ugsiaProvisionedThroughput :: {-# NOUNPACK #-}!ProvisionedThroughput
+  { _ugsiaIndexName             :: !Text
+  , _ugsiaProvisionedThroughput :: !ProvisionedThroughput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1840,8 +1840,8 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
 --
 -- /See:/ 'writeRequest' smart constructor.
 data WriteRequest = WriteRequest'
-  { _wrDeleteRequest :: {-# NOUNPACK #-}!(Maybe DeleteRequest)
-  , _wrPutRequest    :: {-# NOUNPACK #-}!(Maybe PutRequest)
+  { _wrDeleteRequest :: !(Maybe DeleteRequest)
+  , _wrPutRequest    :: !(Maybe PutRequest)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

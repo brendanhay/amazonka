@@ -52,9 +52,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeActivations' smart constructor.
 data DescribeActivations = DescribeActivations'
-  { _daFilters    :: {-# NOUNPACK #-}!(Maybe [DescribeActivationsFilter])
-  , _daNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _daMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _daFilters    :: !(Maybe [DescribeActivationsFilter])
+  , _daNextToken  :: !(Maybe Text)
+  , _daMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,9 +134,9 @@ instance ToQuery DescribeActivations where
 
 -- | /See:/ 'describeActivationsResponse' smart constructor.
 data DescribeActivationsResponse = DescribeActivationsResponse'
-  { _darsActivationList :: {-# NOUNPACK #-}!(Maybe [Activation])
-  , _darsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _darsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _darsActivationList :: !(Maybe [Activation])
+  , _darsNextToken      :: !(Maybe Text)
+  , _darsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

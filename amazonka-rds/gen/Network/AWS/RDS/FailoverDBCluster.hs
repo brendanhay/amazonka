@@ -57,8 +57,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'failoverDBCluster' smart constructor.
 data FailoverDBCluster = FailoverDBCluster'
-  { _fdcDBClusterIdentifier        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fdcTargetDBInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fdcDBClusterIdentifier        :: !(Maybe Text)
+  , _fdcTargetDBInstanceIdentifier :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery FailoverDBCluster where
 
 -- | /See:/ 'failoverDBClusterResponse' smart constructor.
 data FailoverDBClusterResponse = FailoverDBClusterResponse'
-  { _fdcrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
-  , _fdcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _fdcrsDBCluster      :: !(Maybe DBCluster)
+  , _fdcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

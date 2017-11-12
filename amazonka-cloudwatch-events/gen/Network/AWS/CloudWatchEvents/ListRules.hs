@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listRules' smart constructor.
 data ListRules = ListRules'
-  { _lrNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrNamePrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lrNextToken  :: !(Maybe Text)
+  , _lrNamePrefix :: !(Maybe Text)
+  , _lrLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery ListRules where
 
 -- | /See:/ 'listRulesResponse' smart constructor.
 data ListRulesResponse = ListRulesResponse'
-  { _lrrsRules          :: {-# NOUNPACK #-}!(Maybe [Rule])
-  , _lrrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrrsRules          :: !(Maybe [Rule])
+  , _lrrsNextToken      :: !(Maybe Text)
+  , _lrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -56,8 +56,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeVoices' smart constructor.
 data DescribeVoices = DescribeVoices'
-  { _dvLanguageCode :: {-# NOUNPACK #-}!(Maybe LanguageCode)
-  , _dvNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dvLanguageCode :: !(Maybe LanguageCode)
+  , _dvNextToken    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,9 +110,9 @@ instance ToQuery DescribeVoices where
 
 -- | /See:/ 'describeVoicesResponse' smart constructor.
 data DescribeVoicesResponse = DescribeVoicesResponse'
-  { _dvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvrsVoices         :: {-# NOUNPACK #-}!(Maybe [Voice])
-  , _dvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvrsNextToken      :: !(Maybe Text)
+  , _dvrsVoices         :: !(Maybe [Voice])
+  , _dvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

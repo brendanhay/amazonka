@@ -27,9 +27,9 @@ import Network.AWS.RDS.Types.Sum
 --
 -- /See:/ 'accountQuota' smart constructor.
 data AccountQuota = AccountQuota'
-  { _aqMax              :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _aqUsed             :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _aqAccountQuotaName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _aqMax              :: !(Maybe Integer)
+  , _aqUsed             :: !(Maybe Integer)
+  , _aqAccountQuotaName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,12 +114,12 @@ instance NFData AvailabilityZone where
 --
 -- /See:/ 'certificate' smart constructor.
 data Certificate = Certificate'
-  { _cCertificateType       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cCertificateARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cValidTill             :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _cCertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cThumbprint            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cValidFrom             :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  { _cCertificateType       :: !(Maybe Text)
+  , _cCertificateARN        :: !(Maybe Text)
+  , _cValidTill             :: !(Maybe ISO8601)
+  , _cCertificateIdentifier :: !(Maybe Text)
+  , _cThumbprint            :: !(Maybe Text)
+  , _cValidFrom             :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -195,8 +195,8 @@ instance NFData Certificate where
 --
 -- /See:/ 'characterSet' smart constructor.
 data CharacterSet = CharacterSet'
-  { _csCharacterSetName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csCharacterSetDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _csCharacterSetName        :: !(Maybe Text)
+  , _csCharacterSetDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -254,41 +254,41 @@ instance NFData CharacterSet where
 --
 -- /See:/ 'dbCluster' smart constructor.
 data DBCluster = DBCluster'
-  { _dcEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcStorageEncrypted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dcDBClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcDBClusterMembers :: {-# NOUNPACK #-}!(Maybe [DBClusterMember])
-  , _dcReadReplicaIdentifiers :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcReplicationSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcHostedZoneId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcDBClusterParameterGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcMasterUsername :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcIAMDatabaseAuthenticationEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dcDBClusterResourceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcEarliestRestorableTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dcEngine :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcDBClusterARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcCloneGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcLatestRestorableTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dcPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcCharacterSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcPreferredBackupWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcAssociatedRoles :: {-# NOUNPACK #-}!(Maybe [DBClusterRole])
-  , _dcVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [VPCSecurityGroupMembership])
-  , _dcBackupRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dcDBSubnetGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcDatabaseName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcMultiAZ :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dcAllocatedStorage :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dcClusterCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dcEndpoint :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcPercentProgress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcReaderEndpoint :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcPort :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dcDBClusterOptionGroupMemberships :: {-# NOUNPACK #-}!(Maybe [DBClusterOptionGroupStatus])
+  { _dcEngineVersion                    :: !(Maybe Text)
+  , _dcStatus                           :: !(Maybe Text)
+  , _dcStorageEncrypted                 :: !(Maybe Bool)
+  , _dcDBClusterIdentifier              :: !(Maybe Text)
+  , _dcDBClusterMembers                 :: !(Maybe [DBClusterMember])
+  , _dcReadReplicaIdentifiers           :: !(Maybe [Text])
+  , _dcReplicationSourceIdentifier      :: !(Maybe Text)
+  , _dcHostedZoneId                     :: !(Maybe Text)
+  , _dcDBClusterParameterGroup          :: !(Maybe Text)
+  , _dcMasterUsername                   :: !(Maybe Text)
+  , _dcIAMDatabaseAuthenticationEnabled :: !(Maybe Bool)
+  , _dcDBClusterResourceId              :: !(Maybe Text)
+  , _dcEarliestRestorableTime           :: !(Maybe ISO8601)
+  , _dcEngine                           :: !(Maybe Text)
+  , _dcDBClusterARN                     :: !(Maybe Text)
+  , _dcCloneGroupId                     :: !(Maybe Text)
+  , _dcLatestRestorableTime             :: !(Maybe ISO8601)
+  , _dcPreferredMaintenanceWindow       :: !(Maybe Text)
+  , _dcAvailabilityZones                :: !(Maybe [Text])
+  , _dcCharacterSetName                 :: !(Maybe Text)
+  , _dcKMSKeyId                         :: !(Maybe Text)
+  , _dcPreferredBackupWindow            :: !(Maybe Text)
+  , _dcAssociatedRoles                  :: !(Maybe [DBClusterRole])
+  , _dcVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
+  , _dcBackupRetentionPeriod            :: !(Maybe Int)
+  , _dcDBSubnetGroup                    :: !(Maybe Text)
+  , _dcDatabaseName                     :: !(Maybe Text)
+  , _dcMultiAZ                          :: !(Maybe Bool)
+  , _dcAllocatedStorage                 :: !(Maybe Int)
+  , _dcClusterCreateTime                :: !(Maybe ISO8601)
+  , _dcEndpoint                         :: !(Maybe Text)
+  , _dcPercentProgress                  :: !(Maybe Text)
+  , _dcReaderEndpoint                   :: !(Maybe Text)
+  , _dcPort                             :: !(Maybe Int)
+  , _dcDBClusterOptionGroupMemberships  :: !(Maybe [DBClusterOptionGroupStatus])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -607,10 +607,10 @@ instance NFData DBCluster where
 --
 -- /See:/ 'dbClusterMember' smart constructor.
 data DBClusterMember = DBClusterMember'
-  { _dcmPromotionTier                 :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dcmDBInstanceIdentifier          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcmIsClusterWriter               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dcmDBClusterParameterGroupStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dcmPromotionTier                 :: !(Maybe Int)
+  , _dcmDBInstanceIdentifier          :: !(Maybe Text)
+  , _dcmIsClusterWriter               :: !(Maybe Bool)
+  , _dcmDBClusterParameterGroupStatus :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -670,8 +670,8 @@ instance NFData DBClusterMember where
 --
 -- /See:/ 'dbClusterOptionGroupStatus' smart constructor.
 data DBClusterOptionGroupStatus = DBClusterOptionGroupStatus'
-  { _dcogsStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcogsDBClusterOptionGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dcogsStatus                   :: !(Maybe Text)
+  , _dcogsDBClusterOptionGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -715,10 +715,10 @@ instance NFData DBClusterOptionGroupStatus where
 --
 -- /See:/ 'dbClusterParameterGroup' smart constructor.
 data DBClusterParameterGroup = DBClusterParameterGroup'
-  { _dcpgDBClusterParameterGroupARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpgDBParameterGroupFamily      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpgDBClusterParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpgDescription                 :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dcpgDBClusterParameterGroupARN  :: !(Maybe Text)
+  , _dcpgDBParameterGroupFamily      :: !(Maybe Text)
+  , _dcpgDBClusterParameterGroupName :: !(Maybe Text)
+  , _dcpgDescription                 :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -816,8 +816,8 @@ instance NFData DBClusterParameterGroupNameMessage
 --
 -- /See:/ 'dbClusterRole' smart constructor.
 data DBClusterRole = DBClusterRole'
-  { _dcrStatus  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcrRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dcrStatus  :: !(Maybe Text)
+  , _dcrRoleARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -864,26 +864,26 @@ instance NFData DBClusterRole where
 --
 -- /See:/ 'dbClusterSnapshot' smart constructor.
 data DBClusterSnapshot = DBClusterSnapshot'
-  { _dcsEngineVersion                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsStatus                           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsStorageEncrypted                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dcsDBClusterIdentifier              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsMasterUsername                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsIAMDatabaseAuthenticationEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dcsDBClusterSnapshotARN             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsVPCId                            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsDBClusterSnapshotIdentifier      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsEngine                           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsLicenseModel                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsAvailabilityZones                :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcsSnapshotType                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsKMSKeyId                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsSnapshotCreateTime               :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dcsAllocatedStorage                 :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dcsSourceDBClusterSnapshotARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsClusterCreateTime                :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dcsPercentProgress                  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dcsPort                             :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dcsEngineVersion                    :: !(Maybe Text)
+  , _dcsStatus                           :: !(Maybe Text)
+  , _dcsStorageEncrypted                 :: !(Maybe Bool)
+  , _dcsDBClusterIdentifier              :: !(Maybe Text)
+  , _dcsMasterUsername                   :: !(Maybe Text)
+  , _dcsIAMDatabaseAuthenticationEnabled :: !(Maybe Bool)
+  , _dcsDBClusterSnapshotARN             :: !(Maybe Text)
+  , _dcsVPCId                            :: !(Maybe Text)
+  , _dcsDBClusterSnapshotIdentifier      :: !(Maybe Text)
+  , _dcsEngine                           :: !(Maybe Text)
+  , _dcsLicenseModel                     :: !(Maybe Text)
+  , _dcsAvailabilityZones                :: !(Maybe [Text])
+  , _dcsSnapshotType                     :: !(Maybe Text)
+  , _dcsKMSKeyId                         :: !(Maybe Text)
+  , _dcsSnapshotCreateTime               :: !(Maybe ISO8601)
+  , _dcsAllocatedStorage                 :: !(Maybe Int)
+  , _dcsSourceDBClusterSnapshotARN       :: !(Maybe Text)
+  , _dcsClusterCreateTime                :: !(Maybe ISO8601)
+  , _dcsPercentProgress                  :: !(Maybe Int)
+  , _dcsPort                             :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1074,8 +1074,8 @@ instance NFData DBClusterSnapshot where
 --
 -- /See:/ 'dbClusterSnapshotAttribute' smart constructor.
 data DBClusterSnapshotAttribute = DBClusterSnapshotAttribute'
-  { _dcsaAttributeValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcsaAttributeName   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dcsaAttributeValues :: !(Maybe [Text])
+  , _dcsaAttributeName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1120,8 +1120,8 @@ instance NFData DBClusterSnapshotAttribute where
 --
 -- /See:/ 'dbClusterSnapshotAttributesResult' smart constructor.
 data DBClusterSnapshotAttributesResult = DBClusterSnapshotAttributesResult'
-  { _dcsarDBClusterSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcsarDBClusterSnapshotAttributes :: {-# NOUNPACK #-}!(Maybe [DBClusterSnapshotAttribute])
+  { _dcsarDBClusterSnapshotIdentifier :: !(Maybe Text)
+  , _dcsarDBClusterSnapshotAttributes :: !(Maybe [DBClusterSnapshotAttribute])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1169,15 +1169,15 @@ instance NFData DBClusterSnapshotAttributesResult
 --
 -- /See:/ 'dbEngineVersion' smart constructor.
 data DBEngineVersion = DBEngineVersion'
-  { _devEngineVersion              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devDBEngineVersionDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devDefaultCharacterSet        :: {-# NOUNPACK #-}!(Maybe CharacterSet)
-  , _devEngine                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devDBParameterGroupFamily     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devSupportedCharacterSets     :: {-# NOUNPACK #-}!(Maybe [CharacterSet])
-  , _devDBEngineDescription        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _devValidUpgradeTarget         :: {-# NOUNPACK #-}!(Maybe [UpgradeTarget])
-  , _devSupportedTimezones         :: {-# NOUNPACK #-}!(Maybe [Timezone])
+  { _devEngineVersion              :: !(Maybe Text)
+  , _devDBEngineVersionDescription :: !(Maybe Text)
+  , _devDefaultCharacterSet        :: !(Maybe CharacterSet)
+  , _devEngine                     :: !(Maybe Text)
+  , _devDBParameterGroupFamily     :: !(Maybe Text)
+  , _devSupportedCharacterSets     :: !(Maybe [CharacterSet])
+  , _devDBEngineDescription        :: !(Maybe Text)
+  , _devValidUpgradeTarget         :: !(Maybe [UpgradeTarget])
+  , _devSupportedTimezones         :: !(Maybe [Timezone])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1297,57 +1297,57 @@ instance NFData DBEngineVersion where
 --
 -- /See:/ 'dbInstance' smart constructor.
 data DBInstance = DBInstance'
-  { _diEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diDBSecurityGroups :: {-# NOUNPACK #-}!(Maybe [DBSecurityGroupMembership])
-  , _diStorageEncrypted :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diDBClusterIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diPubliclyAccessible :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diAutoMinorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diDBInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diMasterUsername :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diReadReplicaDBInstanceIdentifiers :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _diIAMDatabaseAuthenticationEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diMonitoringRoleARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diIOPS :: {-# NOUNPACK #-}!(Maybe Int)
-  , _diInstanceCreateTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _diReadReplicaSourceDBInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diMonitoringInterval :: {-# NOUNPACK #-}!(Maybe Int)
-  , _diEngine :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diLatestRestorableTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _diDBInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diPromotionTier :: {-# NOUNPACK #-}!(Maybe Int)
-  , _diLicenseModel :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diPreferredMaintenanceWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diCACertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diDBInstanceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diCharacterSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diPreferredBackupWindow :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [VPCSecurityGroupMembership])
-  , _diBackupRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
-  , _diPerformanceInsightsKMSKeyId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diDBSubnetGroup :: {-# NOUNPACK #-}!(Maybe DBSubnetGroup)
-  , _diMultiAZ :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diOptionGroupMemberships :: {-# NOUNPACK #-}!(Maybe [OptionGroupMembership])
-  , _diEnhancedMonitoringResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diSecondaryAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diPerformanceInsightsEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diAllocatedStorage :: {-# NOUNPACK #-}!(Maybe Int)
-  , _diDBiResourceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diDBParameterGroups :: {-# NOUNPACK #-}!(Maybe [DBParameterGroupStatus])
-  , _diCopyTagsToSnapshot :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _diTimezone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diTDECredentialARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diEndpoint :: {-# NOUNPACK #-}!(Maybe Endpoint)
-  , _diDBInstanceStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diDBInstancePort :: {-# NOUNPACK #-}!(Maybe Int)
-  , _diPendingModifiedValues :: {-# NOUNPACK #-}!(Maybe PendingModifiedValues)
-  , _diReadReplicaDBClusterIdentifiers :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _diStorageType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diStatusInfos :: {-# NOUNPACK #-}!(Maybe [DBInstanceStatusInfo])
-  , _diDomainMemberships :: {-# NOUNPACK #-}!(Maybe [DomainMembership])
-  , _diDBName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _diEngineVersion :: !(Maybe Text)
+  , _diDBSecurityGroups :: !(Maybe [DBSecurityGroupMembership])
+  , _diStorageEncrypted :: !(Maybe Bool)
+  , _diDBClusterIdentifier :: !(Maybe Text)
+  , _diPubliclyAccessible :: !(Maybe Bool)
+  , _diAutoMinorVersionUpgrade :: !(Maybe Bool)
+  , _diDBInstanceARN :: !(Maybe Text)
+  , _diMasterUsername :: !(Maybe Text)
+  , _diReadReplicaDBInstanceIdentifiers :: !(Maybe [Text])
+  , _diIAMDatabaseAuthenticationEnabled :: !(Maybe Bool)
+  , _diMonitoringRoleARN :: !(Maybe Text)
+  , _diIOPS :: !(Maybe Int)
+  , _diInstanceCreateTime :: !(Maybe ISO8601)
+  , _diReadReplicaSourceDBInstanceIdentifier :: !(Maybe Text)
+  , _diMonitoringInterval :: !(Maybe Int)
+  , _diEngine :: !(Maybe Text)
+  , _diLatestRestorableTime :: !(Maybe ISO8601)
+  , _diDBInstanceClass :: !(Maybe Text)
+  , _diPromotionTier :: !(Maybe Int)
+  , _diLicenseModel :: !(Maybe Text)
+  , _diPreferredMaintenanceWindow :: !(Maybe Text)
+  , _diCACertificateIdentifier :: !(Maybe Text)
+  , _diDBInstanceIdentifier :: !(Maybe Text)
+  , _diCharacterSetName :: !(Maybe Text)
+  , _diKMSKeyId :: !(Maybe Text)
+  , _diPreferredBackupWindow :: !(Maybe Text)
+  , _diAvailabilityZone :: !(Maybe Text)
+  , _diVPCSecurityGroups :: !(Maybe [VPCSecurityGroupMembership])
+  , _diBackupRetentionPeriod :: !(Maybe Int)
+  , _diPerformanceInsightsKMSKeyId :: !(Maybe Text)
+  , _diDBSubnetGroup :: !(Maybe DBSubnetGroup)
+  , _diMultiAZ :: !(Maybe Bool)
+  , _diOptionGroupMemberships :: !(Maybe [OptionGroupMembership])
+  , _diEnhancedMonitoringResourceARN :: !(Maybe Text)
+  , _diSecondaryAvailabilityZone :: !(Maybe Text)
+  , _diPerformanceInsightsEnabled :: !(Maybe Bool)
+  , _diAllocatedStorage :: !(Maybe Int)
+  , _diDBiResourceId :: !(Maybe Text)
+  , _diDBParameterGroups :: !(Maybe [DBParameterGroupStatus])
+  , _diCopyTagsToSnapshot :: !(Maybe Bool)
+  , _diTimezone :: !(Maybe Text)
+  , _diTDECredentialARN :: !(Maybe Text)
+  , _diEndpoint :: !(Maybe Endpoint)
+  , _diDBInstanceStatus :: !(Maybe Text)
+  , _diDBInstancePort :: !(Maybe Int)
+  , _diPendingModifiedValues :: !(Maybe PendingModifiedValues)
+  , _diReadReplicaDBClusterIdentifiers :: !(Maybe [Text])
+  , _diStorageType :: !(Maybe Text)
+  , _diStatusInfos :: !(Maybe [DBInstanceStatusInfo])
+  , _diDomainMemberships :: !(Maybe [DomainMembership])
+  , _diDBName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1800,10 +1800,10 @@ instance NFData DBInstance where
 --
 -- /See:/ 'dbInstanceStatusInfo' smart constructor.
 data DBInstanceStatusInfo = DBInstanceStatusInfo'
-  { _disiStatus     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _disiNormal     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _disiStatusType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _disiMessage    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _disiStatus     :: !(Maybe Text)
+  , _disiNormal     :: !(Maybe Bool)
+  , _disiStatusType :: !(Maybe Text)
+  , _disiMessage    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1864,10 +1864,10 @@ instance NFData DBInstanceStatusInfo where
 --
 -- /See:/ 'dbParameterGroup' smart constructor.
 data DBParameterGroup = DBParameterGroup'
-  { _dpgDBParameterGroupARN    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpgDBParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpgDBParameterGroupName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpgDescription            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dpgDBParameterGroupARN    :: !(Maybe Text)
+  , _dpgDBParameterGroupFamily :: !(Maybe Text)
+  , _dpgDBParameterGroupName   :: !(Maybe Text)
+  , _dpgDescription            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1977,8 +1977,8 @@ instance NFData DBParameterGroupNameMessage where
 --
 -- /See:/ 'dbParameterGroupStatus' smart constructor.
 data DBParameterGroupStatus = DBParameterGroupStatus'
-  { _dpgsDBParameterGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dpgsParameterApplyStatus :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dpgsDBParameterGroupName :: !(Maybe Text)
+  , _dpgsParameterApplyStatus :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2032,13 +2032,13 @@ instance NFData DBParameterGroupStatus where
 --
 -- /See:/ 'dbSecurityGroup' smart constructor.
 data DBSecurityGroup = DBSecurityGroup'
-  { _dbsgVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbsgOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbsgDBSecurityGroupARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbsgIPRanges :: {-# NOUNPACK #-}!(Maybe [IPRange])
-  , _dbsgDBSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbsgEC2SecurityGroups :: {-# NOUNPACK #-}!(Maybe [EC2SecurityGroup])
-  , _dbsgDBSecurityGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dbsgVPCId                      :: !(Maybe Text)
+  , _dbsgOwnerId                    :: !(Maybe Text)
+  , _dbsgDBSecurityGroupARN         :: !(Maybe Text)
+  , _dbsgIPRanges                   :: !(Maybe [IPRange])
+  , _dbsgDBSecurityGroupName        :: !(Maybe Text)
+  , _dbsgEC2SecurityGroups          :: !(Maybe [EC2SecurityGroup])
+  , _dbsgDBSecurityGroupDescription :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2135,8 +2135,8 @@ instance NFData DBSecurityGroup where
 --
 -- /See:/ 'dbSecurityGroupMembership' smart constructor.
 data DBSecurityGroupMembership = DBSecurityGroupMembership'
-  { _dsgmStatus              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsgmDBSecurityGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dsgmStatus              :: !(Maybe Text)
+  , _dsgmDBSecurityGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2185,32 +2185,32 @@ instance NFData DBSecurityGroupMembership where
 --
 -- /See:/ 'dbSnapshot' smart constructor.
 data DBSnapshot = DBSnapshot'
-  { _dsEngineVersion                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsStatus                           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsDBSnapshotARN                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsMasterUsername                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsSourceRegion                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsIAMDatabaseAuthenticationEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsIOPS                             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsVPCId                            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsInstanceCreateTime               :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dsEngine                           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsEncrypted                        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsDBSnapshotIdentifier             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsLicenseModel                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsSourceDBSnapshotIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsSnapshotType                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsDBInstanceIdentifier             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsKMSKeyId                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsAvailabilityZone                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsSnapshotCreateTime               :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dsAllocatedStorage                 :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsOptionGroupName                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsTimezone                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsTDECredentialARN                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsPercentProgress                  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsPort                             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsStorageType                      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dsEngineVersion                    :: !(Maybe Text)
+  , _dsStatus                           :: !(Maybe Text)
+  , _dsDBSnapshotARN                    :: !(Maybe Text)
+  , _dsMasterUsername                   :: !(Maybe Text)
+  , _dsSourceRegion                     :: !(Maybe Text)
+  , _dsIAMDatabaseAuthenticationEnabled :: !(Maybe Bool)
+  , _dsIOPS                             :: !(Maybe Int)
+  , _dsVPCId                            :: !(Maybe Text)
+  , _dsInstanceCreateTime               :: !(Maybe ISO8601)
+  , _dsEngine                           :: !(Maybe Text)
+  , _dsEncrypted                        :: !(Maybe Bool)
+  , _dsDBSnapshotIdentifier             :: !(Maybe Text)
+  , _dsLicenseModel                     :: !(Maybe Text)
+  , _dsSourceDBSnapshotIdentifier       :: !(Maybe Text)
+  , _dsSnapshotType                     :: !(Maybe Text)
+  , _dsDBInstanceIdentifier             :: !(Maybe Text)
+  , _dsKMSKeyId                         :: !(Maybe Text)
+  , _dsAvailabilityZone                 :: !(Maybe Text)
+  , _dsSnapshotCreateTime               :: !(Maybe ISO8601)
+  , _dsAllocatedStorage                 :: !(Maybe Int)
+  , _dsOptionGroupName                  :: !(Maybe Text)
+  , _dsTimezone                         :: !(Maybe Text)
+  , _dsTDECredentialARN                 :: !(Maybe Text)
+  , _dsPercentProgress                  :: !(Maybe Int)
+  , _dsPort                             :: !(Maybe Int)
+  , _dsStorageType                      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2447,8 +2447,8 @@ instance NFData DBSnapshot where
 --
 -- /See:/ 'dbSnapshotAttribute' smart constructor.
 data DBSnapshotAttribute = DBSnapshotAttribute'
-  { _dsaAttributeValues :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dsaAttributeName   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dsaAttributeValues :: !(Maybe [Text])
+  , _dsaAttributeName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2493,8 +2493,8 @@ instance NFData DBSnapshotAttribute where
 --
 -- /See:/ 'dbSnapshotAttributesResult' smart constructor.
 data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
-  { _dsarDBSnapshotIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsarDBSnapshotAttributes :: {-# NOUNPACK #-}!(Maybe [DBSnapshotAttribute])
+  { _dsarDBSnapshotIdentifier :: !(Maybe Text)
+  , _dsarDBSnapshotAttributes :: !(Maybe [DBSnapshotAttribute])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2549,12 +2549,12 @@ instance NFData DBSnapshotAttributesResult where
 --
 -- /See:/ 'dbSubnetGroup' smart constructor.
 data DBSubnetGroup = DBSubnetGroup'
-  { _dsgDBSubnetGroupName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsgVPCId                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsgSubnets                  :: {-# NOUNPACK #-}!(Maybe [Subnet])
-  , _dsgDBSubnetGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsgDBSubnetGroupARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsgSubnetGroupStatus        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dsgDBSubnetGroupName        :: !(Maybe Text)
+  , _dsgVPCId                    :: !(Maybe Text)
+  , _dsgSubnets                  :: !(Maybe [Subnet])
+  , _dsgDBSubnetGroupDescription :: !(Maybe Text)
+  , _dsgDBSubnetGroupARN         :: !(Maybe Text)
+  , _dsgSubnetGroupStatus        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2630,9 +2630,9 @@ instance NFData DBSubnetGroup where
 --
 -- /See:/ 'describeDBLogFilesDetails' smart constructor.
 data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
-  { _ddlfdLastWritten :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _ddlfdSize        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _ddlfdLogFileName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ddlfdLastWritten :: !(Maybe Integer)
+  , _ddlfdSize        :: !(Maybe Integer)
+  , _ddlfdLogFileName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2683,10 +2683,10 @@ instance NFData DescribeDBLogFilesDetails where
 --
 -- /See:/ 'domainMembership' smart constructor.
 data DomainMembership = DomainMembership'
-  { _dmStatus      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmFQDN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmDomain      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmIAMRoleName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dmStatus      :: !(Maybe Text)
+  , _dmFQDN        :: !(Maybe Text)
+  , _dmDomain      :: !(Maybe Text)
+  , _dmIAMRoleName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2745,8 +2745,8 @@ instance NFData DomainMembership where
 --
 -- /See:/ 'doubleRange' smart constructor.
 data DoubleRange = DoubleRange'
-  { _drTo   :: {-# NOUNPACK #-}!(Maybe Double)
-  , _drFrom :: {-# NOUNPACK #-}!(Maybe Double)
+  { _drTo   :: !(Maybe Double)
+  , _drFrom :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2792,10 +2792,10 @@ instance NFData DoubleRange where
 --
 -- /See:/ 'ec2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-  { _esgStatus                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esgEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esgEC2SecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esgEC2SecurityGroupId      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _esgStatus                  :: !(Maybe Text)
+  , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
+  , _esgEC2SecurityGroupName    :: !(Maybe Text)
+  , _esgEC2SecurityGroupId      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2863,9 +2863,9 @@ instance NFData EC2SecurityGroup where
 --
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
-  { _eHostedZoneId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eAddress      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ePort         :: {-# NOUNPACK #-}!(Maybe Int)
+  { _eHostedZoneId :: !(Maybe Text)
+  , _eAddress      :: !(Maybe Text)
+  , _ePort         :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2912,9 +2912,9 @@ instance NFData Endpoint where
 --
 -- /See:/ 'engineDefaults' smart constructor.
 data EngineDefaults = EngineDefaults'
-  { _edDBParameterGroupFamily :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edParameters             :: {-# NOUNPACK #-}!(Maybe [Parameter])
+  { _edDBParameterGroupFamily :: !(Maybe Text)
+  , _edMarker                 :: !(Maybe Text)
+  , _edParameters             :: !(Maybe [Parameter])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2967,12 +2967,12 @@ instance NFData EngineDefaults where
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-  { _eSourceType       :: {-# NOUNPACK #-}!(Maybe SourceType)
-  , _eSourceARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _eDate             :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _eEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _eMessage          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _eSourceType       :: !(Maybe SourceType)
+  , _eSourceARN        :: !(Maybe Text)
+  , _eSourceIdentifier :: !(Maybe Text)
+  , _eDate             :: !(Maybe ISO8601)
+  , _eEventCategories  :: !(Maybe [Text])
+  , _eMessage          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3049,8 +3049,8 @@ instance NFData Event where
 --
 -- /See:/ 'eventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
-  { _ecmSourceType      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ecmEventCategories :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _ecmSourceType      :: !(Maybe Text)
+  , _ecmEventCategories :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3092,16 +3092,16 @@ instance NFData EventCategoriesMap where
 --
 -- /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-  { _esStatus                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esCustomerAWSId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esCustSubscriptionId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esSNSTopicARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esEventSubscriptionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esEnabled                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _esSourceType               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esSubscriptionCreationTime :: {-# NOUNPACK #-}!(Maybe Text)
-  , _esEventCategoriesList      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _esSourceIdsList            :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _esStatus                   :: !(Maybe Text)
+  , _esCustomerAWSId            :: !(Maybe Text)
+  , _esCustSubscriptionId       :: !(Maybe Text)
+  , _esSNSTopicARN              :: !(Maybe Text)
+  , _esEventSubscriptionARN     :: !(Maybe Text)
+  , _esEnabled                  :: !(Maybe Bool)
+  , _esSourceType               :: !(Maybe Text)
+  , _esSubscriptionCreationTime :: !(Maybe Text)
+  , _esEventCategoriesList      :: !(Maybe [Text])
+  , _esSourceIdsList            :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3212,8 +3212,8 @@ instance NFData EventSubscription where
 --
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
-  { _fName   :: {-# NOUNPACK #-}!Text
-  , _fValues :: {-# NOUNPACK #-}![Text]
+  { _fName   :: !Text
+  , _fValues :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3254,8 +3254,8 @@ instance ToQuery Filter where
 --
 -- /See:/ 'ipRange' smart constructor.
 data IPRange = IPRange'
-  { _irStatus :: {-# NOUNPACK #-}!(Maybe Text)
-  , _irCIdRIP :: {-# NOUNPACK #-}!(Maybe Text)
+  { _irStatus :: !(Maybe Text)
+  , _irCIdRIP :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3293,15 +3293,15 @@ instance NFData IPRange where
 --
 -- /See:/ 'option' smart constructor.
 data Option = Option'
-  { _oOptionName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oPermanent :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _oPersistent :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _oOptionDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oOptionSettings :: {-# NOUNPACK #-}!(Maybe [OptionSetting])
-  , _oVPCSecurityGroupMemberships :: {-# NOUNPACK #-}!(Maybe [VPCSecurityGroupMembership])
-  , _oDBSecurityGroupMemberships :: {-# NOUNPACK #-}!(Maybe [DBSecurityGroupMembership])
-  , _oOptionVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oPort :: {-# NOUNPACK #-}!(Maybe Int)
+  { _oOptionName                  :: !(Maybe Text)
+  , _oPermanent                   :: !(Maybe Bool)
+  , _oPersistent                  :: !(Maybe Bool)
+  , _oOptionDescription           :: !(Maybe Text)
+  , _oOptionSettings              :: !(Maybe [OptionSetting])
+  , _oVPCSecurityGroupMemberships :: !(Maybe [VPCSecurityGroupMembership])
+  , _oDBSecurityGroupMemberships  :: !(Maybe [DBSecurityGroupMembership])
+  , _oOptionVersion               :: !(Maybe Text)
+  , _oPort                        :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3406,12 +3406,12 @@ instance NFData Option where
 --
 -- /See:/ 'optionConfiguration' smart constructor.
 data OptionConfiguration = OptionConfiguration'
-  { _ocOptionSettings              :: {-# NOUNPACK #-}!(Maybe [OptionSetting])
-  , _ocVPCSecurityGroupMemberships :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ocDBSecurityGroupMemberships  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ocOptionVersion               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ocPort                        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ocOptionName                  :: {-# NOUNPACK #-}!Text
+  { _ocOptionSettings              :: !(Maybe [OptionSetting])
+  , _ocVPCSecurityGroupMemberships :: !(Maybe [Text])
+  , _ocDBSecurityGroupMemberships  :: !(Maybe [Text])
+  , _ocOptionVersion               :: !(Maybe Text)
+  , _ocPort                        :: !(Maybe Int)
+  , _ocOptionName                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3495,14 +3495,14 @@ instance ToQuery OptionConfiguration where
 --
 -- /See:/ 'optionGroup' smart constructor.
 data OptionGroup = OptionGroup'
-  { _ogOptionGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogAllowsVPCAndNonVPCInstanceMemberships :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ogEngineName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogOptionGroupARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogMajorEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogOptions :: {-# NOUNPACK #-}!(Maybe [Option])
-  , _ogOptionGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ogOptionGroupDescription                :: !(Maybe Text)
+  , _ogVPCId                                 :: !(Maybe Text)
+  , _ogAllowsVPCAndNonVPCInstanceMemberships :: !(Maybe Bool)
+  , _ogEngineName                            :: !(Maybe Text)
+  , _ogOptionGroupARN                        :: !(Maybe Text)
+  , _ogMajorEngineVersion                    :: !(Maybe Text)
+  , _ogOptions                               :: !(Maybe [Option])
+  , _ogOptionGroupName                       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3595,8 +3595,8 @@ instance NFData OptionGroup where
 --
 -- /See:/ 'optionGroupMembership' smart constructor.
 data OptionGroupMembership = OptionGroupMembership'
-  { _ogmStatus          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogmOptionGroupName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ogmStatus          :: !(Maybe Text)
+  , _ogmOptionGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3636,22 +3636,22 @@ instance NFData OptionGroupMembership where
 --
 -- /See:/ 'optionGroupOption' smart constructor.
 data OptionGroupOption = OptionGroupOption'
-  { _ogoMinimumRequiredMinorEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogoOptionsConflictsWith :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ogoPermanent :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ogoPersistent :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ogoOptionGroupOptionVersions :: {-# NOUNPACK #-}!(Maybe [OptionVersion])
-  , _ogoEngineName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogoMajorEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogoName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogoSupportsOptionVersionDowngrade :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ogoDefaultPort :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ogoOptionGroupOptionSettings :: {-# NOUNPACK #-}!(Maybe [OptionGroupOptionSetting])
-  , _ogoRequiresAutoMinorEngineVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ogoPortRequired :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ogoDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogoOptionsDependedOn :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ogoVPCOnly :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _ogoMinimumRequiredMinorEngineVersion :: !(Maybe Text)
+  , _ogoOptionsConflictsWith :: !(Maybe [Text])
+  , _ogoPermanent :: !(Maybe Bool)
+  , _ogoPersistent :: !(Maybe Bool)
+  , _ogoOptionGroupOptionVersions :: !(Maybe [OptionVersion])
+  , _ogoEngineName :: !(Maybe Text)
+  , _ogoMajorEngineVersion :: !(Maybe Text)
+  , _ogoName :: !(Maybe Text)
+  , _ogoSupportsOptionVersionDowngrade :: !(Maybe Bool)
+  , _ogoDefaultPort :: !(Maybe Int)
+  , _ogoOptionGroupOptionSettings :: !(Maybe [OptionGroupOptionSetting])
+  , _ogoRequiresAutoMinorEngineVersionUpgrade :: !(Maybe Bool)
+  , _ogoPortRequired :: !(Maybe Bool)
+  , _ogoDescription :: !(Maybe Text)
+  , _ogoOptionsDependedOn :: !(Maybe [Text])
+  , _ogoVPCOnly :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3814,12 +3814,12 @@ instance NFData OptionGroupOption where
 --
 -- /See:/ 'optionGroupOptionSetting' smart constructor.
 data OptionGroupOptionSetting = OptionGroupOptionSetting'
-  { _ogosApplyType          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogosSettingName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogosDefaultValue       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogosIsModifiable       :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ogosSettingDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ogosAllowedValues      :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ogosApplyType          :: !(Maybe Text)
+  , _ogosSettingName        :: !(Maybe Text)
+  , _ogosDefaultValue       :: !(Maybe Text)
+  , _ogosIsModifiable       :: !(Maybe Bool)
+  , _ogosSettingDescription :: !(Maybe Text)
+  , _ogosAllowedValues      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3894,15 +3894,15 @@ instance NFData OptionGroupOptionSetting where
 --
 -- /See:/ 'optionSetting' smart constructor.
 data OptionSetting = OptionSetting'
-  { _osIsCollection  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _osApplyType     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _osValue         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _osName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _osDefaultValue  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _osIsModifiable  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _osDataType      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _osAllowedValues :: {-# NOUNPACK #-}!(Maybe Text)
-  , _osDescription   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _osIsCollection  :: !(Maybe Bool)
+  , _osApplyType     :: !(Maybe Text)
+  , _osValue         :: !(Maybe Text)
+  , _osName          :: !(Maybe Text)
+  , _osDefaultValue  :: !(Maybe Text)
+  , _osIsModifiable  :: !(Maybe Bool)
+  , _osDataType      :: !(Maybe Text)
+  , _osAllowedValues :: !(Maybe Text)
+  , _osDescription   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4012,8 +4012,8 @@ instance ToQuery OptionSetting where
 --
 -- /See:/ 'optionVersion' smart constructor.
 data OptionVersion = OptionVersion'
-  { _ovVersion   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ovIsDefault :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _ovVersion   :: !(Maybe Text)
+  , _ovIsDefault :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4054,26 +4054,26 @@ instance NFData OptionVersion where
 --
 -- /See:/ 'orderableDBInstanceOption' smart constructor.
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
-  { _odioEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _odioMinIOPSPerGib :: {-# NOUNPACK #-}!(Maybe Double)
-  , _odioSupportsIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _odioMinIOPSPerDBInstance :: {-# NOUNPACK #-}!(Maybe Int)
-  , _odioMultiAZCapable :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _odioMaxStorageSize :: {-# NOUNPACK #-}!(Maybe Int)
-  , _odioEngine :: {-# NOUNPACK #-}!(Maybe Text)
-  , _odioMinStorageSize :: {-# NOUNPACK #-}!(Maybe Int)
-  , _odioSupportsIOPS :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _odioSupportsPerformanceInsights :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _odioDBInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
-  , _odioLicenseModel :: {-# NOUNPACK #-}!(Maybe Text)
-  , _odioAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [AvailabilityZone])
-  , _odioSupportsStorageEncryption :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _odioReadReplicaCapable :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _odioMaxIOPSPerGib :: {-# NOUNPACK #-}!(Maybe Double)
-  , _odioVPC :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _odioSupportsEnhancedMonitoring :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _odioMaxIOPSPerDBInstance :: {-# NOUNPACK #-}!(Maybe Int)
-  , _odioStorageType :: {-# NOUNPACK #-}!(Maybe Text)
+  { _odioEngineVersion                     :: !(Maybe Text)
+  , _odioMinIOPSPerGib                     :: !(Maybe Double)
+  , _odioSupportsIAMDatabaseAuthentication :: !(Maybe Bool)
+  , _odioMinIOPSPerDBInstance              :: !(Maybe Int)
+  , _odioMultiAZCapable                    :: !(Maybe Bool)
+  , _odioMaxStorageSize                    :: !(Maybe Int)
+  , _odioEngine                            :: !(Maybe Text)
+  , _odioMinStorageSize                    :: !(Maybe Int)
+  , _odioSupportsIOPS                      :: !(Maybe Bool)
+  , _odioSupportsPerformanceInsights       :: !(Maybe Bool)
+  , _odioDBInstanceClass                   :: !(Maybe Text)
+  , _odioLicenseModel                      :: !(Maybe Text)
+  , _odioAvailabilityZones                 :: !(Maybe [AvailabilityZone])
+  , _odioSupportsStorageEncryption         :: !(Maybe Bool)
+  , _odioReadReplicaCapable                :: !(Maybe Bool)
+  , _odioMaxIOPSPerGib                     :: !(Maybe Double)
+  , _odioVPC                               :: !(Maybe Bool)
+  , _odioSupportsEnhancedMonitoring        :: !(Maybe Bool)
+  , _odioMaxIOPSPerDBInstance              :: !(Maybe Int)
+  , _odioStorageType                       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4264,16 +4264,16 @@ instance NFData OrderableDBInstanceOption where
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-  { _pApplyType            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pParameterValue       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pApplyMethod          :: {-# NOUNPACK #-}!(Maybe ApplyMethod)
-  , _pMinimumEngineVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pSource               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pIsModifiable         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pDataType             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pAllowedValues        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pParameterName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pDescription          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pApplyType            :: !(Maybe Text)
+  , _pParameterValue       :: !(Maybe Text)
+  , _pApplyMethod          :: !(Maybe ApplyMethod)
+  , _pMinimumEngineVersion :: !(Maybe Text)
+  , _pSource               :: !(Maybe Text)
+  , _pIsModifiable         :: !(Maybe Bool)
+  , _pDataType             :: !(Maybe Text)
+  , _pAllowedValues        :: !(Maybe Text)
+  , _pParameterName        :: !(Maybe Text)
+  , _pDescription          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4394,12 +4394,12 @@ instance ToQuery Parameter where
 --
 -- /See:/ 'pendingMaintenanceAction' smart constructor.
 data PendingMaintenanceAction = PendingMaintenanceAction'
-  { _pmaAutoAppliedAfterDate :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _pmaAction               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmaOptInStatus          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmaDescription          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmaForcedApplyDate      :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _pmaCurrentApplyDate     :: {-# NOUNPACK #-}!(Maybe ISO8601)
+  { _pmaAutoAppliedAfterDate :: !(Maybe ISO8601)
+  , _pmaAction               :: !(Maybe Text)
+  , _pmaOptInStatus          :: !(Maybe Text)
+  , _pmaDescription          :: !(Maybe Text)
+  , _pmaForcedApplyDate      :: !(Maybe ISO8601)
+  , _pmaCurrentApplyDate     :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4474,19 +4474,19 @@ instance NFData PendingMaintenanceAction where
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-  { _pmvEngineVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvMasterUserPassword      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvDBSubnetGroupName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvIOPS                    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pmvDBInstanceClass         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvLicenseModel            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvCACertificateIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvDBInstanceIdentifier    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pmvBackupRetentionPeriod   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pmvMultiAZ                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pmvAllocatedStorage        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pmvPort                    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pmvStorageType             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _pmvEngineVersion           :: !(Maybe Text)
+  , _pmvMasterUserPassword      :: !(Maybe Text)
+  , _pmvDBSubnetGroupName       :: !(Maybe Text)
+  , _pmvIOPS                    :: !(Maybe Int)
+  , _pmvDBInstanceClass         :: !(Maybe Text)
+  , _pmvLicenseModel            :: !(Maybe Text)
+  , _pmvCACertificateIdentifier :: !(Maybe Text)
+  , _pmvDBInstanceIdentifier    :: !(Maybe Text)
+  , _pmvBackupRetentionPeriod   :: !(Maybe Int)
+  , _pmvMultiAZ                 :: !(Maybe Bool)
+  , _pmvAllocatedStorage        :: !(Maybe Int)
+  , _pmvPort                    :: !(Maybe Int)
+  , _pmvStorageType             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4618,9 +4618,9 @@ instance NFData PendingModifiedValues where
 --
 -- /See:/ 'range' smart constructor.
 data Range = Range'
-  { _rTo   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rFrom :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rStep :: {-# NOUNPACK #-}!(Maybe Int)
+  { _rTo   :: !(Maybe Int)
+  , _rFrom :: !(Maybe Int)
+  , _rStep :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4665,8 +4665,8 @@ instance NFData Range where
 --
 -- /See:/ 'recurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-  { _rcRecurringChargeFrequency :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcRecurringChargeAmount    :: {-# NOUNPACK #-}!(Maybe Double)
+  { _rcRecurringChargeFrequency :: !(Maybe Text)
+  , _rcRecurringChargeAmount    :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4708,21 +4708,21 @@ instance NFData RecurringCharge where
 --
 -- /See:/ 'reservedDBInstance' smart constructor.
 data ReservedDBInstance = ReservedDBInstance'
-  { _rdiDBInstanceCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rdiState :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiCurrencyCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiStartTime :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _rdiProductDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiReservedDBInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiReservedDBInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiDBInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiMultiAZ :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdiReservedDBInstancesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiRecurringCharges :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
-  , _rdiOfferingType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdiUsagePrice :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rdiFixedPrice :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rdiDuration :: {-# NOUNPACK #-}!(Maybe Int)
+  { _rdiDBInstanceCount               :: !(Maybe Int)
+  , _rdiState                         :: !(Maybe Text)
+  , _rdiCurrencyCode                  :: !(Maybe Text)
+  , _rdiStartTime                     :: !(Maybe ISO8601)
+  , _rdiProductDescription            :: !(Maybe Text)
+  , _rdiReservedDBInstanceId          :: !(Maybe Text)
+  , _rdiReservedDBInstanceARN         :: !(Maybe Text)
+  , _rdiDBInstanceClass               :: !(Maybe Text)
+  , _rdiMultiAZ                       :: !(Maybe Bool)
+  , _rdiReservedDBInstancesOfferingId :: !(Maybe Text)
+  , _rdiRecurringCharges              :: !(Maybe [RecurringCharge])
+  , _rdiOfferingType                  :: !(Maybe Text)
+  , _rdiUsagePrice                    :: !(Maybe Double)
+  , _rdiFixedPrice                    :: !(Maybe Double)
+  , _rdiDuration                      :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4871,16 +4871,16 @@ instance NFData ReservedDBInstance where
 --
 -- /See:/ 'reservedDBInstancesOffering' smart constructor.
 data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
-  { _rdioCurrencyCode :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdioProductDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdioDBInstanceClass :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdioMultiAZ :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdioReservedDBInstancesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdioRecurringCharges :: {-# NOUNPACK #-}!(Maybe [RecurringCharge])
-  , _rdioOfferingType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdioUsagePrice :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rdioFixedPrice :: {-# NOUNPACK #-}!(Maybe Double)
-  , _rdioDuration :: {-# NOUNPACK #-}!(Maybe Int)
+  { _rdioCurrencyCode                  :: !(Maybe Text)
+  , _rdioProductDescription            :: !(Maybe Text)
+  , _rdioDBInstanceClass               :: !(Maybe Text)
+  , _rdioMultiAZ                       :: !(Maybe Bool)
+  , _rdioReservedDBInstancesOfferingId :: !(Maybe Text)
+  , _rdioRecurringCharges              :: !(Maybe [RecurringCharge])
+  , _rdioOfferingType                  :: !(Maybe Text)
+  , _rdioUsagePrice                    :: !(Maybe Double)
+  , _rdioFixedPrice                    :: !(Maybe Double)
+  , _rdioDuration                      :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4990,8 +4990,8 @@ instance NFData ReservedDBInstancesOffering where
 --
 -- /See:/ 'resourcePendingMaintenanceActions' smart constructor.
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
-  { _rpmaPendingMaintenanceActionDetails :: {-# NOUNPACK #-}!(Maybe [PendingMaintenanceAction])
-  , _rpmaResourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rpmaPendingMaintenanceActionDetails :: !(Maybe [PendingMaintenanceAction])
+  , _rpmaResourceIdentifier              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5039,9 +5039,9 @@ instance NFData ResourcePendingMaintenanceActions
 --
 -- /See:/ 'sourceRegion' smart constructor.
 data SourceRegion = SourceRegion'
-  { _srStatus     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srRegionName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srEndpoint   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _srStatus     :: !(Maybe Text)
+  , _srRegionName :: !(Maybe Text)
+  , _srEndpoint   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5089,9 +5089,9 @@ instance NFData SourceRegion where
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
-  { _sSubnetStatus           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSubnetIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSubnetAvailabilityZone :: {-# NOUNPACK #-}!(Maybe AvailabilityZone)
+  { _sSubnetStatus           :: !(Maybe Text)
+  , _sSubnetIdentifier       :: !(Maybe Text)
+  , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5142,8 +5142,8 @@ instance NFData Subnet where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5216,11 +5216,11 @@ instance NFData Timezone where
 --
 -- /See:/ 'upgradeTarget' smart constructor.
 data UpgradeTarget = UpgradeTarget'
-  { _utEngineVersion         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _utIsMajorVersionUpgrade :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _utEngine                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _utAutoUpgrade           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _utDescription           :: {-# NOUNPACK #-}!(Maybe Text)
+  { _utEngineVersion         :: !(Maybe Text)
+  , _utIsMajorVersionUpgrade :: !(Maybe Bool)
+  , _utEngine                :: !(Maybe Text)
+  , _utAutoUpgrade           :: !(Maybe Bool)
+  , _utDescription           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5288,8 +5288,8 @@ instance NFData UpgradeTarget where
 --
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
-  { _vsgmStatus             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vsgmVPCSecurityGroupId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vsgmStatus             :: !(Maybe Text)
+  , _vsgmVPCSecurityGroupId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5368,10 +5368,10 @@ instance NFData ValidDBInstanceModificationsMessage
 --
 -- /See:/ 'validStorageOptions' smart constructor.
 data ValidStorageOptions = ValidStorageOptions'
-  { _vsoStorageSize        :: {-# NOUNPACK #-}!(Maybe [Range])
-  , _vsoProvisionedIOPS    :: {-# NOUNPACK #-}!(Maybe [Range])
-  , _vsoIOPSToStorageRatio :: {-# NOUNPACK #-}!(Maybe [DoubleRange])
-  , _vsoStorageType        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _vsoStorageSize        :: !(Maybe [Range])
+  , _vsoProvisionedIOPS    :: !(Maybe [Range])
+  , _vsoIOPSToStorageRatio :: !(Maybe [DoubleRange])
+  , _vsoStorageType        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

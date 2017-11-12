@@ -80,22 +80,22 @@ import Network.AWS.Response
 --
 -- /See:/ 'scan' smart constructor.
 data Scan = Scan'
-  { _sProjectionExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sScanFilter :: {-# NOUNPACK #-}!(Maybe (Map Text Condition))
-  , _sAttributesToGet :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _sTotalSegments :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _sExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _sFilterExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sConsistentRead :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sExpressionAttributeValues :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _sReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
-  , _sLimit :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _sSelect :: {-# NOUNPACK #-}!(Maybe Select)
-  , _sSegment :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _sConditionalOperator :: {-# NOUNPACK #-}!(Maybe ConditionalOperator)
-  , _sExclusiveStartKey :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _sIndexName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sTableName :: {-# NOUNPACK #-}!Text
+  { _sProjectionExpression      :: !(Maybe Text)
+  , _sScanFilter                :: !(Maybe (Map Text Condition))
+  , _sAttributesToGet           :: !(Maybe (List1 Text))
+  , _sTotalSegments             :: !(Maybe Nat)
+  , _sExpressionAttributeNames  :: !(Maybe (Map Text Text))
+  , _sFilterExpression          :: !(Maybe Text)
+  , _sConsistentRead            :: !(Maybe Bool)
+  , _sExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+  , _sReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
+  , _sLimit                     :: !(Maybe Nat)
+  , _sSelect                    :: !(Maybe Select)
+  , _sSegment                   :: !(Maybe Nat)
+  , _sConditionalOperator       :: !(Maybe ConditionalOperator)
+  , _sExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
+  , _sIndexName                 :: !(Maybe Text)
+  , _sTableName                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -292,12 +292,12 @@ instance ToQuery Scan where
 --
 -- /See:/ 'scanResponse' smart constructor.
 data ScanResponse = ScanResponse'
-  { _srsLastEvaluatedKey :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _srsCount            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _srsScannedCount     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _srsItems            :: {-# NOUNPACK #-}!(Maybe [Map Text AttributeValue])
-  , _srsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ConsumedCapacity)
-  , _srsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _srsLastEvaluatedKey :: !(Maybe (Map Text AttributeValue))
+  , _srsCount            :: !(Maybe Int)
+  , _srsScannedCount     :: !(Maybe Int)
+  , _srsItems            :: !(Maybe [Map Text AttributeValue])
+  , _srsConsumedCapacity :: !(Maybe ConsumedCapacity)
+  , _srsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

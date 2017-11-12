@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyReservedInstances' smart constructor.
 data ModifyReservedInstances = ModifyReservedInstances'
-  { _mriClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mriReservedInstancesIds :: {-# NOUNPACK #-}![Text]
-  , _mriTargetConfigurations :: {-# NOUNPACK #-}![ReservedInstancesConfiguration]
+  { _mriClientToken          :: !(Maybe Text)
+  , _mriReservedInstancesIds :: ![Text]
+  , _mriTargetConfigurations :: ![ReservedInstancesConfiguration]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance ToQuery ModifyReservedInstances where
 --
 -- /See:/ 'modifyReservedInstancesResponse' smart constructor.
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
-  { _mrirsReservedInstancesModificationId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrirsResponseStatus                  :: {-# NOUNPACK #-}!Int
+  { _mrirsReservedInstancesModificationId :: !(Maybe Text)
+  , _mrirsResponseStatus                  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

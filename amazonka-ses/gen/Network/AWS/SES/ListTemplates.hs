@@ -50,8 +50,8 @@ import Network.AWS.SES.Types.Product
 
 -- | /See:/ 'listTemplates' smart constructor.
 data ListTemplates = ListTemplates'
-  { _ltNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltMaxItems  :: {-# NOUNPACK #-}!(Maybe Int)
+  { _ltNextToken :: !(Maybe Text)
+  , _ltMaxItems  :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -107,9 +107,9 @@ instance ToQuery ListTemplates where
 
 -- | /See:/ 'listTemplatesResponse' smart constructor.
 data ListTemplatesResponse = ListTemplatesResponse'
-  { _ltrsTemplatesMetadata :: {-# NOUNPACK #-}!(Maybe [TemplateMetadata])
-  , _ltrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _ltrsTemplatesMetadata :: !(Maybe [TemplateMetadata])
+  , _ltrsNextToken         :: !(Maybe Text)
+  , _ltrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

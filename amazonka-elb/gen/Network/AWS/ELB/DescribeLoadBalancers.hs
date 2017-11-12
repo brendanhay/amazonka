@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
-  { _dlbMarker            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlbPageSize          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dlbLoadBalancerNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dlbMarker            :: !(Maybe Text)
+  , _dlbPageSize          :: !(Maybe Nat)
+  , _dlbLoadBalancerNames :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToQuery DescribeLoadBalancers where
 --
 -- /See:/ 'describeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
-  { _dlbrsLoadBalancerDescriptions :: {-# NOUNPACK #-}!(Maybe [LoadBalancerDescription])
-  , _dlbrsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dlbrsLoadBalancerDescriptions :: !(Maybe [LoadBalancerDescription])
+  , _dlbrsNextMarker               :: !(Maybe Text)
+  , _dlbrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

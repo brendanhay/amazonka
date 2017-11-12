@@ -51,9 +51,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'startLifecyclePolicyPreview' smart constructor.
 data StartLifecyclePolicyPreview = StartLifecyclePolicyPreview'
-  { _slppRegistryId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slppLifecyclePolicyText :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slppRepositoryName      :: {-# NOUNPACK #-}!Text
+  { _slppRegistryId          :: !(Maybe Text)
+  , _slppLifecyclePolicyText :: !(Maybe Text)
+  , _slppRepositoryName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,11 +133,11 @@ instance ToQuery StartLifecyclePolicyPreview where
 
 -- | /See:/ 'startLifecyclePolicyPreviewResponse' smart constructor.
 data StartLifecyclePolicyPreviewResponse = StartLifecyclePolicyPreviewResponse'
-  { _slpprsStatus :: {-# NOUNPACK #-}!(Maybe LifecyclePolicyPreviewStatus)
-  , _slpprsRegistryId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slpprsLifecyclePolicyText :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slpprsRepositoryName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _slpprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _slpprsStatus              :: !(Maybe LifecyclePolicyPreviewStatus)
+  , _slpprsRegistryId          :: !(Maybe Text)
+  , _slpprsLifecyclePolicyText :: !(Maybe Text)
+  , _slpprsRepositoryName      :: !(Maybe Text)
+  , _slpprsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

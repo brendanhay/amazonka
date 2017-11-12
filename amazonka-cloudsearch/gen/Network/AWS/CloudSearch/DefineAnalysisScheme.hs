@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'defineAnalysisScheme' smart constructor.
 data DefineAnalysisScheme = DefineAnalysisScheme'
-  { _dasaDomainName     :: {-# NOUNPACK #-}!Text
-  , _dasaAnalysisScheme :: {-# NOUNPACK #-}!AnalysisScheme
+  { _dasaDomainName     :: !Text
+  , _dasaAnalysisScheme :: !AnalysisScheme
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery DefineAnalysisScheme where
 --
 -- /See:/ 'defineAnalysisSchemeResponse' smart constructor.
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
-  { _defersResponseStatus :: {-# NOUNPACK #-}!Int
-  , _defersAnalysisScheme :: {-# NOUNPACK #-}!AnalysisSchemeStatus
+  { _defersResponseStatus :: !Int
+  , _defersAnalysisScheme :: !AnalysisSchemeStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

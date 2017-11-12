@@ -119,10 +119,10 @@ instance ToQuery GetIdentityPoolRoles where
 --
 -- /See:/ 'getIdentityPoolRolesResponse' smart constructor.
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
-  { _giprrsRoles          :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _giprrsIdentityPoolId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giprrsRoleMappings   :: {-# NOUNPACK #-}!(Maybe (Map Text RoleMapping))
-  , _giprrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _giprrsRoles          :: !(Maybe (Map Text Text))
+  , _giprrsIdentityPoolId :: !(Maybe Text)
+  , _giprrsRoleMappings   :: !(Maybe (Map Text RoleMapping))
+  , _giprrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

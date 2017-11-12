@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getGroupVersion' smart constructor.
 data GetGroupVersion = GetGroupVersion'
-  { _ggvGroupVersionId :: {-# NOUNPACK #-}!Text
-  , _ggvGroupId        :: {-# NOUNPACK #-}!Text
+  { _ggvGroupVersionId :: !Text
+  , _ggvGroupId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,12 +113,12 @@ instance ToQuery GetGroupVersion where
 
 -- | /See:/ 'getGroupVersionResponse' smart constructor.
 data GetGroupVersionResponse = GetGroupVersionResponse'
-  { _ggvrsDefinition        :: {-# NOUNPACK #-}!(Maybe GroupVersion)
-  , _ggvrsARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggvrsVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggvrsId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggvrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _ggvrsDefinition        :: !(Maybe GroupVersion)
+  , _ggvrsARN               :: !(Maybe Text)
+  , _ggvrsCreationTimestamp :: !(Maybe Text)
+  , _ggvrsVersion           :: !(Maybe Text)
+  , _ggvrsId                :: !(Maybe Text)
+  , _ggvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

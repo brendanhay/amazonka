@@ -52,13 +52,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'startSupportDataExport' smart constructor.
 data StartSupportDataExport = StartSupportDataExport'
-  { _ssdeCustomerDefinedValues   :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _ssdeDestinationS3Prefix     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssdeDataSetType             :: {-# NOUNPACK #-}!SupportDataSetType
-  , _ssdeFromDate                :: {-# NOUNPACK #-}!POSIX
-  , _ssdeRoleNameARN             :: {-# NOUNPACK #-}!Text
-  , _ssdeDestinationS3BucketName :: {-# NOUNPACK #-}!Text
-  , _ssdeSnsTopicARN             :: {-# NOUNPACK #-}!Text
+  { _ssdeCustomerDefinedValues   :: !(Maybe (Map Text Text))
+  , _ssdeDestinationS3Prefix     :: !(Maybe Text)
+  , _ssdeDataSetType             :: !SupportDataSetType
+  , _ssdeFromDate                :: !POSIX
+  , _ssdeRoleNameARN             :: !Text
+  , _ssdeDestinationS3BucketName :: !Text
+  , _ssdeSnsTopicARN             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -176,8 +176,8 @@ instance ToQuery StartSupportDataExport where
 --
 -- /See:/ 'startSupportDataExportResponse' smart constructor.
 data StartSupportDataExportResponse = StartSupportDataExportResponse'
-  { _ssdersDataSetRequestId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssdersResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ssdersDataSetRequestId :: !(Maybe Text)
+  , _ssdersResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

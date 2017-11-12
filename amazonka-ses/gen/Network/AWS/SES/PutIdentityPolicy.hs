@@ -55,9 +55,9 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'putIdentityPolicy' smart constructor.
 data PutIdentityPolicy = PutIdentityPolicy'
-  { _pipIdentity   :: {-# NOUNPACK #-}!Text
-  , _pipPolicyName :: {-# NOUNPACK #-}!Text
-  , _pipPolicy     :: {-# NOUNPACK #-}!Text
+  { _pipIdentity   :: !Text
+  , _pipPolicyName :: !Text
+  , _pipPolicy     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

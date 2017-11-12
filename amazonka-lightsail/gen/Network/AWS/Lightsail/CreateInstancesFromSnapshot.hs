@@ -51,12 +51,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'createInstancesFromSnapshot' smart constructor.
 data CreateInstancesFromSnapshot = CreateInstancesFromSnapshot'
-  { _cifsUserData             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cifsKeyPairName          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cifsInstanceNames        :: {-# NOUNPACK #-}![Text]
-  , _cifsAvailabilityZone     :: {-# NOUNPACK #-}!Text
-  , _cifsInstanceSnapshotName :: {-# NOUNPACK #-}!Text
-  , _cifsBundleId             :: {-# NOUNPACK #-}!Text
+  { _cifsUserData             :: !(Maybe Text)
+  , _cifsKeyPairName          :: !(Maybe Text)
+  , _cifsInstanceNames        :: ![Text]
+  , _cifsAvailabilityZone     :: !Text
+  , _cifsInstanceSnapshotName :: !Text
+  , _cifsBundleId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -161,8 +161,8 @@ instance ToQuery CreateInstancesFromSnapshot where
 
 -- | /See:/ 'createInstancesFromSnapshotResponse' smart constructor.
 data CreateInstancesFromSnapshotResponse = CreateInstancesFromSnapshotResponse'
-  { _cifsrsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _cifsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cifsrsOperations     :: !(Maybe [Operation])
+  , _cifsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

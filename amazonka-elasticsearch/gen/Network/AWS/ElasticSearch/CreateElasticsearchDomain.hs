@@ -54,15 +54,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'createElasticsearchDomain' smart constructor.
 data CreateElasticsearchDomain = CreateElasticsearchDomain'
-  { _cedEBSOptions :: {-# NOUNPACK #-}!(Maybe EBSOptions)
-  , _cedAccessPolicies :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cedLogPublishingOptions :: {-# NOUNPACK #-}!(Maybe (Map LogType LogPublishingOption))
-  , _cedElasticsearchClusterConfig :: {-# NOUNPACK #-}!(Maybe ElasticsearchClusterConfig)
-  , _cedSnapshotOptions :: {-# NOUNPACK #-}!(Maybe SnapshotOptions)
-  , _cedVPCOptions :: {-# NOUNPACK #-}!(Maybe VPCOptions)
-  , _cedAdvancedOptions :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cedElasticsearchVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cedDomainName :: {-# NOUNPACK #-}!Text
+  { _cedEBSOptions                 :: !(Maybe EBSOptions)
+  , _cedAccessPolicies             :: !(Maybe Text)
+  , _cedLogPublishingOptions       :: !(Maybe (Map LogType LogPublishingOption))
+  , _cedElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfig)
+  , _cedSnapshotOptions            :: !(Maybe SnapshotOptions)
+  , _cedVPCOptions                 :: !(Maybe VPCOptions)
+  , _cedAdvancedOptions            :: !(Maybe (Map Text Text))
+  , _cedElasticsearchVersion       :: !(Maybe Text)
+  , _cedDomainName                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -186,8 +186,8 @@ instance ToQuery CreateElasticsearchDomain where
 --
 -- /See:/ 'createElasticsearchDomainResponse' smart constructor.
 data CreateElasticsearchDomainResponse = CreateElasticsearchDomainResponse'
-  { _cedrsDomainStatus   :: {-# NOUNPACK #-}!(Maybe ElasticsearchDomainStatus)
-  , _cedrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cedrsDomainStatus   :: !(Maybe ElasticsearchDomainStatus)
+  , _cedrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

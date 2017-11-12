@@ -53,14 +53,14 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'updateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { _uuGivenName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uuLocale              :: {-# NOUNPACK #-}!(Maybe LocaleType)
-  , _uuAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _uuStorageRule         :: {-# NOUNPACK #-}!(Maybe StorageRuleType)
-  , _uuType                :: {-# NOUNPACK #-}!(Maybe UserType)
-  , _uuSurname             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uuTimeZoneId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uuUserId              :: {-# NOUNPACK #-}!Text
+  { _uuGivenName           :: !(Maybe Text)
+  , _uuLocale              :: !(Maybe LocaleType)
+  , _uuAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _uuStorageRule         :: !(Maybe StorageRuleType)
+  , _uuType                :: !(Maybe UserType)
+  , _uuSurname             :: !(Maybe Text)
+  , _uuTimeZoneId          :: !(Maybe Text)
+  , _uuUserId              :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -171,8 +171,8 @@ instance ToQuery UpdateUser where
 
 -- | /See:/ 'updateUserResponse' smart constructor.
 data UpdateUserResponse = UpdateUserResponse'
-  { _uursUser           :: {-# NOUNPACK #-}!(Maybe User)
-  , _uursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uursUser           :: !(Maybe User)
+  , _uursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

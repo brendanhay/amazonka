@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateServerEngineAttributes' smart constructor.
 data UpdateServerEngineAttributes = UpdateServerEngineAttributes'
-  { _useaAttributeValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _useaServerName     :: {-# NOUNPACK #-}!Text
-  , _useaAttributeName  :: {-# NOUNPACK #-}!Text
+  { _useaAttributeValue :: !(Maybe Text)
+  , _useaServerName     :: !Text
+  , _useaAttributeName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,8 +132,8 @@ instance ToQuery UpdateServerEngineAttributes where
 
 -- | /See:/ 'updateServerEngineAttributesResponse' smart constructor.
 data UpdateServerEngineAttributesResponse = UpdateServerEngineAttributesResponse'
-  { _usearsServer         :: {-# NOUNPACK #-}!(Maybe Server)
-  , _usearsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _usearsServer         :: !(Maybe Server)
+  , _usearsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

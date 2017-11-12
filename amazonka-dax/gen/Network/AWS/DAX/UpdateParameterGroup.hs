@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateParameterGroup' smart constructor.
 data UpdateParameterGroup = UpdateParameterGroup'
-  { _upgParameterGroupName  :: {-# NOUNPACK #-}!Text
-  , _upgParameterNameValues :: {-# NOUNPACK #-}![ParameterNameValue]
+  { _upgParameterGroupName  :: !Text
+  , _upgParameterNameValues :: ![ParameterNameValue]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,8 +117,8 @@ instance ToQuery UpdateParameterGroup where
 
 -- | /See:/ 'updateParameterGroupResponse' smart constructor.
 data UpdateParameterGroupResponse = UpdateParameterGroupResponse'
-  { _upgrsParameterGroup :: {-# NOUNPACK #-}!(Maybe ParameterGroup)
-  , _upgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _upgrsParameterGroup :: !(Maybe ParameterGroup)
+  , _upgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

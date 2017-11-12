@@ -54,11 +54,11 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'terminateProvisionedProduct' smart constructor.
 data TerminateProvisionedProduct = TerminateProvisionedProduct'
-  { _tppProvisionedProductName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tppAcceptLanguage         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tppIgnoreErrors           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _tppProvisionedProductId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tppTerminateToken         :: {-# NOUNPACK #-}!Text
+  { _tppProvisionedProductName :: !(Maybe Text)
+  , _tppAcceptLanguage         :: !(Maybe Text)
+  , _tppIgnoreErrors           :: !(Maybe Bool)
+  , _tppProvisionedProductId   :: !(Maybe Text)
+  , _tppTerminateToken         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -152,8 +152,8 @@ instance ToQuery TerminateProvisionedProduct where
 
 -- | /See:/ 'terminateProvisionedProductResponse' smart constructor.
 data TerminateProvisionedProductResponse = TerminateProvisionedProductResponse'
-  { _tpprsRecordDetail   :: {-# NOUNPACK #-}!(Maybe RecordDetail)
-  , _tpprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _tpprsRecordDetail   :: !(Maybe RecordDetail)
+  , _tpprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

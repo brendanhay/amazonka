@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createResource' smart constructor.
 data CreateResource = CreateResource'
-  { _crRestAPIId :: {-# NOUNPACK #-}!Text
-  , _crParentId  :: {-# NOUNPACK #-}!Text
-  , _crPathPart  :: {-# NOUNPACK #-}!Text
+  { _crRestAPIId :: !Text
+  , _crParentId  :: !Text
+  , _crPathPart  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

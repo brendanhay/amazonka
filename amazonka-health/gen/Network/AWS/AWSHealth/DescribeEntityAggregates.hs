@@ -102,8 +102,8 @@ instance ToQuery DescribeEntityAggregates where
 
 -- | /See:/ 'describeEntityAggregatesResponse' smart constructor.
 data DescribeEntityAggregatesResponse = DescribeEntityAggregatesResponse'
-  { _dearsEntityAggregates :: {-# NOUNPACK #-}!(Maybe [EntityAggregate])
-  , _dearsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _dearsEntityAggregates :: !(Maybe [EntityAggregate])
+  , _dearsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

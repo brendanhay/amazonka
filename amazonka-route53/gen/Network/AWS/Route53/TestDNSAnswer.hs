@@ -60,12 +60,12 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'testDNSAnswer' smart constructor.
 data TestDNSAnswer = TestDNSAnswer'
-  { _tdaResolverIP            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdaEDNS0ClientSubnetIP   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdaEDNS0ClientSubnetMask :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tdaHostedZoneId          :: {-# NOUNPACK #-}!ResourceId
-  , _tdaRecordName            :: {-# NOUNPACK #-}!Text
-  , _tdaRecordType            :: {-# NOUNPACK #-}!RecordType
+  { _tdaResolverIP            :: !(Maybe Text)
+  , _tdaEDNS0ClientSubnetIP   :: !(Maybe Text)
+  , _tdaEDNS0ClientSubnetMask :: !(Maybe Text)
+  , _tdaHostedZoneId          :: !ResourceId
+  , _tdaRecordName            :: !Text
+  , _tdaRecordType            :: !RecordType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -166,13 +166,13 @@ instance ToQuery TestDNSAnswer where
 --
 -- /See:/ 'testDNSAnswerResponse' smart constructor.
 data TestDNSAnswerResponse = TestDNSAnswerResponse'
-  { _tdarsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _tdarsNameserver     :: {-# NOUNPACK #-}!Text
-  , _tdarsRecordName     :: {-# NOUNPACK #-}!Text
-  , _tdarsRecordType     :: {-# NOUNPACK #-}!RecordType
-  , _tdarsRecordData     :: {-# NOUNPACK #-}![Text]
-  , _tdarsResponseCode   :: {-# NOUNPACK #-}!Text
-  , _tdarsProtocol       :: {-# NOUNPACK #-}!Text
+  { _tdarsResponseStatus :: !Int
+  , _tdarsNameserver     :: !Text
+  , _tdarsRecordName     :: !Text
+  , _tdarsRecordType     :: !RecordType
+  , _tdarsRecordData     :: ![Text]
+  , _tdarsResponseCode   :: !Text
+  , _tdarsProtocol       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

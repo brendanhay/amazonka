@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getLifecyclePolicy' smart constructor.
 data GetLifecyclePolicy = GetLifecyclePolicy'
-  { _glpRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glpRepositoryName :: {-# NOUNPACK #-}!Text
+  { _glpRegistryId     :: !(Maybe Text)
+  , _glpRepositoryName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,11 +120,11 @@ instance ToQuery GetLifecyclePolicy where
 
 -- | /See:/ 'getLifecyclePolicyResponse' smart constructor.
 data GetLifecyclePolicyResponse = GetLifecyclePolicyResponse'
-  { _glprsRegistryId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glprsLastEvaluatedAt     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _glprsLifecyclePolicyText :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glprsRepositoryName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glprsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _glprsRegistryId          :: !(Maybe Text)
+  , _glprsLastEvaluatedAt     :: !(Maybe POSIX)
+  , _glprsLifecyclePolicyText :: !(Maybe Text)
+  , _glprsRepositoryName      :: !(Maybe Text)
+  , _glprsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

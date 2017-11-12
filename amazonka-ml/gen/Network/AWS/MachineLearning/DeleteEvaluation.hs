@@ -114,8 +114,8 @@ instance ToQuery DeleteEvaluation where
 --
 -- /See:/ 'deleteEvaluationResponse' smart constructor.
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
-  { _dersEvaluationId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dersEvaluationId   :: !(Maybe Text)
+  , _dersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

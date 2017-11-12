@@ -61,10 +61,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeClusterParameters' smart constructor.
 data DescribeClusterParameters = DescribeClusterParameters'
-  { _dcpsMarker             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpsMaxRecords         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dcpsSource             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcpsParameterGroupName :: {-# NOUNPACK #-}!Text
+  { _dcpsMarker             :: !(Maybe Text)
+  , _dcpsMaxRecords         :: !(Maybe Int)
+  , _dcpsSource             :: !(Maybe Text)
+  , _dcpsParameterGroupName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,9 +154,9 @@ instance ToQuery DescribeClusterParameters where
 --
 -- /See:/ 'describeClusterParametersResponse' smart constructor.
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
-  { _dcprsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcprsParameters     :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _dcprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcprsMarker         :: !(Maybe Text)
+  , _dcprsParameters     :: !(Maybe [Parameter])
+  , _dcprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

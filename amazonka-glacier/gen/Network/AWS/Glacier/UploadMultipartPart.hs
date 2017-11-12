@@ -71,12 +71,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'uploadMultipartPart' smart constructor.
 data UploadMultipartPart = UploadMultipartPart'
-  { _umpChecksum  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umpRange     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umpAccountId :: {-# NOUNPACK #-}!Text
-  , _umpVaultName :: {-# NOUNPACK #-}!Text
-  , _umpUploadId  :: {-# NOUNPACK #-}!Text
-  , _umpBody      :: {-# NOUNPACK #-}!HashedBody
+  { _umpChecksum  :: !(Maybe Text)
+  , _umpRange     :: !(Maybe Text)
+  , _umpAccountId :: !Text
+  , _umpVaultName :: !Text
+  , _umpUploadId  :: !Text
+  , _umpBody      :: !HashedBody
   } deriving (Show, Generic)
 
 
@@ -172,8 +172,8 @@ instance ToQuery UploadMultipartPart where
 --
 -- /See:/ 'uploadMultipartPartResponse' smart constructor.
 data UploadMultipartPartResponse = UploadMultipartPartResponse'
-  { _umprsChecksum       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _umprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _umprsChecksum       :: !(Maybe Text)
+  , _umprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

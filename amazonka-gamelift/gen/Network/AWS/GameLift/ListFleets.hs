@@ -105,9 +105,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listFleets' smart constructor.
 data ListFleets = ListFleets'
-  { _lfBuildId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lfBuildId   :: !(Maybe Text)
+  , _lfNextToken :: !(Maybe Text)
+  , _lfLimit     :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -181,9 +181,9 @@ instance ToQuery ListFleets where
 --
 -- /See:/ 'listFleetsResponse' smart constructor.
 data ListFleetsResponse = ListFleetsResponse'
-  { _lfrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfrsFleetIds       :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _lfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lfrsNextToken      :: !(Maybe Text)
+  , _lfrsFleetIds       :: !(Maybe (List1 Text))
+  , _lfrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

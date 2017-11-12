@@ -54,8 +54,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'listConfigurationSets' smart constructor.
 data ListConfigurationSets = ListConfigurationSets'
-  { _lcsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcsMaxItems  :: {-# NOUNPACK #-}!(Maybe Int)
+  { _lcsNextToken :: !(Maybe Text)
+  , _lcsMaxItems  :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,9 +117,9 @@ instance ToQuery ListConfigurationSets where
 --
 -- /See:/ 'listConfigurationSetsResponse' smart constructor.
 data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
-  { _lcsrsConfigurationSets :: {-# NOUNPACK #-}!(Maybe [ConfigurationSet])
-  , _lcsrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lcsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _lcsrsConfigurationSets :: !(Maybe [ConfigurationSet])
+  , _lcsrsNextToken         :: !(Maybe Text)
+  , _lcsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

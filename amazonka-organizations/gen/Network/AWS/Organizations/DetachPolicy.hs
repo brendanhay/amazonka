@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'detachPolicy' smart constructor.
 data DetachPolicy = DetachPolicy'
-  { _detPolicyId :: {-# NOUNPACK #-}!Text
-  , _detTargetId :: {-# NOUNPACK #-}!Text
+  { _detPolicyId :: !Text
+  , _detTargetId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'lexicon' smart constructor.
 data Lexicon = Lexicon'
-  { _lContent :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lName    :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  { _lContent :: !(Maybe Text)
+  , _lName    :: !(Maybe (Sensitive Text))
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -68,12 +68,12 @@ instance NFData Lexicon where
 --
 -- /See:/ 'lexiconAttributes' smart constructor.
 data LexiconAttributes = LexiconAttributes'
-  { _laLanguageCode :: {-# NOUNPACK #-}!(Maybe LanguageCode)
-  , _laSize         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _laLexemesCount :: {-# NOUNPACK #-}!(Maybe Int)
-  , _laLexiconARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laAlphabet     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laLastModified :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _laLanguageCode :: !(Maybe LanguageCode)
+  , _laSize         :: !(Maybe Int)
+  , _laLexemesCount :: !(Maybe Int)
+  , _laLexiconARN   :: !(Maybe Text)
+  , _laAlphabet     :: !(Maybe Text)
+  , _laLastModified :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,8 +150,8 @@ instance NFData LexiconAttributes where
 --
 -- /See:/ 'lexiconDescription' smart constructor.
 data LexiconDescription = LexiconDescription'
-  { _ldAttributes :: {-# NOUNPACK #-}!(Maybe LexiconAttributes)
-  , _ldName       :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
+  { _ldAttributes :: !(Maybe LexiconAttributes)
+  , _ldName       :: !(Maybe (Sensitive Text))
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -193,11 +193,11 @@ instance NFData LexiconDescription where
 --
 -- /See:/ 'voice' smart constructor.
 data Voice = Voice'
-  { _vLanguageCode :: {-# NOUNPACK #-}!(Maybe LanguageCode)
-  , _vLanguageName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vGender       :: {-# NOUNPACK #-}!(Maybe Gender)
-  , _vName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _vId           :: {-# NOUNPACK #-}!(Maybe VoiceId)
+  { _vLanguageCode :: !(Maybe LanguageCode)
+  , _vLanguageName :: !(Maybe Text)
+  , _vGender       :: !(Maybe Gender)
+  , _vName         :: !(Maybe Text)
+  , _vId           :: !(Maybe VoiceId)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

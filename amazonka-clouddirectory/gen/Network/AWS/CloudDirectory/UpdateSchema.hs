@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateSchema' smart constructor.
 data UpdateSchema = UpdateSchema'
-  { _usSchemaARN :: {-# NOUNPACK #-}!Text
-  , _usName      :: {-# NOUNPACK #-}!Text
+  { _usSchemaARN :: !Text
+  , _usName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -106,8 +106,8 @@ instance ToQuery UpdateSchema where
 
 -- | /See:/ 'updateSchemaResponse' smart constructor.
 data UpdateSchemaResponse = UpdateSchemaResponse'
-  { _usrsSchemaARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _usrsSchemaARN      :: !(Maybe Text)
+  , _usrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

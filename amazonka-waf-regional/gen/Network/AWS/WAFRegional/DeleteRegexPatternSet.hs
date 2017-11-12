@@ -47,8 +47,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'deleteRegexPatternSet' smart constructor.
 data DeleteRegexPatternSet = DeleteRegexPatternSet'
-  { _drpsRegexPatternSetId :: {-# NOUNPACK #-}!Text
-  , _drpsChangeToken       :: {-# NOUNPACK #-}!Text
+  { _drpsRegexPatternSetId :: !Text
+  , _drpsChangeToken       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,8 +118,8 @@ instance ToQuery DeleteRegexPatternSet where
 
 -- | /See:/ 'deleteRegexPatternSetResponse' smart constructor.
 data DeleteRegexPatternSetResponse = DeleteRegexPatternSetResponse'
-  { _drpsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drpsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drpsrsChangeToken    :: !(Maybe Text)
+  , _drpsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

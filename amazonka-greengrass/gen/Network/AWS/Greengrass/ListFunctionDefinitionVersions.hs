@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listFunctionDefinitionVersions' smart constructor.
 data ListFunctionDefinitionVersions = ListFunctionDefinitionVersions'
-  { _lfdvNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfdvMaxResults           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfdvFunctionDefinitionId :: {-# NOUNPACK #-}!Text
+  { _lfdvNextToken            :: !(Maybe Text)
+  , _lfdvMaxResults           :: !(Maybe Text)
+  , _lfdvFunctionDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery ListFunctionDefinitionVersions where
 
 -- | /See:/ 'listFunctionDefinitionVersionsResponse' smart constructor.
 data ListFunctionDefinitionVersionsResponse = ListFunctionDefinitionVersionsResponse'
-  { _lfdvrsVersions       :: {-# NOUNPACK #-}!(Maybe [VersionInformation])
-  , _lfdvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lfdvrsVersions       :: !(Maybe [VersionInformation])
+  , _lfdvrsNextToken      :: !(Maybe Text)
+  , _lfdvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

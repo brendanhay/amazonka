@@ -106,8 +106,8 @@ import Network.AWS.Route53.Types.Product
 
 -- | /See:/ 'createQueryLoggingConfig' smart constructor.
 data CreateQueryLoggingConfig = CreateQueryLoggingConfig'
-  { _cqlcHostedZoneId              :: {-# NOUNPACK #-}!ResourceId
-  , _cqlcCloudWatchLogsLogGroupARN :: {-# NOUNPACK #-}!Text
+  { _cqlcHostedZoneId              :: !ResourceId
+  , _cqlcCloudWatchLogsLogGroupARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -175,9 +175,9 @@ instance ToXML CreateQueryLoggingConfig where
 
 -- | /See:/ 'createQueryLoggingConfigResponse' smart constructor.
 data CreateQueryLoggingConfigResponse = CreateQueryLoggingConfigResponse'
-  { _cqlcrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _cqlcrsQueryLoggingConfig :: {-# NOUNPACK #-}!QueryLoggingConfig
-  , _cqlcrsLocation           :: {-# NOUNPACK #-}!Text
+  { _cqlcrsResponseStatus     :: !Int
+  , _cqlcrsQueryLoggingConfig :: !QueryLoggingConfig
+  , _cqlcrsLocation           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

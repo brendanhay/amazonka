@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateApplicationResourceLifecycle' smart constructor.
 data UpdateApplicationResourceLifecycle = UpdateApplicationResourceLifecycle'
-  { _uarlApplicationName :: {-# NOUNPACK #-}!Text
-  , _uarlResourceLifecycleConfig :: {-# NOUNPACK #-}!ApplicationResourceLifecycleConfig
+  { _uarlApplicationName         :: !Text
+  , _uarlResourceLifecycleConfig :: !ApplicationResourceLifecycleConfig
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,9 +121,9 @@ instance ToQuery UpdateApplicationResourceLifecycle
 
 -- | /See:/ 'updateApplicationResourceLifecycleResponse' smart constructor.
 data UpdateApplicationResourceLifecycleResponse = UpdateApplicationResourceLifecycleResponse'
-  { _uarlrsApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uarlrsResourceLifecycleConfig :: {-# NOUNPACK #-}!(Maybe ApplicationResourceLifecycleConfig)
-  , _uarlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uarlrsApplicationName :: !(Maybe Text)
+  , _uarlrsResourceLifecycleConfig :: !(Maybe ApplicationResourceLifecycleConfig)
+  , _uarlrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

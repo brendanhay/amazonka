@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'setIPAddressType' smart constructor.
 data SetIPAddressType = SetIPAddressType'
-  { _siatLoadBalancerARN :: {-# NOUNPACK #-}!Text
-  , _siatIPAddressType   :: {-# NOUNPACK #-}!IPAddressType
+  { _siatLoadBalancerARN :: !Text
+  , _siatIPAddressType   :: !IPAddressType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,8 +109,8 @@ instance ToQuery SetIPAddressType where
 
 -- | /See:/ 'setIPAddressTypeResponse' smart constructor.
 data SetIPAddressTypeResponse = SetIPAddressTypeResponse'
-  { _siatrsIPAddressType  :: {-# NOUNPACK #-}!(Maybe IPAddressType)
-  , _siatrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _siatrsIPAddressType  :: !(Maybe IPAddressType)
+  , _siatrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

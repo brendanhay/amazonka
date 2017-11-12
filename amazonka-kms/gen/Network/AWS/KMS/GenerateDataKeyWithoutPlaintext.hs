@@ -55,11 +55,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'generateDataKeyWithoutPlaintext' smart constructor.
 data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
-  { _gdkwpKeySpec           :: {-# NOUNPACK #-}!(Maybe DataKeySpec)
-  , _gdkwpEncryptionContext :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gdkwpNumberOfBytes     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gdkwpGrantTokens       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gdkwpKeyId             :: {-# NOUNPACK #-}!Text
+  { _gdkwpKeySpec           :: !(Maybe DataKeySpec)
+  , _gdkwpEncryptionContext :: !(Maybe (Map Text Text))
+  , _gdkwpNumberOfBytes     :: !(Maybe Nat)
+  , _gdkwpGrantTokens       :: !(Maybe [Text])
+  , _gdkwpKeyId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,9 +156,9 @@ instance ToQuery GenerateDataKeyWithoutPlaintext
 
 -- | /See:/ 'generateDataKeyWithoutPlaintextResponse' smart constructor.
 data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'
-  { _gdkwprsKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gdkwprsCiphertextBlob :: {-# NOUNPACK #-}!(Maybe Base64)
-  , _gdkwprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdkwprsKeyId          :: !(Maybe Text)
+  , _gdkwprsCiphertextBlob :: !(Maybe Base64)
+  , _gdkwprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

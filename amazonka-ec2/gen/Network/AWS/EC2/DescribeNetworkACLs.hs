@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeNetworkACLs' smart constructor.
 data DescribeNetworkACLs = DescribeNetworkACLs'
-  { _dnaclFilters       :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dnaclNetworkACLIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dnaclDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dnaclFilters       :: !(Maybe [Filter])
+  , _dnaclNetworkACLIds :: !(Maybe [Text])
+  , _dnaclDryRun        :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,8 +129,8 @@ instance ToQuery DescribeNetworkACLs where
 --
 -- /See:/ 'describeNetworkACLsResponse' smart constructor.
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
-  { _dnarsNetworkACLs    :: {-# NOUNPACK #-}!(Maybe [NetworkACL])
-  , _dnarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dnarsNetworkACLs    :: !(Maybe [NetworkACL])
+  , _dnarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

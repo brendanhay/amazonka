@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { _prpPolicyName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _prpPolicyDocument :: {-# NOUNPACK #-}!(Maybe Text)
+  { _prpPolicyName     :: !(Maybe Text)
+  , _prpPolicyDocument :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,8 +110,8 @@ instance ToQuery PutResourcePolicy where
 
 -- | /See:/ 'putResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
-  { _prprsResourcePolicy :: {-# NOUNPACK #-}!(Maybe ResourcePolicy)
-  , _prprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _prprsResourcePolicy :: !(Maybe ResourcePolicy)
+  , _prprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -51,8 +51,8 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'deleteFileShare' smart constructor.
 data DeleteFileShare = DeleteFileShare'
-  { _dfsForceDelete  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dfsFileShareARN :: {-# NOUNPACK #-}!Text
+  { _dfsForceDelete  :: !(Maybe Bool)
+  , _dfsFileShareARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery DeleteFileShare where
 --
 -- /See:/ 'deleteFileShareResponse' smart constructor.
 data DeleteFileShareResponse = DeleteFileShareResponse'
-  { _dfsrsFileShareARN   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dfsrsFileShareARN   :: !(Maybe Text)
+  , _dfsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

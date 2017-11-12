@@ -48,10 +48,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'associateProductWithPortfolio' smart constructor.
 data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
-  { _apwpSourcePortfolioId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _apwpAcceptLanguage    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _apwpProductId         :: {-# NOUNPACK #-}!Text
-  , _apwpPortfolioId       :: {-# NOUNPACK #-}!Text
+  { _apwpSourcePortfolioId :: !(Maybe Text)
+  , _apwpAcceptLanguage    :: !(Maybe Text)
+  , _apwpProductId         :: !Text
+  , _apwpPortfolioId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

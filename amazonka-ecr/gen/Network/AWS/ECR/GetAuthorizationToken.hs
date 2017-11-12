@@ -104,8 +104,8 @@ instance ToQuery GetAuthorizationToken where
 
 -- | /See:/ 'getAuthorizationTokenResponse' smart constructor.
 data GetAuthorizationTokenResponse = GetAuthorizationTokenResponse'
-  { _gatrsAuthorizationData :: {-# NOUNPACK #-}!(Maybe [AuthorizationData])
-  , _gatrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _gatrsAuthorizationData :: !(Maybe [AuthorizationData])
+  , _gatrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

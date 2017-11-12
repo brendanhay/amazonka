@@ -64,12 +64,12 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'terminateWorkflowExecution' smart constructor.
 data TerminateWorkflowExecution = TerminateWorkflowExecution'
-  { _tweReason      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tweRunId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tweChildPolicy :: {-# NOUNPACK #-}!(Maybe ChildPolicy)
-  , _tweDetails     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tweDomain      :: {-# NOUNPACK #-}!Text
-  , _tweWorkflowId  :: {-# NOUNPACK #-}!Text
+  { _tweReason      :: !(Maybe Text)
+  , _tweRunId       :: !(Maybe Text)
+  , _tweChildPolicy :: !(Maybe ChildPolicy)
+  , _tweDetails     :: !(Maybe Text)
+  , _tweDomain      :: !Text
+  , _tweWorkflowId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

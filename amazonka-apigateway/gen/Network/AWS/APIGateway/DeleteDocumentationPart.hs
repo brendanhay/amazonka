@@ -46,8 +46,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteDocumentationPart' smart constructor.
 data DeleteDocumentationPart = DeleteDocumentationPart'
-  { _ddpRestAPIId           :: {-# NOUNPACK #-}!Text
-  , _ddpDocumentationPartId :: {-# NOUNPACK #-}!Text
+  { _ddpRestAPIId           :: !Text
+  , _ddpDocumentationPartId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

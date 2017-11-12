@@ -107,10 +107,10 @@ instance ToQuery GetGroupCertificateConfiguration
 
 -- | /See:/ 'getGroupCertificateConfigurationResponse' smart constructor.
 data GetGroupCertificateConfigurationResponse = GetGroupCertificateConfigurationResponse'
-  { _ggccrsCertificateAuthorityExpiryInMilliseconds :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggccrsGroupId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggccrsCertificateExpiryInMilliseconds :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ggccrsCertificateAuthorityExpiryInMilliseconds :: !(Maybe Text)
+  , _ggccrsGroupId                                  :: !(Maybe Text)
+  , _ggccrsCertificateExpiryInMilliseconds          :: !(Maybe Text)
+  , _ggccrsResponseStatus                           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

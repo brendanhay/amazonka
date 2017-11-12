@@ -66,8 +66,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteVPCPeeringAuthorization' smart constructor.
 data DeleteVPCPeeringAuthorization = DeleteVPCPeeringAuthorization'
-  { _dvpaGameLiftAWSAccountId :: {-# NOUNPACK #-}!Text
-  , _dvpaPeerVPCId            :: {-# NOUNPACK #-}!Text
+  { _dvpaGameLiftAWSAccountId :: !Text
+  , _dvpaPeerVPCId            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

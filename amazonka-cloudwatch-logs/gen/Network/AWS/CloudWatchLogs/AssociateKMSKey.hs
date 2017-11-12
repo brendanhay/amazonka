@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'associateKMSKey' smart constructor.
 data AssociateKMSKey = AssociateKMSKey'
-  { _akkLogGroupName :: {-# NOUNPACK #-}!Text
-  , _akkKmsKeyId     :: {-# NOUNPACK #-}!Text
+  { _akkLogGroupName :: !Text
+  , _akkKmsKeyId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

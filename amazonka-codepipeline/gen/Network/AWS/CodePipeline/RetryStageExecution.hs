@@ -53,10 +53,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'retryStageExecution' smart constructor.
 data RetryStageExecution = RetryStageExecution'
-  { _rsePipelineName        :: {-# NOUNPACK #-}!Text
-  , _rseStageName           :: {-# NOUNPACK #-}!Text
-  , _rsePipelineExecutionId :: {-# NOUNPACK #-}!Text
-  , _rseRetryMode           :: {-# NOUNPACK #-}!StageRetryMode
+  { _rsePipelineName        :: !Text
+  , _rseStageName           :: !Text
+  , _rsePipelineExecutionId :: !Text
+  , _rseRetryMode           :: !StageRetryMode
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,8 +149,8 @@ instance ToQuery RetryStageExecution where
 --
 -- /See:/ 'retryStageExecutionResponse' smart constructor.
 data RetryStageExecutionResponse = RetryStageExecutionResponse'
-  { _rsersPipelineExecutionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rsersResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _rsersPipelineExecutionId :: !(Maybe Text)
+  , _rsersResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

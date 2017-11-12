@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'batchDeleteTable' smart constructor.
 data BatchDeleteTable = BatchDeleteTable'
-  { _bdtCatalogId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bdtDatabaseName   :: {-# NOUNPACK #-}!Text
-  , _bdtTablesToDelete :: {-# NOUNPACK #-}![Text]
+  { _bdtCatalogId      :: !(Maybe Text)
+  , _bdtDatabaseName   :: !Text
+  , _bdtTablesToDelete :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery BatchDeleteTable where
 
 -- | /See:/ 'batchDeleteTableResponse' smart constructor.
 data BatchDeleteTableResponse = BatchDeleteTableResponse'
-  { _bdtrsErrors         :: {-# NOUNPACK #-}!(Maybe [TableError])
-  , _bdtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bdtrsErrors         :: !(Maybe [TableError])
+  , _bdtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

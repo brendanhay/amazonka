@@ -54,12 +54,12 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getParametersByPath' smart constructor.
 data GetParametersByPath = GetParametersByPath'
-  { _gpbpWithDecryption   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gpbpParameterFilters :: {-# NOUNPACK #-}!(Maybe [ParameterStringFilter])
-  , _gpbpNextToken        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpbpRecursive        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gpbpMaxResults       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gpbpPath             :: {-# NOUNPACK #-}!Text
+  { _gpbpWithDecryption   :: !(Maybe Bool)
+  , _gpbpParameterFilters :: !(Maybe [ParameterStringFilter])
+  , _gpbpNextToken        :: !(Maybe Text)
+  , _gpbpRecursive        :: !(Maybe Bool)
+  , _gpbpMaxResults       :: !(Maybe Nat)
+  , _gpbpPath             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,9 +160,9 @@ instance ToQuery GetParametersByPath where
 
 -- | /See:/ 'getParametersByPathResponse' smart constructor.
 data GetParametersByPathResponse = GetParametersByPathResponse'
-  { _gpbprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpbprsParameters     :: {-# NOUNPACK #-}!(Maybe [Parameter])
-  , _gpbprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gpbprsNextToken      :: !(Maybe Text)
+  , _gpbprsParameters     :: !(Maybe [Parameter])
+  , _gpbprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

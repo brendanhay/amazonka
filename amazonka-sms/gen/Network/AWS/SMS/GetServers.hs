@@ -51,8 +51,8 @@ import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'getServers' smart constructor.
 data GetServers = GetServers'
-  { _gsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _gsNextToken  :: !(Maybe Text)
+  , _gsMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,11 +125,11 @@ instance ToQuery GetServers where
 
 -- | /See:/ 'getServersResponse' smart constructor.
 data GetServersResponse = GetServersResponse'
-  { _gsrsServerCatalogStatus :: {-# NOUNPACK #-}!(Maybe ServerCatalogStatus)
-  , _gsrsLastModifiedOn      :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gsrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsrsServerList          :: {-# NOUNPACK #-}!(Maybe [Server])
-  , _gsrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _gsrsServerCatalogStatus :: !(Maybe ServerCatalogStatus)
+  , _gsrsLastModifiedOn      :: !(Maybe POSIX)
+  , _gsrsNextToken           :: !(Maybe Text)
+  , _gsrsServerList          :: !(Maybe [Server])
+  , _gsrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

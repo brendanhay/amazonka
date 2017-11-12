@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'addInstanceFleet' smart constructor.
 data AddInstanceFleet = AddInstanceFleet'
-  { _aifClusterId     :: {-# NOUNPACK #-}!Text
-  , _aifInstanceFleet :: {-# NOUNPACK #-}!InstanceFleetConfig
+  { _aifClusterId     :: !Text
+  , _aifInstanceFleet :: !InstanceFleetConfig
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,9 +115,9 @@ instance ToQuery AddInstanceFleet where
 
 -- | /See:/ 'addInstanceFleetResponse' smart constructor.
 data AddInstanceFleetResponse = AddInstanceFleetResponse'
-  { _aifrsClusterId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aifrsInstanceFleetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aifrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _aifrsClusterId       :: !(Maybe Text)
+  , _aifrsInstanceFleetId :: !(Maybe Text)
+  , _aifrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

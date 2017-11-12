@@ -63,17 +63,17 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'uploadPart' smart constructor.
 data UploadPart = UploadPart'
-  { _upContentLength        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _upSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upSSECustomerKey       :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _upRequestPayer         :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _upSSECustomerKeyMD5    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upContentMD5           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upBucket               :: {-# NOUNPACK #-}!BucketName
-  , _upKey                  :: {-# NOUNPACK #-}!ObjectKey
-  , _upPartNumber           :: {-# NOUNPACK #-}!Int
-  , _upUploadId             :: {-# NOUNPACK #-}!Text
-  , _upBody                 :: {-# NOUNPACK #-}!RqBody
+  { _upContentLength        :: !(Maybe Integer)
+  , _upSSECustomerAlgorithm :: !(Maybe Text)
+  , _upSSECustomerKey       :: !(Maybe (Sensitive Text))
+  , _upRequestPayer         :: !(Maybe RequestPayer)
+  , _upSSECustomerKeyMD5    :: !(Maybe Text)
+  , _upContentMD5           :: !(Maybe Text)
+  , _upBucket               :: !BucketName
+  , _upKey                  :: !ObjectKey
+  , _upPartNumber           :: !Int
+  , _upUploadId             :: !Text
+  , _upBody                 :: !RqBody
   } deriving (Show, Generic)
 
 
@@ -216,13 +216,13 @@ instance ToQuery UploadPart where
 
 -- | /See:/ 'uploadPartResponse' smart constructor.
 data UploadPartResponse = UploadPartResponse'
-  { _uprsRequestCharged       :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _uprsETag                 :: {-# NOUNPACK #-}!(Maybe ETag)
-  , _uprsSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uprsSSECustomerKeyMD5    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uprsSSEKMSKeyId          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _uprsServerSideEncryption :: {-# NOUNPACK #-}!(Maybe ServerSideEncryption)
-  , _uprsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _uprsRequestCharged       :: !(Maybe RequestCharged)
+  , _uprsETag                 :: !(Maybe ETag)
+  , _uprsSSECustomerAlgorithm :: !(Maybe Text)
+  , _uprsSSECustomerKeyMD5    :: !(Maybe Text)
+  , _uprsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+  , _uprsServerSideEncryption :: !(Maybe ServerSideEncryption)
+  , _uprsResponseStatus       :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

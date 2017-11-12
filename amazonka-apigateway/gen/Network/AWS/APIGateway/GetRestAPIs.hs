@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getRestAPIs' smart constructor.
 data GetRestAPIs = GetRestAPIs'
-  { _graLimit    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _graPosition :: {-# NOUNPACK #-}!(Maybe Text)
+  { _graLimit    :: !(Maybe Int)
+  , _graPosition :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery GetRestAPIs where
 --
 -- /See:/ 'getRestAPIsResponse' smart constructor.
 data GetRestAPIsResponse = GetRestAPIsResponse'
-  { _grarsItems          :: {-# NOUNPACK #-}!(Maybe [RestAPI])
-  , _grarsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grarsItems          :: !(Maybe [RestAPI])
+  , _grarsPosition       :: !(Maybe Text)
+  , _grarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

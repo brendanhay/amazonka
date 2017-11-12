@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'addTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { _attrResourceName :: {-# NOUNPACK #-}!Text
-  , _attrTags         :: {-# NOUNPACK #-}![Tag]
+  { _attrResourceName :: !Text
+  , _attrTags         :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

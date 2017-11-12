@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'acceptReservedInstancesExchangeQuote' smart constructor.
 data AcceptReservedInstancesExchangeQuote = AcceptReservedInstancesExchangeQuote'
-  { _arieqTargetConfigurations :: {-# NOUNPACK #-}!(Maybe [TargetConfigurationRequest])
-  , _arieqDryRun :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _arieqReservedInstanceIds :: {-# NOUNPACK #-}![Text]
+  { _arieqTargetConfigurations :: !(Maybe [TargetConfigurationRequest])
+  , _arieqDryRun               :: !(Maybe Bool)
+  , _arieqReservedInstanceIds  :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery AcceptReservedInstancesExchangeQuote
 --
 -- /See:/ 'acceptReservedInstancesExchangeQuoteResponse' smart constructor.
 data AcceptReservedInstancesExchangeQuoteResponse = AcceptReservedInstancesExchangeQuoteResponse'
-  { _arieqrsExchangeId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arieqrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _arieqrsExchangeId     :: !(Maybe Text)
+  , _arieqrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

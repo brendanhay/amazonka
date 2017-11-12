@@ -65,14 +65,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateIdentityPool' smart constructor.
 data UpdateIdentityPool = UpdateIdentityPool'
-  { _uipSamlProviderARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uipSupportedLoginProviders :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _uipDeveloperProviderName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uipOpenIdConnectProviderARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uipCognitoIdentityProviders :: {-# NOUNPACK #-}!(Maybe [CognitoIdentityProvider])
-  , _uipIdentityPoolId :: {-# NOUNPACK #-}!Text
-  , _uipIdentityPoolName :: {-# NOUNPACK #-}!Text
-  , _uipAllowUnauthenticatedIdentities :: {-# NOUNPACK #-}!Bool
+  { _uipSamlProviderARNs               :: !(Maybe [Text])
+  , _uipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+  , _uipDeveloperProviderName          :: !(Maybe Text)
+  , _uipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+  , _uipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
+  , _uipIdentityPoolId                 :: !Text
+  , _uipIdentityPoolName               :: !Text
+  , _uipAllowUnauthenticatedIdentities :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

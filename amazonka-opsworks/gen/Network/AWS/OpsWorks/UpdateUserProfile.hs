@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
-  { _uupAllowSelfManagement :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uupSSHPublicKey        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uupSSHUsername         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uupIAMUserARN          :: {-# NOUNPACK #-}!Text
+  { _uupAllowSelfManagement :: !(Maybe Bool)
+  , _uupSSHPublicKey        :: !(Maybe Text)
+  , _uupSSHUsername         :: !(Maybe Text)
+  , _uupIAMUserARN          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

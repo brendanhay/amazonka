@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDomainEntry' smart constructor.
 data CreateDomainEntry = CreateDomainEntry'
-  { _cdeDomainName  :: {-# NOUNPACK #-}!Text
-  , _cdeDomainEntry :: {-# NOUNPACK #-}!DomainEntry
+  { _cdeDomainName  :: !Text
+  , _cdeDomainEntry :: !DomainEntry
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery CreateDomainEntry where
 
 -- | /See:/ 'createDomainEntryResponse' smart constructor.
 data CreateDomainEntryResponse = CreateDomainEntryResponse'
-  { _cdersOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _cdersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdersOperation      :: !(Maybe Operation)
+  , _cdersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -98,8 +98,8 @@ instance ToQuery StartImageBuilder where
 
 -- | /See:/ 'startImageBuilderResponse' smart constructor.
 data StartImageBuilderResponse = StartImageBuilderResponse'
-  { _srsImageBuilder   :: {-# NOUNPACK #-}!(Maybe ImageBuilder)
-  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _srsImageBuilder   :: !(Maybe ImageBuilder)
+  , _srsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

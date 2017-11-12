@@ -61,10 +61,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'listFunctions' smart constructor.
 data ListFunctions = ListFunctions'
-  { _lfMasterRegion    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfMarker          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfMaxItems        :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lfFunctionVersion :: {-# NOUNPACK #-}!(Maybe FunctionVersion)
+  { _lfMasterRegion    :: !(Maybe Text)
+  , _lfMarker          :: !(Maybe Text)
+  , _lfMaxItems        :: !(Maybe Nat)
+  , _lfFunctionVersion :: !(Maybe FunctionVersion)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -147,9 +147,9 @@ instance ToQuery ListFunctions where
 --
 -- /See:/ 'listFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'
-  { _lfrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfrsFunctions      :: {-# NOUNPACK #-}!(Maybe [FunctionConfiguration])
-  , _lfrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lfrsNextMarker     :: !(Maybe Text)
+  , _lfrsFunctions      :: !(Maybe [FunctionConfiguration])
+  , _lfrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteNotificationConfiguration' smart constructor.
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
-  { _dncAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _dncTopicARN             :: {-# NOUNPACK #-}!Text
+  { _dncAutoScalingGroupName :: !Text
+  , _dncTopicARN             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

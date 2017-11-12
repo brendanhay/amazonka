@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteTypedLinkFacet' smart constructor.
 data DeleteTypedLinkFacet = DeleteTypedLinkFacet'
-  { _dtlfSchemaARN :: {-# NOUNPACK #-}!Text
-  , _dtlfName      :: {-# NOUNPACK #-}!Text
+  { _dtlfSchemaARN :: !Text
+  , _dtlfName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

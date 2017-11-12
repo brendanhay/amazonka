@@ -120,17 +120,17 @@ instance ToQuery GetMaintenanceWindow where
 
 -- | /See:/ 'getMaintenanceWindowResponse' smart constructor.
 data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
-  { _gmwrsEnabled                  :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gmwrsSchedule                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwrsCreatedDate              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gmwrsName                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwrsModifiedDate             :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gmwrsCutoff                   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gmwrsAllowUnassociatedTargets :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gmwrsDescription              :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _gmwrsDuration                 :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gmwrsWindowId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gmwrsResponseStatus           :: {-# NOUNPACK #-}!Int
+  { _gmwrsEnabled                  :: !(Maybe Bool)
+  , _gmwrsSchedule                 :: !(Maybe Text)
+  , _gmwrsCreatedDate              :: !(Maybe POSIX)
+  , _gmwrsName                     :: !(Maybe Text)
+  , _gmwrsModifiedDate             :: !(Maybe POSIX)
+  , _gmwrsCutoff                   :: !(Maybe Nat)
+  , _gmwrsAllowUnassociatedTargets :: !(Maybe Bool)
+  , _gmwrsDescription              :: !(Maybe (Sensitive Text))
+  , _gmwrsDuration                 :: !(Maybe Nat)
+  , _gmwrsWindowId                 :: !(Maybe Text)
+  , _gmwrsResponseStatus           :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

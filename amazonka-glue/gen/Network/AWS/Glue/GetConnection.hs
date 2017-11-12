@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getConnection' smart constructor.
 data GetConnection = GetConnection'
-  { _gCatalogId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gName      :: {-# NOUNPACK #-}!Text
+  { _gCatalogId :: !(Maybe Text)
+  , _gName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -110,8 +110,8 @@ instance ToQuery GetConnection where
 
 -- | /See:/ 'getConnectionResponse' smart constructor.
 data GetConnectionResponse = GetConnectionResponse'
-  { _getrsConnection     :: {-# NOUNPACK #-}!(Maybe Connection)
-  , _getrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _getrsConnection     :: !(Maybe Connection)
+  , _getrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

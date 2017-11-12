@@ -46,8 +46,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteDocumentationVersion' smart constructor.
 data DeleteDocumentationVersion = DeleteDocumentationVersion'
-  { _ddvRestAPIId            :: {-# NOUNPACK #-}!Text
-  , _ddvDocumentationVersion :: {-# NOUNPACK #-}!Text
+  { _ddvRestAPIId            :: !Text
+  , _ddvDocumentationVersion :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

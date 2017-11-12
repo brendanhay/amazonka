@@ -47,9 +47,9 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getObjectTagging' smart constructor.
 data GetObjectTagging = GetObjectTagging'
-  { _gotoVersionId :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _gotoBucket    :: {-# NOUNPACK #-}!BucketName
-  , _gotoKey       :: {-# NOUNPACK #-}!ObjectKey
+  { _gotoVersionId :: !(Maybe ObjectVersionId)
+  , _gotoBucket    :: !BucketName
+  , _gotoKey       :: !ObjectKey
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -111,9 +111,9 @@ instance ToQuery GetObjectTagging where
 
 -- | /See:/ 'getObjectTaggingResponse' smart constructor.
 data GetObjectTaggingResponse = GetObjectTaggingResponse'
-  { _gotrsVersionId      :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _gotrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gotrsTagSet         :: {-# NOUNPACK #-}![Tag]
+  { _gotrsVersionId      :: !(Maybe ObjectVersionId)
+  , _gotrsResponseStatus :: !Int
+  , _gotrsTagSet         :: ![Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

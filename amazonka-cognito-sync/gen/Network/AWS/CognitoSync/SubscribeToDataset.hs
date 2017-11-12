@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'subscribeToDataset' smart constructor.
 data SubscribeToDataset = SubscribeToDataset'
-  { _stdIdentityPoolId :: {-# NOUNPACK #-}!Text
-  , _stdIdentityId     :: {-# NOUNPACK #-}!Text
-  , _stdDatasetName    :: {-# NOUNPACK #-}!Text
-  , _stdDeviceId       :: {-# NOUNPACK #-}!Text
+  { _stdIdentityPoolId :: !Text
+  , _stdIdentityId     :: !Text
+  , _stdDatasetName    :: !Text
+  , _stdDeviceId       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

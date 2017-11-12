@@ -27,8 +27,8 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'agentFilter' smart constructor.
 data AgentFilter = AgentFilter'
-  { _afAgentHealths     :: {-# NOUNPACK #-}![AgentHealth]
-  , _afAgentHealthCodes :: {-# NOUNPACK #-}![AgentHealthCode]
+  { _afAgentHealths     :: ![AgentHealth]
+  , _afAgentHealthCodes :: ![AgentHealthCode]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -70,8 +70,8 @@ instance ToJSON AgentFilter where
 --
 -- /See:/ 'agentPreview' smart constructor.
 data AgentPreview = AgentPreview'
-  { _apAutoScalingGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _apAgentId          :: {-# NOUNPACK #-}!Text
+  { _apAutoScalingGroup :: !(Maybe Text)
+  , _apAgentId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,21 +116,21 @@ instance NFData AgentPreview where
 --
 -- /See:/ 'assessmentRun' smart constructor.
 data AssessmentRun = AssessmentRun'
-  { _arStartedAt                 :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _arCompletedAt               :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _arArn                       :: {-# NOUNPACK #-}!Text
-  , _arName                      :: {-# NOUNPACK #-}!Text
-  , _arAssessmentTemplateARN     :: {-# NOUNPACK #-}!Text
-  , _arState                     :: {-# NOUNPACK #-}!AssessmentRunState
-  , _arDurationInSeconds         :: {-# NOUNPACK #-}!Nat
-  , _arRulesPackageARNs          :: {-# NOUNPACK #-}!(List1 Text)
-  , _arUserAttributesForFindings :: {-# NOUNPACK #-}![Attribute]
-  , _arCreatedAt                 :: {-# NOUNPACK #-}!POSIX
-  , _arStateChangedAt            :: {-# NOUNPACK #-}!POSIX
-  , _arDataCollected             :: {-# NOUNPACK #-}!Bool
-  , _arStateChanges              :: {-# NOUNPACK #-}![AssessmentRunStateChange]
-  , _arNotifications             :: {-# NOUNPACK #-}![AssessmentRunNotification]
-  , _arFindingCounts             :: {-# NOUNPACK #-}!(Map Severity Int)
+  { _arStartedAt                 :: !(Maybe POSIX)
+  , _arCompletedAt               :: !(Maybe POSIX)
+  , _arArn                       :: !Text
+  , _arName                      :: !Text
+  , _arAssessmentTemplateARN     :: !Text
+  , _arState                     :: !AssessmentRunState
+  , _arDurationInSeconds         :: !Nat
+  , _arRulesPackageARNs          :: !(List1 Text)
+  , _arUserAttributesForFindings :: ![Attribute]
+  , _arCreatedAt                 :: !POSIX
+  , _arStateChangedAt            :: !POSIX
+  , _arDataCollected             :: !Bool
+  , _arStateChanges              :: ![AssessmentRunStateChange]
+  , _arNotifications             :: ![AssessmentRunNotification]
+  , _arFindingCounts             :: !(Map Severity Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -288,13 +288,13 @@ instance NFData AssessmentRun where
 --
 -- /See:/ 'assessmentRunAgent' smart constructor.
 data AssessmentRunAgent = AssessmentRunAgent'
-  { _araAutoScalingGroup   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _araAgentHealthDetails :: {-# NOUNPACK #-}!(Maybe Text)
-  , _araAgentId            :: {-# NOUNPACK #-}!Text
-  , _araAssessmentRunARN   :: {-# NOUNPACK #-}!Text
-  , _araAgentHealth        :: {-# NOUNPACK #-}!AgentHealth
-  , _araAgentHealthCode    :: {-# NOUNPACK #-}!AgentHealthCode
-  , _araTelemetryMetadata  :: {-# NOUNPACK #-}![TelemetryMetadata]
+  { _araAutoScalingGroup   :: !(Maybe Text)
+  , _araAgentHealthDetails :: !(Maybe Text)
+  , _araAgentId            :: !Text
+  , _araAssessmentRunARN   :: !Text
+  , _araAgentHealth        :: !AgentHealth
+  , _araAgentHealthCode    :: !AgentHealthCode
+  , _araTelemetryMetadata  :: ![TelemetryMetadata]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -384,13 +384,13 @@ instance NFData AssessmentRunAgent where
 --
 -- /See:/ 'assessmentRunFilter' smart constructor.
 data AssessmentRunFilter = AssessmentRunFilter'
-  { _arfStates               :: {-# NOUNPACK #-}!(Maybe [AssessmentRunState])
-  , _arfNamePattern          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arfStartTimeRange       :: {-# NOUNPACK #-}!(Maybe TimestampRange)
-  , _arfStateChangeTimeRange :: {-# NOUNPACK #-}!(Maybe TimestampRange)
-  , _arfRulesPackageARNs     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _arfCompletionTimeRange  :: {-# NOUNPACK #-}!(Maybe TimestampRange)
-  , _arfDurationRange        :: {-# NOUNPACK #-}!(Maybe DurationRange)
+  { _arfStates               :: !(Maybe [AssessmentRunState])
+  , _arfNamePattern          :: !(Maybe Text)
+  , _arfStartTimeRange       :: !(Maybe TimestampRange)
+  , _arfStateChangeTimeRange :: !(Maybe TimestampRange)
+  , _arfRulesPackageARNs     :: !(Maybe [Text])
+  , _arfCompletionTimeRange  :: !(Maybe TimestampRange)
+  , _arfDurationRange        :: !(Maybe DurationRange)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -477,12 +477,12 @@ instance ToJSON AssessmentRunFilter where
 --
 -- /See:/ 'assessmentRunNotification' smart constructor.
 data AssessmentRunNotification = AssessmentRunNotification'
-  { _arnSnsTopicARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arnSnsPublishStatusCode :: {-# NOUNPACK #-}!(Maybe AssessmentRunNotificationSNSStatusCode)
-  , _arnMessage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _arnDate :: {-# NOUNPACK #-}!POSIX
-  , _arnEvent :: {-# NOUNPACK #-}!InspectorEvent
-  , _arnError :: {-# NOUNPACK #-}!Bool
+  { _arnSnsTopicARN          :: !(Maybe Text)
+  , _arnSnsPublishStatusCode :: !(Maybe AssessmentRunNotificationSNSStatusCode)
+  , _arnMessage              :: !(Maybe Text)
+  , _arnDate                 :: !POSIX
+  , _arnEvent                :: !InspectorEvent
+  , _arnError                :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -563,8 +563,8 @@ instance NFData AssessmentRunNotification where
 --
 -- /See:/ 'assessmentRunStateChange' smart constructor.
 data AssessmentRunStateChange = AssessmentRunStateChange'
-  { _arscStateChangedAt :: {-# NOUNPACK #-}!POSIX
-  , _arscState          :: {-# NOUNPACK #-}!AssessmentRunState
+  { _arscStateChangedAt :: !POSIX
+  , _arscState          :: !AssessmentRunState
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -609,11 +609,11 @@ instance NFData AssessmentRunStateChange where
 --
 -- /See:/ 'assessmentTarget' smart constructor.
 data AssessmentTarget = AssessmentTarget'
-  { _aArn              :: {-# NOUNPACK #-}!Text
-  , _aName             :: {-# NOUNPACK #-}!Text
-  , _aResourceGroupARN :: {-# NOUNPACK #-}!Text
-  , _aCreatedAt        :: {-# NOUNPACK #-}!POSIX
-  , _aUpdatedAt        :: {-# NOUNPACK #-}!POSIX
+  { _aArn              :: !Text
+  , _aName             :: !Text
+  , _aResourceGroupARN :: !Text
+  , _aCreatedAt        :: !POSIX
+  , _aUpdatedAt        :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -723,13 +723,13 @@ instance ToJSON AssessmentTargetFilter where
 --
 -- /See:/ 'assessmentTemplate' smart constructor.
 data AssessmentTemplate = AssessmentTemplate'
-  { _atArn                       :: {-# NOUNPACK #-}!Text
-  , _atName                      :: {-# NOUNPACK #-}!Text
-  , _atAssessmentTargetARN       :: {-# NOUNPACK #-}!Text
-  , _atDurationInSeconds         :: {-# NOUNPACK #-}!Nat
-  , _atRulesPackageARNs          :: {-# NOUNPACK #-}![Text]
-  , _atUserAttributesForFindings :: {-# NOUNPACK #-}![Attribute]
-  , _atCreatedAt                 :: {-# NOUNPACK #-}!POSIX
+  { _atArn                       :: !Text
+  , _atName                      :: !Text
+  , _atAssessmentTargetARN       :: !Text
+  , _atDurationInSeconds         :: !Nat
+  , _atRulesPackageARNs          :: ![Text]
+  , _atUserAttributesForFindings :: ![Attribute]
+  , _atCreatedAt                 :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -819,9 +819,9 @@ instance NFData AssessmentTemplate where
 --
 -- /See:/ 'assessmentTemplateFilter' smart constructor.
 data AssessmentTemplateFilter = AssessmentTemplateFilter'
-  { _atfNamePattern      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _atfRulesPackageARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _atfDurationRange    :: {-# NOUNPACK #-}!(Maybe DurationRange)
+  { _atfNamePattern      :: !(Maybe Text)
+  , _atfRulesPackageARNs :: !(Maybe [Text])
+  , _atfDurationRange    :: !(Maybe DurationRange)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -874,12 +874,12 @@ instance ToJSON AssessmentTemplateFilter where
 --
 -- /See:/ 'assetAttributes' smart constructor.
 data AssetAttributes = AssetAttributes'
-  { _aaHostname         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aaAutoScalingGroup :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aaIpv4Addresses    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _aaAgentId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aaAmiId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aaSchemaVersion    :: {-# NOUNPACK #-}!Nat
+  { _aaHostname         :: !(Maybe Text)
+  , _aaAutoScalingGroup :: !(Maybe Text)
+  , _aaIpv4Addresses    :: !(Maybe [Text])
+  , _aaAgentId          :: !(Maybe Text)
+  , _aaAmiId            :: !(Maybe Text)
+  , _aaSchemaVersion    :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -957,8 +957,8 @@ instance NFData AssetAttributes where
 --
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
-  { _aValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aKey   :: {-# NOUNPACK #-}!Text
+  { _aValue :: !(Maybe Text)
+  , _aKey   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1005,8 +1005,8 @@ instance ToJSON Attribute where
 --
 -- /See:/ 'durationRange' smart constructor.
 data DurationRange = DurationRange'
-  { _drMinSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _drMaxSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _drMinSeconds :: !(Maybe Nat)
+  , _drMaxSeconds :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1048,8 +1048,8 @@ instance ToJSON DurationRange where
 --
 -- /See:/ 'eventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-  { _esEvent        :: {-# NOUNPACK #-}!InspectorEvent
-  , _esSubscribedAt :: {-# NOUNPACK #-}!POSIX
+  { _esEvent        :: !InspectorEvent
+  , _esSubscribedAt :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1094,8 +1094,8 @@ instance NFData EventSubscription where
 --
 -- /See:/ 'failedItemDetails' smart constructor.
 data FailedItemDetails = FailedItemDetails'
-  { _fidFailureCode :: {-# NOUNPACK #-}!FailedItemErrorCode
-  , _fidRetryable   :: {-# NOUNPACK #-}!Bool
+  { _fidFailureCode :: !FailedItemErrorCode
+  , _fidRetryable   :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1140,24 +1140,24 @@ instance NFData FailedItemDetails where
 --
 -- /See:/ 'finding' smart constructor.
 data Finding = Finding'
-  { _fService :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fSeverity :: {-# NOUNPACK #-}!(Maybe Severity)
-  , _fSchemaVersion :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _fConfidence :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _fAssetAttributes :: {-# NOUNPACK #-}!(Maybe AssetAttributes)
-  , _fServiceAttributes :: {-# NOUNPACK #-}!(Maybe InspectorServiceAttributes)
-  , _fId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fNumericSeverity :: {-# NOUNPACK #-}!(Maybe Double)
-  , _fAssetType :: {-# NOUNPACK #-}!(Maybe AssetType)
-  , _fTitle :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fIndicatorOfCompromise :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _fDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fRecommendation :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fArn :: {-# NOUNPACK #-}!Text
-  , _fAttributes :: {-# NOUNPACK #-}![Attribute]
-  , _fUserAttributes :: {-# NOUNPACK #-}![Attribute]
-  , _fCreatedAt :: {-# NOUNPACK #-}!POSIX
-  , _fUpdatedAt :: {-# NOUNPACK #-}!POSIX
+  { _fService               :: !(Maybe Text)
+  , _fSeverity              :: !(Maybe Severity)
+  , _fSchemaVersion         :: !(Maybe Nat)
+  , _fConfidence            :: !(Maybe Nat)
+  , _fAssetAttributes       :: !(Maybe AssetAttributes)
+  , _fServiceAttributes     :: !(Maybe InspectorServiceAttributes)
+  , _fId                    :: !(Maybe Text)
+  , _fNumericSeverity       :: !(Maybe Double)
+  , _fAssetType             :: !(Maybe AssetType)
+  , _fTitle                 :: !(Maybe Text)
+  , _fIndicatorOfCompromise :: !(Maybe Bool)
+  , _fDescription           :: !(Maybe Text)
+  , _fRecommendation        :: !(Maybe Text)
+  , _fArn                   :: !Text
+  , _fAttributes            :: ![Attribute]
+  , _fUserAttributes        :: ![Attribute]
+  , _fCreatedAt             :: !POSIX
+  , _fUpdatedAt             :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1333,14 +1333,14 @@ instance NFData Finding where
 --
 -- /See:/ 'findingFilter' smart constructor.
 data FindingFilter = FindingFilter'
-  { _ffAgentIds          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ffRuleNames         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ffUserAttributes    :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _ffRulesPackageARNs  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ffAttributes        :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _ffSeverities        :: {-# NOUNPACK #-}!(Maybe [Severity])
-  , _ffCreationTimeRange :: {-# NOUNPACK #-}!(Maybe TimestampRange)
-  , _ffAutoScalingGroups :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _ffAgentIds          :: !(Maybe [Text])
+  , _ffRuleNames         :: !(Maybe [Text])
+  , _ffUserAttributes    :: !(Maybe [Attribute])
+  , _ffRulesPackageARNs  :: !(Maybe [Text])
+  , _ffAttributes        :: !(Maybe [Attribute])
+  , _ffSeverities        :: !(Maybe [Severity])
+  , _ffCreationTimeRange :: !(Maybe TimestampRange)
+  , _ffAutoScalingGroups :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1433,9 +1433,9 @@ instance ToJSON FindingFilter where
 --
 -- /See:/ 'inspectorServiceAttributes' smart constructor.
 data InspectorServiceAttributes = InspectorServiceAttributes'
-  { _isaRulesPackageARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isaAssessmentRunARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isaSchemaVersion    :: {-# NOUNPACK #-}!Nat
+  { _isaRulesPackageARN  :: !(Maybe Text)
+  , _isaAssessmentRunARN :: !(Maybe Text)
+  , _isaSchemaVersion    :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1490,9 +1490,9 @@ instance NFData InspectorServiceAttributes where
 --
 -- /See:/ 'resourceGroup' smart constructor.
 data ResourceGroup = ResourceGroup'
-  { _rgArn       :: {-# NOUNPACK #-}!Text
-  , _rgTags      :: {-# NOUNPACK #-}!(List1 ResourceGroupTag)
-  , _rgCreatedAt :: {-# NOUNPACK #-}!POSIX
+  { _rgArn       :: !Text
+  , _rgTags      :: !(List1 ResourceGroupTag)
+  , _rgCreatedAt :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1548,8 +1548,8 @@ instance NFData ResourceGroup where
 --
 -- /See:/ 'resourceGroupTag' smart constructor.
 data ResourceGroupTag = ResourceGroupTag'
-  { _rgtValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rgtKey   :: {-# NOUNPACK #-}!Text
+  { _rgtValue :: !(Maybe Text)
+  , _rgtKey   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1599,11 +1599,11 @@ instance ToJSON ResourceGroupTag where
 --
 -- /See:/ 'rulesPackage' smart constructor.
 data RulesPackage = RulesPackage'
-  { _rpDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rpArn         :: {-# NOUNPACK #-}!Text
-  , _rpName        :: {-# NOUNPACK #-}!Text
-  , _rpVersion     :: {-# NOUNPACK #-}!Text
-  , _rpProvider    :: {-# NOUNPACK #-}!Text
+  { _rpDescription :: !(Maybe Text)
+  , _rpArn         :: !Text
+  , _rpName        :: !Text
+  , _rpVersion     :: !Text
+  , _rpProvider    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1676,9 +1676,9 @@ instance NFData RulesPackage where
 --
 -- /See:/ 'subscription' smart constructor.
 data Subscription = Subscription'
-  { _sResourceARN        :: {-# NOUNPACK #-}!Text
-  , _sTopicARN           :: {-# NOUNPACK #-}!Text
-  , _sEventSubscriptions :: {-# NOUNPACK #-}!(List1 EventSubscription)
+  { _sResourceARN        :: !Text
+  , _sTopicARN           :: !Text
+  , _sEventSubscriptions :: !(List1 EventSubscription)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1734,8 +1734,8 @@ instance NFData Subscription where
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tagKey   :: {-# NOUNPACK #-}!Text
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1782,9 +1782,9 @@ instance ToJSON Tag where
 --
 -- /See:/ 'telemetryMetadata' smart constructor.
 data TelemetryMetadata = TelemetryMetadata'
-  { _tmDataSize    :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _tmMessageType :: {-# NOUNPACK #-}!Text
-  , _tmCount       :: {-# NOUNPACK #-}!Integer
+  { _tmDataSize    :: !(Maybe Integer)
+  , _tmMessageType :: !Text
+  , _tmCount       :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1836,8 +1836,8 @@ instance NFData TelemetryMetadata where
 --
 -- /See:/ 'timestampRange' smart constructor.
 data TimestampRange = TimestampRange'
-  { _trEndDate   :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _trBeginDate :: {-# NOUNPACK #-}!(Maybe POSIX)
+  { _trEndDate   :: !(Maybe POSIX)
+  , _trBeginDate :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

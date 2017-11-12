@@ -51,11 +51,11 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'describeComments' smart constructor.
 data DescribeComments = DescribeComments'
-  { _dcAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _dcMarker              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcLimit               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dcDocumentId          :: {-# NOUNPACK #-}!Text
-  , _dcVersionId           :: {-# NOUNPACK #-}!Text
+  { _dcAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _dcMarker              :: !(Maybe Text)
+  , _dcLimit               :: !(Maybe Nat)
+  , _dcDocumentId          :: !Text
+  , _dcVersionId           :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToQuery DescribeComments where
 
 -- | /See:/ 'describeCommentsResponse' smart constructor.
 data DescribeCommentsResponse = DescribeCommentsResponse'
-  { _dcrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcrsComments       :: {-# NOUNPACK #-}!(Maybe [Comment])
-  , _dcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dcrsMarker         :: !(Maybe Text)
+  , _dcrsComments       :: !(Maybe [Comment])
+  , _dcrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

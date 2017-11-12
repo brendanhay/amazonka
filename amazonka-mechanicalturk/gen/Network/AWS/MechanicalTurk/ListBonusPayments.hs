@@ -51,10 +51,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listBonusPayments' smart constructor.
 data ListBonusPayments = ListBonusPayments'
-  { _lbpNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbpHITId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbpAssignmentId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbpMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lbpNextToken    :: !(Maybe Text)
+  , _lbpHITId        :: !(Maybe Text)
+  , _lbpAssignmentId :: !(Maybe Text)
+  , _lbpMaxResults   :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,10 +139,10 @@ instance ToQuery ListBonusPayments where
 
 -- | /See:/ 'listBonusPaymentsResponse' smart constructor.
 data ListBonusPaymentsResponse = ListBonusPaymentsResponse'
-  { _lbprsBonusPayments  :: {-# NOUNPACK #-}!(Maybe [BonusPayment])
-  , _lbprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbprsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lbprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lbprsBonusPayments  :: !(Maybe [BonusPayment])
+  , _lbprsNextToken      :: !(Maybe Text)
+  , _lbprsNumResults     :: !(Maybe Int)
+  , _lbprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

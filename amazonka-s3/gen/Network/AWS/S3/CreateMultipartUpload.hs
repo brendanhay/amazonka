@@ -79,29 +79,29 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'createMultipartUpload' smart constructor.
 data CreateMultipartUpload = CreateMultipartUpload'
-  { _cmuExpires                 :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _cmuGrantReadACP            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuSSECustomerAlgorithm    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuSSECustomerKey          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _cmuRequestPayer            :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _cmuGrantWriteACP           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuWebsiteRedirectLocation :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuGrantRead               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuStorageClass            :: {-# NOUNPACK #-}!(Maybe StorageClass)
-  , _cmuSSECustomerKeyMD5       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuSSEKMSKeyId             :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _cmuGrantFullControl        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuContentEncoding         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuTagging                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuMetadata                :: {-# NOUNPACK #-}!(Map Text Text)
-  , _cmuCacheControl            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuContentLanguage         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuACL                     :: {-# NOUNPACK #-}!(Maybe ObjectCannedACL)
-  , _cmuContentDisposition      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuServerSideEncryption    :: {-# NOUNPACK #-}!(Maybe ServerSideEncryption)
-  , _cmuContentType             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmuBucket                  :: {-# NOUNPACK #-}!BucketName
-  , _cmuKey                     :: {-# NOUNPACK #-}!ObjectKey
+  { _cmuExpires                 :: !(Maybe RFC822)
+  , _cmuGrantReadACP            :: !(Maybe Text)
+  , _cmuSSECustomerAlgorithm    :: !(Maybe Text)
+  , _cmuSSECustomerKey          :: !(Maybe (Sensitive Text))
+  , _cmuRequestPayer            :: !(Maybe RequestPayer)
+  , _cmuGrantWriteACP           :: !(Maybe Text)
+  , _cmuWebsiteRedirectLocation :: !(Maybe Text)
+  , _cmuGrantRead               :: !(Maybe Text)
+  , _cmuStorageClass            :: !(Maybe StorageClass)
+  , _cmuSSECustomerKeyMD5       :: !(Maybe Text)
+  , _cmuSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+  , _cmuGrantFullControl        :: !(Maybe Text)
+  , _cmuContentEncoding         :: !(Maybe Text)
+  , _cmuTagging                 :: !(Maybe Text)
+  , _cmuMetadata                :: !(Map Text Text)
+  , _cmuCacheControl            :: !(Maybe Text)
+  , _cmuContentLanguage         :: !(Maybe Text)
+  , _cmuACL                     :: !(Maybe ObjectCannedACL)
+  , _cmuContentDisposition      :: !(Maybe Text)
+  , _cmuServerSideEncryption    :: !(Maybe ServerSideEncryption)
+  , _cmuContentType             :: !(Maybe Text)
+  , _cmuBucket                  :: !BucketName
+  , _cmuKey                     :: !ObjectKey
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -346,17 +346,17 @@ instance ToQuery CreateMultipartUpload where
 
 -- | /See:/ 'createMultipartUploadResponse' smart constructor.
 data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
-  { _cmursRequestCharged       :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _cmursBucket               :: {-# NOUNPACK #-}!(Maybe BucketName)
-  , _cmursSSECustomerAlgorithm :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmursAbortDate            :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _cmursAbortRuleId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmursKey                  :: {-# NOUNPACK #-}!(Maybe ObjectKey)
-  , _cmursSSECustomerKeyMD5    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmursSSEKMSKeyId          :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _cmursUploadId             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmursServerSideEncryption :: {-# NOUNPACK #-}!(Maybe ServerSideEncryption)
-  , _cmursResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _cmursRequestCharged       :: !(Maybe RequestCharged)
+  , _cmursBucket               :: !(Maybe BucketName)
+  , _cmursSSECustomerAlgorithm :: !(Maybe Text)
+  , _cmursAbortDate            :: !(Maybe RFC822)
+  , _cmursAbortRuleId          :: !(Maybe Text)
+  , _cmursKey                  :: !(Maybe ObjectKey)
+  , _cmursSSECustomerKeyMD5    :: !(Maybe Text)
+  , _cmursSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+  , _cmursUploadId             :: !(Maybe Text)
+  , _cmursServerSideEncryption :: !(Maybe ServerSideEncryption)
+  , _cmursResponseStatus       :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

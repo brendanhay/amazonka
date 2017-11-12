@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeApplicationVersions' smart constructor.
 data DescribeApplicationVersions = DescribeApplicationVersions'
-  { _dVersionLabels   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dMaxRecords      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dVersionLabels   :: !(Maybe [Text])
+  , _dNextToken       :: !(Maybe Text)
+  , _dMaxRecords      :: !(Maybe Nat)
+  , _dApplicationName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery DescribeApplicationVersions where
 --
 -- /See:/ 'describeApplicationVersionsResponse' smart constructor.
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
-  { _davrsApplicationVersions :: {-# NOUNPACK #-}!(Maybe [ApplicationVersionDescription])
-  , _davrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _davrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _davrsApplicationVersions :: !(Maybe [ApplicationVersionDescription])
+  , _davrsNextToken           :: !(Maybe Text)
+  , _davrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

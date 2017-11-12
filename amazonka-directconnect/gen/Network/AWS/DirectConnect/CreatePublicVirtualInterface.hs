@@ -70,8 +70,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createPublicVirtualInterface' smart constructor.
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
-  { _cpviConnectionId              :: {-# NOUNPACK #-}!Text
-  , _cpviNewPublicVirtualInterface :: {-# NOUNPACK #-}!NewPublicVirtualInterface
+  { _cpviConnectionId              :: !Text
+  , _cpviNewPublicVirtualInterface :: !NewPublicVirtualInterface
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

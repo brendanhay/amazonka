@@ -99,8 +99,8 @@ instance ToQuery RotateEncryptionKey where
 
 -- | /See:/ 'rotateEncryptionKeyResponse' smart constructor.
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
-  { _rekrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
-  , _rekrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rekrsCluster        :: !(Maybe Cluster)
+  , _rekrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

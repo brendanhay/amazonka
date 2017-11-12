@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeIAMInstanceProfileAssociations' smart constructor.
 data DescribeIAMInstanceProfileAssociations = DescribeIAMInstanceProfileAssociations'
-  { _diapaFilters        :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _diapaNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diapaAssociationIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _diapaMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _diapaFilters        :: !(Maybe [Filter])
+  , _diapaNextToken      :: !(Maybe Text)
+  , _diapaAssociationIds :: !(Maybe [Text])
+  , _diapaMaxResults     :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,9 +146,9 @@ instance ToQuery
 
 -- | /See:/ 'describeIAMInstanceProfileAssociationsResponse' smart constructor.
 data DescribeIAMInstanceProfileAssociationsResponse = DescribeIAMInstanceProfileAssociationsResponse'
-  { _diaparsIAMInstanceProfileAssociations :: {-# NOUNPACK #-}!(Maybe [IAMInstanceProfileAssociation])
-  , _diaparsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diaparsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _diaparsIAMInstanceProfileAssociations :: !(Maybe [IAMInstanceProfileAssociation])
+  , _diaparsNextToken :: !(Maybe Text)
+  , _diaparsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

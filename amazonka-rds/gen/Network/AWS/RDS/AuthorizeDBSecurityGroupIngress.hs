@@ -56,11 +56,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'authorizeDBSecurityGroupIngress' smart constructor.
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
-  { _adsgiEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _adsgiEC2SecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _adsgiCIdRIP                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _adsgiEC2SecurityGroupId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _adsgiDBSecurityGroupName     :: {-# NOUNPACK #-}!Text
+  { _adsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
+  , _adsgiEC2SecurityGroupName    :: !(Maybe Text)
+  , _adsgiCIdRIP                  :: !(Maybe Text)
+  , _adsgiEC2SecurityGroupId      :: !(Maybe Text)
+  , _adsgiDBSecurityGroupName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,8 +150,8 @@ instance ToQuery AuthorizeDBSecurityGroupIngress
 
 -- | /See:/ 'authorizeDBSecurityGroupIngressResponse' smart constructor.
 data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'
-  { _adsgirsDBSecurityGroup :: {-# NOUNPACK #-}!(Maybe DBSecurityGroup)
-  , _adsgirsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _adsgirsDBSecurityGroup :: !(Maybe DBSecurityGroup)
+  , _adsgirsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

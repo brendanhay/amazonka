@@ -54,15 +54,15 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createUser' smart constructor.
 data CreateUser = CreateUser'
-  { _cuAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _cuStorageRule         :: {-# NOUNPACK #-}!(Maybe StorageRuleType)
-  , _cuEmailAddress        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cuTimeZoneId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cuOrganizationId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cuUsername            :: {-# NOUNPACK #-}!Text
-  , _cuGivenName           :: {-# NOUNPACK #-}!Text
-  , _cuSurname             :: {-# NOUNPACK #-}!Text
-  , _cuPassword            :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _cuAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _cuStorageRule         :: !(Maybe StorageRuleType)
+  , _cuEmailAddress        :: !(Maybe Text)
+  , _cuTimeZoneId          :: !(Maybe Text)
+  , _cuOrganizationId      :: !(Maybe Text)
+  , _cuUsername            :: !Text
+  , _cuGivenName           :: !Text
+  , _cuSurname             :: !Text
+  , _cuPassword            :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -184,8 +184,8 @@ instance ToQuery CreateUser where
 
 -- | /See:/ 'createUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-  { _cursUser           :: {-# NOUNPACK #-}!(Maybe User)
-  , _cursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cursUser           :: !(Maybe User)
+  , _cursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

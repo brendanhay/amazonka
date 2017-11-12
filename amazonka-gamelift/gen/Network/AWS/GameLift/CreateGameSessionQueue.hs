@@ -71,10 +71,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createGameSessionQueue' smart constructor.
 data CreateGameSessionQueue = CreateGameSessionQueue'
-  { _cgsqPlayerLatencyPolicies :: {-# NOUNPACK #-}!(Maybe [PlayerLatencyPolicy])
-  , _cgsqTimeoutInSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cgsqDestinations :: {-# NOUNPACK #-}!(Maybe [GameSessionQueueDestination])
-  , _cgsqName :: {-# NOUNPACK #-}!Text
+  { _cgsqPlayerLatencyPolicies :: !(Maybe [PlayerLatencyPolicy])
+  , _cgsqTimeoutInSeconds      :: !(Maybe Nat)
+  , _cgsqDestinations          :: !(Maybe [GameSessionQueueDestination])
+  , _cgsqName                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -162,8 +162,8 @@ instance ToQuery CreateGameSessionQueue where
 --
 -- /See:/ 'createGameSessionQueueResponse' smart constructor.
 data CreateGameSessionQueueResponse = CreateGameSessionQueueResponse'
-  { _cgsqrsGameSessionQueue :: {-# NOUNPACK #-}!(Maybe GameSessionQueue)
-  , _cgsqrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _cgsqrsGameSessionQueue :: !(Maybe GameSessionQueue)
+  , _cgsqrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -70,8 +70,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteStreamingDistribution' smart constructor.
 data DeleteStreamingDistribution = DeleteStreamingDistribution'
-  { _dsdIfMatch :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsdId      :: {-# NOUNPACK #-}!Text
+  { _dsdIfMatch :: !(Maybe Text)
+  , _dsdId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -25,10 +25,10 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'connectivityInfo' smart constructor.
 data ConnectivityInfo = ConnectivityInfo'
-  { _ciPortNumber  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ciId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciMetadata    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciHostAddress :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ciPortNumber  :: !(Maybe Int)
+  , _ciId          :: !(Maybe Text)
+  , _ciMetadata    :: !(Maybe Text)
+  , _ciHostAddress :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -95,10 +95,10 @@ instance ToJSON ConnectivityInfo where
 --
 -- /See:/ 'core' smart constructor.
 data Core = Core'
-  { _cCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cThingARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cSyncShadow     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cId             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cCertificateARN :: !(Maybe Text)
+  , _cThingARN       :: !(Maybe Text)
+  , _cSyncShadow     :: !(Maybe Bool)
+  , _cId             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -203,13 +203,13 @@ instance ToJSON CoreDefinitionVersion where
 --
 -- /See:/ 'definitionInformation' smart constructor.
 data DefinitionInformation = DefinitionInformation'
-  { _diLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  { _diLatestVersionARN     :: !(Maybe Text)
+  , _diARN                  :: !(Maybe Text)
+  , _diName                 :: !(Maybe Text)
+  , _diCreationTimestamp    :: !(Maybe Text)
+  , _diId                   :: !(Maybe Text)
+  , _diLatestVersion        :: !(Maybe Text)
+  , _diLastUpdatedTimestamp :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -292,11 +292,11 @@ instance NFData DefinitionInformation where
 --
 -- /See:/ 'deployment' smart constructor.
 data Deployment = Deployment'
-  { _dDeploymentId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dDeploymentARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dCreatedAt      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dDeploymentType :: {-# NOUNPACK #-}!(Maybe DeploymentType)
-  , _dGroupARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dDeploymentId   :: !(Maybe Text)
+  , _dDeploymentARN  :: !(Maybe Text)
+  , _dCreatedAt      :: !(Maybe Text)
+  , _dDeploymentType :: !(Maybe DeploymentType)
+  , _dGroupARN       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -363,10 +363,10 @@ instance NFData Deployment where
 --
 -- /See:/ 'device' smart constructor.
 data Device = Device'
-  { _dCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dThingARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dSyncShadow     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dId             :: {-# NOUNPACK #-}!(Maybe Text)
+  { _dCertificateARN :: !(Maybe Text)
+  , _dThingARN       :: !(Maybe Text)
+  , _dSyncShadow     :: !(Maybe Bool)
+  , _dId             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -471,8 +471,8 @@ instance ToJSON DeviceDefinitionVersion where
 --
 -- /See:/ 'errorDetail' smart constructor.
 data ErrorDetail = ErrorDetail'
-  { _edDetailedErrorCode    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _edDetailedErrorMessage :: {-# NOUNPACK #-}!(Maybe Text)
+  { _edDetailedErrorCode    :: !(Maybe Text)
+  , _edDetailedErrorMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -514,9 +514,9 @@ instance NFData ErrorDetail where
 --
 -- /See:/ 'function' smart constructor.
 data Function = Function'
-  { _fFunctionARN           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fFunctionConfiguration :: {-# NOUNPACK #-}!(Maybe FunctionConfiguration)
-  , _fId                    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _fFunctionARN           :: !(Maybe Text)
+  , _fFunctionConfiguration :: !(Maybe FunctionConfiguration)
+  , _fId                    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -574,12 +574,12 @@ instance ToJSON Function where
 --
 -- /See:/ 'functionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-  { _fcMemorySize  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _fcExecArgs    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcEnvironment :: {-# NOUNPACK #-}!(Maybe FunctionConfigurationEnvironment)
-  , _fcExecutable  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _fcPinned      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _fcTimeout     :: {-# NOUNPACK #-}!(Maybe Int)
+  { _fcMemorySize  :: !(Maybe Int)
+  , _fcExecArgs    :: !(Maybe Text)
+  , _fcEnvironment :: !(Maybe FunctionConfigurationEnvironment)
+  , _fcExecutable  :: !(Maybe Text)
+  , _fcPinned      :: !(Maybe Bool)
+  , _fcTimeout     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -746,11 +746,11 @@ instance ToJSON FunctionDefinitionVersion where
 --
 -- /See:/ 'greengrassLogger' smart constructor.
 data GreengrassLogger = GreengrassLogger'
-  { _glSpace     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _glComponent :: {-# NOUNPACK #-}!(Maybe LoggerComponent)
-  , _glId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _glType      :: {-# NOUNPACK #-}!(Maybe LoggerType)
-  , _glLevel     :: {-# NOUNPACK #-}!(Maybe LoggerLevel)
+  { _glSpace     :: !(Maybe Int)
+  , _glComponent :: !(Maybe LoggerComponent)
+  , _glId        :: !(Maybe Text)
+  , _glType      :: !(Maybe LoggerType)
+  , _glLevel     :: !(Maybe LoggerLevel)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -826,8 +826,8 @@ instance ToJSON GreengrassLogger where
 --
 -- /See:/ 'groupCertificateAuthorityProperties' smart constructor.
 data GroupCertificateAuthorityProperties = GroupCertificateAuthorityProperties'
-  { _gcapGroupCertificateAuthorityARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcapGroupCertificateAuthorityId  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gcapGroupCertificateAuthorityARN :: !(Maybe Text)
+  , _gcapGroupCertificateAuthorityId  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -874,13 +874,13 @@ instance NFData GroupCertificateAuthorityProperties
 --
 -- /See:/ 'groupInformation' smart constructor.
 data GroupInformation = GroupInformation'
-  { _giLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _giLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
+  { _giLatestVersionARN     :: !(Maybe Text)
+  , _giARN                  :: !(Maybe Text)
+  , _giName                 :: !(Maybe Text)
+  , _giCreationTimestamp    :: !(Maybe Text)
+  , _giId                   :: !(Maybe Text)
+  , _giLatestVersion        :: !(Maybe Text)
+  , _giLastUpdatedTimestamp :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -963,11 +963,11 @@ instance NFData GroupInformation where
 --
 -- /See:/ 'groupVersion' smart constructor.
 data GroupVersion = GroupVersion'
-  { _gvSubscriptionDefinitionVersionARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gvCoreDefinitionVersionARN         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gvDeviceDefinitionVersionARN       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gvFunctionDefinitionVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gvLoggerDefinitionVersionARN       :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gvSubscriptionDefinitionVersionARN :: !(Maybe Text)
+  , _gvCoreDefinitionVersionARN         :: !(Maybe Text)
+  , _gvDeviceDefinitionVersionARN       :: !(Maybe Text)
+  , _gvFunctionDefinitionVersionARN     :: !(Maybe Text)
+  , _gvLoggerDefinitionVersionARN       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1087,10 +1087,10 @@ instance ToJSON LoggerDefinitionVersion where
 --
 -- /See:/ 'subscription' smart constructor.
 data Subscription = Subscription'
-  { _sSubject :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sSource  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sTarget  :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sSubject :: !(Maybe Text)
+  , _sSource  :: !(Maybe Text)
+  , _sId      :: !(Maybe Text)
+  , _sTarget  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1193,10 +1193,10 @@ instance ToJSON SubscriptionDefinitionVersion where
 --
 -- /See:/ 'versionInformation' smart constructor.
 data VersionInformation = VersionInformation'
-  { _viARN               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viVersion           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _viId                :: {-# NOUNPACK #-}!(Maybe Text)
+  { _viARN               :: !(Maybe Text)
+  , _viCreationTimestamp :: !(Maybe Text)
+  , _viVersion           :: !(Maybe Text)
+  , _viId                :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,10 +53,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDevicePool' smart constructor.
 data CreateDevicePool = CreateDevicePool'
-  { _cdpDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdpProjectARN  :: {-# NOUNPACK #-}!Text
-  , _cdpName        :: {-# NOUNPACK #-}!Text
-  , _cdpRules       :: {-# NOUNPACK #-}![Rule]
+  { _cdpDescription :: !(Maybe Text)
+  , _cdpProjectARN  :: !Text
+  , _cdpName        :: !Text
+  , _cdpRules       :: ![Rule]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,8 +144,8 @@ instance ToQuery CreateDevicePool where
 --
 -- /See:/ 'createDevicePoolResponse' smart constructor.
 data CreateDevicePoolResponse = CreateDevicePoolResponse'
-  { _cdprsDevicePool     :: {-# NOUNPACK #-}!(Maybe DevicePool)
-  , _cdprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cdprsDevicePool     :: !(Maybe DevicePool)
+  , _cdprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

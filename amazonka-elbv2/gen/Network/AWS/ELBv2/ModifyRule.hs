@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'modifyRule' smart constructor.
 data ModifyRule = ModifyRule'
-  { _mrActions    :: {-# NOUNPACK #-}!(Maybe [Action])
-  , _mrConditions :: {-# NOUNPACK #-}!(Maybe [RuleCondition])
-  , _mrRuleARN    :: {-# NOUNPACK #-}!Text
+  { _mrActions    :: !(Maybe [Action])
+  , _mrConditions :: !(Maybe [RuleCondition])
+  , _mrRuleARN    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery ModifyRule where
 
 -- | /See:/ 'modifyRuleResponse' smart constructor.
 data ModifyRuleResponse = ModifyRuleResponse'
-  { _mrrsRules          :: {-# NOUNPACK #-}!(Maybe [Rule])
-  , _mrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mrrsRules          :: !(Maybe [Rule])
+  , _mrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

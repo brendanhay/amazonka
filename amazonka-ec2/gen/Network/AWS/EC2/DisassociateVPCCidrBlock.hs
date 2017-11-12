@@ -102,10 +102,10 @@ instance ToQuery DisassociateVPCCidrBlock where
 
 -- | /See:/ 'disassociateVPCCidrBlockResponse' smart constructor.
 data DisassociateVPCCidrBlockResponse = DisassociateVPCCidrBlockResponse'
-  { _dvcbrsVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvcbrsCidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe VPCCidrBlockAssociation)
-  , _dvcbrsIPv6CidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe VPCIPv6CidrBlockAssociation)
-  , _dvcbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvcbrsVPCId                    :: !(Maybe Text)
+  , _dvcbrsCidrBlockAssociation     :: !(Maybe VPCCidrBlockAssociation)
+  , _dvcbrsIPv6CidrBlockAssociation :: !(Maybe VPCIPv6CidrBlockAssociation)
+  , _dvcbrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listTagsForStream' smart constructor.
 data ListTagsForStream = ListTagsForStream'
-  { _ltfsLimit                :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ltfsExclusiveStartTagKey :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltfsStreamName           :: {-# NOUNPACK #-}!Text
+  { _ltfsLimit                :: !(Maybe Nat)
+  , _ltfsExclusiveStartTagKey :: !(Maybe Text)
+  , _ltfsStreamName           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery ListTagsForStream where
 --
 -- /See:/ 'listTagsForStreamResponse' smart constructor.
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
-  { _ltfsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ltfsrsTags           :: {-# NOUNPACK #-}![Tag]
-  , _ltfsrsHasMoreTags    :: {-# NOUNPACK #-}!Bool
+  { _ltfsrsResponseStatus :: !Int
+  , _ltfsrsTags           :: ![Tag]
+  , _ltfsrsHasMoreTags    :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,8 +54,8 @@ import Network.AWS.Support.Types.Product
 --
 -- /See:/ 'addAttachmentsToSet' smart constructor.
 data AddAttachmentsToSet = AddAttachmentsToSet'
-  { _aatsAttachmentSetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aatsAttachments     :: {-# NOUNPACK #-}![Attachment]
+  { _aatsAttachmentSetId :: !(Maybe Text)
+  , _aatsAttachments     :: ![Attachment]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,9 +125,9 @@ instance ToQuery AddAttachmentsToSet where
 --
 -- /See:/ 'addAttachmentsToSetResponse' smart constructor.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
-  { _aatsrsExpiryTime      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aatsrsAttachmentSetId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aatsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _aatsrsExpiryTime      :: !(Maybe Text)
+  , _aatsrsAttachmentSetId :: !(Maybe Text)
+  , _aatsrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

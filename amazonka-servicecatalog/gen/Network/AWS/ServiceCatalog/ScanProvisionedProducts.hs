@@ -50,10 +50,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'scanProvisionedProducts' smart constructor.
 data ScanProvisionedProducts = ScanProvisionedProducts'
-  { _sppAcceptLanguage    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sppAccessLevelFilter :: {-# NOUNPACK #-}!(Maybe AccessLevelFilter)
-  , _sppPageToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sppPageSize          :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _sppAcceptLanguage    :: !(Maybe Text)
+  , _sppAccessLevelFilter :: !(Maybe AccessLevelFilter)
+  , _sppPageToken         :: !(Maybe Text)
+  , _sppPageSize          :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery ScanProvisionedProducts where
 
 -- | /See:/ 'scanProvisionedProductsResponse' smart constructor.
 data ScanProvisionedProductsResponse = ScanProvisionedProductsResponse'
-  { _spprsNextPageToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _spprsProvisionedProducts :: {-# NOUNPACK #-}!(Maybe [ProvisionedProductDetail])
-  , _spprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _spprsNextPageToken       :: !(Maybe Text)
+  , _spprsProvisionedProducts :: !(Maybe [ProvisionedProductDetail])
+  , _spprsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

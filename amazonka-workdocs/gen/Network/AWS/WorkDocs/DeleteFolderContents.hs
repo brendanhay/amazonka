@@ -44,8 +44,8 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'deleteFolderContents' smart constructor.
 data DeleteFolderContents = DeleteFolderContents'
-  { _dfcAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _dfcFolderId            :: {-# NOUNPACK #-}!Text
+  { _dfcAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _dfcFolderId            :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

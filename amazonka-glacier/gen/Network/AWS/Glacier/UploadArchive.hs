@@ -67,11 +67,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'uploadArchive' smart constructor.
 data UploadArchive = UploadArchive'
-  { _uaChecksum           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaArchiveDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaVaultName          :: {-# NOUNPACK #-}!Text
-  , _uaAccountId          :: {-# NOUNPACK #-}!Text
-  , _uaBody               :: {-# NOUNPACK #-}!HashedBody
+  { _uaChecksum           :: !(Maybe Text)
+  , _uaArchiveDescription :: !(Maybe Text)
+  , _uaVaultName          :: !Text
+  , _uaAccountId          :: !Text
+  , _uaBody               :: !HashedBody
   } deriving (Show, Generic)
 
 

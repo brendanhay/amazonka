@@ -47,8 +47,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateDocumentDefaultVersion' smart constructor.
 data UpdateDocumentDefaultVersion = UpdateDocumentDefaultVersion'
-  { _uddvName            :: {-# NOUNPACK #-}!Text
-  , _uddvDocumentVersion :: {-# NOUNPACK #-}!Text
+  { _uddvName            :: !Text
+  , _uddvDocumentVersion :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -116,8 +116,8 @@ instance ToQuery UpdateDocumentDefaultVersion where
 
 -- | /See:/ 'updateDocumentDefaultVersionResponse' smart constructor.
 data UpdateDocumentDefaultVersionResponse = UpdateDocumentDefaultVersionResponse'
-  { _uddvrsDescription :: {-# NOUNPACK #-}!(Maybe DocumentDefaultVersionDescription)
-  , _uddvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _uddvrsDescription    :: !(Maybe DocumentDefaultVersionDescription)
+  , _uddvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

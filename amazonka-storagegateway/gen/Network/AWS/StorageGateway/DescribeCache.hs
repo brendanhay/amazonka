@@ -115,14 +115,14 @@ instance ToQuery DescribeCache where
 
 -- | /See:/ 'describeCacheResponse' smart constructor.
 data DescribeCacheResponse = DescribeCacheResponse'
-  { _dcrsGatewayARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcrsDiskIds               :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dcrsCacheUsedPercentage   :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dcrsCacheHitPercentage    :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dcrsCacheMissPercentage   :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dcrsCacheAllocatedInBytes :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _dcrsCacheDirtyPercentage  :: {-# NOUNPACK #-}!(Maybe Double)
-  , _dcrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _dcrsGatewayARN            :: !(Maybe Text)
+  , _dcrsDiskIds               :: !(Maybe [Text])
+  , _dcrsCacheUsedPercentage   :: !(Maybe Double)
+  , _dcrsCacheHitPercentage    :: !(Maybe Double)
+  , _dcrsCacheMissPercentage   :: !(Maybe Double)
+  , _dcrsCacheAllocatedInBytes :: !(Maybe Integer)
+  , _dcrsCacheDirtyPercentage  :: !(Maybe Double)
+  , _dcrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

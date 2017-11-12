@@ -55,12 +55,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
-  { _dsasStartTime            :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dsasNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsasAutoScalingGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsasMaxRecords           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dsasEndTime              :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _dsasScheduledActionNames :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _dsasStartTime            :: !(Maybe ISO8601)
+  , _dsasNextToken            :: !(Maybe Text)
+  , _dsasAutoScalingGroupName :: !(Maybe Text)
+  , _dsasMaxRecords           :: !(Maybe Int)
+  , _dsasEndTime              :: !(Maybe ISO8601)
+  , _dsasScheduledActionNames :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -164,9 +164,9 @@ instance ToQuery DescribeScheduledActions where
 
 -- | /See:/ 'describeScheduledActionsResponse' smart constructor.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
-  { _dsarsScheduledUpdateGroupActions :: {-# NOUNPACK #-}!(Maybe [ScheduledUpdateGroupAction])
-  , _dsarsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsarsScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
+  , _dsarsNextToken                   :: !(Maybe Text)
+  , _dsarsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

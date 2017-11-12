@@ -53,12 +53,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'modifyListener' smart constructor.
 data ModifyListener = ModifyListener'
-  { _mlSSLPolicy      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mlProtocol       :: {-# NOUNPACK #-}!(Maybe ProtocolEnum)
-  , _mlDefaultActions :: {-# NOUNPACK #-}!(Maybe [Action])
-  , _mlCertificates   :: {-# NOUNPACK #-}!(Maybe [Certificate])
-  , _mlPort           :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _mlListenerARN    :: {-# NOUNPACK #-}!Text
+  { _mlSSLPolicy      :: !(Maybe Text)
+  , _mlProtocol       :: !(Maybe ProtocolEnum)
+  , _mlDefaultActions :: !(Maybe [Action])
+  , _mlCertificates   :: !(Maybe [Certificate])
+  , _mlPort           :: !(Maybe Nat)
+  , _mlListenerARN    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,8 +151,8 @@ instance ToQuery ModifyListener where
 
 -- | /See:/ 'modifyListenerResponse' smart constructor.
 data ModifyListenerResponse = ModifyListenerResponse'
-  { _mlrsListeners      :: {-# NOUNPACK #-}!(Maybe [Listener])
-  , _mlrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mlrsListeners      :: !(Maybe [Listener])
+  , _mlrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

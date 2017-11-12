@@ -55,9 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listPolicyVersions' smart constructor.
 data ListPolicyVersions = ListPolicyVersions'
-  { _lpvMarker    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpvMaxItems  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lpvPolicyARN :: {-# NOUNPACK #-}!Text
+  { _lpvMarker    :: !(Maybe Text)
+  , _lpvMaxItems  :: !(Maybe Nat)
+  , _lpvPolicyARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,10 +135,10 @@ instance ToQuery ListPolicyVersions where
 --
 -- /See:/ 'listPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-  { _lpvrsVersions       :: {-# NOUNPACK #-}!(Maybe [PolicyVersion])
-  , _lpvrsMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpvrsIsTruncated    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _lpvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lpvrsVersions       :: !(Maybe [PolicyVersion])
+  , _lpvrsMarker         :: !(Maybe Text)
+  , _lpvrsIsTruncated    :: !(Maybe Bool)
+  , _lpvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,11 +52,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeElasticGpus' smart constructor.
 data DescribeElasticGpus = DescribeElasticGpus'
-  { _degFilters       :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _degNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _degDryRun        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _degMaxResults    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _degElasticGpuIds :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _degFilters       :: !(Maybe [Filter])
+  , _degNextToken     :: !(Maybe Text)
+  , _degDryRun        :: !(Maybe Bool)
+  , _degMaxResults    :: !(Maybe Int)
+  , _degElasticGpuIds :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,10 +142,10 @@ instance ToQuery DescribeElasticGpus where
 
 -- | /See:/ 'describeElasticGpusResponse' smart constructor.
 data DescribeElasticGpusResponse = DescribeElasticGpusResponse'
-  { _degrsElasticGpuSet  :: {-# NOUNPACK #-}!(Maybe [ElasticGpus])
-  , _degrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _degrsMaxResults     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _degrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _degrsElasticGpuSet  :: !(Maybe [ElasticGpus])
+  , _degrsNextToken      :: !(Maybe Text)
+  , _degrsMaxResults     :: !(Maybe Int)
+  , _degrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -102,9 +102,9 @@ instance ToQuery BatchGetBuilds where
 
 -- | /See:/ 'batchGetBuildsResponse' smart constructor.
 data BatchGetBuildsResponse = BatchGetBuildsResponse'
-  { _bgbrsBuilds         :: {-# NOUNPACK #-}!(Maybe [Build])
-  , _bgbrsBuildsNotFound :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _bgbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bgbrsBuilds         :: !(Maybe [Build])
+  , _bgbrsBuildsNotFound :: !(Maybe (List1 Text))
+  , _bgbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

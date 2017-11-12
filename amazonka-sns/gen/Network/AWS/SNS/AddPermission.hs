@@ -46,10 +46,10 @@ import Network.AWS.SNS.Types.Product
 
 -- | /See:/ 'addPermission' smart constructor.
 data AddPermission = AddPermission'
-  { _apTopicARN     :: {-# NOUNPACK #-}!Text
-  , _apLabel        :: {-# NOUNPACK #-}!Text
-  , _apAWSAccountId :: {-# NOUNPACK #-}![Text]
-  , _apActionName   :: {-# NOUNPACK #-}![Text]
+  { _apTopicARN     :: !Text
+  , _apLabel        :: !Text
+  , _apAWSAccountId :: ![Text]
+  , _apActionName   :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

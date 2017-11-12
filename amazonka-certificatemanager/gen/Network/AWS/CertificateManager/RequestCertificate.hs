@@ -53,10 +53,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'requestCertificate' smart constructor.
 data RequestCertificate = RequestCertificate'
-  { _rcIdempotencyToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcSubjectAlternativeNames :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _rcDomainValidationOptions :: {-# NOUNPACK #-}!(Maybe (List1 DomainValidationOption))
-  , _rcDomainName :: {-# NOUNPACK #-}!Text
+  { _rcIdempotencyToken        :: !(Maybe Text)
+  , _rcSubjectAlternativeNames :: !(Maybe (List1 Text))
+  , _rcDomainValidationOptions :: !(Maybe (List1 DomainValidationOption))
+  , _rcDomainName              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,8 +142,8 @@ instance ToQuery RequestCertificate where
 
 -- | /See:/ 'requestCertificateResponse' smart constructor.
 data RequestCertificateResponse = RequestCertificateResponse'
-  { _rcrsCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rcrsCertificateARN :: !(Maybe Text)
+  , _rcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

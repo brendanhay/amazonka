@@ -49,9 +49,9 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'getDocument' smart constructor.
 data GetDocument = GetDocument'
-  { _gdAuthenticationToken   :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _gdIncludeCustomMetadata :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gdDocumentId            :: {-# NOUNPACK #-}!Text
+  { _gdAuthenticationToken   :: !(Maybe (Sensitive Text))
+  , _gdIncludeCustomMetadata :: !(Maybe Bool)
+  , _gdDocumentId            :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -120,9 +120,9 @@ instance ToQuery GetDocument where
 
 -- | /See:/ 'getDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-  { _gdrsCustomMetadata :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gdrsMetadata       :: {-# NOUNPACK #-}!(Maybe DocumentMetadata)
-  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdrsCustomMetadata :: !(Maybe (Map Text Text))
+  , _gdrsMetadata       :: !(Maybe DocumentMetadata)
+  , _gdrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

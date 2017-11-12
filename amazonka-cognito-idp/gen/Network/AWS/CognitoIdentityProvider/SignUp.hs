@@ -57,12 +57,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'signUp' smart constructor.
 data SignUp = SignUp'
-  { _suUserAttributes :: {-# NOUNPACK #-}!(Maybe [AttributeType])
-  , _suSecretHash     :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _suValidationData :: {-# NOUNPACK #-}!(Maybe [AttributeType])
-  , _suClientId       :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _suUsername       :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _suPassword       :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _suUserAttributes :: !(Maybe [AttributeType])
+  , _suSecretHash     :: !(Maybe (Sensitive Text))
+  , _suValidationData :: !(Maybe [AttributeType])
+  , _suClientId       :: !(Sensitive Text)
+  , _suUsername       :: !(Sensitive Text)
+  , _suPassword       :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -169,10 +169,10 @@ instance ToQuery SignUp where
 --
 -- /See:/ 'signUpResponse' smart constructor.
 data SignUpResponse = SignUpResponse'
-  { _sursCodeDeliveryDetails :: {-# NOUNPACK #-}!(Maybe CodeDeliveryDetailsType)
-  , _sursResponseStatus      :: {-# NOUNPACK #-}!Int
-  , _sursUserConfirmed       :: {-# NOUNPACK #-}!Bool
-  , _sursUserSub             :: {-# NOUNPACK #-}!Text
+  { _sursCodeDeliveryDetails :: !(Maybe CodeDeliveryDetailsType)
+  , _sursResponseStatus      :: !Int
+  , _sursUserConfirmed       :: !Bool
+  , _sursUserSub             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

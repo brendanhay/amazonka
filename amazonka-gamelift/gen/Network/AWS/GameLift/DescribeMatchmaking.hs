@@ -125,8 +125,8 @@ instance ToQuery DescribeMatchmaking where
 --
 -- /See:/ 'describeMatchmakingResponse' smart constructor.
 data DescribeMatchmakingResponse = DescribeMatchmakingResponse'
-  { _dmrsTicketList     :: {-# NOUNPACK #-}!(Maybe [MatchmakingTicket])
-  , _dmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmrsTicketList     :: !(Maybe [MatchmakingTicket])
+  , _dmrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

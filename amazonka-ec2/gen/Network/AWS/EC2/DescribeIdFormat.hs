@@ -106,8 +106,8 @@ instance ToQuery DescribeIdFormat where
 --
 -- /See:/ 'describeIdFormatResponse' smart constructor.
 data DescribeIdFormatResponse = DescribeIdFormatResponse'
-  { _difrsStatuses       :: {-# NOUNPACK #-}!(Maybe [IdFormat])
-  , _difrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _difrsStatuses       :: !(Maybe [IdFormat])
+  , _difrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

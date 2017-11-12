@@ -62,8 +62,8 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'createIPSet' smart constructor.
 data CreateIPSet = CreateIPSet'
-  { _cisName        :: {-# NOUNPACK #-}!Text
-  , _cisChangeToken :: {-# NOUNPACK #-}!Text
+  { _cisName        :: !Text
+  , _cisChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,9 +128,9 @@ instance ToQuery CreateIPSet where
 
 -- | /See:/ 'createIPSetResponse' smart constructor.
 data CreateIPSetResponse = CreateIPSetResponse'
-  { _cisrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cisrsIPSet          :: {-# NOUNPACK #-}!(Maybe IPSet)
-  , _cisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cisrsChangeToken    :: !(Maybe Text)
+  , _cisrsIPSet          :: !(Maybe IPSet)
+  , _cisrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

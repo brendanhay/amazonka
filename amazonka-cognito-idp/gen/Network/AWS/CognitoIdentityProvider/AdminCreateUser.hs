@@ -59,14 +59,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'adminCreateUser' smart constructor.
 data AdminCreateUser = AdminCreateUser'
-  { _acuTemporaryPassword      :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _acuForceAliasCreation     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _acuDesiredDeliveryMediums :: {-# NOUNPACK #-}!(Maybe [DeliveryMediumType])
-  , _acuMessageAction          :: {-# NOUNPACK #-}!(Maybe MessageActionType)
-  , _acuUserAttributes         :: {-# NOUNPACK #-}!(Maybe [AttributeType])
-  , _acuValidationData         :: {-# NOUNPACK #-}!(Maybe [AttributeType])
-  , _acuUserPoolId             :: {-# NOUNPACK #-}!Text
-  , _acuUsername               :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _acuTemporaryPassword      :: !(Maybe (Sensitive Text))
+  , _acuForceAliasCreation     :: !(Maybe Bool)
+  , _acuDesiredDeliveryMediums :: !(Maybe [DeliveryMediumType])
+  , _acuMessageAction          :: !(Maybe MessageActionType)
+  , _acuUserAttributes         :: !(Maybe [AttributeType])
+  , _acuValidationData         :: !(Maybe [AttributeType])
+  , _acuUserPoolId             :: !Text
+  , _acuUsername               :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -187,8 +187,8 @@ instance ToQuery AdminCreateUser where
 --
 -- /See:/ 'adminCreateUserResponse' smart constructor.
 data AdminCreateUserResponse = AdminCreateUserResponse'
-  { _acursUser           :: {-# NOUNPACK #-}!(Maybe UserType)
-  , _acursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _acursUser           :: !(Maybe UserType)
+  , _acursResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

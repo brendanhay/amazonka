@@ -59,8 +59,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'adminGetUser' smart constructor.
 data AdminGetUser = AdminGetUser'
-  { _aguUserPoolId :: {-# NOUNPACK #-}!Text
-  , _aguUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _aguUserPoolId :: !Text
+  , _aguUsername   :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -136,14 +136,14 @@ instance ToQuery AdminGetUser where
 --
 -- /See:/ 'adminGetUserResponse' smart constructor.
 data AdminGetUserResponse = AdminGetUserResponse'
-  { _agursEnabled              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _agursUserStatus           :: {-# NOUNPACK #-}!(Maybe UserStatusType)
-  , _agursUserAttributes       :: {-# NOUNPACK #-}!(Maybe [AttributeType])
-  , _agursUserCreateDate       :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _agursMFAOptions           :: {-# NOUNPACK #-}!(Maybe [MFAOptionType])
-  , _agursUserLastModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _agursResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _agursUsername             :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _agursEnabled              :: !(Maybe Bool)
+  , _agursUserStatus           :: !(Maybe UserStatusType)
+  , _agursUserAttributes       :: !(Maybe [AttributeType])
+  , _agursUserCreateDate       :: !(Maybe POSIX)
+  , _agursMFAOptions           :: !(Maybe [MFAOptionType])
+  , _agursUserLastModifiedDate :: !(Maybe POSIX)
+  , _agursResponseStatus       :: !Int
+  , _agursUsername             :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

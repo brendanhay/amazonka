@@ -54,8 +54,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'deleteIdentityPolicy' smart constructor.
 data DeleteIdentityPolicy = DeleteIdentityPolicy'
-  { _dipIdentity   :: {-# NOUNPACK #-}!Text
-  , _dipPolicyName :: {-# NOUNPACK #-}!Text
+  { _dipIdentity   :: !Text
+  , _dipPolicyName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

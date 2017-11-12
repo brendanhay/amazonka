@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateAssumeRolePolicy' smart constructor.
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
-  { _uarpRoleName       :: {-# NOUNPACK #-}!Text
-  , _uarpPolicyDocument :: {-# NOUNPACK #-}!Text
+  { _uarpRoleName       :: !Text
+  , _uarpPolicyDocument :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

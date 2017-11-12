@@ -98,8 +98,8 @@ instance ToQuery GetUser where
 --
 -- /See:/ 'getUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
-  { _gursResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gursUser           :: {-# NOUNPACK #-}!User
+  { _gursResponseStatus :: !Int
+  , _gursUser           :: !User
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

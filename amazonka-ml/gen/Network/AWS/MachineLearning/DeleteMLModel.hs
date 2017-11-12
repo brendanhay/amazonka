@@ -110,8 +110,8 @@ instance ToQuery DeleteMLModel where
 --
 -- /See:/ 'deleteMLModelResponse' smart constructor.
 data DeleteMLModelResponse = DeleteMLModelResponse'
-  { _dmlmrsMLModelId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dmlmrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dmlmrsMLModelId      :: !(Maybe Text)
+  , _dmlmrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

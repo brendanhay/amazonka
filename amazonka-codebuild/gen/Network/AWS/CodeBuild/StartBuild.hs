@@ -51,12 +51,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'startBuild' smart constructor.
 data StartBuild = StartBuild'
-  { _sbEnvironmentVariablesOverride :: {-# NOUNPACK #-}!(Maybe [EnvironmentVariable])
-  , _sbTimeoutInMinutesOverride :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _sbSourceVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbBuildspecOverride :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbArtifactsOverride :: {-# NOUNPACK #-}!(Maybe ProjectArtifacts)
-  , _sbProjectName :: {-# NOUNPACK #-}!Text
+  { _sbEnvironmentVariablesOverride :: !(Maybe [EnvironmentVariable])
+  , _sbTimeoutInMinutesOverride     :: !(Maybe Nat)
+  , _sbSourceVersion                :: !(Maybe Text)
+  , _sbBuildspecOverride            :: !(Maybe Text)
+  , _sbArtifactsOverride            :: !(Maybe ProjectArtifacts)
+  , _sbProjectName                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,8 +156,8 @@ instance ToQuery StartBuild where
 
 -- | /See:/ 'startBuildResponse' smart constructor.
 data StartBuildResponse = StartBuildResponse'
-  { _srsBuild          :: {-# NOUNPACK #-}!(Maybe Build)
-  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _srsBuild          :: !(Maybe Build)
+  , _srsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

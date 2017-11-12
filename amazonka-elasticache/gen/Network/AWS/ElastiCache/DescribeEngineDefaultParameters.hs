@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEngineDefaultParameters' smart constructor.
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-  { _dedpMarker                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dedpMaxRecords                :: {-# NOUNPACK #-}!(Maybe Int)
-  , _dedpCacheParameterGroupFamily :: {-# NOUNPACK #-}!Text
+  { _dedpMarker                    :: !(Maybe Text)
+  , _dedpMaxRecords                :: !(Maybe Int)
+  , _dedpCacheParameterGroupFamily :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -144,8 +144,8 @@ instance ToQuery DescribeEngineDefaultParameters
 
 -- | /See:/ 'describeEngineDefaultParametersResponse' smart constructor.
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
-  { _dedprsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _dedprsEngineDefaults :: {-# NOUNPACK #-}!EngineDefaults
+  { _dedprsResponseStatus :: !Int
+  , _dedprsEngineDefaults :: !EngineDefaults
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

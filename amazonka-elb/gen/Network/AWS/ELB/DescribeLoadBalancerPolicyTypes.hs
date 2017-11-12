@@ -116,8 +116,8 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 --
 -- /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
-  { _dlbptrsPolicyTypeDescriptions :: {-# NOUNPACK #-}!(Maybe [PolicyTypeDescription])
-  , _dlbptrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dlbptrsPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
+  , _dlbptrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getSubscriptionDefinitionVersion' smart constructor.
 data GetSubscriptionDefinitionVersion = GetSubscriptionDefinitionVersion'
-  { _gsdvSubscriptionDefinitionId        :: {-# NOUNPACK #-}!Text
-  , _gsdvSubscriptionDefinitionVersionId :: {-# NOUNPACK #-}!Text
+  { _gsdvSubscriptionDefinitionId        :: !Text
+  , _gsdvSubscriptionDefinitionVersionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,12 +123,12 @@ instance ToQuery GetSubscriptionDefinitionVersion
 
 -- | /See:/ 'getSubscriptionDefinitionVersionResponse' smart constructor.
 data GetSubscriptionDefinitionVersionResponse = GetSubscriptionDefinitionVersionResponse'
-  { _gsdvrsDefinition :: {-# NOUNPACK #-}!(Maybe SubscriptionDefinitionVersion)
-  , _gsdvrsARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdvrsCreationTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdvrsVersion :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdvrsId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gsdvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsdvrsDefinition        :: !(Maybe SubscriptionDefinitionVersion)
+  , _gsdvrsARN               :: !(Maybe Text)
+  , _gsdvrsCreationTimestamp :: !(Maybe Text)
+  , _gsdvrsVersion           :: !(Maybe Text)
+  , _gsdvrsId                :: !(Maybe Text)
+  , _gsdvrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

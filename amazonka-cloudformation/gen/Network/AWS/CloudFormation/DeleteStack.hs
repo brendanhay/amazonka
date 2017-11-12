@@ -50,10 +50,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteStack' smart constructor.
 data DeleteStack = DeleteStack'
-  { _dsRetainResources    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dsClientRequestToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsRoleARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsStackName          :: {-# NOUNPACK #-}!Text
+  { _dsRetainResources    :: !(Maybe [Text])
+  , _dsClientRequestToken :: !(Maybe Text)
+  , _dsRoleARN            :: !(Maybe Text)
+  , _dsStackName          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

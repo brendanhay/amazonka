@@ -100,8 +100,8 @@ instance ToQuery GetWebACL where
 
 -- | /See:/ 'getWebACLResponse' smart constructor.
 data GetWebACLResponse = GetWebACLResponse'
-  { _gwarsWebACL         :: {-# NOUNPACK #-}!(Maybe WebACL)
-  , _gwarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gwarsWebACL         :: !(Maybe WebACL)
+  , _gwarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

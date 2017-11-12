@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteFacet' smart constructor.
 data DeleteFacet = DeleteFacet'
-  { _dfSchemaARN :: {-# NOUNPACK #-}!Text
-  , _dfName      :: {-# NOUNPACK #-}!Text
+  { _dfSchemaARN :: !Text
+  , _dfName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

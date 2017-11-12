@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'startJobRun' smart constructor.
 data StartJobRun = StartJobRun'
-  { _sjrArguments         :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _sjrAllocatedCapacity :: {-# NOUNPACK #-}!(Maybe Int)
-  , _sjrJobRunId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sjrJobName           :: {-# NOUNPACK #-}!Text
+  { _sjrArguments         :: !(Maybe (Map Text Text))
+  , _sjrAllocatedCapacity :: !(Maybe Int)
+  , _sjrJobRunId          :: !(Maybe Text)
+  , _sjrJobName           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,8 +134,8 @@ instance ToQuery StartJobRun where
 
 -- | /See:/ 'startJobRunResponse' smart constructor.
 data StartJobRunResponse = StartJobRunResponse'
-  { _sjrrsJobRunId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sjrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sjrrsJobRunId       :: !(Maybe Text)
+  , _sjrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

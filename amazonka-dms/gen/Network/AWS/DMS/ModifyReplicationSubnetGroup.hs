@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyReplicationSubnetGroup' smart constructor.
 data ModifyReplicationSubnetGroup = ModifyReplicationSubnetGroup'
-  { _mrsgReplicationSubnetGroupDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mrsgReplicationSubnetGroupIdentifier  :: {-# NOUNPACK #-}!Text
-  , _mrsgSubnetIds                         :: {-# NOUNPACK #-}![Text]
+  { _mrsgReplicationSubnetGroupDescription :: !(Maybe Text)
+  , _mrsgReplicationSubnetGroupIdentifier  :: !Text
+  , _mrsgSubnetIds                         :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,8 +139,8 @@ instance ToQuery ModifyReplicationSubnetGroup where
 --
 -- /See:/ 'modifyReplicationSubnetGroupResponse' smart constructor.
 data ModifyReplicationSubnetGroupResponse = ModifyReplicationSubnetGroupResponse'
-  { _mrsgrsReplicationSubnetGroup :: {-# NOUNPACK #-}!(Maybe ReplicationSubnetGroup)
-  , _mrsgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mrsgrsReplicationSubnetGroup :: !(Maybe ReplicationSubnetGroup)
+  , _mrsgrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

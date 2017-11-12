@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeInstanceAssociationsStatus' smart constructor.
 data DescribeInstanceAssociationsStatus = DescribeInstanceAssociationsStatus'
-  { _diasNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diasMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _diasInstanceId :: {-# NOUNPACK #-}!Text
+  { _diasNextToken  :: !(Maybe Text)
+  , _diasMaxResults :: !(Maybe Nat)
+  , _diasInstanceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery DescribeInstanceAssociationsStatus
 
 -- | /See:/ 'describeInstanceAssociationsStatusResponse' smart constructor.
 data DescribeInstanceAssociationsStatusResponse = DescribeInstanceAssociationsStatusResponse'
-  { _diasrsInstanceAssociationStatusInfos :: {-# NOUNPACK #-}!(Maybe [InstanceAssociationStatusInfo])
-  , _diasrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _diasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _diasrsInstanceAssociationStatusInfos :: !(Maybe [InstanceAssociationStatusInfo])
+  , _diasrsNextToken :: !(Maybe Text)
+  , _diasrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -81,18 +81,18 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateFunctionConfiguration' smart constructor.
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
-  { _ufcMemorySize       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ufcRuntime          :: {-# NOUNPACK #-}!(Maybe Runtime)
-  , _ufcKMSKeyARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufcEnvironment      :: {-# NOUNPACK #-}!(Maybe Environment)
-  , _ufcDeadLetterConfig :: {-# NOUNPACK #-}!(Maybe DeadLetterConfig)
-  , _ufcRole             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufcVPCConfig        :: {-# NOUNPACK #-}!(Maybe VPCConfig)
-  , _ufcHandler          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufcTimeout          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ufcTracingConfig    :: {-# NOUNPACK #-}!(Maybe TracingConfig)
-  , _ufcDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufcFunctionName     :: {-# NOUNPACK #-}!Text
+  { _ufcMemorySize       :: !(Maybe Nat)
+  , _ufcRuntime          :: !(Maybe Runtime)
+  , _ufcKMSKeyARN        :: !(Maybe Text)
+  , _ufcEnvironment      :: !(Maybe Environment)
+  , _ufcDeadLetterConfig :: !(Maybe DeadLetterConfig)
+  , _ufcRole             :: !(Maybe Text)
+  , _ufcVPCConfig        :: !(Maybe VPCConfig)
+  , _ufcHandler          :: !(Maybe Text)
+  , _ufcTimeout          :: !(Maybe Nat)
+  , _ufcTracingConfig    :: !(Maybe TracingConfig)
+  , _ufcDescription      :: !(Maybe Text)
+  , _ufcFunctionName     :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

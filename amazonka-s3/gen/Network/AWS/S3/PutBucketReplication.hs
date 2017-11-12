@@ -43,9 +43,9 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketReplication' smart constructor.
 data PutBucketReplication = PutBucketReplication'
-  { _pbrContentMD5               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pbrBucket                   :: {-# NOUNPACK #-}!BucketName
-  , _pbrReplicationConfiguration :: {-# NOUNPACK #-}!ReplicationConfiguration
+  { _pbrContentMD5               :: !(Maybe Text)
+  , _pbrBucket                   :: !BucketName
+  , _pbrReplicationConfiguration :: !ReplicationConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

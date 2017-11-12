@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'flushStageCache' smart constructor.
 data FlushStageCache = FlushStageCache'
-  { _fscRestAPIId :: {-# NOUNPACK #-}!Text
-  , _fscStageName :: {-# NOUNPACK #-}!Text
+  { _fscRestAPIId :: !Text
+  , _fscStageName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

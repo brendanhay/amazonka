@@ -55,8 +55,8 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listReusableDelegationSets' smart constructor.
 data ListReusableDelegationSets = ListReusableDelegationSets'
-  { _lrdsMarker   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrdsMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lrdsMarker   :: !(Maybe Text)
+  , _lrdsMaxItems :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,12 +118,12 @@ instance ToQuery ListReusableDelegationSets where
 --
 -- /See:/ 'listReusableDelegationSetsResponse' smart constructor.
 data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
-  { _lrdsrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrdsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lrdsrsDelegationSets :: {-# NOUNPACK #-}![DelegationSet]
-  , _lrdsrsMarker         :: {-# NOUNPACK #-}!Text
-  , _lrdsrsIsTruncated    :: {-# NOUNPACK #-}!Bool
-  , _lrdsrsMaxItems       :: {-# NOUNPACK #-}!Text
+  { _lrdsrsNextMarker     :: !(Maybe Text)
+  , _lrdsrsResponseStatus :: !Int
+  , _lrdsrsDelegationSets :: ![DelegationSet]
+  , _lrdsrsMarker         :: !Text
+  , _lrdsrsIsTruncated    :: !Bool
+  , _lrdsrsMaxItems       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

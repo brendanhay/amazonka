@@ -66,8 +66,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'putRecordBatch' smart constructor.
 data PutRecordBatch = PutRecordBatch'
-  { _prbDeliveryStreamName :: {-# NOUNPACK #-}!Text
-  , _prbRecords            :: {-# NOUNPACK #-}!(List1 Record)
+  { _prbDeliveryStreamName :: !Text
+  , _prbRecords            :: !(List1 Record)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,9 +136,9 @@ instance ToQuery PutRecordBatch where
 
 -- | /See:/ 'putRecordBatchResponse' smart constructor.
 data PutRecordBatchResponse = PutRecordBatchResponse'
-  { _prbrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _prbrsFailedPutCount :: {-# NOUNPACK #-}!Nat
-  , _prbrsRequestResponses :: {-# NOUNPACK #-}!(List1 PutRecordBatchResponseEntry)
+  { _prbrsResponseStatus   :: !Int
+  , _prbrsFailedPutCount   :: !Nat
+  , _prbrsRequestResponses :: !(List1 PutRecordBatchResponseEntry)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

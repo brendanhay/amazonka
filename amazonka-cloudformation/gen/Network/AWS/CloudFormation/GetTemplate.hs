@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getTemplate' smart constructor.
 data GetTemplate = GetTemplate'
-  { _gtChangeSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtTemplateStage :: {-# NOUNPACK #-}!(Maybe TemplateStage)
-  , _gtStackName     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _gtChangeSetName :: !(Maybe Text)
+  , _gtTemplateStage :: !(Maybe TemplateStage)
+  , _gtStackName     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,9 +129,9 @@ instance ToQuery GetTemplate where
 --
 -- /See:/ 'getTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
-  { _gtrsStagesAvailable :: {-# NOUNPACK #-}!(Maybe [TemplateStage])
-  , _gtrsTemplateBody    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gtrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gtrsStagesAvailable :: !(Maybe [TemplateStage])
+  , _gtrsTemplateBody    :: !(Maybe Text)
+  , _gtrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

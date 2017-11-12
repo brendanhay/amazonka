@@ -64,16 +64,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVPCEndpoint' smart constructor.
 data CreateVPCEndpoint = CreateVPCEndpoint'
-  { _cvePolicyDocument    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cveSecurityGroupIds  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cveClientToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cveSubnetIds         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cveVPCEndpointType   :: {-# NOUNPACK #-}!(Maybe VPCEndpointType)
-  , _cvePrivateDNSEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cveDryRun            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cveRouteTableIds     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cveVPCId             :: {-# NOUNPACK #-}!Text
-  , _cveServiceName       :: {-# NOUNPACK #-}!Text
+  { _cvePolicyDocument    :: !(Maybe Text)
+  , _cveSecurityGroupIds  :: !(Maybe [Text])
+  , _cveClientToken       :: !(Maybe Text)
+  , _cveSubnetIds         :: !(Maybe [Text])
+  , _cveVPCEndpointType   :: !(Maybe VPCEndpointType)
+  , _cvePrivateDNSEnabled :: !(Maybe Bool)
+  , _cveDryRun            :: !(Maybe Bool)
+  , _cveRouteTableIds     :: !(Maybe [Text])
+  , _cveVPCId             :: !Text
+  , _cveServiceName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -204,9 +204,9 @@ instance ToQuery CreateVPCEndpoint where
 --
 -- /See:/ 'createVPCEndpointResponse' smart constructor.
 data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
-  { _cversClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cversVPCEndpoint    :: {-# NOUNPACK #-}!(Maybe VPCEndpoint)
-  , _cversResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cversClientToken    :: !(Maybe Text)
+  , _cversVPCEndpoint    :: !(Maybe VPCEndpoint)
+  , _cversResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

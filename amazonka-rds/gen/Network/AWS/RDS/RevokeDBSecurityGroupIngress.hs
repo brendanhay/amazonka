@@ -54,11 +54,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'revokeDBSecurityGroupIngress' smart constructor.
 data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
-  { _rdsgiEC2SecurityGroupOwnerId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdsgiEC2SecurityGroupName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdsgiCIdRIP                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdsgiEC2SecurityGroupId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdsgiDBSecurityGroupName     :: {-# NOUNPACK #-}!Text
+  { _rdsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
+  , _rdsgiEC2SecurityGroupName    :: !(Maybe Text)
+  , _rdsgiCIdRIP                  :: !(Maybe Text)
+  , _rdsgiEC2SecurityGroupId      :: !(Maybe Text)
+  , _rdsgiDBSecurityGroupName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -145,8 +145,8 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 
 -- | /See:/ 'revokeDBSecurityGroupIngressResponse' smart constructor.
 data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'
-  { _rdsgirsDBSecurityGroup :: {-# NOUNPACK #-}!(Maybe DBSecurityGroup)
-  , _rdsgirsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _rdsgirsDBSecurityGroup :: !(Maybe DBSecurityGroup)
+  , _rdsgirsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

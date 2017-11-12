@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listDeviceDefinitionVersions' smart constructor.
 data ListDeviceDefinitionVersions = ListDeviceDefinitionVersions'
-  { _lddvNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lddvMaxResults         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lddvDeviceDefinitionId :: {-# NOUNPACK #-}!Text
+  { _lddvNextToken          :: !(Maybe Text)
+  , _lddvMaxResults         :: !(Maybe Text)
+  , _lddvDeviceDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery ListDeviceDefinitionVersions where
 
 -- | /See:/ 'listDeviceDefinitionVersionsResponse' smart constructor.
 data ListDeviceDefinitionVersionsResponse = ListDeviceDefinitionVersionsResponse'
-  { _lddvrsVersions       :: {-# NOUNPACK #-}!(Maybe [VersionInformation])
-  , _lddvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lddvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lddvrsVersions       :: !(Maybe [VersionInformation])
+  , _lddvrsNextToken      :: !(Maybe Text)
+  , _lddvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

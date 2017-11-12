@@ -53,8 +53,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeStackResource' smart constructor.
 data DescribeStackResource = DescribeStackResource'
-  { _dsrsStackName         :: {-# NOUNPACK #-}!Text
-  , _dsrsLogicalResourceId :: {-# NOUNPACK #-}!Text
+  { _dsrsStackName         :: !Text
+  , _dsrsLogicalResourceId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,8 +117,8 @@ instance ToQuery DescribeStackResource where
 --
 -- /See:/ 'describeStackResourceResponse' smart constructor.
 data DescribeStackResourceResponse = DescribeStackResourceResponse'
-  { _dsrrsStackResourceDetail :: {-# NOUNPACK #-}!(Maybe StackResourceDetail)
-  , _dsrrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _dsrrsStackResourceDetail :: !(Maybe StackResourceDetail)
+  , _dsrrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

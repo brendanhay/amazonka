@@ -49,10 +49,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'getPartition' smart constructor.
 data GetPartition = GetPartition'
-  { _gpCatalogId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpDatabaseName    :: {-# NOUNPACK #-}!Text
-  , _gpTableName       :: {-# NOUNPACK #-}!Text
-  , _gpPartitionValues :: {-# NOUNPACK #-}![Text]
+  { _gpCatalogId       :: !(Maybe Text)
+  , _gpDatabaseName    :: !Text
+  , _gpTableName       :: !Text
+  , _gpPartitionValues :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,8 +135,8 @@ instance ToQuery GetPartition where
 
 -- | /See:/ 'getPartitionResponse' smart constructor.
 data GetPartitionResponse = GetPartitionResponse'
-  { _gprsPartition      :: {-# NOUNPACK #-}!(Maybe Partition)
-  , _gprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gprsPartition      :: !(Maybe Partition)
+  , _gprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

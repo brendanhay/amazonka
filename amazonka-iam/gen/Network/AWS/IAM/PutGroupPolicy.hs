@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'putGroupPolicy' smart constructor.
 data PutGroupPolicy = PutGroupPolicy'
-  { _pgpGroupName      :: {-# NOUNPACK #-}!Text
-  , _pgpPolicyName     :: {-# NOUNPACK #-}!Text
-  , _pgpPolicyDocument :: {-# NOUNPACK #-}!Text
+  { _pgpGroupName      :: !Text
+  , _pgpPolicyName     :: !Text
+  , _pgpPolicyDocument :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

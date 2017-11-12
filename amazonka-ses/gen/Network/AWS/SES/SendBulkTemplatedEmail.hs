@@ -74,17 +74,17 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'sendBulkTemplatedEmail' smart constructor.
 data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
-  { _sbteReturnPath           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbteConfigurationSetName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbteSourceARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbteDefaultTags          :: {-# NOUNPACK #-}!(Maybe [MessageTag])
-  , _sbteReturnPathARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbteTemplateARN          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbteDefaultTemplateData  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sbteReplyToAddresses     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sbteSource               :: {-# NOUNPACK #-}!Text
-  , _sbteTemplate             :: {-# NOUNPACK #-}!Text
-  , _sbteDestinations         :: {-# NOUNPACK #-}![BulkEmailDestination]
+  { _sbteReturnPath           :: !(Maybe Text)
+  , _sbteConfigurationSetName :: !(Maybe Text)
+  , _sbteSourceARN            :: !(Maybe Text)
+  , _sbteDefaultTags          :: !(Maybe [MessageTag])
+  , _sbteReturnPathARN        :: !(Maybe Text)
+  , _sbteTemplateARN          :: !(Maybe Text)
+  , _sbteDefaultTemplateData  :: !(Maybe Text)
+  , _sbteReplyToAddresses     :: !(Maybe [Text])
+  , _sbteSource               :: !Text
+  , _sbteTemplate             :: !Text
+  , _sbteDestinations         :: ![BulkEmailDestination]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -222,8 +222,8 @@ instance ToQuery SendBulkTemplatedEmail where
 
 -- | /See:/ 'sendBulkTemplatedEmailResponse' smart constructor.
 data SendBulkTemplatedEmailResponse = SendBulkTemplatedEmailResponse'
-  { _sbtersResponseStatus :: {-# NOUNPACK #-}!Int
-  , _sbtersStatus         :: {-# NOUNPACK #-}![BulkEmailDestinationStatus]
+  { _sbtersResponseStatus :: !Int
+  , _sbtersStatus         :: ![BulkEmailDestinationStatus]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

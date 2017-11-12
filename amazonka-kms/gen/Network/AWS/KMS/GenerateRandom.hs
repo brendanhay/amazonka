@@ -102,8 +102,8 @@ instance ToQuery GenerateRandom where
 
 -- | /See:/ 'generateRandomResponse' smart constructor.
 data GenerateRandomResponse = GenerateRandomResponse'
-  { _grrsPlaintext      :: {-# NOUNPACK #-}!(Maybe (Sensitive Base64))
-  , _grrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grrsPlaintext      :: !(Maybe (Sensitive Base64))
+  , _grrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

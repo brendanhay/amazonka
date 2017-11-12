@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'stopDeployment' smart constructor.
 data StopDeployment = StopDeployment'
-  { _sdAutoRollbackEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _sdDeploymentId        :: {-# NOUNPACK #-}!Text
+  { _sdAutoRollbackEnabled :: !(Maybe Bool)
+  , _sdDeploymentId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery StopDeployment where
 --
 -- /See:/ 'stopDeploymentResponse' smart constructor.
 data StopDeploymentResponse = StopDeploymentResponse'
-  { _sdrsStatus         :: {-# NOUNPACK #-}!(Maybe StopStatus)
-  , _sdrsStatusMessage  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sdrsStatus         :: !(Maybe StopStatus)
+  , _sdrsStatusMessage  :: !(Maybe Text)
+  , _sdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

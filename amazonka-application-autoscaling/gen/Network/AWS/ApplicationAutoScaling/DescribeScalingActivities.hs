@@ -58,11 +58,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeScalingActivities' smart constructor.
 data DescribeScalingActivities = DescribeScalingActivities'
-  { _desScalableDimension :: {-# NOUNPACK #-}!(Maybe ScalableDimension)
-  , _desResourceId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desMaxResults        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _desServiceNamespace  :: {-# NOUNPACK #-}!ServiceNamespace
+  { _desScalableDimension :: !(Maybe ScalableDimension)
+  , _desResourceId        :: !(Maybe Text)
+  , _desNextToken         :: !(Maybe Text)
+  , _desMaxResults        :: !(Maybe Int)
+  , _desServiceNamespace  :: !ServiceNamespace
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -163,9 +163,9 @@ instance ToQuery DescribeScalingActivities where
 
 -- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
-  { _dsasrsScalingActivities :: {-# NOUNPACK #-}!(Maybe [ScalingActivity])
-  , _dsasrsNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsasrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dsasrsScalingActivities :: !(Maybe [ScalingActivity])
+  , _dsasrsNextToken         :: !(Maybe Text)
+  , _dsasrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

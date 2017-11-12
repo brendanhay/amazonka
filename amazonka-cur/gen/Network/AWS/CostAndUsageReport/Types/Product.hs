@@ -25,15 +25,15 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'reportDefinition' smart constructor.
 data ReportDefinition = ReportDefinition'
-  { _rdAdditionalArtifacts      :: {-# NOUNPACK #-}!(Maybe [AdditionalArtifact])
-  , _rdReportName               :: {-# NOUNPACK #-}!Text
-  , _rdTimeUnit                 :: {-# NOUNPACK #-}!TimeUnit
-  , _rdFormat                   :: {-# NOUNPACK #-}!ReportFormat
-  , _rdCompression              :: {-# NOUNPACK #-}!CompressionFormat
-  , _rdAdditionalSchemaElements :: {-# NOUNPACK #-}![SchemaElement]
-  , _rdS3Bucket                 :: {-# NOUNPACK #-}!Text
-  , _rdS3Prefix                 :: {-# NOUNPACK #-}!Text
-  , _rdS3Region                 :: {-# NOUNPACK #-}!AWSRegion
+  { _rdAdditionalArtifacts      :: !(Maybe [AdditionalArtifact])
+  , _rdReportName               :: !Text
+  , _rdTimeUnit                 :: !TimeUnit
+  , _rdFormat                   :: !ReportFormat
+  , _rdCompression              :: !CompressionFormat
+  , _rdAdditionalSchemaElements :: ![SchemaElement]
+  , _rdS3Bucket                 :: !Text
+  , _rdS3Prefix                 :: !Text
+  , _rdS3Region                 :: !AWSRegion
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

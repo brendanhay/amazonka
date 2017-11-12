@@ -48,10 +48,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'
-  { _dsaScalableDimension   :: {-# NOUNPACK #-}!(Maybe ScalableDimension)
-  , _dsaServiceNamespace    :: {-# NOUNPACK #-}!ServiceNamespace
-  , _dsaScheduledActionName :: {-# NOUNPACK #-}!Text
-  , _dsaResourceId          :: {-# NOUNPACK #-}!Text
+  { _dsaScalableDimension   :: !(Maybe ScalableDimension)
+  , _dsaServiceNamespace    :: !ServiceNamespace
+  , _dsaScheduledActionName :: !Text
+  , _dsaResourceId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

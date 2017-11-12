@@ -59,8 +59,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'addJobFlowSteps' smart constructor.
 data AddJobFlowSteps = AddJobFlowSteps'
-  { _ajfsJobFlowId :: {-# NOUNPACK #-}!Text
-  , _ajfsSteps     :: {-# NOUNPACK #-}![StepConfig]
+  { _ajfsJobFlowId :: !Text
+  , _ajfsSteps     :: ![StepConfig]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery AddJobFlowSteps where
 --
 -- /See:/ 'addJobFlowStepsResponse' smart constructor.
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
-  { _ajfsrsStepIds        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ajfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ajfsrsStepIds        :: !(Maybe [Text])
+  , _ajfsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

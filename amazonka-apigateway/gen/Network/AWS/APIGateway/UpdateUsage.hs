@@ -55,9 +55,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateUsage' smart constructor.
 data UpdateUsage = UpdateUsage'
-  { _uuPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
-  , _uuUsagePlanId     :: {-# NOUNPACK #-}!Text
-  , _uuKeyId           :: {-# NOUNPACK #-}!Text
+  { _uuPatchOperations :: !(Maybe [PatchOperation])
+  , _uuUsagePlanId     :: !Text
+  , _uuKeyId           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

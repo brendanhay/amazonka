@@ -48,10 +48,10 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'modifyDocumentPermission' smart constructor.
 data ModifyDocumentPermission = ModifyDocumentPermission'
-  { _mdpAccountIdsToAdd    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mdpAccountIdsToRemove :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _mdpName               :: {-# NOUNPACK #-}!Text
-  , _mdpPermissionType     :: {-# NOUNPACK #-}!DocumentPermissionType
+  { _mdpAccountIdsToAdd    :: !(Maybe [Text])
+  , _mdpAccountIdsToRemove :: !(Maybe [Text])
+  , _mdpName               :: !Text
+  , _mdpPermissionType     :: !DocumentPermissionType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

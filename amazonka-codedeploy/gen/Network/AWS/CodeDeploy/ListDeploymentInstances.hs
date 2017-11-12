@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'listDeploymentInstances' smart constructor.
 data ListDeploymentInstances = ListDeploymentInstances'
-  { _lInstanceStatusFilter :: {-# NOUNPACK #-}!(Maybe [InstanceStatus])
-  , _lNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lInstanceTypeFilter   :: {-# NOUNPACK #-}!(Maybe [InstanceType])
-  , _lDeploymentId         :: {-# NOUNPACK #-}!Text
+  { _lInstanceStatusFilter :: !(Maybe [InstanceStatus])
+  , _lNextToken            :: !(Maybe Text)
+  , _lInstanceTypeFilter   :: !(Maybe [InstanceType])
+  , _lDeploymentId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -158,9 +158,9 @@ instance ToQuery ListDeploymentInstances where
 --
 -- /See:/ 'listDeploymentInstancesResponse' smart constructor.
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
-  { _ldirsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldirsInstancesList  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ldirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ldirsNextToken      :: !(Maybe Text)
+  , _ldirsInstancesList  :: !(Maybe [Text])
+  , _ldirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

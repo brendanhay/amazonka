@@ -86,11 +86,11 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listResourceRecordSets' smart constructor.
 data ListResourceRecordSets = ListResourceRecordSets'
-  { _lrrsStartRecordName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrrsStartRecordType       :: {-# NOUNPACK #-}!(Maybe RecordType)
-  , _lrrsStartRecordIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrrsMaxItems              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrrsHostedZoneId          :: {-# NOUNPACK #-}!ResourceId
+  { _lrrsStartRecordName       :: !(Maybe Text)
+  , _lrrsStartRecordType       :: !(Maybe RecordType)
+  , _lrrsStartRecordIdentifier :: !(Maybe Text)
+  , _lrrsMaxItems              :: !(Maybe Text)
+  , _lrrsHostedZoneId          :: !ResourceId
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -199,13 +199,13 @@ instance ToQuery ListResourceRecordSets where
 --
 -- /See:/ 'listResourceRecordSetsResponse' smart constructor.
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
-  { _lrrsrsNextRecordType       :: {-# NOUNPACK #-}!(Maybe RecordType)
-  , _lrrsrsNextRecordName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrrsrsNextRecordIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrrsrsResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _lrrsrsResourceRecordSets   :: {-# NOUNPACK #-}![ResourceRecordSet]
-  , _lrrsrsIsTruncated          :: {-# NOUNPACK #-}!Bool
-  , _lrrsrsMaxItems             :: {-# NOUNPACK #-}!Text
+  { _lrrsrsNextRecordType       :: !(Maybe RecordType)
+  , _lrrsrsNextRecordName       :: !(Maybe Text)
+  , _lrrsrsNextRecordIdentifier :: !(Maybe Text)
+  , _lrrsrsResponseStatus       :: !Int
+  , _lrrsrsResourceRecordSets   :: ![ResourceRecordSet]
+  , _lrrsrsIsTruncated          :: !Bool
+  , _lrrsrsMaxItems             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listEventSubscriptions' smart constructor.
 data ListEventSubscriptions = ListEventSubscriptions'
-  { _lesNextToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lesResourceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lesMaxResults  :: {-# NOUNPACK #-}!(Maybe Int)
+  { _lesNextToken   :: !(Maybe Text)
+  , _lesResourceARN :: !(Maybe Text)
+  , _lesMaxResults  :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery ListEventSubscriptions where
 
 -- | /See:/ 'listEventSubscriptionsResponse' smart constructor.
 data ListEventSubscriptionsResponse = ListEventSubscriptionsResponse'
-  { _lesrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lesrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _lesrsSubscriptions  :: {-# NOUNPACK #-}![Subscription]
+  { _lesrsNextToken      :: !(Maybe Text)
+  , _lesrsResponseStatus :: !Int
+  , _lesrsSubscriptions  :: ![Subscription]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

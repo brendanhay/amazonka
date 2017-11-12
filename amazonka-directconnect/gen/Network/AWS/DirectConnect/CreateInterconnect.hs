@@ -66,10 +66,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createInterconnect' smart constructor.
 data CreateInterconnect = CreateInterconnect'
-  { _ciLagId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciInterconnectName :: {-# NOUNPACK #-}!Text
-  , _ciBandwidth        :: {-# NOUNPACK #-}!Text
-  , _ciLocation         :: {-# NOUNPACK #-}!Text
+  { _ciLagId            :: !(Maybe Text)
+  , _ciInterconnectName :: !Text
+  , _ciBandwidth        :: !Text
+  , _ciLocation         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

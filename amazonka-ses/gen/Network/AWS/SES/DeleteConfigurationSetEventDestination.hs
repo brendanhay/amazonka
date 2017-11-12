@@ -52,8 +52,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'deleteConfigurationSetEventDestination' smart constructor.
 data DeleteConfigurationSetEventDestination = DeleteConfigurationSetEventDestination'
-  { _dcsedConfigurationSetName :: {-# NOUNPACK #-}!Text
-  , _dcsedEventDestinationName :: {-# NOUNPACK #-}!Text
+  { _dcsedConfigurationSetName :: !Text
+  , _dcsedEventDestinationName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

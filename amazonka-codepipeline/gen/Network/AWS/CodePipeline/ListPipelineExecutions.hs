@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listPipelineExecutions' smart constructor.
 data ListPipelineExecutions = ListPipelineExecutions'
-  { _lpeNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpeMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lpePipelineName :: {-# NOUNPACK #-}!Text
+  { _lpeNextToken    :: !(Maybe Text)
+  , _lpeMaxResults   :: !(Maybe Nat)
+  , _lpePipelineName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery ListPipelineExecutions where
 --
 -- /See:/ 'listPipelineExecutionsResponse' smart constructor.
 data ListPipelineExecutionsResponse = ListPipelineExecutionsResponse'
-  { _lpersNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpersPipelineExecutionSummaries :: {-# NOUNPACK #-}!(Maybe [PipelineExecutionSummary])
-  , _lpersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lpersNextToken                  :: !(Maybe Text)
+  , _lpersPipelineExecutionSummaries :: !(Maybe [PipelineExecutionSummary])
+  , _lpersResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

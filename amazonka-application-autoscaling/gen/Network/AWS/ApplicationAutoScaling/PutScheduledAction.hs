@@ -58,14 +58,14 @@ import Network.AWS.Response
 
 -- | /See:/ 'putScheduledAction' smart constructor.
 data PutScheduledAction = PutScheduledAction'
-  { _psaScalableDimension    :: {-# NOUNPACK #-}!(Maybe ScalableDimension)
-  , _psaStartTime            :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _psaSchedule             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psaEndTime              :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _psaScalableTargetAction :: {-# NOUNPACK #-}!(Maybe ScalableTargetAction)
-  , _psaServiceNamespace     :: {-# NOUNPACK #-}!ServiceNamespace
-  , _psaScheduledActionName  :: {-# NOUNPACK #-}!Text
-  , _psaResourceId           :: {-# NOUNPACK #-}!Text
+  { _psaScalableDimension    :: !(Maybe ScalableDimension)
+  , _psaStartTime            :: !(Maybe POSIX)
+  , _psaSchedule             :: !(Maybe Text)
+  , _psaEndTime              :: !(Maybe POSIX)
+  , _psaScalableTargetAction :: !(Maybe ScalableTargetAction)
+  , _psaServiceNamespace     :: !ServiceNamespace
+  , _psaScheduledActionName  :: !Text
+  , _psaResourceId           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

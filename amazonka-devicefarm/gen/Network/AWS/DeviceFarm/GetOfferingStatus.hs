@@ -124,10 +124,10 @@ instance ToQuery GetOfferingStatus where
 --
 -- /See:/ 'getOfferingStatusResponse' smart constructor.
 data GetOfferingStatusResponse = GetOfferingStatusResponse'
-  { _gosrsNextPeriod     :: {-# NOUNPACK #-}!(Maybe (Map Text OfferingStatus))
-  , _gosrsCurrent        :: {-# NOUNPACK #-}!(Maybe (Map Text OfferingStatus))
-  , _gosrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gosrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gosrsNextPeriod     :: !(Maybe (Map Text OfferingStatus))
+  , _gosrsCurrent        :: !(Maybe (Map Text OfferingStatus))
+  , _gosrsNextToken      :: !(Maybe Text)
+  , _gosrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

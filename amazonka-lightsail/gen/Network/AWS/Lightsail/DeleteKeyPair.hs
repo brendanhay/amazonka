@@ -100,8 +100,8 @@ instance ToQuery DeleteKeyPair where
 
 -- | /See:/ 'deleteKeyPairResponse' smart constructor.
 data DeleteKeyPairResponse = DeleteKeyPairResponse'
-  { _dkprsOperation      :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _dkprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dkprsOperation      :: !(Maybe Operation)
+  , _dkprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

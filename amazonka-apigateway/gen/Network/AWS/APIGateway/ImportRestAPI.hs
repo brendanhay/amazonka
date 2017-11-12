@@ -58,9 +58,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'importRestAPI' smart constructor.
 data ImportRestAPI = ImportRestAPI'
-  { _iraFailOnWarnings :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _iraParameters     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _iraBody           :: {-# NOUNPACK #-}!(HashMap Text Value)
+  { _iraFailOnWarnings :: !(Maybe Bool)
+  , _iraParameters     :: !(Maybe (Map Text Text))
+  , _iraBody           :: !(HashMap Text Value)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

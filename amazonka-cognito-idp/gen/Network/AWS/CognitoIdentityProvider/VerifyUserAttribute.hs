@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'verifyUserAttribute' smart constructor.
 data VerifyUserAttribute = VerifyUserAttribute'
-  { _vuaAccessToken   :: {-# NOUNPACK #-}!(Sensitive Text)
-  , _vuaAttributeName :: {-# NOUNPACK #-}!Text
-  , _vuaCode          :: {-# NOUNPACK #-}!Text
+  { _vuaAccessToken   :: !(Sensitive Text)
+  , _vuaAttributeName :: !Text
+  , _vuaCode          :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

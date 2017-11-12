@@ -121,8 +121,8 @@ instance ToQuery DescribeBuild where
 --
 -- /See:/ 'describeBuildResponse' smart constructor.
 data DescribeBuildResponse = DescribeBuildResponse'
-  { _dbrsBuild          :: {-# NOUNPACK #-}!(Maybe Build)
-  , _dbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dbrsBuild          :: !(Maybe Build)
+  , _dbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

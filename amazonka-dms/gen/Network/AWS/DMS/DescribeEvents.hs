@@ -59,15 +59,15 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { _deStartTime        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _deSourceType       :: {-# NOUNPACK #-}!(Maybe SourceType)
-  , _deFilters          :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _deSourceIdentifier :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deEventCategories  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _deMarker           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deMaxRecords       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _deEndTime          :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _deDuration         :: {-# NOUNPACK #-}!(Maybe Int)
+  { _deStartTime        :: !(Maybe POSIX)
+  , _deSourceType       :: !(Maybe SourceType)
+  , _deFilters          :: !(Maybe [Filter])
+  , _deSourceIdentifier :: !(Maybe Text)
+  , _deEventCategories  :: !(Maybe [Text])
+  , _deMarker           :: !(Maybe Text)
+  , _deMaxRecords       :: !(Maybe Int)
+  , _deEndTime          :: !(Maybe POSIX)
+  , _deDuration         :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -193,9 +193,9 @@ instance ToQuery DescribeEvents where
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { _deersEvents         :: {-# NOUNPACK #-}!(Maybe [Event])
-  , _deersMarker         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _deersEvents         :: !(Maybe [Event])
+  , _deersMarker         :: !(Maybe Text)
+  , _deersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

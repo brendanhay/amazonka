@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteVPCPeeringConnection' smart constructor.
 data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
-  { _dvpcDryRun                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dvpcVPCPeeringConnectionId :: {-# NOUNPACK #-}!Text
+  { _dvpcDryRun                 :: !(Maybe Bool)
+  , _dvpcVPCPeeringConnectionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,8 +117,8 @@ instance ToQuery DeleteVPCPeeringConnection where
 --
 -- /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
 data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
-  { _dvpcrsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dvpcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvpcrsReturn         :: !(Maybe Bool)
+  , _dvpcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

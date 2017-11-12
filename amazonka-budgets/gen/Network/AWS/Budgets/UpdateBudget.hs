@@ -46,8 +46,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateBudget' smart constructor.
 data UpdateBudget = UpdateBudget'
-  { _ubAccountId :: {-# NOUNPACK #-}!Text
-  , _ubNewBudget :: {-# NOUNPACK #-}!Budget
+  { _ubAccountId :: !Text
+  , _ubNewBudget :: !Budget
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

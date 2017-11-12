@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyInstanceGroups' smart constructor.
 data ModifyInstanceGroups = ModifyInstanceGroups'
-  { _migClusterId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _migInstanceGroups :: {-# NOUNPACK #-}!(Maybe [InstanceGroupModifyConfig])
+  { _migClusterId      :: !(Maybe Text)
+  , _migInstanceGroups :: !(Maybe [InstanceGroupModifyConfig])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

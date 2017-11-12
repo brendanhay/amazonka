@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { _dFileSystemId :: {-# NOUNPACK #-}!Text
-  , _dTagKeys      :: {-# NOUNPACK #-}![Text]
+  { _dFileSystemId :: !Text
+  , _dTagKeys      :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

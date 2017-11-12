@@ -59,10 +59,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createCustomerGateway' smart constructor.
 data CreateCustomerGateway = CreateCustomerGateway'
-  { _ccgDryRun   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccgBGPASN   :: {-# NOUNPACK #-}!Int
-  , _ccgPublicIP :: {-# NOUNPACK #-}!Text
-  , _ccgType     :: {-# NOUNPACK #-}!GatewayType
+  { _ccgDryRun   :: !(Maybe Bool)
+  , _ccgBGPASN   :: !Int
+  , _ccgPublicIP :: !Text
+  , _ccgType     :: !GatewayType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,8 +141,8 @@ instance ToQuery CreateCustomerGateway where
 --
 -- /See:/ 'createCustomerGatewayResponse' smart constructor.
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
-  { _ccgrsCustomerGateway :: {-# NOUNPACK #-}!(Maybe CustomerGateway)
-  , _ccgrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _ccgrsCustomerGateway :: !(Maybe CustomerGateway)
+  , _ccgrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

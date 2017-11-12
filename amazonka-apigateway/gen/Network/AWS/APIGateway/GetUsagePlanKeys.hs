@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'getUsagePlanKeys' smart constructor.
 data GetUsagePlanKeys = GetUsagePlanKeys'
-  { _gupkNameQuery   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gupkLimit       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _gupkPosition    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gupkUsagePlanId :: {-# NOUNPACK #-}!Text
+  { _gupkNameQuery   :: !(Maybe Text)
+  , _gupkLimit       :: !(Maybe Int)
+  , _gupkPosition    :: !(Maybe Text)
+  , _gupkUsagePlanId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -148,9 +148,9 @@ instance ToQuery GetUsagePlanKeys where
 --
 -- /See:/ 'getUsagePlanKeysResponse' smart constructor.
 data GetUsagePlanKeysResponse = GetUsagePlanKeysResponse'
-  { _gupkrsItems          :: {-# NOUNPACK #-}!(Maybe [UsagePlanKey])
-  , _gupkrsPosition       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gupkrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gupkrsItems          :: !(Maybe [UsagePlanKey])
+  , _gupkrsPosition       :: !(Maybe Text)
+  , _gupkrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

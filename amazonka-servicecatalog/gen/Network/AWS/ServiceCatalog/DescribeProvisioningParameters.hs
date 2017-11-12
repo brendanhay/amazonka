@@ -54,10 +54,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProvisioningParameters' smart constructor.
 data DescribeProvisioningParameters = DescribeProvisioningParameters'
-  { _dppsAcceptLanguage         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dppsPathId                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dppsProductId              :: {-# NOUNPACK #-}!Text
-  , _dppsProvisioningArtifactId :: {-# NOUNPACK #-}!Text
+  { _dppsAcceptLanguage         :: !(Maybe Text)
+  , _dppsPathId                 :: !(Maybe Text)
+  , _dppsProductId              :: !Text
+  , _dppsProvisioningArtifactId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,11 +151,11 @@ instance ToQuery DescribeProvisioningParameters where
 
 -- | /See:/ 'describeProvisioningParametersResponse' smart constructor.
 data DescribeProvisioningParametersResponse = DescribeProvisioningParametersResponse'
-  { _dpprsProvisioningArtifactParameters :: {-# NOUNPACK #-}!(Maybe [ProvisioningArtifactParameter])
-  , _dpprsUsageInstructions :: {-# NOUNPACK #-}!(Maybe [UsageInstruction])
-  , _dpprsConstraintSummaries :: {-# NOUNPACK #-}!(Maybe [ConstraintSummary])
-  , _dpprsTagOptions :: {-# NOUNPACK #-}!(Maybe [TagOptionSummary])
-  , _dpprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dpprsProvisioningArtifactParameters :: !(Maybe [ProvisioningArtifactParameter])
+  , _dpprsUsageInstructions :: !(Maybe [UsageInstruction])
+  , _dpprsConstraintSummaries :: !(Maybe [ConstraintSummary])
+  , _dpprsTagOptions :: !(Maybe [TagOptionSummary])
+  , _dpprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

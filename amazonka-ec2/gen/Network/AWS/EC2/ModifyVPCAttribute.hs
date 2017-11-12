@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyVPCAttribute' smart constructor.
 data ModifyVPCAttribute = ModifyVPCAttribute'
-  { _mvaEnableDNSHostnames :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _mvaEnableDNSSupport   :: {-# NOUNPACK #-}!(Maybe AttributeBooleanValue)
-  , _mvaVPCId              :: {-# NOUNPACK #-}!Text
+  { _mvaEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
+  , _mvaEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
+  , _mvaVPCId              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

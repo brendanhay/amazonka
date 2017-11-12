@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDirectoryConfig' smart constructor.
 data CreateDirectoryConfig = CreateDirectoryConfig'
-  { _cdcDirectoryName :: {-# NOUNPACK #-}!Text
-  , _cdcOrganizationalUnitDistinguishedNames :: {-# NOUNPACK #-}![Text]
-  , _cdcServiceAccountCredentials :: {-# NOUNPACK #-}!ServiceAccountCredentials
+  { _cdcDirectoryName                        :: !Text
+  , _cdcOrganizationalUnitDistinguishedNames :: ![Text]
+  , _cdcServiceAccountCredentials            :: !ServiceAccountCredentials
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -131,8 +131,8 @@ instance ToQuery CreateDirectoryConfig where
 
 -- | /See:/ 'createDirectoryConfigResponse' smart constructor.
 data CreateDirectoryConfigResponse = CreateDirectoryConfigResponse'
-  { _cdcrsDirectoryConfig :: {-# NOUNPACK #-}!(Maybe DirectoryConfig)
-  , _cdcrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _cdcrsDirectoryConfig :: !(Maybe DirectoryConfig)
+  , _cdcrsResponseStatus  :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

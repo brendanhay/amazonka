@@ -85,23 +85,23 @@ import Network.AWS.Response
 --
 -- /See:/ 'query' smart constructor.
 data Query = Query'
-  { _qKeyConditions :: {-# NOUNPACK #-}!(Maybe (Map Text Condition))
-  , _qProjectionExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qAttributesToGet :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _qExpressionAttributeNames :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _qFilterExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qQueryFilter :: {-# NOUNPACK #-}!(Maybe (Map Text Condition))
-  , _qConsistentRead :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _qExpressionAttributeValues :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _qReturnConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ReturnConsumedCapacity)
-  , _qScanIndexForward :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _qLimit :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _qSelect :: {-# NOUNPACK #-}!(Maybe Select)
-  , _qKeyConditionExpression :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qConditionalOperator :: {-# NOUNPACK #-}!(Maybe ConditionalOperator)
-  , _qExclusiveStartKey :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _qIndexName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qTableName :: {-# NOUNPACK #-}!Text
+  { _qKeyConditions             :: !(Maybe (Map Text Condition))
+  , _qProjectionExpression      :: !(Maybe Text)
+  , _qAttributesToGet           :: !(Maybe (List1 Text))
+  , _qExpressionAttributeNames  :: !(Maybe (Map Text Text))
+  , _qFilterExpression          :: !(Maybe Text)
+  , _qQueryFilter               :: !(Maybe (Map Text Condition))
+  , _qConsistentRead            :: !(Maybe Bool)
+  , _qExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+  , _qReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
+  , _qScanIndexForward          :: !(Maybe Bool)
+  , _qLimit                     :: !(Maybe Nat)
+  , _qSelect                    :: !(Maybe Select)
+  , _qKeyConditionExpression    :: !(Maybe Text)
+  , _qConditionalOperator       :: !(Maybe ConditionalOperator)
+  , _qExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
+  , _qIndexName                 :: !(Maybe Text)
+  , _qTableName                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -307,12 +307,12 @@ instance ToQuery Query where
 --
 -- /See:/ 'queryResponse' smart constructor.
 data QueryResponse = QueryResponse'
-  { _qrsLastEvaluatedKey :: {-# NOUNPACK #-}!(Maybe (Map Text AttributeValue))
-  , _qrsCount            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _qrsScannedCount     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _qrsItems            :: {-# NOUNPACK #-}!(Maybe [Map Text AttributeValue])
-  , _qrsConsumedCapacity :: {-# NOUNPACK #-}!(Maybe ConsumedCapacity)
-  , _qrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _qrsLastEvaluatedKey :: !(Maybe (Map Text AttributeValue))
+  , _qrsCount            :: !(Maybe Int)
+  , _qrsScannedCount     :: !(Maybe Int)
+  , _qrsItems            :: !(Maybe [Map Text AttributeValue])
+  , _qrsConsumedCapacity :: !(Maybe ConsumedCapacity)
+  , _qrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

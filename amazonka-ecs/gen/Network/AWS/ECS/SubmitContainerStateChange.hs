@@ -52,13 +52,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'submitContainerStateChange' smart constructor.
 data SubmitContainerStateChange = SubmitContainerStateChange'
-  { _scscNetworkBindings :: {-# NOUNPACK #-}!(Maybe [NetworkBinding])
-  , _scscStatus          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scscCluster         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scscContainerName   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scscReason          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scscExitCode        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _scscTask            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _scscNetworkBindings :: !(Maybe [NetworkBinding])
+  , _scscStatus          :: !(Maybe Text)
+  , _scscCluster         :: !(Maybe Text)
+  , _scscContainerName   :: !(Maybe Text)
+  , _scscReason          :: !(Maybe Text)
+  , _scscExitCode        :: !(Maybe Int)
+  , _scscTask            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -165,8 +165,8 @@ instance ToQuery SubmitContainerStateChange where
 
 -- | /See:/ 'submitContainerStateChangeResponse' smart constructor.
 data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
-  { _scscrsAcknowledgment :: {-# NOUNPACK #-}!(Maybe Text)
-  , _scscrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _scscrsAcknowledgment :: !(Maybe Text)
+  , _scscrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

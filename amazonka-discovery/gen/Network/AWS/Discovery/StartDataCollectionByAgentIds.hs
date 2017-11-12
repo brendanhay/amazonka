@@ -105,8 +105,8 @@ instance ToQuery StartDataCollectionByAgentIds where
 
 -- | /See:/ 'startDataCollectionByAgentIdsResponse' smart constructor.
 data StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsResponse'
-  { _srsAgentsConfigurationStatus :: {-# NOUNPACK #-}!(Maybe [AgentConfigurationStatus])
-  , _srsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _srsAgentsConfigurationStatus :: !(Maybe [AgentConfigurationStatus])
+  , _srsResponseStatus            :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

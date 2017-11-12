@@ -48,11 +48,11 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'restoreObject' smart constructor.
 data RestoreObject = RestoreObject'
-  { _roVersionId      :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _roRequestPayer   :: {-# NOUNPACK #-}!(Maybe RequestPayer)
-  , _roRestoreRequest :: {-# NOUNPACK #-}!(Maybe RestoreRequest)
-  , _roBucket         :: {-# NOUNPACK #-}!BucketName
-  , _roKey            :: {-# NOUNPACK #-}!ObjectKey
+  { _roVersionId      :: !(Maybe ObjectVersionId)
+  , _roRequestPayer   :: !(Maybe RequestPayer)
+  , _roRestoreRequest :: !(Maybe RestoreRequest)
+  , _roBucket         :: !BucketName
+  , _roKey            :: !ObjectKey
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,8 +138,8 @@ instance ToQuery RestoreObject where
 
 -- | /See:/ 'restoreObjectResponse' smart constructor.
 data RestoreObjectResponse = RestoreObjectResponse'
-  { _rorsRequestCharged :: {-# NOUNPACK #-}!(Maybe RequestCharged)
-  , _rorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rorsRequestCharged :: !(Maybe RequestCharged)
+  , _rorsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

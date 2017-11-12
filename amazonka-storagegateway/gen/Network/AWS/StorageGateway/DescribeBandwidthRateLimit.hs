@@ -118,10 +118,10 @@ instance ToQuery DescribeBandwidthRateLimit where
 --
 -- /See:/ 'describeBandwidthRateLimitResponse' smart constructor.
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
-  { _dbrlrsGatewayARN                           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dbrlrsAverageUploadRateLimitInBitsPerSec   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dbrlrsAverageDownloadRateLimitInBitsPerSec :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dbrlrsResponseStatus                       :: {-# NOUNPACK #-}!Int
+  { _dbrlrsGatewayARN                           :: !(Maybe Text)
+  , _dbrlrsAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
+  , _dbrlrsAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
+  , _dbrlrsResponseStatus                       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

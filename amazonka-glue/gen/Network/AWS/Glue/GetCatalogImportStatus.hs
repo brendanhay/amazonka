@@ -100,8 +100,8 @@ instance ToQuery GetCatalogImportStatus where
 
 -- | /See:/ 'getCatalogImportStatusResponse' smart constructor.
 data GetCatalogImportStatusResponse = GetCatalogImportStatusResponse'
-  { _gcisrsImportStatus   :: {-# NOUNPACK #-}!(Maybe CatalogImportStatus)
-  , _gcisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcisrsImportStatus   :: !(Maybe CatalogImportStatus)
+  , _gcisrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

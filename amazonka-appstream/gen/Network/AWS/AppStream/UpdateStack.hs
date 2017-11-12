@@ -50,11 +50,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
-  { _usDeleteStorageConnectors :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _usStorageConnectors       :: {-# NOUNPACK #-}!(Maybe [StorageConnector])
-  , _usDisplayName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usDescription             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _usName                    :: {-# NOUNPACK #-}!Text
+  { _usDeleteStorageConnectors :: !(Maybe Bool)
+  , _usStorageConnectors       :: !(Maybe [StorageConnector])
+  , _usDisplayName             :: !(Maybe Text)
+  , _usDescription             :: !(Maybe Text)
+  , _usName                    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,8 +146,8 @@ instance ToQuery UpdateStack where
 
 -- | /See:/ 'updateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'
-  { _usrsStack          :: {-# NOUNPACK #-}!(Maybe Stack)
-  , _usrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _usrsStack          :: !(Maybe Stack)
+  , _usrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -56,15 +56,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'modifyTargetGroup' smart constructor.
 data ModifyTargetGroup = ModifyTargetGroup'
-  { _mtgMatcher                    :: {-# NOUNPACK #-}!(Maybe Matcher)
-  , _mtgHealthCheckPath            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mtgUnhealthyThresholdCount    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _mtgHealthCheckIntervalSeconds :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _mtgHealthyThresholdCount      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _mtgHealthCheckProtocol        :: {-# NOUNPACK #-}!(Maybe ProtocolEnum)
-  , _mtgHealthCheckTimeoutSeconds  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _mtgHealthCheckPort            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mtgTargetGroupARN             :: {-# NOUNPACK #-}!Text
+  { _mtgMatcher                    :: !(Maybe Matcher)
+  , _mtgHealthCheckPath            :: !(Maybe Text)
+  , _mtgUnhealthyThresholdCount    :: !(Maybe Nat)
+  , _mtgHealthCheckIntervalSeconds :: !(Maybe Nat)
+  , _mtgHealthyThresholdCount      :: !(Maybe Nat)
+  , _mtgHealthCheckProtocol        :: !(Maybe ProtocolEnum)
+  , _mtgHealthCheckTimeoutSeconds  :: !(Maybe Nat)
+  , _mtgHealthCheckPort            :: !(Maybe Text)
+  , _mtgTargetGroupARN             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -183,8 +183,8 @@ instance ToQuery ModifyTargetGroup where
 
 -- | /See:/ 'modifyTargetGroupResponse' smart constructor.
 data ModifyTargetGroupResponse = ModifyTargetGroupResponse'
-  { _mtgrsTargetGroups   :: {-# NOUNPACK #-}!(Maybe [TargetGroup])
-  , _mtgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _mtgrsTargetGroups   :: !(Maybe [TargetGroup])
+  , _mtgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

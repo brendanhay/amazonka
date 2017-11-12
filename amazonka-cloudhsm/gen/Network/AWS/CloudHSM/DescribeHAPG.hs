@@ -129,16 +129,16 @@ instance ToQuery DescribeHAPG where
 --
 -- /See:/ 'describeHAPGResponse' smart constructor.
 data DescribeHAPGResponse = DescribeHAPGResponse'
-  { _dhapgrsState :: {-# NOUNPACK #-}!(Maybe CloudHSMObjectState)
-  , _dhapgrsLastModifiedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhapgrsHSMsPendingRegistration :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dhapgrsHSMsPendingDeletion :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dhapgrsHAPGSerial :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhapgrsHSMsLastActionFailed :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dhapgrsPartitionSerialList :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dhapgrsHAPGARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhapgrsLabel :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhapgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dhapgrsState                   :: !(Maybe CloudHSMObjectState)
+  , _dhapgrsLastModifiedTimestamp   :: !(Maybe Text)
+  , _dhapgrsHSMsPendingRegistration :: !(Maybe [Text])
+  , _dhapgrsHSMsPendingDeletion     :: !(Maybe [Text])
+  , _dhapgrsHAPGSerial              :: !(Maybe Text)
+  , _dhapgrsHSMsLastActionFailed    :: !(Maybe [Text])
+  , _dhapgrsPartitionSerialList     :: !(Maybe [Text])
+  , _dhapgrsHAPGARN                 :: !(Maybe Text)
+  , _dhapgrsLabel                   :: !(Maybe Text)
+  , _dhapgrsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

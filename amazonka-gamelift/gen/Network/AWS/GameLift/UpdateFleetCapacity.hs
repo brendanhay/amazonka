@@ -109,10 +109,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateFleetCapacity' smart constructor.
 data UpdateFleetCapacity = UpdateFleetCapacity'
-  { _ufcMaxSize          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ufcMinSize          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ufcDesiredInstances :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ufcFleetId          :: {-# NOUNPACK #-}!Text
+  { _ufcMaxSize          :: !(Maybe Nat)
+  , _ufcMinSize          :: !(Maybe Nat)
+  , _ufcDesiredInstances :: !(Maybe Nat)
+  , _ufcFleetId          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -199,8 +199,8 @@ instance ToQuery UpdateFleetCapacity where
 --
 -- /See:/ 'updateFleetCapacityResponse' smart constructor.
 data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
-  { _ufcrsFleetId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ufcrsFleetId        :: !(Maybe Text)
+  , _ufcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

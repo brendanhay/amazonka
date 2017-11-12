@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateFunctionDefinition' smart constructor.
 data UpdateFunctionDefinition = UpdateFunctionDefinition'
-  { _ufdName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ufdFunctionDefinitionId :: {-# NOUNPACK #-}!Text
+  { _ufdName                 :: !(Maybe Text)
+  , _ufdFunctionDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

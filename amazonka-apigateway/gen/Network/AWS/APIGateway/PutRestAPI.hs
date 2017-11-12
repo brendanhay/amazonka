@@ -60,11 +60,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'putRestAPI' smart constructor.
 data PutRestAPI = PutRestAPI'
-  { _praMode           :: {-# NOUNPACK #-}!(Maybe PutMode)
-  , _praFailOnWarnings :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _praParameters     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _praRestAPIId      :: {-# NOUNPACK #-}!Text
-  , _praBody           :: {-# NOUNPACK #-}!(HashMap Text Value)
+  { _praMode           :: !(Maybe PutMode)
+  , _praFailOnWarnings :: !(Maybe Bool)
+  , _praParameters     :: !(Maybe (Map Text Text))
+  , _praRestAPIId      :: !Text
+  , _praBody           :: !(HashMap Text Value)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

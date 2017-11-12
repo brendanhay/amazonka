@@ -52,13 +52,13 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'putParameter' smart constructor.
 data PutParameter = PutParameter'
-  { _ppKeyId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppAllowedPattern :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppOverwrite      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ppDescription    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ppName           :: {-# NOUNPACK #-}!Text
-  , _ppValue          :: {-# NOUNPACK #-}!Text
-  , _ppType           :: {-# NOUNPACK #-}!ParameterType
+  { _ppKeyId          :: !(Maybe Text)
+  , _ppAllowedPattern :: !(Maybe Text)
+  , _ppOverwrite      :: !(Maybe Bool)
+  , _ppDescription    :: !(Maybe Text)
+  , _ppName           :: !Text
+  , _ppValue          :: !Text
+  , _ppType           :: !ParameterType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -165,8 +165,8 @@ instance ToQuery PutParameter where
 
 -- | /See:/ 'putParameterResponse' smart constructor.
 data PutParameterResponse = PutParameterResponse'
-  { _pprsVersion        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _pprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _pprsVersion        :: !(Maybe Integer)
+  , _pprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

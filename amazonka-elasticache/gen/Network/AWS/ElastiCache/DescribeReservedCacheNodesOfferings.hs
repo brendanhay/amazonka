@@ -60,13 +60,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeReservedCacheNodesOfferings' smart constructor.
 data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
-  { _drcnoCacheNodeType                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drcnoProductDescription           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drcnoMarker                       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drcnoMaxRecords                   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _drcnoOfferingType                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drcnoDuration                     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drcnoReservedCacheNodesOfferingId :: {-# NOUNPACK #-}!(Maybe Text)
+  { _drcnoCacheNodeType                :: !(Maybe Text)
+  , _drcnoProductDescription           :: !(Maybe Text)
+  , _drcnoMarker                       :: !(Maybe Text)
+  , _drcnoMaxRecords                   :: !(Maybe Int)
+  , _drcnoOfferingType                 :: !(Maybe Text)
+  , _drcnoDuration                     :: !(Maybe Text)
+  , _drcnoReservedCacheNodesOfferingId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -192,9 +192,9 @@ instance ToQuery DescribeReservedCacheNodesOfferings
 --
 -- /See:/ 'describeReservedCacheNodesOfferingsResponse' smart constructor.
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'
-  { _drcnorsMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drcnorsReservedCacheNodesOfferings :: {-# NOUNPACK #-}!(Maybe [ReservedCacheNodesOffering])
-  , _drcnorsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drcnorsMarker                      :: !(Maybe Text)
+  , _drcnorsReservedCacheNodesOfferings :: !(Maybe [ReservedCacheNodesOffering])
+  , _drcnorsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

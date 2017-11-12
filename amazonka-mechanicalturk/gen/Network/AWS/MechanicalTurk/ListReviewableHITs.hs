@@ -51,10 +51,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listReviewableHITs' smart constructor.
 data ListReviewableHITs = ListReviewableHITs'
-  { _lrhitStatus     :: {-# NOUNPACK #-}!(Maybe ReviewableHITStatus)
-  , _lrhitHITTypeId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrhitNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrhitMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lrhitStatus     :: !(Maybe ReviewableHITStatus)
+  , _lrhitHITTypeId  :: !(Maybe Text)
+  , _lrhitNextToken  :: !(Maybe Text)
+  , _lrhitMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,10 +139,10 @@ instance ToQuery ListReviewableHITs where
 
 -- | /See:/ 'listReviewableHITsResponse' smart constructor.
 data ListReviewableHITsResponse = ListReviewableHITsResponse'
-  { _lrhitrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrhitrsNumResults     :: {-# NOUNPACK #-}!(Maybe Int)
-  , _lrhitrsHITs           :: {-# NOUNPACK #-}!(Maybe [HIT])
-  , _lrhitrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrhitrsNextToken      :: !(Maybe Text)
+  , _lrhitrsNumResults     :: !(Maybe Int)
+  , _lrhitrsHITs           :: !(Maybe [HIT])
+  , _lrhitrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

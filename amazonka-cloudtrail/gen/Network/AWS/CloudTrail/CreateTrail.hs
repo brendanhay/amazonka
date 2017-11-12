@@ -70,16 +70,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'createTrail' smart constructor.
 data CreateTrail = CreateTrail'
-  { _ctS3KeyPrefix                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctSNSTopicName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctEnableLogFileValidation    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ctCloudWatchLogsLogGroupARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctKMSKeyId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctIncludeGlobalServiceEvents :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ctCloudWatchLogsRoleARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctIsMultiRegionTrail         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ctName                       :: {-# NOUNPACK #-}!Text
-  , _ctS3BucketName               :: {-# NOUNPACK #-}!Text
+  { _ctS3KeyPrefix                :: !(Maybe Text)
+  , _ctSNSTopicName               :: !(Maybe Text)
+  , _ctEnableLogFileValidation    :: !(Maybe Bool)
+  , _ctCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+  , _ctKMSKeyId                   :: !(Maybe Text)
+  , _ctIncludeGlobalServiceEvents :: !(Maybe Bool)
+  , _ctCloudWatchLogsRoleARN      :: !(Maybe Text)
+  , _ctIsMultiRegionTrail         :: !(Maybe Bool)
+  , _ctName                       :: !Text
+  , _ctS3BucketName               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -231,19 +231,19 @@ instance ToQuery CreateTrail where
 --
 -- /See:/ 'createTrailResponse' smart constructor.
 data CreateTrailResponse = CreateTrailResponse'
-  { _ctrsLogFileValidationEnabled   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ctrsTrailARN                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsS3KeyPrefix                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsSNSTopicARN                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsSNSTopicName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsCloudWatchLogsLogGroupARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsKMSKeyId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsName                       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsIncludeGlobalServiceEvents :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ctrsCloudWatchLogsRoleARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsS3BucketName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ctrsIsMultiRegionTrail         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ctrsResponseStatus             :: {-# NOUNPACK #-}!Int
+  { _ctrsLogFileValidationEnabled   :: !(Maybe Bool)
+  , _ctrsTrailARN                   :: !(Maybe Text)
+  , _ctrsS3KeyPrefix                :: !(Maybe Text)
+  , _ctrsSNSTopicARN                :: !(Maybe Text)
+  , _ctrsSNSTopicName               :: !(Maybe Text)
+  , _ctrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+  , _ctrsKMSKeyId                   :: !(Maybe Text)
+  , _ctrsName                       :: !(Maybe Text)
+  , _ctrsIncludeGlobalServiceEvents :: !(Maybe Bool)
+  , _ctrsCloudWatchLogsRoleARN      :: !(Maybe Text)
+  , _ctrsS3BucketName               :: !(Maybe Text)
+  , _ctrsIsMultiRegionTrail         :: !(Maybe Bool)
+  , _ctrsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

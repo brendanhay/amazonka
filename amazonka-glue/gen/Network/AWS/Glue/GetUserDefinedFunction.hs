@@ -48,9 +48,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getUserDefinedFunction' smart constructor.
 data GetUserDefinedFunction = GetUserDefinedFunction'
-  { _getCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _getDatabaseName :: {-# NOUNPACK #-}!Text
-  , _getFunctionName :: {-# NOUNPACK #-}!Text
+  { _getCatalogId    :: !(Maybe Text)
+  , _getDatabaseName :: !Text
+  , _getFunctionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,8 +127,8 @@ instance ToQuery GetUserDefinedFunction where
 
 -- | /See:/ 'getUserDefinedFunctionResponse' smart constructor.
 data GetUserDefinedFunctionResponse = GetUserDefinedFunctionResponse'
-  { _gudfursUserDefinedFunction :: {-# NOUNPACK #-}!(Maybe UserDefinedFunction)
-  , _gudfursResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _gudfursUserDefinedFunction :: !(Maybe UserDefinedFunction)
+  , _gudfursResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

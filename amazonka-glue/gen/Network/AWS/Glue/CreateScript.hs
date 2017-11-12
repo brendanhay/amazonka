@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createScript' smart constructor.
 data CreateScript = CreateScript'
-  { _csDagEdges :: {-# NOUNPACK #-}!(Maybe [CodeGenEdge])
-  , _csDagNodes :: {-# NOUNPACK #-}!(Maybe [CodeGenNode])
+  { _csDagEdges :: !(Maybe [CodeGenEdge])
+  , _csDagNodes :: !(Maybe [CodeGenNode])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,8 +109,8 @@ instance ToQuery CreateScript where
 
 -- | /See:/ 'createScriptResponse' smart constructor.
 data CreateScriptResponse = CreateScriptResponse'
-  { _csrsPythonScript   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _csrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _csrsPythonScript   :: !(Maybe Text)
+  , _csrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

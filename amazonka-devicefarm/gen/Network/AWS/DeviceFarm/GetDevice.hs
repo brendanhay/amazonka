@@ -107,8 +107,8 @@ instance ToQuery GetDevice where
 --
 -- /See:/ 'getDeviceResponse' smart constructor.
 data GetDeviceResponse = GetDeviceResponse'
-  { _gdrsDevice         :: {-# NOUNPACK #-}!(Maybe Device)
-  , _gdrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdrsDevice         :: !(Maybe Device)
+  , _gdrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

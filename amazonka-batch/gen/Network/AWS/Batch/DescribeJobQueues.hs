@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeJobQueues' smart constructor.
 data DescribeJobQueues = DescribeJobQueues'
-  { _djqNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _djqJobQueues  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _djqMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _djqNextToken  :: !(Maybe Text)
+  , _djqJobQueues  :: !(Maybe [Text])
+  , _djqMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,9 +121,9 @@ instance ToQuery DescribeJobQueues where
 
 -- | /See:/ 'describeJobQueuesResponse' smart constructor.
 data DescribeJobQueuesResponse = DescribeJobQueuesResponse'
-  { _djqsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _djqsrsJobQueues      :: {-# NOUNPACK #-}!(Maybe [JobQueueDetail])
-  , _djqsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _djqsrsNextToken      :: !(Maybe Text)
+  , _djqsrsJobQueues      :: !(Maybe [JobQueueDetail])
+  , _djqsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -54,9 +54,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createCoreDefinition' smart constructor.
 data CreateCoreDefinition = CreateCoreDefinition'
-  { _ccdAmznClientToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdInitialVersion  :: {-# NOUNPACK #-}!(Maybe CoreDefinitionVersion)
-  , _ccdName            :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ccdAmznClientToken :: !(Maybe Text)
+  , _ccdInitialVersion  :: !(Maybe CoreDefinitionVersion)
+  , _ccdName            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,14 +133,14 @@ instance ToQuery CreateCoreDefinition where
 
 -- | /See:/ 'createCoreDefinitionResponse' smart constructor.
 data CreateCoreDefinitionResponse = CreateCoreDefinitionResponse'
-  { _ccdrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccdrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _ccdrsLatestVersionARN     :: !(Maybe Text)
+  , _ccdrsARN                  :: !(Maybe Text)
+  , _ccdrsName                 :: !(Maybe Text)
+  , _ccdrsCreationTimestamp    :: !(Maybe Text)
+  , _ccdrsId                   :: !(Maybe Text)
+  , _ccdrsLatestVersion        :: !(Maybe Text)
+  , _ccdrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _ccdrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

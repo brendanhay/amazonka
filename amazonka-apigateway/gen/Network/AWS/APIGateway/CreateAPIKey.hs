@@ -64,13 +64,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'createAPIKey' smart constructor.
 data CreateAPIKey = CreateAPIKey'
-  { _cakEnabled            :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cakValue              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cakCustomerId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cakGenerateDistinctId :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cakName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cakStageKeys          :: {-# NOUNPACK #-}!(Maybe [StageKey])
-  , _cakDescription        :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cakEnabled            :: !(Maybe Bool)
+  , _cakValue              :: !(Maybe Text)
+  , _cakCustomerId         :: !(Maybe Text)
+  , _cakGenerateDistinctId :: !(Maybe Bool)
+  , _cakName               :: !(Maybe Text)
+  , _cakStageKeys          :: !(Maybe [StageKey])
+  , _cakDescription        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

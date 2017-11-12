@@ -49,11 +49,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'updatePartition' smart constructor.
 data UpdatePartition = UpdatePartition'
-  { _upCatalogId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _upDatabaseName       :: {-# NOUNPACK #-}!Text
-  , _upTableName          :: {-# NOUNPACK #-}!Text
-  , _upPartitionValueList :: {-# NOUNPACK #-}![Text]
-  , _upPartitionInput     :: {-# NOUNPACK #-}!PartitionInput
+  { _upCatalogId          :: !(Maybe Text)
+  , _upDatabaseName       :: !Text
+  , _upTableName          :: !Text
+  , _upPartitionValueList :: ![Text]
+  , _upPartitionInput     :: !PartitionInput
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

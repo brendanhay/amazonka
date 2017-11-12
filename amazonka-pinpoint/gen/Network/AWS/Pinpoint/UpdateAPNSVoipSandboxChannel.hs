@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateAPNSVoipSandboxChannel' smart constructor.
 data UpdateAPNSVoipSandboxChannel = UpdateAPNSVoipSandboxChannel'
-  { _uavscApplicationId :: {-# NOUNPACK #-}!Text
-  , _uavscAPNSVoipSandboxChannelRequest :: {-# NOUNPACK #-}!APNSVoipSandboxChannelRequest
+  { _uavscApplicationId                 :: !Text
+  , _uavscAPNSVoipSandboxChannelRequest :: !APNSVoipSandboxChannelRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,8 +117,8 @@ instance ToQuery UpdateAPNSVoipSandboxChannel where
 
 -- | /See:/ 'updateAPNSVoipSandboxChannelResponse' smart constructor.
 data UpdateAPNSVoipSandboxChannelResponse = UpdateAPNSVoipSandboxChannelResponse'
-  { _uavscrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _uavscrsAPNSVoipSandboxChannelResponse :: {-# NOUNPACK #-}!APNSVoipSandboxChannelResponse
+  { _uavscrsResponseStatus                 :: !Int
+  , _uavscrsAPNSVoipSandboxChannelResponse :: !APNSVoipSandboxChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,13 +52,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'registerContainerInstance' smart constructor.
 data RegisterContainerInstance = RegisterContainerInstance'
-  { _rciInstanceIdentityDocumentSignature :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rciCluster :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rciInstanceIdentityDocument :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rciContainerInstanceARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rciVersionInfo :: {-# NOUNPACK #-}!(Maybe VersionInfo)
-  , _rciAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _rciTotalResources :: {-# NOUNPACK #-}!(Maybe [Resource])
+  { _rciInstanceIdentityDocumentSignature :: !(Maybe Text)
+  , _rciCluster                           :: !(Maybe Text)
+  , _rciInstanceIdentityDocument          :: !(Maybe Text)
+  , _rciContainerInstanceARN              :: !(Maybe Text)
+  , _rciVersionInfo                       :: !(Maybe VersionInfo)
+  , _rciAttributes                        :: !(Maybe [Attribute])
+  , _rciTotalResources                    :: !(Maybe [Resource])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -168,8 +168,8 @@ instance ToQuery RegisterContainerInstance where
 
 -- | /See:/ 'registerContainerInstanceResponse' smart constructor.
 data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
-  { _rcirsContainerInstance :: {-# NOUNPACK #-}!(Maybe ContainerInstance)
-  , _rcirsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _rcirsContainerInstance :: !(Maybe ContainerInstance)
+  , _rcirsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deregisterTaskFromMaintenanceWindow' smart constructor.
 data DeregisterTaskFromMaintenanceWindow = DeregisterTaskFromMaintenanceWindow'
-  { _derWindowId     :: {-# NOUNPACK #-}!Text
-  , _derWindowTaskId :: {-# NOUNPACK #-}!Text
+  { _derWindowId     :: !Text
+  , _derWindowTaskId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,9 +126,9 @@ instance ToQuery DeregisterTaskFromMaintenanceWindow
 
 -- | /See:/ 'deregisterTaskFromMaintenanceWindowResponse' smart constructor.
 data DeregisterTaskFromMaintenanceWindowResponse = DeregisterTaskFromMaintenanceWindowResponse'
-  { _derrsWindowTaskId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _derrsWindowId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _derrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _derrsWindowTaskId   :: !(Maybe Text)
+  , _derrsWindowId       :: !(Maybe Text)
+  , _derrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

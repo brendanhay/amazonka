@@ -70,31 +70,31 @@ import Network.AWS.Response
 
 -- | /See:/ 'restoreDBClusterFromS3' smart constructor.
 data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
-  { _rdcfsEngineVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdcfsStorageEncrypted                :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdcfsDBSubnetGroupName               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdcfsPreferredMaintenanceWindow      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdcfsAvailabilityZones               :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rdcfsCharacterSetName                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdcfsKMSKeyId                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdcfsPreferredBackupWindow           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdcfsBackupRetentionPeriod           :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rdcfsVPCSecurityGroupIds             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rdcfsDatabaseName                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdcfsDBClusterParameterGroupName     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdcfsS3Prefix                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdcfsOptionGroupName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rdcfsTags                            :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _rdcfsPort                            :: {-# NOUNPACK #-}!(Maybe Int)
-  , _rdcfsEnableIAMDatabaseAuthentication :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rdcfsDBClusterIdentifier             :: {-# NOUNPACK #-}!Text
-  , _rdcfsEngine                          :: {-# NOUNPACK #-}!Text
-  , _rdcfsMasterUsername                  :: {-# NOUNPACK #-}!Text
-  , _rdcfsMasterUserPassword              :: {-# NOUNPACK #-}!Text
-  , _rdcfsSourceEngine                    :: {-# NOUNPACK #-}!Text
-  , _rdcfsSourceEngineVersion             :: {-# NOUNPACK #-}!Text
-  , _rdcfsS3BucketName                    :: {-# NOUNPACK #-}!Text
-  , _rdcfsS3IngestionRoleARN              :: {-# NOUNPACK #-}!Text
+  { _rdcfsEngineVersion                   :: !(Maybe Text)
+  , _rdcfsStorageEncrypted                :: !(Maybe Bool)
+  , _rdcfsDBSubnetGroupName               :: !(Maybe Text)
+  , _rdcfsPreferredMaintenanceWindow      :: !(Maybe Text)
+  , _rdcfsAvailabilityZones               :: !(Maybe [Text])
+  , _rdcfsCharacterSetName                :: !(Maybe Text)
+  , _rdcfsKMSKeyId                        :: !(Maybe Text)
+  , _rdcfsPreferredBackupWindow           :: !(Maybe Text)
+  , _rdcfsBackupRetentionPeriod           :: !(Maybe Int)
+  , _rdcfsVPCSecurityGroupIds             :: !(Maybe [Text])
+  , _rdcfsDatabaseName                    :: !(Maybe Text)
+  , _rdcfsDBClusterParameterGroupName     :: !(Maybe Text)
+  , _rdcfsS3Prefix                        :: !(Maybe Text)
+  , _rdcfsOptionGroupName                 :: !(Maybe Text)
+  , _rdcfsTags                            :: !(Maybe [Tag])
+  , _rdcfsPort                            :: !(Maybe Int)
+  , _rdcfsEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+  , _rdcfsDBClusterIdentifier             :: !Text
+  , _rdcfsEngine                          :: !Text
+  , _rdcfsMasterUsername                  :: !Text
+  , _rdcfsMasterUserPassword              :: !Text
+  , _rdcfsSourceEngine                    :: !Text
+  , _rdcfsSourceEngineVersion             :: !Text
+  , _rdcfsS3BucketName                    :: !Text
+  , _rdcfsS3IngestionRoleARN              :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -356,8 +356,8 @@ instance ToQuery RestoreDBClusterFromS3 where
 
 -- | /See:/ 'restoreDBClusterFromS3Response' smart constructor.
 data RestoreDBClusterFromS3Response = RestoreDBClusterFromS3Response'
-  { _rdcfsrsDBCluster      :: {-# NOUNPACK #-}!(Maybe DBCluster)
-  , _rdcfsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rdcfsrsDBCluster      :: !(Maybe DBCluster)
+  , _rdcfsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

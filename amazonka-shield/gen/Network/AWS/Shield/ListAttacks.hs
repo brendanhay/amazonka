@@ -51,11 +51,11 @@ import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'listAttacks' smart constructor.
 data ListAttacks = ListAttacks'
-  { _laStartTime    :: {-# NOUNPACK #-}!(Maybe TimeRange)
-  , _laResourceARNs :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _laNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _laEndTime      :: {-# NOUNPACK #-}!(Maybe TimeRange)
-  , _laMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _laStartTime    :: !(Maybe TimeRange)
+  , _laResourceARNs :: !(Maybe [Text])
+  , _laNextToken    :: !(Maybe Text)
+  , _laEndTime      :: !(Maybe TimeRange)
+  , _laMaxResults   :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,9 +146,9 @@ instance ToQuery ListAttacks where
 
 -- | /See:/ 'listAttacksResponse' smart constructor.
 data ListAttacksResponse = ListAttacksResponse'
-  { _larsAttackSummaries :: {-# NOUNPACK #-}!(Maybe [AttackSummary])
-  , _larsNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _larsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _larsAttackSummaries :: !(Maybe [AttackSummary])
+  , _larsNextToken       :: !(Maybe Text)
+  , _larsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

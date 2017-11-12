@@ -61,12 +61,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeSecurityGroups' smart constructor.
 data DescribeSecurityGroups = DescribeSecurityGroups'
-  { _dsgsFilters    :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dsgsGroupNames :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dsgsGroupIds   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dsgsNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsgsDryRun     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dsgsMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dsgsFilters    :: !(Maybe [Filter])
+  , _dsgsGroupNames :: !(Maybe [Text])
+  , _dsgsGroupIds   :: !(Maybe [Text])
+  , _dsgsNextToken  :: !(Maybe Text)
+  , _dsgsDryRun     :: !(Maybe Bool)
+  , _dsgsMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -172,9 +172,9 @@ instance ToQuery DescribeSecurityGroups where
 --
 -- /See:/ 'describeSecurityGroupsResponse' smart constructor.
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
-  { _dsgrsSecurityGroups :: {-# NOUNPACK #-}!(Maybe [SecurityGroup])
-  , _dsgrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsgrsSecurityGroups :: !(Maybe [SecurityGroup])
+  , _dsgrsNextToken      :: !(Maybe Text)
+  , _dsgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteConnection' smart constructor.
 data DeleteConnection = DeleteConnection'
-  { _dcCatalogId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dcConnectionName :: {-# NOUNPACK #-}!Text
+  { _dcCatalogId      :: !(Maybe Text)
+  , _dcConnectionName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

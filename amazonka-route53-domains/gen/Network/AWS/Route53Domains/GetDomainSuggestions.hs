@@ -48,9 +48,9 @@ import Network.AWS.Route53Domains.Types.Product
 
 -- | /See:/ 'getDomainSuggestions' smart constructor.
 data GetDomainSuggestions = GetDomainSuggestions'
-  { _gdsDomainName      :: {-# NOUNPACK #-}!Text
-  , _gdsSuggestionCount :: {-# NOUNPACK #-}!Int
-  , _gdsOnlyAvailable   :: {-# NOUNPACK #-}!Bool
+  { _gdsDomainName      :: !Text
+  , _gdsSuggestionCount :: !Int
+  , _gdsOnlyAvailable   :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,8 +129,8 @@ instance ToQuery GetDomainSuggestions where
 
 -- | /See:/ 'getDomainSuggestionsResponse' smart constructor.
 data GetDomainSuggestionsResponse = GetDomainSuggestionsResponse'
-  { _gdsrsSuggestionsList :: {-# NOUNPACK #-}!(Maybe [DomainSuggestion])
-  , _gdsrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gdsrsSuggestionsList :: !(Maybe [DomainSuggestion])
+  , _gdsrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

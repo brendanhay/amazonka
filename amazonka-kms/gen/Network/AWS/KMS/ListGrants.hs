@@ -54,9 +54,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listGrants' smart constructor.
 data ListGrants = ListGrants'
-  { _lgMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lgLimit  :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lgKeyId  :: {-# NOUNPACK #-}!Text
+  { _lgMarker :: !(Maybe Text)
+  , _lgLimit  :: !(Maybe Nat)
+  , _lgKeyId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

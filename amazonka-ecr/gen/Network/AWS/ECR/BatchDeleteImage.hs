@@ -57,9 +57,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'batchDeleteImage' smart constructor.
 data BatchDeleteImage = BatchDeleteImage'
-  { _bdiRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _bdiRepositoryName :: {-# NOUNPACK #-}!Text
-  , _bdiImageIds       :: {-# NOUNPACK #-}![ImageIdentifier]
+  { _bdiRegistryId     :: !(Maybe Text)
+  , _bdiRepositoryName :: !Text
+  , _bdiImageIds       :: ![ImageIdentifier]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,9 +136,9 @@ instance ToQuery BatchDeleteImage where
 
 -- | /See:/ 'batchDeleteImageResponse' smart constructor.
 data BatchDeleteImageResponse = BatchDeleteImageResponse'
-  { _bdirsFailures       :: {-# NOUNPACK #-}!(Maybe [ImageFailure])
-  , _bdirsImageIds       :: {-# NOUNPACK #-}!(Maybe [ImageIdentifier])
-  , _bdirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _bdirsFailures       :: !(Maybe [ImageFailure])
+  , _bdirsImageIds       :: !(Maybe [ImageIdentifier])
+  , _bdirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createTopicRule' smart constructor.
 data CreateTopicRule = CreateTopicRule'
-  { _ctrRuleName         :: {-# NOUNPACK #-}!Text
-  , _ctrTopicRulePayload :: {-# NOUNPACK #-}!TopicRulePayload
+  { _ctrRuleName         :: !Text
+  , _ctrTopicRulePayload :: !TopicRulePayload
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

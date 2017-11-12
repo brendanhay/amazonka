@@ -50,8 +50,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'setCognitoEvents' smart constructor.
 data SetCognitoEvents = SetCognitoEvents'
-  { _sceIdentityPoolId :: {-# NOUNPACK #-}!Text
-  , _sceEvents         :: {-# NOUNPACK #-}!(Map Text Text)
+  { _sceIdentityPoolId :: !Text
+  , _sceEvents         :: !(Map Text Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

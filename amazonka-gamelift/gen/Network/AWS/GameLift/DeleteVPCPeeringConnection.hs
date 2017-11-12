@@ -68,8 +68,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteVPCPeeringConnection' smart constructor.
 data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
-  { _dvpcFleetId                :: {-# NOUNPACK #-}!Text
-  , _dvpcVPCPeeringConnectionId :: {-# NOUNPACK #-}!Text
+  { _dvpcFleetId                :: !Text
+  , _dvpcVPCPeeringConnectionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

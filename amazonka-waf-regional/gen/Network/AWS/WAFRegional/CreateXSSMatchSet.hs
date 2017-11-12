@@ -66,8 +66,8 @@ import Network.AWS.WAFRegional.Types.Product
 --
 -- /See:/ 'createXSSMatchSet' smart constructor.
 data CreateXSSMatchSet = CreateXSSMatchSet'
-  { _cxmsName        :: {-# NOUNPACK #-}!Text
-  , _cxmsChangeToken :: {-# NOUNPACK #-}!Text
+  { _cxmsName        :: !Text
+  , _cxmsChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,9 +137,9 @@ instance ToQuery CreateXSSMatchSet where
 --
 -- /See:/ 'createXSSMatchSetResponse' smart constructor.
 data CreateXSSMatchSetResponse = CreateXSSMatchSetResponse'
-  { _cxmsrsXSSMatchSet    :: {-# NOUNPACK #-}!(Maybe XSSMatchSet)
-  , _cxmsrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cxmsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cxmsrsXSSMatchSet    :: !(Maybe XSSMatchSet)
+  , _cxmsrsChangeToken    :: !(Maybe Text)
+  , _cxmsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

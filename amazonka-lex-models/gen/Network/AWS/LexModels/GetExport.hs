@@ -55,10 +55,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'getExport' smart constructor.
 data GetExport = GetExport'
-  { _geName         :: {-# NOUNPACK #-}!Text
-  , _geVersion      :: {-# NOUNPACK #-}!Text
-  , _geResourceType :: {-# NOUNPACK #-}!ResourceType
-  , _geExportType   :: {-# NOUNPACK #-}!ExportType
+  { _geName         :: !Text
+  , _geVersion      :: !Text
+  , _geResourceType :: !ResourceType
+  , _geExportType   :: !ExportType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -142,14 +142,14 @@ instance ToQuery GetExport where
 
 -- | /See:/ 'getExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
-  { _gersFailureReason  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersResourceType   :: {-# NOUNPACK #-}!(Maybe ResourceType)
-  , _gersExportStatus   :: {-# NOUNPACK #-}!(Maybe ExportStatus)
-  , _gersUrl            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersExportType     :: {-# NOUNPACK #-}!(Maybe ExportType)
-  , _gersName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gersFailureReason  :: !(Maybe Text)
+  , _gersResourceType   :: !(Maybe ResourceType)
+  , _gersExportStatus   :: !(Maybe ExportStatus)
+  , _gersUrl            :: !(Maybe Text)
+  , _gersExportType     :: !(Maybe ExportType)
+  , _gersName           :: !(Maybe Text)
+  , _gersVersion        :: !(Maybe Text)
+  , _gersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

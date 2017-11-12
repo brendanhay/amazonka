@@ -70,10 +70,10 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'createWebACL' smart constructor.
 data CreateWebACL = CreateWebACL'
-  { _cwaName          :: {-# NOUNPACK #-}!Text
-  , _cwaMetricName    :: {-# NOUNPACK #-}!Text
-  , _cwaDefaultAction :: {-# NOUNPACK #-}!WafAction
-  , _cwaChangeToken   :: {-# NOUNPACK #-}!Text
+  { _cwaName          :: !Text
+  , _cwaMetricName    :: !Text
+  , _cwaDefaultAction :: !WafAction
+  , _cwaChangeToken   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -160,9 +160,9 @@ instance ToQuery CreateWebACL where
 
 -- | /See:/ 'createWebACLResponse' smart constructor.
 data CreateWebACLResponse = CreateWebACLResponse'
-  { _cwarsWebACL         :: {-# NOUNPACK #-}!(Maybe WebACL)
-  , _cwarsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cwarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cwarsWebACL         :: !(Maybe WebACL)
+  , _cwarsChangeToken    :: !(Maybe Text)
+  , _cwarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

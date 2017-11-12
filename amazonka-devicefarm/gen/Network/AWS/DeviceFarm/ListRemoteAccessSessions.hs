@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'listRemoteAccessSessions' smart constructor.
 data ListRemoteAccessSessions = ListRemoteAccessSessions'
-  { _lrasNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrasArn       :: {-# NOUNPACK #-}!Text
+  { _lrasNextToken :: !(Maybe Text)
+  , _lrasArn       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,9 +124,9 @@ instance ToQuery ListRemoteAccessSessions where
 --
 -- /See:/ 'listRemoteAccessSessionsResponse' smart constructor.
 data ListRemoteAccessSessionsResponse = ListRemoteAccessSessionsResponse'
-  { _lrasrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrasrsRemoteAccessSessions :: {-# NOUNPACK #-}!(Maybe [RemoteAccessSession])
-  , _lrasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrasrsNextToken            :: !(Maybe Text)
+  , _lrasrsRemoteAccessSessions :: !(Maybe [RemoteAccessSession])
+  , _lrasrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

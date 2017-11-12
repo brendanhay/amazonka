@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'replaceTopicRule' smart constructor.
 data ReplaceTopicRule = ReplaceTopicRule'
-  { _rtrRuleName         :: {-# NOUNPACK #-}!Text
-  , _rtrTopicRulePayload :: {-# NOUNPACK #-}!TopicRulePayload
+  { _rtrRuleName         :: !Text
+  , _rtrTopicRulePayload :: !TopicRulePayload
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

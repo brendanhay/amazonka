@@ -50,12 +50,12 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'putComplianceItems' smart constructor.
 data PutComplianceItems = PutComplianceItems'
-  { _pciItemContentHash  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pciResourceId       :: {-# NOUNPACK #-}!Text
-  , _pciResourceType     :: {-# NOUNPACK #-}!Text
-  , _pciComplianceType   :: {-# NOUNPACK #-}!Text
-  , _pciExecutionSummary :: {-# NOUNPACK #-}!ComplianceExecutionSummary
-  , _pciItems            :: {-# NOUNPACK #-}![ComplianceItemEntry]
+  { _pciItemContentHash  :: !(Maybe Text)
+  , _pciResourceId       :: !Text
+  , _pciResourceType     :: !Text
+  , _pciComplianceType   :: !Text
+  , _pciExecutionSummary :: !ComplianceExecutionSummary
+  , _pciItems            :: ![ComplianceItemEntry]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

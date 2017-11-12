@@ -58,11 +58,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'listThings' smart constructor.
 data ListThings = ListThings'
-  { _ltAttributeValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltThingTypeName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltAttributeName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltMaxResults     :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _ltAttributeValue :: !(Maybe Text)
+  , _ltThingTypeName  :: !(Maybe Text)
+  , _ltNextToken      :: !(Maybe Text)
+  , _ltAttributeName  :: !(Maybe Text)
+  , _ltMaxResults     :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -153,9 +153,9 @@ instance ToQuery ListThings where
 --
 -- /See:/ 'listThingsResponse' smart constructor.
 data ListThingsResponse = ListThingsResponse'
-  { _ltrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltrsThings         :: {-# NOUNPACK #-}!(Maybe [ThingAttribute])
-  , _ltrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ltrsNextToken      :: !(Maybe Text)
+  , _ltrsThings         :: !(Maybe [ThingAttribute])
+  , _ltrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

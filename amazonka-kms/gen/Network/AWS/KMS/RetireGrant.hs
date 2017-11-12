@@ -55,9 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'retireGrant' smart constructor.
 data RetireGrant = RetireGrant'
-  { _rgKeyId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rgGrantId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rgGrantToken :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rgKeyId      :: !(Maybe Text)
+  , _rgGrantId    :: !(Maybe Text)
+  , _rgGrantToken :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

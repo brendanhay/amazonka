@@ -106,11 +106,11 @@ instance ToQuery CreateKeyPair where
 
 -- | /See:/ 'createKeyPairResponse' smart constructor.
 data CreateKeyPairResponse = CreateKeyPairResponse'
-  { _ckprsKeyPair          :: {-# NOUNPACK #-}!(Maybe KeyPair)
-  , _ckprsOperation        :: {-# NOUNPACK #-}!(Maybe Operation)
-  , _ckprsPublicKeyBase64  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ckprsPrivateKeyBase64 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ckprsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _ckprsKeyPair          :: !(Maybe KeyPair)
+  , _ckprsOperation        :: !(Maybe Operation)
+  , _ckprsPublicKeyBase64  :: !(Maybe Text)
+  , _ckprsPrivateKeyBase64 :: !(Maybe Text)
+  , _ckprsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

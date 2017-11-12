@@ -56,13 +56,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'scheduleRun' smart constructor.
 data ScheduleRun = ScheduleRun'
-  { _srExecutionConfiguration :: {-# NOUNPACK #-}!(Maybe ExecutionConfiguration)
-  , _srAppARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srConfiguration :: {-# NOUNPACK #-}!(Maybe ScheduleRunConfiguration)
-  , _srProjectARN :: {-# NOUNPACK #-}!Text
-  , _srDevicePoolARN :: {-# NOUNPACK #-}!Text
-  , _srTest :: {-# NOUNPACK #-}!ScheduleRunTest
+  { _srExecutionConfiguration :: !(Maybe ExecutionConfiguration)
+  , _srAppARN                 :: !(Maybe Text)
+  , _srName                   :: !(Maybe Text)
+  , _srConfiguration          :: !(Maybe ScheduleRunConfiguration)
+  , _srProjectARN             :: !Text
+  , _srDevicePoolARN          :: !Text
+  , _srTest                   :: !ScheduleRunTest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -174,8 +174,8 @@ instance ToQuery ScheduleRun where
 --
 -- /See:/ 'scheduleRunResponse' smart constructor.
 data ScheduleRunResponse = ScheduleRunResponse'
-  { _srrsRun            :: {-# NOUNPACK #-}!(Maybe Run)
-  , _srrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _srrsRun            :: !(Maybe Run)
+  , _srrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

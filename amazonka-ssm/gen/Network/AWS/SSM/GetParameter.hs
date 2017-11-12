@@ -47,8 +47,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getParameter' smart constructor.
 data GetParameter = GetParameter'
-  { _gWithDecryption :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gName           :: {-# NOUNPACK #-}!Text
+  { _gWithDecryption :: !(Maybe Bool)
+  , _gName           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -111,8 +111,8 @@ instance ToQuery GetParameter where
 
 -- | /See:/ 'getParameterResponse' smart constructor.
 data GetParameterResponse = GetParameterResponse'
-  { _gprsParameter      :: {-# NOUNPACK #-}!(Maybe Parameter)
-  , _gprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gprsParameter      :: !(Maybe Parameter)
+  , _gprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

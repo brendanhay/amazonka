@@ -50,10 +50,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeHostReservations' smart constructor.
 data DescribeHostReservations = DescribeHostReservations'
-  { _dhrNextToken            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhrHostReservationIdSet :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dhrFilter               :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dhrMaxResults           :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dhrNextToken            :: !(Maybe Text)
+  , _dhrHostReservationIdSet :: !(Maybe [Text])
+  , _dhrFilter               :: !(Maybe [Filter])
+  , _dhrMaxResults           :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,9 +133,9 @@ instance ToQuery DescribeHostReservations where
 
 -- | /See:/ 'describeHostReservationsResponse' smart constructor.
 data DescribeHostReservationsResponse = DescribeHostReservationsResponse'
-  { _dhrrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dhrrsHostReservationSet :: {-# NOUNPACK #-}!(Maybe [HostReservation])
-  , _dhrrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _dhrrsNextToken          :: !(Maybe Text)
+  , _dhrrsHostReservationSet :: !(Maybe [HostReservation])
+  , _dhrrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

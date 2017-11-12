@@ -53,8 +53,8 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { _ltfrResourceType :: {-# NOUNPACK #-}!TagResourceType
-  , _ltfrResourceId   :: {-# NOUNPACK #-}!Text
+  { _ltfrResourceType :: !TagResourceType
+  , _ltfrResourceId   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery ListTagsForResource where
 --
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { _ltfrrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ltfrrsResourceTagSet :: {-# NOUNPACK #-}!ResourceTagSet
+  { _ltfrrsResponseStatus :: !Int
+  , _ltfrrsResourceTagSet :: !ResourceTagSet
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

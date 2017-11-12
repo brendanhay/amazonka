@@ -66,11 +66,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'createSubnet' smart constructor.
 data CreateSubnet = CreateSubnet'
-  { _cssIPv6CidrBlock    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cssAvailabilityZone :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cssDryRun           :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cssCidrBlock        :: {-# NOUNPACK #-}!Text
-  , _cssVPCId            :: {-# NOUNPACK #-}!Text
+  { _cssIPv6CidrBlock    :: !(Maybe Text)
+  , _cssAvailabilityZone :: !(Maybe Text)
+  , _cssDryRun           :: !(Maybe Bool)
+  , _cssCidrBlock        :: !Text
+  , _cssVPCId            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -156,8 +156,8 @@ instance ToQuery CreateSubnet where
 --
 -- /See:/ 'createSubnetResponse' smart constructor.
 data CreateSubnetResponse = CreateSubnetResponse'
-  { _crersSubnet         :: {-# NOUNPACK #-}!(Maybe Subnet)
-  , _crersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crersSubnet         :: !(Maybe Subnet)
+  , _crersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

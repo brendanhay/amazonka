@@ -95,8 +95,8 @@ instance ToQuery GetAPNSChannel where
 
 -- | /See:/ 'getAPNSChannelResponse' smart constructor.
 data GetAPNSChannelResponse = GetAPNSChannelResponse'
-  { _gacrsResponseStatus      :: {-# NOUNPACK #-}!Int
-  , _gacrsAPNSChannelResponse :: {-# NOUNPACK #-}!APNSChannelResponse
+  { _gacrsResponseStatus      :: !Int
+  , _gacrsAPNSChannelResponse :: !APNSChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

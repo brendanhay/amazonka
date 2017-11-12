@@ -100,8 +100,8 @@ instance ToQuery GetThingShadow where
 --
 -- /See:/ 'getThingShadowResponse' smart constructor.
 data GetThingShadowResponse = GetThingShadowResponse'
-  { _gtsrsPayload        :: {-# NOUNPACK #-}!(Maybe (HashMap Text Value))
-  , _gtsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gtsrsPayload        :: !(Maybe (HashMap Text Value))
+  , _gtsrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

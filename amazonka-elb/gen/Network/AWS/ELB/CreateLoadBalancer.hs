@@ -62,13 +62,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'createLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { _clbSecurityGroups    :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _clbSubnets           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _clbAvailabilityZones :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _clbScheme            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clbTags              :: {-# NOUNPACK #-}!(Maybe (List1 Tag))
-  , _clbLoadBalancerName  :: {-# NOUNPACK #-}!Text
-  , _clbListeners         :: {-# NOUNPACK #-}![Listener]
+  { _clbSecurityGroups    :: !(Maybe [Text])
+  , _clbSubnets           :: !(Maybe [Text])
+  , _clbAvailabilityZones :: !(Maybe [Text])
+  , _clbScheme            :: !(Maybe Text)
+  , _clbTags              :: !(Maybe (List1 Tag))
+  , _clbLoadBalancerName  :: !Text
+  , _clbListeners         :: ![Listener]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -177,8 +177,8 @@ instance ToQuery CreateLoadBalancer where
 --
 -- /See:/ 'createLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
-  { _clbrsDNSName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _clbrsDNSName        :: !(Maybe Text)
+  , _clbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

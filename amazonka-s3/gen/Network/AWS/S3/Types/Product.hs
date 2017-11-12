@@ -90,8 +90,8 @@ instance ToXML AccelerateConfiguration where
 
 -- | /See:/ 'accessControlPolicy' smart constructor.
 data AccessControlPolicy = AccessControlPolicy'
-  { _acpGrants :: {-# NOUNPACK #-}!(Maybe [Grant])
-  , _acpOwner  :: {-# NOUNPACK #-}!(Maybe Owner)
+  { _acpGrants :: !(Maybe [Grant])
+  , _acpOwner  :: !(Maybe Owner)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -165,8 +165,8 @@ instance ToXML AccessControlTranslation where
 
 -- | /See:/ 'analyticsAndOperator' smart constructor.
 data AnalyticsAndOperator = AnalyticsAndOperator'
-  { _aaoPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _aaoTags   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _aaoPrefix :: !(Maybe Text)
+  , _aaoTags   :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -209,9 +209,9 @@ instance ToXML AnalyticsAndOperator where
 
 -- | /See:/ 'analyticsConfiguration' smart constructor.
 data AnalyticsConfiguration = AnalyticsConfiguration'
-  { _acFilter               :: {-# NOUNPACK #-}!(Maybe AnalyticsFilter)
-  , _acId                   :: {-# NOUNPACK #-}!Text
-  , _acStorageClassAnalysis :: {-# NOUNPACK #-}!StorageClassAnalysis
+  { _acFilter               :: !(Maybe AnalyticsFilter)
+  , _acId                   :: !Text
+  , _acStorageClassAnalysis :: !StorageClassAnalysis
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -302,9 +302,9 @@ instance ToXML AnalyticsExportDestination where
 
 -- | /See:/ 'analyticsFilter' smart constructor.
 data AnalyticsFilter = AnalyticsFilter'
-  { _afTag    :: {-# NOUNPACK #-}!(Maybe Tag)
-  , _afPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _afAnd    :: {-# NOUNPACK #-}!(Maybe AnalyticsAndOperator)
+  { _afTag    :: !(Maybe Tag)
+  , _afPrefix :: !(Maybe Text)
+  , _afAnd    :: !(Maybe AnalyticsAndOperator)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -352,10 +352,10 @@ instance ToXML AnalyticsFilter where
 
 -- | /See:/ 'analyticsS3BucketDestination' smart constructor.
 data AnalyticsS3BucketDestination = AnalyticsS3BucketDestination'
-  { _asbdBucketAccountId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asbdPrefix          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _asbdFormat          :: {-# NOUNPACK #-}!AnalyticsS3ExportFileFormat
-  , _asbdBucket          :: {-# NOUNPACK #-}!BucketName
+  { _asbdBucketAccountId :: !(Maybe Text)
+  , _asbdPrefix          :: !(Maybe Text)
+  , _asbdFormat          :: !AnalyticsS3ExportFileFormat
+  , _asbdBucket          :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -419,8 +419,8 @@ instance ToXML AnalyticsS3BucketDestination where
 
 -- | /See:/ 'bucket' smart constructor.
 data Bucket = Bucket'
-  { _bCreationDate :: {-# NOUNPACK #-}!RFC822
-  , _bName         :: {-# NOUNPACK #-}!BucketName
+  { _bCreationDate :: !RFC822
+  , _bName         :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -542,11 +542,11 @@ instance ToXML CORSConfiguration where
 
 -- | /See:/ 'corsRule' smart constructor.
 data CORSRule = CORSRule'
-  { _crMaxAgeSeconds  :: {-# NOUNPACK #-}!(Maybe Int)
-  , _crAllowedHeaders :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _crExposeHeaders  :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _crAllowedMethods :: {-# NOUNPACK #-}![Text]
-  , _crAllowedOrigins :: {-# NOUNPACK #-}![Text]
+  { _crMaxAgeSeconds  :: !(Maybe Int)
+  , _crAllowedHeaders :: !(Maybe [Text])
+  , _crExposeHeaders  :: !(Maybe [Text])
+  , _crAllowedMethods :: ![Text]
+  , _crAllowedOrigins :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -676,8 +676,8 @@ instance ToXML CompletedMultipartUpload where
 
 -- | /See:/ 'completedPart' smart constructor.
 data CompletedPart = CompletedPart'
-  { _cpPartNumber :: {-# NOUNPACK #-}!Int
-  , _cpETag       :: {-# NOUNPACK #-}!ETag
+  { _cpPartNumber :: !Int
+  , _cpETag       :: !ETag
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -715,8 +715,8 @@ instance ToXML CompletedPart where
 
 -- | /See:/ 'condition' smart constructor.
 data Condition = Condition'
-  { _cKeyPrefixEquals             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cHTTPErrorCodeReturnedEquals :: {-# NOUNPACK #-}!(Maybe Text)
+  { _cKeyPrefixEquals             :: !(Maybe Text)
+  , _cHTTPErrorCodeReturnedEquals :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -761,8 +761,8 @@ instance ToXML Condition where
 
 -- | /See:/ 'copyObjectResult' smart constructor.
 data CopyObjectResult = CopyObjectResult'
-  { _corETag         :: {-# NOUNPACK #-}!(Maybe ETag)
-  , _corLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  { _corETag         :: !(Maybe ETag)
+  , _corLastModified :: !(Maybe RFC822)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -798,8 +798,8 @@ instance NFData CopyObjectResult where
 
 -- | /See:/ 'copyPartResult' smart constructor.
 data CopyPartResult = CopyPartResult'
-  { _cprETag         :: {-# NOUNPACK #-}!(Maybe ETag)
-  , _cprLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  { _cprETag         :: !(Maybe ETag)
+  , _cprLastModified :: !(Maybe RFC822)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -865,8 +865,8 @@ instance ToXML CreateBucketConfiguration where
 
 -- | /See:/ 'delete'' smart constructor.
 data Delete = Delete'
-  { _dQuiet   :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dObjects :: {-# NOUNPACK #-}![ObjectIdentifier]
+  { _dQuiet   :: !(Maybe Bool)
+  , _dObjects :: ![ObjectIdentifier]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -901,11 +901,11 @@ instance ToXML Delete where
 
 -- | /See:/ 'deleteMarkerEntry' smart constructor.
 data DeleteMarkerEntry = DeleteMarkerEntry'
-  { _dmeVersionId    :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _dmeIsLatest     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dmeOwner        :: {-# NOUNPACK #-}!(Maybe Owner)
-  , _dmeKey          :: {-# NOUNPACK #-}!(Maybe ObjectKey)
-  , _dmeLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  { _dmeVersionId    :: !(Maybe ObjectVersionId)
+  , _dmeIsLatest     :: !(Maybe Bool)
+  , _dmeOwner        :: !(Maybe Owner)
+  , _dmeKey          :: !(Maybe ObjectKey)
+  , _dmeLastModified :: !(Maybe RFC822)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -968,10 +968,10 @@ instance NFData DeleteMarkerEntry where
 
 -- | /See:/ 'deletedObject' smart constructor.
 data DeletedObject = DeletedObject'
-  { _dVersionId             :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _dDeleteMarker          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dDeleteMarkerVersionId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dKey                   :: {-# NOUNPACK #-}!(Maybe ObjectKey)
+  { _dVersionId             :: !(Maybe ObjectVersionId)
+  , _dDeleteMarker          :: !(Maybe Bool)
+  , _dDeleteMarkerVersionId :: !(Maybe Text)
+  , _dKey                   :: !(Maybe ObjectKey)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1028,11 +1028,11 @@ instance NFData DeletedObject where
 --
 -- /See:/ 'destination' smart constructor.
 data Destination = Destination'
-  { _dAccessControlTranslation :: {-# NOUNPACK #-}!(Maybe AccessControlTranslation)
-  , _dAccount :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dStorageClass :: {-# NOUNPACK #-}!(Maybe StorageClass)
-  , _dEncryptionConfiguration :: {-# NOUNPACK #-}!(Maybe EncryptionConfiguration)
-  , _dBucket :: {-# NOUNPACK #-}!BucketName
+  { _dAccessControlTranslation :: !(Maybe AccessControlTranslation)
+  , _dAccount                  :: !(Maybe Text)
+  , _dStorageClass             :: !(Maybe StorageClass)
+  , _dEncryptionConfiguration  :: !(Maybe EncryptionConfiguration)
+  , _dBucket                   :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1177,8 +1177,8 @@ instance ToXML ErrorDocument where
 --
 -- /See:/ 'filterRule' smart constructor.
 data FilterRule = FilterRule'
-  { _frValue :: {-# NOUNPACK #-}!(Maybe Text)
-  , _frName  :: {-# NOUNPACK #-}!(Maybe FilterRuleName)
+  { _frValue :: !(Maybe Text)
+  , _frName  :: !(Maybe FilterRuleName)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1245,8 +1245,8 @@ instance ToXML GlacierJobParameters where
 
 -- | /See:/ 'grant' smart constructor.
 data Grant = Grant'
-  { _gPermission :: {-# NOUNPACK #-}!(Maybe Permission)
-  , _gGrantee    :: {-# NOUNPACK #-}!(Maybe Grantee)
+  { _gPermission :: !(Maybe Permission)
+  , _gGrantee    :: !(Maybe Grantee)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1287,11 +1287,11 @@ instance ToXML Grant where
 
 -- | /See:/ 'grantee' smart constructor.
 data Grantee = Grantee'
-  { _gURI          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gEmailAddress :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gDisplayName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gType         :: {-# NOUNPACK #-}!Type
+  { _gURI          :: !(Maybe Text)
+  , _gEmailAddress :: !(Maybe Text)
+  , _gDisplayName  :: !(Maybe Text)
+  , _gId           :: !(Maybe Text)
+  , _gType         :: !Type
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1394,8 +1394,8 @@ instance ToXML IndexDocument where
 
 -- | /See:/ 'initiator' smart constructor.
 data Initiator = Initiator'
-  { _iDisplayName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _iId          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _iDisplayName :: !(Maybe Text)
+  , _iId          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1430,13 +1430,13 @@ instance NFData Initiator where
 
 -- | /See:/ 'inventoryConfiguration' smart constructor.
 data InventoryConfiguration = InventoryConfiguration'
-  { _icOptionalFields :: {-# NOUNPACK #-}!(Maybe [InventoryOptionalField])
-  , _icFilter :: {-# NOUNPACK #-}!(Maybe InventoryFilter)
-  , _icDestination :: {-# NOUNPACK #-}!InventoryDestination
-  , _icIsEnabled :: {-# NOUNPACK #-}!Bool
-  , _icId :: {-# NOUNPACK #-}!Text
-  , _icIncludedObjectVersions :: {-# NOUNPACK #-}!InventoryIncludedObjectVersions
-  , _icSchedule :: {-# NOUNPACK #-}!InventorySchedule
+  { _icOptionalFields         :: !(Maybe [InventoryOptionalField])
+  , _icFilter                 :: !(Maybe InventoryFilter)
+  , _icDestination            :: !InventoryDestination
+  , _icIsEnabled              :: !Bool
+  , _icId                     :: !Text
+  , _icIncludedObjectVersions :: !InventoryIncludedObjectVersions
+  , _icSchedule               :: !InventorySchedule
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1572,8 +1572,8 @@ instance ToXML InventoryDestination where
 --
 -- /See:/ 'inventoryEncryption' smart constructor.
 data InventoryEncryption = InventoryEncryption'
-  { _ieSSES3  :: {-# NOUNPACK #-}!(Maybe SSES3)
-  , _ieSSEKMS :: {-# NOUNPACK #-}!(Maybe SSEKMS)
+  { _ieSSES3  :: !(Maybe SSES3)
+  , _ieSSEKMS :: !(Maybe SSEKMS)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1646,11 +1646,11 @@ instance ToXML InventoryFilter where
 
 -- | /See:/ 'inventoryS3BucketDestination' smart constructor.
 data InventoryS3BucketDestination = InventoryS3BucketDestination'
-  { _isbdPrefix     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isbdAccountId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _isbdEncryption :: {-# NOUNPACK #-}!(Maybe InventoryEncryption)
-  , _isbdBucket     :: {-# NOUNPACK #-}!BucketName
-  , _isbdFormat     :: {-# NOUNPACK #-}!InventoryFormat
+  { _isbdPrefix     :: !(Maybe Text)
+  , _isbdAccountId  :: !(Maybe Text)
+  , _isbdEncryption :: !(Maybe InventoryEncryption)
+  , _isbdBucket     :: !BucketName
+  , _isbdFormat     :: !InventoryFormat
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1758,10 +1758,10 @@ instance ToXML InventorySchedule where
 --
 -- /See:/ 'lambdaFunctionConfiguration' smart constructor.
 data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
-  { _lfcId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lfcFilter :: {-# NOUNPACK #-}!(Maybe NotificationConfigurationFilter)
-  , _lfcLambdaFunctionARN :: {-# NOUNPACK #-}!Text
-  , _lfcEvents :: {-# NOUNPACK #-}![Event]
+  { _lfcId                :: !(Maybe Text)
+  , _lfcFilter            :: !(Maybe NotificationConfigurationFilter)
+  , _lfcLambdaFunctionARN :: !Text
+  , _lfcEvents            :: ![Event]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1824,9 +1824,9 @@ instance ToXML LambdaFunctionConfiguration where
 
 -- | /See:/ 'lifecycleExpiration' smart constructor.
 data LifecycleExpiration = LifecycleExpiration'
-  { _leDays                      :: {-# NOUNPACK #-}!(Maybe Int)
-  , _leDate                      :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _leExpiredObjectDeleteMarker :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _leDays                      :: !(Maybe Int)
+  , _leDate                      :: !(Maybe RFC822)
+  , _leExpiredObjectDeleteMarker :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1877,15 +1877,15 @@ instance ToXML LifecycleExpiration where
 
 -- | /See:/ 'lifecycleRule' smart constructor.
 data LifecycleRule = LifecycleRule'
-  { _lrTransitions :: {-# NOUNPACK #-}!(Maybe [Transition])
-  , _lrNoncurrentVersionExpiration :: {-# NOUNPACK #-}!(Maybe NoncurrentVersionExpiration)
-  , _lrPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrNoncurrentVersionTransitions :: {-# NOUNPACK #-}!(Maybe [NoncurrentVersionTransition])
-  , _lrExpiration :: {-# NOUNPACK #-}!(Maybe LifecycleExpiration)
-  , _lrId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrFilter :: {-# NOUNPACK #-}!(Maybe LifecycleRuleFilter)
-  , _lrAbortIncompleteMultipartUpload :: {-# NOUNPACK #-}!(Maybe AbortIncompleteMultipartUpload)
-  , _lrStatus :: {-# NOUNPACK #-}!ExpirationStatus
+  { _lrTransitions                    :: !(Maybe [Transition])
+  , _lrNoncurrentVersionExpiration    :: !(Maybe NoncurrentVersionExpiration)
+  , _lrPrefix                         :: !(Maybe Text)
+  , _lrNoncurrentVersionTransitions   :: !(Maybe [NoncurrentVersionTransition])
+  , _lrExpiration                     :: !(Maybe LifecycleExpiration)
+  , _lrId                             :: !(Maybe Text)
+  , _lrFilter                         :: !(Maybe LifecycleRuleFilter)
+  , _lrAbortIncompleteMultipartUpload :: !(Maybe AbortIncompleteMultipartUpload)
+  , _lrStatus                         :: !ExpirationStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2001,8 +2001,8 @@ instance ToXML LifecycleRule where
 --
 -- /See:/ 'lifecycleRuleAndOperator' smart constructor.
 data LifecycleRuleAndOperator = LifecycleRuleAndOperator'
-  { _lraoPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lraoTags   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _lraoPrefix :: !(Maybe Text)
+  , _lraoTags   :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2047,9 +2047,9 @@ instance ToXML LifecycleRuleAndOperator where
 --
 -- /See:/ 'lifecycleRuleFilter' smart constructor.
 data LifecycleRuleFilter = LifecycleRuleFilter'
-  { _lrfTag    :: {-# NOUNPACK #-}!(Maybe Tag)
-  , _lrfPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lrfAnd    :: {-# NOUNPACK #-}!(Maybe LifecycleRuleAndOperator)
+  { _lrfTag    :: !(Maybe Tag)
+  , _lrfPrefix :: !(Maybe Text)
+  , _lrfAnd    :: !(Maybe LifecycleRuleAndOperator)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2098,9 +2098,9 @@ instance ToXML LifecycleRuleFilter where
 
 -- | /See:/ 'loggingEnabled' smart constructor.
 data LoggingEnabled = LoggingEnabled'
-  { _leTargetBucket :: {-# NOUNPACK #-}!(Maybe Text)
-  , _leTargetGrants :: {-# NOUNPACK #-}!(Maybe [TargetGrant])
-  , _leTargetPrefix :: {-# NOUNPACK #-}!(Maybe Text)
+  { _leTargetBucket :: !(Maybe Text)
+  , _leTargetGrants :: !(Maybe [TargetGrant])
+  , _leTargetPrefix :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2157,8 +2157,8 @@ instance ToXML LoggingEnabled where
 
 -- | /See:/ 'metricsAndOperator' smart constructor.
 data MetricsAndOperator = MetricsAndOperator'
-  { _maoPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _maoTags   :: {-# NOUNPACK #-}!(Maybe [Tag])
+  { _maoPrefix :: !(Maybe Text)
+  , _maoTags   :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2201,8 +2201,8 @@ instance ToXML MetricsAndOperator where
 
 -- | /See:/ 'metricsConfiguration' smart constructor.
 data MetricsConfiguration = MetricsConfiguration'
-  { _mcFilter :: {-# NOUNPACK #-}!(Maybe MetricsFilter)
-  , _mcId     :: {-# NOUNPACK #-}!Text
+  { _mcFilter :: !(Maybe MetricsFilter)
+  , _mcId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2243,9 +2243,9 @@ instance ToXML MetricsConfiguration where
 
 -- | /See:/ 'metricsFilter' smart constructor.
 data MetricsFilter = MetricsFilter'
-  { _mfTag    :: {-# NOUNPACK #-}!(Maybe Tag)
-  , _mfPrefix :: {-# NOUNPACK #-}!(Maybe Text)
-  , _mfAnd    :: {-# NOUNPACK #-}!(Maybe MetricsAndOperator)
+  { _mfTag    :: !(Maybe Tag)
+  , _mfPrefix :: !(Maybe Text)
+  , _mfAnd    :: !(Maybe MetricsAndOperator)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2293,12 +2293,12 @@ instance ToXML MetricsFilter where
 
 -- | /See:/ 'multipartUpload' smart constructor.
 data MultipartUpload = MultipartUpload'
-  { _muInitiated    :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _muInitiator    :: {-# NOUNPACK #-}!(Maybe Initiator)
-  , _muOwner        :: {-# NOUNPACK #-}!(Maybe Owner)
-  , _muKey          :: {-# NOUNPACK #-}!(Maybe ObjectKey)
-  , _muStorageClass :: {-# NOUNPACK #-}!(Maybe StorageClass)
-  , _muUploadId     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _muInitiated    :: !(Maybe RFC822)
+  , _muInitiator    :: !(Maybe Initiator)
+  , _muOwner        :: !(Maybe Owner)
+  , _muKey          :: !(Maybe ObjectKey)
+  , _muStorageClass :: !(Maybe StorageClass)
+  , _muUploadId     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2408,8 +2408,8 @@ instance ToXML NoncurrentVersionExpiration where
 --
 -- /See:/ 'noncurrentVersionTransition' smart constructor.
 data NoncurrentVersionTransition = NoncurrentVersionTransition'
-  { _nvtNoncurrentDays :: {-# NOUNPACK #-}!Int
-  , _nvtStorageClass   :: {-# NOUNPACK #-}!TransitionStorageClass
+  { _nvtNoncurrentDays :: !Int
+  , _nvtStorageClass   :: !TransitionStorageClass
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2456,9 +2456,9 @@ instance ToXML NoncurrentVersionTransition where
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { _ncQueueConfigurations :: {-# NOUNPACK #-}!(Maybe [QueueConfiguration])
-  , _ncTopicConfigurations :: {-# NOUNPACK #-}!(Maybe [TopicConfiguration])
-  , _ncLambdaFunctionConfigurations :: {-# NOUNPACK #-}!(Maybe [LambdaFunctionConfiguration])
+  { _ncQueueConfigurations          :: !(Maybe [QueueConfiguration])
+  , _ncTopicConfigurations          :: !(Maybe [TopicConfiguration])
+  , _ncLambdaFunctionConfigurations :: !(Maybe [LambdaFunctionConfiguration])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2558,12 +2558,12 @@ instance ToXML NotificationConfigurationFilter where
 
 -- | /See:/ 'object'' smart constructor.
 data Object = Object'
-  { _oOwner        :: {-# NOUNPACK #-}!(Maybe Owner)
-  , _oETag         :: {-# NOUNPACK #-}!ETag
-  , _oSize         :: {-# NOUNPACK #-}!Int
-  , _oKey          :: {-# NOUNPACK #-}!ObjectKey
-  , _oStorageClass :: {-# NOUNPACK #-}!ObjectStorageClass
-  , _oLastModified :: {-# NOUNPACK #-}!RFC822
+  { _oOwner        :: !(Maybe Owner)
+  , _oETag         :: !ETag
+  , _oSize         :: !Int
+  , _oKey          :: !ObjectKey
+  , _oStorageClass :: !ObjectStorageClass
+  , _oLastModified :: !RFC822
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2638,8 +2638,8 @@ instance NFData Object where
 
 -- | /See:/ 'objectIdentifier' smart constructor.
 data ObjectIdentifier = ObjectIdentifier'
-  { _oiVersionId :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _oiKey       :: {-# NOUNPACK #-}!ObjectKey
+  { _oiVersionId :: !(Maybe ObjectVersionId)
+  , _oiKey       :: !ObjectKey
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2676,14 +2676,14 @@ instance ToXML ObjectIdentifier where
 
 -- | /See:/ 'objectVersion' smart constructor.
 data ObjectVersion = ObjectVersion'
-  { _ovETag         :: {-# NOUNPACK #-}!(Maybe ETag)
-  , _ovVersionId    :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _ovSize         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ovIsLatest     :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ovOwner        :: {-# NOUNPACK #-}!(Maybe Owner)
-  , _ovKey          :: {-# NOUNPACK #-}!(Maybe ObjectKey)
-  , _ovStorageClass :: {-# NOUNPACK #-}!(Maybe ObjectVersionStorageClass)
-  , _ovLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  { _ovETag         :: !(Maybe ETag)
+  , _ovVersionId    :: !(Maybe ObjectVersionId)
+  , _ovSize         :: !(Maybe Int)
+  , _ovIsLatest     :: !(Maybe Bool)
+  , _ovOwner        :: !(Maybe Owner)
+  , _ovKey          :: !(Maybe ObjectKey)
+  , _ovStorageClass :: !(Maybe ObjectVersionStorageClass)
+  , _ovLastModified :: !(Maybe RFC822)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2770,8 +2770,8 @@ instance NFData ObjectVersion where
 
 -- | /See:/ 'owner' smart constructor.
 data Owner = Owner'
-  { _oDisplayName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _oId          :: {-# NOUNPACK #-}!(Maybe Text)
+  { _oDisplayName :: !(Maybe Text)
+  , _oId          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2810,10 +2810,10 @@ instance ToXML Owner where
 
 -- | /See:/ 'part' smart constructor.
 data Part = Part'
-  { _pETag         :: {-# NOUNPACK #-}!(Maybe ETag)
-  , _pSize         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pPartNumber   :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pLastModified :: {-# NOUNPACK #-}!(Maybe RFC822)
+  { _pETag         :: !(Maybe ETag)
+  , _pSize         :: !(Maybe Int)
+  , _pPartNumber   :: !(Maybe Int)
+  , _pLastModified :: !(Maybe RFC822)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2870,10 +2870,10 @@ instance NFData Part where
 --
 -- /See:/ 'queueConfiguration' smart constructor.
 data QueueConfiguration = QueueConfiguration'
-  { _qcId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _qcFilter   :: {-# NOUNPACK #-}!(Maybe NotificationConfigurationFilter)
-  , _qcQueueARN :: {-# NOUNPACK #-}!Text
-  , _qcEvents   :: {-# NOUNPACK #-}![Event]
+  { _qcId       :: !(Maybe Text)
+  , _qcFilter   :: !(Maybe NotificationConfigurationFilter)
+  , _qcQueueARN :: !Text
+  , _qcEvents   :: ![Event]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2934,11 +2934,11 @@ instance ToXML QueueConfiguration where
 
 -- | /See:/ 'redirect' smart constructor.
 data Redirect = Redirect'
-  { _rHostName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rProtocol             :: {-# NOUNPACK #-}!(Maybe Protocol)
-  , _rHTTPRedirectCode     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rReplaceKeyWith       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rReplaceKeyPrefixWith :: {-# NOUNPACK #-}!(Maybe Text)
+  { _rHostName             :: !(Maybe Text)
+  , _rProtocol             :: !(Maybe Protocol)
+  , _rHTTPRedirectCode     :: !(Maybe Text)
+  , _rReplaceKeyWith       :: !(Maybe Text)
+  , _rReplaceKeyPrefixWith :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3009,8 +3009,8 @@ instance ToXML Redirect where
 
 -- | /See:/ 'redirectAllRequestsTo' smart constructor.
 data RedirectAllRequestsTo = RedirectAllRequestsTo'
-  { _rartProtocol :: {-# NOUNPACK #-}!(Maybe Protocol)
-  , _rartHostName :: {-# NOUNPACK #-}!Text
+  { _rartProtocol :: !(Maybe Protocol)
+  , _rartHostName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3055,8 +3055,8 @@ instance ToXML RedirectAllRequestsTo where
 --
 -- /See:/ 'replicationConfiguration' smart constructor.
 data ReplicationConfiguration = ReplicationConfiguration'
-  { _rcRole  :: {-# NOUNPACK #-}!Text
-  , _rcRules :: {-# NOUNPACK #-}![ReplicationRule]
+  { _rcRole  :: !Text
+  , _rcRules :: ![ReplicationRule]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3100,11 +3100,11 @@ instance ToXML ReplicationConfiguration where
 --
 -- /See:/ 'replicationRule' smart constructor.
 data ReplicationRule = ReplicationRule'
-  { _rrId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrSourceSelectionCriteria :: {-# NOUNPACK #-}!(Maybe SourceSelectionCriteria)
-  , _rrPrefix :: {-# NOUNPACK #-}!Text
-  , _rrStatus :: {-# NOUNPACK #-}!ReplicationRuleStatus
-  , _rrDestination :: {-# NOUNPACK #-}!Destination
+  { _rrId                      :: !(Maybe Text)
+  , _rrSourceSelectionCriteria :: !(Maybe SourceSelectionCriteria)
+  , _rrPrefix                  :: !Text
+  , _rrStatus                  :: !ReplicationRuleStatus
+  , _rrDestination             :: !Destination
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3209,8 +3209,8 @@ instance ToXML RequestPaymentConfiguration where
 
 -- | /See:/ 'restoreRequest' smart constructor.
 data RestoreRequest = RestoreRequest'
-  { _rrGlacierJobParameters :: {-# NOUNPACK #-}!(Maybe GlacierJobParameters)
-  , _rrDays                 :: {-# NOUNPACK #-}!Int
+  { _rrGlacierJobParameters :: !(Maybe GlacierJobParameters)
+  , _rrDays                 :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3248,8 +3248,8 @@ instance ToXML RestoreRequest where
 
 -- | /See:/ 'routingRule' smart constructor.
 data RoutingRule = RoutingRule'
-  { _rrCondition :: {-# NOUNPACK #-}!(Maybe Condition)
-  , _rrRedirect  :: {-# NOUNPACK #-}!Redirect
+  { _rrCondition :: !(Maybe Condition)
+  , _rrRedirect  :: !Redirect
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3328,10 +3328,10 @@ instance ToXML S3KeyFilter where
 
 -- | /See:/ 's3ServiceError' smart constructor.
 data S3ServiceError = S3ServiceError'
-  { _sseVersionId :: {-# NOUNPACK #-}!(Maybe ObjectVersionId)
-  , _sseKey       :: {-# NOUNPACK #-}!(Maybe ObjectKey)
-  , _sseCode      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sseMessage   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _sseVersionId :: !(Maybe ObjectVersionId)
+  , _sseKey       :: !(Maybe ObjectKey)
+  , _sseCode      :: !(Maybe Text)
+  , _sseMessage   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3446,8 +3446,8 @@ instance ToXML SSES3 where
 --
 -- /See:/ 'serverSideEncryptionByDefault' smart constructor.
 data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
-  { _ssebdKMSMasterKeyId :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _ssebdSSEAlgorithm   :: {-# NOUNPACK #-}!ServerSideEncryption
+  { _ssebdKMSMasterKeyId :: !(Maybe (Sensitive Text))
+  , _ssebdSSEAlgorithm   :: !ServerSideEncryption
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -3675,8 +3675,8 @@ instance ToXML StorageClassAnalysis where
 
 -- | /See:/ 'storageClassAnalysisDataExport' smart constructor.
 data StorageClassAnalysisDataExport = StorageClassAnalysisDataExport'
-  { _scadeOutputSchemaVersion :: {-# NOUNPACK #-}!StorageClassAnalysisSchemaVersion
-  , _scadeDestination :: {-# NOUNPACK #-}!AnalyticsExportDestination
+  { _scadeOutputSchemaVersion :: !StorageClassAnalysisSchemaVersion
+  , _scadeDestination         :: !AnalyticsExportDestination
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3724,8 +3724,8 @@ instance ToXML StorageClassAnalysisDataExport where
 
 -- | /See:/ 'tag' smart constructor.
 data Tag = Tag'
-  { _tagKey   :: {-# NOUNPACK #-}!ObjectKey
-  , _tagValue :: {-# NOUNPACK #-}!Text
+  { _tagKey   :: !ObjectKey
+  , _tagValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3792,8 +3792,8 @@ instance ToXML Tagging where
 
 -- | /See:/ 'targetGrant' smart constructor.
 data TargetGrant = TargetGrant'
-  { _tgPermission :: {-# NOUNPACK #-}!(Maybe BucketLogsPermission)
-  , _tgGrantee    :: {-# NOUNPACK #-}!(Maybe Grantee)
+  { _tgPermission :: !(Maybe BucketLogsPermission)
+  , _tgGrantee    :: !(Maybe Grantee)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3836,10 +3836,10 @@ instance ToXML TargetGrant where
 --
 -- /See:/ 'topicConfiguration' smart constructor.
 data TopicConfiguration = TopicConfiguration'
-  { _tcId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _tcFilter   :: {-# NOUNPACK #-}!(Maybe NotificationConfigurationFilter)
-  , _tcTopicARN :: {-# NOUNPACK #-}!Text
-  , _tcEvents   :: {-# NOUNPACK #-}![Event]
+  { _tcId       :: !(Maybe Text)
+  , _tcFilter   :: !(Maybe NotificationConfigurationFilter)
+  , _tcTopicARN :: !Text
+  , _tcEvents   :: ![Event]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3900,9 +3900,9 @@ instance ToXML TopicConfiguration where
 
 -- | /See:/ 'transition' smart constructor.
 data Transition = Transition'
-  { _tDays         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _tDate         :: {-# NOUNPACK #-}!(Maybe RFC822)
-  , _tStorageClass :: {-# NOUNPACK #-}!(Maybe TransitionStorageClass)
+  { _tDays         :: !(Maybe Int)
+  , _tDate         :: !(Maybe RFC822)
+  , _tStorageClass :: !(Maybe TransitionStorageClass)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3951,8 +3951,8 @@ instance ToXML Transition where
 
 -- | /See:/ 'versioningConfiguration' smart constructor.
 data VersioningConfiguration = VersioningConfiguration'
-  { _vcStatus    :: {-# NOUNPACK #-}!(Maybe BucketVersioningStatus)
-  , _vcMFADelete :: {-# NOUNPACK #-}!(Maybe MFADelete)
+  { _vcStatus    :: !(Maybe BucketVersioningStatus)
+  , _vcMFADelete :: !(Maybe MFADelete)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3988,10 +3988,10 @@ instance ToXML VersioningConfiguration where
 
 -- | /See:/ 'websiteConfiguration' smart constructor.
 data WebsiteConfiguration = WebsiteConfiguration'
-  { _wcRedirectAllRequestsTo :: {-# NOUNPACK #-}!(Maybe RedirectAllRequestsTo)
-  , _wcErrorDocument         :: {-# NOUNPACK #-}!(Maybe ErrorDocument)
-  , _wcIndexDocument         :: {-# NOUNPACK #-}!(Maybe IndexDocument)
-  , _wcRoutingRules          :: {-# NOUNPACK #-}!(Maybe [RoutingRule])
+  { _wcRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
+  , _wcErrorDocument         :: !(Maybe ErrorDocument)
+  , _wcIndexDocument         :: !(Maybe IndexDocument)
+  , _wcRoutingRules          :: !(Maybe [RoutingRule])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

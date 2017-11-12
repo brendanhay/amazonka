@@ -69,9 +69,9 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'pollForActivityTask' smart constructor.
 data PollForActivityTask = PollForActivityTask'
-  { _pfatIdentity :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pfatDomain   :: {-# NOUNPACK #-}!Text
-  , _pfatTaskList :: {-# NOUNPACK #-}!TaskList
+  { _pfatIdentity :: !(Maybe Text)
+  , _pfatDomain   :: !Text
+  , _pfatTaskList :: !TaskList
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,13 +154,13 @@ instance ToQuery PollForActivityTask where
 --
 -- /See:/ 'pollForActivityTaskResponse' smart constructor.
 data PollForActivityTaskResponse = PollForActivityTaskResponse'
-  { _pfatrsActivityType      :: {-# NOUNPACK #-}!(Maybe ActivityType)
-  , _pfatrsActivityId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pfatrsInput             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pfatrsTaskToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pfatrsWorkflowExecution :: {-# NOUNPACK #-}!(Maybe WorkflowExecution)
-  , _pfatrsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _pfatrsStartedEventId    :: {-# NOUNPACK #-}!Integer
+  { _pfatrsActivityType      :: !(Maybe ActivityType)
+  , _pfatrsActivityId        :: !(Maybe Text)
+  , _pfatrsInput             :: !(Maybe Text)
+  , _pfatrsTaskToken         :: !(Maybe Text)
+  , _pfatrsWorkflowExecution :: !(Maybe WorkflowExecution)
+  , _pfatrsResponseStatus    :: !Int
+  , _pfatrsStartedEventId    :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

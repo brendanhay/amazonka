@@ -116,8 +116,8 @@ instance ToQuery DescribeConfigurationRecorders where
 --
 -- /See:/ 'describeConfigurationRecordersResponse' smart constructor.
 data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'
-  { _drsConfigurationRecorders :: {-# NOUNPACK #-}!(Maybe [ConfigurationRecorder])
-  , _drsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _drsConfigurationRecorders :: !(Maybe [ConfigurationRecorder])
+  , _drsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

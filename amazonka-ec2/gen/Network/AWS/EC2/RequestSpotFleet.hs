@@ -59,8 +59,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'requestSpotFleet' smart constructor.
 data RequestSpotFleet = RequestSpotFleet'
-  { _rsfDryRun                 :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rsfSpotFleetRequestConfig :: {-# NOUNPACK #-}!SpotFleetRequestConfigData
+  { _rsfDryRun                 :: !(Maybe Bool)
+  , _rsfSpotFleetRequestConfig :: !SpotFleetRequestConfigData
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery RequestSpotFleet where
 --
 -- /See:/ 'requestSpotFleetResponse' smart constructor.
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
-  { _rsfrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _rsfrsSpotFleetRequestId :: {-# NOUNPACK #-}!Text
+  { _rsfrsResponseStatus     :: !Int
+  , _rsfrsSpotFleetRequestId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

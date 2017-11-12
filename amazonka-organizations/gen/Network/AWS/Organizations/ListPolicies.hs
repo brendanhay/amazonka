@@ -54,9 +54,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listPolicies' smart constructor.
 data ListPolicies = ListPolicies'
-  { _lpNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lpMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lpFilter     :: {-# NOUNPACK #-}!PolicyType
+  { _lpNextToken  :: !(Maybe Text)
+  , _lpMaxResults :: !(Maybe Nat)
+  , _lpFilter     :: !PolicyType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,9 +136,9 @@ instance ToQuery ListPolicies where
 
 -- | /See:/ 'listPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
-  { _lprsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lprsPolicies       :: {-# NOUNPACK #-}!(Maybe [PolicySummary])
-  , _lprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lprsNextToken      :: !(Maybe Text)
+  , _lprsPolicies       :: !(Maybe [PolicySummary])
+  , _lprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

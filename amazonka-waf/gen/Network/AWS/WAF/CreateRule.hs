@@ -75,9 +75,9 @@ import Network.AWS.WAF.Types.Product
 
 -- | /See:/ 'createRule' smart constructor.
 data CreateRule = CreateRule'
-  { _crName        :: {-# NOUNPACK #-}!Text
-  , _crMetricName  :: {-# NOUNPACK #-}!Text
-  , _crChangeToken :: {-# NOUNPACK #-}!Text
+  { _crName        :: !Text
+  , _crMetricName  :: !Text
+  , _crChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -154,9 +154,9 @@ instance ToQuery CreateRule where
 
 -- | /See:/ 'createRuleResponse' smart constructor.
 data CreateRuleResponse = CreateRuleResponse'
-  { _crrsRule           :: {-# NOUNPACK #-}!(Maybe Rule)
-  , _crrsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _crrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _crrsRule           :: !(Maybe Rule)
+  , _crrsChangeToken    :: !(Maybe Text)
+  , _crrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

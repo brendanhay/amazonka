@@ -52,10 +52,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'listUsersInGroup' smart constructor.
 data ListUsersInGroup = ListUsersInGroup'
-  { _luigNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luigLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _luigUserPoolId :: {-# NOUNPACK #-}!Text
-  , _luigGroupName  :: {-# NOUNPACK #-}!Text
+  { _luigNextToken  :: !(Maybe Text)
+  , _luigLimit      :: !(Maybe Nat)
+  , _luigUserPoolId :: !Text
+  , _luigGroupName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -140,9 +140,9 @@ instance ToQuery ListUsersInGroup where
 
 -- | /See:/ 'listUsersInGroupResponse' smart constructor.
 data ListUsersInGroupResponse = ListUsersInGroupResponse'
-  { _luigrsUsers          :: {-# NOUNPACK #-}!(Maybe [UserType])
-  , _luigrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _luigrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _luigrsUsers          :: !(Maybe [UserType])
+  , _luigrsNextToken      :: !(Maybe Text)
+  , _luigrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

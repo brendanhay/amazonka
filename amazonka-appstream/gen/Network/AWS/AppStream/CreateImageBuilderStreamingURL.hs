@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createImageBuilderStreamingURL' smart constructor.
 data CreateImageBuilderStreamingURL = CreateImageBuilderStreamingURL'
-  { _cibsuValidity :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _cibsuName     :: {-# NOUNPACK #-}!Text
+  { _cibsuValidity :: !(Maybe Integer)
+  , _cibsuName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,9 +117,9 @@ instance ToQuery CreateImageBuilderStreamingURL where
 
 -- | /See:/ 'createImageBuilderStreamingURLResponse' smart constructor.
 data CreateImageBuilderStreamingURLResponse = CreateImageBuilderStreamingURLResponse'
-  { _cibsursStreamingURL   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cibsursExpires        :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _cibsursResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cibsursStreamingURL   :: !(Maybe Text)
+  , _cibsursExpires        :: !(Maybe POSIX)
+  , _cibsursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

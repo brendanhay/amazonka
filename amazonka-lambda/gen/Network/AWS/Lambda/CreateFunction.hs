@@ -84,21 +84,21 @@ import Network.AWS.Response
 --
 -- /See:/ 'createFunction' smart constructor.
 data CreateFunction = CreateFunction'
-  { _cfMemorySize       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cfKMSKeyARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfEnvironment      :: {-# NOUNPACK #-}!(Maybe Environment)
-  , _cfDeadLetterConfig :: {-# NOUNPACK #-}!(Maybe DeadLetterConfig)
-  , _cfVPCConfig        :: {-# NOUNPACK #-}!(Maybe VPCConfig)
-  , _cfTimeout          :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _cfTracingConfig    :: {-# NOUNPACK #-}!(Maybe TracingConfig)
-  , _cfDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfTags             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cfPublish          :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cfFunctionName     :: {-# NOUNPACK #-}!Text
-  , _cfRuntime          :: {-# NOUNPACK #-}!Runtime
-  , _cfRole             :: {-# NOUNPACK #-}!Text
-  , _cfHandler          :: {-# NOUNPACK #-}!Text
-  , _cfCode             :: {-# NOUNPACK #-}!FunctionCode
+  { _cfMemorySize       :: !(Maybe Nat)
+  , _cfKMSKeyARN        :: !(Maybe Text)
+  , _cfEnvironment      :: !(Maybe Environment)
+  , _cfDeadLetterConfig :: !(Maybe DeadLetterConfig)
+  , _cfVPCConfig        :: !(Maybe VPCConfig)
+  , _cfTimeout          :: !(Maybe Nat)
+  , _cfTracingConfig    :: !(Maybe TracingConfig)
+  , _cfDescription      :: !(Maybe Text)
+  , _cfTags             :: !(Maybe (Map Text Text))
+  , _cfPublish          :: !(Maybe Bool)
+  , _cfFunctionName     :: !Text
+  , _cfRuntime          :: !Runtime
+  , _cfRole             :: !Text
+  , _cfHandler          :: !Text
+  , _cfCode             :: !FunctionCode
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

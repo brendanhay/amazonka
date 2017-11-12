@@ -65,18 +65,18 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { _deRequestId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deTemplateName    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deStartTime       :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _deSeverity        :: {-# NOUNPACK #-}!(Maybe EventSeverity)
-  , _deNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deVersionLabel    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dePlatformARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deMaxRecords      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _deEndTime         :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _deApplicationName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _deRequestId       :: !(Maybe Text)
+  , _deTemplateName    :: !(Maybe Text)
+  , _deStartTime       :: !(Maybe ISO8601)
+  , _deSeverity        :: !(Maybe EventSeverity)
+  , _deNextToken       :: !(Maybe Text)
+  , _deVersionLabel    :: !(Maybe Text)
+  , _dePlatformARN     :: !(Maybe Text)
+  , _deEnvironmentName :: !(Maybe Text)
+  , _deMaxRecords      :: !(Maybe Nat)
+  , _deEndTime         :: !(Maybe ISO8601)
+  , _deApplicationName :: !(Maybe Text)
+  , _deEnvironmentId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -227,9 +227,9 @@ instance ToQuery DescribeEvents where
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { _dersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dersEvents         :: {-# NOUNPACK #-}!(Maybe [EventDescription])
-  , _dersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dersNextToken      :: !(Maybe Text)
+  , _dersEvents         :: !(Maybe [EventDescription])
+  , _dersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

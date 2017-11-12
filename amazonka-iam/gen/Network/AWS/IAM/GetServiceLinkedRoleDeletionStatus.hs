@@ -106,9 +106,9 @@ instance ToQuery GetServiceLinkedRoleDeletionStatus
 
 -- | /See:/ 'getServiceLinkedRoleDeletionStatusResponse' smart constructor.
 data GetServiceLinkedRoleDeletionStatusResponse = GetServiceLinkedRoleDeletionStatusResponse'
-  { _gslrdsrsReason :: {-# NOUNPACK #-}!(Maybe DeletionTaskFailureReasonType)
-  , _gslrdsrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _gslrdsrsStatus :: {-# NOUNPACK #-}!DeletionTaskStatusType
+  { _gslrdsrsReason         :: !(Maybe DeletionTaskFailureReasonType)
+  , _gslrdsrsResponseStatus :: !Int
+  , _gslrdsrsStatus         :: !DeletionTaskStatusType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -61,14 +61,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'testInvokeMethod' smart constructor.
 data TestInvokeMethod = TestInvokeMethod'
-  { _timPathWithQueryString :: {-# NOUNPACK #-}!(Maybe Text)
-  , _timBody                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _timClientCertificateId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _timStageVariables      :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _timHeaders             :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _timRestAPIId           :: {-# NOUNPACK #-}!Text
-  , _timResourceId          :: {-# NOUNPACK #-}!Text
-  , _timHttpMethod          :: {-# NOUNPACK #-}!Text
+  { _timPathWithQueryString :: !(Maybe Text)
+  , _timBody                :: !(Maybe Text)
+  , _timClientCertificateId :: !(Maybe Text)
+  , _timStageVariables      :: !(Maybe (Map Text Text))
+  , _timHeaders             :: !(Maybe (Map Text Text))
+  , _timRestAPIId           :: !Text
+  , _timResourceId          :: !Text
+  , _timHttpMethod          :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -192,12 +192,12 @@ instance ToQuery TestInvokeMethod where
 --
 -- /See:/ 'testInvokeMethodResponse' smart constructor.
 data TestInvokeMethodResponse = TestInvokeMethodResponse'
-  { _timrsLog            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _timrsStatus         :: {-# NOUNPACK #-}!(Maybe Int)
-  , _timrsBody           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _timrsLatency        :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _timrsHeaders        :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _timrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _timrsLog            :: !(Maybe Text)
+  , _timrsStatus         :: !(Maybe Int)
+  , _timrsBody           :: !(Maybe Text)
+  , _timrsLatency        :: !(Maybe Integer)
+  , _timrsHeaders        :: !(Maybe (Map Text Text))
+  , _timrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

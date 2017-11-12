@@ -104,8 +104,8 @@ instance ToQuery DescribeProtection where
 
 -- | /See:/ 'describeProtectionResponse' smart constructor.
 data DescribeProtectionResponse = DescribeProtectionResponse'
-  { _dprsProtection     :: {-# NOUNPACK #-}!(Maybe Protection)
-  , _dprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dprsProtection     :: !(Maybe Protection)
+  , _dprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

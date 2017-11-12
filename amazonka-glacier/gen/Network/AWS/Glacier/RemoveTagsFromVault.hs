@@ -49,9 +49,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'removeTagsFromVault' smart constructor.
 data RemoveTagsFromVault = RemoveTagsFromVault'
-  { _rtfvTagKeys   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _rtfvAccountId :: {-# NOUNPACK #-}!Text
-  , _rtfvVaultName :: {-# NOUNPACK #-}!Text
+  { _rtfvTagKeys   :: !(Maybe [Text])
+  , _rtfvAccountId :: !Text
+  , _rtfvVaultName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

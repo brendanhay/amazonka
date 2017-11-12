@@ -102,8 +102,8 @@ instance ToQuery ListPolicyVersions where
 --
 -- /See:/ 'listPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-  { _lpvrsPolicyVersions :: {-# NOUNPACK #-}!(Maybe [PolicyVersion])
-  , _lpvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lpvrsPolicyVersions :: !(Maybe [PolicyVersion])
+  , _lpvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

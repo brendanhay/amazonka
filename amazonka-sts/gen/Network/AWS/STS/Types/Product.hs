@@ -27,8 +27,8 @@ import Network.AWS.STS.Types.Sum
 --
 -- /See:/ 'assumedRoleUser' smart constructor.
 data AssumedRoleUser = AssumedRoleUser'
-  { _aruAssumedRoleId :: {-# NOUNPACK #-}!Text
-  , _aruARN           :: {-# NOUNPACK #-}!Text
+  { _aruAssumedRoleId :: !Text
+  , _aruARN           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -70,8 +70,8 @@ instance NFData AssumedRoleUser where
 --
 -- /See:/ 'federatedUser' smart constructor.
 data FederatedUser = FederatedUser'
-  { _fuFederatedUserId :: {-# NOUNPACK #-}!Text
-  , _fuARN             :: {-# NOUNPACK #-}!Text
+  { _fuFederatedUserId :: !Text
+  , _fuARN             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

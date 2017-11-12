@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
-  { _dApplicationName :: {-# NOUNPACK #-}!Text
-  , _dCreateTimestamp :: {-# NOUNPACK #-}!POSIX
+  { _dApplicationName :: !Text
+  , _dCreateTimestamp :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

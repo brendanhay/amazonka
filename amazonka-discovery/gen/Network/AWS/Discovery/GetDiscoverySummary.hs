@@ -100,13 +100,13 @@ instance ToQuery GetDiscoverySummary where
 
 -- | /See:/ 'getDiscoverySummaryResponse' smart constructor.
 data GetDiscoverySummaryResponse = GetDiscoverySummaryResponse'
-  { _gdsrsServers :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gdsrsServersMappedtoTags :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gdsrsServersMappedToApplications :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gdsrsConnectorSummary :: {-# NOUNPACK #-}!(Maybe CustomerConnectorInfo)
-  , _gdsrsAgentSummary :: {-# NOUNPACK #-}!(Maybe CustomerAgentInfo)
-  , _gdsrsApplications :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _gdsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdsrsServers                     :: !(Maybe Integer)
+  , _gdsrsServersMappedtoTags         :: !(Maybe Integer)
+  , _gdsrsServersMappedToApplications :: !(Maybe Integer)
+  , _gdsrsConnectorSummary            :: !(Maybe CustomerConnectorInfo)
+  , _gdsrsAgentSummary                :: !(Maybe CustomerAgentInfo)
+  , _gdsrsApplications                :: !(Maybe Integer)
+  , _gdsrsResponseStatus              :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

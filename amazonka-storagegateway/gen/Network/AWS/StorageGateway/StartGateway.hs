@@ -111,8 +111,8 @@ instance ToQuery StartGateway where
 --
 -- /See:/ 'startGatewayResponse' smart constructor.
 data StartGatewayResponse = StartGatewayResponse'
-  { _sgrsGatewayARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sgrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _sgrsGatewayARN     :: !(Maybe Text)
+  , _sgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

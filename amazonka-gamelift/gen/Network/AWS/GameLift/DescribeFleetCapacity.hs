@@ -105,9 +105,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeFleetCapacity' smart constructor.
 data DescribeFleetCapacity = DescribeFleetCapacity'
-  { _dfcNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfcLimit     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _dfcFleetIds  :: {-# NOUNPACK #-}!(Maybe (List1 Text))
+  { _dfcNextToken :: !(Maybe Text)
+  , _dfcLimit     :: !(Maybe Nat)
+  , _dfcFleetIds  :: !(Maybe (List1 Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -184,9 +184,9 @@ instance ToQuery DescribeFleetCapacity where
 --
 -- /See:/ 'describeFleetCapacityResponse' smart constructor.
 data DescribeFleetCapacityResponse = DescribeFleetCapacityResponse'
-  { _dfcrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dfcrsFleetCapacity  :: {-# NOUNPACK #-}!(Maybe [FleetCapacity])
-  , _dfcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dfcrsNextToken      :: !(Maybe Text)
+  , _dfcrsFleetCapacity  :: !(Maybe [FleetCapacity])
+  , _dfcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'removeListenerCertificates' smart constructor.
 data RemoveListenerCertificates = RemoveListenerCertificates'
-  { _rlcListenerARN  :: {-# NOUNPACK #-}!Text
-  , _rlcCertificates :: {-# NOUNPACK #-}![Certificate]
+  { _rlcListenerARN  :: !Text
+  , _rlcCertificates :: ![Certificate]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

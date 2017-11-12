@@ -50,8 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteLifecyclePolicy' smart constructor.
 data DeleteLifecyclePolicy = DeleteLifecyclePolicy'
-  { _dlpRegistryId     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlpRepositoryName :: {-# NOUNPACK #-}!Text
+  { _dlpRegistryId     :: !(Maybe Text)
+  , _dlpRepositoryName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,11 +120,11 @@ instance ToQuery DeleteLifecyclePolicy where
 
 -- | /See:/ 'deleteLifecyclePolicyResponse' smart constructor.
 data DeleteLifecyclePolicyResponse = DeleteLifecyclePolicyResponse'
-  { _dlprsRegistryId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlprsLastEvaluatedAt     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _dlprsLifecyclePolicyText :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlprsRepositoryName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dlprsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _dlprsRegistryId          :: !(Maybe Text)
+  , _dlprsLastEvaluatedAt     :: !(Maybe POSIX)
+  , _dlprsLifecyclePolicyText :: !(Maybe Text)
+  , _dlprsRepositoryName      :: !(Maybe Text)
+  , _dlprsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

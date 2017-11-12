@@ -99,8 +99,8 @@ instance ToQuery StopTrigger where
 
 -- | /See:/ 'stopTriggerResponse' smart constructor.
 data StopTriggerResponse = StopTriggerResponse'
-  { _strsName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _strsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _strsName           :: !(Maybe Text)
+  , _strsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

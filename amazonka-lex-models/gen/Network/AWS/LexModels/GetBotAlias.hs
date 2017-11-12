@@ -55,8 +55,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getBotAlias' smart constructor.
 data GetBotAlias = GetBotAlias'
-  { _gbasName    :: {-# NOUNPACK #-}!Text
-  , _gbasBotName :: {-# NOUNPACK #-}!Text
+  { _gbasName    :: !Text
+  , _gbasBotName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,14 +120,14 @@ instance ToQuery GetBotAlias where
 
 -- | /See:/ 'getBotAliasResponse' smart constructor.
 data GetBotAliasResponse = GetBotAliasResponse'
-  { _gbasrsChecksum        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbasrsBotVersion      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbasrsBotName         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbasrsCreatedDate     :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gbasrsName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbasrsLastUpdatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gbasrsDescription     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbasrsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _gbasrsChecksum        :: !(Maybe Text)
+  , _gbasrsBotVersion      :: !(Maybe Text)
+  , _gbasrsBotName         :: !(Maybe Text)
+  , _gbasrsCreatedDate     :: !(Maybe POSIX)
+  , _gbasrsName            :: !(Maybe Text)
+  , _gbasrsLastUpdatedDate :: !(Maybe POSIX)
+  , _gbasrsDescription     :: !(Maybe Text)
+  , _gbasrsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

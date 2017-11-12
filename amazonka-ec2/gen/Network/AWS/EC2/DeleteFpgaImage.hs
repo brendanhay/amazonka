@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteFpgaImage' smart constructor.
 data DeleteFpgaImage = DeleteFpgaImage'
-  { _dfiDryRun      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dfiFpgaImageId :: {-# NOUNPACK #-}!Text
+  { _dfiDryRun      :: !(Maybe Bool)
+  , _dfiFpgaImageId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -103,8 +103,8 @@ instance ToQuery DeleteFpgaImage where
 
 -- | /See:/ 'deleteFpgaImageResponse' smart constructor.
 data DeleteFpgaImageResponse = DeleteFpgaImageResponse'
-  { _delrsReturn         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _delrsReturn         :: !(Maybe Bool)
+  , _delrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

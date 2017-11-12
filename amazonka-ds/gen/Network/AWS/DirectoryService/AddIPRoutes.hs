@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'addIPRoutes' smart constructor.
 data AddIPRoutes = AddIPRoutes'
-  { _airUpdateSecurityGroupForDirectoryControllers :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _airDirectoryId :: {-# NOUNPACK #-}!Text
-  , _airIPRoutes :: {-# NOUNPACK #-}![IPRoute]
+  { _airUpdateSecurityGroupForDirectoryControllers :: !(Maybe Bool)
+  , _airDirectoryId                                :: !Text
+  , _airIPRoutes                                   :: ![IPRoute]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

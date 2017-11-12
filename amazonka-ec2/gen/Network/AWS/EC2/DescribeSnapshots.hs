@@ -82,13 +82,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
-  { _dssOwnerIds            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dssFilters             :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dssNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dssSnapshotIds         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dssRestorableByUserIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dssDryRun              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dssMaxResults          :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dssOwnerIds            :: !(Maybe [Text])
+  , _dssFilters             :: !(Maybe [Filter])
+  , _dssNextToken           :: !(Maybe Text)
+  , _dssSnapshotIds         :: !(Maybe [Text])
+  , _dssRestorableByUserIds :: !(Maybe [Text])
+  , _dssDryRun              :: !(Maybe Bool)
+  , _dssMaxResults          :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -202,9 +202,9 @@ instance ToQuery DescribeSnapshots where
 --
 -- /See:/ 'describeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-  { _dssrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dssrsSnapshots      :: {-# NOUNPACK #-}!(Maybe [Snapshot])
-  , _dssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dssrsNextToken      :: !(Maybe Text)
+  , _dssrsSnapshots      :: !(Maybe [Snapshot])
+  , _dssrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

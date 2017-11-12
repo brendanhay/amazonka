@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getEndpoint' smart constructor.
 data GetEndpoint = GetEndpoint'
-  { _geApplicationId :: {-# NOUNPACK #-}!Text
-  , _geEndpointId    :: {-# NOUNPACK #-}!Text
+  { _geApplicationId :: !Text
+  , _geEndpointId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -105,8 +105,8 @@ instance ToQuery GetEndpoint where
 
 -- | /See:/ 'getEndpointResponse' smart constructor.
 data GetEndpointResponse = GetEndpointResponse'
-  { _gersResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _gersEndpointResponse :: {-# NOUNPACK #-}!EndpointResponse
+  { _gersResponseStatus   :: !Int
+  , _gersEndpointResponse :: !EndpointResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

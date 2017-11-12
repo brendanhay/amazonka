@@ -60,18 +60,18 @@ import Network.AWS.Response
 
 -- | /See:/ 'putScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-  { _pspMinAdjustmentStep :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pspEstimatedInstanceWarmup :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pspPolicyType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pspStepAdjustments :: {-# NOUNPACK #-}!(Maybe [StepAdjustment])
-  , _pspTargetTrackingConfiguration :: {-# NOUNPACK #-}!(Maybe TargetTrackingConfiguration)
-  , _pspAdjustmentType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pspScalingAdjustment :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pspCooldown :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pspMetricAggregationType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pspMinAdjustmentMagnitude :: {-# NOUNPACK #-}!(Maybe Int)
-  , _pspAutoScalingGroupName :: {-# NOUNPACK #-}!Text
-  , _pspPolicyName :: {-# NOUNPACK #-}!Text
+  { _pspMinAdjustmentStep           :: !(Maybe Int)
+  , _pspEstimatedInstanceWarmup     :: !(Maybe Int)
+  , _pspPolicyType                  :: !(Maybe Text)
+  , _pspStepAdjustments             :: !(Maybe [StepAdjustment])
+  , _pspTargetTrackingConfiguration :: !(Maybe TargetTrackingConfiguration)
+  , _pspAdjustmentType              :: !(Maybe Text)
+  , _pspScalingAdjustment           :: !(Maybe Int)
+  , _pspCooldown                    :: !(Maybe Int)
+  , _pspMetricAggregationType       :: !(Maybe Text)
+  , _pspMinAdjustmentMagnitude      :: !(Maybe Int)
+  , _pspAutoScalingGroupName        :: !Text
+  , _pspPolicyName                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -222,9 +222,9 @@ instance ToQuery PutScalingPolicy where
 --
 -- /See:/ 'putScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-  { _psprsPolicyARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _psprsAlarms         :: {-# NOUNPACK #-}!(Maybe [Alarm])
-  , _psprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _psprsPolicyARN      :: !(Maybe Text)
+  , _psprsAlarms         :: !(Maybe [Alarm])
+  , _psprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

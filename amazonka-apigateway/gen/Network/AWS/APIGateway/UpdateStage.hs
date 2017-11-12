@@ -62,9 +62,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateStage' smart constructor.
 data UpdateStage = UpdateStage'
-  { _usPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
-  , _usRestAPIId       :: {-# NOUNPACK #-}!Text
-  , _usStageName       :: {-# NOUNPACK #-}!Text
+  { _usPatchOperations :: !(Maybe [PatchOperation])
+  , _usRestAPIId       :: !Text
+  , _usStageName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

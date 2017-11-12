@@ -46,9 +46,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateSegment' smart constructor.
 data UpdateSegment = UpdateSegment'
-  { _usSegmentId           :: {-# NOUNPACK #-}!Text
-  , _usApplicationId       :: {-# NOUNPACK #-}!Text
-  , _usWriteSegmentRequest :: {-# NOUNPACK #-}!WriteSegmentRequest
+  { _usSegmentId           :: !Text
+  , _usApplicationId       :: !Text
+  , _usWriteSegmentRequest :: !WriteSegmentRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,8 +124,8 @@ instance ToQuery UpdateSegment where
 
 -- | /See:/ 'updateSegmentResponse' smart constructor.
 data UpdateSegmentResponse = UpdateSegmentResponse'
-  { _usrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _usrsSegmentResponse :: {-# NOUNPACK #-}!SegmentResponse
+  { _usrsResponseStatus  :: !Int
+  , _usrsSegmentResponse :: !SegmentResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

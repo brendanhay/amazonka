@@ -68,8 +68,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createPrivateVirtualInterface' smart constructor.
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
-  { _creConnectionId :: {-# NOUNPACK #-}!Text
-  , _creNewPrivateVirtualInterface :: {-# NOUNPACK #-}!NewPrivateVirtualInterface
+  { _creConnectionId               :: !Text
+  , _creNewPrivateVirtualInterface :: !NewPrivateVirtualInterface
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

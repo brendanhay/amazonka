@@ -52,13 +52,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'createInstances' smart constructor.
 data CreateInstances = CreateInstances'
-  { _ciCustomImageName  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciUserData         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciKeyPairName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ciInstanceNames    :: {-# NOUNPACK #-}![Text]
-  , _ciAvailabilityZone :: {-# NOUNPACK #-}!Text
-  , _ciBlueprintId      :: {-# NOUNPACK #-}!Text
-  , _ciBundleId         :: {-# NOUNPACK #-}!Text
+  { _ciCustomImageName  :: !(Maybe Text)
+  , _ciUserData         :: !(Maybe Text)
+  , _ciKeyPairName      :: !(Maybe Text)
+  , _ciInstanceNames    :: ![Text]
+  , _ciAvailabilityZone :: !Text
+  , _ciBlueprintId      :: !Text
+  , _ciBundleId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -167,8 +167,8 @@ instance ToQuery CreateInstances where
 
 -- | /See:/ 'createInstancesResponse' smart constructor.
 data CreateInstancesResponse = CreateInstancesResponse'
-  { _cirsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _cirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cirsOperations     :: !(Maybe [Operation])
+  , _cirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

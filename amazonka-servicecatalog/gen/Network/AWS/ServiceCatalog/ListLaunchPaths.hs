@@ -50,10 +50,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listLaunchPaths' smart constructor.
 data ListLaunchPaths = ListLaunchPaths'
-  { _llpAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _llpPageToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _llpPageSize       :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _llpProductId      :: {-# NOUNPACK #-}!Text
+  { _llpAcceptLanguage :: !(Maybe Text)
+  , _llpPageToken      :: !(Maybe Text)
+  , _llpPageSize       :: !(Maybe Nat)
+  , _llpProductId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -138,9 +138,9 @@ instance ToQuery ListLaunchPaths where
 
 -- | /See:/ 'listLaunchPathsResponse' smart constructor.
 data ListLaunchPathsResponse = ListLaunchPathsResponse'
-  { _llprsNextPageToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _llprsLaunchPathSummaries :: {-# NOUNPACK #-}!(Maybe [LaunchPathSummary])
-  , _llprsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _llprsNextPageToken       :: !(Maybe Text)
+  , _llprsLaunchPathSummaries :: !(Maybe [LaunchPathSummary])
+  , _llprsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

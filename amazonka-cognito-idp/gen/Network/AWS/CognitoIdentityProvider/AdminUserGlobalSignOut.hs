@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'adminUserGlobalSignOut' smart constructor.
 data AdminUserGlobalSignOut = AdminUserGlobalSignOut'
-  { _augsoUserPoolId :: {-# NOUNPACK #-}!Text
-  , _augsoUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _augsoUserPoolId :: !Text
+  , _augsoUsername   :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

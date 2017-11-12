@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateEmailChannel' smart constructor.
 data UpdateEmailChannel = UpdateEmailChannel'
-  { _uecApplicationId       :: {-# NOUNPACK #-}!Text
-  , _uecEmailChannelRequest :: {-# NOUNPACK #-}!EmailChannelRequest
+  { _uecApplicationId       :: !Text
+  , _uecEmailChannelRequest :: !EmailChannelRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery UpdateEmailChannel where
 
 -- | /See:/ 'updateEmailChannelResponse' smart constructor.
 data UpdateEmailChannelResponse = UpdateEmailChannelResponse'
-  { _uecrsResponseStatus       :: {-# NOUNPACK #-}!Int
-  , _uecrsEmailChannelResponse :: {-# NOUNPACK #-}!EmailChannelResponse
+  { _uecrsResponseStatus       :: !Int
+  , _uecrsEmailChannelResponse :: !EmailChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

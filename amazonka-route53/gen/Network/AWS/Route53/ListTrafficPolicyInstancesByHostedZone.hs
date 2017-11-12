@@ -59,10 +59,10 @@ import Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'listTrafficPolicyInstancesByHostedZone' smart constructor.
 data ListTrafficPolicyInstancesByHostedZone = ListTrafficPolicyInstancesByHostedZone'
-  { _ltpibhzTrafficPolicyInstanceTypeMarker :: {-# NOUNPACK #-}!(Maybe RecordType)
-  , _ltpibhzMaxItems :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltpibhzTrafficPolicyInstanceNameMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltpibhzHostedZoneId :: {-# NOUNPACK #-}!ResourceId
+  { _ltpibhzTrafficPolicyInstanceTypeMarker :: !(Maybe RecordType)
+  , _ltpibhzMaxItems                        :: !(Maybe Text)
+  , _ltpibhzTrafficPolicyInstanceNameMarker :: !(Maybe Text)
+  , _ltpibhzHostedZoneId                    :: !ResourceId
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -162,12 +162,12 @@ instance ToQuery
 --
 -- /See:/ 'listTrafficPolicyInstancesByHostedZoneResponse' smart constructor.
 data ListTrafficPolicyInstancesByHostedZoneResponse = ListTrafficPolicyInstancesByHostedZoneResponse'
-  { _ltpibhzrsTrafficPolicyInstanceTypeMarker :: {-# NOUNPACK #-}!(Maybe RecordType)
-  , _ltpibhzrsTrafficPolicyInstanceNameMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ltpibhzrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _ltpibhzrsTrafficPolicyInstances :: {-# NOUNPACK #-}![TrafficPolicyInstance]
-  , _ltpibhzrsIsTruncated :: {-# NOUNPACK #-}!Bool
-  , _ltpibhzrsMaxItems :: {-# NOUNPACK #-}!Text
+  { _ltpibhzrsTrafficPolicyInstanceTypeMarker :: !(Maybe RecordType)
+  , _ltpibhzrsTrafficPolicyInstanceNameMarker :: !(Maybe Text)
+  , _ltpibhzrsResponseStatus                  :: !Int
+  , _ltpibhzrsTrafficPolicyInstances          :: ![TrafficPolicyInstance]
+  , _ltpibhzrsIsTruncated                     :: !Bool
+  , _ltpibhzrsMaxItems                        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

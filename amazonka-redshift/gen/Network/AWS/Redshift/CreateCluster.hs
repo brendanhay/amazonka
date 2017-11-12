@@ -78,33 +78,33 @@ import Network.AWS.Response
 --
 -- /See:/ 'createCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { _ccEnhancedVPCRouting               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccAdditionalInfo                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccPubliclyAccessible               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccHSMConfigurationIdentifier       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccClusterSecurityGroups            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccAutomatedSnapshotRetentionPeriod :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ccEncrypted                        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccClusterSubnetGroupName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccHSMClientCertificateIdentifier   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccNumberOfNodes                    :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ccElasticIP                        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccPreferredMaintenanceWindow       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccKMSKeyId                         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccAvailabilityZone                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccVPCSecurityGroupIds              :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccIAMRoles                         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ccClusterType                      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccClusterVersion                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccAllowVersionUpgrade              :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ccClusterParameterGroupName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccTags                             :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _ccPort                             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ccDBName                           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccClusterIdentifier                :: {-# NOUNPACK #-}!Text
-  , _ccNodeType                         :: {-# NOUNPACK #-}!Text
-  , _ccMasterUsername                   :: {-# NOUNPACK #-}!Text
-  , _ccMasterUserPassword               :: {-# NOUNPACK #-}!Text
+  { _ccEnhancedVPCRouting               :: !(Maybe Bool)
+  , _ccAdditionalInfo                   :: !(Maybe Text)
+  , _ccPubliclyAccessible               :: !(Maybe Bool)
+  , _ccHSMConfigurationIdentifier       :: !(Maybe Text)
+  , _ccClusterSecurityGroups            :: !(Maybe [Text])
+  , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+  , _ccEncrypted                        :: !(Maybe Bool)
+  , _ccClusterSubnetGroupName           :: !(Maybe Text)
+  , _ccHSMClientCertificateIdentifier   :: !(Maybe Text)
+  , _ccNumberOfNodes                    :: !(Maybe Int)
+  , _ccElasticIP                        :: !(Maybe Text)
+  , _ccPreferredMaintenanceWindow       :: !(Maybe Text)
+  , _ccKMSKeyId                         :: !(Maybe Text)
+  , _ccAvailabilityZone                 :: !(Maybe Text)
+  , _ccVPCSecurityGroupIds              :: !(Maybe [Text])
+  , _ccIAMRoles                         :: !(Maybe [Text])
+  , _ccClusterType                      :: !(Maybe Text)
+  , _ccClusterVersion                   :: !(Maybe Text)
+  , _ccAllowVersionUpgrade              :: !(Maybe Bool)
+  , _ccClusterParameterGroupName        :: !(Maybe Text)
+  , _ccTags                             :: !(Maybe [Tag])
+  , _ccPort                             :: !(Maybe Int)
+  , _ccDBName                           :: !(Maybe Text)
+  , _ccClusterIdentifier                :: !Text
+  , _ccNodeType                         :: !Text
+  , _ccMasterUsername                   :: !Text
+  , _ccMasterUserPassword               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -377,8 +377,8 @@ instance ToQuery CreateCluster where
 
 -- | /See:/ 'createClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-  { _ccrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
-  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ccrsCluster        :: !(Maybe Cluster)
+  , _ccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

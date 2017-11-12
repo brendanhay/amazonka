@@ -53,13 +53,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'getPartitions' smart constructor.
 data GetPartitions = GetPartitions'
-  { _gpsCatalogId    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpsNextToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpsExpression   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpsSegment      :: {-# NOUNPACK #-}!(Maybe Segment)
-  , _gpsMaxResults   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gpsDatabaseName :: {-# NOUNPACK #-}!Text
-  , _gpsTableName    :: {-# NOUNPACK #-}!Text
+  { _gpsCatalogId    :: !(Maybe Text)
+  , _gpsNextToken    :: !(Maybe Text)
+  , _gpsExpression   :: !(Maybe Text)
+  , _gpsSegment      :: !(Maybe Segment)
+  , _gpsMaxResults   :: !(Maybe Nat)
+  , _gpsDatabaseName :: !Text
+  , _gpsTableName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -168,9 +168,9 @@ instance ToQuery GetPartitions where
 
 -- | /See:/ 'getPartitionsResponse' smart constructor.
 data GetPartitionsResponse = GetPartitionsResponse'
-  { _gpsrsPartitions     :: {-# NOUNPACK #-}!(Maybe [Partition])
-  , _gpsrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gpsrsPartitions     :: !(Maybe [Partition])
+  , _gpsrsNextToken      :: !(Maybe Text)
+  , _gpsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

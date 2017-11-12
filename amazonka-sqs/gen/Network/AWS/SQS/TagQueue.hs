@@ -60,8 +60,8 @@ import Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'tagQueue' smart constructor.
 data TagQueue = TagQueue'
-  { _tqQueueURL :: {-# NOUNPACK #-}!Text
-  , _tqTags     :: {-# NOUNPACK #-}!(Map Text Text)
+  { _tqQueueURL :: !Text
+  , _tqTags     :: !(Map Text Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

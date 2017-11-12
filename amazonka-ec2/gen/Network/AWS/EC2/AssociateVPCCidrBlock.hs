@@ -52,9 +52,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'associateVPCCidrBlock' smart constructor.
 data AssociateVPCCidrBlock = AssociateVPCCidrBlock'
-  { _avcbCidrBlock                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcbAmazonProvidedIPv6CidrBlock :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _avcbVPCId                       :: {-# NOUNPACK #-}!Text
+  { _avcbCidrBlock                   :: !(Maybe Text)
+  , _avcbAmazonProvidedIPv6CidrBlock :: !(Maybe Bool)
+  , _avcbVPCId                       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -124,10 +124,10 @@ instance ToQuery AssociateVPCCidrBlock where
 
 -- | /See:/ 'associateVPCCidrBlockResponse' smart constructor.
 data AssociateVPCCidrBlockResponse = AssociateVPCCidrBlockResponse'
-  { _avcbrsVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _avcbrsCidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe VPCCidrBlockAssociation)
-  , _avcbrsIPv6CidrBlockAssociation :: {-# NOUNPACK #-}!(Maybe VPCIPv6CidrBlockAssociation)
-  , _avcbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _avcbrsVPCId                    :: !(Maybe Text)
+  , _avcbrsCidrBlockAssociation     :: !(Maybe VPCCidrBlockAssociation)
+  , _avcbrsIPv6CidrBlockAssociation :: !(Maybe VPCIPv6CidrBlockAssociation)
+  , _avcbrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

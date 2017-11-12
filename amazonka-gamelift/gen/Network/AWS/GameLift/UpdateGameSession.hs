@@ -80,11 +80,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateGameSession' smart constructor.
 data UpdateGameSession = UpdateGameSession'
-  { _ugsMaximumPlayerSessionCount :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ugsPlayerSessionCreationPolicy :: {-# NOUNPACK #-}!(Maybe PlayerSessionCreationPolicy)
-  , _ugsName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ugsProtectionPolicy :: {-# NOUNPACK #-}!(Maybe ProtectionPolicy)
-  , _ugsGameSessionId :: {-# NOUNPACK #-}!Text
+  { _ugsMaximumPlayerSessionCount   :: !(Maybe Nat)
+  , _ugsPlayerSessionCreationPolicy :: !(Maybe PlayerSessionCreationPolicy)
+  , _ugsName                        :: !(Maybe Text)
+  , _ugsProtectionPolicy            :: !(Maybe ProtectionPolicy)
+  , _ugsGameSessionId               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -180,8 +180,8 @@ instance ToQuery UpdateGameSession where
 --
 -- /See:/ 'updateGameSessionResponse' smart constructor.
 data UpdateGameSessionResponse = UpdateGameSessionResponse'
-  { _ugsrsGameSession    :: {-# NOUNPACK #-}!(Maybe GameSession)
-  , _ugsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ugsrsGameSession    :: !(Maybe GameSession)
+  , _ugsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,10 +52,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'getBuiltinIntents' smart constructor.
 data GetBuiltinIntents = GetBuiltinIntents'
-  { _gbiLocale            :: {-# NOUNPACK #-}!(Maybe Locale)
-  , _gbiNextToken         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbiSignatureContains :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gbiMaxResults        :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _gbiLocale            :: !(Maybe Locale)
+  , _gbiNextToken         :: !(Maybe Text)
+  , _gbiSignatureContains :: !(Maybe Text)
+  , _gbiMaxResults        :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -131,9 +131,9 @@ instance ToQuery GetBuiltinIntents where
 
 -- | /See:/ 'getBuiltinIntentsResponse' smart constructor.
 data GetBuiltinIntentsResponse = GetBuiltinIntentsResponse'
-  { _grsIntents        :: {-# NOUNPACK #-}!(Maybe [BuiltinIntentMetadata])
-  , _grsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _grsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _grsIntents        :: !(Maybe [BuiltinIntentMetadata])
+  , _grsNextToken      :: !(Maybe Text)
+  , _grsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

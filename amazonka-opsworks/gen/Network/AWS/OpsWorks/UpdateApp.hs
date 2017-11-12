@@ -55,17 +55,17 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateApp' smart constructor.
 data UpdateApp = UpdateApp'
-  { _uaSSLConfiguration :: {-# NOUNPACK #-}!(Maybe SSLConfiguration)
-  , _uaEnvironment      :: {-# NOUNPACK #-}!(Maybe [EnvironmentVariable])
-  , _uaEnableSSL        :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _uaDataSources      :: {-# NOUNPACK #-}!(Maybe [DataSource])
-  , _uaAppSource        :: {-# NOUNPACK #-}!(Maybe Source)
-  , _uaAttributes       :: {-# NOUNPACK #-}!(Maybe (Map AppAttributesKeys Text))
-  , _uaName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaType             :: {-# NOUNPACK #-}!(Maybe AppType)
-  , _uaDomains          :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _uaDescription      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _uaAppId            :: {-# NOUNPACK #-}!Text
+  { _uaSSLConfiguration :: !(Maybe SSLConfiguration)
+  , _uaEnvironment      :: !(Maybe [EnvironmentVariable])
+  , _uaEnableSSL        :: !(Maybe Bool)
+  , _uaDataSources      :: !(Maybe [DataSource])
+  , _uaAppSource        :: !(Maybe Source)
+  , _uaAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+  , _uaName             :: !(Maybe Text)
+  , _uaType             :: !(Maybe AppType)
+  , _uaDomains          :: !(Maybe [Text])
+  , _uaDescription      :: !(Maybe Text)
+  , _uaAppId            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

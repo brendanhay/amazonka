@@ -49,8 +49,8 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describePortfolio' smart constructor.
 data DescribePortfolio = DescribePortfolio'
-  { _desAcceptLanguage :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desId             :: {-# NOUNPACK #-}!Text
+  { _desAcceptLanguage :: !(Maybe Text)
+  , _desId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,10 +117,10 @@ instance ToQuery DescribePortfolio where
 
 -- | /See:/ 'describePortfolioResponse' smart constructor.
 data DescribePortfolioResponse = DescribePortfolioResponse'
-  { _dprsPortfolioDetail :: {-# NOUNPACK #-}!(Maybe PortfolioDetail)
-  , _dprsTagOptions      :: {-# NOUNPACK #-}!(Maybe [TagOptionDetail])
-  , _dprsTags            :: {-# NOUNPACK #-}!(Maybe [Tag])
-  , _dprsResponseStatus  :: {-# NOUNPACK #-}!Int
+  { _dprsPortfolioDetail :: !(Maybe PortfolioDetail)
+  , _dprsTagOptions      :: !(Maybe [TagOptionDetail])
+  , _dprsTags            :: !(Maybe [Tag])
+  , _dprsResponseStatus  :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

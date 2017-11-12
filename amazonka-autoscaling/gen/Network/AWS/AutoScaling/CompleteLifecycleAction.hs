@@ -65,11 +65,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'completeLifecycleAction' smart constructor.
 data CompleteLifecycleAction = CompleteLifecycleAction'
-  { _claInstanceId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _claLifecycleActionToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _claLifecycleHookName     :: {-# NOUNPACK #-}!Text
-  , _claAutoScalingGroupName  :: {-# NOUNPACK #-}!Text
-  , _claLifecycleActionResult :: {-# NOUNPACK #-}!Text
+  { _claInstanceId            :: !(Maybe Text)
+  , _claLifecycleActionToken  :: !(Maybe Text)
+  , _claLifecycleHookName     :: !Text
+  , _claAutoScalingGroupName  :: !Text
+  , _claLifecycleActionResult :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

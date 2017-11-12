@@ -53,10 +53,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'enableSnapshotCopy' smart constructor.
 data EnableSnapshotCopy = EnableSnapshotCopy'
-  { _escRetentionPeriod       :: {-# NOUNPACK #-}!(Maybe Int)
-  , _escSnapshotCopyGrantName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _escClusterIdentifier     :: {-# NOUNPACK #-}!Text
-  , _escDestinationRegion     :: {-# NOUNPACK #-}!Text
+  { _escRetentionPeriod       :: !(Maybe Int)
+  , _escSnapshotCopyGrantName :: !(Maybe Text)
+  , _escClusterIdentifier     :: !Text
+  , _escDestinationRegion     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,8 +132,8 @@ instance ToQuery EnableSnapshotCopy where
 
 -- | /See:/ 'enableSnapshotCopyResponse' smart constructor.
 data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'
-  { _escrsCluster        :: {-# NOUNPACK #-}!(Maybe Cluster)
-  , _escrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _escrsCluster        :: !(Maybe Cluster)
+  , _escrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

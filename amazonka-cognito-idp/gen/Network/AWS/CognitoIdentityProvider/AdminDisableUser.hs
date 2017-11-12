@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'adminDisableUser' smart constructor.
 data AdminDisableUser = AdminDisableUser'
-  { _aduUserPoolId :: {-# NOUNPACK #-}!Text
-  , _aduUsername   :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _aduUserPoolId :: !Text
+  , _aduUsername   :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

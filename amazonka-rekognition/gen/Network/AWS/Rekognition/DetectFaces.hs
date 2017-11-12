@@ -56,8 +56,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'detectFaces' smart constructor.
 data DetectFaces = DetectFaces'
-  { _dfAttributes :: {-# NOUNPACK #-}!(Maybe [Attribute])
-  , _dfImage      :: {-# NOUNPACK #-}!Image
+  { _dfAttributes :: !(Maybe [Attribute])
+  , _dfImage      :: !Image
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,9 +121,9 @@ instance ToQuery DetectFaces where
 
 -- | /See:/ 'detectFacesResponse' smart constructor.
 data DetectFacesResponse = DetectFacesResponse'
-  { _dfrsOrientationCorrection :: {-# NOUNPACK #-}!(Maybe OrientationCorrection)
-  , _dfrsFaceDetails           :: {-# NOUNPACK #-}!(Maybe [FaceDetail])
-  , _dfrsResponseStatus        :: {-# NOUNPACK #-}!Int
+  { _dfrsOrientationCorrection :: !(Maybe OrientationCorrection)
+  , _dfrsFaceDetails           :: !(Maybe [FaceDetail])
+  , _dfrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

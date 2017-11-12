@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateSmsChannel' smart constructor.
 data UpdateSmsChannel = UpdateSmsChannel'
-  { _uscApplicationId     :: {-# NOUNPACK #-}!Text
-  , _uscSMSChannelRequest :: {-# NOUNPACK #-}!SMSChannelRequest
+  { _uscApplicationId     :: !Text
+  , _uscSMSChannelRequest :: !SMSChannelRequest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery UpdateSmsChannel where
 
 -- | /See:/ 'updateSmsChannelResponse' smart constructor.
 data UpdateSmsChannelResponse = UpdateSmsChannelResponse'
-  { _uscrsResponseStatus     :: {-# NOUNPACK #-}!Int
-  , _uscrsSMSChannelResponse :: {-# NOUNPACK #-}!SMSChannelResponse
+  { _uscrsResponseStatus     :: !Int
+  , _uscrsSMSChannelResponse :: !SMSChannelResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -94,8 +94,8 @@ instance ToQuery DeleteSchema where
 
 -- | /See:/ 'deleteSchemaResponse' smart constructor.
 data DeleteSchemaResponse = DeleteSchemaResponse'
-  { _dsrsSchemaARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsrsSchemaARN      :: !(Maybe Text)
+  , _dsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

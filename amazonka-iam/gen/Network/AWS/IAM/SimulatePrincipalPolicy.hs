@@ -72,17 +72,17 @@ import Network.AWS.Response
 
 -- | /See:/ 'simulatePrincipalPolicy' smart constructor.
 data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
-  { _sppPolicyInputList        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sppResourcePolicy         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sppCallerARN              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sppResourceHandlingOption :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sppResourceARNs           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _sppMarker                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sppMaxItems               :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _sppContextEntries         :: {-# NOUNPACK #-}!(Maybe [ContextEntry])
-  , _sppResourceOwner          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sppPolicySourceARN        :: {-# NOUNPACK #-}!Text
-  , _sppActionNames            :: {-# NOUNPACK #-}![Text]
+  { _sppPolicyInputList        :: !(Maybe [Text])
+  , _sppResourcePolicy         :: !(Maybe Text)
+  , _sppCallerARN              :: !(Maybe Text)
+  , _sppResourceHandlingOption :: !(Maybe Text)
+  , _sppResourceARNs           :: !(Maybe [Text])
+  , _sppMarker                 :: !(Maybe Text)
+  , _sppMaxItems               :: !(Maybe Nat)
+  , _sppContextEntries         :: !(Maybe [ContextEntry])
+  , _sppResourceOwner          :: !(Maybe Text)
+  , _sppPolicySourceARN        :: !Text
+  , _sppActionNames            :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

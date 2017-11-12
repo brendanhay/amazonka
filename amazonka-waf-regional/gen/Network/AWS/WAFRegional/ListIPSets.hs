@@ -48,8 +48,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'listIPSets' smart constructor.
 data ListIPSets = ListIPSets'
-  { _lisNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lisLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lisNextMarker :: !(Maybe Text)
+  , _lisLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,9 +112,9 @@ instance ToQuery ListIPSets where
 
 -- | /See:/ 'listIPSetsResponse' smart constructor.
 data ListIPSetsResponse = ListIPSetsResponse'
-  { _lisrsNextMarker     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lisrsIPSets         :: {-# NOUNPACK #-}!(Maybe [IPSetSummary])
-  , _lisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lisrsNextMarker     :: !(Maybe Text)
+  , _lisrsIPSets         :: !(Maybe [IPSetSummary])
+  , _lisrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'detachTypedLink' smart constructor.
 data DetachTypedLink = DetachTypedLink'
-  { _dtlDirectoryARN       :: {-# NOUNPACK #-}!Text
-  , _dtlTypedLinkSpecifier :: {-# NOUNPACK #-}!TypedLinkSpecifier
+  { _dtlDirectoryARN       :: !Text
+  , _dtlTypedLinkSpecifier :: !TypedLinkSpecifier
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

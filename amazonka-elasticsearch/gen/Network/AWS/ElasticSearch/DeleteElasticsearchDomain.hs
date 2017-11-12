@@ -101,8 +101,8 @@ instance ToQuery DeleteElasticsearchDomain where
 --
 -- /See:/ 'deleteElasticsearchDomainResponse' smart constructor.
 data DeleteElasticsearchDomainResponse = DeleteElasticsearchDomainResponse'
-  { _delrsDomainStatus   :: {-# NOUNPACK #-}!(Maybe ElasticsearchDomainStatus)
-  , _delrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _delrsDomainStatus   :: !(Maybe ElasticsearchDomainStatus)
+  , _delrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

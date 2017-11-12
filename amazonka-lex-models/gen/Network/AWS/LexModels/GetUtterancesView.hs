@@ -59,9 +59,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getUtterancesView' smart constructor.
 data GetUtterancesView = GetUtterancesView'
-  { _guvBotName     :: {-# NOUNPACK #-}!Text
-  , _guvBotVersions :: {-# NOUNPACK #-}!(List1 Text)
-  , _guvStatusType  :: {-# NOUNPACK #-}!StatusType
+  { _guvBotName     :: !Text
+  , _guvBotVersions :: !(List1 Text)
+  , _guvStatusType  :: !StatusType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -133,9 +133,9 @@ instance ToQuery GetUtterancesView where
 
 -- | /See:/ 'getUtterancesViewResponse' smart constructor.
 data GetUtterancesViewResponse = GetUtterancesViewResponse'
-  { _guvrsBotName        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _guvrsUtterances     :: {-# NOUNPACK #-}!(Maybe [UtteranceList])
-  , _guvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _guvrsBotName        :: !(Maybe Text)
+  , _guvrsUtterances     :: !(Maybe [UtteranceList])
+  , _guvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

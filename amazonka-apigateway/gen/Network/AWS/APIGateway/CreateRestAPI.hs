@@ -61,12 +61,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'createRestAPI' smart constructor.
 data CreateRestAPI = CreateRestAPI'
-  { _craBinaryMediaTypes      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _craVersion               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _craCloneFrom             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _craEndpointConfiguration :: {-# NOUNPACK #-}!(Maybe EndpointConfiguration)
-  , _craDescription           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _craName                  :: {-# NOUNPACK #-}!Text
+  { _craBinaryMediaTypes      :: !(Maybe [Text])
+  , _craVersion               :: !(Maybe Text)
+  , _craCloneFrom             :: !(Maybe Text)
+  , _craEndpointConfiguration :: !(Maybe EndpointConfiguration)
+  , _craDescription           :: !(Maybe Text)
+  , _craName                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

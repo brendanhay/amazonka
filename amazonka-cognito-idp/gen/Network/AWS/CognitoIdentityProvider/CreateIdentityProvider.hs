@@ -51,12 +51,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'createIdentityProvider' smart constructor.
 data CreateIdentityProvider = CreateIdentityProvider'
-  { _cipIdpIdentifiers   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cipAttributeMapping :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cipUserPoolId       :: {-# NOUNPACK #-}!Text
-  , _cipProviderName     :: {-# NOUNPACK #-}!Text
-  , _cipProviderType     :: {-# NOUNPACK #-}!IdentityProviderTypeType
-  , _cipProviderDetails  :: {-# NOUNPACK #-}!(Map Text Text)
+  { _cipIdpIdentifiers   :: !(Maybe [Text])
+  , _cipAttributeMapping :: !(Maybe (Map Text Text))
+  , _cipUserPoolId       :: !Text
+  , _cipProviderName     :: !Text
+  , _cipProviderType     :: !IdentityProviderTypeType
+  , _cipProviderDetails  :: !(Map Text Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -158,8 +158,8 @@ instance ToQuery CreateIdentityProvider where
 
 -- | /See:/ 'createIdentityProviderResponse' smart constructor.
 data CreateIdentityProviderResponse = CreateIdentityProviderResponse'
-  { _ciprsResponseStatus   :: {-# NOUNPACK #-}!Int
-  , _ciprsIdentityProvider :: {-# NOUNPACK #-}!IdentityProviderType
+  { _ciprsResponseStatus   :: !Int
+  , _ciprsIdentityProvider :: !IdentityProviderType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

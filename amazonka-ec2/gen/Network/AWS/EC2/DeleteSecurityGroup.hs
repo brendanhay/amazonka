@@ -51,9 +51,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteSecurityGroup' smart constructor.
 data DeleteSecurityGroup = DeleteSecurityGroup'
-  { _dsgGroupId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsgGroupName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsgDryRun    :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _dsgGroupId   :: !(Maybe Text)
+  , _dsgGroupName :: !(Maybe Text)
+  , _dsgDryRun    :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -53,9 +53,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createNatGateway' smart constructor.
 data CreateNatGateway = CreateNatGateway'
-  { _cngClientToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cngAllocationId :: {-# NOUNPACK #-}!Text
-  , _cngSubnetId     :: {-# NOUNPACK #-}!Text
+  { _cngClientToken  :: !(Maybe Text)
+  , _cngAllocationId :: !Text
+  , _cngSubnetId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,9 +127,9 @@ instance ToQuery CreateNatGateway where
 --
 -- /See:/ 'createNatGatewayResponse' smart constructor.
 data CreateNatGatewayResponse = CreateNatGatewayResponse'
-  { _cngrsClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cngrsNatGateway     :: {-# NOUNPACK #-}!(Maybe NatGateway)
-  , _cngrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cngrsClientToken    :: !(Maybe Text)
+  , _cngrsNatGateway     :: !(Maybe NatGateway)
+  , _cngrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

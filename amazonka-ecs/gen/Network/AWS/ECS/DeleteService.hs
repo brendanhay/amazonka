@@ -47,8 +47,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteService' smart constructor.
 data DeleteService = DeleteService'
-  { _dsCluster :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsService :: {-# NOUNPACK #-}!Text
+  { _dsCluster :: !(Maybe Text)
+  , _dsService :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -112,8 +112,8 @@ instance ToQuery DeleteService where
 
 -- | /See:/ 'deleteServiceResponse' smart constructor.
 data DeleteServiceResponse = DeleteServiceResponse'
-  { _dsrsService        :: {-# NOUNPACK #-}!(Maybe ContainerService)
-  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsrsService        :: !(Maybe ContainerService)
+  , _dsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

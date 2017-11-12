@@ -52,13 +52,13 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createMaintenanceWindow' smart constructor.
 data CreateMaintenanceWindow = CreateMaintenanceWindow'
-  { _cmwClientToken              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmwDescription              :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _cmwName                     :: {-# NOUNPACK #-}!Text
-  , _cmwSchedule                 :: {-# NOUNPACK #-}!Text
-  , _cmwDuration                 :: {-# NOUNPACK #-}!Nat
-  , _cmwCutoff                   :: {-# NOUNPACK #-}!Nat
-  , _cmwAllowUnassociatedTargets :: {-# NOUNPACK #-}!Bool
+  { _cmwClientToken              :: !(Maybe Text)
+  , _cmwDescription              :: !(Maybe (Sensitive Text))
+  , _cmwName                     :: !Text
+  , _cmwSchedule                 :: !Text
+  , _cmwDuration                 :: !Nat
+  , _cmwCutoff                   :: !Nat
+  , _cmwAllowUnassociatedTargets :: !Bool
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -171,8 +171,8 @@ instance ToQuery CreateMaintenanceWindow where
 
 -- | /See:/ 'createMaintenanceWindowResponse' smart constructor.
 data CreateMaintenanceWindowResponse = CreateMaintenanceWindowResponse'
-  { _cmwrsWindowId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cmwrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cmwrsWindowId       :: !(Maybe Text)
+  , _cmwrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

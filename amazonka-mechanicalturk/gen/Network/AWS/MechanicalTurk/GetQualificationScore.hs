@@ -51,8 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getQualificationScore' smart constructor.
 data GetQualificationScore = GetQualificationScore'
-  { _gqsQualificationTypeId :: {-# NOUNPACK #-}!Text
-  , _gqsWorkerId            :: {-# NOUNPACK #-}!Text
+  { _gqsQualificationTypeId :: !Text
+  , _gqsWorkerId            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -120,8 +120,8 @@ instance ToQuery GetQualificationScore where
 
 -- | /See:/ 'getQualificationScoreResponse' smart constructor.
 data GetQualificationScoreResponse = GetQualificationScoreResponse'
-  { _gqsrsQualification  :: {-# NOUNPACK #-}!(Maybe Qualification)
-  , _gqsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gqsrsQualification  :: !(Maybe Qualification)
+  , _gqsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

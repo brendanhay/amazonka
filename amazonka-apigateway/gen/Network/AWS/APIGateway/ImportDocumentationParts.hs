@@ -52,10 +52,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'importDocumentationParts' smart constructor.
 data ImportDocumentationParts = ImportDocumentationParts'
-  { _idpMode           :: {-# NOUNPACK #-}!(Maybe PutMode)
-  , _idpFailOnWarnings :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _idpRestAPIId      :: {-# NOUNPACK #-}!Text
-  , _idpBody           :: {-# NOUNPACK #-}!(HashMap Text Value)
+  { _idpMode           :: !(Maybe PutMode)
+  , _idpFailOnWarnings :: !(Maybe Bool)
+  , _idpRestAPIId      :: !Text
+  , _idpBody           :: !(HashMap Text Value)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -143,9 +143,9 @@ instance ToQuery ImportDocumentationParts where
 --
 -- /See:/ 'importDocumentationPartsResponse' smart constructor.
 data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'
-  { _idprsIds            :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _idprsWarnings       :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _idprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _idprsIds            :: !(Maybe [Text])
+  , _idprsWarnings       :: !(Maybe [Text])
+  , _idprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

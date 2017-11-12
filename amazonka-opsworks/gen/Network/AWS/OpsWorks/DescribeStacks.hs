@@ -105,8 +105,8 @@ instance ToQuery DescribeStacks where
 --
 -- /See:/ 'describeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
-  { _dsrsStacks         :: {-# NOUNPACK #-}!(Maybe [Stack])
-  , _dsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsrsStacks         :: !(Maybe [Stack])
+  , _dsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

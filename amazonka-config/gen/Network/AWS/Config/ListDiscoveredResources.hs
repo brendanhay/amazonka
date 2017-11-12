@@ -61,12 +61,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'listDiscoveredResources' smart constructor.
 data ListDiscoveredResources = ListDiscoveredResources'
-  { _ldrResourceIds             :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _ldrResourceName            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrIncludeDeletedResources :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _ldrNextToken               :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrLimit                   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ldrResourceType            :: {-# NOUNPACK #-}!ResourceType
+  { _ldrResourceIds             :: !(Maybe [Text])
+  , _ldrResourceName            :: !(Maybe Text)
+  , _ldrIncludeDeletedResources :: !(Maybe Bool)
+  , _ldrNextToken               :: !(Maybe Text)
+  , _ldrLimit                   :: !(Maybe Nat)
+  , _ldrResourceType            :: !ResourceType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -180,9 +180,9 @@ instance ToQuery ListDiscoveredResources where
 --
 -- /See:/ 'listDiscoveredResourcesResponse' smart constructor.
 data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
-  { _ldrrsNextToken           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ldrrsResourceIdentifiers :: {-# NOUNPACK #-}!(Maybe [ResourceIdentifier])
-  , _ldrrsResponseStatus      :: {-# NOUNPACK #-}!Int
+  { _ldrrsNextToken           :: !(Maybe Text)
+  , _ldrrsResourceIdentifiers :: !(Maybe [ResourceIdentifier])
+  , _ldrrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

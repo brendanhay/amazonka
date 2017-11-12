@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'registerCertificate' smart constructor.
 data RegisterCertificate = RegisterCertificate'
-  { _rcStatus           :: {-# NOUNPACK #-}!(Maybe CertificateStatus)
-  , _rcCaCertificatePem :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcSetAsActive      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rcCertificatePem   :: {-# NOUNPACK #-}!Text
+  { _rcStatus           :: !(Maybe CertificateStatus)
+  , _rcCaCertificatePem :: !(Maybe Text)
+  , _rcSetAsActive      :: !(Maybe Bool)
+  , _rcCertificatePem   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -139,9 +139,9 @@ instance ToQuery RegisterCertificate where
 --
 -- /See:/ 'registerCertificateResponse' smart constructor.
 data RegisterCertificateResponse = RegisterCertificateResponse'
-  { _rcrsCertificateARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcrsCertificateId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rcrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _rcrsCertificateARN :: !(Maybe Text)
+  , _rcrsCertificateId  :: !(Maybe Text)
+  , _rcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

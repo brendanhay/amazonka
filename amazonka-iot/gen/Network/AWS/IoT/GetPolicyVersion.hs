@@ -55,8 +55,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getPolicyVersion' smart constructor.
 data GetPolicyVersion = GetPolicyVersion'
-  { _gpvPolicyName      :: {-# NOUNPACK #-}!Text
-  , _gpvPolicyVersionId :: {-# NOUNPACK #-}!Text
+  { _gpvPolicyName      :: !Text
+  , _gpvPolicyVersionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -119,12 +119,12 @@ instance ToQuery GetPolicyVersion where
 --
 -- /See:/ 'getPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
-  { _gpvrsPolicyName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpvrsPolicyDocument   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpvrsPolicyVersionId  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpvrsPolicyARN        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpvrsIsDefaultVersion :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _gpvrsResponseStatus   :: {-# NOUNPACK #-}!Int
+  { _gpvrsPolicyName       :: !(Maybe Text)
+  , _gpvrsPolicyDocument   :: !(Maybe Text)
+  , _gpvrsPolicyVersionId  :: !(Maybe Text)
+  , _gpvrsPolicyARN        :: !(Maybe Text)
+  , _gpvrsIsDefaultVersion :: !(Maybe Bool)
+  , _gpvrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

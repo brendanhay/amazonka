@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'disassociateQualificationFromWorker' smart constructor.
 data DisassociateQualificationFromWorker = DisassociateQualificationFromWorker'
-  { _dqfwReason              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dqfwWorkerId            :: {-# NOUNPACK #-}!Text
-  , _dqfwQualificationTypeId :: {-# NOUNPACK #-}!Text
+  { _dqfwReason              :: !(Maybe Text)
+  , _dqfwWorkerId            :: !Text
+  , _dqfwQualificationTypeId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

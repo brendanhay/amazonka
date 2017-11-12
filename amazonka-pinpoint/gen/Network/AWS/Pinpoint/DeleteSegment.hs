@@ -45,8 +45,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteSegment' smart constructor.
 data DeleteSegment = DeleteSegment'
-  { _dsSegmentId     :: {-# NOUNPACK #-}!Text
-  , _dsApplicationId :: {-# NOUNPACK #-}!Text
+  { _dsSegmentId     :: !Text
+  , _dsApplicationId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -105,8 +105,8 @@ instance ToQuery DeleteSegment where
 
 -- | /See:/ 'deleteSegmentResponse' smart constructor.
 data DeleteSegmentResponse = DeleteSegmentResponse'
-  { _dsrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _dsrsSegmentResponse :: {-# NOUNPACK #-}!SegmentResponse
+  { _dsrsResponseStatus  :: !Int
+  , _dsrsSegmentResponse :: !SegmentResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

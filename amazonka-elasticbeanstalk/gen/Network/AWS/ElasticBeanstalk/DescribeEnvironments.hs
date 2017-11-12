@@ -57,14 +57,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEnvironments' smart constructor.
 data DescribeEnvironments = DescribeEnvironments'
-  { _desEnvironmentIds        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _desEnvironmentNames      :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _desNextToken             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desVersionLabel          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desMaxRecords            :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _desApplicationName       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _desIncludedDeletedBackTo :: {-# NOUNPACK #-}!(Maybe ISO8601)
-  , _desIncludeDeleted        :: {-# NOUNPACK #-}!(Maybe Bool)
+  { _desEnvironmentIds        :: !(Maybe [Text])
+  , _desEnvironmentNames      :: !(Maybe [Text])
+  , _desNextToken             :: !(Maybe Text)
+  , _desVersionLabel          :: !(Maybe Text)
+  , _desMaxRecords            :: !(Maybe Nat)
+  , _desApplicationName       :: !(Maybe Text)
+  , _desIncludedDeletedBackTo :: !(Maybe ISO8601)
+  , _desIncludeDeleted        :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -45,9 +45,9 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'abortDocumentVersionUpload' smart constructor.
 data AbortDocumentVersionUpload = AbortDocumentVersionUpload'
-  { _advuAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _advuDocumentId          :: {-# NOUNPACK #-}!Text
-  , _advuVersionId           :: {-# NOUNPACK #-}!Text
+  { _advuAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _advuDocumentId          :: !Text
+  , _advuVersionId           :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

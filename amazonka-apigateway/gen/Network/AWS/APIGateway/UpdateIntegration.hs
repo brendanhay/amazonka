@@ -62,10 +62,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateIntegration' smart constructor.
 data UpdateIntegration = UpdateIntegration'
-  { _updPatchOperations :: {-# NOUNPACK #-}!(Maybe [PatchOperation])
-  , _updRestAPIId       :: {-# NOUNPACK #-}!Text
-  , _updResourceId      :: {-# NOUNPACK #-}!Text
-  , _updHttpMethod      :: {-# NOUNPACK #-}!Text
+  { _updPatchOperations :: !(Maybe [PatchOperation])
+  , _updRestAPIId       :: !Text
+  , _updResourceId      :: !Text
+  , _updHttpMethod      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

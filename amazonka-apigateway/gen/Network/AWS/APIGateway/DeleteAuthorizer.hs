@@ -49,8 +49,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteAuthorizer' smart constructor.
 data DeleteAuthorizer = DeleteAuthorizer'
-  { _daRestAPIId    :: {-# NOUNPACK #-}!Text
-  , _daAuthorizerId :: {-# NOUNPACK #-}!Text
+  { _daRestAPIId    :: !Text
+  , _daAuthorizerId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

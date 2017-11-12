@@ -64,24 +64,24 @@ import Network.AWS.Response
 
 -- | /See:/ 'createLaunchConfiguration' smart constructor.
 data CreateLaunchConfiguration = CreateLaunchConfiguration'
-  { _clcInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clcAssociatePublicIPAddress :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _clcSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _clcSpotPrice :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clcInstanceMonitoring :: {-# NOUNPACK #-}!(Maybe InstanceMonitoring)
-  , _clcKeyName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clcClassicLinkVPCSecurityGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _clcRAMDiskId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clcKernelId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clcInstanceType :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clcEBSOptimized :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _clcUserData :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clcClassicLinkVPCId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clcIAMInstanceProfile :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clcImageId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clcPlacementTenancy :: {-# NOUNPACK #-}!(Maybe Text)
-  , _clcBlockDeviceMappings :: {-# NOUNPACK #-}!(Maybe [BlockDeviceMapping])
-  , _clcLaunchConfigurationName :: {-# NOUNPACK #-}!Text
+  { _clcInstanceId                   :: !(Maybe Text)
+  , _clcAssociatePublicIPAddress     :: !(Maybe Bool)
+  , _clcSecurityGroups               :: !(Maybe [Text])
+  , _clcSpotPrice                    :: !(Maybe Text)
+  , _clcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
+  , _clcKeyName                      :: !(Maybe Text)
+  , _clcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
+  , _clcRAMDiskId                    :: !(Maybe Text)
+  , _clcKernelId                     :: !(Maybe Text)
+  , _clcInstanceType                 :: !(Maybe Text)
+  , _clcEBSOptimized                 :: !(Maybe Bool)
+  , _clcUserData                     :: !(Maybe Text)
+  , _clcClassicLinkVPCId             :: !(Maybe Text)
+  , _clcIAMInstanceProfile           :: !(Maybe Text)
+  , _clcImageId                      :: !(Maybe Text)
+  , _clcPlacementTenancy             :: !(Maybe Text)
+  , _clcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
+  , _clcLaunchConfigurationName      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

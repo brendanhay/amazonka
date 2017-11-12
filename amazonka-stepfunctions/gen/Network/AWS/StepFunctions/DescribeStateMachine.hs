@@ -114,13 +114,13 @@ instance ToQuery DescribeStateMachine where
 
 -- | /See:/ 'describeStateMachineResponse' smart constructor.
 data DescribeStateMachineResponse = DescribeStateMachineResponse'
-  { _dsmrsStatus          :: {-# NOUNPACK #-}!(Maybe StateMachineStatus)
-  , _dsmrsResponseStatus  :: {-# NOUNPACK #-}!Int
-  , _dsmrsStateMachineARN :: {-# NOUNPACK #-}!Text
-  , _dsmrsName            :: {-# NOUNPACK #-}!Text
-  , _dsmrsDefinition      :: {-# NOUNPACK #-}!Text
-  , _dsmrsRoleARN         :: {-# NOUNPACK #-}!Text
-  , _dsmrsCreationDate    :: {-# NOUNPACK #-}!POSIX
+  { _dsmrsStatus          :: !(Maybe StateMachineStatus)
+  , _dsmrsResponseStatus  :: !Int
+  , _dsmrsStateMachineARN :: !Text
+  , _dsmrsName            :: !Text
+  , _dsmrsDefinition      :: !Text
+  , _dsmrsRoleARN         :: !Text
+  , _dsmrsCreationDate    :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

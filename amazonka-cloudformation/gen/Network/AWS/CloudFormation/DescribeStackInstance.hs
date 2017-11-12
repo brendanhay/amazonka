@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeStackInstance' smart constructor.
 data DescribeStackInstance = DescribeStackInstance'
-  { _dStackSetName         :: {-# NOUNPACK #-}!Text
-  , _dStackInstanceAccount :: {-# NOUNPACK #-}!Text
-  , _dStackInstanceRegion  :: {-# NOUNPACK #-}!Text
+  { _dStackSetName         :: !Text
+  , _dStackInstanceAccount :: !Text
+  , _dStackInstanceRegion  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,8 +121,8 @@ instance ToQuery DescribeStackInstance where
 
 -- | /See:/ 'describeStackInstanceResponse' smart constructor.
 data DescribeStackInstanceResponse = DescribeStackInstanceResponse'
-  { _dsisrsStackInstance  :: {-# NOUNPACK #-}!(Maybe StackInstance)
-  , _dsisrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsisrsStackInstance  :: !(Maybe StackInstance)
+  , _dsisrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

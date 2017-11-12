@@ -48,10 +48,10 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'createCustomMetadata' smart constructor.
 data CreateCustomMetadata = CreateCustomMetadata'
-  { _ccmVersionId           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccmAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _ccmResourceId          :: {-# NOUNPACK #-}!Text
-  , _ccmCustomMetadata      :: {-# NOUNPACK #-}!(Map Text Text)
+  { _ccmVersionId           :: !(Maybe Text)
+  , _ccmAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _ccmResourceId          :: !Text
+  , _ccmCustomMetadata      :: !(Map Text Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

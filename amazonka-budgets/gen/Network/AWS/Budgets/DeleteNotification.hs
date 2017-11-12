@@ -47,9 +47,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteNotification' smart constructor.
 data DeleteNotification = DeleteNotification'
-  { _dnAccountId    :: {-# NOUNPACK #-}!Text
-  , _dnBudgetName   :: {-# NOUNPACK #-}!Text
-  , _dnNotification :: {-# NOUNPACK #-}!Notification
+  { _dnAccountId    :: !Text
+  , _dnBudgetName   :: !Text
+  , _dnNotification :: !Notification
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

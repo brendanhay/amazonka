@@ -105,8 +105,8 @@ instance ToQuery DeleteSnapshotSchedule where
 
 -- | /See:/ 'deleteSnapshotScheduleResponse' smart constructor.
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
-  { _dsssrsVolumeARN      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dsssrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dsssrsVolumeARN      :: !(Maybe Text)
+  , _dsssrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

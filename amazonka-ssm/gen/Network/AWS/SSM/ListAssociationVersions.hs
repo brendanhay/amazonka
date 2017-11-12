@@ -49,9 +49,9 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listAssociationVersions' smart constructor.
 data ListAssociationVersions = ListAssociationVersions'
-  { _lavNextToken     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lavMaxResults    :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lavAssociationId :: {-# NOUNPACK #-}!Text
+  { _lavNextToken     :: !(Maybe Text)
+  , _lavMaxResults    :: !(Maybe Nat)
+  , _lavAssociationId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -127,9 +127,9 @@ instance ToQuery ListAssociationVersions where
 
 -- | /See:/ 'listAssociationVersionsResponse' smart constructor.
 data ListAssociationVersionsResponse = ListAssociationVersionsResponse'
-  { _lavrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lavrsAssociationVersions :: {-# NOUNPACK #-}!(Maybe (List1 AssociationVersionInfo))
-  , _lavrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lavrsNextToken           :: !(Maybe Text)
+  , _lavrsAssociationVersions :: !(Maybe (List1 AssociationVersionInfo))
+  , _lavrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

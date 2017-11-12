@@ -47,8 +47,8 @@ import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'createProtection' smart constructor.
 data CreateProtection = CreateProtection'
-  { _cpName        :: {-# NOUNPACK #-}!Text
-  , _cpResourceARN :: {-# NOUNPACK #-}!Text
+  { _cpName        :: !Text
+  , _cpResourceARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,8 +113,8 @@ instance ToQuery CreateProtection where
 
 -- | /See:/ 'createProtectionResponse' smart constructor.
 data CreateProtectionResponse = CreateProtectionResponse'
-  { _cprsProtectionId   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cprsProtectionId   :: !(Maybe Text)
+  , _cprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -58,16 +58,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'replaceRoute' smart constructor.
 data ReplaceRoute = ReplaceRoute'
-  { _rrVPCPeeringConnectionId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrInstanceId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrEgressOnlyInternetGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrDestinationIPv6CidrBlock    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrNatGatewayId                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrNetworkInterfaceId          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrGatewayId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrDryRun                      :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _rrDestinationCidrBlock        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _rrRouteTableId                :: {-# NOUNPACK #-}!Text
+  { _rrVPCPeeringConnectionId      :: !(Maybe Text)
+  , _rrInstanceId                  :: !(Maybe Text)
+  , _rrEgressOnlyInternetGatewayId :: !(Maybe Text)
+  , _rrDestinationIPv6CidrBlock    :: !(Maybe Text)
+  , _rrNatGatewayId                :: !(Maybe Text)
+  , _rrNetworkInterfaceId          :: !(Maybe Text)
+  , _rrGatewayId                   :: !(Maybe Text)
+  , _rrDryRun                      :: !(Maybe Bool)
+  , _rrDestinationCidrBlock        :: !(Maybe Text)
+  , _rrRouteTableId                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

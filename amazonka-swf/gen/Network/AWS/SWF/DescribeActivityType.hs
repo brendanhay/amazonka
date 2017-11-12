@@ -68,8 +68,8 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeActivityType' smart constructor.
 data DescribeActivityType = DescribeActivityType'
-  { _datDomain       :: {-# NOUNPACK #-}!Text
-  , _datActivityType :: {-# NOUNPACK #-}!ActivityType
+  { _datDomain       :: !Text
+  , _datActivityType :: !ActivityType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -141,9 +141,9 @@ instance ToQuery DescribeActivityType where
 --
 -- /See:/ 'describeActivityTypeResponse' smart constructor.
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
-  { _datrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _datrsTypeInfo       :: {-# NOUNPACK #-}!ActivityTypeInfo
-  , _datrsConfiguration  :: {-# NOUNPACK #-}!ActivityTypeConfiguration
+  { _datrsResponseStatus :: !Int
+  , _datrsTypeInfo       :: !ActivityTypeInfo
+  , _datrsConfiguration  :: !ActivityTypeConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateCoreDefinition' smart constructor.
 data UpdateCoreDefinition = UpdateCoreDefinition'
-  { _ucdName             :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ucdCoreDefinitionId :: {-# NOUNPACK #-}!Text
+  { _ucdName             :: !(Maybe Text)
+  , _ucdCoreDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

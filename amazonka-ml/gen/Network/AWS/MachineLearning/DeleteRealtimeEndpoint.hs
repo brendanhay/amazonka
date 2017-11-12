@@ -112,9 +112,9 @@ instance ToQuery DeleteRealtimeEndpoint where
 --
 -- /See:/ 'deleteRealtimeEndpointResponse' smart constructor.
 data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
-  { _drersRealtimeEndpointInfo :: {-# NOUNPACK #-}!(Maybe RealtimeEndpointInfo)
-  , _drersMLModelId            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _drersResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _drersRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
+  , _drersMLModelId            :: !(Maybe Text)
+  , _drersResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

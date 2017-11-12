@@ -59,12 +59,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'createFlowLogs' smart constructor.
 data CreateFlowLogs = CreateFlowLogs'
-  { _cflClientToken              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cflDeliverLogsPermissionARN :: {-# NOUNPACK #-}!Text
-  , _cflLogGroupName             :: {-# NOUNPACK #-}!Text
-  , _cflResourceIds              :: {-# NOUNPACK #-}![Text]
-  , _cflResourceType             :: {-# NOUNPACK #-}!FlowLogsResourceType
-  , _cflTrafficType              :: {-# NOUNPACK #-}!TrafficType
+  { _cflClientToken              :: !(Maybe Text)
+  , _cflDeliverLogsPermissionARN :: !Text
+  , _cflLogGroupName             :: !Text
+  , _cflResourceIds              :: ![Text]
+  , _cflResourceType             :: !FlowLogsResourceType
+  , _cflTrafficType              :: !TrafficType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -168,10 +168,10 @@ instance ToQuery CreateFlowLogs where
 --
 -- /See:/ 'createFlowLogsResponse' smart constructor.
 data CreateFlowLogsResponse = CreateFlowLogsResponse'
-  { _cflrsUnsuccessful   :: {-# NOUNPACK #-}!(Maybe [UnsuccessfulItem])
-  , _cflrsClientToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cflrsFlowLogIds     :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _cflrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _cflrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
+  , _cflrsClientToken    :: !(Maybe Text)
+  , _cflrsFlowLogIds     :: !(Maybe [Text])
+  , _cflrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -123,19 +123,19 @@ instance ToQuery GetPatchBaseline where
 
 -- | /See:/ 'getPatchBaselineResponse' smart constructor.
 data GetPatchBaselineResponse = GetPatchBaselineResponse'
-  { _gpbrsApprovalRules :: {-# NOUNPACK #-}!(Maybe PatchRuleGroup)
-  , _gpbrsOperatingSystem :: {-# NOUNPACK #-}!(Maybe OperatingSystem)
-  , _gpbrsGlobalFilters :: {-# NOUNPACK #-}!(Maybe PatchFilterGroup)
-  , _gpbrsApprovedPatchesComplianceLevel :: {-# NOUNPACK #-}!(Maybe PatchComplianceLevel)
-  , _gpbrsApprovedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gpbrsRejectedPatches :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gpbrsCreatedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gpbrsName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpbrsPatchGroups :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gpbrsModifiedDate :: {-# NOUNPACK #-}!(Maybe POSIX)
-  , _gpbrsDescription :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpbrsBaselineId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gpbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gpbrsApprovalRules                  :: !(Maybe PatchRuleGroup)
+  , _gpbrsOperatingSystem                :: !(Maybe OperatingSystem)
+  , _gpbrsGlobalFilters                  :: !(Maybe PatchFilterGroup)
+  , _gpbrsApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
+  , _gpbrsApprovedPatches                :: !(Maybe [Text])
+  , _gpbrsRejectedPatches                :: !(Maybe [Text])
+  , _gpbrsCreatedDate                    :: !(Maybe POSIX)
+  , _gpbrsName                           :: !(Maybe Text)
+  , _gpbrsPatchGroups                    :: !(Maybe [Text])
+  , _gpbrsModifiedDate                   :: !(Maybe POSIX)
+  , _gpbrsDescription                    :: !(Maybe Text)
+  , _gpbrsBaselineId                     :: !(Maybe Text)
+  , _gpbrsResponseStatus                 :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

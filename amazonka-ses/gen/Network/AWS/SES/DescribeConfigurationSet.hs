@@ -55,8 +55,8 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'describeConfigurationSet' smart constructor.
 data DescribeConfigurationSet = DescribeConfigurationSet'
-  { _dcsConfigurationSetAttributeNames :: {-# NOUNPACK #-}!(Maybe [ConfigurationSetAttribute])
-  , _dcsConfigurationSetName :: {-# NOUNPACK #-}!Text
+  { _dcsConfigurationSetAttributeNames :: !(Maybe [ConfigurationSetAttribute])
+  , _dcsConfigurationSetName           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -128,10 +128,10 @@ instance ToQuery DescribeConfigurationSet where
 --
 -- /See:/ 'describeConfigurationSetResponse' smart constructor.
 data DescribeConfigurationSetResponse = DescribeConfigurationSetResponse'
-  { _dcsrsTrackingOptions   :: {-# NOUNPACK #-}!(Maybe TrackingOptions)
-  , _dcsrsConfigurationSet  :: {-# NOUNPACK #-}!(Maybe ConfigurationSet)
-  , _dcsrsEventDestinations :: {-# NOUNPACK #-}!(Maybe [EventDestination])
-  , _dcsrsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _dcsrsTrackingOptions   :: !(Maybe TrackingOptions)
+  , _dcsrsConfigurationSet  :: !(Maybe ConfigurationSet)
+  , _dcsrsEventDestinations :: !(Maybe [EventDestination])
+  , _dcsrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

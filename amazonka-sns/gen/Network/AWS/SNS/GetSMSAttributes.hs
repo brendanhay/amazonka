@@ -105,8 +105,8 @@ instance ToQuery GetSMSAttributes where
 --
 -- /See:/ 'getSMSAttributesResponse' smart constructor.
 data GetSMSAttributesResponse = GetSMSAttributesResponse'
-  { _gsmsarsAttributes     :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _gsmsarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gsmsarsAttributes     :: !(Maybe (Map Text Text))
+  , _gsmsarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

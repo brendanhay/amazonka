@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'removeAutoScalingPolicy' smart constructor.
 data RemoveAutoScalingPolicy = RemoveAutoScalingPolicy'
-  { _raspClusterId       :: {-# NOUNPACK #-}!Text
-  , _raspInstanceGroupId :: {-# NOUNPACK #-}!Text
+  { _raspClusterId       :: !Text
+  , _raspInstanceGroupId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

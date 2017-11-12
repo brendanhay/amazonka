@@ -48,10 +48,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createNotification' smart constructor.
 data CreateNotification = CreateNotification'
-  { _cnAccountId    :: {-# NOUNPACK #-}!Text
-  , _cnBudgetName   :: {-# NOUNPACK #-}!Text
-  , _cnNotification :: {-# NOUNPACK #-}!Notification
-  , _cnSubscribers  :: {-# NOUNPACK #-}!(List1 Subscriber)
+  { _cnAccountId    :: !Text
+  , _cnBudgetName   :: !Text
+  , _cnNotification :: !Notification
+  , _cnSubscribers  :: !(List1 Subscriber)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

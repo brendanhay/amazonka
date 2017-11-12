@@ -50,8 +50,8 @@ import Network.AWS.WorkSpaces.Types.Product
 --
 -- /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { _dResourceId :: {-# NOUNPACK #-}!Text
-  , _dTagKeys    :: {-# NOUNPACK #-}![Text]
+  { _dResourceId :: !Text
+  , _dTagKeys    :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

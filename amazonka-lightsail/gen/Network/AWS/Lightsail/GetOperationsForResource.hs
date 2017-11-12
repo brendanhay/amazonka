@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getOperationsForResource' smart constructor.
 data GetOperationsForResource = GetOperationsForResource'
-  { _gofrPageToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gofrResourceName :: {-# NOUNPACK #-}!Text
+  { _gofrPageToken    :: !(Maybe Text)
+  , _gofrResourceName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,10 +118,10 @@ instance ToQuery GetOperationsForResource where
 
 -- | /See:/ 'getOperationsForResourceResponse' smart constructor.
 data GetOperationsForResourceResponse = GetOperationsForResourceResponse'
-  { _gofrrsNextPageCount  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gofrrsNextPageToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gofrrsOperations     :: {-# NOUNPACK #-}!(Maybe [Operation])
-  , _gofrrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gofrrsNextPageCount  :: !(Maybe Text)
+  , _gofrrsNextPageToken  :: !(Maybe Text)
+  , _gofrrsOperations     :: !(Maybe [Operation])
+  , _gofrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

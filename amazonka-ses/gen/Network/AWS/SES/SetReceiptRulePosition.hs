@@ -55,9 +55,9 @@ import Network.AWS.SES.Types.Product
 --
 -- /See:/ 'setReceiptRulePosition' smart constructor.
 data SetReceiptRulePosition = SetReceiptRulePosition'
-  { _srrpAfter       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _srrpRuleSetName :: {-# NOUNPACK #-}!Text
-  , _srrpRuleName    :: {-# NOUNPACK #-}!Text
+  { _srrpAfter       :: !(Maybe Text)
+  , _srrpRuleSetName :: !Text
+  , _srrpRuleName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

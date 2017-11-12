@@ -102,8 +102,8 @@ instance ToQuery GetDataRetrievalPolicy where
 --
 -- /See:/ 'getDataRetrievalPolicyResponse' smart constructor.
 data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
-  { _gdrprsPolicy         :: {-# NOUNPACK #-}!(Maybe DataRetrievalPolicy)
-  , _gdrprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gdrprsPolicy         :: !(Maybe DataRetrievalPolicy)
+  , _gdrprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

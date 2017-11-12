@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEnvironmentManagedActionHistory' smart constructor.
 data DescribeEnvironmentManagedActionHistory = DescribeEnvironmentManagedActionHistory'
-  { _demahNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _demahEnvironmentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _demahMaxItems        :: {-# NOUNPACK #-}!(Maybe Int)
-  , _demahEnvironmentId   :: {-# NOUNPACK #-}!(Maybe Text)
+  { _demahNextToken       :: !(Maybe Text)
+  , _demahEnvironmentName :: !(Maybe Text)
+  , _demahMaxItems        :: !(Maybe Int)
+  , _demahEnvironmentId   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -153,9 +153,9 @@ instance ToQuery
 --
 -- /See:/ 'describeEnvironmentManagedActionHistoryResponse' smart constructor.
 data DescribeEnvironmentManagedActionHistoryResponse = DescribeEnvironmentManagedActionHistoryResponse'
-  { _demahrsManagedActionHistoryItems :: {-# NOUNPACK #-}!(Maybe (List1 ManagedActionHistoryItem))
-  , _demahrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _demahrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _demahrsManagedActionHistoryItems :: !(Maybe (List1 ManagedActionHistoryItem))
+  , _demahrsNextToken :: !(Maybe Text)
+  , _demahrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

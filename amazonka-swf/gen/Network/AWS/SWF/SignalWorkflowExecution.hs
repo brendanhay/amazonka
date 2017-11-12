@@ -61,11 +61,11 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'signalWorkflowExecution' smart constructor.
 data SignalWorkflowExecution = SignalWorkflowExecution'
-  { _sweInput      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sweRunId      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _sweDomain     :: {-# NOUNPACK #-}!Text
-  , _sweWorkflowId :: {-# NOUNPACK #-}!Text
-  , _sweSignalName :: {-# NOUNPACK #-}!Text
+  { _sweInput      :: !(Maybe Text)
+  , _sweRunId      :: !(Maybe Text)
+  , _sweDomain     :: !Text
+  , _sweWorkflowId :: !Text
+  , _sweSignalName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -48,8 +48,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeTasks' smart constructor.
 data DescribeTasks = DescribeTasks'
-  { _dtCluster :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dtTasks   :: {-# NOUNPACK #-}![Text]
+  { _dtCluster :: !(Maybe Text)
+  , _dtTasks   :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,9 +113,9 @@ instance ToQuery DescribeTasks where
 
 -- | /See:/ 'describeTasksResponse' smart constructor.
 data DescribeTasksResponse = DescribeTasksResponse'
-  { _dtrsFailures       :: {-# NOUNPACK #-}!(Maybe [Failure])
-  , _dtrsTasks          :: {-# NOUNPACK #-}!(Maybe [Task])
-  , _dtrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dtrsFailures       :: !(Maybe [Failure])
+  , _dtrsTasks          :: !(Maybe [Task])
+  , _dtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

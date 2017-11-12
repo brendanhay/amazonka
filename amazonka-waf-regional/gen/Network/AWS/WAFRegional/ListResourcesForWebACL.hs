@@ -104,8 +104,8 @@ instance ToQuery ListResourcesForWebACL where
 
 -- | /See:/ 'listResourcesForWebACLResponse' smart constructor.
 data ListResourcesForWebACLResponse = ListResourcesForWebACLResponse'
-  { _lrfwarsResourceARNs   :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lrfwarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lrfwarsResourceARNs   :: !(Maybe [Text])
+  , _lrfwarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

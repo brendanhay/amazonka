@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'startMaintenance' smart constructor.
 data StartMaintenance = StartMaintenance'
-  { _smEngineAttributes :: {-# NOUNPACK #-}!(Maybe [EngineAttribute])
-  , _smServerName       :: {-# NOUNPACK #-}!Text
+  { _smEngineAttributes :: !(Maybe [EngineAttribute])
+  , _smServerName       :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -115,8 +115,8 @@ instance ToQuery StartMaintenance where
 
 -- | /See:/ 'startMaintenanceResponse' smart constructor.
 data StartMaintenanceResponse = StartMaintenanceResponse'
-  { _smrsServer         :: {-# NOUNPACK #-}!(Maybe Server)
-  , _smrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _smrsServer         :: !(Maybe Server)
+  , _smrsResponseStatus :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

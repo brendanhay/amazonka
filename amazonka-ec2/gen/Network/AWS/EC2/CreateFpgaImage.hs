@@ -56,12 +56,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'createFpgaImage' smart constructor.
 data CreateFpgaImage = CreateFpgaImage'
-  { _creClientToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _creLogsStorageLocation  :: {-# NOUNPACK #-}!(Maybe StorageLocation)
-  , _creName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _creDescription          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _creDryRun               :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _creInputStorageLocation :: {-# NOUNPACK #-}!StorageLocation
+  { _creClientToken          :: !(Maybe Text)
+  , _creLogsStorageLocation  :: !(Maybe StorageLocation)
+  , _creName                 :: !(Maybe Text)
+  , _creDescription          :: !(Maybe Text)
+  , _creDryRun               :: !(Maybe Bool)
+  , _creInputStorageLocation :: !StorageLocation
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -151,9 +151,9 @@ instance ToQuery CreateFpgaImage where
 
 -- | /See:/ 'createFpgaImageResponse' smart constructor.
 data CreateFpgaImageResponse = CreateFpgaImageResponse'
-  { _cfirsFpgaImageId       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfirsFpgaImageGlobalId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cfirsResponseStatus    :: {-# NOUNPACK #-}!Int
+  { _cfirsFpgaImageId       :: !(Maybe Text)
+  , _cfirsFpgaImageGlobalId :: !(Maybe Text)
+  , _cfirsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

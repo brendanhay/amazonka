@@ -104,9 +104,9 @@ instance ToQuery GetCelebrityInfo where
 
 -- | /See:/ 'getCelebrityInfoResponse' smart constructor.
 data GetCelebrityInfoResponse = GetCelebrityInfoResponse'
-  { _gcirsURLs           :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _gcirsName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcirsURLs           :: !(Maybe [Text])
+  , _gcirsName           :: !(Maybe Text)
+  , _gcirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

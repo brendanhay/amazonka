@@ -55,11 +55,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeVPCEndpoints' smart constructor.
 data DescribeVPCEndpoints = DescribeVPCEndpoints'
-  { _dvpceFilters        :: {-# NOUNPACK #-}!(Maybe [Filter])
-  , _dvpceNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvpceVPCEndpointIds :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _dvpceDryRun         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _dvpceMaxResults     :: {-# NOUNPACK #-}!(Maybe Int)
+  { _dvpceFilters        :: !(Maybe [Filter])
+  , _dvpceNextToken      :: !(Maybe Text)
+  , _dvpceVPCEndpointIds :: !(Maybe [Text])
+  , _dvpceDryRun         :: !(Maybe Bool)
+  , _dvpceMaxResults     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -150,9 +150,9 @@ instance ToQuery DescribeVPCEndpoints where
 --
 -- /See:/ 'describeVPCEndpointsResponse' smart constructor.
 data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'
-  { _dvpcersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dvpcersVPCEndpoints   :: {-# NOUNPACK #-}!(Maybe [VPCEndpoint])
-  , _dvpcersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dvpcersNextToken      :: !(Maybe Text)
+  , _dvpcersVPCEndpoints   :: !(Maybe [VPCEndpoint])
+  , _dvpcersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateHITTypeOfHIT' smart constructor.
 data UpdateHITTypeOfHIT = UpdateHITTypeOfHIT'
-  { _uhittohitHITId     :: {-# NOUNPACK #-}!Text
-  , _uhittohitHITTypeId :: {-# NOUNPACK #-}!Text
+  { _uhittohitHITId     :: !Text
+  , _uhittohitHITTypeId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

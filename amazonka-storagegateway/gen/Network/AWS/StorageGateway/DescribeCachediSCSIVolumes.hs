@@ -110,8 +110,8 @@ instance ToQuery DescribeCachediSCSIVolumes where
 --
 -- /See:/ 'describeCachediSCSIVolumesResponse' smart constructor.
 data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
-  { _dcscsivrsCachediSCSIVolumes :: {-# NOUNPACK #-}!(Maybe [CachediSCSIVolume])
-  , _dcscsivrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _dcscsivrsCachediSCSIVolumes :: !(Maybe [CachediSCSIVolume])
+  , _dcscsivrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

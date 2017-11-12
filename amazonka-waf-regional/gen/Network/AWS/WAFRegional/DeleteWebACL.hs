@@ -57,8 +57,8 @@ import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'deleteWebACL' smart constructor.
 data DeleteWebACL = DeleteWebACL'
-  { _dwaWebACLId    :: {-# NOUNPACK #-}!Text
-  , _dwaChangeToken :: {-# NOUNPACK #-}!Text
+  { _dwaWebACLId    :: !Text
+  , _dwaChangeToken :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,8 +123,8 @@ instance ToQuery DeleteWebACL where
 
 -- | /See:/ 'deleteWebACLResponse' smart constructor.
 data DeleteWebACLResponse = DeleteWebACLResponse'
-  { _dwarsChangeToken    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dwarsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _dwarsChangeToken    :: !(Maybe Text)
+  , _dwarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

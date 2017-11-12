@@ -111,9 +111,9 @@ instance ToQuery CreateCollection where
 
 -- | /See:/ 'createCollectionResponse' smart constructor.
 data CreateCollectionResponse = CreateCollectionResponse'
-  { _ccrsCollectionARN  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ccrsStatusCode     :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _ccrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ccrsCollectionARN  :: !(Maybe Text)
+  , _ccrsStatusCode     :: !(Maybe Nat)
+  , _ccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

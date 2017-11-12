@@ -54,9 +54,9 @@ import Network.AWS.Route53Domains.Types.Product
 --
 -- /See:/ 'renewDomain' smart constructor.
 data RenewDomain = RenewDomain'
-  { _rdDurationInYears   :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _rdDomainName        :: {-# NOUNPACK #-}!Text
-  , _rdCurrentExpiryYear :: {-# NOUNPACK #-}!Int
+  { _rdDurationInYears   :: !(Maybe Nat)
+  , _rdDomainName        :: !Text
+  , _rdCurrentExpiryYear :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,8 +132,8 @@ instance ToQuery RenewDomain where
 
 -- | /See:/ 'renewDomainResponse' smart constructor.
 data RenewDomainResponse = RenewDomainResponse'
-  { _rrsResponseStatus :: {-# NOUNPACK #-}!Int
-  , _rrsOperationId    :: {-# NOUNPACK #-}!Text
+  { _rrsResponseStatus :: !Int
+  , _rrsOperationId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -52,8 +52,8 @@ import Network.AWS.WAFRegional.Types.Product
 --
 -- /See:/ 'listSqlInjectionMatchSets' smart constructor.
 data ListSqlInjectionMatchSets = ListSqlInjectionMatchSets'
-  { _lsimsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsimsLimit      :: {-# NOUNPACK #-}!(Maybe Nat)
+  { _lsimsNextMarker :: !(Maybe Text)
+  , _lsimsLimit      :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,9 +123,9 @@ instance ToQuery ListSqlInjectionMatchSets where
 --
 -- /See:/ 'listSqlInjectionMatchSetsResponse' smart constructor.
 data ListSqlInjectionMatchSetsResponse = ListSqlInjectionMatchSetsResponse'
-  { _lsimsrsNextMarker :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lsimsrsSqlInjectionMatchSets :: {-# NOUNPACK #-}!(Maybe [SqlInjectionMatchSetSummary])
-  , _lsimsrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lsimsrsNextMarker            :: !(Maybe Text)
+  , _lsimsrsSqlInjectionMatchSets :: !(Maybe [SqlInjectionMatchSetSummary])
+  , _lsimsrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -46,10 +46,10 @@ import Network.AWS.WorkDocs.Types.Product
 
 -- | /See:/ 'removeResourcePermission' smart constructor.
 data RemoveResourcePermission = RemoveResourcePermission'
-  { _rrpPrincipalType       :: {-# NOUNPACK #-}!(Maybe PrincipalType)
-  , _rrpAuthenticationToken :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _rrpResourceId          :: {-# NOUNPACK #-}!Text
-  , _rrpPrincipalId         :: {-# NOUNPACK #-}!Text
+  { _rrpPrincipalType       :: !(Maybe PrincipalType)
+  , _rrpAuthenticationToken :: !(Maybe (Sensitive Text))
+  , _rrpResourceId          :: !Text
+  , _rrpPrincipalId         :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

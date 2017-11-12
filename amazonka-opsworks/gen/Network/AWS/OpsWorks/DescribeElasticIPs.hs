@@ -50,9 +50,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeElasticIPs' smart constructor.
 data DescribeElasticIPs = DescribeElasticIPs'
-  { _deiInstanceId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _deiIPs        :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _deiStackId    :: {-# NOUNPACK #-}!(Maybe Text)
+  { _deiInstanceId :: !(Maybe Text)
+  , _deiIPs        :: !(Maybe [Text])
+  , _deiStackId    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -129,8 +129,8 @@ instance ToQuery DescribeElasticIPs where
 --
 -- /See:/ 'describeElasticIPsResponse' smart constructor.
 data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
-  { _deirsElasticIPs     :: {-# NOUNPACK #-}!(Maybe [ElasticIP])
-  , _deirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _deirsElasticIPs     :: !(Maybe [ElasticIP])
+  , _deirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

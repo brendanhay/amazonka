@@ -52,8 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyDBParameterGroup' smart constructor.
 data ModifyDBParameterGroup = ModifyDBParameterGroup'
-  { _mdpgDBParameterGroupName :: {-# NOUNPACK #-}!Text
-  , _mdpgParameters           :: {-# NOUNPACK #-}![Parameter]
+  { _mdpgDBParameterGroupName :: !Text
+  , _mdpgParameters           :: ![Parameter]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

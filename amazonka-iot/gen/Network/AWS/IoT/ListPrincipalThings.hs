@@ -56,9 +56,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'listPrincipalThings' smart constructor.
 data ListPrincipalThings = ListPrincipalThings'
-  { _lptNextToken  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lptMaxResults :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _lptPrincipal  :: {-# NOUNPACK #-}!Text
+  { _lptNextToken  :: !(Maybe Text)
+  , _lptMaxResults :: !(Maybe Nat)
+  , _lptPrincipal  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,9 +135,9 @@ instance ToQuery ListPrincipalThings where
 --
 -- /See:/ 'listPrincipalThingsResponse' smart constructor.
 data ListPrincipalThingsResponse = ListPrincipalThingsResponse'
-  { _lptrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lptrsThings         :: {-# NOUNPACK #-}!(Maybe [Text])
-  , _lptrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lptrsNextToken      :: !(Maybe Text)
+  , _lptrsThings         :: !(Maybe [Text])
+  , _lptrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

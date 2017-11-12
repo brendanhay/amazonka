@@ -91,10 +91,10 @@ instance ToQuery GetCallerIdentity where
 --
 -- /See:/ 'getCallerIdentityResponse' smart constructor.
 data GetCallerIdentityResponse = GetCallerIdentityResponse'
-  { _gcirsARN            :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcirsAccount        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcirsUserId         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcirsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gcirsARN            :: !(Maybe Text)
+  , _gcirsAccount        :: !(Maybe Text)
+  , _gcirsUserId         :: !(Maybe Text)
+  , _gcirsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

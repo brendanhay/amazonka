@@ -104,14 +104,14 @@ instance ToQuery GetGroup where
 
 -- | /See:/ 'getGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-  { _ggrsLatestVersionARN     :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggrsARN                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggrsName                 :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggrsCreationTimestamp    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggrsId                   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggrsLatestVersion        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggrsLastUpdatedTimestamp :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ggrsResponseStatus       :: {-# NOUNPACK #-}!Int
+  { _ggrsLatestVersionARN     :: !(Maybe Text)
+  , _ggrsARN                  :: !(Maybe Text)
+  , _ggrsName                 :: !(Maybe Text)
+  , _ggrsCreationTimestamp    :: !(Maybe Text)
+  , _ggrsId                   :: !(Maybe Text)
+  , _ggrsLatestVersion        :: !(Maybe Text)
+  , _ggrsLastUpdatedTimestamp :: !(Maybe Text)
+  , _ggrsResponseStatus       :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

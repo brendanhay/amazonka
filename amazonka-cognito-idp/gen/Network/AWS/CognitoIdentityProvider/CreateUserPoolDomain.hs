@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createUserPoolDomain' smart constructor.
 data CreateUserPoolDomain = CreateUserPoolDomain'
-  { _cupdDomain     :: {-# NOUNPACK #-}!Text
-  , _cupdUserPoolId :: {-# NOUNPACK #-}!Text
+  { _cupdDomain     :: !Text
+  , _cupdUserPoolId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

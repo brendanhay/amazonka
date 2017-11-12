@@ -49,8 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'testEventPattern' smart constructor.
 data TestEventPattern = TestEventPattern'
-  { _tepEventPattern :: {-# NOUNPACK #-}!Text
-  , _tepEvent        :: {-# NOUNPACK #-}!Text
+  { _tepEventPattern :: !Text
+  , _tepEvent        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,8 +114,8 @@ instance ToQuery TestEventPattern where
 
 -- | /See:/ 'testEventPatternResponse' smart constructor.
 data TestEventPatternResponse = TestEventPatternResponse'
-  { _teprsResult         :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _teprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _teprsResult         :: !(Maybe Bool)
+  , _teprsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

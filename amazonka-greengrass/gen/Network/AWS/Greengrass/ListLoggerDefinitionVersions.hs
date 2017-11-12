@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'listLoggerDefinitionVersions' smart constructor.
 data ListLoggerDefinitionVersions = ListLoggerDefinitionVersions'
-  { _lldvNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lldvMaxResults         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lldvLoggerDefinitionId :: {-# NOUNPACK #-}!Text
+  { _lldvNextToken          :: !(Maybe Text)
+  , _lldvMaxResults         :: !(Maybe Text)
+  , _lldvLoggerDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,9 +122,9 @@ instance ToQuery ListLoggerDefinitionVersions where
 
 -- | /See:/ 'listLoggerDefinitionVersionsResponse' smart constructor.
 data ListLoggerDefinitionVersionsResponse = ListLoggerDefinitionVersionsResponse'
-  { _lldvrsVersions       :: {-# NOUNPACK #-}!(Maybe [VersionInformation])
-  , _lldvrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lldvrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lldvrsVersions       :: !(Maybe [VersionInformation])
+  , _lldvrsNextToken      :: !(Maybe Text)
+  , _lldvrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

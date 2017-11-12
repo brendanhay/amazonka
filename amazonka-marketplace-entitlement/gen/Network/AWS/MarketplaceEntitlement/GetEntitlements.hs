@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'getEntitlements' smart constructor.
 data GetEntitlements = GetEntitlements'
-  { _geNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _geFilter :: {-# NOUNPACK #-}!(Maybe (Map GetEntitlementFilterName (List1 Text)))
-  , _geMaxResults :: {-# NOUNPACK #-}!(Maybe Int)
-  , _geProductCode :: {-# NOUNPACK #-}!Text
+  { _geNextToken   :: !(Maybe Text)
+  , _geFilter      :: !(Maybe (Map GetEntitlementFilterName (List1 Text)))
+  , _geMaxResults  :: !(Maybe Int)
+  , _geProductCode :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -146,9 +146,9 @@ instance ToQuery GetEntitlements where
 --
 -- /See:/ 'getEntitlementsResponse' smart constructor.
 data GetEntitlementsResponse = GetEntitlementsResponse'
-  { _gersNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gersEntitlements   :: {-# NOUNPACK #-}!(Maybe [Entitlement])
-  , _gersResponseStatus :: {-# NOUNPACK #-}!Int
+  { _gersNextToken      :: !(Maybe Text)
+  , _gersEntitlements   :: !(Maybe [Entitlement])
+  , _gersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

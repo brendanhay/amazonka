@@ -46,8 +46,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'deleteSigningCertificate' smart constructor.
 data DeleteSigningCertificate = DeleteSigningCertificate'
-  { _dscUserName      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _dscCertificateId :: {-# NOUNPACK #-}!Text
+  { _dscUserName      :: !(Maybe Text)
+  , _dscCertificateId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

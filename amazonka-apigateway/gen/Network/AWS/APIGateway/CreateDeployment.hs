@@ -58,13 +58,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-  { _cdStageDescription    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdVariables           :: {-# NOUNPACK #-}!(Maybe (Map Text Text))
-  , _cdCacheClusterSize    :: {-# NOUNPACK #-}!(Maybe CacheClusterSize)
-  , _cdCacheClusterEnabled :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _cdStageName           :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdDescription         :: {-# NOUNPACK #-}!(Maybe Text)
-  , _cdRestAPIId           :: {-# NOUNPACK #-}!Text
+  { _cdStageDescription    :: !(Maybe Text)
+  , _cdVariables           :: !(Maybe (Map Text Text))
+  , _cdCacheClusterSize    :: !(Maybe CacheClusterSize)
+  , _cdCacheClusterEnabled :: !(Maybe Bool)
+  , _cdStageName           :: !(Maybe Text)
+  , _cdDescription         :: !(Maybe Text)
+  , _cdRestAPIId           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

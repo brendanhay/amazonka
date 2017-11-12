@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeDirectConnectGatewayAttachments' smart constructor.
 data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttachments'
-  { _ddcgasDirectConnectGatewayId :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcgasNextToken              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcgasMaxResults             :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ddcgasVirtualInterfaceId     :: {-# NOUNPACK #-}!(Maybe Text)
+  { _ddcgasDirectConnectGatewayId :: !(Maybe Text)
+  , _ddcgasNextToken              :: !(Maybe Text)
+  , _ddcgasMaxResults             :: !(Maybe Int)
+  , _ddcgasVirtualInterfaceId     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -162,9 +162,9 @@ instance ToQuery
 --
 -- /See:/ 'describeDirectConnectGatewayAttachmentsResponse' smart constructor.
 data DescribeDirectConnectGatewayAttachmentsResponse = DescribeDirectConnectGatewayAttachmentsResponse'
-  { _ddcgasrsNextToken :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ddcgasrsDirectConnectGatewayAttachments :: {-# NOUNPACK #-}!(Maybe [DirectConnectGatewayAttachment])
-  , _ddcgasrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ddcgasrsNextToken :: !(Maybe Text)
+  , _ddcgasrsDirectConnectGatewayAttachments :: !(Maybe [DirectConnectGatewayAttachment])
+  , _ddcgasrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

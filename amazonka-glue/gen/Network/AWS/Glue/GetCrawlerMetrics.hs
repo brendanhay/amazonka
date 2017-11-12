@@ -49,9 +49,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'getCrawlerMetrics' smart constructor.
 data GetCrawlerMetrics = GetCrawlerMetrics'
-  { _gcmNextToken       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcmMaxResults      :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _gcmCrawlerNameList :: {-# NOUNPACK #-}!(Maybe [Text])
+  { _gcmNextToken       :: !(Maybe Text)
+  , _gcmMaxResults      :: !(Maybe Nat)
+  , _gcmCrawlerNameList :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -126,9 +126,9 @@ instance ToQuery GetCrawlerMetrics where
 
 -- | /See:/ 'getCrawlerMetricsResponse' smart constructor.
 data GetCrawlerMetricsResponse = GetCrawlerMetricsResponse'
-  { _gcmrsCrawlerMetricsList :: {-# NOUNPACK #-}!(Maybe [CrawlerMetrics])
-  , _gcmrsNextToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _gcmrsResponseStatus     :: {-# NOUNPACK #-}!Int
+  { _gcmrsCrawlerMetricsList :: !(Maybe [CrawlerMetrics])
+  , _gcmrsNextToken          :: !(Maybe Text)
+  , _gcmrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

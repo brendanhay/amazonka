@@ -54,13 +54,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'synthesizeSpeech' smart constructor.
 data SynthesizeSpeech = SynthesizeSpeech'
-  { _ssSpeechMarkTypes :: {-# NOUNPACK #-}!(Maybe [SpeechMarkType])
-  , _ssSampleRate      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssTextType        :: {-# NOUNPACK #-}!(Maybe TextType)
-  , _ssLexiconNames    :: {-# NOUNPACK #-}!(Maybe [Sensitive Text])
-  , _ssOutputFormat    :: {-# NOUNPACK #-}!OutputFormat
-  , _ssText            :: {-# NOUNPACK #-}!Text
-  , _ssVoiceId         :: {-# NOUNPACK #-}!VoiceId
+  { _ssSpeechMarkTypes :: !(Maybe [SpeechMarkType])
+  , _ssSampleRate      :: !(Maybe Text)
+  , _ssTextType        :: !(Maybe TextType)
+  , _ssLexiconNames    :: !(Maybe [Sensitive Text])
+  , _ssOutputFormat    :: !OutputFormat
+  , _ssText            :: !Text
+  , _ssVoiceId         :: !VoiceId
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -165,10 +165,10 @@ instance ToQuery SynthesizeSpeech where
 
 -- | /See:/ 'synthesizeSpeechResponse' smart constructor.
 data SynthesizeSpeechResponse = SynthesizeSpeechResponse'
-  { _ssrsRequestCharacters :: {-# NOUNPACK #-}!(Maybe Int)
-  , _ssrsContentType       :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ssrsResponseStatus    :: {-# NOUNPACK #-}!Int
-  , _ssrsAudioStream       :: {-# NOUNPACK #-}!RsBody
+  { _ssrsRequestCharacters :: !(Maybe Int)
+  , _ssrsContentType       :: !(Maybe Text)
+  , _ssrsResponseStatus    :: !Int
+  , _ssrsAudioStream       :: !RsBody
   } deriving (Show, Generic)
 
 

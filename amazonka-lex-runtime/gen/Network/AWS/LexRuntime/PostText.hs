@@ -89,12 +89,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'postText' smart constructor.
 data PostText = PostText'
-  { _ptRequestAttributes :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text Text)))
-  , _ptSessionAttributes :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text Text)))
-  , _ptBotName           :: {-# NOUNPACK #-}!Text
-  , _ptBotAlias          :: {-# NOUNPACK #-}!Text
-  , _ptUserId            :: {-# NOUNPACK #-}!Text
-  , _ptInputText         :: {-# NOUNPACK #-}!(Sensitive Text)
+  { _ptRequestAttributes :: !(Maybe (Sensitive (Map Text Text)))
+  , _ptSessionAttributes :: !(Maybe (Sensitive (Map Text Text)))
+  , _ptBotName           :: !Text
+  , _ptBotAlias          :: !Text
+  , _ptUserId            :: !Text
+  , _ptInputText         :: !(Sensitive Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -199,14 +199,14 @@ instance ToQuery PostText where
 
 -- | /See:/ 'postTextResponse' smart constructor.
 data PostTextResponse = PostTextResponse'
-  { _ptrsSlots :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text Text)))
-  , _ptrsResponseCard :: {-# NOUNPACK #-}!(Maybe ResponseCard)
-  , _ptrsIntentName :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ptrsDialogState :: {-# NOUNPACK #-}!(Maybe DialogState)
-  , _ptrsMessage :: {-# NOUNPACK #-}!(Maybe (Sensitive Text))
-  , _ptrsSlotToElicit :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ptrsSessionAttributes :: {-# NOUNPACK #-}!(Maybe (Sensitive (Map Text Text)))
-  , _ptrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _ptrsSlots             :: !(Maybe (Sensitive (Map Text Text)))
+  , _ptrsResponseCard      :: !(Maybe ResponseCard)
+  , _ptrsIntentName        :: !(Maybe Text)
+  , _ptrsDialogState       :: !(Maybe DialogState)
+  , _ptrsMessage           :: !(Maybe (Sensitive Text))
+  , _ptrsSlotToElicit      :: !(Maybe Text)
+  , _ptrsSessionAttributes :: !(Maybe (Sensitive (Map Text Text)))
+  , _ptrsResponseStatus    :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 

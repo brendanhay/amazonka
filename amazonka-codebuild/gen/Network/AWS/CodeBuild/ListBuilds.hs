@@ -51,8 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listBuilds' smart constructor.
 data ListBuilds = ListBuilds'
-  { _lbSortOrder :: {-# NOUNPACK #-}!(Maybe SortOrderType)
-  , _lbNextToken :: {-# NOUNPACK #-}!(Maybe Text)
+  { _lbSortOrder :: !(Maybe SortOrderType)
+  , _lbNextToken :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,9 +121,9 @@ instance ToQuery ListBuilds where
 
 -- | /See:/ 'listBuildsResponse' smart constructor.
 data ListBuildsResponse = ListBuildsResponse'
-  { _lbrsIds            :: {-# NOUNPACK #-}!(Maybe (List1 Text))
-  , _lbrsNextToken      :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lbrsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lbrsIds            :: !(Maybe (List1 Text))
+  , _lbrsNextToken      :: !(Maybe Text)
+  , _lbrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

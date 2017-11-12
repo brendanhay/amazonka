@@ -53,15 +53,15 @@ import Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'updateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { _ujNotification               :: {-# NOUNPACK #-}!(Maybe Notification)
-  , _ujForwardingAddressId        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ujAddressId                  :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ujShippingOption             :: {-# NOUNPACK #-}!(Maybe ShippingOption)
-  , _ujResources                  :: {-# NOUNPACK #-}!(Maybe JobResource)
-  , _ujDescription                :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ujRoleARN                    :: {-# NOUNPACK #-}!(Maybe Text)
-  , _ujSnowballCapacityPreference :: {-# NOUNPACK #-}!(Maybe SnowballCapacity)
-  , _ujJobId                      :: {-# NOUNPACK #-}!Text
+  { _ujNotification               :: !(Maybe Notification)
+  , _ujForwardingAddressId        :: !(Maybe Text)
+  , _ujAddressId                  :: !(Maybe Text)
+  , _ujShippingOption             :: !(Maybe ShippingOption)
+  , _ujResources                  :: !(Maybe JobResource)
+  , _ujDescription                :: !(Maybe Text)
+  , _ujRoleARN                    :: !(Maybe Text)
+  , _ujSnowballCapacityPreference :: !(Maybe SnowballCapacity)
+  , _ujJobId                      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

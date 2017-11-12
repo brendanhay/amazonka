@@ -108,9 +108,9 @@ instance ToQuery ListVolumeRecoveryPoints where
 
 -- | /See:/ 'listVolumeRecoveryPointsResponse' smart constructor.
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
-  { _lvrprsVolumeRecoveryPointInfos :: {-# NOUNPACK #-}!(Maybe [VolumeRecoveryPointInfo])
-  , _lvrprsGatewayARN :: {-# NOUNPACK #-}!(Maybe Text)
-  , _lvrprsResponseStatus :: {-# NOUNPACK #-}!Int
+  { _lvrprsVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
+  , _lvrprsGatewayARN               :: !(Maybe Text)
+  , _lvrprsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

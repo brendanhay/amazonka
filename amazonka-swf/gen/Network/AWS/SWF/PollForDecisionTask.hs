@@ -80,12 +80,12 @@ import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'pollForDecisionTask' smart constructor.
 data PollForDecisionTask = PollForDecisionTask'
-  { _pfdtNextPageToken   :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pfdtReverseOrder    :: {-# NOUNPACK #-}!(Maybe Bool)
-  , _pfdtMaximumPageSize :: {-# NOUNPACK #-}!(Maybe Nat)
-  , _pfdtIdentity        :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pfdtDomain          :: {-# NOUNPACK #-}!Text
-  , _pfdtTaskList        :: {-# NOUNPACK #-}!TaskList
+  { _pfdtNextPageToken   :: !(Maybe Text)
+  , _pfdtReverseOrder    :: !(Maybe Bool)
+  , _pfdtMaximumPageSize :: !(Maybe Nat)
+  , _pfdtIdentity        :: !(Maybe Text)
+  , _pfdtDomain          :: !Text
+  , _pfdtTaskList        :: !TaskList
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -204,14 +204,14 @@ instance ToQuery PollForDecisionTask where
 --
 -- /See:/ 'pollForDecisionTaskResponse' smart constructor.
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
-  { _pfdtrsNextPageToken          :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pfdtrsWorkflowType           :: {-# NOUNPACK #-}!(Maybe WorkflowType)
-  , _pfdtrsPreviousStartedEventId :: {-# NOUNPACK #-}!(Maybe Integer)
-  , _pfdtrsEvents                 :: {-# NOUNPACK #-}!(Maybe [HistoryEvent])
-  , _pfdtrsTaskToken              :: {-# NOUNPACK #-}!(Maybe Text)
-  , _pfdtrsWorkflowExecution      :: {-# NOUNPACK #-}!(Maybe WorkflowExecution)
-  , _pfdtrsResponseStatus         :: {-# NOUNPACK #-}!Int
-  , _pfdtrsStartedEventId         :: {-# NOUNPACK #-}!Integer
+  { _pfdtrsNextPageToken          :: !(Maybe Text)
+  , _pfdtrsWorkflowType           :: !(Maybe WorkflowType)
+  , _pfdtrsPreviousStartedEventId :: !(Maybe Integer)
+  , _pfdtrsEvents                 :: !(Maybe [HistoryEvent])
+  , _pfdtrsTaskToken              :: !(Maybe Text)
+  , _pfdtrsWorkflowExecution      :: !(Maybe WorkflowExecution)
+  , _pfdtrsResponseStatus         :: !Int
+  , _pfdtrsStartedEventId         :: !Integer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

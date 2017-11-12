@@ -7,7 +7,7 @@ core=( amazonka-core amazonka )
 test=( amazonka-test )
 examples=( amazonka-examples )
 
-priority_=( s3 autoscaling elb sqs iam )
+priority_=( s3 dynamodb emr )
 priority=${priority_[@]/#/amazonka-}
 
 library_=( $(ls -d amazonka-*) )

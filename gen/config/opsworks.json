@@ -3,6 +3,12 @@
     "typeOverrides": {
         "ServiceError": {
             "renamedTo": "ServiceError'"
+        },
+        "LayerAttributeValue": {
+            "replacedBy": {
+                "name": "(Maybe Text)",
+                "underive": []
+            }
         }
     }
 }

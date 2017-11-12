@@ -62,3 +62,11 @@ $(MODEL_DIR): vendor/botocore
 
 vendor/botocore:
 	git clone https://github.com/boto/botocore.git $@
+
+.PHONY: audit
+
+ACTUAL = $(sort $(addsuffix \\n,$(notdir $(wildcard config/*.json))))
+EXPECT = $(sort $(addsuffix .json\\n,$(notdir $(patsubst %/,%,$(wildcard model/*/)))))
+
+audit: $(MODEL_DIR)
+	@diff -B -y <(echo -e $(ACTUAL)) <(echo -e $(EXPECT))

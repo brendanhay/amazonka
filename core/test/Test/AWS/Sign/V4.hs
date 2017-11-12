@@ -11,19 +11,9 @@
 --
 module Test.AWS.Sign.V4 (tests) where
 
-import qualified Data.ByteString.Char8    as BS8
-import qualified Data.Foldable            as Fold
-import           Data.List                (sort)
-import           Data.Monoid
-import           Data.String
-import qualified Data.Text                as Text
-import qualified Data.Text.Encoding       as Text
-import           Network.AWS.Prelude
-import           Network.AWS.Sign.V4
-import           Test.AWS.Arbitrary       ()
-import           Test.QuickCheck.Property
-import           Test.Tasty
-import           Test.Tasty.QuickCheck
+import Test.Tasty (TestTree, testGroup)
+
+import qualified Test.AWS.Sign.V4.Chunked as Chunked
 
 -- Write some V4 signing properties:
 --  test canonical query
@@ -36,4 +26,9 @@ import           Test.Tasty.QuickCheck
 --  test empty query
 
 tests :: TestTree
-tests = testGroup "v4" []
+tests =
+    testGroup "v4"
+        [ testGroup "chunked"
+            [ Chunked.tests
+            ]
+        ]

@@ -882,7 +882,7 @@ literal i ts = \case
                       (tycon "Value")
 
 strict :: Type -> Type
-strict = Exts.TyBang () (Exts.BangedTy ()) (Exts.NoUnpack ()) . \case
+strict = Exts.TyBang () (Exts.BangedTy ()) (Exts.NoUnpackPragma ()) . \case
     t@Exts.TyApp{} -> Exts.TyParen () t
     t              -> t
 

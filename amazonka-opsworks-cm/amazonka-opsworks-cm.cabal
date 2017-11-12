@@ -1,5 +1,5 @@
 name:                  amazonka-opsworks-cm
-version:               1.4.5
+version:               1.5.0
 synopsis:              Amazon OpsWorks for Chef Automate SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -68,7 +68,7 @@ library
         , Network.AWS.OpsWorksCM.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.5.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-opsworks-cm-test
@@ -88,9 +88,9 @@ test-suite amazonka-opsworks-cm-test
         , Test.AWS.OpsWorksCM.Internal
 
     build-depends:
-          amazonka-core == 1.4.5.*
-        , amazonka-test == 1.4.5.*
-        , amazonka-opsworks-cm == 1.4.5.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-opsworks-cm == 1.5.0.*
         , base
         , bytestring
         , tasty

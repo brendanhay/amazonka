@@ -1,5 +1,5 @@
 name:                  amazonka-cloudsearch-domains
-version:               1.4.5
+version:               1.5.0
 synopsis:              Amazon CloudSearch Domain SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -56,7 +56,7 @@ library
         , Network.AWS.CloudSearchDomains.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.5.*
+          amazonka-core == 1.5.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudsearch-domains-test
@@ -76,9 +76,9 @@ test-suite amazonka-cloudsearch-domains-test
         , Test.AWS.CloudSearchDomains.Internal
 
     build-depends:
-          amazonka-core == 1.4.5.*
-        , amazonka-test == 1.4.5.*
-        , amazonka-cloudsearch-domains == 1.4.5.*
+          amazonka-core == 1.5.0.*
+        , amazonka-test == 1.5.0.*
+        , amazonka-cloudsearch-domains == 1.5.0.*
         , base
         , bytestring
         , tasty

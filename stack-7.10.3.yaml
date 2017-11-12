@@ -84,11 +84,13 @@ packages:
   - amazonka-mechanicalturk
   - amazonka-migrationhub
   - amazonka-ml
+  - amazonka-mobile
   - amazonka-opsworks
   - amazonka-opsworks-cm
   - amazonka-organizations
   - amazonka-pinpoint
   - amazonka-polly
+  - amazonka-pricing
   - amazonka-rds
   - amazonka-redshift
   - amazonka-rekognition

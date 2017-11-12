@@ -52,10 +52,10 @@ $(BIN_DIR):
 
 clean:
 	stack clean
-	rm -rf $(MODEL_DIR)
+	rm -rf $(MODEL_DIR) $(OUT_DIR)/amazonka-*/gen
 
 full-clean: clean
-	rm -rf vendor
+	rm -rf vendor $(GENERATE) $(STYLISH)
 
 $(MODEL_DIR): vendor/botocore
 	cp -rf vendor/botocore/botocore/data $@

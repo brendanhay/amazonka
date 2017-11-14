@@ -1,3 +1,8 @@
 {
-    "libraryName": "amazonka-pricing"
+    "libraryName": "amazonka-pricing",
+    "typeOverrides": {
+        "Service": {
+            "renamedTo": "PricingService"
+        }
+    }
 }

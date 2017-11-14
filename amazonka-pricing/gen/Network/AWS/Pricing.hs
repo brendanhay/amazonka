@@ -81,11 +81,11 @@ module Network.AWS.Pricing
     , fField
     , fValue
 
-    -- ** Service
-    , Service
-    , service
-    , sAttributeNames
-    , sServiceCode
+    -- ** PricingService
+    , PricingService
+    , pricingService
+    , psAttributeNames
+    , psServiceCode
     ) where
 
 import Network.AWS.Pricing.DescribeServices

@@ -37,11 +37,11 @@ module Network.AWS.Pricing.Types
     , fField
     , fValue
 
-    -- * Service
-    , Service
-    , service
-    , sAttributeNames
-    , sServiceCode
+    -- * PricingService
+    , PricingService
+    , pricingService
+    , psAttributeNames
+    , psServiceCode
     ) where
 
 import Network.AWS.Lens

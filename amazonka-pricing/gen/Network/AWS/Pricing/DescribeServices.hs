@@ -140,7 +140,7 @@ instance ToQuery DescribeServices where
 data DescribeServicesResponse = DescribeServicesResponse'
   { _dsrsFormatVersion  :: !(Maybe Text)
   , _dsrsNextToken      :: !(Maybe Text)
-  , _dsrsServices       :: !(Maybe [Service])
+  , _dsrsServices       :: !(Maybe [PricingService])
   , _dsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -177,7 +177,7 @@ dsrsNextToken :: Lens' DescribeServicesResponse (Maybe Text)
 dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
 
 -- | The service metadata for the service or services in the response.
-dsrsServices :: Lens' DescribeServicesResponse [Service]
+dsrsServices :: Lens' DescribeServicesResponse [PricingService]
 dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.

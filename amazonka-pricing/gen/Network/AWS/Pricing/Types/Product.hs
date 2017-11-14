@@ -111,41 +111,42 @@ instance ToJSON Filter where
 --
 --
 --
--- /See:/ 'service' smart constructor.
-data Service = Service'
-  { _sAttributeNames :: !(Maybe [Text])
-  , _sServiceCode    :: !(Maybe Text)
+-- /See:/ 'pricingService' smart constructor.
+data PricingService = PricingService'
+  { _psAttributeNames :: !(Maybe [Text])
+  , _psServiceCode    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
--- | Creates a value of 'Service' with the minimum fields required to make a request.
+-- | Creates a value of 'PricingService' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sAttributeNames' - The attributes that are available for this service.
+-- * 'psAttributeNames' - The attributes that are available for this service.
 --
--- * 'sServiceCode' - The code for the AWS service.
-service
-    :: Service
-service = Service' {_sAttributeNames = Nothing, _sServiceCode = Nothing}
+-- * 'psServiceCode' - The code for the AWS service.
+pricingService
+    :: PricingService
+pricingService =
+  PricingService' {_psAttributeNames = Nothing, _psServiceCode = Nothing}
 
 
 -- | The attributes that are available for this service.
-sAttributeNames :: Lens' Service [Text]
-sAttributeNames = lens _sAttributeNames (\ s a -> s{_sAttributeNames = a}) . _Default . _Coerce;
+psAttributeNames :: Lens' PricingService [Text]
+psAttributeNames = lens _psAttributeNames (\ s a -> s{_psAttributeNames = a}) . _Default . _Coerce;
 
 -- | The code for the AWS service.
-sServiceCode :: Lens' Service (Maybe Text)
-sServiceCode = lens _sServiceCode (\ s a -> s{_sServiceCode = a});
+psServiceCode :: Lens' PricingService (Maybe Text)
+psServiceCode = lens _psServiceCode (\ s a -> s{_psServiceCode = a});
 
-instance FromJSON Service where
+instance FromJSON PricingService where
         parseJSON
-          = withObject "Service"
+          = withObject "PricingService"
               (\ x ->
-                 Service' <$>
+                 PricingService' <$>
                    (x .:? "AttributeNames" .!= mempty) <*>
                      (x .:? "ServiceCode"))
 
-instance Hashable Service where
+instance Hashable PricingService where
 
-instance NFData Service where
+instance NFData PricingService where

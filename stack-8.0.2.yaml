@@ -45,6 +45,7 @@ packages:
   - amazonka-dms
   - amazonka-ds
   - amazonka-dynamodb
+  - amazonka-dynamodb-dax
   - amazonka-dynamodb-streams
   - amazonka-ec2
   - amazonka-ecr

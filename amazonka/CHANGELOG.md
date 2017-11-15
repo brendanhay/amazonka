@@ -1,7 +1,48 @@
 # Change Log
 
+## [1.5.0](https://github.com/brendanhay/amazonka/tree/1.5.0)
+fReleased: **15 November, 2017**, Compare: [1.4.5](https://github.com/brendanhay/amazonka/compare/1.4.5...1.5.0)
+
+### Fixed
+
+- V4 Signing Metadata is now correctly calculated for chunked request bodies. [\#403](https://github.com/brendanhay/amazonka/pull/403)
+- DynamoDB Query/Scan pagination will correctly return all available items. [\#392](https://github.com/brendanhay/amazonka/pull/392)
+- S3 `ReplicationStatus` is now parsed correctly. [\#372](https://github.com/brendanhay/amazonka/pull/372)
+- OpsWorks `LayerAttributes` now correctly returns `Maybe` for `Map` values. [\#398](https://github.com/brendanhay/amazonka/pull/398)
+- `newLogger` now (correctly) does not set binary mode for any passed handle. [\#381](https://github.com/brendanhay/amazonka/pull/381)
+- Improved support for handling S3's `list-type=2` query strings. [\#391](https://github.com/brendanhay/amazonka/pull/391)
+- Cabal files now have their `license-field` changed from `OtherLicense` to the correct `MPL-2.0`.
+
+### Added
+
+- Add AWS Signer for V2 Header Authentication. [\#383](https://github.com/brendanhay/amazonka/pull/383)
+- Add support for ECS credentials discovery via the ECS container agent. [\#388](https://github.com/brendanhay/amazonka/pull/388)
+- Add new regions `Montreal` (ca-central-1) and `London` (eu-west-2). [\#367](https://github.com/brendanhay/amazonka/pull/367)
+- Add `hashedFileRange` and `chunkedFileRange` for preparing request bodies from file ranges. [\#359](https://github.com/brendanhay/amazonka/pull/359)
+
+### New Libraries
+
+- `amazonka-mobile`: Add and configure features for mobile apps, including authentication, data storage, backend logic, push notifications, content delivery, and analytics. [Overview](https://aws.amazon.com/mobile)
+- `amazonka-pricing`: Price lists, pricing details, and pricing overview. [Overview](https://aws.amazon.com/pricing)
+- `amazonka-athena`: An interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. [Overview](https://aws.amazon.com/athena)
+- `amazonka-cloudhsmv2`: The newest (incompatible) API of AWS CloudHSM. [Overview](https://aws.amazon.com/cloudhsmv2)
+- `amazonka-codestar`: Use a variety of project templates to start developing applications on Amazon EC2, AWS Lambda, and AWS Elastic Beanstalk. [Overview](https://aws.amazon.com/codestar)
+- `amazonka-dynamodb-dax`: DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache for DynamoDB that delivers up to a 10x performance improvement. [Overview](https://aws.amazon.com/dynamodb/dax)
+- `amazonka-glue`: A fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for analytics. [Overview](https://aws.amazon.com/glue)
+- `amazonka-greengrass`: Run local compute, messaging, data caching, and sync capabilities for connected devices in a secure way. [Overview](https://aws.amazon.com/greengrass)
+- `amazonka-lex-runtime`: Build applications using a speech or text interface powered by the same technology that powers Amazon Alexa. [Overview](https://aws.amazon.com/lex)
+- `amazonka-lex-models`: Build applications using a speech or text interface powered by the same technology that powers Amazon Alexa. [Overview](https://aws.amazon.com/lex)
+- `amazonka-marketplace-entitlement`: Markplace entitlements service. [Overview](https://aws.amazon.com/marketplace)
+- `amazonka-resourcegroupstagging`: Group and tag AWS resources. [Overview](https://docs.aws.amazon.com/resourcegroupstagging)
+
+### Updated Service Definitions
+
+> All service definitions and services have been updated and regenerated.
+Please see each individual library's commits for a list of changes.
+
+
 ## [1.4.5](https://github.com/brendanhay/amazonka/tree/1.4.5)
-Released: **04 December, 2016**, Compare: [1.4.5](https://github.com/brendanhay/amazonka/compare/1.4.4...1.4.5)
+Released: **04 December, 2016**, Compare: [1.4.4](https://github.com/brendanhay/amazonka/compare/1.4.4...1.4.5)
 
 ### Fixed
 

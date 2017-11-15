@@ -80,7 +80,7 @@ test-suite {{ libraryName }}-test
     build-depends:
           amazonka-core == {{ coreVersion }}.*
         , amazonka-test == {{ coreVersion }}.*
-        , {{ libraryName }} == {{ clientVersion }}.*
+        , {{ libraryName }}
         , base
         , bytestring
         , tasty
